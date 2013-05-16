@@ -1,0 +1,265 @@
+package rtm;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+public class DoStep100Kernel extends Kernel{
+
+	DoStep100Kernel(KernelParameters parameters){
+		super(parameters);
+
+
+		DFEVar d1 = constant.var(dfeFloat(8, 24), 5);
+		DFEVar d2 = constant.var(dfeFloat(8, 24), 5);
+		DFEVar d3 = constant.var(dfeFloat(8, 24), 5);
+		DFEVar dt = constant.var(dfeFloat(8, 24), 0.0004);
+		DFEVar d = dt;
+		DFEVar c_0;
+		DFEVar c_1[] = new DFEVar[5];
+		DFEVar c_2[] = new DFEVar[5];
+		DFEVar c_3[] = new DFEVar[5];
+		DFEVar sm = constant.var(dfeFloat(8, 24), 0);
+
+		c_3[0]=constant.var(dfeFloat(8, 24), 1.66666666)*d*d/(d3*d3);
+		c_2[0]=constant.var(dfeFloat(8, 24), 1.66666666)*d*d/(d2*d2);
+		c_1[0]=constant.var(dfeFloat(8, 24), 1.66666666)*d*d/(d1*d1);
+
+		c_3[1]=constant.var(dfeFloat(8, 24), -.23809523)*d*d/(d3*d3);
+		c_2[1]=constant.var(dfeFloat(8, 24), -.23809523)*d*d/(d2*d2);
+		c_1[1]=constant.var(dfeFloat(8, 24), -.23809523)*d*d/(d1*d1);
+
+		c_3[2]=constant.var(dfeFloat(8, 24), .03968253)*d*d/(d3*d3);
+		c_2[2]=constant.var(dfeFloat(8, 24), .03968253)*d*d/(d2*d2);
+		c_1[2]=constant.var(dfeFloat(8, 24), .03968253)*d*d/(d1*d1);
+
+		c_3[3]=constant.var(dfeFloat(8, 24), -0.00496031)*d*d/(d3*d3);
+		c_2[3]=constant.var(dfeFloat(8, 24), -0.00496031)*d*d/(d2*d2);
+		c_1[3]=constant.var(dfeFloat(8, 24), -0.00496031)*d*d/(d1*d1);
+
+		c_3[4]=constant.var(dfeFloat(8, 24), 0.00031746)*d*d/(d3*d3);
+		c_2[4]=constant.var(dfeFloat(8, 24), 0.00031746)*d*d/(d2*d2);
+		c_1[4]=constant.var(dfeFloat(8, 24), 0.00031746)*d*d/(d1*d1);
+
+		for(int i=0; i < 5; i++){
+				sm+=c_1[i]+c_2[i]+c_3[i];
+		}
+		c_0=-2.0f*sm;
+
+
+
+
+
+
+
+
+		//DFEVar d1 = 5.00000;
+
+
+
+		DFEVar p = io.input("p", dfeFloat(8, 24));
+		DFEVar pp = io.input("pp", dfeFloat(8, 24));
+		DFEVar scale = io.input("scale", dfeFloat(8, 24));
+		/*DFEVar c_0 = io.input("c_0", dfeFloat(8, 24));
+		DFEVar c_1 = io.input("c_1", dfeFloat(8, 24));
+		DFEVar c_2 = io.input("c_2", dfeFloat(8, 24));
+		DFEVar c_3 = io.input("c_3", dfeFloat(8, 24));*/
+		DFEVar dvv = io.input("dvv", dfeFloat(8, 24));
+		DFEVar s_c = io.input("source_container", dfeFloat(8, 24));
+		DFEVar i1 = io.input("i1", dfeInt(32));
+		DFEVar i2 = io.input("i2", dfeInt(32));
+		DFEVar i3 = io.input("i3", dfeInt(32));
+		DFEVar n1 = io.input("n1", dfeInt(32));
+		DFEVar n12 = io.input("n12", dfeInt(32));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+		DFEVar u=io.input("qwe", dfeInt(32));
+		int z;
+		z = u.cast(dfeInt(32));
+		u.
+
+
+		int i3;
+		int n12=n1*n2;
+
+	// #pragma omp parallel for
+		for(i3=ORDER; i3 < n3-ORDER; i3++){   //Loop over slowest axis
+			int i1;
+			int i2;
+			float f1;//Distance from the boundary
+			float f2;
+			float f3;
+
+			if(i3 < SPONGE_WIDTH) f3=SPONGE_WIDTH-i3;  //Inside neg boundary
+			else if(i3 >= n3-SPONGE_WIDTH)  f3=i3-(n3-SPONGE_WIDTH)+1; //Inside pos boundary
+			else f3=0; // Not in boundary region
+			f3=f3*f3;  //Distance in boundary
+
+			for(i2=ORDER; i2 < n2-ORDER; i2++){ //Loop over middle axis
+				if(i2 < SPONGE_WIDTH) f2=SPONGE_WIDTH-i2;  // Inside neg boundary
+				else if(i2 >= n2-SPONGE_WIDTH)  f2=i2-(n2-SPONGE_WIDTH)+1;  //Inside pos boundary
+				else f2=0; //Not in boundary
+				f2=f2*f2;  //Distance in boundary
+
+				for(i1=ORDER; i1< n1-ORDER; i1++){  //Loop over fast axis
+					int is;
+					float scale;
+
+					if(i1 < BOUND_T) f1=(BOUND_T-i1); //Inside neg boundary
+					else if(i1 >= n1-SPONGE_WIDTH)  f1=(i1-(n1-SPONGE_WIDTH)+1);//Inside pos bound
+					else f1=0;  // Not in boundary
+					f1=f1*f1;   //Distance in boundary
+
+					is=(int)(sqrtf(f1+f2+f3));  //Distance from edge
+					if(is>SPONGE_WIDTH) is=SPONGE_WIDTH;  //Don't go outside computed boundary region
+
+					if(is >0) scale=bound_e[SPONGE_WIDTH-is]; //get scale parameter
+					else scale=1;
+
+					pp[i1+i2*n1+i3*n12]*=scale; // sponge previous wavefield
+
+					//Wavefield update
+					pp[i1+i2*n1+i3*n12]=(2.0*p[i1+i2*n1+i3*n12]-pp[i1+i2*n1+i3*n12]+dvv[i1+i2*n1+i3*n12]*(
+							p[i1+i2*n1+i3*n12]*c_0
+							+c_1[0]*(p[(i1+1)+(i2  )*n1+(i3  )*n12]+p[(i1-1)+(i2  )*n1+(i3  )*n12])
+							+c_1[1]*(p[(i1+2)+(i2  )*n1+(i3  )*n12]+p[(i1-2)+(i2  )*n1+(i3  )*n12])
+							+c_1[2]*(p[(i1+3)+(i2  )*n1+(i3  )*n12]+p[(i1-3)+(i2  )*n1+(i3  )*n12])
+							+c_1[3]*(p[(i1+4)+(i2  )*n1+(i3  )*n12]+p[(i1-4)+(i2  )*n1+(i3  )*n12])
+							+c_1[4]*(p[(i1+5)+(i2  )*n1+(i3  )*n12]+p[(i1-5)+(i2  )*n1+(i3  )*n12])
+							+c_2[0]*(p[(i1  )+(i2+1)*n1+(i3  )*n12]+p[(i1  )+(i2-1)*n1+(i3  )*n12])
+							+c_2[1]*(p[(i1  )+(i2+2)*n1+(i3  )*n12]+p[(i1  )+(i2-2)*n1+(i3  )*n12])
+							+c_2[2]*(p[(i1  )+(i2+3)*n1+(i3  )*n12]+p[(i1  )+(i2-3)*n1+(i3  )*n12])
+							+c_2[3]*(p[(i1  )+(i2+4)*n1+(i3  )*n12]+p[(i1  )+(i2-4)*n1+(i3  )*n12])
+							+c_2[4]*(p[(i1  )+(i2+5)*n1+(i3  )*n12]+p[(i1  )+(i2-5)*n1+(i3  )*n12])
+							+c_3[0]*(p[(i1  )+(i2  )*n1+(i3+1)*n12]+p[(i1  )+(i2  )*n1+(i3-1)*n12])
+							+c_3[1]*(p[(i1  )+(i2  )*n1+(i3+2)*n12]+p[(i1  )+(i2  )*n1+(i3-2)*n12])
+							+c_3[2]*(p[(i1  )+(i2  )*n1+(i3+3)*n12]+p[(i1  )+(i2  )*n1+(i3-3)*n12])
+							+c_3[3]*(p[(i1  )+(i2  )*n1+(i3+4)*n12]+p[(i1  )+(i2  )*n1+(i3-4)*n12])
+							+c_3[4]*(p[(i1  )+(i2  )*n1+(i3+5)*n12]+p[(i1  )+(i2  )*n1+(i3-5)*n12])
+							))+source_container[i1+i2*n1+i3*n12];
+					pp[i1+i2*n1+i3*n12]*=scale; // sponge result
+				}
+			}
+		}
+		return;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		//Input
+		DFEVar data = io.input("data", dfeFloat(8, 24));
+		/*DFEVar pp = io.input("pp", dfeFloat(8, 24));
+		DFEVar scale = io.input("scale", dfeFloat(8, 24));
+		DFEVar c_0 = io.input("c_0", dfeFloat(8, 24));
+		DFEVar c_1 = io.input("c_1", dfeFloat(8, 24));
+		DFEVar c_2 = io.input("c_2", dfeFloat(8, 24));
+		DFEVar c_3 = io.input("c_3", dfeFloat(8, 24));
+		DFEVar dvv = io.input("dvv", dfeFloat(8, 24));
+		DFEVar s_c = io.input("source_container", dfeFloat(8, 24));
+		DFEVar i1 = io.input("i1", dfeInt(32));
+		DFEVar i2 = io.input("i2", dfeInt(32));
+		DFEVar i3 = io.input("i3", dfeInt(32));
+		DFEVar n1 = io.input("n1", dfeInt(32));
+		DFEVar n12 = io.input("n12", dfeInt(32));
+		data.
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+		DFEVar = stream.offset(data, );
+
+
+
+
+
+
+
+		int el= i1+i2*n1+i3*n12;
+		DFEVar res_1= stream.offset(pp, i1+i2*n1+i3*n12)*scale; // sponge previous wavefield
+
+		//Wavefield update
+		pp[i1+i2*n1+i3*n12]=(2.0*p[i1+i2*n1+i3*n12]-pp[i1+i2*n1+i3*n12]+dvv[i1+i2*n1+i3*n12]*(
+				p[i1+i2*n1+i3*n12]*c_0
+				+c_1[0]*(p[(i1+1)+(i2  )*n1+(i3  )*n12]+p[(i1-1)+(i2  )*n1+(i3  )*n12])
+				+c_1[1]*(p[(i1+2)+(i2  )*n1+(i3  )*n12]+p[(i1-2)+(i2  )*n1+(i3  )*n12])
+				+c_1[2]*(p[(i1+3)+(i2  )*n1+(i3  )*n12]+p[(i1-3)+(i2  )*n1+(i3  )*n12])
+				+c_1[3]*(p[(i1+4)+(i2  )*n1+(i3  )*n12]+p[(i1-4)+(i2  )*n1+(i3  )*n12])
+				+c_1[4]*(p[(i1+5)+(i2  )*n1+(i3  )*n12]+p[(i1-5)+(i2  )*n1+(i3  )*n12])
+				+c_2[0]*(p[(i1  )+(i2+1)*n1+(i3  )*n12]+p[(i1  )+(i2-1)*n1+(i3  )*n12])
+				+c_2[1]*(p[(i1  )+(i2+2)*n1+(i3  )*n12]+p[(i1  )+(i2-2)*n1+(i3  )*n12])
+				+c_2[2]*(p[(i1  )+(i2+3)*n1+(i3  )*n12]+p[(i1  )+(i2-3)*n1+(i3  )*n12])
+				+c_2[3]*(p[(i1  )+(i2+4)*n1+(i3  )*n12]+p[(i1  )+(i2-4)*n1+(i3  )*n12])
+				+c_2[4]*(p[(i1  )+(i2+5)*n1+(i3  )*n12]+p[(i1  )+(i2-5)*n1+(i3  )*n12])
+				+c_3[0]*(p[(i1  )+(i2  )*n1+(i3+1)*n12]+p[(i1  )+(i2  )*n1+(i3-1)*n12])
+				+c_3[1]*(p[(i1  )+(i2  )*n1+(i3+2)*n12]+p[(i1  )+(i2  )*n1+(i3-2)*n12])
+				+c_3[2]*(p[(i1  )+(i2  )*n1+(i3+3)*n12]+p[(i1  )+(i2  )*n1+(i3-3)*n12])
+				+c_3[3]*(p[(i1  )+(i2  )*n1+(i3+4)*n12]+p[(i1  )+(i2  )*n1+(i3-4)*n12])
+				+c_3[4]*(p[(i1  )+(i2  )*n1+(i3+5)*n12]+p[(i1  )+(i2  )*n1+(i3-5)*n12])
+				))+source_container[i1+i2*n1+i3*n12];
+		pp[i1+i2*n1+i3*n12]*=scale; // sponge result
+
+
+
+
+		// Output
+		io.output("ppOut", result, dfeFloat(8, 24));
+		*/
+	}
+
+}
+

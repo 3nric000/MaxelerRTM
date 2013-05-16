@@ -1,0 +1,13 @@
+package rtm;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+
+public class DataKernel extends Kernel{
+
+
+	DataKernel(KernelParameters parameters){
+		super(parameters);
+
+	}
+}
