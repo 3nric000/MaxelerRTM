@@ -2,6 +2,12 @@
 
 *.class
 
+# Maxide metadata
+
+*.metadata
+*.metadata-MaxIDE-3.0/
+
+
 # Package Files #
 *.jar
 *.war
