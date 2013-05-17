@@ -1,0 +1,28 @@
+digraph CpuStreamKernel_pre_condadd_extraction{
+	NodeInput2 [shape=invhouse, label="str\nID: 2"];
+	NodeStreamOffset3 [shape=diamond, label="[1,1]\nID: 3"];
+	NodeStreamOffset4 [shape=diamond, label="[-1,-1]\nID: 4"];
+	NodeStreamOffset5 [shape=diamond, label="[1,10]\nID: 5"];
+	NodeTriAdd33 [label="3 +\nID: 33"];
+	NodeStreamOffset6 [shape=diamond, label="[-10,-1]\nID: 6"];
+	NodeStreamOffset7 [shape=diamond, label="[1,100]\nID: 7"];
+	NodeTriAdd34 [label="3 +\nID: 34"];
+	NodeStreamOffset8 [shape=diamond, label="[-100,-1]\nID: 8"];
+	NodeAdd35 [label="+\nID: 35"];
+	NodeOutput23 [shape=house, label="strout\nID: 23"];
+	NodeInput2 -> NodeStreamOffset3[color="/dark28/1" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeInput2 -> NodeStreamOffset4[color="/dark28/2" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeInput2 -> NodeStreamOffset5[color="/dark28/3" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeStreamOffset3 -> NodeTriAdd33[color="/dark28/4" photon_data="EDGE,SrcNode:3,SrcNodePort:output"];
+	NodeStreamOffset4 -> NodeTriAdd33[color="/dark28/5" photon_data="EDGE,SrcNode:4,SrcNodePort:output"];
+	NodeStreamOffset5 -> NodeTriAdd33[color="/dark28/6" photon_data="EDGE,SrcNode:5,SrcNodePort:output"];
+	NodeInput2 -> NodeStreamOffset6[color="/dark28/7" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeInput2 -> NodeStreamOffset7[color="/dark28/8" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeTriAdd33 -> NodeTriAdd34[color="/dark28/1" photon_data="EDGE,SrcNode:33,SrcNodePort:result"];
+	NodeStreamOffset6 -> NodeTriAdd34[color="/dark28/2" photon_data="EDGE,SrcNode:6,SrcNodePort:output"];
+	NodeStreamOffset7 -> NodeTriAdd34[color="/dark28/3" photon_data="EDGE,SrcNode:7,SrcNodePort:output"];
+	NodeInput2 -> NodeStreamOffset8[color="/dark28/4" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeTriAdd34 -> NodeAdd35[color="/dark28/5" photon_data="EDGE,SrcNode:34,SrcNodePort:result"];
+	NodeStreamOffset8 -> NodeAdd35[color="/dark28/6" photon_data="EDGE,SrcNode:8,SrcNodePort:output"];
+	NodeAdd35 -> NodeOutput23[color="/dark28/7" photon_data="EDGE,SrcNode:35,SrcNodePort:result"];
+}

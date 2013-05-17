@@ -1,0 +1,36 @@
+digraph CpuStreamKernel_original{
+	NodeConstantRawBits9 [shape=box, label="0.0\nID: 9"];
+	NodeInput2 [shape=invhouse, label="str\nID: 2"];
+	NodeStreamOffset3 [shape=diamond, label="[1,1]\nID: 3"];
+	NodeAdd10 [label="+\nID: 10"];
+	NodeStreamOffset4 [shape=diamond, label="[-1,-1]\nID: 4"];
+	NodeAdd11 [label="+\nID: 11"];
+	NodeStreamOffset5 [shape=diamond, label="[1,10]\nID: 5"];
+	NodeAdd12 [label="+\nID: 12"];
+	NodeStreamOffset6 [shape=diamond, label="[-10,-1]\nID: 6"];
+	NodeAdd13 [label="+\nID: 13"];
+	NodeStreamOffset7 [shape=diamond, label="[1,100]\nID: 7"];
+	NodeAdd14 [label="+\nID: 14"];
+	NodeStreamOffset8 [shape=diamond, label="[-100,-1]\nID: 8"];
+	NodeAdd15 [label="+\nID: 15"];
+	NodeOutput23 [shape=house, label="strout\nID: 23"];
+	NodeInput2 -> NodeStreamOffset3[color="/dark28/1" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeConstantRawBits9 -> NodeAdd10[color="/dark28/2" photon_data="EDGE,SrcNode:9,SrcNodePort:value"];
+	NodeStreamOffset3 -> NodeAdd10[color="/dark28/3" photon_data="EDGE,SrcNode:3,SrcNodePort:output"];
+	NodeInput2 -> NodeStreamOffset4[color="/dark28/4" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeAdd10 -> NodeAdd11[color="/dark28/5" photon_data="EDGE,SrcNode:10,SrcNodePort:result"];
+	NodeStreamOffset4 -> NodeAdd11[color="/dark28/6" photon_data="EDGE,SrcNode:4,SrcNodePort:output"];
+	NodeInput2 -> NodeStreamOffset5[color="/dark28/7" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeAdd11 -> NodeAdd12[color="/dark28/8" photon_data="EDGE,SrcNode:11,SrcNodePort:result"];
+	NodeStreamOffset5 -> NodeAdd12[color="/dark28/1" photon_data="EDGE,SrcNode:5,SrcNodePort:output"];
+	NodeInput2 -> NodeStreamOffset6[color="/dark28/2" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeAdd12 -> NodeAdd13[color="/dark28/3" photon_data="EDGE,SrcNode:12,SrcNodePort:result"];
+	NodeStreamOffset6 -> NodeAdd13[color="/dark28/4" photon_data="EDGE,SrcNode:6,SrcNodePort:output"];
+	NodeInput2 -> NodeStreamOffset7[color="/dark28/5" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeAdd13 -> NodeAdd14[color="/dark28/6" photon_data="EDGE,SrcNode:13,SrcNodePort:result"];
+	NodeStreamOffset7 -> NodeAdd14[color="/dark28/7" photon_data="EDGE,SrcNode:7,SrcNodePort:output"];
+	NodeInput2 -> NodeStreamOffset8[color="/dark28/8" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeAdd14 -> NodeAdd15[color="/dark28/1" photon_data="EDGE,SrcNode:14,SrcNodePort:result"];
+	NodeStreamOffset8 -> NodeAdd15[color="/dark28/2" photon_data="EDGE,SrcNode:8,SrcNodePort:output"];
+	NodeAdd15 -> NodeOutput23[color="/dark28/3" photon_data="EDGE,SrcNode:15,SrcNodePort:result"];
+}

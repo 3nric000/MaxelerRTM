@@ -1,0 +1,1148 @@
+#ifdef MAXCOMPILER_VERSION_INFO
+#define MAXCOMPILER_VERSION_INFO_PRESENT 1
+#define MAXFILE_MAXCOMPILER_VERSION_YEAR         2013
+#define MAXFILE_MAXCOMPILER_VERSION_NUM          1
+#define MAXFILE_MAXCOMPILER_VERSION_POINT        0
+#define MAXFILE_MAXCOMPILER_VERSION_PATCH        ""
+#define MAXFILE_MAXCOMPILER_VERSION_REV          35689
+#define MAXFILE_MAXCOMPILER_VERSION_RELEASE_MODE true
+#endif
+
+#ifdef MAXFILE_BUILD_INFO
+#define MAXFILE_BUILD_INFO_PRESENT 1
+#define MAXFILE_BUILD_NAME "CpuStream"
+#define MAXFILE_BUILD_DIR  "/home/emanuele.delsozzo/workspace 2/example/RunRules/Simulation/maxfiles/CpuStream_VECTIS_DFE_SIM"
+#define MAXFILE_BUILD_DATE  20130516
+#define MAXFILE_BUILD_REV   1
+#endif
+
+#ifdef PARAM
+#define PARAM_PRESENT 1
+PARAM(APP_ID, 0)
+PARAM(REV_ID, 0)
+PARAM(CHAIN_LENGTH, 46)
+PARAM(IS_SIMULATION, 1)
+PARAM(MEC_SUPPORTED, 1)
+PARAM(PCIE_SLAVE_STREAMING, 0)
+PARAM(PCIE_ALIGNMENT, 16)
+PARAM(NUM_IFPGA_LINKS, 0)
+#endif
+
+#ifdef STRING_PARAM
+#define STRING_PARAM_PRESENT 1
+STRING_PARAM(BOARD_MODEL, "MAX3424A")
+#endif
+
+
+#ifdef INCLUDE_GENERATED_CPP_HEADERS
+#include "CpuStreamKernel.h"
+#endif
+
+
+
+#ifdef SET_REG_FROM_EQ_V2
+#define SET_REG_FROM_EQ_V2_PRESENT 1
+SET_REG_FROM_EQ_V2(CpuStreamKernel, delay_eq_0, (maxfile_max(1, GET(CpuStreamKernel, ny)) + -1))
+SET_REG_FROM_EQ_V2(CpuStreamKernel, delay_eq_1, (maxfile_max(1, maxfile_min(((1 + (-1 * GET(CpuStreamKernel, ny))) + GET(CpuStreamKernel, nzy)), 91)) + -1))
+SET_REG_FROM_EQ_V2(CpuStreamKernel, delay_eq_2, (maxfile_max(1, maxfile_min(GET(CpuStreamKernel, nzy), 100)) + -1))
+SET_REG_FROM_EQ_V2(CpuStreamKernel, ce_delay_eq_0, ((114 + (-1 * GET(CpuStreamKernel, ny))) + (-1 * GET(CpuStreamKernel, nzy))))
+SET_REG_FROM_EQ_V2(CpuStreamKernel, ce_delay_eq_1, ((114 + (-1 * GET(CpuStreamKernel, ny))) + (-1 * GET(CpuStreamKernel, nzy))))
+SET_REG_FROM_EQ_V2(CpuStreamKernel, ce_delay_eq_2, ((114 + (-1 * GET(CpuStreamKernel, ny))) + (-1 * GET(CpuStreamKernel, nzy))))
+SET_REG_FROM_EQ_V2(CpuStreamKernel, ce_delay_eq_3, ((114 + (-1 * GET(CpuStreamKernel, ny))) + (-1 * GET(CpuStreamKernel, nzy))))
+SET_REG_FROM_EQ_V2(CpuStreamKernel, ce_delay_eq_4, ((110 + (-1 * GET(CpuStreamKernel, ny))) + (-1 * GET(CpuStreamKernel, nzy))))
+SET_REG_FROM_EQ_V2(CpuStreamKernel, ce_delay_eq_5, ((114 + (-1 * GET(CpuStreamKernel, ny))) + (-1 * GET(CpuStreamKernel, nzy))))
+SET_REG_FROM_EQ_V2(CpuStreamKernel, ce_delay_eq_6, ((111 + (-1 * GET(CpuStreamKernel, ny))) + (-1 * GET(CpuStreamKernel, nzy))))
+SET_REG_FROM_EQ_V2(CpuStreamKernel, ce_delay_eq_7, ((111 + (-1 * GET(CpuStreamKernel, ny))) + (-1 * GET(CpuStreamKernel, nzy))))
+#endif
+
+#ifdef ASSERT_EQ_V2
+#define ASSERT_EQ_V2_PRESENT 1
+ASSERT_EQ_V2(GET(CpuStreamKernel, ny) <= 10 && GET(CpuStreamKernel, ny) >= 1, "Stream offset param 'ny' must be between 1 and 10 (inclusive).")
+ASSERT_EQ_V2(GET(CpuStreamKernel, nzy) <= 100 && GET(CpuStreamKernel, nzy) >= 1, "Stream offset param 'nzy' must be between 1 and 100 (inclusive).")
+ASSERT_EQ_V2(GET(CpuStreamKernel, ny) <= 10 && GET(CpuStreamKernel, ny) >= 1, "Stream offset variable out of range ny{1..10}")
+ASSERT_EQ_V2(GET(CpuStreamKernel, nzy) <= 100 && GET(CpuStreamKernel, nzy) >= 1, "Stream offset variable out of range nzy{ny{1..10}..10ny{1..10}}")
+#endif
+
+#ifdef ASSERT_EQ_V3
+#define ASSERT_EQ_V3_PRESENT 1
+ASSERT_EQ_V3(CpuStreamKernel, GET(CpuStreamKernel, ny) <= 10 && GET(CpuStreamKernel, ny) >= 1, "Stream offset param 'ny' must be between 1 and 10 (inclusive).")
+ASSERT_EQ_V3(CpuStreamKernel, GET(CpuStreamKernel, nzy) <= 100 && GET(CpuStreamKernel, nzy) >= 1, "Stream offset param 'nzy' must be between 1 and 100 (inclusive).")
+ASSERT_EQ_V3(CpuStreamKernel, GET(CpuStreamKernel, ny) <= 10 && GET(CpuStreamKernel, ny) >= 1, "Stream offset variable out of range ny{1..10}")
+ASSERT_EQ_V3(CpuStreamKernel, GET(CpuStreamKernel, nzy) <= 100 && GET(CpuStreamKernel, nzy) >= 1, "Stream offset variable out of range nzy{ny{1..10}..10ny{1..10}}")
+#endif
+
+#ifdef STREAM_VAR
+#define STREAM_VAR_PRESENT 1
+STREAM_VAR(CpuStreamKernel.ny)
+STREAM_VAR(CpuStreamKernel.nzy)
+#endif
+
+#ifdef STREAM_PARAM
+#define STREAM_PARAM_PRESENT 1
+STREAM_PARAM(CpuStreamKernel, ny)
+STREAM_PARAM(CpuStreamKernel, nzy)
+#endif
+
+
+
+#ifdef MANAGER_NODE
+#define MANAGER_NODE_PRESENT 1
+MANAGER_NODE(CpuStreamKernel, Kernel)
+MANAGER_NODE(str, PCIe_From_Host_fwd)
+MANAGER_NODE(strout, PCIe_To_Host_fwd)
+MANAGER_NODE(Stream_1, DualAspectMux)
+MANAGER_NODE(Stream_6, DualAspectReg)
+MANAGER_NODE(Stream_14, StreamPullPushAdapter)
+MANAGER_NODE(Stream_10, Fifo)
+MANAGER_NODE(Stream_12, Fifo)
+#endif
+
+#ifdef MANAGER_NODE_IO
+#define MANAGER_NODE_IO_PRESENT 1
+MANAGER_NODE_IO(CpuStreamKernel, str, IN, STREAM, 32, PULL)
+MANAGER_NODE_IO(CpuStreamKernel, strout, OUT, STREAM, 32, PUSH)
+MANAGER_NODE_IO(str, str, OUT, STREAM, 128, PULL)
+MANAGER_NODE_IO(strout, strout, IN, STREAM, 128, PUSH)
+MANAGER_NODE_IO(Stream_1, input, IN, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_1, output, OUT, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_6, input, IN, STREAM, 32, PULL)
+MANAGER_NODE_IO(Stream_6, output, OUT, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_14, input, IN, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_14, output, OUT, STREAM, 128, PUSH)
+MANAGER_NODE_IO(Stream_10, input, IN, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_10, output, OUT, STREAM, 32, PULL)
+MANAGER_NODE_IO(Stream_12, input, IN, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_12, output, OUT, STREAM, 32, PULL)
+#endif
+
+#ifdef MANAGER_STREAM
+#define MANAGER_STREAM_PRESENT 1
+MANAGER_STREAM(str, str, Stream_1, input, 128)
+MANAGER_STREAM(CpuStreamKernel, strout, Stream_12, input, 32)
+MANAGER_STREAM(Stream_1, output, Stream_10, input, 32)
+MANAGER_STREAM(Stream_6, output, Stream_14, input, 128)
+MANAGER_STREAM(Stream_14, output, strout, strout, 128)
+MANAGER_STREAM(Stream_10, output, CpuStreamKernel, str, 32)
+MANAGER_STREAM(Stream_12, output, Stream_6, input, 32)
+#endif
+
+#ifdef MANAGER_NODE_PROPERTY
+#define MANAGER_NODE_PROPERTY_PRESENT 1
+MANAGER_NODE_PROPERTY(CpuStreamKernel, control_pipelining_depth, 2)
+#endif
+
+
+#ifdef KERNEL_CORE
+#define KERNEL_CORE_PRESENT 1
+KERNEL_CORE(CpuStreamKernel)
+#endif
+
+#ifdef KERNEL_HOST_CONTROLLED
+#define KERNEL_HOST_CONTROLLED_PRESENT 1
+KERNEL_HOST_CONTROLLED(CpuStreamKernel, CpuStreamKernel)
+#endif
+
+#ifdef DEBUG_INPUT_BITS
+#define DEBUG_INPUT_BITS_PRESENT 1
+DEBUG_INPUT_BITS(CpuStreamKernel, str, 0)
+#endif
+
+#ifdef DEBUG_OUTPUT_BITS
+#define DEBUG_OUTPUT_BITS_PRESENT 1
+DEBUG_OUTPUT_BITS(CpuStreamKernel, strout, 0)
+#endif
+
+#ifdef MANAGER_NODE_CPP_SIM_MODEL_CTOR
+#define MANAGER_NODE_CPP_SIM_MODEL_CTOR_PRESENT 1
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(str, PCIePullSourceSyncMax3, "str")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(Stream_1, DualAspectMuxSync, "Stream_1", 32, 4)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(Stream_10, FifoPushToPullSync, "Stream_10", false, 512, 32)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(CpuStreamKernel, CpuStreamKernel, "CpuStreamKernel")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(Stream_12, FifoPushToPullSync, "Stream_12", false, 512, 32)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(Stream_6, DualAspectRegSync, "Stream_6", 32, 4)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(Stream_14, PullToPushAdapterSync, "Stream_14")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(strout, PCIePushSinkSyncMax3, "strout")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(CapabilityReg, CapRegs, "CapabilityReg", 0, 1, 1, 0, 0, 0, 0, 0, 46)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(ifpga, IFPGARegs)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(sfa, SFARegs)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(ChecksumMemory, ChecksumMem, "ChecksumMemory", "65b2c875a5ec12fc058e952e1f0586b7e99a5478451520518077318cfb41a514")
+#endif
+
+#ifdef MANAGER_NODE_CPP_SIM_MODEL_SETUP
+#define MANAGER_NODE_CPP_SIM_MODEL_SETUP_PRESENT 1
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_ctld_almost_empty, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_ctld_done, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_ctld_empty, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_ctld_read, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_ctld_read_pipe_dbg, 3, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_ctld_request, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_done_out, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_fill_level, 7, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_flush_level, 7, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_flush_start, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_flush_start_level, 7, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_flushing, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_full_level, 7, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_out_stall, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_out_valid, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(CpuStreamKernel, addDebugRegister, reg_dbg_stall_vector, 1, 0)
+#endif
+
+#ifdef PCIE_STREAM
+#define PCIE_STREAM_PRESENT 1
+PCIE_STREAM(str, STREAM_FROM_HOST, 0)
+PCIE_STREAM(strout, STREAM_TO_HOST, 0)
+#endif
+
+#ifdef REG
+#define REG_PRESENT 1
+REG(CpuStreamKernel.io_str_force_disabled, 0x0, 1, hwOffsetFix(1, 0, UNSIGNED))
+REG(CpuStreamKernel.io_strout_force_disabled, 0x1, 1, hwOffsetFix(1, 0, UNSIGNED))
+REG(CpuStreamKernel.run_cycle_count, 0x2, 6, hwOffsetFix(48, 0, UNSIGNED))
+REG(CpuStreamKernel.delay_eq_0, 0x8, 1, hwOffsetFix(4, 0, UNSIGNED))
+REG(CpuStreamKernel.delay_eq_1, 0x9, 1, hwOffsetFix(7, 0, UNSIGNED))
+REG(CpuStreamKernel.delay_eq_2, 0xa, 1, hwOffsetFix(7, 0, UNSIGNED))
+REG(CpuStreamKernel.ce_delay_eq_0, 0xb, 1, hwOffsetFix(7, 0, UNSIGNED))
+REG(CpuStreamKernel.ce_delay_eq_1, 0xc, 1, hwOffsetFix(7, 0, UNSIGNED))
+REG(CpuStreamKernel.ce_delay_eq_2, 0xd, 1, hwOffsetFix(7, 0, UNSIGNED))
+REG(CpuStreamKernel.ce_delay_eq_3, 0xe, 1, hwOffsetFix(7, 0, UNSIGNED))
+REG(CpuStreamKernel.ce_delay_eq_4, 0xf, 1, hwOffsetFix(7, 0, UNSIGNED))
+REG(CpuStreamKernel.ce_delay_eq_5, 0x10, 1, hwOffsetFix(7, 0, UNSIGNED))
+REG(CpuStreamKernel.ce_delay_eq_6, 0x11, 1, hwOffsetFix(7, 0, UNSIGNED))
+REG(CpuStreamKernel.ce_delay_eq_7, 0x12, 1, hwOffsetFix(7, 0, UNSIGNED))
+REG(CpuStreamKernel.current_run_cycle_count, 0x13, 6, hwOffsetFix(48, 0, UNSIGNED))
+REG(CpuStreamKernel.dbg_ctld_almost_empty, 0x19, 1, hwBits(1))
+REG(CpuStreamKernel.dbg_ctld_done, 0x1a, 1, hwBits(1))
+REG(CpuStreamKernel.dbg_ctld_empty, 0x1b, 1, hwBits(1))
+REG(CpuStreamKernel.dbg_ctld_read, 0x1c, 1, hwBits(1))
+REG(CpuStreamKernel.dbg_ctld_read_pipe_dbg, 0x1d, 1, hwBits(3))
+REG(CpuStreamKernel.dbg_ctld_request, 0x1e, 1, hwBits(1))
+REG(CpuStreamKernel.dbg_done_out, 0x1f, 1, hwBits(1))
+REG(CpuStreamKernel.dbg_fill_level, 0x20, 1, hwBits(7))
+REG(CpuStreamKernel.dbg_flush_level, 0x21, 1, hwBits(7))
+REG(CpuStreamKernel.dbg_flush_start, 0x22, 1, hwBits(1))
+REG(CpuStreamKernel.dbg_flush_start_level, 0x23, 1, hwBits(7))
+REG(CpuStreamKernel.dbg_flushing, 0x24, 1, hwBits(1))
+REG(CpuStreamKernel.dbg_full_level, 0x25, 1, hwBits(7))
+REG(CpuStreamKernel.dbg_out_stall, 0x26, 1, hwBits(1))
+REG(CpuStreamKernel.dbg_out_valid, 0x27, 1, hwBits(1))
+REG(CpuStreamKernel.dbg_stall_vector, 0x28, 1, hwBits(1))
+REG(ifpga.ifpga_ctrl, 0x29, 1, hwBits(8))
+REG(SignalForwardingAdapter.SFA_FORWARD_EN, 0x2a, 4, hwBits(32))
+#endif
+
+#ifdef REG_V2
+#define REG_V2_PRESENT 1
+REG_V2(CpuStreamKernel.io_str_force_disabled, 0x0, 1, hwOffsetFix(1, 0, UNSIGNED), HOST_WRITE_ONLY, true)
+REG_V2(CpuStreamKernel.io_strout_force_disabled, 0x1, 1, hwOffsetFix(1, 0, UNSIGNED), HOST_WRITE_ONLY, true)
+REG_V2(CpuStreamKernel.run_cycle_count, 0x2, 6, hwOffsetFix(48, 0, UNSIGNED), HOST_WRITE_ONLY, false)
+REG_V2(CpuStreamKernel.delay_eq_0, 0x8, 1, hwOffsetFix(4, 0, UNSIGNED), HOST_WRITE_ONLY, false)
+REG_V2(CpuStreamKernel.delay_eq_1, 0x9, 1, hwOffsetFix(7, 0, UNSIGNED), HOST_WRITE_ONLY, false)
+REG_V2(CpuStreamKernel.delay_eq_2, 0xa, 1, hwOffsetFix(7, 0, UNSIGNED), HOST_WRITE_ONLY, false)
+REG_V2(CpuStreamKernel.ce_delay_eq_0, 0xb, 1, hwOffsetFix(7, 0, UNSIGNED), HOST_WRITE_ONLY, false)
+REG_V2(CpuStreamKernel.ce_delay_eq_1, 0xc, 1, hwOffsetFix(7, 0, UNSIGNED), HOST_WRITE_ONLY, false)
+REG_V2(CpuStreamKernel.ce_delay_eq_2, 0xd, 1, hwOffsetFix(7, 0, UNSIGNED), HOST_WRITE_ONLY, false)
+REG_V2(CpuStreamKernel.ce_delay_eq_3, 0xe, 1, hwOffsetFix(7, 0, UNSIGNED), HOST_WRITE_ONLY, false)
+REG_V2(CpuStreamKernel.ce_delay_eq_4, 0xf, 1, hwOffsetFix(7, 0, UNSIGNED), HOST_WRITE_ONLY, false)
+REG_V2(CpuStreamKernel.ce_delay_eq_5, 0x10, 1, hwOffsetFix(7, 0, UNSIGNED), HOST_WRITE_ONLY, false)
+REG_V2(CpuStreamKernel.ce_delay_eq_6, 0x11, 1, hwOffsetFix(7, 0, UNSIGNED), HOST_WRITE_ONLY, false)
+REG_V2(CpuStreamKernel.ce_delay_eq_7, 0x12, 1, hwOffsetFix(7, 0, UNSIGNED), HOST_WRITE_ONLY, false)
+REG_V2(CpuStreamKernel.current_run_cycle_count, 0x13, 6, hwOffsetFix(48, 0, UNSIGNED), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_ctld_almost_empty, 0x19, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_ctld_done, 0x1a, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_ctld_empty, 0x1b, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_ctld_read, 0x1c, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_ctld_read_pipe_dbg, 0x1d, 1, hwBits(3), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_ctld_request, 0x1e, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_done_out, 0x1f, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_fill_level, 0x20, 1, hwBits(7), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_flush_level, 0x21, 1, hwBits(7), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_flush_start, 0x22, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_flush_start_level, 0x23, 1, hwBits(7), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_flushing, 0x24, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_full_level, 0x25, 1, hwBits(7), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_out_stall, 0x26, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_out_valid, 0x27, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(CpuStreamKernel.dbg_stall_vector, 0x28, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(ifpga.ifpga_ctrl, 0x29, 1, hwBits(8), HOST_READ_WRITE, false)
+REG_V2(SignalForwardingAdapter.SFA_FORWARD_EN, 0x2a, 4, hwBits(32), HOST_READ_WRITE, false)
+#endif
+
+
+
+
+#ifdef CHECKSUM
+#define CHECKSUM_PRESENT 1
+CHECKSUM("65b2c875a5ec12fc058e952e1f0586b7e99a5478451520518077318cfb41a514")
+#endif
+
+#ifdef CAPABILITY
+#define CAPABILITY_PRESENT 1
+CAPABILITY(MAX3REV, MAX3REVA)
+CAPABILITY(MAX3RAM, DDR3_24GB)
+CAPABILITY(MAX3FPGA, SXT475_2ES)
+#endif
+
+#ifdef DEFINE_DESIGN_NAME
+#define DESIGN_NAME CpuStream
+#endif /* DEFINE_DESIGN_NAME */
+
+#ifndef SLIC_NO_DECLARATIONS
+/**\file */
+#ifndef SLIC_DECLARATIONS_CpuStream_H
+#define SLIC_DECLARATIONS_CpuStream_H
+#include "MaxSLiCInterface.h"
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
+
+
+/*----------------------------------------------------------------------------*/
+/*---------------------------- Interface default -----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+
+/**
+ * \brief Basic static function for the interface 'default'.
+ * 
+ * \param [in] param_N Interface Parameter "N".: Number of data items to process
+ * \param [in] offset_CpuStreamKernel_ny Offset parameter "ny" for kernel "CpuStreamKernel".
+ * \param [in] offset_CpuStreamKernel_nzy Offset parameter "nzy" for kernel "CpuStreamKernel".
+ * \param [in] instream_str The stream should be of size (param_N * 4) bytes.
+ * \param [out] outstream_strout The stream should be of size (param_N * 4) bytes.
+ */
+void CpuStream(
+	int32_t param_N,
+	long offset_CpuStreamKernel_ny,
+	long offset_CpuStreamKernel_nzy,
+	const uint32_t *instream_str,
+	uint32_t *outstream_strout);
+
+/**
+ * \brief Basic static non-blocking function for the interface 'default'.
+ * 
+ * Schedule to run on an engine and return immediately.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ * 
+ * 
+ * \param [in] param_N Interface Parameter "N".: Number of data items to process
+ * \param [in] offset_CpuStreamKernel_ny Offset parameter "ny" for kernel "CpuStreamKernel".
+ * \param [in] offset_CpuStreamKernel_nzy Offset parameter "nzy" for kernel "CpuStreamKernel".
+ * \param [in] instream_str The stream should be of size (param_N * 4) bytes.
+ * \param [out] outstream_strout The stream should be of size (param_N * 4) bytes.
+ * \return A handle on the execution status, or NULL in case of error.
+ */
+max_run_t *CpuStream_nonblock(
+	int32_t param_N,
+	long offset_CpuStreamKernel_ny,
+	long offset_CpuStreamKernel_nzy,
+	const uint32_t *instream_str,
+	uint32_t *outstream_strout);
+
+/**
+ * \brief Advanced static interface, structure for the engine interface 'default'
+ * 
+ */
+typedef struct { 
+	int32_t param_N; /**<  [in] Interface Parameter "N".: Number of data items to process */
+	long offset_CpuStreamKernel_ny; /**<  [in] Offset parameter "ny" for kernel "CpuStreamKernel". */
+	long offset_CpuStreamKernel_nzy; /**<  [in] Offset parameter "nzy" for kernel "CpuStreamKernel". */
+	const uint32_t *instream_str; /**<  [in] The stream should be of size (param_N * 4) bytes. */
+	uint32_t *outstream_strout; /**<  [out] The stream should be of size (param_N * 4) bytes. */
+} CpuStream_actions_t;
+
+/**
+ * \brief Advanced static function for the interface 'default'.
+ * 
+ * \param [in] engine The engine on which the actions will be executed.
+ * \param [in,out] interface_actions Actions to be executed.
+ */
+void CpuStream_run(
+	max_engine_t *engine,
+	CpuStream_actions_t *interface_actions);
+
+/**
+ * \brief Advanced static non-blocking function for the interface 'default'.
+ *
+ * Schedule the actions to run on the engine and return immediately.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * 
+ * \param [in] engine The engine on which the actions will be executed.
+ * \param [in] interface_actions Actions to be executed.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *CpuStream_run_nonblock(
+	max_engine_t *engine,
+	CpuStream_actions_t *interface_actions);
+
+/**
+ * \brief Group run advanced static function for the interface 'default'.
+ * 
+ * \param [in] group Group to use.
+ * \param [in,out] interface_actions Actions to run.
+ *
+ * Run the actions on the first device available in the group.
+ */
+void CpuStream_run_group(max_group_t *group, CpuStream_actions_t *interface_actions);
+
+/**
+ * \brief Group run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule the actions to run on the first device available in the group and return immediately.
+ * The status of the run must be checked with ::max_wait. 
+ * Note that use of ::max_nowait is prohibited with non-blocking running on groups:
+ * see the ::max_run_group_nonblock documentation for more explanation.
+ *
+ * \param [in] group Group to use.
+ * \param [in] interface_actions Actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *CpuStream_run_group_nonblock(max_group_t *group, CpuStream_actions_t *interface_actions);
+
+/**
+ * \brief Array run advanced static function for the interface 'default'.
+ * 
+ * \param [in] engarray The array of devices to use.
+ * \param [in,out] interface_actions The array of actions to run.
+ *
+ * Run the array of actions on the array of engines.  The length of interface_actions
+ * must match the size of engarray.
+ */
+void CpuStream_run_array(max_engarray_t *engarray, CpuStream_actions_t *interface_actions[]);
+
+/**
+ * \brief Array run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule to run the array of actions on the array of engines, and return immediately.
+ * The length of interface_actions must match the size of engarray.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * \param [in] engarray The array of devices to use.
+ * \param [in] interface_actions The array of actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *CpuStream_run_array_nonblock(max_engarray_t *engarray, CpuStream_actions_t *interface_actions[]);
+
+/**
+ * \brief Converts a static-interface action struct into a dynamic-interface max_actions_t struct.
+ *
+ * Note that this is an internal utility function used by other functions in the static interface.
+ *
+ * \param [in] maxfile The maxfile to use.
+ * \param [in] interface_actions The interface-specific actions to run.
+ * \return The dynamic-interface actions to run, or NULL in case of error.
+ */
+max_actions_t* CpuStream_convert(max_file_t *maxfile, CpuStream_actions_t *interface_actions);
+
+/**
+ * \brief Initialise a maxfile.
+ */
+max_file_t* CpuStream_init(void);
+
+/* Error handling functions */
+int CpuStream_has_errors(void);
+const char* CpuStream_get_errors(void);
+void CpuStream_clear_errors(void);
+/* Free statically allocated maxfile data */
+void CpuStream_free(void);
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+#endif /* SLIC_DECLARATIONS_CpuStream_H */
+
+#endif /* SLIC_NO_DECLARATIONS */
+
+#ifdef PHOTON_NODE_DATA
+#define PHOTON_NODE_DATA_PRESENT 1
+PHOTON_NODE_DATA(CpuStreamKernel, 17, NodeInputMappedReg, "Scalar input (io_strout_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:48)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 18, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:48)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 21, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:48)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 22, NodeReinterpret, "<{HWOffsetFix:1, 0, UNSIGNED}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:48)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 0, NodeInputMappedReg, "Scalar input (io_str_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:14)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 1, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:14)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 2, NodeInput, "Input(str)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:14)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 56, NodeInputMappedReg, "Scalar input (delay_eq_0)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 40, NodeFIFO, "FIFO(ny{1..10})", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 57, NodeInputMappedReg, "Scalar input (delay_eq_1)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 46, NodeFIFO, "FIFO(3 + nzy{ny{1..10}..10ny{1..10}} - ny{1..10})", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 45, NodeFIFO, "FIFO(ny{1..10})", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 3, NodeStreamOffset, "stream offset: 1", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:26)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 52, NodeFIFO, "FIFO(1)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 54, NodeFIFO, "FIFO(1)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 4, NodeStreamOffset, "stream offset: -1", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:28)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 5, NodeStreamOffset, "stream offset: ny{1..10}", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:31)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 49, NodeFIFO, "FIFO(1)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 33, NodeTriAdd, "3 +", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:43)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 6, NodeStreamOffset, "stream offset: -ny{1..10}", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:33)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 41, NodeFIFO, "FIFO(ny{1..10})", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 7, NodeStreamOffset, "stream offset: nzy{ny{1..10}..10ny{1..10}}", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:36)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 51, NodeFIFO, "FIFO(5)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 34, NodeTriAdd, "3 +", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:43)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 8, NodeStreamOffset, "stream offset: -nzy{ny{1..10}..10ny{1..10}}", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:38)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 58, NodeInputMappedReg, "Scalar input (delay_eq_2)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 47, NodeFIFO, "FIFO(2 + nzy{ny{1..10}..10ny{1..10}})", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 35, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:43)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 23, NodeOutput, "Output(strout)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\ncpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:48)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 27, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 55, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 25, NodeConstantRawBits, "{HWOffsetFix:49, 0, UNSIGNED}\n0x1000000000000; 2.81474976710656E14", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 26, NodeCounterV1, "Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 53, NodeFIFO, "FIFO(4)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 28, NodeOutputMappedReg, "Scalar output (current_run_cycle_count)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 30, NodeInputMappedReg, "Scalar input (run_cycle_count)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 31, NodeEq, "==", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+PHOTON_NODE_DATA(CpuStreamKernel, 29, NodeFlush, "flush on trigger", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)\n")
+#endif
+
+#ifdef SLIC_USE_DEFINITIONS
+#include <stdio.h>
+#include <math.h>
+#include <pthread.h>
+#include <string.h>
+static max_file_t *stored_maxfile = NULL;
+static max_engine_t *stored_engine = NULL;
+static char *stored_error = NULL;
+static int stored_has_error = 0;
+static pthread_once_t slic_bs_is_initialised = PTHREAD_ONCE_INIT;
+
+static void set_error(const char *error_str)
+{
+	stored_has_error = 1; 
+	if(stored_error == NULL) {
+		stored_error = strdup(error_str);
+	} else {
+		char *nerr = malloc(strlen(stored_error) + strlen(error_str) + 2);
+		sprintf(nerr, "%s\n%s", stored_error, error_str);
+		free(stored_error);
+		stored_error = nerr;
+	}
+}
+static void set_error_and_free(char *error_str){
+	set_error(error_str);
+	free(error_str);
+}
+int CpuStream_has_errors(void)
+{	return stored_has_error; }
+const char* CpuStream_get_errors(void)
+{	return stored_error; }
+void CpuStream_clear_errors(void)
+{
+	free(stored_error);
+	stored_error = NULL;
+	stored_has_error = 0;
+}
+
+static void CpuStream_static_init(void) 
+{
+	stored_maxfile = CpuStream_init();
+	if (stored_maxfile == NULL || !max_ok(stored_maxfile->errors)) {
+		stored_maxfile = NULL;
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to load maxfile"); return; }
+	}
+	if(!max_ok(max_global_errors())) {
+		set_error_and_free(max_errors_trace(max_global_errors()));
+		return;
+	}
+	if(!max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR))
+		max_errors_mode(stored_maxfile->errors, 0);
+	time_t timeout_previous = max_load_timeout(stored_maxfile, 30);
+	stored_engine = max_load(stored_maxfile, "*");
+	if (!max_ok(stored_maxfile->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) {
+			fprintf(stderr, "\nUnable to load engine: aborting now.\n\n");
+			fflush(stderr);
+			abort();
+		} else {
+			set_error_and_free(max_errors_trace(stored_maxfile->errors));
+			max_file_free(stored_maxfile);
+			stored_maxfile = NULL;
+			return;
+		} 
+	} 
+	max_load_timeout(stored_maxfile, timeout_previous);
+}
+void CpuStream_free(void)
+{
+	if(stored_engine != NULL)
+		max_unload(stored_engine);
+	if(stored_maxfile != NULL)
+		max_file_free(stored_maxfile);
+	if(stored_error != NULL)
+		free(stored_error);
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+/*---------------------------- Interface default -----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+void CpuStream(
+	int32_t param_N,
+	long offset_CpuStreamKernel_ny,
+	long offset_CpuStreamKernel_nzy,
+	const uint32_t *instream_str,
+	uint32_t *outstream_strout)
+{
+	(void) pthread_once(&slic_bs_is_initialised, CpuStream_static_init);
+	if(stored_maxfile == NULL) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Maxfile was not loaded."); return; }
+	}
+	max_run_t *run = CpuStream_nonblock(param_N, offset_CpuStreamKernel_ny, offset_CpuStreamKernel_nzy, instream_str, outstream_strout);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+max_run_t *CpuStream_nonblock(
+	int32_t param_N,
+	long offset_CpuStreamKernel_ny,
+	long offset_CpuStreamKernel_nzy,
+	const uint32_t *instream_str,
+	uint32_t *outstream_strout)
+{
+	CpuStream_actions_t interface_actions;
+	interface_actions.param_N = param_N;
+	interface_actions.offset_CpuStreamKernel_ny = offset_CpuStreamKernel_ny;
+	interface_actions.offset_CpuStreamKernel_nzy = offset_CpuStreamKernel_nzy;
+	interface_actions.instream_str = instream_str;
+	interface_actions.outstream_strout = outstream_strout;
+	(void) pthread_once(&slic_bs_is_initialised, CpuStream_static_init);
+	if(stored_maxfile == NULL) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Maxfile was not loaded."); return NULL; }
+	}
+	max_actions_t *actions[1];
+	actions[0] = CpuStream_convert(stored_maxfile, &interface_actions);
+	if(actions[0] == NULL) { 
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to build actions");return NULL; }
+	}
+	max_validate(actions[0]);
+	if(!max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); return NULL;}
+	}
+	max_run_t *run = max_run_multi_nonblock(stored_engine, actions, 1);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return NULL; }
+	}
+	if(!max_ok(stored_engine->errors)  || !max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); set_error_and_free(max_errors_trace(stored_engine->errors)); return NULL;}
+	}
+	max_actions_free(actions[0]);
+	return run;
+}
+
+void CpuStream_run(
+	max_engine_t *engine,
+	CpuStream_actions_t *interface_actions)
+{
+	max_run_t *run = CpuStream_run_nonblock(engine, interface_actions);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+max_run_t *CpuStream_run_nonblock(
+	max_engine_t *engine,
+	CpuStream_actions_t *interface_actions)
+{
+	max_file_t *maxfile = max_engine_get_max_file(engine); 
+	max_actions_t *actions[1];
+	actions[0] = CpuStream_convert(maxfile, interface_actions);
+	if(!max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); return NULL;}
+	}
+	max_run_t *run = max_run_multi_nonblock(engine, actions, 1);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions."); return NULL; }
+	}
+	max_actions_free(actions[0]);
+	return run;
+}
+
+
+/**
+ * \brief Group run advanced static function for the interface 'default'.
+ * 
+ * \param [in] group Group to use.
+ * \param [in,out] interface_actions Actions to run.
+ *
+ * Run the actions on the first device available in the group.
+ */
+void CpuStream_run_group(max_group_t *group, CpuStream_actions_t *interface_actions)
+{
+	/* Not strictly correct, because explicitly locking an engine here. */
+	max_engine_t *engine = max_lock_any(group);
+	if(engine == NULL) return;
+	CpuStream_run(engine, interface_actions);
+	max_unlock(engine);
+}
+
+
+/**
+ * \brief Group run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule the actions to run on the first device available in the group and return immediately.
+ * The status of the run must be checked with ::max_wait. 
+ * Note that use of ::max_nowait is prohibited with non-blocking running on groups:
+ * see the ::max_run_group_nonblock documentation for more explanation.
+ *
+ * \param [in] group Group to use.
+ * \param [in] interface_actions Actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *CpuStream_run_group_nonblock(max_group_t *group, CpuStream_actions_t *interface_actions)
+{
+	max_file_t *maxfile = max_group_get_max_file(group);
+	max_actions_t *actions = CpuStream_convert(maxfile, interface_actions);
+	if(actions == NULL) return NULL;
+	if(!max_ok(actions->errors)) return NULL;
+	max_validate(actions);
+	max_run_t *run = max_run_group_nonblock(group, actions);
+	max_actions_free(actions);
+	return run;
+}
+
+
+/**
+ * \brief Array run advanced static function for the interface 'default'.
+ * 
+ * \param [in] engarray The array of devices to use.
+ * \param [in,out] interface_actions The array of actions to run.
+ *
+ * Run the array of actions on the array of engines.  The length of interface_actions
+ * must match the size of engarray.
+ */
+void CpuStream_run_array(max_engarray_t *engarray, CpuStream_actions_t *interface_actions[])
+{
+	max_run_t *run = CpuStream_run_array_nonblock(engarray, interface_actions);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+
+/**
+ * \brief Array run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule to run the array of actions on the array of engines, and return immediately.
+ * The length of interface_actions must match the size of engarray.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * \param [in] engarray The array of devices to use.
+ * \param [in] interface_actions The array of actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *CpuStream_run_array_nonblock(max_engarray_t *engarray, CpuStream_actions_t *interface_actions[])
+{
+	max_file_t *maxfile = max_engarray_get_max_file(engarray);
+	int i;
+	max_actarray_t *arr_actarray[1];
+	max_actions_t **arr_actions[1];
+	arr_actarray[0] = max_actarray_init(maxfile, engarray->size);
+	if(arr_actarray[0] == NULL) return NULL;
+	arr_actions[0] = malloc(engarray->size * sizeof(max_actions_t*));
+	for(i=0; i < arr_actarray[0]->size; i++) {
+		max_actions_t *actions = CpuStream_convert(maxfile, interface_actions[i]);
+		if(actions == NULL) return NULL;
+		arr_actions[0][i] = actions;
+		max_set_action(arr_actarray[0], i, actions);
+	}
+	max_run_t *run = max_run_array_multi_nonblock(engarray, arr_actarray, 1 );
+	for (i=0; i < arr_actarray[0]->size; i++) { max_actions_free(arr_actions[0][i]); }
+	max_actarray_free(arr_actarray[0]);
+	free(arr_actions[0]);
+	return run;
+}
+
+
+/**
+ * \brief Converts a static-interface action struct into a dynamic-interface max_actions_t struct.
+ *
+ * Note that this is an internal utility function used by other functions in the static interface.
+ *
+ * \param [in] maxfile The maxfile to use.
+ * \param [in] interface_actions The interface-specific actions to run.
+ * \return The dynamic-interface actions to run, or NULL in case of error.
+ */
+max_actions_t* CpuStream_convert(max_file_t *maxfile, CpuStream_actions_t *interface_actions)
+{
+	max_actions_t *actions = max_actions_init(maxfile, NULL);
+	if(actions == NULL || !max_ok(maxfile->errors)) return NULL;
+
+	int32_t param_N = interface_actions->param_N;
+	
+
+	/* temporary variables */
+	int64_t tmp_0 = (param_N * 4);
+	int64_t tmp_1 = (param_N * 4);
+
+	/* code for offset CpuStreamKernel_ny*/
+	long offset_CpuStreamKernel_ny = interface_actions->offset_CpuStreamKernel_ny;
+	max_set_offset(actions, "CpuStreamKernel", "ny", offset_CpuStreamKernel_ny);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for offset offset_CpuStreamKernel_ny*/
+	
+	/* code for offset CpuStreamKernel_nzy*/
+	long offset_CpuStreamKernel_nzy = interface_actions->offset_CpuStreamKernel_nzy;
+	max_set_offset(actions, "CpuStreamKernel", "nzy", offset_CpuStreamKernel_nzy);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for offset offset_CpuStreamKernel_nzy*/
+	
+	/* code for scalar CpuStreamKernel.run_cycle_count */
+	uint64_t ticks_CpuStreamKernel = param_N;
+	max_set_ticks(actions, "CpuStreamKernel", param_N);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar CpuStreamKernel.run_cycle_count*/
+	
+	/* code for stream str */
+	size_t instream_size_str = tmp_0;
+	if (instream_size_str > 0) {
+		max_queue_input(actions, "str", interface_actions->instream_str,instream_size_str);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream str */
+	
+	/* code for stream strout */
+	size_t outstream_size_strout = tmp_1;
+	if (outstream_size_strout > 0) {
+		max_queue_output(actions, "strout", interface_actions->outstream_strout,outstream_size_strout);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream strout */
+	
+	return actions;
+}
+
+
+
+#endif /* SLIC_USE_DEFINITIONS */
+
+#ifdef SLIC_B64_DEFINITIONS
+I2luY2x1ZGUgPHN0ZGlvLmg+CiNpbmNsdWRlIDxtYXRoLmg+CiNpbmNsdWRlIDxwdGhyZWFkLmg+
+CiNpbmNsdWRlIDxzdHJpbmcuaD4Kc3RhdGljIG1heF9maWxlX3QgKnN0b3JlZF9tYXhmaWxlID0g
+TlVMTDsKc3RhdGljIG1heF9lbmdpbmVfdCAqc3RvcmVkX2VuZ2luZSA9IE5VTEw7CnN0YXRpYyBj
+aGFyICpzdG9yZWRfZXJyb3IgPSBOVUxMOwpzdGF0aWMgaW50IHN0b3JlZF9oYXNfZXJyb3IgPSAw
+OwpzdGF0aWMgcHRocmVhZF9vbmNlX3Qgc2xpY19ic19pc19pbml0aWFsaXNlZCA9IFBUSFJFQURf
+T05DRV9JTklUOwoKc3RhdGljIHZvaWQgc2V0X2Vycm9yKGNvbnN0IGNoYXIgKmVycm9yX3N0cikK
+ewoJc3RvcmVkX2hhc19lcnJvciA9IDE7IAoJaWYoc3RvcmVkX2Vycm9yID09IE5VTEwpIHsKCQlz
+dG9yZWRfZXJyb3IgPSBzdHJkdXAoZXJyb3Jfc3RyKTsKCX0gZWxzZSB7CgkJY2hhciAqbmVyciA9
+IG1hbGxvYyhzdHJsZW4oc3RvcmVkX2Vycm9yKSArIHN0cmxlbihlcnJvcl9zdHIpICsgMik7CgkJ
+c3ByaW50ZihuZXJyLCAiJXNcbiVzIiwgc3RvcmVkX2Vycm9yLCBlcnJvcl9zdHIpOwoJCWZyZWUo
+c3RvcmVkX2Vycm9yKTsKCQlzdG9yZWRfZXJyb3IgPSBuZXJyOwoJfQp9CnN0YXRpYyB2b2lkIHNl
+dF9lcnJvcl9hbmRfZnJlZShjaGFyICplcnJvcl9zdHIpewoJc2V0X2Vycm9yKGVycm9yX3N0cik7
+CglmcmVlKGVycm9yX3N0cik7Cn0KaW50IENwdVN0cmVhbV9oYXNfZXJyb3JzKHZvaWQpCnsJcmV0
+dXJuIHN0b3JlZF9oYXNfZXJyb3I7IH0KY29uc3QgY2hhciogQ3B1U3RyZWFtX2dldF9lcnJvcnMo
+dm9pZCkKewlyZXR1cm4gc3RvcmVkX2Vycm9yOyB9CnZvaWQgQ3B1U3RyZWFtX2NsZWFyX2Vycm9y
+cyh2b2lkKQp7CglmcmVlKHN0b3JlZF9lcnJvcik7CglzdG9yZWRfZXJyb3IgPSBOVUxMOwoJc3Rv
+cmVkX2hhc19lcnJvciA9IDA7Cn0KCnN0YXRpYyB2b2lkIENwdVN0cmVhbV9zdGF0aWNfaW5pdCh2
+b2lkKSAKewoJc3RvcmVkX21heGZpbGUgPSBDcHVTdHJlYW1faW5pdCgpOwoJaWYgKHN0b3JlZF9t
+YXhmaWxlID09IE5VTEwgfHwgIW1heF9vayhzdG9yZWRfbWF4ZmlsZS0+ZXJyb3JzKSkgewoJCXN0
+b3JlZF9tYXhmaWxlID0gTlVMTDsKCQlpZihtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05GSUdf
+U1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNldF9l
+cnJvcigiVW5hYmxlIHRvIGxvYWQgbWF4ZmlsZSIpOyByZXR1cm47IH0KCX0KCWlmKCFtYXhfb2so
+bWF4X2dsb2JhbF9lcnJvcnMoKSkpIHsKCQlzZXRfZXJyb3JfYW5kX2ZyZWUobWF4X2Vycm9yc190
+cmFjZShtYXhfZ2xvYmFsX2Vycm9ycygpKSk7CgkJcmV0dXJuOwoJfQoJaWYoIW1heF9jb25maWdf
+Z2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FCT1JUX09OX0VSUk9SKSkKCQlt
+YXhfZXJyb3JzX21vZGUoc3RvcmVkX21heGZpbGUtPmVycm9ycywgMCk7Cgl0aW1lX3QgdGltZW91
+dF9wcmV2aW91cyA9IG1heF9sb2FkX3RpbWVvdXQoc3RvcmVkX21heGZpbGUsIDMwKTsKCXN0b3Jl
+ZF9lbmdpbmUgPSBtYXhfbG9hZChzdG9yZWRfbWF4ZmlsZSwgIioiKTsKCWlmICghbWF4X29rKHN0
+b3JlZF9tYXhmaWxlLT5lcnJvcnMpKSB7CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09O
+RklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSB7CgkJCWZwcmludGYoc3RkZXJy
+LCAiXG5VbmFibGUgdG8gbG9hZCBlbmdpbmU6IGFib3J0aW5nIG5vdy5cblxuIik7CgkJCWZmbHVz
+aChzdGRlcnIpOwoJCQlhYm9ydCgpOwoJCX0gZWxzZSB7CgkJCXNldF9lcnJvcl9hbmRfZnJlZSht
+YXhfZXJyb3JzX3RyYWNlKHN0b3JlZF9tYXhmaWxlLT5lcnJvcnMpKTsKCQkJbWF4X2ZpbGVfZnJl
+ZShzdG9yZWRfbWF4ZmlsZSk7CgkJCXN0b3JlZF9tYXhmaWxlID0gTlVMTDsKCQkJcmV0dXJuOwoJ
+CX0gCgl9IAoJbWF4X2xvYWRfdGltZW91dChzdG9yZWRfbWF4ZmlsZSwgdGltZW91dF9wcmV2aW91
+cyk7Cn0Kdm9pZCBDcHVTdHJlYW1fZnJlZSh2b2lkKQp7CglpZihzdG9yZWRfZW5naW5lICE9IE5V
+TEwpCgkJbWF4X3VubG9hZChzdG9yZWRfZW5naW5lKTsKCWlmKHN0b3JlZF9tYXhmaWxlICE9IE5V
+TEwpCgkJbWF4X2ZpbGVfZnJlZShzdG9yZWRfbWF4ZmlsZSk7CglpZihzdG9yZWRfZXJyb3IgIT0g
+TlVMTCkKCQlmcmVlKHN0b3JlZF9lcnJvcik7Cn0KCgoKLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi8K
+LyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIEludGVyZmFjZSBkZWZhdWx0IC0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tKi8KLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi8KCgp2b2lkIENw
+dVN0cmVhbSgKCWludDMyX3QgcGFyYW1fTiwKCWxvbmcgb2Zmc2V0X0NwdVN0cmVhbUtlcm5lbF9u
+eSwKCWxvbmcgb2Zmc2V0X0NwdVN0cmVhbUtlcm5lbF9uenksCgljb25zdCB1aW50MzJfdCAqaW5z
+dHJlYW1fc3RyLAoJdWludDMyX3QgKm91dHN0cmVhbV9zdHJvdXQpCnsKCSh2b2lkKSBwdGhyZWFk
+X29uY2UoJnNsaWNfYnNfaXNfaW5pdGlhbGlzZWQsIENwdVN0cmVhbV9zdGF0aWNfaW5pdCk7Cglp
+ZihzdG9yZWRfbWF4ZmlsZSA9PSBOVUxMKSB7CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhf
+Q09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2Ug
+eyBzZXRfZXJyb3IoIk1heGZpbGUgd2FzIG5vdCBsb2FkZWQuIik7IHJldHVybjsgfQoJfQoJbWF4
+X3J1bl90ICpydW4gPSBDcHVTdHJlYW1fbm9uYmxvY2socGFyYW1fTiwgb2Zmc2V0X0NwdVN0cmVh
+bUtlcm5lbF9ueSwgb2Zmc2V0X0NwdVN0cmVhbUtlcm5lbF9uenksIGluc3RyZWFtX3N0ciwgb3V0
+c3RyZWFtX3N0cm91dCk7CglpZihydW4gPT0gTlVMTCkgeyAKCQlpZiAobWF4X2NvbmZpZ19nZXRf
+Ym9vbChNQVhfQ09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgp
+OwoJCWVsc2UgeyBzZXRfZXJyb3IoIlVuYWJsZSB0byBydW4gYWN0aW9ucy4iKTtyZXR1cm47IH0K
+CX0KCW1heF93YWl0KHJ1bik7Cn0KCm1heF9ydW5fdCAqQ3B1U3RyZWFtX25vbmJsb2NrKAoJaW50
+MzJfdCBwYXJhbV9OLAoJbG9uZyBvZmZzZXRfQ3B1U3RyZWFtS2VybmVsX255LAoJbG9uZyBvZmZz
+ZXRfQ3B1U3RyZWFtS2VybmVsX256eSwKCWNvbnN0IHVpbnQzMl90ICppbnN0cmVhbV9zdHIsCgl1
+aW50MzJfdCAqb3V0c3RyZWFtX3N0cm91dCkKewoJQ3B1U3RyZWFtX2FjdGlvbnNfdCBpbnRlcmZh
+Y2VfYWN0aW9uczsKCWludGVyZmFjZV9hY3Rpb25zLnBhcmFtX04gPSBwYXJhbV9OOwoJaW50ZXJm
+YWNlX2FjdGlvbnMub2Zmc2V0X0NwdVN0cmVhbUtlcm5lbF9ueSA9IG9mZnNldF9DcHVTdHJlYW1L
+ZXJuZWxfbnk7CglpbnRlcmZhY2VfYWN0aW9ucy5vZmZzZXRfQ3B1U3RyZWFtS2VybmVsX256eSA9
+IG9mZnNldF9DcHVTdHJlYW1LZXJuZWxfbnp5OwoJaW50ZXJmYWNlX2FjdGlvbnMuaW5zdHJlYW1f
+c3RyID0gaW5zdHJlYW1fc3RyOwoJaW50ZXJmYWNlX2FjdGlvbnMub3V0c3RyZWFtX3N0cm91dCA9
+IG91dHN0cmVhbV9zdHJvdXQ7Cgkodm9pZCkgcHRocmVhZF9vbmNlKCZzbGljX2JzX2lzX2luaXRp
+YWxpc2VkLCBDcHVTdHJlYW1fc3RhdGljX2luaXQpOwoJaWYoc3RvcmVkX21heGZpbGUgPT0gTlVM
+TCkgewoJCWlmKG1heF9jb25maWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNfSU5URVJGQUNF
+X0FCT1JUX09OX0VSUk9SKSkgYWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9yKCJNYXhmaWxlIHdh
+cyBub3QgbG9hZGVkLiIpOyByZXR1cm4gTlVMTDsgfQoJfQoJbWF4X2FjdGlvbnNfdCAqYWN0aW9u
+c1sxXTsKCWFjdGlvbnNbMF0gPSBDcHVTdHJlYW1fY29udmVydChzdG9yZWRfbWF4ZmlsZSwgJmlu
+dGVyZmFjZV9hY3Rpb25zKTsKCWlmKGFjdGlvbnNbMF0gPT0gTlVMTCkgeyAKCQlpZihtYXhfY29u
+ZmlnX2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikp
+IGFib3J0KCk7CgkJZWxzZSB7IHNldF9lcnJvcigiVW5hYmxlIHRvIGJ1aWxkIGFjdGlvbnMiKTty
+ZXR1cm4gTlVMTDsgfQoJfQoJbWF4X3ZhbGlkYXRlKGFjdGlvbnNbMF0pOwoJaWYoIW1heF9vayhh
+Y3Rpb25zWzBdLT5lcnJvcnMpKSB7CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklH
+X1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRf
+ZXJyb3JfYW5kX2ZyZWUobWF4X2Vycm9yc190cmFjZShhY3Rpb25zWzBdLT5lcnJvcnMpKTsgcmV0
+dXJuIE5VTEw7fQoJfQoJbWF4X3J1bl90ICpydW4gPSBtYXhfcnVuX211bHRpX25vbmJsb2NrKHN0
+b3JlZF9lbmdpbmUsIGFjdGlvbnMsIDEpOwoJaWYocnVuID09IE5VTEwpIHsgCgkJaWYgKG1heF9j
+b25maWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FCT1JUX09OX0VSUk9S
+KSkgYWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9yKCJVbmFibGUgdG8gcnVuIGFjdGlvbnMuIik7
+cmV0dXJuIE5VTEw7IH0KCX0KCWlmKCFtYXhfb2soc3RvcmVkX2VuZ2luZS0+ZXJyb3JzKSAgfHwg
+IW1heF9vayhhY3Rpb25zWzBdLT5lcnJvcnMpKSB7CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9vbChN
+QVhfQ09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVs
+c2UgeyBzZXRfZXJyb3JfYW5kX2ZyZWUobWF4X2Vycm9yc190cmFjZShhY3Rpb25zWzBdLT5lcnJv
+cnMpKTsgc2V0X2Vycm9yX2FuZF9mcmVlKG1heF9lcnJvcnNfdHJhY2Uoc3RvcmVkX2VuZ2luZS0+
+ZXJyb3JzKSk7IHJldHVybiBOVUxMO30KCX0KCW1heF9hY3Rpb25zX2ZyZWUoYWN0aW9uc1swXSk7
+CglyZXR1cm4gcnVuOwp9Cgp2b2lkIENwdVN0cmVhbV9ydW4oCgltYXhfZW5naW5lX3QgKmVuZ2lu
+ZSwKCUNwdVN0cmVhbV9hY3Rpb25zX3QgKmludGVyZmFjZV9hY3Rpb25zKQp7CgltYXhfcnVuX3Qg
+KnJ1biA9IENwdVN0cmVhbV9ydW5fbm9uYmxvY2soZW5naW5lLCBpbnRlcmZhY2VfYWN0aW9ucyk7
+CglpZihydW4gPT0gTlVMTCkgeyAKCQlpZiAobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklH
+X1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRf
+ZXJyb3IoIlVuYWJsZSB0byBydW4gYWN0aW9ucy4iKTtyZXR1cm47IH0KCX0KCW1heF93YWl0KHJ1
+bik7Cn0KCm1heF9ydW5fdCAqQ3B1U3RyZWFtX3J1bl9ub25ibG9jaygKCW1heF9lbmdpbmVfdCAq
+ZW5naW5lLAoJQ3B1U3RyZWFtX2FjdGlvbnNfdCAqaW50ZXJmYWNlX2FjdGlvbnMpCnsKCW1heF9m
+aWxlX3QgKm1heGZpbGUgPSBtYXhfZW5naW5lX2dldF9tYXhfZmlsZShlbmdpbmUpOyAKCW1heF9h
+Y3Rpb25zX3QgKmFjdGlvbnNbMV07CglhY3Rpb25zWzBdID0gQ3B1U3RyZWFtX2NvbnZlcnQobWF4
+ZmlsZSwgaW50ZXJmYWNlX2FjdGlvbnMpOwoJaWYoIW1heF9vayhhY3Rpb25zWzBdLT5lcnJvcnMp
+KSB7CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NUQVRJQ19JTlRFUkZBQ0Vf
+QUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJyb3JfYW5kX2ZyZWUobWF4
+X2Vycm9yc190cmFjZShhY3Rpb25zWzBdLT5lcnJvcnMpKTsgcmV0dXJuIE5VTEw7fQoJfQoJbWF4
+X3J1bl90ICpydW4gPSBtYXhfcnVuX211bHRpX25vbmJsb2NrKGVuZ2luZSwgYWN0aW9ucywgMSk7
+CglpZihydW4gPT0gTlVMTCkgeyAKCQlpZiAobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklH
+X1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRf
+ZXJyb3IoIlVuYWJsZSB0byBydW4gYWN0aW9ucy4iKTsgcmV0dXJuIE5VTEw7IH0KCX0KCW1heF9h
+Y3Rpb25zX2ZyZWUoYWN0aW9uc1swXSk7CglyZXR1cm4gcnVuOwp9CgoKLyoqCiAqIFxicmllZiBH
+cm91cCBydW4gYWR2YW5jZWQgc3RhdGljIGZ1bmN0aW9uIGZvciB0aGUgaW50ZXJmYWNlICdkZWZh
+dWx0Jy4KICogCiAqIFxwYXJhbSBbaW5dIGdyb3VwIEdyb3VwIHRvIHVzZS4KICogXHBhcmFtIFtp
+bixvdXRdIGludGVyZmFjZV9hY3Rpb25zIEFjdGlvbnMgdG8gcnVuLgogKgogKiBSdW4gdGhlIGFj
+dGlvbnMgb24gdGhlIGZpcnN0IGRldmljZSBhdmFpbGFibGUgaW4gdGhlIGdyb3VwLgogKi8Kdm9p
+ZCBDcHVTdHJlYW1fcnVuX2dyb3VwKG1heF9ncm91cF90ICpncm91cCwgQ3B1U3RyZWFtX2FjdGlv
+bnNfdCAqaW50ZXJmYWNlX2FjdGlvbnMpCnsKCS8qIE5vdCBzdHJpY3RseSBjb3JyZWN0LCBiZWNh
+dXNlIGV4cGxpY2l0bHkgbG9ja2luZyBhbiBlbmdpbmUgaGVyZS4gKi8KCW1heF9lbmdpbmVfdCAq
+ZW5naW5lID0gbWF4X2xvY2tfYW55KGdyb3VwKTsKCWlmKGVuZ2luZSA9PSBOVUxMKSByZXR1cm47
+CglDcHVTdHJlYW1fcnVuKGVuZ2luZSwgaW50ZXJmYWNlX2FjdGlvbnMpOwoJbWF4X3VubG9jayhl
+bmdpbmUpOwp9CgoKLyoqCiAqIFxicmllZiBHcm91cCBydW4gYWR2YW5jZWQgc3RhdGljIG5vbi1i
+bG9ja2luZyBmdW5jdGlvbiBmb3IgdGhlIGludGVyZmFjZSAnZGVmYXVsdCcuCiAqIAogKgogKiBT
+Y2hlZHVsZSB0aGUgYWN0aW9ucyB0byBydW4gb24gdGhlIGZpcnN0IGRldmljZSBhdmFpbGFibGUg
+aW4gdGhlIGdyb3VwIGFuZCByZXR1cm4gaW1tZWRpYXRlbHkuCiAqIFRoZSBzdGF0dXMgb2YgdGhl
+IHJ1biBtdXN0IGJlIGNoZWNrZWQgd2l0aCA6Om1heF93YWl0LiAKICogTm90ZSB0aGF0IHVzZSBv
+ZiA6Om1heF9ub3dhaXQgaXMgcHJvaGliaXRlZCB3aXRoIG5vbi1ibG9ja2luZyBydW5uaW5nIG9u
+IGdyb3VwczoKICogc2VlIHRoZSA6Om1heF9ydW5fZ3JvdXBfbm9uYmxvY2sgZG9jdW1lbnRhdGlv
+biBmb3IgbW9yZSBleHBsYW5hdGlvbi4KICoKICogXHBhcmFtIFtpbl0gZ3JvdXAgR3JvdXAgdG8g
+dXNlLgogKiBccGFyYW0gW2luXSBpbnRlcmZhY2VfYWN0aW9ucyBBY3Rpb25zIHRvIHJ1bi4KICog
+XHJldHVybiBBIGhhbmRsZSBvbiB0aGUgZXhlY3V0aW9uIHN0YXR1cyBvZiB0aGUgYWN0aW9ucywg
+b3IgTlVMTCBpbiBjYXNlIG9mIGVycm9yLgogKi8KbWF4X3J1bl90ICpDcHVTdHJlYW1fcnVuX2dy
+b3VwX25vbmJsb2NrKG1heF9ncm91cF90ICpncm91cCwgQ3B1U3RyZWFtX2FjdGlvbnNfdCAqaW50
+ZXJmYWNlX2FjdGlvbnMpCnsKCW1heF9maWxlX3QgKm1heGZpbGUgPSBtYXhfZ3JvdXBfZ2V0X21h
+eF9maWxlKGdyb3VwKTsKCW1heF9hY3Rpb25zX3QgKmFjdGlvbnMgPSBDcHVTdHJlYW1fY29udmVy
+dChtYXhmaWxlLCBpbnRlcmZhY2VfYWN0aW9ucyk7CglpZihhY3Rpb25zID09IE5VTEwpIHJldHVy
+biBOVUxMOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCW1heF92
+YWxpZGF0ZShhY3Rpb25zKTsKCW1heF9ydW5fdCAqcnVuID0gbWF4X3J1bl9ncm91cF9ub25ibG9j
+ayhncm91cCwgYWN0aW9ucyk7CgltYXhfYWN0aW9uc19mcmVlKGFjdGlvbnMpOwoJcmV0dXJuIHJ1
+bjsKfQoKCi8qKgogKiBcYnJpZWYgQXJyYXkgcnVuIGFkdmFuY2VkIHN0YXRpYyBmdW5jdGlvbiBm
+b3IgdGhlIGludGVyZmFjZSAnZGVmYXVsdCcuCiAqIAogKiBccGFyYW0gW2luXSBlbmdhcnJheSBU
+aGUgYXJyYXkgb2YgZGV2aWNlcyB0byB1c2UuCiAqIFxwYXJhbSBbaW4sb3V0XSBpbnRlcmZhY2Vf
+YWN0aW9ucyBUaGUgYXJyYXkgb2YgYWN0aW9ucyB0byBydW4uCiAqCiAqIFJ1biB0aGUgYXJyYXkg
+b2YgYWN0aW9ucyBvbiB0aGUgYXJyYXkgb2YgZW5naW5lcy4gIFRoZSBsZW5ndGggb2YgaW50ZXJm
+YWNlX2FjdGlvbnMKICogbXVzdCBtYXRjaCB0aGUgc2l6ZSBvZiBlbmdhcnJheS4KICovCnZvaWQg
+Q3B1U3RyZWFtX3J1bl9hcnJheShtYXhfZW5nYXJyYXlfdCAqZW5nYXJyYXksIENwdVN0cmVhbV9h
+Y3Rpb25zX3QgKmludGVyZmFjZV9hY3Rpb25zW10pCnsKCW1heF9ydW5fdCAqcnVuID0gQ3B1U3Ry
+ZWFtX3J1bl9hcnJheV9ub25ibG9jayhlbmdhcnJheSwgaW50ZXJmYWNlX2FjdGlvbnMpOwoJaWYo
+cnVuID09IE5VTEwpIHsgCgkJaWYgKG1heF9jb25maWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFU
+SUNfSU5URVJGQUNFX0FCT1JUX09OX0VSUk9SKSkgYWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9y
+KCJVbmFibGUgdG8gcnVuIGFjdGlvbnMuIik7cmV0dXJuOyB9Cgl9CgltYXhfd2FpdChydW4pOwp9
+CgoKLyoqCiAqIFxicmllZiBBcnJheSBydW4gYWR2YW5jZWQgc3RhdGljIG5vbi1ibG9ja2luZyBm
+dW5jdGlvbiBmb3IgdGhlIGludGVyZmFjZSAnZGVmYXVsdCcuCiAqIAogKgogKiBTY2hlZHVsZSB0
+byBydW4gdGhlIGFycmF5IG9mIGFjdGlvbnMgb24gdGhlIGFycmF5IG9mIGVuZ2luZXMsIGFuZCBy
+ZXR1cm4gaW1tZWRpYXRlbHkuCiAqIFRoZSBsZW5ndGggb2YgaW50ZXJmYWNlX2FjdGlvbnMgbXVz
+dCBtYXRjaCB0aGUgc2l6ZSBvZiBlbmdhcnJheS4KICogVGhlIHN0YXR1cyBvZiB0aGUgcnVuIGNh
+biBiZSBjaGVja2VkIGVpdGhlciBieSA6Om1heF93YWl0IG9yIDo6bWF4X25vd2FpdDsKICogbm90
+ZSB0aGF0IG9uZSBvZiB0aGVzZSAqbXVzdCogYmUgY2FsbGVkLCBzbyB0aGF0IGFzc29jaWF0ZWQg
+bWVtb3J5IGNhbiBiZSByZWxlYXNlZC4KICoKICogXHBhcmFtIFtpbl0gZW5nYXJyYXkgVGhlIGFy
+cmF5IG9mIGRldmljZXMgdG8gdXNlLgogKiBccGFyYW0gW2luXSBpbnRlcmZhY2VfYWN0aW9ucyBU
+aGUgYXJyYXkgb2YgYWN0aW9ucyB0byBydW4uCiAqIFxyZXR1cm4gQSBoYW5kbGUgb24gdGhlIGV4
+ZWN1dGlvbiBzdGF0dXMgb2YgdGhlIGFjdGlvbnMsIG9yIE5VTEwgaW4gY2FzZSBvZiBlcnJvci4K
+ICovCm1heF9ydW5fdCAqQ3B1U3RyZWFtX3J1bl9hcnJheV9ub25ibG9jayhtYXhfZW5nYXJyYXlf
+dCAqZW5nYXJyYXksIENwdVN0cmVhbV9hY3Rpb25zX3QgKmludGVyZmFjZV9hY3Rpb25zW10pCnsK
+CW1heF9maWxlX3QgKm1heGZpbGUgPSBtYXhfZW5nYXJyYXlfZ2V0X21heF9maWxlKGVuZ2FycmF5
+KTsKCWludCBpOwoJbWF4X2FjdGFycmF5X3QgKmFycl9hY3RhcnJheVsxXTsKCW1heF9hY3Rpb25z
+X3QgKiphcnJfYWN0aW9uc1sxXTsKCWFycl9hY3RhcnJheVswXSA9IG1heF9hY3RhcnJheV9pbml0
+KG1heGZpbGUsIGVuZ2FycmF5LT5zaXplKTsKCWlmKGFycl9hY3RhcnJheVswXSA9PSBOVUxMKSBy
+ZXR1cm4gTlVMTDsKCWFycl9hY3Rpb25zWzBdID0gbWFsbG9jKGVuZ2FycmF5LT5zaXplICogc2l6
+ZW9mKG1heF9hY3Rpb25zX3QqKSk7Cglmb3IoaT0wOyBpIDwgYXJyX2FjdGFycmF5WzBdLT5zaXpl
+OyBpKyspIHsKCQltYXhfYWN0aW9uc190ICphY3Rpb25zID0gQ3B1U3RyZWFtX2NvbnZlcnQobWF4
+ZmlsZSwgaW50ZXJmYWNlX2FjdGlvbnNbaV0pOwoJCWlmKGFjdGlvbnMgPT0gTlVMTCkgcmV0dXJu
+IE5VTEw7CgkJYXJyX2FjdGlvbnNbMF1baV0gPSBhY3Rpb25zOwoJCW1heF9zZXRfYWN0aW9uKGFy
+cl9hY3RhcnJheVswXSwgaSwgYWN0aW9ucyk7Cgl9CgltYXhfcnVuX3QgKnJ1biA9IG1heF9ydW5f
+YXJyYXlfbXVsdGlfbm9uYmxvY2soZW5nYXJyYXksIGFycl9hY3RhcnJheSwgMSApOwoJZm9yIChp
+PTA7IGkgPCBhcnJfYWN0YXJyYXlbMF0tPnNpemU7IGkrKykgeyBtYXhfYWN0aW9uc19mcmVlKGFy
+cl9hY3Rpb25zWzBdW2ldKTsgfQoJbWF4X2FjdGFycmF5X2ZyZWUoYXJyX2FjdGFycmF5WzBdKTsK
+CWZyZWUoYXJyX2FjdGlvbnNbMF0pOwoJcmV0dXJuIHJ1bjsKfQoKCi8qKgogKiBcYnJpZWYgQ29u
+dmVydHMgYSBzdGF0aWMtaW50ZXJmYWNlIGFjdGlvbiBzdHJ1Y3QgaW50byBhIGR5bmFtaWMtaW50
+ZXJmYWNlIG1heF9hY3Rpb25zX3Qgc3RydWN0LgogKgogKiBOb3RlIHRoYXQgdGhpcyBpcyBhbiBp
+bnRlcm5hbCB1dGlsaXR5IGZ1bmN0aW9uIHVzZWQgYnkgb3RoZXIgZnVuY3Rpb25zIGluIHRoZSBz
+dGF0aWMgaW50ZXJmYWNlLgogKgogKiBccGFyYW0gW2luXSBtYXhmaWxlIFRoZSBtYXhmaWxlIHRv
+IHVzZS4KICogXHBhcmFtIFtpbl0gaW50ZXJmYWNlX2FjdGlvbnMgVGhlIGludGVyZmFjZS1zcGVj
+aWZpYyBhY3Rpb25zIHRvIHJ1bi4KICogXHJldHVybiBUaGUgZHluYW1pYy1pbnRlcmZhY2UgYWN0
+aW9ucyB0byBydW4sIG9yIE5VTEwgaW4gY2FzZSBvZiBlcnJvci4KICovCm1heF9hY3Rpb25zX3Qq
+IENwdVN0cmVhbV9jb252ZXJ0KG1heF9maWxlX3QgKm1heGZpbGUsIENwdVN0cmVhbV9hY3Rpb25z
+X3QgKmludGVyZmFjZV9hY3Rpb25zKQp7CgltYXhfYWN0aW9uc190ICphY3Rpb25zID0gbWF4X2Fj
+dGlvbnNfaW5pdChtYXhmaWxlLCBOVUxMKTsKCWlmKGFjdGlvbnMgPT0gTlVMTCB8fCAhbWF4X29r
+KG1heGZpbGUtPmVycm9ycykpIHJldHVybiBOVUxMOwoKCWludDMyX3QgcGFyYW1fTiA9IGludGVy
+ZmFjZV9hY3Rpb25zLT5wYXJhbV9OOwoJCgoJLyogdGVtcG9yYXJ5IHZhcmlhYmxlcyAqLwoJaW50
+NjRfdCB0bXBfMCA9IChwYXJhbV9OICogNCk7CglpbnQ2NF90IHRtcF8xID0gKHBhcmFtX04gKiA0
+KTsKCgkvKiBjb2RlIGZvciBvZmZzZXQgQ3B1U3RyZWFtS2VybmVsX255Ki8KCWxvbmcgb2Zmc2V0
+X0NwdVN0cmVhbUtlcm5lbF9ueSA9IGludGVyZmFjZV9hY3Rpb25zLT5vZmZzZXRfQ3B1U3RyZWFt
+S2VybmVsX255OwoJbWF4X3NldF9vZmZzZXQoYWN0aW9ucywgIkNwdVN0cmVhbUtlcm5lbCIsICJu
+eSIsIG9mZnNldF9DcHVTdHJlYW1LZXJuZWxfbnkpOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJv
+cnMpKSByZXR1cm4gTlVMTDsKCS8qIGVuZCBvZiBjb2RlIGZvciBvZmZzZXQgb2Zmc2V0X0NwdVN0
+cmVhbUtlcm5lbF9ueSovCgkKCS8qIGNvZGUgZm9yIG9mZnNldCBDcHVTdHJlYW1LZXJuZWxfbnp5
+Ki8KCWxvbmcgb2Zmc2V0X0NwdVN0cmVhbUtlcm5lbF9uenkgPSBpbnRlcmZhY2VfYWN0aW9ucy0+
+b2Zmc2V0X0NwdVN0cmVhbUtlcm5lbF9uenk7CgltYXhfc2V0X29mZnNldChhY3Rpb25zLCAiQ3B1
+U3RyZWFtS2VybmVsIiwgIm56eSIsIG9mZnNldF9DcHVTdHJlYW1LZXJuZWxfbnp5KTsKCWlmKCFt
+YXhfb2soYWN0aW9ucy0+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7CgkvKiBlbmQgb2YgY29kZSBmb3Ig
+b2Zmc2V0IG9mZnNldF9DcHVTdHJlYW1LZXJuZWxfbnp5Ki8KCQoJLyogY29kZSBmb3Igc2NhbGFy
+IENwdVN0cmVhbUtlcm5lbC5ydW5fY3ljbGVfY291bnQgKi8KCXVpbnQ2NF90IHRpY2tzX0NwdVN0
+cmVhbUtlcm5lbCA9IHBhcmFtX047CgltYXhfc2V0X3RpY2tzKGFjdGlvbnMsICJDcHVTdHJlYW1L
+ZXJuZWwiLCBwYXJhbV9OKTsKCWlmKCFtYXhfb2soYWN0aW9ucy0+ZXJyb3JzKSkgcmV0dXJuIE5V
+TEw7CgkvKiBlbmQgb2YgY29kZSBmb3Igc2NhbGFyIENwdVN0cmVhbUtlcm5lbC5ydW5fY3ljbGVf
+Y291bnQqLwoJCgkvKiBjb2RlIGZvciBzdHJlYW0gc3RyICovCglzaXplX3QgaW5zdHJlYW1fc2l6
+ZV9zdHIgPSB0bXBfMDsKCWlmIChpbnN0cmVhbV9zaXplX3N0ciA+IDApIHsKCQltYXhfcXVldWVf
+aW5wdXQoYWN0aW9ucywgInN0ciIsIGludGVyZmFjZV9hY3Rpb25zLT5pbnN0cmVhbV9zdHIsaW5z
+dHJlYW1fc2l6ZV9zdHIpOwoJCWlmICghbWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBO
+VUxMOwoJfQoJLyogZW5kIG9mIGNvZGUgZm9yIHN0cmVhbSBzdHIgKi8KCQoJLyogY29kZSBmb3Ig
+c3RyZWFtIHN0cm91dCAqLwoJc2l6ZV90IG91dHN0cmVhbV9zaXplX3N0cm91dCA9IHRtcF8xOwoJ
+aWYgKG91dHN0cmVhbV9zaXplX3N0cm91dCA+IDApIHsKCQltYXhfcXVldWVfb3V0cHV0KGFjdGlv
+bnMsICJzdHJvdXQiLCBpbnRlcmZhY2VfYWN0aW9ucy0+b3V0c3RyZWFtX3N0cm91dCxvdXRzdHJl
+YW1fc2l6ZV9zdHJvdXQpOwoJCWlmICghbWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBO
+VUxMOwoJfQoJLyogZW5kIG9mIGNvZGUgZm9yIHN0cmVhbSBzdHJvdXQgKi8KCQoJcmV0dXJuIGFj
+dGlvbnM7Cn0KCgo=
+#endif /* SLIC_B64_DEFINITIONS */
+
+#ifdef SLIC_DYNAMIC_CODE
+SLIC_MODE_START(default)	
+SLIC_PARAMETER_UINT64(int32_t, N, param_N)	
+SLIC_TEMP_VAR(int64_t tmp_0 = (param_N * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_1 = (param_N * 4);)	
+SLIC_SET_TICKS(CpuStreamKernel, param_N)	
+SLIC_STREAM(str, tmp_0)	
+SLIC_STREAM(strout, tmp_1)	
+SLIC_MODE_END(default)
+
+#endif /* SLIC_DYNAMIC_CODE */
+
+#ifdef SKIN_META_DATA
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PG1h
+eGZpbGUgZm9ybWF0LXZlcnNpb249IjIwMTIwMjAwIiBoZWFkZXI9IkNwdVN0cmVhbS5oIiBuYW1l
+PSJDcHVTdHJlYW0iPjxlbmdpbmVtb2RlIG5hbWU9ImRlZmF1bHQiPjxmdW5jdGlvbiBuYW1lPSJD
+cHVTdHJlYW0iIHJldHVybi12YWx1ZT0idm9pZCI+PHNjYWxhciBkZXNjPSJJbnRlcmZhY2UgUGFy
+YW1ldGVyICZxdW90O04mcXVvdDsuOiBOdW1iZXIgb2YgZGF0YSBpdGVtcyB0byBwcm9jZXNzIiBk
+aXJlY3Rpb249IklucHV0IiBuYW1lPSJwYXJhbV9OIiB0eXBlPSJpbnQzMl90Ii8+PHNjYWxhciBk
+ZXNjPSJPZmZzZXQgcGFyYW1ldGVyICZxdW90O255JnF1b3Q7IGZvciBrZXJuZWwgJnF1b3Q7Q3B1
+U3RyZWFtS2VybmVsJnF1b3Q7LiIgZGlyZWN0aW9uPSJJbnB1dCIgbmFtZT0ib2Zmc2V0X0NwdVN0
+cmVhbUtlcm5lbF9ueSIgdHlwZT0idWludDY0X3QiLz48c2NhbGFyIGRlc2M9Ik9mZnNldCBwYXJh
+bWV0ZXIgJnF1b3Q7bnp5JnF1b3Q7IGZvciBrZXJuZWwgJnF1b3Q7Q3B1U3RyZWFtS2VybmVsJnF1
+b3Q7LiIgZGlyZWN0aW9uPSJJbnB1dCIgbmFtZT0ib2Zmc2V0X0NwdVN0cmVhbUtlcm5lbF9uenki
+IHR5cGU9InVpbnQ2NF90Ii8+PGFycmF5IGRlc2M9IlRoZSBzdHJlYW0gc2hvdWxkIGJlIG9mIHNp
+emUgKHBhcmFtX04gKiA0KSBieXRlcy4iIGRpcmVjdGlvbj0iSW5wdXQiIG5hbWU9Imluc3RyZWFt
+X3N0ciIgc2l6ZT0iKHBhcmFtX04gKiA0KSIgdHJhbnNwb3NlPSJ0cnVlIiB0eXBlPSJ1aW50MzJf
+dCI+PGRpbWVuc2lvbiBpbmRleD0iMCI+PGxlbmd0aD48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlP
+cGVyYXRvciBvcGVyYXRvcj0iLyIgdmFsdWU9IigocGFyYW1fTiAqIDQpIC8gNCkiPjxmdW5jdGlv
+bkNhbGw+PG51bUJpbmFyeU9wZXJhdG9yIG9wZXJhdG9yPSIqIiB2YWx1ZT0iKHBhcmFtX04gKiA0
+KSI+PHVzZXJQYXJhbSB2YWx1ZT0icGFyYW1fTiIvPjxjb25zdGFudFZhbHVlIHZhbHVlPSI0Ii8+
+PC9udW1CaW5hcnlPcGVyYXRvcj48L2Z1bmN0aW9uQ2FsbD48Y29uc3RhbnRWYWx1ZSB2YWx1ZT0i
+NCIvPjwvbnVtQmluYXJ5T3BlcmF0b3I+PC9mdW5jdGlvbkNhbGw+PC9sZW5ndGg+PC9kaW1lbnNp
+b24+PC9hcnJheT48YXJyYXkgZGVzYz0iVGhlIHN0cmVhbSBzaG91bGQgYmUgb2Ygc2l6ZSAocGFy
+YW1fTiAqIDQpIGJ5dGVzLiIgZGlyZWN0aW9uPSJPdXRwdXQiIG5hbWU9Im91dHN0cmVhbV9zdHJv
+dXQiIHNpemU9IihwYXJhbV9OICogNCkiIHRyYW5zcG9zZT0idHJ1ZSIgdHlwZT0idWludDMyX3Qi
+PjxkaW1lbnNpb24gaW5kZXg9IjAiPjxsZW5ndGg+PGZ1bmN0aW9uQ2FsbD48bnVtQmluYXJ5T3Bl
+cmF0b3Igb3BlcmF0b3I9Ii8iIHZhbHVlPSIoKHBhcmFtX04gKiA0KSAvIDQpIj48ZnVuY3Rpb25D
+YWxsPjxudW1CaW5hcnlPcGVyYXRvciBvcGVyYXRvcj0iKiIgdmFsdWU9IihwYXJhbV9OICogNCki
+Pjx1c2VyUGFyYW0gdmFsdWU9InBhcmFtX04iLz48Y29uc3RhbnRWYWx1ZSB2YWx1ZT0iNCIvPjwv
+bnVtQmluYXJ5T3BlcmF0b3I+PC9mdW5jdGlvbkNhbGw+PGNvbnN0YW50VmFsdWUgdmFsdWU9IjQi
+Lz48L251bUJpbmFyeU9wZXJhdG9yPjwvZnVuY3Rpb25DYWxsPjwvbGVuZ3RoPjwvZGltZW5zaW9u
+PjwvYXJyYXk+PC9mdW5jdGlvbj48L2VuZ2luZW1vZGU+PC9tYXhmaWxlPg==
+#endif /* SKIN_META_DATA */
+
+#ifdef PHOTON_NODE_ADD_DATA
+#define PHOTON_NODE_ADD_DATA_PRESENT 1
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 17, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 18, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 21, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 22, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 0, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 1, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 2, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 56, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 40, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 57, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 46, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 45, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 3, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 52, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 54, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 4, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 5, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 49, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 33, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 6, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 41, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 7, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 51, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 34, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 8, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 58, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 47, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 35, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 23, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 27, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 55, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 25, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 26, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 53, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 28, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 30, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 31, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(CpuStreamKernel, 29, "SquashFactor", 0.0)
+#endif
+

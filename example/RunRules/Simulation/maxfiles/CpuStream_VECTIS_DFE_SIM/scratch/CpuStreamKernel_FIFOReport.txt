@@ -1,0 +1,39 @@
+NodeInput Input(str) {HWOffsetFix:32, 0, UNSIGNED} ID: 2
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:14)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+	FIFO(3 + nzy{ny{1..10}..10ny{1..10}} - ny{1..10}) {HWOffsetFix:32, 0, UNSIGNED} 93 ID: 46
+	FIFO(ny{1..10}) {HWOffsetFix:32, 0, UNSIGNED} 10 ID: 40
+	FIFO(ny{1..10}) {HWOffsetFix:32, 0, UNSIGNED} 10 ID: 45
+	FIFO(1) {HWOffsetFix:32, 0, UNSIGNED} 1 ID: 52
+	FIFO(1) {HWOffsetFix:32, 0, UNSIGNED} 1 ID: 54
+
+NodeStreamOffset stream offset: -nzy{ny{1..10}..10ny{1..10}} {HWOffsetFix:32, 0, UNSIGNED} ID: 8
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:38)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+	FIFO(2 + nzy{ny{1..10}..10ny{1..10}}) {HWOffsetFix:32, 0, UNSIGNED} 102 ID: 47
+
+NodeStreamOffset stream offset: -ny{1..10} {HWOffsetFix:32, 0, UNSIGNED} ID: 6
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:33)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+	FIFO(ny{1..10}) {HWOffsetFix:32, 0, UNSIGNED} 10 ID: 41
+
+NodeCounterV1 Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0 {HWOffsetFix:48, 0, UNSIGNED} ID: 26
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)
+	FIFO(4) {HWOffsetFix:48, 0, UNSIGNED} 4 ID: 53
+
+NodeStreamOffset stream offset: nzy{ny{1..10}..10ny{1..10}} {HWOffsetFix:32, 0, UNSIGNED} ID: 7
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:36)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+	FIFO(5) {HWOffsetFix:32, 0, UNSIGNED} 5 ID: 51
+
+NodeStreamOffset stream offset: ny{1..10} {HWOffsetFix:32, 0, UNSIGNED} ID: 5
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:31)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+	FIFO(1) {HWOffsetFix:32, 0, UNSIGNED} 1 ID: 49
+

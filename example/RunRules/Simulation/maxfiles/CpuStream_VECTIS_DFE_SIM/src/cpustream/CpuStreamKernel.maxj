@@ -1,0 +1,51 @@
+package cpustream;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.OffsetExpr;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class CpuStreamKernel extends Kernel {
+
+
+	protected CpuStreamKernel(KernelParameters parameters) {
+		super(parameters);
+
+		DFEVar x = io.input("str", dfeUInt(32));
+
+		OffsetExpr ny= stream.makeOffsetParam("ny", 1, 10);
+		OffsetExpr nzy= stream.makeOffsetParam("nzy", 1*ny, 10*ny);
+
+		DFEVar window[]= new DFEVar[6];
+
+		int i, j, k, w;
+		w=0;
+		i=0;
+		j=0;
+		k=1;
+		window[w++]=stream.offset(x, k+j*ny+i*nzy);
+		k=-1;
+		window[w++]=stream.offset(x, k+j*ny+i*nzy);
+		k=0;
+		j=1;
+		window[w++]=stream.offset(x, k+j*ny+i*nzy);
+		j=-1;
+		window[w++]=stream.offset(x, k+j*ny+i*nzy);
+		j= 0;
+		i=1;
+		window[w++]=stream.offset(x, k+j*ny+i*nzy);
+		i=-1;
+		window[w++]=stream.offset(x, k+j*ny+i*nzy);
+
+
+		DFEVar sum = constant.var(dfeUInt(32), 0);
+		for(DFEVar vars: window){
+			sum+=vars;
+		}
+		DFEVar result = sum;
+
+
+		io.output("strout", result, dfeUInt(32));
+	}
+
+}

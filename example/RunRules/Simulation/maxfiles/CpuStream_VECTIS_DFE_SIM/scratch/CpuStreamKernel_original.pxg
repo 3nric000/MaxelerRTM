@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Graph version="2013.1" design_name="CpuStreamKernel" compilation_phase="original">
+	<Node group="[]" id="16" pipelineFactor="1.0" type="NodeConstantRawBits">
+		<Output latency="0" name="value" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Text>{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+		<Value>1</Value>
+	</Node>
+	<Edge dst_node_id="20" dst_node_input="input" src_node_id="16" src_node_output="value" />
+	<Node group="[]" id="20" pipelineFactor="0.0" type="NodeReinterpret">
+		<Input name="input" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Output latency="0" name="output" type="hwBits(1)" />
+		<Text>&lt;{HWRawBits:1}&gt;</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="19" dst_node_input="a" src_node_id="20" src_node_output="output" />
+	<Node group="[]" id="17" pipelineFactor="1.0" type="NodeInputMappedReg">
+		<Output latency="0" name="io_strout_force_disabled" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Text>Scalar input (io_strout_force_disabled)</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+		<Name>io_strout_force_disabled</Name>
+	</Node>
+	<Edge dst_node_id="18" dst_node_input="a" src_node_id="17" src_node_output="io_strout_force_disabled" />
+	<Node group="[]" id="18" pipelineFactor="0.0" type="NodeNot">
+		<Input name="a" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Output latency="0" name="result" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Text>~</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="21" dst_node_input="input" src_node_id="18" src_node_output="result" />
+	<Node group="[]" id="21" pipelineFactor="0.0" type="NodeReinterpret">
+		<Input name="input" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Output latency="0" name="output" type="hwBits(1)" />
+		<Text>&lt;{HWRawBits:1}&gt;</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="19" dst_node_input="b" src_node_id="21" src_node_output="output" />
+	<Node group="[]" id="19" pipelineFactor="0.0" type="NodeAnd">
+		<Input name="a" type="hwBits(1)" />
+		<Input name="b" type="hwBits(1)" />
+		<Output latency="0" name="result" type="hwBits(1)" />
+		<Text>&amp;</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="22" dst_node_input="input" src_node_id="19" src_node_output="result" />
+	<Node group="[]" id="22" pipelineFactor="0.0" type="NodeReinterpret">
+		<Input name="input" type="hwBits(1)" />
+		<Output latency="0" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Text>&lt;{HWOffsetFix:1, 0, UNSIGNED}&gt;</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="23" dst_node_input="output_control" src_node_id="22" src_node_output="output" />
+	<Node group="[]" id="9" pipelineFactor="1.0" type="NodeConstantRawBits">
+		<Output latency="0" name="value" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Text>{HWOffsetFix:32, 0, UNSIGNED}\n0x00000000; 0.0</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Constant.var(Constant.java:99)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:41)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+		<Value>00000000000000000000000000000000</Value>
+	</Node>
+	<Edge dst_node_id="10" dst_node_input="a" src_node_id="9" src_node_output="value" />
+	<Node group="[]" id="0" pipelineFactor="1.0" type="NodeInputMappedReg">
+		<Output latency="0" name="io_str_force_disabled" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Text>Scalar input (io_str_force_disabled)</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:14)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+		<Name>io_str_force_disabled</Name>
+	</Node>
+	<Edge dst_node_id="1" dst_node_input="a" src_node_id="0" src_node_output="io_str_force_disabled" />
+	<Node group="[]" id="1" pipelineFactor="0.0" type="NodeNot">
+		<Input name="a" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Output latency="0" name="result" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Text>~</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:14)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="2" dst_node_input="enable" src_node_id="1" src_node_output="result" />
+	<Node group="[]" id="2" pipelineFactor="1.0" type="NodeInput">
+		<Input name="enable" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Output latency="5" name="data" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Text>Input(str)</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:14)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+		<Name>str</Name>
+	</Node>
+	<Edge dst_node_id="3" dst_node_input="input" src_node_id="2" src_node_output="data" />
+	<Edge dst_node_id="4" dst_node_input="input" src_node_id="2" src_node_output="data" />
+	<Edge dst_node_id="5" dst_node_input="input" src_node_id="2" src_node_output="data" />
+	<Edge dst_node_id="6" dst_node_input="input" src_node_id="2" src_node_output="data" />
+	<Edge dst_node_id="7" dst_node_input="input" src_node_id="2" src_node_output="data" />
+	<Edge dst_node_id="8" dst_node_input="input" src_node_id="2" src_node_output="data" />
+	<Node group="[]" id="3" pipelineFactor="1.0" type="NodeStreamOffset">
+		<Input name="input" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Output latency="1" name="output" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Text>stream offset: 1</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:26)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="10" dst_node_input="b" src_node_id="3" src_node_output="output" />
+	<Node group="[]" id="10" pipelineFactor="1.0" type="NodeAdd">
+		<Input name="a" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Input name="b" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Output latency="1" name="result" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Text>+</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:43)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="11" dst_node_input="a" src_node_id="10" src_node_output="result" />
+	<Node group="[]" id="4" pipelineFactor="1.0" type="NodeStreamOffset">
+		<Input name="input" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Output latency="-1" name="output" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Text>stream offset: -1</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:28)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="11" dst_node_input="b" src_node_id="4" src_node_output="output" />
+	<Node group="[]" id="11" pipelineFactor="1.0" type="NodeAdd">
+		<Input name="a" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Input name="b" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Output latency="1" name="result" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Text>+</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:43)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="12" dst_node_input="a" src_node_id="11" src_node_output="result" />
+	<Node group="[]" id="5" pipelineFactor="1.0" type="NodeStreamOffset">
+		<Input name="input" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Output latency="ny{1..10}" name="output" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Text>stream offset: ny{1..10}</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:31)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="12" dst_node_input="b" src_node_id="5" src_node_output="output" />
+	<Node group="[]" id="12" pipelineFactor="1.0" type="NodeAdd">
+		<Input name="a" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Input name="b" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Output latency="1" name="result" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Text>+</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:43)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="13" dst_node_input="a" src_node_id="12" src_node_output="result" />
+	<Node group="[]" id="6" pipelineFactor="1.0" type="NodeStreamOffset">
+		<Input name="input" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Output latency="-ny{1..10}" name="output" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Text>stream offset: -ny{1..10}</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:33)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="13" dst_node_input="b" src_node_id="6" src_node_output="output" />
+	<Node group="[]" id="13" pipelineFactor="1.0" type="NodeAdd">
+		<Input name="a" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Input name="b" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Output latency="1" name="result" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Text>+</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:43)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="14" dst_node_input="a" src_node_id="13" src_node_output="result" />
+	<Node group="[]" id="7" pipelineFactor="1.0" type="NodeStreamOffset">
+		<Input name="input" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Output latency="nzy{ny{1..10}..10ny{1..10}}" name="output" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Text>stream offset: nzy{ny{1..10}..10ny{1..10}}</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:36)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="14" dst_node_input="b" src_node_id="7" src_node_output="output" />
+	<Node group="[]" id="14" pipelineFactor="1.0" type="NodeAdd">
+		<Input name="a" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Input name="b" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Output latency="1" name="result" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Text>+</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:43)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="15" dst_node_input="a" src_node_id="14" src_node_output="result" />
+	<Node group="[]" id="8" pipelineFactor="1.0" type="NodeStreamOffset">
+		<Input name="input" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Output latency="-nzy{ny{1..10}..10ny{1..10}}" name="output" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Text>stream offset: -nzy{ny{1..10}..10ny{1..10}}</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:38)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="15" dst_node_input="b" src_node_id="8" src_node_output="output" />
+	<Node group="[]" id="15" pipelineFactor="1.0" type="NodeAdd">
+		<Input name="a" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Input name="b" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Output latency="1" name="result" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Text>+</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:43)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="23" dst_node_input="data" src_node_id="15" src_node_output="result" />
+	<Node group="[]" id="23" pipelineFactor="1.0" type="NodeOutput">
+		<Input name="output_control" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Input name="data" type="hwOffsetFix(32, 0, UNSIGNED)" />
+		<Text>Output(strout)</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.&lt;init&gt;(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)</OriginStackTrace>
+		<Name>strout</Name>
+	</Node>
+	<Node group="[]" id="27" pipelineFactor="1.0" type="NodeConstantRawBits">
+		<Output latency="0" name="value" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Text>{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)</OriginStackTrace>
+		<Value>1</Value>
+	</Node>
+	<Edge dst_node_id="28" dst_node_input="load" src_node_id="27" src_node_output="value" />
+	<Node group="[]" id="24" pipelineFactor="1.0" type="NodeConstantDouble">
+		<Output latency="0" name="value" type="hwUntypedConst()" />
+		<Text>1.0</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)</OriginStackTrace>
+		<Value>1.0</Value>
+	</Node>
+	<Edge dst_node_id="26" dst_node_input="enable" src_node_id="24" src_node_output="value" />
+	<Node group="[]" id="25" pipelineFactor="1.0" type="NodeConstantRawBits">
+		<Output latency="0" name="value" type="hwOffsetFix(49, 0, UNSIGNED)" />
+		<Text>{HWOffsetFix:49, 0, UNSIGNED}\n0x1000000000000; 2.81474976710656E14</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)</OriginStackTrace>
+		<Value>1000000000000000000000000000000000000000000000000</Value>
+	</Node>
+	<Edge dst_node_id="26" dst_node_input="max" src_node_id="25" src_node_output="value" />
+	<Node group="[]" id="26" pipelineFactor="1.0" type="NodeCounterV1">
+		<Input name="enable" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Input name="max" type="hwOffsetFix(49, 0, UNSIGNED)" />
+		<Output latency="0" name="count" type="hwOffsetFix(48, 0, UNSIGNED)" />
+		<Output latency="0" name="wrap" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Text>Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)</OriginStackTrace>
+		<Increment>1</Increment>
+		<WrapValue>0</WrapValue>
+		<InitValue>0</InitValue>
+		<CountMode>NUMERIC_INCREMENTING</CountMode>
+		<WrapMode>COUNT_LT_MAX_THEN_WRAP</WrapMode>
+	</Node>
+	<Edge dst_node_id="31" dst_node_input="a" src_node_id="26" src_node_output="count" />
+	<Edge dst_node_id="28" dst_node_input="data" src_node_id="26" src_node_output="count" />
+	<Node group="[]" id="28" pipelineFactor="1.0" type="NodeOutputMappedReg">
+		<Input name="load" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Input name="data" type="hwOffsetFix(48, 0, UNSIGNED)" />
+		<Text>Scalar output (current_run_cycle_count)</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)</OriginStackTrace>
+		<Name>current_run_cycle_count</Name>
+	</Node>
+	<Node group="[]" id="30" pipelineFactor="1.0" type="NodeInputMappedReg">
+		<Output latency="0" name="run_cycle_count" type="hwOffsetFix(48, 0, UNSIGNED)" />
+		<Text>Scalar input (run_cycle_count)</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)</OriginStackTrace>
+		<Name>run_cycle_count</Name>
+	</Node>
+	<Edge dst_node_id="31" dst_node_input="b" src_node_id="30" src_node_output="run_cycle_count" />
+	<Node group="[]" id="31" pipelineFactor="1.0" type="NodeEq">
+		<Input name="a" type="hwOffsetFix(48, 0, UNSIGNED)" />
+		<Input name="b" type="hwOffsetFix(48, 0, UNSIGNED)" />
+		<Output latency="1" name="result" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Text>==</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)</OriginStackTrace>
+	</Node>
+	<Edge dst_node_id="29" dst_node_input="start" src_node_id="31" src_node_output="result" />
+	<Node group="[]" id="29" pipelineFactor="1.0" type="NodeFlush">
+		<Input name="start" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Text>flush on trigger</Text>
+		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)</OriginStackTrace>
+	</Node>
+</Graph>

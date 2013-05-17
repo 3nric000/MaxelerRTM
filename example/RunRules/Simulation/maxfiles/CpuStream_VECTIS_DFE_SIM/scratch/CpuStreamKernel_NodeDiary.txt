@@ -1,0 +1,492 @@
+NodeID     : 0
+Node       : Scalar input (io_str_force_disabled)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:14)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NodeID     : 1
+Node       : ~
+Node type  : NodeNot
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:14)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NodeID     : 2
+Node       : Input(str)
+Node type  : NodeInput
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:14)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NodeID     : 3
+Node       : stream offset: 1
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:26)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NodeID     : 4
+Node       : stream offset: -1
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:28)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NodeID     : 5
+Node       : stream offset: ny{1..10}
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:31)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NodeID     : 6
+Node       : stream offset: -ny{1..10}
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:33)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NodeID     : 7
+Node       : stream offset: nzy{ny{1..10}..10ny{1..10}}
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:36)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NodeID     : 8
+Node       : stream offset: -nzy{ny{1..10}..10ny{1..10}}
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:259)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:38)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 9
+Node       : {HWOffsetFix:32, 0, UNSIGNED}\n0x00000000; 0.0
+Node type  : NodeConstantRawBits
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Constant.var(Constant.java:99)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:41)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 10
+Node       : +
+Node type  : NodeAdd
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:43)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 11
+Node       : +
+Node type  : NodeAdd
+Removed by : [TriAddExtractionPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:43)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+Led to:
+  NodeID     : 33
+  Node       : 3 +
+  Node type  : NodeTriAdd
+  Creator    : TriAddExtractionPass
+
+  NodeID     : 34
+  Node       : 3 +
+  Node type  : NodeTriAdd
+  Creator    : TriAddExtractionPass
+
+  NodeID     : 35
+  Node       : +
+  Node type  : NodeAdd
+  Creator    : TriAddExtractionPass
+
+------------
+NODE WAS REMOVED!
+NodeID     : 12
+Node       : +
+Node type  : NodeAdd
+Removed by : [TriAddExtractionPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:43)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 13
+Node       : +
+Node type  : NodeAdd
+Removed by : [TriAddExtractionPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:43)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 14
+Node       : +
+Node type  : NodeAdd
+Removed by : [TriAddExtractionPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:43)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 15
+Node       : +
+Node type  : NodeAdd
+Removed by : [TriAddExtractionPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:43)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 16
+Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
+Node type  : NodeConstantRawBits
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NodeID     : 17
+Node       : Scalar input (io_strout_force_disabled)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NodeID     : 18
+Node       : ~
+Node type  : NodeNot
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 19
+Node       : &
+Node type  : NodeAnd
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 20
+Node       : <{HWRawBits:1}>
+Node type  : NodeReinterpret
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+Led to:
+  NODE WAS REMOVED!
+  NodeID     : 32
+  Node       : {HWRawBits:1}\n0x1
+  Node type  : NodeConstantRawBits
+  Removed by : [OptimiseNodesPass]
+  Creator    : FoldConstantsPass
+
+------------
+NodeID     : 21
+Node       : <{HWRawBits:1}>
+Node type  : NodeReinterpret
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NodeID     : 22
+Node       : <{HWOffsetFix:1, 0, UNSIGNED}>
+Node type  : NodeReinterpret
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NodeID     : 23
+Node       : Output(strout)
+Node type  : NodeOutput
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpustream.CpuStreamKernel.<init>(CpuStreamKernel.maxj:48)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:13)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 24
+Node       : 1.0
+Node type  : NodeConstantDouble
+Removed by : [RemoveUntypedConstants]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)
+
+Led to:
+  NodeID     : 55
+  Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
+  Node type  : NodeConstantRawBits
+  Creator    : RemoveUntypedConstants
+
+------------
+NodeID     : 25
+Node       : {HWOffsetFix:49, 0, UNSIGNED}\n0x1000000000000; 2.81474976710656E14
+Node type  : NodeConstantRawBits
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)
+
+------------
+NodeID     : 26
+Node       : Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0
+Node type  : NodeCounterV1
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)
+
+------------
+NodeID     : 27
+Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
+Node type  : NodeConstantRawBits
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)
+
+------------
+NodeID     : 28
+Node       : Scalar output (current_run_cycle_count)
+Node type  : NodeOutputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)
+
+------------
+NodeID     : 29
+Node       : flush on trigger
+Node type  : NodeFlush
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)
+
+------------
+NodeID     : 30
+Node       : Scalar input (run_cycle_count)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)
+
+------------
+NodeID     : 31
+Node       : ==
+Node type  : NodeEq
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpustream.CpuStreamManager.main(CpuStreamManager.maxj:17)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 36
+Node       : FIFO(ny{1..10} + nzy{ny{1..10}..10ny{1..10}})
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 37
+Node       : FIFO(ny{1..10} + nzy{ny{1..10}..10ny{1..10}})
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 38
+Node       : FIFO(nzy{ny{1..10}..10ny{1..10}})
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 39
+Node       : FIFO(ny{1..10} + nzy{ny{1..10}..10ny{1..10}})
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NodeID     : 40
+Node       : FIFO(ny{1..10})
+Node type  : NodeFIFO
+Creator    : ScheduleApplier
+------------
+NodeID     : 41
+Node       : FIFO(ny{1..10})
+Node type  : NodeFIFO
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 42
+Node       : FIFO(ny{1..10} + nzy{ny{1..10}..10ny{1..10}})
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 43
+Node       : FIFO(nzy{ny{1..10}..10ny{1..10}})
+Node type  : NodeFIFO
+Removed by : [ValidateFIFOs]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 48
+Node       : FIFO(2)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NodeID     : 49
+Node       : FIFO(1)
+Node type  : NodeFIFO
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 50
+Node       : FIFO(2)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NodeID     : 51
+Node       : FIFO(5)
+Node type  : NodeFIFO
+Creator    : ScheduleApplier
+------------
+NodeID     : 52
+Node       : FIFO(1)
+Node type  : NodeFIFO
+Creator    : ScheduleApplier
+------------
+NodeID     : 53
+Node       : FIFO(4)
+Node type  : NodeFIFO
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 44
+Node       : FIFO(nzy{ny{1..10}..10ny{1..10}} - ny{1..10})
+Node type  : NodeFIFO
+Removed by : [ValidateFIFOs]
+Creator    : TapFIFOsPass
+------------
+NodeID     : 45
+Node       : FIFO(ny{1..10})
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 54
+Node       : FIFO(1)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 46
+Node       : FIFO(3 + nzy{ny{1..10}..10ny{1..10}} - ny{1..10})
+Node type  : NodeFIFO
+Creator    : ValidateFIFOs
+------------
+NodeID     : 47
+Node       : FIFO(2 + nzy{ny{1..10}..10ny{1..10}})
+Node type  : NodeFIFO
+Creator    : ValidateFIFOs
+------------
+NodeID     : 56
+Node       : Scalar input (delay_eq_0)
+Node type  : NodeInputMappedReg
+Creator    : VariableSizeMappedRegInserter
+------------
+NodeID     : 57
+Node       : Scalar input (delay_eq_1)
+Node type  : NodeInputMappedReg
+Creator    : VariableSizeMappedRegInserter
+------------
+NodeID     : 58
+Node       : Scalar input (delay_eq_2)
+Node type  : NodeInputMappedReg
+Creator    : VariableSizeMappedRegInserter
+------------
