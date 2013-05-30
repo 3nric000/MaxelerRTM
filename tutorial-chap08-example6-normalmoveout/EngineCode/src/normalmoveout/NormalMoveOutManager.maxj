@@ -1,0 +1,28 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 8      Example: 6      Name: Normal move-out
+ * MaxFile name: NormalMoveOut
+ * Summary:
+ * 	 The manager for the simple Normal Move-Out kernel.
+ */
+package normalmoveout;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager.IOType;
+
+class NormalMoveOutManager {
+
+	private static final int maxTraceSize = 2048;
+
+	public static void main(String[] args) {
+		EngineParameters params = new EngineParameters(args);
+		Manager manager = new Manager(params);
+		Kernel kernel = new NormalMoveOutKernel(manager.makeKernelParameters(), maxTraceSize);
+		manager.setKernel(kernel);
+		manager.setIO(IOType.ALL_CPU);
+		manager.createSLiCinterface();
+		manager.build();
+	}
+}

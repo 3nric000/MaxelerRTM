@@ -1,0 +1,34 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial)
+ * Chapter: 8      Example: 7      Name: Stream Hold
+ * MaxFile name: StreamHold
+ * Summary:
+ *     Kernel that uses a stream hold to keep the maximum
+ *     value from a stream.
+ */
+
+package streamhold;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.Reductions;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class StreamHoldKernel extends Kernel {
+
+	StreamHoldKernel(KernelParameters parameters, int counterWidth) {
+		super(parameters);
+
+		// Input
+		DFEVar inStream = io.input("inStream", dfeUInt(32));
+		DFEVar holdCount = io.scalarInput("holdCount", dfeUInt(counterWidth));
+
+		// Offsets and Calculation
+		DFEVar count = control.count.simpleCounter(counterWidth);
+		DFEVar result = Reductions.streamHold(inStream, count < holdCount);
+
+		// Output
+		io.output("outStream", result, dfeUInt(32));
+	}
+}
+

@@ -2,4 +2,4 @@
 # This file is managed by MaxIDE. Do NOT change.
 #
 HEADERS:= includes/cpu_constructors.h includes/cpu_simulation.h 
-SOURCES:= src/cpu_constructors.c src/cpu_main.c src/cpu_simulation.c 
+SOURCES:= src/MemStreamCpuCode.c src/cpu_constructors.c src/cpu_main.c src/cpu_simulation.c 

@@ -1,0 +1,45 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 8      Example: 3      Name: Two-dimensional average variable
+ * MaxFile name: TwoDAverageVariable
+ * Summary:
+ *      Kernel that averages within an 8-point window.
+ */
+
+package twodaveragevariable;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.OffsetExpr;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class TwoDAverageVariableKernel extends Kernel {
+
+	public TwoDAverageVariableKernel(KernelParameters parameters, int nxMax) {
+		super(parameters);
+
+		// Input
+		DFEVar inStream = io.input("inStream", dfeFloat(8, 24));
+
+		OffsetExpr nx = stream.makeOffsetParam("nx", 3, nxMax);
+
+		// Extract 8 point window around current point
+		DFEVar window[] = new DFEVar[9];
+		int i = 0;
+		for (int x=-1; x<=1; x++)
+			for (int y=-1; y<=1; y++)
+				window[i++] = stream.offset(inStream, y*nx+x);
+
+		// Sum points in window and divide by 9 to average
+		DFEVar sum = constant.var(dfeFloat(8, 24), 0);
+		for (DFEVar dfeVar : window) {
+			sum = sum + dfeVar;
+		}
+
+		DFEVar result = sum / 9;
+
+		//Output
+		io.output("outStream", result, dfeFloat(8, 24));
+	}
+
+}

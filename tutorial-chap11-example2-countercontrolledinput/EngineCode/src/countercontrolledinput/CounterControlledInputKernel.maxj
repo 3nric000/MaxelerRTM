@@ -1,0 +1,34 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 11      Example: 2      Name: Counter Controlled Input
+ * MaxFile name: CounterControlledInput
+ * Summary:
+ *      Kernel design that uses a counter to control one of its inputs.
+ */
+
+package countercontrolledinput;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+public class CounterControlledInputKernel extends Kernel {
+	public CounterControlledInputKernel(KernelParameters parameters) {
+		super(parameters);
+
+		// Control Counter
+		DFEVar readLimit = io.scalarInput("readCount", dfeUInt(32));
+		DFEVar count = control.count.simpleCounter(32);
+		DFEVar read = count < readLimit;
+
+		// Inputs
+		DFEVar b = io.input("b", dfeUInt(32), read);
+		DFEVar a = io.input("a", dfeUInt(32));
+
+		// Logic
+		DFEVar result = a + (read ? b : 0);
+
+		// Outputs
+		io.output("y", result, dfeUInt(32));
+	}
+}

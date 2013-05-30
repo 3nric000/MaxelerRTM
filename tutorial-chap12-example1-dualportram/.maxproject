@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="tutorial-chap12-example1-dualportram_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/tutorial-chap12-example1-dualportram_EngineCode/bin" projectName="tutorial-chap12-example1-dualportram"/>
+<cpuPart internalCpuSubproject="tutorial-chap12-example1-dualportram_CPUCode"/>
+<watchedFiles/>
+</maxCompilerManager>

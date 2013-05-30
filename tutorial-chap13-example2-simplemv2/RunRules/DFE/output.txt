@@ -1,0 +1,18 @@
+Maxeler Error #29 - System call 'read(stream->fd, (void *)(unsigned long)scmd->sbuf.pointer, scmd->sbuf.length)' failed with 'Timer expired'
+Maxeler Error #60 - Stream To Host 0: failed to DMA with: address: 0x5d3ec60, length: 40000 bytes, fd: 10
+Maxeler Error #51 - Stream To Host 0: failed on dma queue eval
+Maxeler Error #54 - Stream To Host 0: PCIe DMA Stream Sync failed.
+Maxeler Error #54 - commit_sync(): maxos_hal_stream_sync() failed
+SLiC Error #523 @ engine_standard_internal.c:90 - Execution failed
+SLiC Error #518 @ engine.c:44 - Error reported from function "max_run".
+
+---
+Timeout while waiting for a stream to finish.
+Consult MaxDebug for more information about the status of your design.
+MaxDebug can for example be used to check that no kernels are waiting for
+data from inputs.  Alternatively, the value of timeouts can be altered by
+way of the default_pcie_timeout variable of SLIC_CONF.
+
+/bin/bash: line 1: 28226 Aborted
+make[1]: *** [run] Error 134
+make: *** [run] Error 2

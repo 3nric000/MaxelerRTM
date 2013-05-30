@@ -1,0 +1,38 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 9       Example: 2      Name: Simple two-dimensional counter
+ * MaxFile Name: Simple2DCounter
+ * Summary:
+ *        Kernel that constructs a chained counter and outputs its
+ *   values every cycle.
+ */
+
+package simple2dcounter;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.CounterChain;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class Simple2DCounterKernel extends Kernel {
+
+	Simple2DCounterKernel(KernelParameters parameters, int maxI, int maxJ) {
+		super(parameters);
+
+		// Inputs
+		DFEVar passThrough = io.input("input", dfeUInt(32));
+
+		// Create Counters
+		CounterChain chain = control.count.makeCounterChain();
+		DFEVar i = chain.addCounter(maxI, 2);
+		DFEVar j = chain.addCounter(maxJ, 1);
+
+		i = i.cast(dfeUInt(32));
+		j = j.cast(dfeUInt(32));
+
+		// Outputs
+		io.output("i", i, i.getType());
+		io.output("j", j, j.getType());
+		io.output("output", passThrough, passThrough.getType());
+	}
+}

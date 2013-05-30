@@ -1,0 +1,55 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 14      Example: 2      Name: LMem Loopback
+ * MaxFile name: LMemLoopback
+ * Summary:
+ *       Connects the Kernel's input/output streams to LMem. Also creates one
+ *  input and one output stream for accessing the LMem directly from the CPU
+ *  software.
+ */
+package lmemloopback;
+
+import static com.maxeler.maxcompiler.v2.managers.standard.Manager.link;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.CPUTypes;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.EngineInterface;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.EngineInterface.Direction;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.InterfaceParam;
+import com.maxeler.maxcompiler.v2.managers.standard.IOLink.IODestination;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager;
+
+class LMemLoopbackManager {
+
+	private static final CPUTypes TYPE = CPUTypes.INT32;
+
+	public static void main(String[] args) {
+		Manager m = new Manager(new EngineParameters(args));
+		Kernel k = new LMemLoopbackKernel(m.makeKernelParameters());
+		m.setKernel(k);
+
+		m.setIO(link("inA", IODestination.LMEM_LINEAR_1D),
+				link("inB", IODestination.LMEM_LINEAR_1D),
+				link("oData", IODestination.LMEM_LINEAR_1D));
+
+		m.createSLiCinterface(interfaceDefault());
+		m.build();
+	}
+
+	private static EngineInterface interfaceDefault() {
+		EngineInterface ei = new EngineInterface();
+
+		InterfaceParam N    = ei.addParam("N", TYPE);
+		InterfaceParam zero = ei.addConstant(0l);
+		ei.setTicks("LMemLoopbackKernel", N);
+		InterfaceParam sizeInBytes = N * TYPE.sizeInBytes();
+
+		ei.setLMemLinear("inA", zero, sizeInBytes);
+		ei.setLMemLinear("inB", sizeInBytes, sizeInBytes);
+		ei.setLMemLinear("oData", 2 * sizeInBytes, sizeInBytes);
+		ei.ignoreAll(Direction.IN_OUT);
+		return ei;
+	}
+
+}

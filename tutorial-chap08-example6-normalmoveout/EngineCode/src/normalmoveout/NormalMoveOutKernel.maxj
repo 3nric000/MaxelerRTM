@@ -1,0 +1,45 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 8      Example: 6      Name: Normal move-out
+ * MaxFile name: NormalMoveOut
+ * Summary:
+ * 	 A kernel for a simple Normal Move-Out application using dynamic offsets
+ */
+package normalmoveout;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.KernelMath;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class NormalMoveOutKernel extends Kernel {
+
+	NormalMoveOutKernel(KernelParameters parameters, int maxTraceSize) {
+		super(parameters);
+
+		// Inputs
+		DFEVar inStream = io.input("inStream", dfeFloat(8,24));
+		DFEVar moveByInTime = io.input("moveByInTime", dfeFloat(8, 24));
+		DFEVar timeUnit = io.scalarInput("timeUnit", dfeFloat(8,24));
+
+		// Calculate position of two points to extract from input stream
+		DFEVar moveByInUnits = moveByInTime/timeUnit;
+
+		// Convert to an integer, rounding down using a 'floor' function
+		// which also converts the type from floating-point to a 16-bit integer
+
+		DFEVar lowerPointPos = KernelMath.floor(moveByInUnits, dfeInt(16));
+		DFEVar upperPointPos = lowerPointPos + 1;
+		DFEVar interp = moveByInUnits - lowerPointPos.cast(dfeFloat(8,24));
+
+		// Extract points from input stream
+		DFEVar pointLower = stream.offset(inStream, lowerPointPos, -maxTraceSize, maxTraceSize);
+		DFEVar pointUpper = stream.offset(inStream, upperPointPos, -maxTraceSize, maxTraceSize);
+
+		// Interpolate between points to create output
+		DFEVar result = interp * pointLower + (1-interp) * pointUpper;
+
+		// Output
+		io.output("outStream", result, dfeFloat(8, 24));
+	}
+}

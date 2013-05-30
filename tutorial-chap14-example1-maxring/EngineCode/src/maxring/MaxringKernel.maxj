@@ -1,0 +1,29 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 14      Example: 1      Name: Maxring
+ * MaxFile name: Maxring
+ * Summary:
+ *       Kernel design that takes a scalar input to select whether
+ *   it should behave as the left or right DFE.
+ */
+
+package maxring;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class MaxringKernel extends Kernel {
+
+	MaxringKernel(KernelParameters parameters) {
+		super(parameters);
+
+		DFEVar isLeft = io.scalarInput("isLeft", dfeBool());
+
+		DFEVar inA = io.input("inA", dfeUInt(32), isLeft);
+		DFEVar inB = io.input("inB", dfeUInt(32), ~isLeft);
+
+		io.output("outA", inA, dfeUInt(32), isLeft);
+		io.output("outB", inB, dfeUInt(32), ~isLeft);
+	}
+}

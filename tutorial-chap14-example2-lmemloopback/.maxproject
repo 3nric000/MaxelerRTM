@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="tutorial-chap14-example2-lmemloopback_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/tutorial-chap14-example2-lmemloopback_EngineCode/bin" projectName="tutorial-chap14-example2-lmemloopback"/>
+<cpuPart internalCpuSubproject="tutorial-chap14-example2-lmemloopback_CPUCode"/>
+<watchedFiles/>
+</maxCompilerManager>

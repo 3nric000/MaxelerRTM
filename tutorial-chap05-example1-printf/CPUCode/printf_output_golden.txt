@@ -1,0 +1,8 @@
+Tick: 0  [In boundary (withinBounds = 0)]  Result: 3
+Tick: 1  Result: 4
+Tick: 2  Result: 6
+Tick: 3  Result: 5
+Tick: 4  Result: 3
+Tick: 5  Result: 1
+Tick: 6  Result: 4
+Tick: 7  [In boundary (withinBounds = 0)]  Result: 6

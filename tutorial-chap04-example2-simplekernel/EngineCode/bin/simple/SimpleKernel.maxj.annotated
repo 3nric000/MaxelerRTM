@@ -1,0 +1,25 @@
+    LUTs     FFs   BRAMs    DSPs : SimpleKernel.java
+     540     719     0.0       2 : resources used by this file
+   0.18%   0.12%   0.00%   0.10% : % of available
+   6.98%   7.14%   0.00% 100.00% : % of total used
+  62.79%  59.62%   0.00% 100.00% : % of user resources
+
+                                 : package chap04_gettingstarted.ex2_simple;
+                                 : 
+                                 : import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+                                 : import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+                                 : import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+                                 : 
+                                 : public class SimpleKernel extends Kernel {
+                                 : 	public SimpleKernel(KernelParameters parameters) {
+                                 : 		super(parameters);
+                                 : 
+                                 : 		// Input
+       2      33     0.0       0 : 		DFEVar x = io.input("x", dfeFloat(8, 24));
+                                 : 
+     538     686     0.0       2 : 		DFEVar result = x*x + x;
+                                 : 
+                                 : 		// Output
+                                 : 		io.output("y", result, dfeFloat(8, 24));
+                                 : 	}
+                                 : }

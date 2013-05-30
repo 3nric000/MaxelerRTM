@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="tutorial-chap13-example3-simplemv3_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/tutorial-chap13-example3-simplemv3_EngineCode/bin" projectName="tutorial-chap13-example3-simplemv3"/>
+<cpuPart internalCpuSubproject="tutorial-chap13-example3-simplemv3_CPUCode"/>
+</maxCompilerManager>

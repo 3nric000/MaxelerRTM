@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="tutorial-chap06-example1-typecast_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/tutorial-chap06-example1-typecast_EngineCode/bin" projectName="tutorial-chap06-example1-typecast"/>
+<cpuPart internalCpuSubproject="tutorial-chap06-example1-typecast_CPUCode"/>
+</maxCompilerManager>

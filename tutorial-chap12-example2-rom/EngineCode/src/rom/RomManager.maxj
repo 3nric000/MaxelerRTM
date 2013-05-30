@@ -1,0 +1,23 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 12      Example: 2      Name: Rom Manager
+ * MaxFile name: Rom
+ * Summary:
+ *       Manager for a single port ROM kernel design.
+ *   All IO is between the CPU and the DFE.
+ */
+package rom;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager.IOType;
+
+class RomManager {
+	public static void main(String[] args) {
+		Manager m = new Manager(new EngineParameters(args));
+		m.setKernel(new RomKernel( m.makeKernelParameters()));
+		m.setIO(IOType.ALL_CPU);
+		m.createSLiCinterface();
+		m.build();
+	}
+}

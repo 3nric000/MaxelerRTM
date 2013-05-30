@@ -1,0 +1,46 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 3
+ * Example: 2
+ * Summary:
+ *       Computes a three point moving average using zero at boundaries.
+ */
+package movingaverage;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class MovingAverageKernel extends Kernel {
+
+	MovingAverageKernel(KernelParameters parameters) {
+		super(parameters);
+
+		// Input
+		DFEVar x = io.input("x", dfeFloat(8, 24));
+
+		DFEVar size = io.scalarInput("size", dfeUInt(32));
+
+		// Data
+		DFEVar prevOriginal = stream.offset(x, -1);
+		DFEVar nextOriginal = stream.offset(x, 1);
+
+		// Control
+		DFEVar count = control.count.simpleCounter(32, size);
+
+		DFEVar aboveLowerBound = count > 0;
+		DFEVar belowUpperBound = count < size - 1;
+
+		DFEVar withinBounds = aboveLowerBound & belowUpperBound;
+
+		DFEVar prev = aboveLowerBound ? prevOriginal : 0;
+		DFEVar next = belowUpperBound ? nextOriginal : 0;
+
+		DFEVar divisor = withinBounds ? constant.var(dfeFloat(8, 24), 3) : 2;
+
+		DFEVar sum = prev + x + next;
+		DFEVar result = sum / divisor;
+
+		io.output("y", result, dfeFloat(8, 24));
+	}
+}

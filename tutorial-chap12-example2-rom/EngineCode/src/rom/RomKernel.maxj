@@ -1,0 +1,38 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 12      Example: 2      Name: Rom Kernel
+ * MaxFile name: Rom
+ * Summary:
+ *       Kernel design that demonstrates the use of a single port ROM.
+ */
+
+package rom;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.memory.Memory;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class RomKernel extends Kernel {
+	RomKernel(KernelParameters parameters) {
+		super(parameters);
+
+		final int addrBits = 8;
+		final int dataSize = (int)Math.pow(2, addrBits);
+
+		// Input
+		DFEVar address = io.input("address", dfeUInt(addrBits));
+
+		double contents[] = new double[dataSize];
+		for (int i = 0; i < dataSize; i++)
+			contents[i] = Math.sin(((Math.PI/2.0)/dataSize)*i);
+
+		Memory<DFEVar> table = mem.alloc(dfeFloat(8,24), dataSize);
+		table.setContents(contents);
+
+		DFEVar result = table.read( address );
+
+		// Output
+		io.output("output", result, dfeFloat(8, 24));
+	}
+}

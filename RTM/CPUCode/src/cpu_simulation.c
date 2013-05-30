@@ -1,52 +1,54 @@
 /*
-* Cpu_simulation file is part of the RTM project
-* This file contains the functions required to steer the execution on the cpu
-* This file contains the optimized RTM algorithm
-* 1st pass - collects receiver data
-* 2nd pass - propagates source forward using a wavefield with random borders
-* 3rd pass - propagates receiver and source backwards and correlates both
-* @author f.pratas
-*/
+ * Cpu_simulation file is part of the RTM project
+ * This file contains the functions required to steer the execution on the cpu
+ * This file contains the optimized RTM algorithm
+ * 1st pass - collects receiver data
+ * 2nd pass - propagates source forward using a wavefield with random borders
+ * 3rd pass - propagates receiver and source backwards and correlates both
+ * @author f.pratas
+ */
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
 #include <omp.h>
 #include "cpu_constructors.h"
+#include "Maxfiles.h"
+#include "MaxSLiCInterface.h"
 
 //--------------------------------------------------------------
 // Construct 10th order space stencil
 //--------------------------------------------------------------
-void construct_stencil(){
+void construct_stencil() {
 
-	float sm=0.;
+	float sm = 0.;
 	int i;
 
-	float d=dt;
-	c_3[0]=1.66666666f*d*d/(d3*d3);
-	c_2[0]=1.66666666f*d*d/(d2*d2);
-	c_1[0]=1.66666666f*d*d/(d1*d1);
+	float d = dt;
+	c_3[0] = 1.66666666f * d * d / (d3 * d3);
+	c_2[0] = 1.66666666f * d * d / (d2 * d2);
+	c_1[0] = 1.66666666f * d * d / (d1 * d1);
 
-	c_3[1]=-.23809523f*d*d/(d3*d3);
-	c_2[1]=-.23809523f*d*d/(d2*d2);
-	c_1[1]=-.23809523f*d*d/(d1*d1);
+	c_3[1] = -.23809523f * d * d / (d3 * d3);
+	c_2[1] = -.23809523f * d * d / (d2 * d2);
+	c_1[1] = -.23809523f * d * d / (d1 * d1);
 
-	c_3[2]=.03968253f*d*d/(d3*d3);
-	c_2[2]=.03968253f*d*d/(d2*d2);
-	c_1[2]=.03968253f*d*d/(d1*d1);
+	c_3[2] = .03968253f * d * d / (d3 * d3);
+	c_2[2] = .03968253f * d * d / (d2 * d2);
+	c_1[2] = .03968253f * d * d / (d1 * d1);
 
-	c_3[3]=-0.00496031f*d*d/(d3*d3);
-	c_2[3]=-0.00496031f*d*d/(d2*d2);
-	c_1[3]=-0.00496031f*d*d/(d1*d1);
+	c_3[3] = -0.00496031f * d * d / (d3 * d3);
+	c_2[3] = -0.00496031f * d * d / (d2 * d2);
+	c_1[3] = -0.00496031f * d * d / (d1 * d1);
 
-	c_3[4]=0.00031746f*d*d/(d3*d3);
-	c_2[4]=0.00031746f*d*d/(d2*d2);
-	c_1[4]=0.00031746f*d*d/(d1*d1);
+	c_3[4] = 0.00031746f * d * d / (d3 * d3);
+	c_2[4] = 0.00031746f * d * d / (d2 * d2);
+	c_1[4] = 0.00031746f * d * d / (d1 * d1);
 
-	for(i=0; i < 5; i++){
-		sm+=c_1[i]+c_2[i]+c_3[i];
+	for (i = 0; i < 5; i++) {
+		sm += c_1[i] + c_2[i] + c_3[i];
 	}
-	c_0=-2.0f*sm;  //Zero lag stencil
+	c_0 = -2.0f * sm; //Zero lag stencil
 
 #ifdef DEBUG
 	fprintf(stderr,"FINISHED CONSTRUCTING STENCIL\n");
@@ -63,133 +65,262 @@ void construct_stencil(){
  * pp - previous and next wavefield
  * dvv - density (1) * velocity *velocity
  */
-void do_step_damping(float *__restrict p, float *__restrict pp, float *__restrict dvv, float *__restrict source_container){
+void do_step_damping(float *__restrict p, float *__restrict pp,
+		float *__restrict dvv, float *__restrict source_container) {
 	int i3;
-	int n12=n1*n2;
+	int n12 = n1 * n2;
 
-// #pragma omp parallel for
-	for(i3=ORDER; i3 < n3-ORDER; i3++){   //Loop over slowest axis
+	// #pragma omp parallel for
+	for (i3 = ORDER; i3 < n3 - ORDER; i3++) { //Loop over slowest axis
 		int i1;
 		int i2;
 		float f1;//Distance from the boundary
 		float f2;
 		float f3;
 
-		if(i3 < SPONGE_WIDTH) f3=SPONGE_WIDTH-i3;  //Inside neg boundary
-		else if(i3 >= n3-SPONGE_WIDTH)  f3=i3-(n3-SPONGE_WIDTH)+1; //Inside pos boundary
-		else f3=0; // Not in boundary region
-		f3=f3*f3;  //Distance in boundary
+		if (i3 < SPONGE_WIDTH)
+			f3 = SPONGE_WIDTH - i3; //Inside neg boundary
+		else if (i3 >= n3 - SPONGE_WIDTH)
+			f3 = i3 - (n3 - SPONGE_WIDTH) + 1; //Inside pos boundary
+		else
+			f3 = 0; // Not in boundary region
+		f3 = f3 * f3; //Distance in boundary
 
-		for(i2=ORDER; i2 < n2-ORDER; i2++){ //Loop over middle axis
-			if(i2 < SPONGE_WIDTH) f2=SPONGE_WIDTH-i2;  // Inside neg boundary
-			else if(i2 >= n2-SPONGE_WIDTH)  f2=i2-(n2-SPONGE_WIDTH)+1;  //Inside pos boundary
-			else f2=0; //Not in boundary
-			f2=f2*f2;  //Distance in boundary
+		for (i2 = ORDER; i2 < n2 - ORDER; i2++) { //Loop over middle axis
+			if (i2 < SPONGE_WIDTH)
+				f2 = SPONGE_WIDTH - i2; // Inside neg boundary
+			else if (i2 >= n2 - SPONGE_WIDTH)
+				f2 = i2 - (n2 - SPONGE_WIDTH) + 1; //Inside pos boundary
+			else
+				f2 = 0; //Not in boundary
+			f2 = f2 * f2; //Distance in boundary
 
-			for(i1=ORDER; i1< n1-ORDER; i1++){  //Loop over fast axis
+			for (i1 = ORDER; i1 < n1m - ORDER; i1++) { //Loop over fast axis
 				int is;
 				float scale;
 
-				if(i1 < BOUND_T) f1=(BOUND_T-i1); //Inside neg boundary
-				else if(i1 >= n1-SPONGE_WIDTH)  f1=(i1-(n1-SPONGE_WIDTH)+1);//Inside pos bound
-				else f1=0;  // Not in boundary
-				f1=f1*f1;   //Distance in boundary
+				if (i1 < BOUND_T)
+					f1 = (BOUND_T - i1); //Inside neg boundary
+				else if (i1 >= n1m - SPONGE_WIDTH)
+					f1 = (i1 - (n1m - SPONGE_WIDTH) + 1);//Inside pos bound
+				else
+					f1 = 0; // Not in boundary
+				f1 = f1 * f1; //Distance in boundary
 
-				is=(int)(sqrtf(f1+f2+f3));  //Distance from edge
-				if(is>SPONGE_WIDTH) is=SPONGE_WIDTH;  //Don't go outside computed boundary region
+				is = (int) (sqrtf(f1 + f2 + f3)); //Distance from edge
+				if (is > SPONGE_WIDTH)
+					is = SPONGE_WIDTH; //Don't go outside computed boundary region
 
-				if(is >0) scale=bound_e[SPONGE_WIDTH-is]; //get scale parameter
-				else scale=1;
+				if (is > 0)
+					scale = bound_e[SPONGE_WIDTH - is]; //get scale parameter
+				else
+					scale = 1;
 
-				pp[i1+i2*n1+i3*n12]*=scale; // sponge previous wavefield
+				pp[i1 + i2 * n1 + i3 * n12] *= scale; // sponge previous wavefield
 
 				//Wavefield update
-				pp[i1+i2*n1+i3*n12]=(2.0*p[i1+i2*n1+i3*n12]-pp[i1+i2*n1+i3*n12]+dvv[i1+i2*n1+i3*n12]*(
-						p[i1+i2*n1+i3*n12]*c_0
-						+c_1[0]*(p[(i1+1)+(i2  )*n1+(i3  )*n12]+p[(i1-1)+(i2  )*n1+(i3  )*n12])
-						+c_1[1]*(p[(i1+2)+(i2  )*n1+(i3  )*n12]+p[(i1-2)+(i2  )*n1+(i3  )*n12])
-						+c_1[2]*(p[(i1+3)+(i2  )*n1+(i3  )*n12]+p[(i1-3)+(i2  )*n1+(i3  )*n12])
-						+c_1[3]*(p[(i1+4)+(i2  )*n1+(i3  )*n12]+p[(i1-4)+(i2  )*n1+(i3  )*n12])
-						+c_1[4]*(p[(i1+5)+(i2  )*n1+(i3  )*n12]+p[(i1-5)+(i2  )*n1+(i3  )*n12])
-						+c_2[0]*(p[(i1  )+(i2+1)*n1+(i3  )*n12]+p[(i1  )+(i2-1)*n1+(i3  )*n12])
-						+c_2[1]*(p[(i1  )+(i2+2)*n1+(i3  )*n12]+p[(i1  )+(i2-2)*n1+(i3  )*n12])
-						+c_2[2]*(p[(i1  )+(i2+3)*n1+(i3  )*n12]+p[(i1  )+(i2-3)*n1+(i3  )*n12])
-						+c_2[3]*(p[(i1  )+(i2+4)*n1+(i3  )*n12]+p[(i1  )+(i2-4)*n1+(i3  )*n12])
-						+c_2[4]*(p[(i1  )+(i2+5)*n1+(i3  )*n12]+p[(i1  )+(i2-5)*n1+(i3  )*n12])
-						+c_3[0]*(p[(i1  )+(i2  )*n1+(i3+1)*n12]+p[(i1  )+(i2  )*n1+(i3-1)*n12])
-						+c_3[1]*(p[(i1  )+(i2  )*n1+(i3+2)*n12]+p[(i1  )+(i2  )*n1+(i3-2)*n12])
-						+c_3[2]*(p[(i1  )+(i2  )*n1+(i3+3)*n12]+p[(i1  )+(i2  )*n1+(i3-3)*n12])
-						+c_3[3]*(p[(i1  )+(i2  )*n1+(i3+4)*n12]+p[(i1  )+(i2  )*n1+(i3-4)*n12])
-						+c_3[4]*(p[(i1  )+(i2  )*n1+(i3+5)*n12]+p[(i1  )+(i2  )*n1+(i3-5)*n12])
-						))+source_container[i1+i2*n1+i3*n12];
-				pp[i1+i2*n1+i3*n12]*=scale; // sponge result
+				pp[i1 + i2 * n1 + i3 * n12] = (2.0 * p[i1 + i2 * n1 + i3 * n12]
+						- pp[i1 + i2 * n1 + i3 * n12] + dvv[i1 + i2 * n1 + i3
+						* n12] * (p[i1 + i2 * n1 + i3 * n12] * c_0 + c_1[0]
+						* (p[(i1 + 1) + (i2) * n1 + (i3) * n12] + p[(i1 - 1)
+								+ (i2) * n1 + (i3) * n12]) + c_1[1] * (p[(i1
+						+ 2) + (i2) * n1 + (i3) * n12] + p[(i1 - 2) + (i2) * n1
+						+ (i3) * n12]) + c_1[2] * (p[(i1 + 3) + (i2) * n1
+						+ (i3) * n12] + p[(i1 - 3) + (i2) * n1 + (i3) * n12])
+						+ c_1[3] * (p[(i1 + 4) + (i2) * n1 + (i3) * n12]
+								+ p[(i1 - 4) + (i2) * n1 + (i3) * n12])
+						+ c_1[4] * (p[(i1 + 5) + (i2) * n1 + (i3) * n12]
+								+ p[(i1 - 5) + (i2) * n1 + (i3) * n12])
+						+ c_2[0] * (p[(i1) + (i2 + 1) * n1 + (i3) * n12]
+								+ p[(i1) + (i2 - 1) * n1 + (i3) * n12])
+						+ c_2[1] * (p[(i1) + (i2 + 2) * n1 + (i3) * n12]
+								+ p[(i1) + (i2 - 2) * n1 + (i3) * n12])
+						+ c_2[2] * (p[(i1) + (i2 + 3) * n1 + (i3) * n12]
+								+ p[(i1) + (i2 - 3) * n1 + (i3) * n12])
+						+ c_2[3] * (p[(i1) + (i2 + 4) * n1 + (i3) * n12]
+								+ p[(i1) + (i2 - 4) * n1 + (i3) * n12])
+						+ c_2[4] * (p[(i1) + (i2 + 5) * n1 + (i3) * n12]
+								+ p[(i1) + (i2 - 5) * n1 + (i3) * n12])
+						+ c_3[0] * (p[(i1) + (i2) * n1 + (i3 + 1) * n12]
+								+ p[(i1) + (i2) * n1 + (i3 - 1) * n12])
+						+ c_3[1] * (p[(i1) + (i2) * n1 + (i3 + 2) * n12]
+								+ p[(i1) + (i2) * n1 + (i3 - 2) * n12])
+						+ c_3[2] * (p[(i1) + (i2) * n1 + (i3 + 3) * n12]
+								+ p[(i1) + (i2) * n1 + (i3 - 3) * n12])
+						+ c_3[3] * (p[(i1) + (i2) * n1 + (i3 + 4) * n12]
+								+ p[(i1) + (i2) * n1 + (i3 - 4) * n12])
+						+ c_3[4] * (p[(i1) + (i2) * n1 + (i3 + 5) * n12]
+								+ p[(i1) + (i2) * n1 + (i3 - 5) * n12])))
+						+ source_container[i1 + i2 * n1 + i3 * n12];
+				pp[i1 + i2 * n1 + i3 * n12] *= scale; // sponge result
 			}
 		}
 	}
 	return;
 }
-void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv, float *__restrict source_container){
-	int i3;  //Indexes
-	int n12=n1*n2;
+void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
+		float *__restrict source_container) {
+	/*int i3;  //Indexes
+	 int n12=n1*n2;
 
-// #pragma omp parallel for
-	for(i3=ORDER; i3 < n3-ORDER; i3++){   //Loop over slowest axis
-		int i1;
-		int i2;
-		for(i2=ORDER; i2 < n2-ORDER; i2++){ //Loop over middle axis
-			for(i1=ORDER; i1< n1-ORDER; i1++){  //Loop over fast axis
-				//Wavefield update
-				pp[i1+i2*n1+i3*n12]=(2.0*p[i1+i2*n1+i3*n12]-pp[i1+i2*n1+i3*n12]+dvv[i1+i2*n1+i3*n12]*(
-						p[i1+i2*n1+i3*n12]*c_0
-						+c_1[0]*(p[(i1+1)+(i2  )*n1+(i3  )*n12]+p[(i1-1)+(i2  )*n1+(i3  )*n12])
-						+c_1[1]*(p[(i1+2)+(i2  )*n1+(i3  )*n12]+p[(i1-2)+(i2  )*n1+(i3  )*n12])
-						+c_1[2]*(p[(i1+3)+(i2  )*n1+(i3  )*n12]+p[(i1-3)+(i2  )*n1+(i3  )*n12])
-						+c_1[3]*(p[(i1+4)+(i2  )*n1+(i3  )*n12]+p[(i1-4)+(i2  )*n1+(i3  )*n12])
-						+c_1[4]*(p[(i1+5)+(i2  )*n1+(i3  )*n12]+p[(i1-5)+(i2  )*n1+(i3  )*n12])
-						+c_2[0]*(p[(i1  )+(i2+1)*n1+(i3  )*n12]+p[(i1  )+(i2-1)*n1+(i3  )*n12])
-						+c_2[1]*(p[(i1  )+(i2+2)*n1+(i3  )*n12]+p[(i1  )+(i2-2)*n1+(i3  )*n12])
-						+c_2[2]*(p[(i1  )+(i2+3)*n1+(i3  )*n12]+p[(i1  )+(i2-3)*n1+(i3  )*n12])
-						+c_2[3]*(p[(i1  )+(i2+4)*n1+(i3  )*n12]+p[(i1  )+(i2-4)*n1+(i3  )*n12])
-						+c_2[4]*(p[(i1  )+(i2+5)*n1+(i3  )*n12]+p[(i1  )+(i2-5)*n1+(i3  )*n12])
-						+c_3[0]*(p[(i1  )+(i2  )*n1+(i3+1)*n12]+p[(i1  )+(i2  )*n1+(i3-1)*n12])
-						+c_3[1]*(p[(i1  )+(i2  )*n1+(i3+2)*n12]+p[(i1  )+(i2  )*n1+(i3-2)*n12])
-						+c_3[2]*(p[(i1  )+(i2  )*n1+(i3+3)*n12]+p[(i1  )+(i2  )*n1+(i3-3)*n12])
-						+c_3[3]*(p[(i1  )+(i2  )*n1+(i3+4)*n12]+p[(i1  )+(i2  )*n1+(i3-4)*n12])
-						+c_3[4]*(p[(i1  )+(i2  )*n1+(i3+5)*n12]+p[(i1  )+(i2  )*n1+(i3-5)*n12])
-						))+source_container[i1+i2*n1+i3*n12];
+	 // #pragma omp parallel for
+	 for(i3=ORDER; i3 < n3-ORDER; i3++){   //Loop over slowest axis
+	 int i1;
+	 int i2;
+	 for(i2=ORDER; i2 < n2-ORDER; i2++){ //Loop over middle axis
+	 for(i1=ORDER; i1< n1m-ORDER; i1++){  //Loop over fast axis
+	 //Wavefield update
+	 pp[i1+i2*n1+i3*n12]=(2.0*p[i1+i2*n1+i3*n12]-pp[i1+i2*n1+i3*n12]+dvv[i1+i2*n1+i3*n12]*(
+	 p[i1+i2*n1+i3*n12]*c_0
+	 +c_1[0]*(p[(i1+1)+(i2  )*n1+(i3  )*n12]+p[(i1-1)+(i2  )*n1+(i3  )*n12])
+	 +c_1[1]*(p[(i1+2)+(i2  )*n1+(i3  )*n12]+p[(i1-2)+(i2  )*n1+(i3  )*n12])
+	 +c_1[2]*(p[(i1+3)+(i2  )*n1+(i3  )*n12]+p[(i1-3)+(i2  )*n1+(i3  )*n12])
+	 +c_1[3]*(p[(i1+4)+(i2  )*n1+(i3  )*n12]+p[(i1-4)+(i2  )*n1+(i3  )*n12])
+	 +c_1[4]*(p[(i1+5)+(i2  )*n1+(i3  )*n12]+p[(i1-5)+(i2  )*n1+(i3  )*n12])
+	 +c_2[0]*(p[(i1  )+(i2+1)*n1+(i3  )*n12]+p[(i1  )+(i2-1)*n1+(i3  )*n12])
+	 +c_2[1]*(p[(i1  )+(i2+2)*n1+(i3  )*n12]+p[(i1  )+(i2-2)*n1+(i3  )*n12])
+	 +c_2[2]*(p[(i1  )+(i2+3)*n1+(i3  )*n12]+p[(i1  )+(i2-3)*n1+(i3  )*n12])
+	 +c_2[3]*(p[(i1  )+(i2+4)*n1+(i3  )*n12]+p[(i1  )+(i2-4)*n1+(i3  )*n12])
+	 +c_2[4]*(p[(i1  )+(i2+5)*n1+(i3  )*n12]+p[(i1  )+(i2-5)*n1+(i3  )*n12])
+	 +c_3[0]*(p[(i1  )+(i2  )*n1+(i3+1)*n12]+p[(i1  )+(i2  )*n1+(i3-1)*n12])
+	 +c_3[1]*(p[(i1  )+(i2  )*n1+(i3+2)*n12]+p[(i1  )+(i2  )*n1+(i3-2)*n12])
+	 +c_3[2]*(p[(i1  )+(i2  )*n1+(i3+3)*n12]+p[(i1  )+(i2  )*n1+(i3-3)*n12])
+	 +c_3[3]*(p[(i1  )+(i2  )*n1+(i3+4)*n12]+p[(i1  )+(i2  )*n1+(i3-4)*n12])
+	 +c_3[4]*(p[(i1  )+(i2  )*n1+(i3+5)*n12]+p[(i1  )+(i2  )*n1+(i3-5)*n12])
+	 ))+source_container[i1+i2*n1+i3*n12];
+	 }
+	 }
+	 }
+	 return;
+	 */
+
+	int n12 = n1 * n2;
+	int offX, offY, offZ;
+	int size = n1 * n2 * n2;
+	int const xzSize = 11;
+	int const burst = 96;
+	int sizeC = 5;
+	float *pp_value;
+	float *dvv_value;
+	float *source_container_value;
+	int sizeBytes = size * sizeof(float);
+	int sizeCBytes = sizeC * sizeof(float);
+	int c_0;
+
+	max_file_t *maxfile = MemStream_init();
+	max_engine_t *engine = max_load(maxfile, "*");
+
+	printf("Writing to LMem.\n");
+	max_actions_t* act = max_actions_init(maxfile, "writeLMem");
+	max_set_param_uint64t(act, "address", 0);
+	max_set_param_uint64t(act, "nbytes", sizeBytes);
+	printf("Loading p in LMem\n");
+	max_queue_input(act, "p", p, size * sizeof(float));
+
+	printf("Running on DFE.\n");
+	act = max_actions_init(maxfile, "default");
+
+	printf("Loading c_x, n1, n1m, n2, burst, xzSize in LMem");
+
+	max_set_param_double(act, "c_1_0", (double) c_1[0]);
+	max_set_param_double(act, "c_1_1", (double) c_1[1]);
+	max_set_param_double(act, "c_1_2", (double) c_1[2]);
+	max_set_param_double(act, "c_1_3", (double) c_1[3]);
+	max_set_param_double(act, "c_1_4", (double) c_1[4]);
+
+	max_set_param_double(act, "c_2_0", (double) c_2[0]);
+	max_set_param_double(act, "c_2_1", (double) c_2[1]);
+	max_set_param_double(act, "c_2_2", (double) c_2[2]);
+	max_set_param_double(act, "c_2_3", (double) c_2[3]);
+	max_set_param_double(act, "c_2_4", (double) c_2[4]);
+
+	max_set_param_double(act, "c_3_0", (double) c_3[0]);
+	max_set_param_double(act, "c_3_1", (double) c_3[1]);
+	max_set_param_double(act, "c_3_2", (double) c_3[2]);
+	max_set_param_double(act, "c_3_3", (double) c_3[3]);
+	max_set_param_double(act, "c_3_4", (double) c_3[4]);
+
+	max_set_param_uint64t(act, "n1", n1);
+	max_set_param_uint64t(act, "n1m", n1m);
+	max_set_param_uint64t(act, "n2", n2);
+	max_set_param_double(act, "c_0", (double) c_0);
+
+	max_set_param_uint64t(act, "burst", burst);
+
+	max_set_param_uint64t(act, "xzSize", xzSize);
+
+	for (offZ = 0; offZ < n3; offZ++) { //Loop over slowest axis
+		for (offX = 0; offX < n2; offX++) { //Loop over middle axis
+			for (offY = 0; offY < n1m; offY = offY + 8) {
+
+				printf("Creating pp_value, dvv_value, source_container_value streams\n");
+				pp_value = malloc(sizeof(float) * 8);
+				dvv_value = malloc(sizeof(float) * 8);
+				source_container_value = malloc(sizeof(float) * 8);
+
+				for (int i = 0; i < 8; i++) {
+					pp_value[i] = pp[offY + offX * n1 + offZ * n12 + i];
+					dvv_value[i] = dvv[offY + offX * n1 + offZ * n12 + i];
+					source_container_value[i] = source_container[offY + offX
+							* n1 + offZ * n12 + i];
+				}
+
+				printf("loading values\n");
+				max_queue_input(act, "pp_value", pp_value, 8 * sizeof(float));
+				max_queue_input(act, "dvv_value", dvv_value, 8 * sizeof(float));
+				max_queue_input(act, "source_container_value",
+						source_container_value, 8 * sizeof(float));
+				max_set_param_uint64t(act, "offM", offX);
+				max_set_param_uint64t(act, "offF", offY);
+				max_set_param_uint64t(act, "offS", offZ);
+
+				printf("running DFE\n");
+				max_run(engine, act);
+
+				free(pp_value);
+				free(dvv_value);
+				free(source_container_value);
 			}
 		}
 	}
-	return;
+
+	max_actions_t* act = max_actions_init(maxfile, "readLMem");
+	max_set_param_uint64t(act, "address", sizeBytes);
+	max_set_param_uint64t(act, "nbytes", sizeBytes);
+	max_queue_output(act, "pp", pp, size * sizeof(uint32_t));
+
+	max_unload(engine);
+
 }
 /*
  * add_source - add source to wavefield
  * it - current time sample
  * p - current wavefield
  */
-void add_source(int it, float *__restrict source_container){
-	int i1,i2,i3;
-	float x1,x2,x3;
-	float x,xx;
-	float val,tdelay;
+void add_source(int it, float *__restrict source_container) {
+	int i1, i2, i3;
+	float x1, x2, x3;
+	float x, xx;
+	float val, tdelay;
 
-	tdelay = 1./fpeak;
-	float t=(float)it*dt;
-	if(t > 2.*tdelay) {
+	tdelay = 1. / fpeak;
+	float t = (float) it * dt;
+	if (t > 2. * tdelay) {
 		clean_source();
-	}else{
-		x = 3.1415926536*fpeak*(t-tdelay);
-		xx = x*x;
-		val=expf(-xx)*(1.0-2.0*xx); //Wavelet time
+	} else {
+		x = 3.1415926536 * fpeak * (t - tdelay);
+		xx = x * x;
+		val = expf(-xx) * (1.0 - 2.0 * xx); //Wavelet time
 
 		//Add source term over a region
-		for(i3=isy-1; i3 <=isy+1; i3++){
-			x3=isy-i3;
-			for(i2=isx-1; i2 <=isx+1; i2++){
-				x2=isx-i2;
-				for(i1=isz-1; i1 <= isz+1; i1++){
-					x1=isz-i1;
-					source_container[i1+i2*n1+i3*n1*n2]=-val*expf(-x1*x1-x2*x2-x3*x3);
+		for (i3 = isy - 1; i3 <= isy + 1; i3++) {
+			x3 = isy - i3;
+			for (i2 = isx - 1; i2 <= isx + 1; i2++) {
+				x2 = isx - i2;
+				for (i1 = isz - 1; i1 <= isz + 1; i1++) {
+					x1 = isz - i1;
+					source_container[i1 + i2 * n1 + i3 * n1 * n2] = -val
+							* expf(-x1 * x1 - x2 * x2 - x3 * x3);
 				}
 			}
 		}
@@ -201,13 +332,15 @@ void add_source(int it, float *__restrict source_container){
  * it - current time sample
  * p  - current wavefield
  */
-void extract_data(int ifr,float *__restrict p,float *__restrict frames_container){
-	int i2,i3;
+void extract_data(int ifr, float *__restrict p,
+		float *__restrict frames_container) {
+	int i2, i3;
 
-// #pragma omp parallel for default(shared) private(i3,i2)
-	for(i3=0; i3 < n3; i3++){
-		for(i2=0; i2 < n2; i2++){
-			frames_container[i2+i3*n2+ifr*n2*n3]=p[isz+i2*n1+i3*n1*n2];
+	// #pragma omp parallel for default(shared) private(i3,i2)
+	for (i3 = 0; i3 < n3; i3++) {
+		for (i2 = 0; i2 < n2; i2++) {
+			frames_container[i2 + i3 * n2 + ifr * n2 * n3] = p[isz + i2 * n1
+					+ i3 * n1 * n2];
 		}
 	}
 }
@@ -215,68 +348,84 @@ void extract_data(int ifr,float *__restrict p,float *__restrict frames_container
  * prop_source - propagation source wavefield
  * model - whether or not I am modeling data or propagating source wavefield
  */
-void prop_source(int model){
+void prop_source(int model) {
 	int it;
 	long long i;
-	float *p1,*p2,*p_aux;
+	float *p1, *p2, *p_aux;
 
 #ifdef DEBUG
 	FILE *fd;
 	char output[64];
 	strcpy(output,folder_path);
-	if(model){
+	if(model) {
 		strcat(output,"/rec_prop.out");
 		//saving receiver
 		create_header_file(output);
 
 		fd = fopen(output,"w+");
-		if(fd == NULL){
+		if(fd == NULL) {
 			fprintf(stderr,"Error: couldn't open rec_prop.out\n");
 			exit(-1);
 		}
-	}else{
+	} else {
 		strcat(output,"/src_prop.out");
 		//saving source
 		create_header_file(output);
 
 		fd = fopen(output,"w+");
-		if(fd == NULL){
+		if(fd == NULL) {
 			fprintf(stderr,"Error: couldn't open src_prop.out\n");
 			exit(-1);
 		}
 	}
 #endif
 
-	if(model){p1=pon_g;p2=pc_g;}
-	else{p1=pon_s;p2=pc_s;}
+	if (model) {
+		p1 = pon_g;
+		p2 = pc_g;
+	} else {
+		p1 = pon_s;
+		p2 = pc_s;
+	}
 
 	//Loop over time
-	for(it=0; it < nt; it++){
-		add_source(it,source);
-		if(model){
+	for (it = 0; it < nt; it++) {
+		add_source(it, source);
+		if (model) {
 			//use the damping field to get the receiver data
-			do_step_damping(p2,p1,vel_g,source);
-			if(it%jt==0) extract_data((int)(it/jt),p1,data);
-		}else{
+			do_step_damping(p2, p1, vel_g, source);
+			if (it % jt == 0)
+				extract_data((int) (it / jt), p1, data);
+		} else {
 			//use the random field to propagate the source forward without losing energy
-			do_step(p2,p1,vel_s,source);
+			do_step(p2, p1, vel_s, source);
 		}
 
 #ifdef DEBUG
-			if(it%jt==0) fwrite(&(p1[isy*n2*n1]), sizeof(float), n1*n2, fd);
+		if(it%jt==0) fwrite(&(p1[isy*n2*n1]), sizeof(float), n1m*n2, fd);
 		//Print progress
-		switch(it%100){
+		switch(it%100) {
 			case 0: fprintf(stderr," Propagating  Forward %5d of %5d |\r",it,nt);break;
 			case 25: fprintf(stderr," Propagating  Forward %5d of %5d /\r",it,nt);break;
 			case 50: fprintf(stderr," Propagating  Forward %5d of %5d -\r",it,nt);break;
 			case 75: fprintf(stderr," Propagating  Forward %5d of %5d \\\r",it,nt);
 		}
 #endif
-		p_aux=p1; p1=p2; p2=p_aux; //Flip pointers
+		p_aux = p1;
+		p1 = p2;
+		p2 = p_aux; //Flip pointers
 	}
-	if((nt%2)==1){  //Make sure pointers are consistent for backward propagation
-		if(model){p_aux=pon_g; pon_g=pc_g; pc_g=p_aux;} //Flip pointers
-		else{p_aux=pon_s; pon_s=pc_s; pc_s=p_aux;} //Flip pointers
+	if ((nt % 2) == 1) { //Make sure pointers are consistent for backward propagation
+		if (model) {
+			p_aux = pon_g;
+			pon_g = pc_g;
+			pc_g = p_aux;
+		} //Flip pointers
+		else {
+			p_aux = pon_s;
+			pon_s = pc_s;
+			pc_s = p_aux;
+		} //Flip pointers
 	}
 #ifdef DEBUG
 	fprintf(stderr," Propagating  Forward %5d of %5d X\n",it,nt);
@@ -287,12 +436,12 @@ void prop_source(int model){
 //--------------------------------------------------------------
 // Take time derivative of data and mute out direct arrival
 //--------------------------------------------------------------
-void differentiate_mute_data(char *file){
+void differentiate_mute_data(char *file) {
 	int i3;
 	int wavelet_samp;
-	wavelet_samp = (2/(fpeak*dt))/jt;
+	wavelet_samp = (2 / (fpeak * dt)) / jt;
 
-	float vel=sqrt(vel_g[isz+isx*n1+isy*n1*n2]);
+	float vel = sqrt(vel_g[isz + isx * n1 + isy * n1 * n2]);
 
 #ifdef DEBUG
 	FILE *fd;
@@ -302,7 +451,7 @@ void differentiate_mute_data(char *file){
 	//receiver data with source
 	create_header_file(output);
 	fd = fopen(output,"w+");
-	if(fd == NULL){
+	if(fd == NULL) {
 		fprintf(stderr,"Error: couldn't open rec_data_or.out\n");
 		exit(-1);
 	}
@@ -313,22 +462,24 @@ void differentiate_mute_data(char *file){
 	//receiver data without source
 	create_header_file(output);
 	fd = fopen(output,"w+");
-	if(fd == NULL){
+	if(fd == NULL) {
 		fprintf(stderr,"Error: couldn't open rec_data.out\n");
 		exit(-1);
 	}
 #endif
 
-// #pragma omp parallel for
-	for(i3=0; i3 <n3; i3++){
+	// #pragma omp parallel for
+	for (i3 = 0; i3 < n3; i3++) {
 		int i2;
 		int ifr;
-		for(i2=0; i2 < n2; i2++){
+		for (i2 = 0; i2 < n2; i2++) {
 			//Distance away from source
-			float dist=sqrt((isx-i2)*(isx-i2)*d2*d2+d3*d3*(isy-i3)*(isy-i3));
-			int mute_s=((dist/vel)/(dt*jt)); //Mute frames
-			mute_s+=wavelet_samp; //remove whole source (the source is injected during number of steps = 2/(fpeak*dt))
-			for(ifr=0; (ifr < mute_s) && (ifr < nf); ifr++) data[i2+i3*n2+ifr*n2*n3]=0; //Mute direct arrive
+			float dist = sqrt((isx - i2) * (isx - i2) * d2 * d2 + d3 * d3
+					* (isy - i3) * (isy - i3));
+			int mute_s = ((dist / vel) / (dt * jt)); //Mute frames
+			mute_s += wavelet_samp; //remove whole source (the source is injected during number of steps = 2/(fpeak*dt))
+			for (ifr = 0; (ifr < mute_s) && (ifr < nf); ifr++)
+				data[i2 + i3 * n2 + ifr * n2 * n3] = 0; //Mute direct arrive
 		}
 	}
 
@@ -349,19 +500,23 @@ void differentiate_mute_data(char *file){
  * p1 - source wavefield
  * p2 - receiver wavefield
  */
-void image_it(float *__restrict source_container,float *__restrict receiver,float **__restrict image_container){
+void image_it(float *__restrict source_container, float *__restrict receiver,
+		float **__restrict image_container) {
 	int k;
 
 	//2D gather
-// #pragma omp parallel for
-	for(k=0; k < n3; k++){
+	// #pragma omp parallel for
+	for (k = 0; k < n3; k++) {
 		int j;
 		int i;
 		int sub;
-		for(sub=0; sub<=num_subsurface_offsets; sub++){
-			for(j=sub; j < n2-sub; j++){
-				for(i=0; i < n1; i++){
-					image_container[sub][i+j*n1+k*n1*n2]+=source_container[i+(j-sub)*n1+k*n1*n2]*receiver[i+(j+sub)*n1+k*n1*n2];
+		for (sub = 0; sub <= num_subsurface_offsets; sub++) {
+			for (j = sub; j < n2 - sub; j++) {
+				for (i = 0; i < n1m; i++) {
+					image_container[sub][i + j * n1 + k * n1 * n2]
+							+= source_container[i + (j - sub) * n1 + k * n1
+									* n2] * receiver[i + (j + sub) * n1 + k
+									* n1 * n2];
 				}
 			}
 		}
@@ -373,19 +528,25 @@ void image_it(float *__restrict source_container,float *__restrict receiver,floa
  * it - current time step
  * p - current wavefield
  */
-void add_data(int it,float *__restrict source_container, float *__restrict frames_container){
-	int i2,i3;
-	int ib=it/jt; //Linear interpolation
-	int ie=ib+1;
-	float f=(float)(it-ib*jt)/(float)(jt);
-	if(ie>=nf) { ie=nf-1; f=1.;}
-	int n12=n1*n2;
+void add_data(int it, float *__restrict source_container,
+		float *__restrict frames_container) {
+	int i2, i3;
+	int ib = it / jt; //Linear interpolation
+	int ie = ib + 1;
+	float f = (float) (it - ib * jt) / (float) (jt);
+	if (ie >= nf) {
+		ie = nf - 1;
+		f = 1.;
+	}
+	int n12 = n1 * n2;
 
-// #pragma omp parallel for
-	for(i3=0; i3 < n3; i3++){
+	// #pragma omp parallel for
+	for (i3 = 0; i3 < n3; i3++) {
 		int i2;
-		for(i2=0; i2 < n2; i2++){
-			source_container[isz+i2*n1+i3*n12]=(1.-f)*frames_container[i2+i3*n2+ib*n2*n3]+f*frames_container[i2+i3*n2+ie*n2*n3];
+		for (i2 = 0; i2 < n2; i2++) {
+			source_container[isz + i2 * n1 + i3 * n12] = (1. - f)
+					* frames_container[i2 + i3 * n2 + ib * n2 * n3] + f
+					* frames_container[i2 + i3 * n2 + ie * n2 * n3];
 		}
 	}
 	return;
@@ -393,13 +554,13 @@ void add_data(int it,float *__restrict source_container, float *__restrict frame
 /*
  * migrate_shot - Migrate a single shot
  */
-void migrate_shot(){
+void migrate_shot() {
 	int it;
-	float *p1s,*p1g,*p_aux,*p2s,*p2g;
-	p1s=pon_s;
-	p2s=pc_s;
-	p1g=pon_g;
-	p2g=pc_g;
+	float *p1s, *p1g, *p_aux, *p2s, *p2g;
+	p1s = pon_s;
+	p2s = pc_s;
+	p1g = pon_g;
+	p2g = pc_g;
 
 #ifdef DEBUG
 	FILE *fd1,*fd2;
@@ -407,27 +568,27 @@ void migrate_shot(){
 	strcpy(output,folder_path);
 	strcat(output,"/rec_bprop.out");
 	create_header_file(output);
-    fd1 = fopen(output,"w+");
-    if(fd1 == NULL){
-    	fprintf(stderr,"Error: couldn't open rec_bprop.out\n");
-    	exit(-1);
-    }
+	fd1 = fopen(output,"w+");
+	if(fd1 == NULL) {
+		fprintf(stderr,"Error: couldn't open rec_bprop.out\n");
+		exit(-1);
+	}
 	strcpy(output,folder_path);
 	strcat(output,"/src_bprop.out");
 	create_header_file(output);
-    fd2 = fopen(output,"w+");
-    if(fd2 == NULL){
-    	fprintf(stderr,"Error: couldn't open src_bprop.out\n");
-    	exit(-1);
-    }
+	fd2 = fopen(output,"w+");
+	if(fd2 == NULL) {
+		fprintf(stderr,"Error: couldn't open src_bprop.out\n");
+		exit(-1);
+	}
 #endif
 
 	//Should loop from max time to 0
-	for(it=nt-1; it>=0; it--){
+	for (it = nt - 1; it >= 0; it--) {
 
 #ifdef DEBUG
 		//Print progress
-		switch(it%100){
+		switch(it%100) {
 			case 0: fprintf(stderr," Propagating Backward %5d of %5d |\r",it,nt);break;
 			case 25: fprintf(stderr," Propagating Backward %5d of %5d /\r",it,nt);break;
 			case 50: fprintf(stderr," Propagating Backward %5d of %5d -\r",it,nt);break;
@@ -436,16 +597,21 @@ void migrate_shot(){
 #endif
 
 		clean_source();
-		do_step(p1s,p2s,vel_s,source); 		//Backward prop source
-		add_data(it,source,data);  	      		    //Inject recorded data
-		do_step_damping(p1g,p2g,vel_g,source); //Backward prop receiver
-		if(it%jt==0) image_it(p2s,p2g,image); //Apply imaging condition
+		do_step(p1s, p2s, vel_s, source); //Backward prop source
+		add_data(it, source, data); //Inject recorded data
+		do_step_damping(p1g, p2g, vel_g, source); //Backward prop receiver
+		if (it % jt == 0)
+			image_it(p2s, p2g, image); //Apply imaging condition
 #ifdef DEBUG
-		if(it%jt==0) fwrite(&(p2g[(n3/2)*n2*n1]), sizeof(float), n1*n2, fd1);
-		if(it%jt==0) fwrite(&(p2s[(n3/2)*n2*n1]), sizeof(float), n1*n2, fd2);
+		if(it%jt==0) fwrite(&(p2g[(n3/2)*n2*n1]), sizeof(float), n1m*n2, fd1);
+		if(it%jt==0) fwrite(&(p2s[(n3/2)*n2*n1]), sizeof(float), n1m*n2, fd2);
 #endif
-		p_aux=p1s; p1s=p2s; p2s=p_aux;  		//Flip source pointers
-		p_aux=p1g; p1g=p2g; p2g=p_aux;  		//Flip receiver pointers
+		p_aux = p1s;
+		p1s = p2s;
+		p2s = p_aux; //Flip source pointers
+		p_aux = p1g;
+		p1g = p2g;
+		p2g = p_aux; //Flip receiver pointers
 	}
 
 #ifdef DEBUG

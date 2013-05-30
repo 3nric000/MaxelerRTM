@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="tutorial-chap14-example1-maxring_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/tutorial-chap14-example1-maxring_EngineCode/bin" projectName="tutorial-chap14-example1-maxring"/>
+<cpuPart internalCpuSubproject="tutorial-chap14-example1-maxring_CPUCode"/>
+</maxCompilerManager>

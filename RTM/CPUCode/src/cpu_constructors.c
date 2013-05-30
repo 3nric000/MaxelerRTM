@@ -18,6 +18,7 @@ int BOUND_T;     //Boundary on top - 60 is probably a good number for random
 int SPONGE_WIDTH;//Boundary on all other edges - 50 probably should be dropped to 40
 int TOTAL_SPONGE_WIDTH;
 int n1;//Size of wavefield and data z
+int n1m;
 int n2;//Size of wavefield and data x
 int n3;//Size of wavefield and data y
 int nf;          //Number of frames
@@ -106,6 +107,8 @@ char * create_params(char *params_file){
 				fprintf(stderr,"Error: N1 can't be negative");
 				exit(-1);
 			}
+			n1m=n1;
+			n1=n1%96+n1;
 		}else if(!strcmp(buff1,"N2")){
 			fscanf(fd,"%d\n",&n2);
 			if(n2<0){
@@ -533,7 +536,7 @@ void read_earth_model(char *filename)
 			strcat(filepath,value);
 		} else if (strcmp(key, "n1") == 0) {
 			aux = atoi(value);
-			if(aux != n1){
+			if(aux != n1m){
 				fprintf(stderr, "ERROR: Z dimension in earth model file %d does not agree with parameter file %d, dimensions must agree\n",aux,n1);
 				clean_fields();
 				clean_data();
@@ -713,11 +716,11 @@ void random_bound_dvv(){
 			if(i2<SPONGE_WIDTH)f2=(float)((SPONGE_WIDTH-i2)*(SPONGE_WIDTH-i2))/(float)(SPONGE_WIDTH*SPONGE_WIDTH);
 			//Fractional distance within boundary axis 3
 
-			for(i1=0; i1 < n1; i1++){ //Loop over fastest
+			for(i1=0; i1 < n1m; i1++){ //Loop over fastest
 				float f1=0;
 				float dev=0.0;
 				// Pow of normalised distance to the border 1 f1=((x-n1)/n1)^2
-				if(i1>=n1-SPONGE_WIDTH)f1=(float)(i1-(n1-SPONGE_WIDTH-1))*(i1-(n1-SPONGE_WIDTH-1))/(float)(SPONGE_WIDTH*SPONGE_WIDTH);
+				if(i1>=n1m-SPONGE_WIDTH)f1=(float)(i1-(n1m-SPONGE_WIDTH-1))*(i1-(n1m-SPONGE_WIDTH-1))/(float)(SPONGE_WIDTH*SPONGE_WIDTH);
 				if(i1<BOUND_T)f1=(float)((BOUND_T-i1)*(BOUND_T-i1))/(float)(BOUND_T*BOUND_T);
 
 				// Normalised distance to the border sqrt(f1+f2+f3)
@@ -807,7 +810,7 @@ void create_header_file(char *file_name)
 	}else{
 		fprintf(header_file, "in=%s\n", file_name_stripped);
 	}
-	fprintf(header_file, "n1=%d\n", n1);
+	fprintf(header_file, "n1=%d\n", n1m);
 	fprintf(header_file, "n2=%d\n", n2);
 	fprintf(header_file, "n3=%d\n", n3);
 
@@ -837,8 +840,8 @@ void dump_image_to_file(char *name){
 			exit(-1);
 		}
 
-		num = fwrite(image[i], sizeof(float), n1*n2*n3, fd);
-		if(num!=n1*n2*n3){
+		num = fwrite(image[i], sizeof(float), n1m*n2*n3, fd);
+		if(num!=n1m*n2*n3){
 			clean_fields();
 			clean_data();
 			clean_vel();

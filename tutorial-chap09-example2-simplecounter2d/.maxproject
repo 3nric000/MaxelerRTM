@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="tutorial-chap09-example2-simplecounter2d_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/tutorial-chap09-example2-simplecounter2d_EngineCode/bin" projectName="tutorial-chap09-example2-simplecounter2d"/>
+<cpuPart internalCpuSubproject="tutorial-chap09-example2-simplecounter2d_CPUCode"/>
+</maxCompilerManager>

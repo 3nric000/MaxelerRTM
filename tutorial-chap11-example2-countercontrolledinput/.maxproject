@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="tutorial-chap11-example2-countercontrolledinput_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/tutorial-chap11-example2-countercontrolledinput_EngineCode/bin" projectName="tutorial-chap11-example2-countercontrolledinput"/>
+<cpuPart internalCpuSubproject="tutorial-chap11-example2-countercontrolledinput_CPUCode"/>
+</maxCompilerManager>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="tutorial-chap05-example1-printf_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/tutorial-chap05-example1-printf_EngineCode/bin" projectName="tutorial-chap05-example1-printf"/>
+<cpuPart internalCpuSubproject="tutorial-chap05-example1-printf_CPUCode"/>
+</maxCompilerManager>

@@ -1,0 +1,34 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 9       Example: 2      Name: Simple two-dimensional counter
+ * MaxFile Name: Simple2DCounter
+ * Summary:
+ *        Manager for chained counter kernel. All IO is between the CPU and the DFE.
+ */
+package simple2dcounter;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager.IOType;
+
+class Simple2DCounterManager {
+
+	private static int maxI = 6;
+	private static int maxJ = 2;
+
+	public static void main(String[] args) {
+		Manager m = new Manager(new EngineParameters(args));
+		Kernel k = new Simple2DCounterKernel(m.makeKernelParameters(), maxI, maxJ);
+
+		m.setKernel(k);
+
+		m.addMaxFileConstant("maxI", maxI);
+		m.addMaxFileConstant("maxJ", maxJ);
+
+		m.setIO(IOType.ALL_CPU);
+
+		m.createSLiCinterface();
+		m.build();
+	}
+}

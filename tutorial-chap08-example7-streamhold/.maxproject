@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="tutorial-chap08-example7-streamhold_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/tutorial-chap08-example7-streamhold_EngineCode/bin" projectName="tutorial-chap08-example7-streamhold"/>
+<cpuPart internalCpuSubproject="tutorial-chap08-example7-streamhold_CPUCode"/>
+<watchedFiles/>
+</maxCompilerManager>

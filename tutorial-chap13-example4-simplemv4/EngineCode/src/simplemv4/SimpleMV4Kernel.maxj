@@ -1,0 +1,30 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 13      Example: 4      Name: Simple MV 4
+ * Maxfile name: SimpleMV4
+ * Summary:
+ *         Simple M-Fold kernel that performs basic arithmetic.
+ */
+
+package simplemv4;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class SimpleMV4Kernel extends Kernel {
+
+	SimpleMV4Kernel(KernelParameters parameters, int M) {
+		super(parameters);
+
+		for (int m=0; m<M; m++) {
+			// Input x0, x1, x2 etc
+			DFEVar x = io.input("x" + m, dfeInt(32));
+
+			DFEVar result = x*x + x;
+
+			// Output y0, y1, y2 etc.
+			io.output("y" + m, result, dfeInt(32));
+		}
+	}
+}

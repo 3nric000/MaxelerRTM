@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="tutorial-chap12-example2-rom_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/tutorial-chap12-example2-rom_EngineCode/bin" projectName="tutorial-chap12-example2-rom"/>
+<cpuPart internalCpuSubproject="tutorial-chap12-example2-rom_CPUCode"/>
+<watchedFiles/>
+</maxCompilerManager>

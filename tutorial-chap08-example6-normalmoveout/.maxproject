@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="tutorial-chap08-example6-normalmoveout_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/tutorial-chap08-example6-normalmoveout_EngineCode/bin" projectName="tutorial-chap08-example6-normalmoveout"/>
+<cpuPart internalCpuSubproject="tutorial-chap08-example6-normalmoveout_CPUCode"/>
+</maxCompilerManager>

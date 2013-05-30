@@ -1,0 +1,49 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 14      Example: 1      Name: Maxring
+ * MaxFile name: Maxring
+ * Summary:
+ *       Manager design used to stream data into one dataflow engine, pass the
+ *   data over a MaxRing link to the second DFE and then write the data back
+ *   from the second DFE to the CPU.
+ */
+package maxring;
+
+import static com.maxeler.maxcompiler.v2.managers.standard.IOLink.IODestination.MAXRING_A;
+import static com.maxeler.maxcompiler.v2.managers.standard.IOLink.IODestination.CPU;
+import static com.maxeler.maxcompiler.v2.managers.standard.Manager.link;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.CPUTypes;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.EngineInterface;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.InterfaceParam;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager;
+
+class MaxringManager {
+
+	public static void main(String[] args) {
+		Manager m = new Manager(new EngineParameters(args));
+		Kernel k = new MaxringKernel(m.makeKernelParameters());
+
+		m.setKernel(k);
+		m.setIO(link("inA", CPU), link("inB", MAXRING_A),
+				link("outA", MAXRING_A), link("outB", CPU));
+		m.createSLiCinterface(interfaceDefault());
+
+		m.build();
+	}
+
+	private static EngineInterface interfaceDefault() {
+		EngineInterface ei = new EngineInterface();
+		InterfaceParam isLeft = ei.addParam("isLeft", CPUTypes.INT);
+		InterfaceParam n = ei.addParam("N", CPUTypes.INT);
+		ei.setTicks("MaxringKernel", n);
+		ei.setScalar("MaxringKernel", "isLeft", isLeft);
+		InterfaceParam sizeBytesA = (isLeft ? n : 0) * CPUTypes.UINT32.sizeInBytes();
+		InterfaceParam sizeBytesB = (isLeft ? 0 : n) * CPUTypes.UINT32.sizeInBytes();
+		ei.setStream("inA", CPUTypes.UINT32, sizeBytesA);
+		ei.setStream("outB", CPUTypes.UINT32, sizeBytesB);
+		return ei;
+	}
+}

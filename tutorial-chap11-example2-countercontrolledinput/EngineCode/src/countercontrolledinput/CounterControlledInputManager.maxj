@@ -1,0 +1,24 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 11      Example: 2      Name: Counter Controlled Input
+ * MaxFile name: CounterControlledInput
+ * Summary:
+ *      Manager for a kernel design that uses a counter to control
+ *   one of its inputs.
+ */
+package countercontrolledinput;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager.IOType;
+
+public class CounterControlledInputManager {
+
+	public static void main(String[] args) {
+		Manager m = new Manager(new EngineParameters(args));
+		m.setKernel(new CounterControlledInputKernel( m.makeKernelParameters()));
+		m.setIO(IOType.ALL_CPU);
+		m.createSLiCinterface();
+		m.build();
+	}
+}

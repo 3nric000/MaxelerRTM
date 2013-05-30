@@ -1,0 +1,33 @@
+package threedaveragevariable;
+
+public class ThreeDFilterTester {
+
+	public static int nx = 9;
+	public static int ny = 9;
+	public static int nz = 9;
+	public static int nxMax = 128;
+
+	public static void print3DData(String name, double data[], int nx, int ny, int nz) {
+				System.out.printf("\n%s\n", name);
+				for (int z = 0; z < nz; z++) {
+					for (int y = 0; y < ny; y++) {
+						for (int x = 0; x < nx; x++) {
+							System.out.printf("%8.2g", data[z*nx*ny + y*nx + x]);
+						}
+						System.out.printf("\n");
+					}
+				}
+			}
+
+	public static void generateTestData(double[] inputData, double[] expectedOutput) {
+		for (int i = 0; i < nx*ny*nz; i++) {
+			inputData[i] = 0;
+			expectedOutput[i] = 0;
+		}
+		inputData[nx*(ny*(nz/2)) + nx*(ny/2) + nx/2] = 27;
+		for (int x = -1; x <= 1; x++)
+			for (int y = -1; y <= 1; y++)
+				for (int z = -1; z <= 1; z++)
+					expectedOutput[nx*(ny*(nz/2 + z)) + nx*(ny/2 + y) + (nx/2 + x)] = 1.0;
+	}
+}

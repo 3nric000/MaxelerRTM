@@ -1,0 +1,22 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 5      Example: 1      Name: Printf
+ * MaxFile name: Printf
+ * Summary:
+ *        Manager for debug printf example. All IO is between the CPU and the DFE.
+ */
+package printf;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager.IOType;
+
+class PrintfManager {
+	public static void main(String[] args) {
+		Manager manager = new Manager(new EngineParameters(args));
+		manager.setKernel(new PrintfKernel(manager.makeKernelParameters()));
+		manager.setIO(IOType.ALL_CPU);
+		manager.createSLiCinterface();
+		manager.build();
+	}
+}

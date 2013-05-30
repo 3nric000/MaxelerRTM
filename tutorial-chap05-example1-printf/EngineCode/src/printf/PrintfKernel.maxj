@@ -1,0 +1,47 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 5      Example: 1      Name: Printf
+ * MaxFile name: Printf
+ * Summary:
+ *        Kernel that computes a three point moving average with boundaries
+ *   printing debug information.
+ */
+package printf;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class PrintfKernel extends Kernel {
+
+	PrintfKernel(KernelParameters parameters) {
+		super(parameters);
+
+		// Input
+		DFEVar n = io.scalarInput("n", dfeUInt(32));
+		DFEVar x = io.input("x", dfeFloat(8, 24));
+
+		// Data
+		DFEVar prevOriginal = stream.offset(x, -1);
+		DFEVar nextOriginal = stream.offset(x, 1);
+
+		// Control
+		DFEVar count = control.count.simpleCounter(32, n);
+		debug.printf("Tick: %d  ", count);
+		DFEVar aboveLowerBound = count > 0;
+		DFEVar belowUpperBound = count < n-1;
+		DFEVar withinBounds = aboveLowerBound & belowUpperBound;
+
+		DFEVar prev = aboveLowerBound ? prevOriginal : 0;
+		DFEVar next = belowUpperBound ? nextOriginal : 0;
+
+		debug.printf(~withinBounds, "[In boundary (withinBounds = %d)]  ", withinBounds);
+		DFEVar divisor = withinBounds ? constant.var(dfeFloat(8, 24), 3) : 2;
+
+		DFEVar result = (prev+x+next)/divisor;
+
+		debug.printf("Result: %.3g\n", result);
+		// Output
+		io.output("y", result, dfeFloat(8, 24));
+	}
+}

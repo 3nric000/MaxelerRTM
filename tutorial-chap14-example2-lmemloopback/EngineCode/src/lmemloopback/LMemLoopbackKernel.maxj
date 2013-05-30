@@ -1,0 +1,26 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 14      Example: 2      Name: LMem Loopback
+ * MaxFile name: LMemLoopback
+ * Summary:
+ *       Kernel design that adds two input streams and outputs the result.
+ */
+
+package lmemloopback;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class LMemLoopbackKernel extends Kernel {
+
+	LMemLoopbackKernel(KernelParameters parameters) {
+		super(parameters);
+
+		DFEVar inA = io.input("inA", dfeUInt(32));
+		DFEVar inB = io.input("inB", dfeUInt(32));
+
+		io.output("oData", inA+inB, dfeUInt(32));
+	}
+}
+

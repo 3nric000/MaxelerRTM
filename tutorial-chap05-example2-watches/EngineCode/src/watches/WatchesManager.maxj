@@ -1,0 +1,23 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 5      Example: 2      Name: Watches
+ * MaxFile name: Watches
+ * Summary:
+ *        Manager for watch printf example. All IO is between the CPU and the DFE.
+ */
+package watches;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager.IOType;
+
+class WatchesManager {
+
+	public static void main(String[] args) {
+		Manager manager = new Manager(new EngineParameters(args));
+		manager.setKernel(new WatchesKernel(manager.makeKernelParameters()));
+		manager.setIO(IOType.ALL_CPU);
+		manager.createSLiCinterface();
+		manager.build();
+	}
+}

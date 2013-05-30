@@ -1,0 +1,34 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial)
+ * Chapter: 8      Example: 1      Name: Simple offset
+ * MaxFile name: SimpleOffset
+ * Summary:
+ *     Kernel that applies an offset to a stream.
+ */
+
+package simpleoffset;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class SimpleOffsetKernel extends Kernel {
+
+	SimpleOffsetKernel(KernelParameters parameters) {
+		super(parameters);
+
+		// Input
+		DFEVar inStream = io.input("inStream", dfeFloat(8, 24));
+
+		// Offsets and Calculation
+		DFEVar inPrev = stream.offset(inStream, -1);
+		DFEVar inNext = stream.offset(inStream, 1);
+
+		DFEVar result = inPrev + inStream + inNext;
+
+		// Output
+		io.output("outStream", result, dfeFloat(8, 24));
+	}
+
+}
+

@@ -1,0 +1,47 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 12      Example: 1      Name: DualPort RAM
+ * MaxFile name: DualPortRam
+ * Summary:
+ *       Manager for a a dual port RAM design which reverses the order
+ *   of data in an input stream. All IO is between the CPU and the DFE.
+ */
+package dualportram;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.CPUTypes;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.EngineInterface;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.InterfaceParam;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager.IOType;
+
+class DualPortRamManager {
+
+	public static void main(String[] args) {
+		Manager m = new Manager(new EngineParameters(args));
+		Kernel k = new DualPortRamKernel(m.makeKernelParameters());
+		m.setKernel(k);
+		m.setIO(IOType.ALL_CPU);
+		m.createSLiCinterface(modeDefault());
+		m.build();
+	}
+
+	private static EngineInterface modeDefault() {
+		EngineInterface ei = new EngineInterface();
+
+		InterfaceParam n = ei.addParam("N", CPUTypes.INT);
+		ei.setTicks("DualPortRamKernel", n * 2);
+
+		CPUTypes addressType = CPUTypes.FLOAT;
+		InterfaceParam sizeBytes = n * addressType.sizeInBytes();
+		ei.setStream("inputData", addressType, sizeBytes);
+
+		CPUTypes outputType = CPUTypes.FLOAT;
+		InterfaceParam outputSizeBytes = n * outputType.sizeInBytes();
+		ei.setStream("outputData", outputType, outputSizeBytes);
+
+		return ei;
+	}
+
+}

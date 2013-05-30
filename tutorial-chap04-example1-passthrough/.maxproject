@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="tutorial-chap04-example1-passthrough_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/tutorial-chap04-example1-passthrough_EngineCode/bin" projectName="tutorial-chap04-example1-passthrough"/>
+<cpuPart internalCpuSubproject="tutorial-chap04-example1-passthrough_CPUCode"/>
+</maxCompilerManager>

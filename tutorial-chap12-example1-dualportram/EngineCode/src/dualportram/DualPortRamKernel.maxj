@@ -1,0 +1,57 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 12      Example: 1      Name: DualPort RAM
+ * MaxFile name: DualPortRam
+ * Summary:
+ *   Kernel design that uses a dual port RAM to reverse the order
+ *   of data in an input stream.
+ */
+
+package dualportram;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Count.Counter;
+import com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Count.Params;
+import com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.memory.Memory;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+import com.maxeler.maxcompiler.v2.utils.MathUtils;
+
+class DualPortRamKernel extends Kernel {
+	DualPortRamKernel(KernelParameters parameters) {
+		super(parameters);
+
+		int DATA_SIZE = 16;
+
+		/*Create a counter to generate the addresses to the RAM. This counts to twice the size of
+		 * the data set stored in the RAM. */
+		int addrBits = MathUtils.bitsToAddress(DATA_SIZE);
+		Params addressCounterParams = control.count.makeParams(addrBits+1);
+		Counter addressCounter = control.count.makeCounter(addressCounterParams);
+
+		/* Dropping the most significant bit from the counter gives us an incrementing address to
+		 * each element in the RAM to write the input data. Reversing this address gives us a
+		 * decrementing address to each element to read the data from the RAM in reverse order. */
+		DFEVar inputAddress = addressCounter.getCount();
+		DFEVar outputAddress = DATA_SIZE - 1 - addressCounter.getCount();
+
+		inputAddress = inputAddress.cast(dfeUInt(addrBits));
+		outputAddress = outputAddress.cast(dfeUInt(addrBits));
+
+		// If the counter is less that the size of the RAM, then we are reading input data
+		DFEVar readingInput = addressCounter.getCount() < DATA_SIZE;
+
+		// Read input data during the first half of the counter
+		DFEVar inputData = io.input("inputData", dfeFloat(8,24), readingInput);
+
+		/* The input port takes the input address and data input stream. The write-enable is set
+		 * to readingInput, which is true for the first half of the counter. */
+		// The output port takes the decrementing output address
+		Memory<DFEVar> reverseRam = mem.alloc(dfeFloat(8,24), DATA_SIZE);
+		reverseRam.write(inputAddress, inputData, readingInput);
+		DFEVar outputData = reverseRam.read(outputAddress);
+		/* When the counter is in its second half, the contents of the RAM will be read out in
+		 * reverse order. */
+		io.output("outputData", outputData, dfeFloat(8,24), ~readingInput);
+	}
+}

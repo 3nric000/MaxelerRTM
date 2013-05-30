@@ -1,0 +1,27 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 13      Example: 1      Name: Simple MV 1
+ * MaxFile name: SimpleMV1
+ * Summary:
+ *        Manager for M-fold kernel version 1. All IO is between the CPU and the DFE.
+ */
+
+package simplemv1;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager.IOType;
+
+class SimpleMV1Manager {
+
+	private static final int M = 4;
+
+	public static void main(String[] args) {
+		Manager m = new Manager(new EngineParameters(args));
+		m.setKernel(new SimpleMV1Kernel( m.makeKernelParameters(), M));
+		m.setIO(IOType.ALL_CPU);
+		m.addMaxFileConstant("M", M);
+		m.build();
+	}
+
+}

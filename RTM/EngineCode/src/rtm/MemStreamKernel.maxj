@@ -1,0 +1,92 @@
+package rtm;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEType;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class MemStreamKernel extends Kernel {
+
+	//private static final DFEType typeInt = dfeInt(32);
+
+	private static final DFEType typeFloat = dfeFloat(8,24);
+
+	protected MemStreamKernel(KernelParameters parameters) {
+		super(parameters);
+
+		DFEVar p = io.input("p", typeFloat);
+		/*DFEVar n1 = io.scalarInput("n1", typeInt);
+		DFEVar n2 = io.scalarInput("n2", typeInt);*/
+		DFEVar c_0 = io.scalarInput("c_0", typeFloat);
+		DFEVar pp_value = io.input("pp_value", typeFloat);
+		DFEVar dvv_value = io.input("dvv_value", typeFloat);
+		DFEVar source_container_value = io.input("source_container_value", typeFloat);
+
+		DFEVar c_1_0 = io.scalarInput("c_1_0", typeFloat);
+		DFEVar c_1_1 = io.scalarInput("c_1_1", typeFloat);
+		DFEVar c_1_2 = io.scalarInput("c_1_2", typeFloat);
+		DFEVar c_1_3 = io.scalarInput("c_1_3", typeFloat);
+		DFEVar c_1_4 = io.scalarInput("c_1_4", typeFloat);
+
+		DFEVar c_2_0 = io.scalarInput("c_2_0", typeFloat);
+		DFEVar c_2_1 = io.scalarInput("c_2_1", typeFloat);
+		DFEVar c_2_2 = io.scalarInput("c_2_2", typeFloat);
+		DFEVar c_2_3 = io.scalarInput("c_2_3", typeFloat);
+		DFEVar c_2_4 = io.scalarInput("c_2_4", typeFloat);
+
+		DFEVar c_3_0 = io.scalarInput("c_3_0", typeFloat);
+		DFEVar c_3_1 = io.scalarInput("c_3_1", typeFloat);
+		DFEVar c_3_2 = io.scalarInput("c_3_2", typeFloat);
+		DFEVar c_3_3 = io.scalarInput("c_3_3", typeFloat);
+		DFEVar c_3_4 = io.scalarInput("c_3_4", typeFloat);
+
+
+
+		DFEVar window[]=new DFEVar[30];
+		int i=0;
+		for(int j=-5; j<=5; i++, j++){
+			if(j!=0){
+			window[i]=stream.offset(p,j);
+			}
+		}
+		for(int j=-5; j<=5; i++, j++){
+			if(j!=0){
+			window[i]=stream.offset(p,j);
+			}
+		}
+		for(int j=-5; j<=5; i++, j++){
+			if(j!=0){
+			window[i]=stream.offset(p,j*96);
+			}
+		}
+		for(int j=-5; j<=5; i++, j++){
+			if(j!=0){
+			window[i]=stream.offset(p,j*96*11);
+			}
+		}
+
+		DFEVar result;
+		result=(2.0*p-pp_value+dvv_value*(
+				p*c_0
+				+c_1_0*(window[5]+window[4])
+				+c_1_1*(window[6]+window[3])
+				+c_1_2*(window[7]+window[2])
+				+c_1_3*(window[8]+window[1])
+				+c_1_4*(window[9]+window[0])
+				+c_2_0*(window[15]+window[14])
+				+c_2_1*(window[16]+window[13])
+				+c_2_2*(window[17]+window[12])
+				+c_2_3*(window[18]+window[11])
+				+c_2_4*(window[19]+window[10])
+				+c_3_0*(window[25]+window[24])
+				+c_3_1*(window[26]+window[23])
+				+c_3_2*(window[27]+window[22])
+				+c_3_3*(window[28]+window[21])
+				+c_3_4*(window[29]+window[20])
+				))+source_container_value;
+
+
+		io.output("pp", result, typeFloat);
+	}
+
+}

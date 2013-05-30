@@ -1,0 +1,28 @@
+/**
+ * Document: MaxCompiler Tutorial (maxcompiler-tutorial.pdf)
+ * Chapter: 13      Example: 4      Name: Simple MV 4
+ * Maxfile name: SimpleMV4
+ * Summary:
+ *        Manager for M-fold kernel with stream status blocks enabled.
+ *   All IO is between the CPU and the DFE.
+ */
+package simplemv4;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager.IOType;
+
+class SimpleMV4Manager {
+
+	private static final int M = 4;
+
+	public static void main(String[] args) {
+		Manager m = new Manager(new EngineParameters(args));
+		m.setKernel(new SimpleMV4Kernel( m.makeKernelParameters(), M));
+		m.setEnableStreamStatusBlocks(true);
+		m.setIO(IOType.ALL_CPU);
+		m.addMaxFileConstant("M", M);
+		m.build();
+	}
+
+}
