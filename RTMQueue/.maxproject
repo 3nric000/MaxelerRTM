@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="RTMQueue_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/RTMQueue_EngineCode/bin" projectName="RTMQueue"/>
+<cpuPart internalCpuSubproject="RTMQueue_CPUCode"/>
+<watchedFiles/>
+</maxCompilerManager>
