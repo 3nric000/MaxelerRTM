@@ -1,0 +1,28 @@
+digraph QueueKernel_original{
+	NodeConstantRawBits22 [shape=box, label="1.0\nID: 22"];
+	NodeInput2 [shape=invhouse, label="controller\nID: 2"];
+	NodeCast3 [label="{HWOffsetFix:1, 0, UNSIGNED}\nID: 3"];
+	NodeInput10 [shape=invhouse, label="x\nID: 10"];
+	NodeCast11 [label="{HWOffsetFix:1, 0, UNSIGNED}\nID: 11"];
+	NodeInput18 [shape=invhouse, label="y\nID: 18"];
+	NodeInputMappedReg19 [shape=box, peripheries=2, label="a\nID: 19"];
+	NodeAdd20 [label="+\nID: 20"];
+	NodeAdd21 [label="+\nID: 21"];
+	NodePrintf23 [label="NodePrintf\nID: 23"];
+	NodeOutput31 [shape=house, label="s\nID: 31"];
+	NodeInput2 -> NodeCast3[color="/dark28/1" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeCast3 -> NodeInput10[headport="w" color="/dark28/2" ];
+	NodeInput2 -> NodeCast11[color="/dark28/3" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeCast11 -> NodeInput18[headport="w" color="/dark28/4" ];
+	NodeInput10 -> NodeAdd20[color="/dark28/5" photon_data="EDGE,SrcNode:10,SrcNodePort:data"];
+	NodeInput18 -> NodeAdd20[color="/dark28/6" photon_data="EDGE,SrcNode:18,SrcNodePort:data"];
+	NodeAdd20 -> NodeAdd21[color="/dark28/7" photon_data="EDGE,SrcNode:20,SrcNodePort:result"];
+	NodeInputMappedReg19 -> NodeAdd21[color="/dark28/8" photon_data="EDGE,SrcNode:19,SrcNodePort:a"];
+	NodeConstantRawBits22 -> NodePrintf23[color="/dark28/1" photon_data="EDGE,SrcNode:22,SrcNodePort:value"];
+	NodeInput10 -> NodePrintf23[color="/dark28/2" photon_data="EDGE,SrcNode:10,SrcNodePort:data"];
+	NodeInput18 -> NodePrintf23[color="/dark28/3" photon_data="EDGE,SrcNode:18,SrcNodePort:data"];
+	NodeInput2 -> NodePrintf23[color="/dark28/4" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeInputMappedReg19 -> NodePrintf23[color="/dark28/5" photon_data="EDGE,SrcNode:19,SrcNodePort:a"];
+	NodeAdd21 -> NodePrintf23[color="/dark28/6" photon_data="EDGE,SrcNode:21,SrcNodePort:result"];
+	NodeAdd21 -> NodeOutput31[color="/dark28/7" photon_data="EDGE,SrcNode:21,SrcNodePort:result"];
+}

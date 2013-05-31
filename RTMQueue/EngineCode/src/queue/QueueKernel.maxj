@@ -12,12 +12,15 @@ class QueueKernel extends Kernel {
 	protected QueueKernel(KernelParameters parameters) {
 		super(parameters);
 
-		DFEVar x = io.input("x", type);
-		DFEVar y = io.input("y", type);
+		DFEVar controller = io.input("controller", type);
+		DFEVar x = io.input("x", type, controller.cast(dfeBool()));
+		DFEVar y = io.input("y", type, controller.cast(dfeBool()));
 		DFEVar a = io.scalarInput("a", type);
 
 		// TODO replace with your computation
 		DFEVar sum = x + y + a;
+
+		debug.printf("\nx=%d y=%d controller=%d a=%d sum=%d\n", x, y, controller, a, sum);
 
 		io.output("s", sum, type);
 	}
