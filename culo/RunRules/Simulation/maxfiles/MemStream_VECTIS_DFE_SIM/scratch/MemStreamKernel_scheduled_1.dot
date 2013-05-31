@@ -1,0 +1,11 @@
+digraph MemStreamKernel_scheduled_1{
+	NodeInput2 [shape=invhouse, label="x\nID: 2"];
+	NodeInput5 [shape=invhouse, label="y\nID: 5"];
+	NodeInputMappedReg6 [shape=box, peripheries=2, label="a\nID: 6"];
+	NodeTriAdd26 [label="3 +\nID: 26"];
+	NodeOutput16 [shape=house, label="s\nID: 16"];
+	NodeInput2 -> NodeTriAdd26[color="/dark28/1" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeInput5 -> NodeTriAdd26[color="/dark28/2" photon_data="EDGE,SrcNode:5,SrcNodePort:data"];
+	NodeInputMappedReg6 -> NodeTriAdd26[color="/dark28/3" photon_data="EDGE,SrcNode:6,SrcNodePort:a"];
+	NodeTriAdd26 -> NodeOutput16[color="/dark28/4" photon_data="EDGE,SrcNode:26,SrcNodePort:result"];
+}

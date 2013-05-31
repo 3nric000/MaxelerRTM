@@ -1,0 +1,279 @@
+NodeID     : 0
+Node       : Scalar input (io_x_force_disabled)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:15)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+------------
+NodeID     : 1
+Node       : ~
+Node type  : NodeNot
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:15)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+------------
+NodeID     : 2
+Node       : Input(x)
+Node type  : NodeInput
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:15)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+------------
+NodeID     : 3
+Node       : Scalar input (io_y_force_disabled)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:16)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+------------
+NodeID     : 4
+Node       : ~
+Node type  : NodeNot
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:16)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+------------
+NodeID     : 5
+Node       : Input(y)
+Node type  : NodeInput
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:16)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+------------
+NodeID     : 6
+Node       : Scalar input (a)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:17)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 7
+Node       : +
+Node type  : NodeAdd
+Removed by : [TriAddExtractionPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:20)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+Led to:
+  NodeID     : 26
+  Node       : 3 +
+  Node type  : NodeTriAdd
+  Creator    : TriAddExtractionPass
+
+------------
+NODE WAS REMOVED!
+NodeID     : 8
+Node       : +
+Node type  : NodeAdd
+Removed by : [TriAddExtractionPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:20)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 9
+Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
+Node type  : NodeConstantRawBits
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:22)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+------------
+NodeID     : 10
+Node       : Scalar input (io_s_force_disabled)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:22)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+------------
+NodeID     : 11
+Node       : ~
+Node type  : NodeNot
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:22)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 12
+Node       : &
+Node type  : NodeAnd
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:22)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 13
+Node       : <{HWRawBits:1}>
+Node type  : NodeReinterpret
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:22)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+Led to:
+  NODE WAS REMOVED!
+  NodeID     : 25
+  Node       : {HWRawBits:1}\n0x1
+  Node type  : NodeConstantRawBits
+  Removed by : [OptimiseNodesPass]
+  Creator    : FoldConstantsPass
+
+------------
+NodeID     : 14
+Node       : <{HWRawBits:1}>
+Node type  : NodeReinterpret
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:22)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+------------
+NodeID     : 15
+Node       : <{HWOffsetFix:1, 0, UNSIGNED}>
+Node type  : NodeReinterpret
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:22)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+------------
+NodeID     : 16
+Node       : Output(s)
+Node type  : NodeOutput
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+memstream.MemStreamKernel.<init>(MemStreamKernel.maxj:22)
+memstream.MemStreamManager.main(MemStreamManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 17
+Node       : 1.0
+Node type  : NodeConstantDouble
+Removed by : [RemoveUntypedConstants]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+memstream.MemStreamManager.main(MemStreamManager.maxj:32)
+
+Led to:
+  NodeID     : 28
+  Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
+  Node type  : NodeConstantRawBits
+  Creator    : RemoveUntypedConstants
+
+------------
+NodeID     : 18
+Node       : {HWOffsetFix:49, 0, UNSIGNED}\n0x1000000000000; 2.81474976710656E14
+Node type  : NodeConstantRawBits
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+memstream.MemStreamManager.main(MemStreamManager.maxj:32)
+
+------------
+NodeID     : 19
+Node       : Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0
+Node type  : NodeCounterV1
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+memstream.MemStreamManager.main(MemStreamManager.maxj:32)
+
+------------
+NodeID     : 20
+Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
+Node type  : NodeConstantRawBits
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+memstream.MemStreamManager.main(MemStreamManager.maxj:32)
+
+------------
+NodeID     : 21
+Node       : Scalar output (current_run_cycle_count)
+Node type  : NodeOutputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+memstream.MemStreamManager.main(MemStreamManager.maxj:32)
+
+------------
+NodeID     : 22
+Node       : flush on trigger
+Node type  : NodeFlush
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+memstream.MemStreamManager.main(MemStreamManager.maxj:32)
+
+------------
+NodeID     : 23
+Node       : Scalar input (run_cycle_count)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+memstream.MemStreamManager.main(MemStreamManager.maxj:32)
+
+------------
+NodeID     : 24
+Node       : ==
+Node type  : NodeEq
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+memstream.MemStreamManager.main(MemStreamManager.maxj:32)
+
+------------
+NodeID     : 27
+Node       : FIFO(4)
+Node type  : NodeFIFO
+Creator    : ScheduleApplier
+------------

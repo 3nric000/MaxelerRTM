@@ -1,0 +1,95 @@
+data;
+set nodes
+NodeInput_ID2_0
+NodeInput_ID5_1
+NodeTriAdd_ID26_2
+NodeOutput_ID16_3
+NodeCounterV1_ID19_4
+NodeOutputMappedReg_ID21_5
+NodeEq_ID24_6
+NodeFlush_ID22_7
+;
+set inputsLeadingToFlush
+;
+set nodesAfterFlush
+NodeInput_ID2_0
+NodeInput_ID5_1
+NodeOutput_ID16_3
+NodeOutputMappedReg_ID21_5
+;
+set iDescs
+InputDesc_8
+InputDesc_9
+InputDesc_10
+InputDesc_11
+InputDesc_12
+InputDesc_13
+;
+set oDescs
+OutputDesc_14
+OutputDesc_15
+OutputDesc_16
+OutputDesc_17
+OutputDesc_18
+OutputDesc_19
+;
+set constrainedPairs
+;
+param flushNode := NodeFlush_ID22_7;
+param flushNodeStartLatency := 3;
+param inputFlushDistanceFactor := 0;
+param : getChild getParent getODesc getLatency :=
+InputDesc_8 NodeTriAdd_ID26_2 NodeInput_ID2_0 OutputDesc_14 5
+InputDesc_9 NodeTriAdd_ID26_2 NodeInput_ID5_1 OutputDesc_15 5
+InputDesc_10 NodeOutput_ID16_3 NodeTriAdd_ID26_2 OutputDesc_16 1
+InputDesc_11 NodeOutputMappedReg_ID21_5 NodeCounterV1_ID19_4 OutputDesc_17 0
+InputDesc_12 NodeEq_ID24_6 NodeCounterV1_ID19_4 OutputDesc_17 0
+InputDesc_13 NodeFlush_ID22_7 NodeEq_ID24_6 OutputDesc_19 1
+;
+param : getWidth :=
+OutputDesc_14 32
+OutputDesc_15 32
+OutputDesc_16 32
+OutputDesc_17 48
+OutputDesc_18 1
+OutputDesc_19 1
+;
+param : getPairConstraint :=
+;
+set autoVars :=
+;
+param getAutoVarCoeff :
+
+:=
+;
+param getAutoVarUserMinCoeffAutoVar :
+
+:=
+;
+param getAutoVarUserMaxCoeffAutoVar :
+
+:=
+;
+param getAutoVarUserMinCoeffMeasurement :
+
+:=
+;
+param getAutoVarUserMaxCoeffMeasurement :
+
+:=
+;
+param getAutoVarUserMin :=
+;
+param getAutoVarUserMax :=
+;
+set measurements := 
+;
+param getMeasurementStart := 
+;
+param getMeasurementEnd := 
+;
+param getMeasurementCoeff :
+
+:=
+;
+end;

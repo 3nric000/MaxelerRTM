@@ -1,0 +1,76 @@
+gio 22:57: ########################################## 
+gio 22:57: Compiling.
+gio 22:57: ########################################## 
+
+gio 22:57: MaxCompiler version: 2013.1.
+gio 22:57: Build Simulation run rule for culo start time: gio mag 30 22:57:36 CEST 2013.
+gio 22:57: Project location: /home/emanuele.delsozzo/repo/MaxelerRTM/culo.
+gio 22:57: Detailed build log: /home/emanuele.delsozzo/repo/MaxelerRTM/culo/RunRules/Simulation/build.log.
+
+gio 22:57: Compiling Engine Code.
+gio 22:57: Building MemStream.max file. 
+gio 22:57: Setting environment variable:
+gio 22:57: MAXCOMPILER_BUILD_DIR : /home/emanuele.delsozzo/repo/MaxelerRTM/culo/RunRules/Simulation/maxfiles
+gio 22:57: MAX_BUILDPARAMS : DFEModel='VECTIS' target='DFE_SIM' maxFileName='MemStream'  
+gio 22:57: Building output:
+gio 22:57: MaxCompiler version: 2013.1
+gio 22:57: Build "MemStream" start time: Thu May 30 22:57:39 CEST 2013
+gio 22:57: Main build process running as user emanuele.delsozzo on host maxeler
+gio 22:57: Build location: /home/emanuele.delsozzo/repo/MaxelerRTM/culo/RunRules/Simulation/maxfiles/MemStream_VECTIS_DFE_SIM
+gio 22:57: Detailed build log available in "_build.log"
+gio 22:57: Instantiating manager
+gio 22:57: Instantiating kernel "MemStreamKernel"
+gio 22:57: Compiling manager (Configurable)
+gio 22:57: 
+gio 22:57: Compiling kernel "MemStreamKernel"
+gio 22:57: Running back-end simulation build (3 phases)
+gio 22:57: (1/3) - Prepare MaxFile Data (GenerateMaxFileDataFile)
+gio 22:57: (2/3) - Compile Simulation Modules (SimCompilePass)
+gio 22:57: (3/3) - Generate MaxFile (AddSimObjectToMaxFilePass)
+gio 22:57: MaxFile: /home/emanuele.delsozzo/repo/MaxelerRTM/culo/RunRules/Simulation/maxfiles/MemStream_VECTIS_DFE_SIM/results/MemStream.max (MD5Sum: 2e0e3cf40c3cb5fb95c50f627092e375)
+gio 22:57: Build completed: Thu May 30 22:57:59 CEST 2013 (took 19 secs)
+gio 22:57: Copying .max file. 
+gio 22:57: Executing command:
+gio 22:57: cp /home/emanuele.delsozzo/repo/MaxelerRTM/culo/RunRules/Simulation/maxfiles/MemStream_VECTIS_DFE_SIM/results/MemStream.max /home/emanuele.delsozzo/repo/MaxelerRTM/culo/RunRules/Simulation/maxfiles/MemStream.max 
+gio 22:57: Command output:
+gio 22:58: Executing command:
+gio 22:58: cp /home/emanuele.delsozzo/repo/MaxelerRTM/culo/RunRules/Simulation/maxfiles/MemStream_VECTIS_DFE_SIM/results/MemStream.h /home/emanuele.delsozzo/repo/MaxelerRTM/culo/RunRules/Simulation/maxfiles/MemStream.h 
+gio 22:58: Command output:
+gio 22:58: Executing command:
+gio 22:58: cp /home/emanuele.delsozzo/repo/MaxelerRTM/culo/RunRules/Simulation/maxfiles/MemStream_VECTIS_DFE_SIM/results/MemStream.h /home/emanuele.delsozzo/repo/MaxelerRTM/culo/RunRules/Simulation/include/MemStream.h 
+gio 22:58: Command output:
+gio 22:58: Building: MemStream.max file finished.
+gio 22:58: Engine build finished.
+gio 22:58: Compiling CPU Code.
+gio 22:58: Run CPU project make files updating
+gio 22:58: Executing command:
+gio 22:58: java -jar /opt/maxeler/maxcompiler/lib/MaxIDE/projectAdmin.jar -u /home/emanuele.delsozzo/repo/MaxelerRTM/culo Simulation 
+gio 22:58: Command output:
+
+gio 22:58: MaxCompiler Project Admin Tool Version 2013.1.0
+gio 22:58:  Copyright Maxeler Technologies 2010 - 2013. All rights reserved.
+gio 22:58: Updating RunRule dependant Makefiles for RunRule 'Simulation'
+gio 22:58: Found makefiles: 1
+gio 22:58: 	Updated: Simulation
+gio 22:58: Run CPU make.
+gio 22:58: make RUNRULE=Simulation 
+gio 22:58: Command output:
+gio 22:58: make -f Makefile ../RunRules/Simulation/binaries/MemStream
+gio 22:58: make[1]: Entering directory `/home/emanuele.delsozzo/repo/MaxelerRTM/culo/CPUCode'
+gio 22:58: /opt/maxeler/maxcompiler/bin/sliccompile "../RunRules/Simulation/maxfiles/MemStream.max" "../RunRules/Simulation/objects/slic_MemStream.o"
+gio 22:58: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=MemStream -DMAXFILE_1="MemStream.max"  -o "../RunRules/Simulation/objects/MemStreamCpuCode.o" -c "MemStreamCpuCode.c"
+gio 22:58: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=MemStream -DMAXFILE_1="MemStream.max"  -MM -MP -MT "../RunRules/Simulation/objects/MemStreamCpuCode.o" "MemStreamCpuCode.c" > "../RunRules/Simulation/objects/MemStreamCpuCode.d"
+gio 22:58: cc ../RunRules/Simulation/objects/MemStreamCpuCode.o ../RunRules/Simulation/objects/slic_MemStream.o  -L/opt/maxeler/maxcompiler/lib -L/opt/maxeler/maxcompiler/lib/maxeleros-sim/lib -lslic -lmaxeleros -lm -lpthread  -o "../RunRules/Simulation/binaries/MemStream"
+gio 22:58: make[1]: Leaving directory `/home/emanuele.delsozzo/repo/MaxelerRTM/culo/CPUCode'
+gio 22:58: Build completed: gio mag 30 22:58:05 CEST 2013
+
+
+gio 22:58: ########################################## 
+gio 22:58: Running
+gio 22:58: ########################################## 
+gio 22:58: Executing command:
+gio 22:58: '/home/emanuele.delsozzo/repo/MaxelerRTM/culo/RunRules/Simulation/binaries/MemStream' 
+gio 22:58: Command output:
+gio 22:58: Writing to LMem.
+gio 22:58: Running on DFE.
+gio 22:58: Done.

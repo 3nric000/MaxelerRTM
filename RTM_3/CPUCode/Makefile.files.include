@@ -1,0 +1,5 @@
+#
+# This file is managed by MaxIDE. Do NOT change.
+#
+HEADERS:= cpu_constructors.h cpu_simulation.h 
+SOURCES:= cpu_constructors.c cpu_main.c cpu_simulation.c 

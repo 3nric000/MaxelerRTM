@@ -1,0 +1,5 @@
+NodeCounterV1 Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0 {HWOffsetFix:48, 0, UNSIGNED} ID: 19
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+memstream.MemStreamManager.main(MemStreamManager.maxj:32)
+	FIFO(4) {HWOffsetFix:48, 0, UNSIGNED} 4 ID: 27
+

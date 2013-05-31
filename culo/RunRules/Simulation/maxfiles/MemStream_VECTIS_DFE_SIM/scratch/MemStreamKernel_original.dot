@@ -1,0 +1,13 @@
+digraph MemStreamKernel_original{
+	NodeInput2 [shape=invhouse, label="x\nID: 2"];
+	NodeInput5 [shape=invhouse, label="y\nID: 5"];
+	NodeAdd7 [label="+\nID: 7"];
+	NodeInputMappedReg6 [shape=box, peripheries=2, label="a\nID: 6"];
+	NodeAdd8 [label="+\nID: 8"];
+	NodeOutput16 [shape=house, label="s\nID: 16"];
+	NodeInput2 -> NodeAdd7[color="/dark28/1" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeInput5 -> NodeAdd7[color="/dark28/2" photon_data="EDGE,SrcNode:5,SrcNodePort:data"];
+	NodeAdd7 -> NodeAdd8[color="/dark28/3" photon_data="EDGE,SrcNode:7,SrcNodePort:result"];
+	NodeInputMappedReg6 -> NodeAdd8[color="/dark28/4" photon_data="EDGE,SrcNode:6,SrcNodePort:a"];
+	NodeAdd8 -> NodeOutput16[color="/dark28/5" photon_data="EDGE,SrcNode:8,SrcNodePort:result"];
+}

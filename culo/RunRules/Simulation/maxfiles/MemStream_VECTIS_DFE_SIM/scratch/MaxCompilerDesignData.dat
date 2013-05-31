@@ -1,0 +1,2480 @@
+#ifdef MAXCOMPILER_VERSION_INFO
+#define MAXCOMPILER_VERSION_INFO_PRESENT 1
+#define MAXFILE_MAXCOMPILER_VERSION_YEAR         2013
+#define MAXFILE_MAXCOMPILER_VERSION_NUM          1
+#define MAXFILE_MAXCOMPILER_VERSION_POINT        0
+#define MAXFILE_MAXCOMPILER_VERSION_PATCH        ""
+#define MAXFILE_MAXCOMPILER_VERSION_REV          35689
+#define MAXFILE_MAXCOMPILER_VERSION_RELEASE_MODE true
+#endif
+
+#ifdef MAXFILE_BUILD_INFO
+#define MAXFILE_BUILD_INFO_PRESENT 1
+#define MAXFILE_BUILD_NAME "MemStream"
+#define MAXFILE_BUILD_DIR  "/home/emanuele.delsozzo/repo/MaxelerRTM/culo/RunRules/Simulation/maxfiles/MemStream_VECTIS_DFE_SIM"
+#define MAXFILE_BUILD_DATE  20130530
+#define MAXFILE_BUILD_REV   1
+#endif
+
+#ifdef PARAM
+#define PARAM_PRESENT 1
+PARAM(MemCtrlPro_TotalNumStreams, 3)
+PARAM(MemCtrlPro_NumRdStreams, 2)
+PARAM(MemCtrlPro_NumWrStreams, 1)
+PARAM(MemCtrlPro_DDRType, 3)
+PARAM(MemCtrlPro_BurstSizeInBytes, 384)
+PARAM(MemCtrlPro_MIGBurstSize, 8)
+PARAM(MemCtrlPro_Parity_Mode, 0)
+PARAM(MemCtrlPro_ECC_Mode, 0)
+PARAM(MemCtrlPro_ParityECC_Debug, 0)
+PARAM(MemCtrlPro_ParityECC_EngineSize, 0)
+PARAM(MemCtrlPro_DataBurstSizeInBytes, 384)
+PARAM(MemCtrlPro_MainFIFODepth, 512)
+PARAM(MemCtrlPro_BitMungeType, 2)
+PARAM(MemCtrlPro_BitMungeSupports_2GB_SingleRank, 1)
+PARAM(MemCtrlPro_BitMungeSupports_2GB_DualRank, 0)
+PARAM(MemCtrlPro_BitMungeSupports_4GB_DualRank, 1)
+PARAM(MemCtrlPro_BitMungeSupports_8GB_DualRank, 1)
+PARAM(APP_ID, 0)
+PARAM(REV_ID, 0)
+PARAM(CHAIN_LENGTH, 101)
+PARAM(IS_SIMULATION, 1)
+PARAM(MEC_SUPPORTED, 1)
+PARAM(PCIE_SLAVE_STREAMING, 0)
+PARAM(PCIE_ALIGNMENT, 16)
+PARAM(NUM_IFPGA_LINKS, 0)
+#endif
+
+#ifdef STRING_PARAM
+#define STRING_PARAM_PRESENT 1
+STRING_PARAM(BOARD_MODEL, "MAX3424A")
+#endif
+
+
+#ifdef INCLUDE_GENERATED_CPP_HEADERS
+#include "MemStreamKernel.h"
+#endif
+
+
+
+
+
+
+
+
+
+
+#ifdef MANAGER_NODE
+#define MANAGER_NODE_PRESENT 1
+MANAGER_NODE(MemStreamKernel, Kernel)
+MANAGER_NODE(cpu_to_lmem, PCIe_From_Host_fwd)
+MANAGER_NODE(lmem_to_cpu, PCIe_To_Host_fwd)
+MANAGER_NODE(addrgen_cmd_write_lmem, AddrGen)
+MANAGER_NODE(cmd_write_lmem_0, Memory_Cmd)
+MANAGER_NODE(write_lmem, To_Memory)
+MANAGER_NODE(addrgen_cmd_read_lmem, AddrGen)
+MANAGER_NODE(cmd_read_lmem_0, Memory_Cmd)
+MANAGER_NODE(read_lmem, From_Memory)
+MANAGER_NODE(addrgen_cmd_x, AddrGen)
+MANAGER_NODE(cmd_x_0, Memory_Cmd)
+MANAGER_NODE(x, From_Memory)
+MANAGER_NODE(y, PCIe_From_Host_fwd)
+MANAGER_NODE(s, PCIe_To_Host_fwd)
+MANAGER_NODE(Stream_10, DualAspectReg)
+MANAGER_NODE(Stream_4, DualAspectMux)
+MANAGER_NODE(Stream_17, DualAspectMux)
+MANAGER_NODE(Stream_24, DualAspectMux)
+MANAGER_NODE(Stream_29, DualAspectReg)
+MANAGER_NODE(Stream_33, StreamPullPushAdapter)
+MANAGER_NODE(Stream_49, StreamPullPushAdapter)
+MANAGER_NODE(Stream_41, Fifo)
+MANAGER_NODE(Stream_45, Fifo)
+MANAGER_NODE(Stream_47, Fifo)
+#endif
+
+#ifdef MANAGER_NODE_IO
+#define MANAGER_NODE_IO_PRESENT 1
+MANAGER_NODE_IO(MemStreamKernel, x, IN, STREAM, 32, PULL)
+MANAGER_NODE_IO(MemStreamKernel, y, IN, STREAM, 32, PULL)
+MANAGER_NODE_IO(MemStreamKernel, s, OUT, STREAM, 32, PUSH)
+MANAGER_NODE_IO(cpu_to_lmem, cpu_to_lmem, OUT, STREAM, 128, PULL)
+MANAGER_NODE_IO(lmem_to_cpu, lmem_to_cpu, IN, STREAM, 128, PUSH)
+MANAGER_NODE_IO(addrgen_cmd_write_lmem, addrgen_cmd_write_lmem_0, OUT, STREAM, 64, PUSH)
+MANAGER_NODE_IO(cmd_write_lmem_0, cmd_write_lmem_0, IN, STREAM, 64, PUSH)
+MANAGER_NODE_IO(write_lmem, write_lmem, IN, STREAM, 1536, PUSH)
+MANAGER_NODE_IO(addrgen_cmd_read_lmem, addrgen_cmd_read_lmem_0, OUT, STREAM, 64, PUSH)
+MANAGER_NODE_IO(cmd_read_lmem_0, cmd_read_lmem_0, IN, STREAM, 64, PUSH)
+MANAGER_NODE_IO(read_lmem, read_lmem, OUT, STREAM, 1536, PULL)
+MANAGER_NODE_IO(addrgen_cmd_x, addrgen_cmd_x_0, OUT, STREAM, 64, PUSH)
+MANAGER_NODE_IO(cmd_x_0, cmd_x_0, IN, STREAM, 64, PUSH)
+MANAGER_NODE_IO(x, x, OUT, STREAM, 1536, PULL)
+MANAGER_NODE_IO(y, y, OUT, STREAM, 128, PULL)
+MANAGER_NODE_IO(s, s, IN, STREAM, 128, PUSH)
+MANAGER_NODE_IO(Stream_10, input, IN, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_10, output, OUT, STREAM, 1536, PULL)
+MANAGER_NODE_IO(Stream_4, input, IN, STREAM, 1536, PULL)
+MANAGER_NODE_IO(Stream_4, output, OUT, STREAM, 128, PUSH)
+MANAGER_NODE_IO(Stream_17, input, IN, STREAM, 1536, PULL)
+MANAGER_NODE_IO(Stream_17, output, OUT, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_24, input, IN, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_24, output, OUT, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_29, input, IN, STREAM, 32, PULL)
+MANAGER_NODE_IO(Stream_29, output, OUT, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_33, input, IN, STREAM, 1536, PULL)
+MANAGER_NODE_IO(Stream_33, output, OUT, STREAM, 1536, PUSH)
+MANAGER_NODE_IO(Stream_49, input, IN, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_49, output, OUT, STREAM, 128, PUSH)
+MANAGER_NODE_IO(Stream_41, input, IN, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_41, output, OUT, STREAM, 32, PULL)
+MANAGER_NODE_IO(Stream_45, input, IN, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_45, output, OUT, STREAM, 32, PULL)
+MANAGER_NODE_IO(Stream_47, input, IN, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_47, output, OUT, STREAM, 32, PULL)
+#endif
+
+#ifdef MANAGER_STREAM
+#define MANAGER_STREAM_PRESENT 1
+MANAGER_STREAM(cpu_to_lmem, cpu_to_lmem, Stream_10, input, 128)
+MANAGER_STREAM(addrgen_cmd_write_lmem, addrgen_cmd_write_lmem_0, cmd_write_lmem_0, cmd_write_lmem_0, 64)
+MANAGER_STREAM(addrgen_cmd_read_lmem, addrgen_cmd_read_lmem_0, cmd_read_lmem_0, cmd_read_lmem_0, 64)
+MANAGER_STREAM(read_lmem, read_lmem, Stream_4, input, 1536)
+MANAGER_STREAM(addrgen_cmd_x, addrgen_cmd_x_0, cmd_x_0, cmd_x_0, 64)
+MANAGER_STREAM(x, x, Stream_17, input, 1536)
+MANAGER_STREAM(y, y, Stream_24, input, 128)
+MANAGER_STREAM(MemStreamKernel, s, Stream_47, input, 32)
+MANAGER_STREAM(Stream_10, output, Stream_33, input, 1536)
+MANAGER_STREAM(Stream_4, output, lmem_to_cpu, lmem_to_cpu, 128)
+MANAGER_STREAM(Stream_17, output, Stream_41, input, 32)
+MANAGER_STREAM(Stream_24, output, Stream_45, input, 32)
+MANAGER_STREAM(Stream_29, output, Stream_49, input, 128)
+MANAGER_STREAM(Stream_33, output, write_lmem, write_lmem, 1536)
+MANAGER_STREAM(Stream_49, output, s, s, 128)
+MANAGER_STREAM(Stream_41, output, MemStreamKernel, x, 32)
+MANAGER_STREAM(Stream_45, output, MemStreamKernel, y, 32)
+MANAGER_STREAM(Stream_47, output, Stream_29, input, 32)
+#endif
+
+#ifdef MANAGER_NODE_PROPERTY
+#define MANAGER_NODE_PROPERTY_PRESENT 1
+MANAGER_NODE_PROPERTY(MemStreamKernel, control_pipelining_depth, 2)
+#endif
+
+
+#ifdef KERNEL_CORE
+#define KERNEL_CORE_PRESENT 1
+KERNEL_CORE(MemStreamKernel)
+#endif
+
+#ifdef KERNEL_HOST_CONTROLLED
+#define KERNEL_HOST_CONTROLLED_PRESENT 1
+KERNEL_HOST_CONTROLLED(MemStreamKernel, MemStreamKernel)
+#endif
+
+#ifdef DEBUG_INPUT_BITS
+#define DEBUG_INPUT_BITS_PRESENT 1
+DEBUG_INPUT_BITS(MemStreamKernel, x, 0)
+DEBUG_INPUT_BITS(MemStreamKernel, y, 1)
+#endif
+
+#ifdef DEBUG_OUTPUT_BITS
+#define DEBUG_OUTPUT_BITS_PRESENT 1
+DEBUG_OUTPUT_BITS(MemStreamKernel, s, 0)
+#endif
+
+#ifdef MANAGER_NODE_CPP_SIM_MODEL_CTOR
+#define MANAGER_NODE_CPP_SIM_MODEL_CTOR_PRESENT 1
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(cpu_to_lmem, PCIePullSourceSyncMax3, "cpu_to_lmem")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(addrgen_cmd_write_lmem, AddressGeneratorSync, "addrgen_cmd_write_lmem", 1, MemoryControllerConfig::getMax3Config(8,0,0,0,31), LINEAR1D)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(addrgen_cmd_read_lmem, AddressGeneratorSync, "addrgen_cmd_read_lmem", 1, MemoryControllerConfig::getMax3Config(8,0,0,0,31), LINEAR1D)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(addrgen_cmd_x, AddressGeneratorSync, "addrgen_cmd_x", 1, MemoryControllerConfig::getMax3Config(8,0,0,0,31), LINEAR1D)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(y, PCIePullSourceSyncMax3, "y")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(Stream_10, DualAspectRegSync, "Stream_10", 128, 12)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(Stream_4, DualAspectMuxSync, "Stream_4", 128, 12)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(Stream_17, DualAspectMuxSync, "Stream_17", 32, 48)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(Stream_24, DualAspectMuxSync, "Stream_24", 32, 4)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(Stream_33, PullToPushAdapterSync, "Stream_33")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(lmem_to_cpu, PCIePushSinkSyncMax3, "lmem_to_cpu")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(Stream_41, FifoPushToPullSync, "Stream_41", false, 512, 32)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(Stream_45, FifoPushToPullSync, "Stream_45", false, 512, 32)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(MemStreamKernel, MemStreamKernel, "MemStreamKernel")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(Stream_47, FifoPushToPullSync, "Stream_47", false, 512, 32)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(Stream_29, DualAspectRegSync, "Stream_29", 32, 4)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(Stream_49, PullToPushAdapterSync, "Stream_49")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(s, PCIePushSinkSyncMax3, "s")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(cmd_write_lmem_0, MemoryProxyCommandSinkSync, "cmd_write_lmem_0")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(read_lmem, MemoryProxyPullSourceSync, "read_lmem")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(cmd_read_lmem_0, MemoryProxyCommandSinkSync, "cmd_read_lmem_0")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(x, MemoryProxyPullSourceSync, "x")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(cmd_x_0, MemoryProxyCommandSinkSync, "cmd_x_0")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(write_lmem, MemoryProxyPushSinkSync, "write_lmem")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(MemoryControllerPro, MemoryControllerPro, "MemoryControllerPro", MemoryControllerConfig::getMax3Config(8,0,0,0,31), true)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(CapabilityReg, CapRegs, "CapabilityReg", 0, 2, 2, 0, 0, 0, 0, 0, 101)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(ifpga, IFPGARegs)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(sfa, SFARegs)
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(ChecksumMemory, ChecksumMem, "ChecksumMemory", "de74fa8bdfbcd79ed3a6774a979304274ca8dee897b277d4c617e82bfef1583f")
+#endif
+
+#ifdef MANAGER_NODE_CPP_SIM_MODEL_SETUP
+#define MANAGER_NODE_CPP_SIM_MODEL_SETUP_PRESENT 1
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_ctld_almost_empty, 2, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_ctld_done, 2, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_ctld_empty, 2, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_ctld_read, 2, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_ctld_read_pipe_dbg, 6, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_ctld_request, 2, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_done_out, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_fill_level, 4, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_flush_level, 4, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_flush_start, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_flush_start_level, 4, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_flushing, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_full_level, 4, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_out_stall, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_out_valid, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemStreamKernel, addDebugRegister, reg_dbg_stall_vector, 1, 0)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(cmd_write_lmem_0, setup, "cmd_write_lmem_0", MemoryControllerPro::getDefaultMemoryController())
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(read_lmem, setup, "read_lmem", MemoryControllerPro::getDefaultMemoryController(), "cmd_read_lmem_0", 1536)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(cmd_read_lmem_0, setup, "cmd_read_lmem_0", MemoryControllerPro::getDefaultMemoryController())
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(x, setup, "x", MemoryControllerPro::getDefaultMemoryController(), "cmd_x_0", 1536)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(cmd_x_0, setup, "cmd_x_0", MemoryControllerPro::getDefaultMemoryController())
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(write_lmem, setup, "write_lmem", MemoryControllerPro::getDefaultMemoryController(), "cmd_write_lmem_0", 1536)
+MANAGER_NODE_CPP_SIM_MODEL_SETUP(MemoryControllerPro, streamsFinalise)
+#endif
+
+#ifdef PCIE_STREAM
+#define PCIE_STREAM_PRESENT 1
+PCIE_STREAM(cpu_to_lmem, STREAM_FROM_HOST, 0)
+PCIE_STREAM(y, STREAM_FROM_HOST, 1)
+PCIE_STREAM(lmem_to_cpu, STREAM_TO_HOST, 0)
+PCIE_STREAM(s, STREAM_TO_HOST, 1)
+#endif
+
+#ifdef MEMCTRLPRO_ADDRGEN_1DLIN
+#define MEMCTRLPRO_ADDRGEN_1DLIN_PRESENT 1
+MEMCTRLPRO_ADDRGEN_1DLIN(addrgen_cmd_write_lmem, 1)
+#endif
+
+#ifdef MEMCTRLPRO_ADDRGEN_1DLIN
+#define MEMCTRLPRO_ADDRGEN_1DLIN_PRESENT 1
+MEMCTRLPRO_ADDRGEN_1DLIN(addrgen_cmd_read_lmem, 1)
+#endif
+
+#ifdef MEMCTRLPRO_ADDRGEN_1DLIN
+#define MEMCTRLPRO_ADDRGEN_1DLIN_PRESENT 1
+MEMCTRLPRO_ADDRGEN_1DLIN(addrgen_cmd_x, 1)
+#endif
+
+#ifdef MEMCTRLPRO_STREAM
+#define MEMCTRLPRO_STREAM_PRESENT 1
+MEMCTRLPRO_STREAM(read_lmem, 0, READ_FROM_MEMORY)
+MEMCTRLPRO_STREAM(x, 1, READ_FROM_MEMORY)
+MEMCTRLPRO_STREAM(write_lmem, 2, WRITE_TO_MEMORY)
+#endif
+
+#ifdef REG
+#define REG_PRESENT 1
+REG(addrgen_cmd_write_lmem._Addr_En, 0x0, 1, hwBits(1))
+REG(addrgen_cmd_write_lmem._CmdSize, 0x1, 1, hwBits(8))
+REG(addrgen_cmd_write_lmem._BlockSize_X, 0x2, 5, hwBits(33))
+REG(addrgen_cmd_write_lmem._Wrap_X, 0x7, 4, hwBits(32))
+REG(addrgen_cmd_write_lmem._Start_X_Addr, 0xb, 4, hwBits(32))
+REG(addrgen_cmd_write_lmem._Offset_0, 0xf, 4, hwBits(32))
+REG(addrgen_cmd_read_lmem._Addr_En, 0x13, 1, hwBits(1))
+REG(addrgen_cmd_read_lmem._CmdSize, 0x14, 1, hwBits(8))
+REG(addrgen_cmd_read_lmem._BlockSize_X, 0x15, 5, hwBits(33))
+REG(addrgen_cmd_read_lmem._Wrap_X, 0x1a, 4, hwBits(32))
+REG(addrgen_cmd_read_lmem._Start_X_Addr, 0x1e, 4, hwBits(32))
+REG(addrgen_cmd_read_lmem._Offset_0, 0x22, 4, hwBits(32))
+REG(addrgen_cmd_x._Addr_En, 0x26, 1, hwBits(1))
+REG(addrgen_cmd_x._CmdSize, 0x27, 1, hwBits(8))
+REG(addrgen_cmd_x._BlockSize_X, 0x28, 5, hwBits(33))
+REG(addrgen_cmd_x._Wrap_X, 0x2d, 4, hwBits(32))
+REG(addrgen_cmd_x._Start_X_Addr, 0x31, 4, hwBits(32))
+REG(addrgen_cmd_x._Offset_0, 0x35, 4, hwBits(32))
+REG(MemStreamKernel.io_x_force_disabled, 0x39, 1, hwOffsetFix(1, 0, UNSIGNED))
+REG(MemStreamKernel.io_y_force_disabled, 0x3a, 1, hwOffsetFix(1, 0, UNSIGNED))
+REG(MemStreamKernel.a, 0x3b, 4, hwOffsetFix(32, 0, TWOSCOMPLEMENT))
+REG(MemStreamKernel.io_s_force_disabled, 0x3f, 1, hwOffsetFix(1, 0, UNSIGNED))
+REG(MemStreamKernel.run_cycle_count, 0x40, 6, hwOffsetFix(48, 0, UNSIGNED))
+REG(MemStreamKernel.current_run_cycle_count, 0x46, 6, hwOffsetFix(48, 0, UNSIGNED))
+REG(MemStreamKernel.dbg_ctld_almost_empty, 0x4c, 1, hwBits(2))
+REG(MemStreamKernel.dbg_ctld_done, 0x4d, 1, hwBits(2))
+REG(MemStreamKernel.dbg_ctld_empty, 0x4e, 1, hwBits(2))
+REG(MemStreamKernel.dbg_ctld_read, 0x4f, 1, hwBits(2))
+REG(MemStreamKernel.dbg_ctld_read_pipe_dbg, 0x50, 1, hwBits(6))
+REG(MemStreamKernel.dbg_ctld_request, 0x51, 1, hwBits(2))
+REG(MemStreamKernel.dbg_done_out, 0x52, 1, hwBits(1))
+REG(MemStreamKernel.dbg_fill_level, 0x53, 1, hwBits(4))
+REG(MemStreamKernel.dbg_flush_level, 0x54, 1, hwBits(4))
+REG(MemStreamKernel.dbg_flush_start, 0x55, 1, hwBits(1))
+REG(MemStreamKernel.dbg_flush_start_level, 0x56, 1, hwBits(4))
+REG(MemStreamKernel.dbg_flushing, 0x57, 1, hwBits(1))
+REG(MemStreamKernel.dbg_full_level, 0x58, 1, hwBits(4))
+REG(MemStreamKernel.dbg_out_stall, 0x59, 1, hwBits(1))
+REG(MemStreamKernel.dbg_out_valid, 0x5a, 1, hwBits(1))
+REG(MemStreamKernel.dbg_stall_vector, 0x5b, 1, hwBits(1))
+REG(MemoryControllerPro.MemoryControllerPro_Int_Enable_AND, 0x5c, 1, hwBits(3))
+REG(MemoryControllerPro.MemoryControllerPro_Int_Disable_OR, 0x5d, 1, hwBits(3))
+REG(MemoryControllerPro.MemoryControllerPro_phy_init_done, 0x5e, 1, hwBits(1))
+REG(MemoryControllerPro.MemoryControllerPro_Arb_Control, 0x5f, 1, hwBits(8))
+REG(ifpga.ifpga_ctrl, 0x60, 1, hwBits(8))
+REG(SignalForwardingAdapter.SFA_FORWARD_EN, 0x61, 4, hwBits(32))
+#endif
+
+#ifdef REG_V2
+#define REG_V2_PRESENT 1
+REG_V2(addrgen_cmd_write_lmem._Addr_En, 0x0, 1, hwBits(1), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_write_lmem._CmdSize, 0x1, 1, hwBits(8), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_write_lmem._BlockSize_X, 0x2, 5, hwBits(33), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_write_lmem._Wrap_X, 0x7, 4, hwBits(32), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_write_lmem._Start_X_Addr, 0xb, 4, hwBits(32), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_write_lmem._Offset_0, 0xf, 4, hwBits(32), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_read_lmem._Addr_En, 0x13, 1, hwBits(1), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_read_lmem._CmdSize, 0x14, 1, hwBits(8), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_read_lmem._BlockSize_X, 0x15, 5, hwBits(33), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_read_lmem._Wrap_X, 0x1a, 4, hwBits(32), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_read_lmem._Start_X_Addr, 0x1e, 4, hwBits(32), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_read_lmem._Offset_0, 0x22, 4, hwBits(32), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_x._Addr_En, 0x26, 1, hwBits(1), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_x._CmdSize, 0x27, 1, hwBits(8), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_x._BlockSize_X, 0x28, 5, hwBits(33), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_x._Wrap_X, 0x2d, 4, hwBits(32), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_x._Start_X_Addr, 0x31, 4, hwBits(32), HOST_WRITE_ONLY, false)
+REG_V2(addrgen_cmd_x._Offset_0, 0x35, 4, hwBits(32), HOST_WRITE_ONLY, false)
+REG_V2(MemStreamKernel.io_x_force_disabled, 0x39, 1, hwOffsetFix(1, 0, UNSIGNED), HOST_WRITE_ONLY, true)
+REG_V2(MemStreamKernel.io_y_force_disabled, 0x3a, 1, hwOffsetFix(1, 0, UNSIGNED), HOST_WRITE_ONLY, true)
+REG_V2(MemStreamKernel.a, 0x3b, 4, hwOffsetFix(32, 0, TWOSCOMPLEMENT), HOST_WRITE_ONLY, false)
+REG_V2(MemStreamKernel.io_s_force_disabled, 0x3f, 1, hwOffsetFix(1, 0, UNSIGNED), HOST_WRITE_ONLY, true)
+REG_V2(MemStreamKernel.run_cycle_count, 0x40, 6, hwOffsetFix(48, 0, UNSIGNED), HOST_WRITE_ONLY, false)
+REG_V2(MemStreamKernel.current_run_cycle_count, 0x46, 6, hwOffsetFix(48, 0, UNSIGNED), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_ctld_almost_empty, 0x4c, 1, hwBits(2), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_ctld_done, 0x4d, 1, hwBits(2), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_ctld_empty, 0x4e, 1, hwBits(2), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_ctld_read, 0x4f, 1, hwBits(2), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_ctld_read_pipe_dbg, 0x50, 1, hwBits(6), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_ctld_request, 0x51, 1, hwBits(2), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_done_out, 0x52, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_fill_level, 0x53, 1, hwBits(4), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_flush_level, 0x54, 1, hwBits(4), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_flush_start, 0x55, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_flush_start_level, 0x56, 1, hwBits(4), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_flushing, 0x57, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_full_level, 0x58, 1, hwBits(4), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_out_stall, 0x59, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_out_valid, 0x5a, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(MemStreamKernel.dbg_stall_vector, 0x5b, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(MemoryControllerPro.MemoryControllerPro_Int_Enable_AND, 0x5c, 1, hwBits(3), HOST_WRITE_ONLY, false)
+REG_V2(MemoryControllerPro.MemoryControllerPro_Int_Disable_OR, 0x5d, 1, hwBits(3), HOST_WRITE_ONLY, false)
+REG_V2(MemoryControllerPro.MemoryControllerPro_phy_init_done, 0x5e, 1, hwBits(1), HOST_READ_ONLY, false)
+REG_V2(MemoryControllerPro.MemoryControllerPro_Arb_Control, 0x5f, 1, hwBits(8), HOST_READ_WRITE, false)
+REG_V2(ifpga.ifpga_ctrl, 0x60, 1, hwBits(8), HOST_READ_WRITE, false)
+REG_V2(SignalForwardingAdapter.SFA_FORWARD_EN, 0x61, 4, hwBits(32), HOST_READ_WRITE, false)
+#endif
+
+
+
+
+#ifdef CHECKSUM
+#define CHECKSUM_PRESENT 1
+CHECKSUM("de74fa8bdfbcd79ed3a6774a979304274ca8dee897b277d4c617e82bfef1583f")
+#endif
+
+#ifdef MANAGER_MEMCTL
+#define MANAGER_MEMCTL_PRESENT 1
+MANAGER_MEMCTL(max3_sodimms, MemoryControllerPro.MemoryControllerPro, 384)
+#endif
+
+#ifdef MANAGER_MEMCTL_CONTROL_GROUP
+#define MANAGER_MEMCTL_CONTROL_GROUP_PRESENT 1
+MANAGER_MEMCTL_CONTROL_GROUP(max3_sodimms, cmd_write_lmem, addrgen_cmd_write_lmem., LINEAR_1D)
+MANAGER_MEMCTL_CONTROL_GROUP(max3_sodimms, cmd_read_lmem, addrgen_cmd_read_lmem., LINEAR_1D)
+MANAGER_MEMCTL_CONTROL_GROUP(max3_sodimms, cmd_x, addrgen_cmd_x., LINEAR_1D)
+#endif
+
+#ifdef MANAGER_MEMCTL_DATA_STREAM
+#define MANAGER_MEMCTL_DATA_STREAM_PRESENT 1
+MANAGER_MEMCTL_DATA_STREAM(max3_sodimms, cmd_read_lmem, read_lmem, 0, 0, READ_FROM_MEMORY)
+MANAGER_MEMCTL_DATA_STREAM(max3_sodimms, cmd_x, x, 0, 1, READ_FROM_MEMORY)
+MANAGER_MEMCTL_DATA_STREAM(max3_sodimms, cmd_write_lmem, write_lmem, 0, 2, WRITE_TO_MEMORY)
+#endif
+
+#ifdef CAPABILITY
+#define CAPABILITY_PRESENT 1
+CAPABILITY(MAX3REV, MAX3REVA)
+CAPABILITY(MAX3RAM, DDR3_24GB)
+CAPABILITY(MAX3FPGA, SXT475_2ES)
+#endif
+
+#ifdef DEFINE_DESIGN_NAME
+#define DESIGN_NAME MemStream
+#endif /* DEFINE_DESIGN_NAME */
+
+#ifndef SLIC_NO_DECLARATIONS
+/**\file */
+#ifndef SLIC_DECLARATIONS_MemStream_H
+#define SLIC_DECLARATIONS_MemStream_H
+#include "MaxSLiCInterface.h"
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
+
+
+/*----------------------------------------------------------------------------*/
+/*--------------------------- Interface writeLMem ----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+
+/**
+ * \brief Basic static function for the interface 'writeLMem'.
+ * 
+ * \param [in] param_address Interface Parameter "address".
+ * \param [in] param_nbytes Interface Parameter "nbytes".
+ * \param [in] instream_cpu_to_lmem The stream should be of size param_nbytes bytes.
+ */
+void MemStream_writeLMem(
+	int64_t param_address,
+	int64_t param_nbytes,
+	const void *instream_cpu_to_lmem);
+
+/**
+ * \brief Basic static non-blocking function for the interface 'writeLMem'.
+ * 
+ * Schedule to run on an engine and return immediately.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ * 
+ * 
+ * \param [in] param_address Interface Parameter "address".
+ * \param [in] param_nbytes Interface Parameter "nbytes".
+ * \param [in] instream_cpu_to_lmem The stream should be of size param_nbytes bytes.
+ * \return A handle on the execution status, or NULL in case of error.
+ */
+max_run_t *MemStream_writeLMem_nonblock(
+	int64_t param_address,
+	int64_t param_nbytes,
+	const void *instream_cpu_to_lmem);
+
+/**
+ * \brief Advanced static interface, structure for the engine interface 'writeLMem'
+ * 
+ */
+typedef struct { 
+	int64_t param_address; /**<  [in] Interface Parameter "address". */
+	int64_t param_nbytes; /**<  [in] Interface Parameter "nbytes". */
+	const void *instream_cpu_to_lmem; /**<  [in] The stream should be of size param_nbytes bytes. */
+} MemStream_writeLMem_actions_t;
+
+/**
+ * \brief Advanced static function for the interface 'writeLMem'.
+ * 
+ * \param [in] engine The engine on which the actions will be executed.
+ * \param [in,out] interface_actions Actions to be executed.
+ */
+void MemStream_writeLMem_run(
+	max_engine_t *engine,
+	MemStream_writeLMem_actions_t *interface_actions);
+
+/**
+ * \brief Advanced static non-blocking function for the interface 'writeLMem'.
+ *
+ * Schedule the actions to run on the engine and return immediately.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * 
+ * \param [in] engine The engine on which the actions will be executed.
+ * \param [in] interface_actions Actions to be executed.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MemStream_writeLMem_run_nonblock(
+	max_engine_t *engine,
+	MemStream_writeLMem_actions_t *interface_actions);
+
+/**
+ * \brief Group run advanced static function for the interface 'writeLMem'.
+ * 
+ * \param [in] group Group to use.
+ * \param [in,out] interface_actions Actions to run.
+ *
+ * Run the actions on the first device available in the group.
+ */
+void MemStream_writeLMem_run_group(max_group_t *group, MemStream_writeLMem_actions_t *interface_actions);
+
+/**
+ * \brief Group run advanced static non-blocking function for the interface 'writeLMem'.
+ * 
+ *
+ * Schedule the actions to run on the first device available in the group and return immediately.
+ * The status of the run must be checked with ::max_wait. 
+ * Note that use of ::max_nowait is prohibited with non-blocking running on groups:
+ * see the ::max_run_group_nonblock documentation for more explanation.
+ *
+ * \param [in] group Group to use.
+ * \param [in] interface_actions Actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MemStream_writeLMem_run_group_nonblock(max_group_t *group, MemStream_writeLMem_actions_t *interface_actions);
+
+/**
+ * \brief Array run advanced static function for the interface 'writeLMem'.
+ * 
+ * \param [in] engarray The array of devices to use.
+ * \param [in,out] interface_actions The array of actions to run.
+ *
+ * Run the array of actions on the array of engines.  The length of interface_actions
+ * must match the size of engarray.
+ */
+void MemStream_writeLMem_run_array(max_engarray_t *engarray, MemStream_writeLMem_actions_t *interface_actions[]);
+
+/**
+ * \brief Array run advanced static non-blocking function for the interface 'writeLMem'.
+ * 
+ *
+ * Schedule to run the array of actions on the array of engines, and return immediately.
+ * The length of interface_actions must match the size of engarray.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * \param [in] engarray The array of devices to use.
+ * \param [in] interface_actions The array of actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MemStream_writeLMem_run_array_nonblock(max_engarray_t *engarray, MemStream_writeLMem_actions_t *interface_actions[]);
+
+/**
+ * \brief Converts a static-interface action struct into a dynamic-interface max_actions_t struct.
+ *
+ * Note that this is an internal utility function used by other functions in the static interface.
+ *
+ * \param [in] maxfile The maxfile to use.
+ * \param [in] interface_actions The interface-specific actions to run.
+ * \return The dynamic-interface actions to run, or NULL in case of error.
+ */
+max_actions_t* MemStream_writeLMem_convert(max_file_t *maxfile, MemStream_writeLMem_actions_t *interface_actions);
+
+
+
+/*----------------------------------------------------------------------------*/
+/*---------------------------- Interface readLMem ----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+
+/**
+ * \brief Basic static function for the interface 'readLMem'.
+ * 
+ * \param [in] param_address Interface Parameter "address".
+ * \param [in] param_nbytes Interface Parameter "nbytes".
+ * \param [out] outstream_lmem_to_cpu The stream should be of size param_nbytes bytes.
+ */
+void MemStream_readLMem(
+	int64_t param_address,
+	int64_t param_nbytes,
+	void *outstream_lmem_to_cpu);
+
+/**
+ * \brief Basic static non-blocking function for the interface 'readLMem'.
+ * 
+ * Schedule to run on an engine and return immediately.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ * 
+ * 
+ * \param [in] param_address Interface Parameter "address".
+ * \param [in] param_nbytes Interface Parameter "nbytes".
+ * \param [out] outstream_lmem_to_cpu The stream should be of size param_nbytes bytes.
+ * \return A handle on the execution status, or NULL in case of error.
+ */
+max_run_t *MemStream_readLMem_nonblock(
+	int64_t param_address,
+	int64_t param_nbytes,
+	void *outstream_lmem_to_cpu);
+
+/**
+ * \brief Advanced static interface, structure for the engine interface 'readLMem'
+ * 
+ */
+typedef struct { 
+	int64_t param_address; /**<  [in] Interface Parameter "address". */
+	int64_t param_nbytes; /**<  [in] Interface Parameter "nbytes". */
+	void *outstream_lmem_to_cpu; /**<  [out] The stream should be of size param_nbytes bytes. */
+} MemStream_readLMem_actions_t;
+
+/**
+ * \brief Advanced static function for the interface 'readLMem'.
+ * 
+ * \param [in] engine The engine on which the actions will be executed.
+ * \param [in,out] interface_actions Actions to be executed.
+ */
+void MemStream_readLMem_run(
+	max_engine_t *engine,
+	MemStream_readLMem_actions_t *interface_actions);
+
+/**
+ * \brief Advanced static non-blocking function for the interface 'readLMem'.
+ *
+ * Schedule the actions to run on the engine and return immediately.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * 
+ * \param [in] engine The engine on which the actions will be executed.
+ * \param [in] interface_actions Actions to be executed.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MemStream_readLMem_run_nonblock(
+	max_engine_t *engine,
+	MemStream_readLMem_actions_t *interface_actions);
+
+/**
+ * \brief Group run advanced static function for the interface 'readLMem'.
+ * 
+ * \param [in] group Group to use.
+ * \param [in,out] interface_actions Actions to run.
+ *
+ * Run the actions on the first device available in the group.
+ */
+void MemStream_readLMem_run_group(max_group_t *group, MemStream_readLMem_actions_t *interface_actions);
+
+/**
+ * \brief Group run advanced static non-blocking function for the interface 'readLMem'.
+ * 
+ *
+ * Schedule the actions to run on the first device available in the group and return immediately.
+ * The status of the run must be checked with ::max_wait. 
+ * Note that use of ::max_nowait is prohibited with non-blocking running on groups:
+ * see the ::max_run_group_nonblock documentation for more explanation.
+ *
+ * \param [in] group Group to use.
+ * \param [in] interface_actions Actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MemStream_readLMem_run_group_nonblock(max_group_t *group, MemStream_readLMem_actions_t *interface_actions);
+
+/**
+ * \brief Array run advanced static function for the interface 'readLMem'.
+ * 
+ * \param [in] engarray The array of devices to use.
+ * \param [in,out] interface_actions The array of actions to run.
+ *
+ * Run the array of actions on the array of engines.  The length of interface_actions
+ * must match the size of engarray.
+ */
+void MemStream_readLMem_run_array(max_engarray_t *engarray, MemStream_readLMem_actions_t *interface_actions[]);
+
+/**
+ * \brief Array run advanced static non-blocking function for the interface 'readLMem'.
+ * 
+ *
+ * Schedule to run the array of actions on the array of engines, and return immediately.
+ * The length of interface_actions must match the size of engarray.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * \param [in] engarray The array of devices to use.
+ * \param [in] interface_actions The array of actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MemStream_readLMem_run_array_nonblock(max_engarray_t *engarray, MemStream_readLMem_actions_t *interface_actions[]);
+
+/**
+ * \brief Converts a static-interface action struct into a dynamic-interface max_actions_t struct.
+ *
+ * Note that this is an internal utility function used by other functions in the static interface.
+ *
+ * \param [in] maxfile The maxfile to use.
+ * \param [in] interface_actions The interface-specific actions to run.
+ * \return The dynamic-interface actions to run, or NULL in case of error.
+ */
+max_actions_t* MemStream_readLMem_convert(max_file_t *maxfile, MemStream_readLMem_actions_t *interface_actions);
+
+
+
+/*----------------------------------------------------------------------------*/
+/*---------------------------- Interface default -----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+
+/**
+ * \brief Basic static function for the interface 'default'.
+ * 
+ * \param [in] param_A Interface Parameter "A".
+ * \param [in] param_N Interface Parameter "N".
+ * \param [in] instream_y The stream should be of size (param_N * 4) bytes.
+ * \param [out] outstream_s The stream should be of size (param_N * 4) bytes.
+ */
+void MemStream(
+	int64_t param_A,
+	int64_t param_N,
+	const int32_t *instream_y,
+	int32_t *outstream_s);
+
+/**
+ * \brief Basic static non-blocking function for the interface 'default'.
+ * 
+ * Schedule to run on an engine and return immediately.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ * 
+ * 
+ * \param [in] param_A Interface Parameter "A".
+ * \param [in] param_N Interface Parameter "N".
+ * \param [in] instream_y The stream should be of size (param_N * 4) bytes.
+ * \param [out] outstream_s The stream should be of size (param_N * 4) bytes.
+ * \return A handle on the execution status, or NULL in case of error.
+ */
+max_run_t *MemStream_nonblock(
+	int64_t param_A,
+	int64_t param_N,
+	const int32_t *instream_y,
+	int32_t *outstream_s);
+
+/**
+ * \brief Advanced static interface, structure for the engine interface 'default'
+ * 
+ */
+typedef struct { 
+	int64_t param_A; /**<  [in] Interface Parameter "A". */
+	int64_t param_N; /**<  [in] Interface Parameter "N". */
+	const int32_t *instream_y; /**<  [in] The stream should be of size (param_N * 4) bytes. */
+	int32_t *outstream_s; /**<  [out] The stream should be of size (param_N * 4) bytes. */
+} MemStream_actions_t;
+
+/**
+ * \brief Advanced static function for the interface 'default'.
+ * 
+ * \param [in] engine The engine on which the actions will be executed.
+ * \param [in,out] interface_actions Actions to be executed.
+ */
+void MemStream_run(
+	max_engine_t *engine,
+	MemStream_actions_t *interface_actions);
+
+/**
+ * \brief Advanced static non-blocking function for the interface 'default'.
+ *
+ * Schedule the actions to run on the engine and return immediately.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * 
+ * \param [in] engine The engine on which the actions will be executed.
+ * \param [in] interface_actions Actions to be executed.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MemStream_run_nonblock(
+	max_engine_t *engine,
+	MemStream_actions_t *interface_actions);
+
+/**
+ * \brief Group run advanced static function for the interface 'default'.
+ * 
+ * \param [in] group Group to use.
+ * \param [in,out] interface_actions Actions to run.
+ *
+ * Run the actions on the first device available in the group.
+ */
+void MemStream_run_group(max_group_t *group, MemStream_actions_t *interface_actions);
+
+/**
+ * \brief Group run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule the actions to run on the first device available in the group and return immediately.
+ * The status of the run must be checked with ::max_wait. 
+ * Note that use of ::max_nowait is prohibited with non-blocking running on groups:
+ * see the ::max_run_group_nonblock documentation for more explanation.
+ *
+ * \param [in] group Group to use.
+ * \param [in] interface_actions Actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MemStream_run_group_nonblock(max_group_t *group, MemStream_actions_t *interface_actions);
+
+/**
+ * \brief Array run advanced static function for the interface 'default'.
+ * 
+ * \param [in] engarray The array of devices to use.
+ * \param [in,out] interface_actions The array of actions to run.
+ *
+ * Run the array of actions on the array of engines.  The length of interface_actions
+ * must match the size of engarray.
+ */
+void MemStream_run_array(max_engarray_t *engarray, MemStream_actions_t *interface_actions[]);
+
+/**
+ * \brief Array run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule to run the array of actions on the array of engines, and return immediately.
+ * The length of interface_actions must match the size of engarray.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * \param [in] engarray The array of devices to use.
+ * \param [in] interface_actions The array of actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MemStream_run_array_nonblock(max_engarray_t *engarray, MemStream_actions_t *interface_actions[]);
+
+/**
+ * \brief Converts a static-interface action struct into a dynamic-interface max_actions_t struct.
+ *
+ * Note that this is an internal utility function used by other functions in the static interface.
+ *
+ * \param [in] maxfile The maxfile to use.
+ * \param [in] interface_actions The interface-specific actions to run.
+ * \return The dynamic-interface actions to run, or NULL in case of error.
+ */
+max_actions_t* MemStream_convert(max_file_t *maxfile, MemStream_actions_t *interface_actions);
+
+/**
+ * \brief Initialise a maxfile.
+ */
+max_file_t* MemStream_init(void);
+
+/* Error handling functions */
+int MemStream_has_errors(void);
+const char* MemStream_get_errors(void);
+void MemStream_clear_errors(void);
+/* Free statically allocated maxfile data */
+void MemStream_free(void);
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+#endif /* SLIC_DECLARATIONS_MemStream_H */
+
+#endif /* SLIC_NO_DECLARATIONS */
+
+#ifdef PHOTON_NODE_DATA
+#define PHOTON_NODE_DATA_PRESENT 1
+PHOTON_NODE_DATA(MemStreamKernel, 10, NodeInputMappedReg, "Scalar input (io_s_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nmemstream.MemStreamKernel.<init>(MemStreamKernel.maxj:22)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:21)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 11, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nmemstream.MemStreamKernel.<init>(MemStreamKernel.maxj:22)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:21)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 14, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nmemstream.MemStreamKernel.<init>(MemStreamKernel.maxj:22)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:21)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 15, NodeReinterpret, "<{HWOffsetFix:1, 0, UNSIGNED}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nmemstream.MemStreamKernel.<init>(MemStreamKernel.maxj:22)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:21)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 0, NodeInputMappedReg, "Scalar input (io_x_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nmemstream.MemStreamKernel.<init>(MemStreamKernel.maxj:15)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:21)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 1, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nmemstream.MemStreamKernel.<init>(MemStreamKernel.maxj:15)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:21)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 2, NodeInput, "Input(x)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nmemstream.MemStreamKernel.<init>(MemStreamKernel.maxj:15)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:21)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 3, NodeInputMappedReg, "Scalar input (io_y_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nmemstream.MemStreamKernel.<init>(MemStreamKernel.maxj:16)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:21)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 4, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nmemstream.MemStreamKernel.<init>(MemStreamKernel.maxj:16)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:21)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 5, NodeInput, "Input(y)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nmemstream.MemStreamKernel.<init>(MemStreamKernel.maxj:16)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:21)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 6, NodeInputMappedReg, "Scalar input (a)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)\nmemstream.MemStreamKernel.<init>(MemStreamKernel.maxj:17)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:21)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 26, NodeTriAdd, "3 +", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\nmemstream.MemStreamKernel.<init>(MemStreamKernel.maxj:20)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:21)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 16, NodeOutput, "Output(s)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nmemstream.MemStreamKernel.<init>(MemStreamKernel.maxj:22)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:21)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 20, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:32)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 28, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:32)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 18, NodeConstantRawBits, "{HWOffsetFix:49, 0, UNSIGNED}\n0x1000000000000; 2.81474976710656E14", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:32)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 19, NodeCounterV1, "Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:32)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 27, NodeFIFO, "FIFO(4)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:32)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 21, NodeOutputMappedReg, "Scalar output (current_run_cycle_count)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:32)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 23, NodeInputMappedReg, "Scalar input (run_cycle_count)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:32)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 24, NodeEq, "==", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:32)\n")
+PHOTON_NODE_DATA(MemStreamKernel, 22, NodeFlush, "flush on trigger", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmemstream.MemStreamManager.main(MemStreamManager.maxj:32)\n")
+#endif
+
+#ifdef SLIC_USE_DEFINITIONS
+#include <stdio.h>
+#include <math.h>
+#include <pthread.h>
+#include <string.h>
+static max_file_t *stored_maxfile = NULL;
+static max_engine_t *stored_engine = NULL;
+static char *stored_error = NULL;
+static int stored_has_error = 0;
+static pthread_once_t slic_bs_is_initialised = PTHREAD_ONCE_INIT;
+
+static void set_error(const char *error_str)
+{
+	stored_has_error = 1; 
+	if(stored_error == NULL) {
+		stored_error = strdup(error_str);
+	} else {
+		char *nerr = malloc(strlen(stored_error) + strlen(error_str) + 2);
+		sprintf(nerr, "%s\n%s", stored_error, error_str);
+		free(stored_error);
+		stored_error = nerr;
+	}
+}
+static void set_error_and_free(char *error_str){
+	set_error(error_str);
+	free(error_str);
+}
+int MemStream_has_errors(void)
+{	return stored_has_error; }
+const char* MemStream_get_errors(void)
+{	return stored_error; }
+void MemStream_clear_errors(void)
+{
+	free(stored_error);
+	stored_error = NULL;
+	stored_has_error = 0;
+}
+
+static void MemStream_static_init(void) 
+{
+	stored_maxfile = MemStream_init();
+	if (stored_maxfile == NULL || !max_ok(stored_maxfile->errors)) {
+		stored_maxfile = NULL;
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to load maxfile"); return; }
+	}
+	if(!max_ok(max_global_errors())) {
+		set_error_and_free(max_errors_trace(max_global_errors()));
+		return;
+	}
+	if(!max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR))
+		max_errors_mode(stored_maxfile->errors, 0);
+	time_t timeout_previous = max_load_timeout(stored_maxfile, 30);
+	stored_engine = max_load(stored_maxfile, "*");
+	if (!max_ok(stored_maxfile->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) {
+			fprintf(stderr, "\nUnable to load engine: aborting now.\n\n");
+			fflush(stderr);
+			abort();
+		} else {
+			set_error_and_free(max_errors_trace(stored_maxfile->errors));
+			max_file_free(stored_maxfile);
+			stored_maxfile = NULL;
+			return;
+		} 
+	} 
+	max_load_timeout(stored_maxfile, timeout_previous);
+}
+void MemStream_free(void)
+{
+	if(stored_engine != NULL)
+		max_unload(stored_engine);
+	if(stored_maxfile != NULL)
+		max_file_free(stored_maxfile);
+	if(stored_error != NULL)
+		free(stored_error);
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+/*--------------------------- Interface writeLMem ----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+void MemStream_writeLMem(
+	int64_t param_address,
+	int64_t param_nbytes,
+	const void *instream_cpu_to_lmem)
+{
+	(void) pthread_once(&slic_bs_is_initialised, MemStream_static_init);
+	if(stored_maxfile == NULL) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Maxfile was not loaded."); return; }
+	}
+	max_run_t *run = MemStream_writeLMem_nonblock(param_address, param_nbytes, instream_cpu_to_lmem);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+max_run_t *MemStream_writeLMem_nonblock(
+	int64_t param_address,
+	int64_t param_nbytes,
+	const void *instream_cpu_to_lmem)
+{
+	MemStream_writeLMem_actions_t interface_actions;
+	interface_actions.param_address = param_address;
+	interface_actions.param_nbytes = param_nbytes;
+	interface_actions.instream_cpu_to_lmem = instream_cpu_to_lmem;
+	(void) pthread_once(&slic_bs_is_initialised, MemStream_static_init);
+	if(stored_maxfile == NULL) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Maxfile was not loaded."); return NULL; }
+	}
+	max_actions_t *actions[1];
+	actions[0] = MemStream_writeLMem_convert(stored_maxfile, &interface_actions);
+	if(actions[0] == NULL) { 
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to build actions");return NULL; }
+	}
+	max_validate(actions[0]);
+	if(!max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); return NULL;}
+	}
+	max_run_t *run = max_run_multi_nonblock(stored_engine, actions, 1);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return NULL; }
+	}
+	if(!max_ok(stored_engine->errors)  || !max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); set_error_and_free(max_errors_trace(stored_engine->errors)); return NULL;}
+	}
+	max_actions_free(actions[0]);
+	return run;
+}
+
+void MemStream_writeLMem_run(
+	max_engine_t *engine,
+	MemStream_writeLMem_actions_t *interface_actions)
+{
+	max_run_t *run = MemStream_writeLMem_run_nonblock(engine, interface_actions);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+max_run_t *MemStream_writeLMem_run_nonblock(
+	max_engine_t *engine,
+	MemStream_writeLMem_actions_t *interface_actions)
+{
+	max_file_t *maxfile = max_engine_get_max_file(engine); 
+	max_actions_t *actions[1];
+	actions[0] = MemStream_writeLMem_convert(maxfile, interface_actions);
+	if(!max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); return NULL;}
+	}
+	max_run_t *run = max_run_multi_nonblock(engine, actions, 1);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions."); return NULL; }
+	}
+	max_actions_free(actions[0]);
+	return run;
+}
+
+
+/**
+ * \brief Group run advanced static function for the interface 'writeLMem'.
+ * 
+ * \param [in] group Group to use.
+ * \param [in,out] interface_actions Actions to run.
+ *
+ * Run the actions on the first device available in the group.
+ */
+void MemStream_writeLMem_run_group(max_group_t *group, MemStream_writeLMem_actions_t *interface_actions)
+{
+	/* Not strictly correct, because explicitly locking an engine here. */
+	max_engine_t *engine = max_lock_any(group);
+	if(engine == NULL) return;
+	MemStream_writeLMem_run(engine, interface_actions);
+	max_unlock(engine);
+}
+
+
+/**
+ * \brief Group run advanced static non-blocking function for the interface 'writeLMem'.
+ * 
+ *
+ * Schedule the actions to run on the first device available in the group and return immediately.
+ * The status of the run must be checked with ::max_wait. 
+ * Note that use of ::max_nowait is prohibited with non-blocking running on groups:
+ * see the ::max_run_group_nonblock documentation for more explanation.
+ *
+ * \param [in] group Group to use.
+ * \param [in] interface_actions Actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MemStream_writeLMem_run_group_nonblock(max_group_t *group, MemStream_writeLMem_actions_t *interface_actions)
+{
+	max_file_t *maxfile = max_group_get_max_file(group);
+	max_actions_t *actions = MemStream_writeLMem_convert(maxfile, interface_actions);
+	if(actions == NULL) return NULL;
+	if(!max_ok(actions->errors)) return NULL;
+	max_validate(actions);
+	max_run_t *run = max_run_group_nonblock(group, actions);
+	max_actions_free(actions);
+	return run;
+}
+
+
+/**
+ * \brief Array run advanced static function for the interface 'writeLMem'.
+ * 
+ * \param [in] engarray The array of devices to use.
+ * \param [in,out] interface_actions The array of actions to run.
+ *
+ * Run the array of actions on the array of engines.  The length of interface_actions
+ * must match the size of engarray.
+ */
+void MemStream_writeLMem_run_array(max_engarray_t *engarray, MemStream_writeLMem_actions_t *interface_actions[])
+{
+	max_run_t *run = MemStream_writeLMem_run_array_nonblock(engarray, interface_actions);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+
+/**
+ * \brief Array run advanced static non-blocking function for the interface 'writeLMem'.
+ * 
+ *
+ * Schedule to run the array of actions on the array of engines, and return immediately.
+ * The length of interface_actions must match the size of engarray.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * \param [in] engarray The array of devices to use.
+ * \param [in] interface_actions The array of actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MemStream_writeLMem_run_array_nonblock(max_engarray_t *engarray, MemStream_writeLMem_actions_t *interface_actions[])
+{
+	max_file_t *maxfile = max_engarray_get_max_file(engarray);
+	int i;
+	max_actarray_t *arr_actarray[1];
+	max_actions_t **arr_actions[1];
+	arr_actarray[0] = max_actarray_init(maxfile, engarray->size);
+	if(arr_actarray[0] == NULL) return NULL;
+	arr_actions[0] = malloc(engarray->size * sizeof(max_actions_t*));
+	for(i=0; i < arr_actarray[0]->size; i++) {
+		max_actions_t *actions = MemStream_writeLMem_convert(maxfile, interface_actions[i]);
+		if(actions == NULL) return NULL;
+		arr_actions[0][i] = actions;
+		max_set_action(arr_actarray[0], i, actions);
+	}
+	max_run_t *run = max_run_array_multi_nonblock(engarray, arr_actarray, 1 );
+	for (i=0; i < arr_actarray[0]->size; i++) { max_actions_free(arr_actions[0][i]); }
+	max_actarray_free(arr_actarray[0]);
+	free(arr_actions[0]);
+	return run;
+}
+
+
+/**
+ * \brief Converts a static-interface action struct into a dynamic-interface max_actions_t struct.
+ *
+ * Note that this is an internal utility function used by other functions in the static interface.
+ *
+ * \param [in] maxfile The maxfile to use.
+ * \param [in] interface_actions The interface-specific actions to run.
+ * \return The dynamic-interface actions to run, or NULL in case of error.
+ */
+max_actions_t* MemStream_writeLMem_convert(max_file_t *maxfile, MemStream_writeLMem_actions_t *interface_actions)
+{
+	max_actions_t *actions = max_actions_init(maxfile, NULL);
+	if(actions == NULL || !max_ok(maxfile->errors)) return NULL;
+
+	int64_t param_address = interface_actions->param_address;
+	
+	int64_t param_nbytes = interface_actions->param_nbytes;
+	
+	max_ignore_scalar(actions, "MemStreamKernel", "run_cycle_count" );
+	if(!max_ok(actions->errors)) return NULL;
+	
+	max_ignore_scalar(actions, "MemStreamKernel", "a" );
+	if(!max_ok(actions->errors)) return NULL;
+	
+	/* code for stream cpu_to_lmem */
+	size_t instream_size_cpu_to_lmem = param_nbytes;
+	if (instream_size_cpu_to_lmem > 0) {
+		max_queue_input(actions, "cpu_to_lmem", interface_actions->instream_cpu_to_lmem,instream_size_cpu_to_lmem);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream cpu_to_lmem */
+	
+	max_ignore_stream(actions, "lmem_to_cpu" );
+	if(!max_ok(actions->errors)) return NULL;
+	
+	max_ignore_stream(actions, "s" );
+	if(!max_ok(actions->errors)) return NULL;
+	
+	max_ignore_stream(actions, "y" );
+	if(!max_ok(actions->errors)) return NULL;
+	
+	max_ignore_lmem(actions, "read_lmem" );
+	if ( !max_ok(actions->errors) ) return NULL;
+	
+	/* code for linear memory-stream "write_lmem" */
+	size_t lmem_address_write_lmem = param_address;
+	size_t lmem_arr_size_write_lmem = param_nbytes;
+	int lmem_burst_size_write_lmem = max_get_burst_size(maxfile, NULL);
+	if ( (lmem_address_write_lmem % lmem_burst_size_write_lmem) != 0 ) {
+		fprintf(stdout, "\nSLiC Error: %s:%d : LMem write_lmem parameter 'lmem_address_write_lmem' is set to %zd bytes; it must be a multiple of %d bytes\n", __FILE__, __LINE__, lmem_address_write_lmem, lmem_burst_size_write_lmem );
+	}
+	if ( (lmem_arr_size_write_lmem % lmem_burst_size_write_lmem) != 0 ) {
+		fprintf(stdout, "\nSLiC Error: %s:%d : LMem write_lmem parameter 'lmem_arr_size_write_lmem' is set to %zd bytes; it must be a multiple of %d bytes\n", __FILE__, __LINE__, lmem_arr_size_write_lmem, lmem_burst_size_write_lmem );
+	}
+	if (lmem_arr_size_write_lmem > 0) {
+		max_lmem_linear(actions, "write_lmem", lmem_address_write_lmem, lmem_arr_size_write_lmem);
+	} else {
+		max_ignore_lmem(actions, "write_lmem");
+	}
+	if ( !max_ok(actions->errors) ) return NULL;
+	/* end of code for linear memory-stream "write_lmem" */
+	
+	max_ignore_lmem(actions, "x" );
+	if ( !max_ok(actions->errors) ) return NULL;
+	
+	return actions;
+}
+
+
+
+
+/*----------------------------------------------------------------------------*/
+/*---------------------------- Interface readLMem ----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+void MemStream_readLMem(
+	int64_t param_address,
+	int64_t param_nbytes,
+	void *outstream_lmem_to_cpu)
+{
+	(void) pthread_once(&slic_bs_is_initialised, MemStream_static_init);
+	if(stored_maxfile == NULL) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Maxfile was not loaded."); return; }
+	}
+	max_run_t *run = MemStream_readLMem_nonblock(param_address, param_nbytes, outstream_lmem_to_cpu);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+max_run_t *MemStream_readLMem_nonblock(
+	int64_t param_address,
+	int64_t param_nbytes,
+	void *outstream_lmem_to_cpu)
+{
+	MemStream_readLMem_actions_t interface_actions;
+	interface_actions.param_address = param_address;
+	interface_actions.param_nbytes = param_nbytes;
+	interface_actions.outstream_lmem_to_cpu = outstream_lmem_to_cpu;
+	(void) pthread_once(&slic_bs_is_initialised, MemStream_static_init);
+	if(stored_maxfile == NULL) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Maxfile was not loaded."); return NULL; }
+	}
+	max_actions_t *actions[1];
+	actions[0] = MemStream_readLMem_convert(stored_maxfile, &interface_actions);
+	if(actions[0] == NULL) { 
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to build actions");return NULL; }
+	}
+	max_validate(actions[0]);
+	if(!max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); return NULL;}
+	}
+	max_run_t *run = max_run_multi_nonblock(stored_engine, actions, 1);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return NULL; }
+	}
+	if(!max_ok(stored_engine->errors)  || !max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); set_error_and_free(max_errors_trace(stored_engine->errors)); return NULL;}
+	}
+	max_actions_free(actions[0]);
+	return run;
+}
+
+void MemStream_readLMem_run(
+	max_engine_t *engine,
+	MemStream_readLMem_actions_t *interface_actions)
+{
+	max_run_t *run = MemStream_readLMem_run_nonblock(engine, interface_actions);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+max_run_t *MemStream_readLMem_run_nonblock(
+	max_engine_t *engine,
+	MemStream_readLMem_actions_t *interface_actions)
+{
+	max_file_t *maxfile = max_engine_get_max_file(engine); 
+	max_actions_t *actions[1];
+	actions[0] = MemStream_readLMem_convert(maxfile, interface_actions);
+	if(!max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); return NULL;}
+	}
+	max_run_t *run = max_run_multi_nonblock(engine, actions, 1);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions."); return NULL; }
+	}
+	max_actions_free(actions[0]);
+	return run;
+}
+
+
+/**
+ * \brief Group run advanced static function for the interface 'readLMem'.
+ * 
+ * \param [in] group Group to use.
+ * \param [in,out] interface_actions Actions to run.
+ *
+ * Run the actions on the first device available in the group.
+ */
+void MemStream_readLMem_run_group(max_group_t *group, MemStream_readLMem_actions_t *interface_actions)
+{
+	/* Not strictly correct, because explicitly locking an engine here. */
+	max_engine_t *engine = max_lock_any(group);
+	if(engine == NULL) return;
+	MemStream_readLMem_run(engine, interface_actions);
+	max_unlock(engine);
+}
+
+
+/**
+ * \brief Group run advanced static non-blocking function for the interface 'readLMem'.
+ * 
+ *
+ * Schedule the actions to run on the first device available in the group and return immediately.
+ * The status of the run must be checked with ::max_wait. 
+ * Note that use of ::max_nowait is prohibited with non-blocking running on groups:
+ * see the ::max_run_group_nonblock documentation for more explanation.
+ *
+ * \param [in] group Group to use.
+ * \param [in] interface_actions Actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MemStream_readLMem_run_group_nonblock(max_group_t *group, MemStream_readLMem_actions_t *interface_actions)
+{
+	max_file_t *maxfile = max_group_get_max_file(group);
+	max_actions_t *actions = MemStream_readLMem_convert(maxfile, interface_actions);
+	if(actions == NULL) return NULL;
+	if(!max_ok(actions->errors)) return NULL;
+	max_validate(actions);
+	max_run_t *run = max_run_group_nonblock(group, actions);
+	max_actions_free(actions);
+	return run;
+}
+
+
+/**
+ * \brief Array run advanced static function for the interface 'readLMem'.
+ * 
+ * \param [in] engarray The array of devices to use.
+ * \param [in,out] interface_actions The array of actions to run.
+ *
+ * Run the array of actions on the array of engines.  The length of interface_actions
+ * must match the size of engarray.
+ */
+void MemStream_readLMem_run_array(max_engarray_t *engarray, MemStream_readLMem_actions_t *interface_actions[])
+{
+	max_run_t *run = MemStream_readLMem_run_array_nonblock(engarray, interface_actions);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+
+/**
+ * \brief Array run advanced static non-blocking function for the interface 'readLMem'.
+ * 
+ *
+ * Schedule to run the array of actions on the array of engines, and return immediately.
+ * The length of interface_actions must match the size of engarray.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * \param [in] engarray The array of devices to use.
+ * \param [in] interface_actions The array of actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MemStream_readLMem_run_array_nonblock(max_engarray_t *engarray, MemStream_readLMem_actions_t *interface_actions[])
+{
+	max_file_t *maxfile = max_engarray_get_max_file(engarray);
+	int i;
+	max_actarray_t *arr_actarray[1];
+	max_actions_t **arr_actions[1];
+	arr_actarray[0] = max_actarray_init(maxfile, engarray->size);
+	if(arr_actarray[0] == NULL) return NULL;
+	arr_actions[0] = malloc(engarray->size * sizeof(max_actions_t*));
+	for(i=0; i < arr_actarray[0]->size; i++) {
+		max_actions_t *actions = MemStream_readLMem_convert(maxfile, interface_actions[i]);
+		if(actions == NULL) return NULL;
+		arr_actions[0][i] = actions;
+		max_set_action(arr_actarray[0], i, actions);
+	}
+	max_run_t *run = max_run_array_multi_nonblock(engarray, arr_actarray, 1 );
+	for (i=0; i < arr_actarray[0]->size; i++) { max_actions_free(arr_actions[0][i]); }
+	max_actarray_free(arr_actarray[0]);
+	free(arr_actions[0]);
+	return run;
+}
+
+
+/**
+ * \brief Converts a static-interface action struct into a dynamic-interface max_actions_t struct.
+ *
+ * Note that this is an internal utility function used by other functions in the static interface.
+ *
+ * \param [in] maxfile The maxfile to use.
+ * \param [in] interface_actions The interface-specific actions to run.
+ * \return The dynamic-interface actions to run, or NULL in case of error.
+ */
+max_actions_t* MemStream_readLMem_convert(max_file_t *maxfile, MemStream_readLMem_actions_t *interface_actions)
+{
+	max_actions_t *actions = max_actions_init(maxfile, NULL);
+	if(actions == NULL || !max_ok(maxfile->errors)) return NULL;
+
+	int64_t param_address = interface_actions->param_address;
+	
+	int64_t param_nbytes = interface_actions->param_nbytes;
+	
+	max_ignore_scalar(actions, "MemStreamKernel", "run_cycle_count" );
+	if(!max_ok(actions->errors)) return NULL;
+	
+	max_ignore_scalar(actions, "MemStreamKernel", "a" );
+	if(!max_ok(actions->errors)) return NULL;
+	
+	max_ignore_stream(actions, "cpu_to_lmem" );
+	if(!max_ok(actions->errors)) return NULL;
+	
+	/* code for stream lmem_to_cpu */
+	size_t outstream_size_lmem_to_cpu = param_nbytes;
+	if (outstream_size_lmem_to_cpu > 0) {
+		max_queue_output(actions, "lmem_to_cpu", interface_actions->outstream_lmem_to_cpu,outstream_size_lmem_to_cpu);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream lmem_to_cpu */
+	
+	max_ignore_stream(actions, "s" );
+	if(!max_ok(actions->errors)) return NULL;
+	
+	max_ignore_stream(actions, "y" );
+	if(!max_ok(actions->errors)) return NULL;
+	
+	/* code for linear memory-stream "read_lmem" */
+	size_t lmem_address_read_lmem = param_address;
+	size_t lmem_arr_size_read_lmem = param_nbytes;
+	int lmem_burst_size_read_lmem = max_get_burst_size(maxfile, NULL);
+	if ( (lmem_address_read_lmem % lmem_burst_size_read_lmem) != 0 ) {
+		fprintf(stdout, "\nSLiC Error: %s:%d : LMem read_lmem parameter 'lmem_address_read_lmem' is set to %zd bytes; it must be a multiple of %d bytes\n", __FILE__, __LINE__, lmem_address_read_lmem, lmem_burst_size_read_lmem );
+	}
+	if ( (lmem_arr_size_read_lmem % lmem_burst_size_read_lmem) != 0 ) {
+		fprintf(stdout, "\nSLiC Error: %s:%d : LMem read_lmem parameter 'lmem_arr_size_read_lmem' is set to %zd bytes; it must be a multiple of %d bytes\n", __FILE__, __LINE__, lmem_arr_size_read_lmem, lmem_burst_size_read_lmem );
+	}
+	if (lmem_arr_size_read_lmem > 0) {
+		max_lmem_linear(actions, "read_lmem", lmem_address_read_lmem, lmem_arr_size_read_lmem);
+	} else {
+		max_ignore_lmem(actions, "read_lmem");
+	}
+	if ( !max_ok(actions->errors) ) return NULL;
+	/* end of code for linear memory-stream "read_lmem" */
+	
+	max_ignore_lmem(actions, "write_lmem" );
+	if ( !max_ok(actions->errors) ) return NULL;
+	
+	max_ignore_lmem(actions, "x" );
+	if ( !max_ok(actions->errors) ) return NULL;
+	
+	return actions;
+}
+
+
+
+
+/*----------------------------------------------------------------------------*/
+/*---------------------------- Interface default -----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+void MemStream(
+	int64_t param_A,
+	int64_t param_N,
+	const int32_t *instream_y,
+	int32_t *outstream_s)
+{
+	(void) pthread_once(&slic_bs_is_initialised, MemStream_static_init);
+	if(stored_maxfile == NULL) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Maxfile was not loaded."); return; }
+	}
+	max_run_t *run = MemStream_nonblock(param_A, param_N, instream_y, outstream_s);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+max_run_t *MemStream_nonblock(
+	int64_t param_A,
+	int64_t param_N,
+	const int32_t *instream_y,
+	int32_t *outstream_s)
+{
+	MemStream_actions_t interface_actions;
+	interface_actions.param_A = param_A;
+	interface_actions.param_N = param_N;
+	interface_actions.instream_y = instream_y;
+	interface_actions.outstream_s = outstream_s;
+	(void) pthread_once(&slic_bs_is_initialised, MemStream_static_init);
+	if(stored_maxfile == NULL) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Maxfile was not loaded."); return NULL; }
+	}
+	max_actions_t *actions[1];
+	actions[0] = MemStream_convert(stored_maxfile, &interface_actions);
+	if(actions[0] == NULL) { 
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to build actions");return NULL; }
+	}
+	max_validate(actions[0]);
+	if(!max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); return NULL;}
+	}
+	max_run_t *run = max_run_multi_nonblock(stored_engine, actions, 1);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return NULL; }
+	}
+	if(!max_ok(stored_engine->errors)  || !max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); set_error_and_free(max_errors_trace(stored_engine->errors)); return NULL;}
+	}
+	max_actions_free(actions[0]);
+	return run;
+}
+
+void MemStream_run(
+	max_engine_t *engine,
+	MemStream_actions_t *interface_actions)
+{
+	max_run_t *run = MemStream_run_nonblock(engine, interface_actions);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+max_run_t *MemStream_run_nonblock(
+	max_engine_t *engine,
+	MemStream_actions_t *interface_actions)
+{
+	max_file_t *maxfile = max_engine_get_max_file(engine); 
+	max_actions_t *actions[1];
+	actions[0] = MemStream_convert(maxfile, interface_actions);
+	if(!max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); return NULL;}
+	}
+	max_run_t *run = max_run_multi_nonblock(engine, actions, 1);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions."); return NULL; }
+	}
+	max_actions_free(actions[0]);
+	return run;
+}
+
+
+/**
+ * \brief Group run advanced static function for the interface 'default'.
+ * 
+ * \param [in] group Group to use.
+ * \param [in,out] interface_actions Actions to run.
+ *
+ * Run the actions on the first device available in the group.
+ */
+void MemStream_run_group(max_group_t *group, MemStream_actions_t *interface_actions)
+{
+	/* Not strictly correct, because explicitly locking an engine here. */
+	max_engine_t *engine = max_lock_any(group);
+	if(engine == NULL) return;
+	MemStream_run(engine, interface_actions);
+	max_unlock(engine);
+}
+
+
+/**
+ * \brief Group run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule the actions to run on the first device available in the group and return immediately.
+ * The status of the run must be checked with ::max_wait. 
+ * Note that use of ::max_nowait is prohibited with non-blocking running on groups:
+ * see the ::max_run_group_nonblock documentation for more explanation.
+ *
+ * \param [in] group Group to use.
+ * \param [in] interface_actions Actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MemStream_run_group_nonblock(max_group_t *group, MemStream_actions_t *interface_actions)
+{
+	max_file_t *maxfile = max_group_get_max_file(group);
+	max_actions_t *actions = MemStream_convert(maxfile, interface_actions);
+	if(actions == NULL) return NULL;
+	if(!max_ok(actions->errors)) return NULL;
+	max_validate(actions);
+	max_run_t *run = max_run_group_nonblock(group, actions);
+	max_actions_free(actions);
+	return run;
+}
+
+
+/**
+ * \brief Array run advanced static function for the interface 'default'.
+ * 
+ * \param [in] engarray The array of devices to use.
+ * \param [in,out] interface_actions The array of actions to run.
+ *
+ * Run the array of actions on the array of engines.  The length of interface_actions
+ * must match the size of engarray.
+ */
+void MemStream_run_array(max_engarray_t *engarray, MemStream_actions_t *interface_actions[])
+{
+	max_run_t *run = MemStream_run_array_nonblock(engarray, interface_actions);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+
+/**
+ * \brief Array run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule to run the array of actions on the array of engines, and return immediately.
+ * The length of interface_actions must match the size of engarray.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * \param [in] engarray The array of devices to use.
+ * \param [in] interface_actions The array of actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MemStream_run_array_nonblock(max_engarray_t *engarray, MemStream_actions_t *interface_actions[])
+{
+	max_file_t *maxfile = max_engarray_get_max_file(engarray);
+	int i;
+	max_actarray_t *arr_actarray[1];
+	max_actions_t **arr_actions[1];
+	arr_actarray[0] = max_actarray_init(maxfile, engarray->size);
+	if(arr_actarray[0] == NULL) return NULL;
+	arr_actions[0] = malloc(engarray->size * sizeof(max_actions_t*));
+	for(i=0; i < arr_actarray[0]->size; i++) {
+		max_actions_t *actions = MemStream_convert(maxfile, interface_actions[i]);
+		if(actions == NULL) return NULL;
+		arr_actions[0][i] = actions;
+		max_set_action(arr_actarray[0], i, actions);
+	}
+	max_run_t *run = max_run_array_multi_nonblock(engarray, arr_actarray, 1 );
+	for (i=0; i < arr_actarray[0]->size; i++) { max_actions_free(arr_actions[0][i]); }
+	max_actarray_free(arr_actarray[0]);
+	free(arr_actions[0]);
+	return run;
+}
+
+
+/**
+ * \brief Converts a static-interface action struct into a dynamic-interface max_actions_t struct.
+ *
+ * Note that this is an internal utility function used by other functions in the static interface.
+ *
+ * \param [in] maxfile The maxfile to use.
+ * \param [in] interface_actions The interface-specific actions to run.
+ * \return The dynamic-interface actions to run, or NULL in case of error.
+ */
+max_actions_t* MemStream_convert(max_file_t *maxfile, MemStream_actions_t *interface_actions)
+{
+	max_actions_t *actions = max_actions_init(maxfile, NULL);
+	if(actions == NULL || !max_ok(maxfile->errors)) return NULL;
+
+	int64_t param_A = interface_actions->param_A;
+	
+	int64_t param_N = interface_actions->param_N;
+	
+
+	/* temporary variables */
+	int64_t tmp_0 = (param_N * 4);
+	int64_t tmp_1 = (param_N * 4);
+	int64_t tmp_2 = (param_N * 4);
+
+	/* code for scalar MemStreamKernel.run_cycle_count */
+	uint64_t ticks_MemStreamKernel = param_N;
+	max_set_ticks(actions, "MemStreamKernel", param_N);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar MemStreamKernel.run_cycle_count*/
+	
+	/* code for scalar MemStreamKernel.a */
+	uint64_t inscalar_MemStreamKernel_a = param_A;
+	max_set_uint64t(actions, "MemStreamKernel", "a", inscalar_MemStreamKernel_a);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar MemStreamKernel.a*/
+	
+	max_ignore_stream(actions, "cpu_to_lmem" );
+	if(!max_ok(actions->errors)) return NULL;
+	
+	max_ignore_stream(actions, "lmem_to_cpu" );
+	if(!max_ok(actions->errors)) return NULL;
+	
+	/* code for stream y */
+	size_t instream_size_y = tmp_1;
+	if (instream_size_y > 0) {
+		max_queue_input(actions, "y", interface_actions->instream_y,instream_size_y);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream y */
+	
+	/* code for stream s */
+	size_t outstream_size_s = tmp_2;
+	if (outstream_size_s > 0) {
+		max_queue_output(actions, "s", interface_actions->outstream_s,outstream_size_s);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream s */
+	
+	max_ignore_lmem(actions, "read_lmem" );
+	if ( !max_ok(actions->errors) ) return NULL;
+	
+	max_ignore_lmem(actions, "write_lmem" );
+	if ( !max_ok(actions->errors) ) return NULL;
+	
+	/* code for linear memory-stream "x" */
+	size_t lmem_address_x = 0;
+	size_t lmem_arr_size_x = tmp_0;
+	int lmem_burst_size_x = max_get_burst_size(maxfile, NULL);
+	if ( (lmem_address_x % lmem_burst_size_x) != 0 ) {
+		fprintf(stdout, "\nSLiC Error: %s:%d : LMem x parameter 'lmem_address_x' is set to %zd bytes; it must be a multiple of %d bytes\n", __FILE__, __LINE__, lmem_address_x, lmem_burst_size_x );
+	}
+	if ( (lmem_arr_size_x % lmem_burst_size_x) != 0 ) {
+		fprintf(stdout, "\nSLiC Error: %s:%d : LMem x parameter 'lmem_arr_size_x' is set to %zd bytes; it must be a multiple of %d bytes\n", __FILE__, __LINE__, lmem_arr_size_x, lmem_burst_size_x );
+	}
+	if (lmem_arr_size_x > 0) {
+		max_lmem_linear(actions, "x", lmem_address_x, lmem_arr_size_x);
+	} else {
+		max_ignore_lmem(actions, "x");
+	}
+	if ( !max_ok(actions->errors) ) return NULL;
+	/* end of code for linear memory-stream "x" */
+	
+	return actions;
+}
+
+
+
+#endif /* SLIC_USE_DEFINITIONS */
+
+#ifdef SLIC_B64_DEFINITIONS
+I2luY2x1ZGUgPHN0ZGlvLmg+CiNpbmNsdWRlIDxtYXRoLmg+CiNpbmNsdWRlIDxwdGhyZWFkLmg+
+CiNpbmNsdWRlIDxzdHJpbmcuaD4Kc3RhdGljIG1heF9maWxlX3QgKnN0b3JlZF9tYXhmaWxlID0g
+TlVMTDsKc3RhdGljIG1heF9lbmdpbmVfdCAqc3RvcmVkX2VuZ2luZSA9IE5VTEw7CnN0YXRpYyBj
+aGFyICpzdG9yZWRfZXJyb3IgPSBOVUxMOwpzdGF0aWMgaW50IHN0b3JlZF9oYXNfZXJyb3IgPSAw
+OwpzdGF0aWMgcHRocmVhZF9vbmNlX3Qgc2xpY19ic19pc19pbml0aWFsaXNlZCA9IFBUSFJFQURf
+T05DRV9JTklUOwoKc3RhdGljIHZvaWQgc2V0X2Vycm9yKGNvbnN0IGNoYXIgKmVycm9yX3N0cikK
+ewoJc3RvcmVkX2hhc19lcnJvciA9IDE7IAoJaWYoc3RvcmVkX2Vycm9yID09IE5VTEwpIHsKCQlz
+dG9yZWRfZXJyb3IgPSBzdHJkdXAoZXJyb3Jfc3RyKTsKCX0gZWxzZSB7CgkJY2hhciAqbmVyciA9
+IG1hbGxvYyhzdHJsZW4oc3RvcmVkX2Vycm9yKSArIHN0cmxlbihlcnJvcl9zdHIpICsgMik7CgkJ
+c3ByaW50ZihuZXJyLCAiJXNcbiVzIiwgc3RvcmVkX2Vycm9yLCBlcnJvcl9zdHIpOwoJCWZyZWUo
+c3RvcmVkX2Vycm9yKTsKCQlzdG9yZWRfZXJyb3IgPSBuZXJyOwoJfQp9CnN0YXRpYyB2b2lkIHNl
+dF9lcnJvcl9hbmRfZnJlZShjaGFyICplcnJvcl9zdHIpewoJc2V0X2Vycm9yKGVycm9yX3N0cik7
+CglmcmVlKGVycm9yX3N0cik7Cn0KaW50IE1lbVN0cmVhbV9oYXNfZXJyb3JzKHZvaWQpCnsJcmV0
+dXJuIHN0b3JlZF9oYXNfZXJyb3I7IH0KY29uc3QgY2hhciogTWVtU3RyZWFtX2dldF9lcnJvcnMo
+dm9pZCkKewlyZXR1cm4gc3RvcmVkX2Vycm9yOyB9CnZvaWQgTWVtU3RyZWFtX2NsZWFyX2Vycm9y
+cyh2b2lkKQp7CglmcmVlKHN0b3JlZF9lcnJvcik7CglzdG9yZWRfZXJyb3IgPSBOVUxMOwoJc3Rv
+cmVkX2hhc19lcnJvciA9IDA7Cn0KCnN0YXRpYyB2b2lkIE1lbVN0cmVhbV9zdGF0aWNfaW5pdCh2
+b2lkKSAKewoJc3RvcmVkX21heGZpbGUgPSBNZW1TdHJlYW1faW5pdCgpOwoJaWYgKHN0b3JlZF9t
+YXhmaWxlID09IE5VTEwgfHwgIW1heF9vayhzdG9yZWRfbWF4ZmlsZS0+ZXJyb3JzKSkgewoJCXN0
+b3JlZF9tYXhmaWxlID0gTlVMTDsKCQlpZihtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05GSUdf
+U1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNldF9l
+cnJvcigiVW5hYmxlIHRvIGxvYWQgbWF4ZmlsZSIpOyByZXR1cm47IH0KCX0KCWlmKCFtYXhfb2so
+bWF4X2dsb2JhbF9lcnJvcnMoKSkpIHsKCQlzZXRfZXJyb3JfYW5kX2ZyZWUobWF4X2Vycm9yc190
+cmFjZShtYXhfZ2xvYmFsX2Vycm9ycygpKSk7CgkJcmV0dXJuOwoJfQoJaWYoIW1heF9jb25maWdf
+Z2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FCT1JUX09OX0VSUk9SKSkKCQlt
+YXhfZXJyb3JzX21vZGUoc3RvcmVkX21heGZpbGUtPmVycm9ycywgMCk7Cgl0aW1lX3QgdGltZW91
+dF9wcmV2aW91cyA9IG1heF9sb2FkX3RpbWVvdXQoc3RvcmVkX21heGZpbGUsIDMwKTsKCXN0b3Jl
+ZF9lbmdpbmUgPSBtYXhfbG9hZChzdG9yZWRfbWF4ZmlsZSwgIioiKTsKCWlmICghbWF4X29rKHN0
+b3JlZF9tYXhmaWxlLT5lcnJvcnMpKSB7CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09O
+RklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSB7CgkJCWZwcmludGYoc3RkZXJy
+LCAiXG5VbmFibGUgdG8gbG9hZCBlbmdpbmU6IGFib3J0aW5nIG5vdy5cblxuIik7CgkJCWZmbHVz
+aChzdGRlcnIpOwoJCQlhYm9ydCgpOwoJCX0gZWxzZSB7CgkJCXNldF9lcnJvcl9hbmRfZnJlZSht
+YXhfZXJyb3JzX3RyYWNlKHN0b3JlZF9tYXhmaWxlLT5lcnJvcnMpKTsKCQkJbWF4X2ZpbGVfZnJl
+ZShzdG9yZWRfbWF4ZmlsZSk7CgkJCXN0b3JlZF9tYXhmaWxlID0gTlVMTDsKCQkJcmV0dXJuOwoJ
+CX0gCgl9IAoJbWF4X2xvYWRfdGltZW91dChzdG9yZWRfbWF4ZmlsZSwgdGltZW91dF9wcmV2aW91
+cyk7Cn0Kdm9pZCBNZW1TdHJlYW1fZnJlZSh2b2lkKQp7CglpZihzdG9yZWRfZW5naW5lICE9IE5V
+TEwpCgkJbWF4X3VubG9hZChzdG9yZWRfZW5naW5lKTsKCWlmKHN0b3JlZF9tYXhmaWxlICE9IE5V
+TEwpCgkJbWF4X2ZpbGVfZnJlZShzdG9yZWRfbWF4ZmlsZSk7CglpZihzdG9yZWRfZXJyb3IgIT0g
+TlVMTCkKCQlmcmVlKHN0b3JlZF9lcnJvcik7Cn0KCgoKLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi8K
+LyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gSW50ZXJmYWNlIHdyaXRlTE1lbSAtLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tKi8KLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi8KCgp2b2lkIE1l
+bVN0cmVhbV93cml0ZUxNZW0oCglpbnQ2NF90IHBhcmFtX2FkZHJlc3MsCglpbnQ2NF90IHBhcmFt
+X25ieXRlcywKCWNvbnN0IHZvaWQgKmluc3RyZWFtX2NwdV90b19sbWVtKQp7Cgkodm9pZCkgcHRo
+cmVhZF9vbmNlKCZzbGljX2JzX2lzX2luaXRpYWxpc2VkLCBNZW1TdHJlYW1fc3RhdGljX2luaXQp
+OwoJaWYoc3RvcmVkX21heGZpbGUgPT0gTlVMTCkgewoJCWlmKG1heF9jb25maWdfZ2V0X2Jvb2wo
+TUFYX0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FCT1JUX09OX0VSUk9SKSkgYWJvcnQoKTsKCQll
+bHNlIHsgc2V0X2Vycm9yKCJNYXhmaWxlIHdhcyBub3QgbG9hZGVkLiIpOyByZXR1cm47IH0KCX0K
+CW1heF9ydW5fdCAqcnVuID0gTWVtU3RyZWFtX3dyaXRlTE1lbV9ub25ibG9jayhwYXJhbV9hZGRy
+ZXNzLCBwYXJhbV9uYnl0ZXMsIGluc3RyZWFtX2NwdV90b19sbWVtKTsKCWlmKHJ1biA9PSBOVUxM
+KSB7IAoJCWlmIChtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVSRkFD
+RV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNldF9lcnJvcigiVW5hYmxlIHRv
+IHJ1biBhY3Rpb25zLiIpO3JldHVybjsgfQoJfQoJbWF4X3dhaXQocnVuKTsKfQoKbWF4X3J1bl90
+ICpNZW1TdHJlYW1fd3JpdGVMTWVtX25vbmJsb2NrKAoJaW50NjRfdCBwYXJhbV9hZGRyZXNzLAoJ
+aW50NjRfdCBwYXJhbV9uYnl0ZXMsCgljb25zdCB2b2lkICppbnN0cmVhbV9jcHVfdG9fbG1lbSkK
+ewoJTWVtU3RyZWFtX3dyaXRlTE1lbV9hY3Rpb25zX3QgaW50ZXJmYWNlX2FjdGlvbnM7CglpbnRl
+cmZhY2VfYWN0aW9ucy5wYXJhbV9hZGRyZXNzID0gcGFyYW1fYWRkcmVzczsKCWludGVyZmFjZV9h
+Y3Rpb25zLnBhcmFtX25ieXRlcyA9IHBhcmFtX25ieXRlczsKCWludGVyZmFjZV9hY3Rpb25zLmlu
+c3RyZWFtX2NwdV90b19sbWVtID0gaW5zdHJlYW1fY3B1X3RvX2xtZW07Cgkodm9pZCkgcHRocmVh
+ZF9vbmNlKCZzbGljX2JzX2lzX2luaXRpYWxpc2VkLCBNZW1TdHJlYW1fc3RhdGljX2luaXQpOwoJ
+aWYoc3RvcmVkX21heGZpbGUgPT0gTlVMTCkgewoJCWlmKG1heF9jb25maWdfZ2V0X2Jvb2woTUFY
+X0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FCT1JUX09OX0VSUk9SKSkgYWJvcnQoKTsKCQllbHNl
+IHsgc2V0X2Vycm9yKCJNYXhmaWxlIHdhcyBub3QgbG9hZGVkLiIpOyByZXR1cm4gTlVMTDsgfQoJ
+fQoJbWF4X2FjdGlvbnNfdCAqYWN0aW9uc1sxXTsKCWFjdGlvbnNbMF0gPSBNZW1TdHJlYW1fd3Jp
+dGVMTWVtX2NvbnZlcnQoc3RvcmVkX21heGZpbGUsICZpbnRlcmZhY2VfYWN0aW9ucyk7CglpZihh
+Y3Rpb25zWzBdID09IE5VTEwpIHsgCgkJaWYobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklH
+X1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRf
+ZXJyb3IoIlVuYWJsZSB0byBidWlsZCBhY3Rpb25zIik7cmV0dXJuIE5VTEw7IH0KCX0KCW1heF92
+YWxpZGF0ZShhY3Rpb25zWzBdKTsKCWlmKCFtYXhfb2soYWN0aW9uc1swXS0+ZXJyb3JzKSkgewoJ
+CWlmKG1heF9jb25maWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FCT1JU
+X09OX0VSUk9SKSkgYWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9yX2FuZF9mcmVlKG1heF9lcnJv
+cnNfdHJhY2UoYWN0aW9uc1swXS0+ZXJyb3JzKSk7IHJldHVybiBOVUxMO30KCX0KCW1heF9ydW5f
+dCAqcnVuID0gbWF4X3J1bl9tdWx0aV9ub25ibG9jayhzdG9yZWRfZW5naW5lLCBhY3Rpb25zLCAx
+KTsKCWlmKHJ1biA9PSBOVUxMKSB7IAoJCWlmIChtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05G
+SUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNl
+dF9lcnJvcigiVW5hYmxlIHRvIHJ1biBhY3Rpb25zLiIpO3JldHVybiBOVUxMOyB9Cgl9CglpZigh
+bWF4X29rKHN0b3JlZF9lbmdpbmUtPmVycm9ycykgIHx8ICFtYXhfb2soYWN0aW9uc1swXS0+ZXJy
+b3JzKSkgewoJCWlmKG1heF9jb25maWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNfSU5URVJG
+QUNFX0FCT1JUX09OX0VSUk9SKSkgYWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9yX2FuZF9mcmVl
+KG1heF9lcnJvcnNfdHJhY2UoYWN0aW9uc1swXS0+ZXJyb3JzKSk7IHNldF9lcnJvcl9hbmRfZnJl
+ZShtYXhfZXJyb3JzX3RyYWNlKHN0b3JlZF9lbmdpbmUtPmVycm9ycykpOyByZXR1cm4gTlVMTDt9
+Cgl9CgltYXhfYWN0aW9uc19mcmVlKGFjdGlvbnNbMF0pOwoJcmV0dXJuIHJ1bjsKfQoKdm9pZCBN
+ZW1TdHJlYW1fd3JpdGVMTWVtX3J1bigKCW1heF9lbmdpbmVfdCAqZW5naW5lLAoJTWVtU3RyZWFt
+X3dyaXRlTE1lbV9hY3Rpb25zX3QgKmludGVyZmFjZV9hY3Rpb25zKQp7CgltYXhfcnVuX3QgKnJ1
+biA9IE1lbVN0cmVhbV93cml0ZUxNZW1fcnVuX25vbmJsb2NrKGVuZ2luZSwgaW50ZXJmYWNlX2Fj
+dGlvbnMpOwoJaWYocnVuID09IE5VTEwpIHsgCgkJaWYgKG1heF9jb25maWdfZ2V0X2Jvb2woTUFY
+X0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FCT1JUX09OX0VSUk9SKSkgYWJvcnQoKTsKCQllbHNl
+IHsgc2V0X2Vycm9yKCJVbmFibGUgdG8gcnVuIGFjdGlvbnMuIik7cmV0dXJuOyB9Cgl9CgltYXhf
+d2FpdChydW4pOwp9CgptYXhfcnVuX3QgKk1lbVN0cmVhbV93cml0ZUxNZW1fcnVuX25vbmJsb2Nr
+KAoJbWF4X2VuZ2luZV90ICplbmdpbmUsCglNZW1TdHJlYW1fd3JpdGVMTWVtX2FjdGlvbnNfdCAq
+aW50ZXJmYWNlX2FjdGlvbnMpCnsKCW1heF9maWxlX3QgKm1heGZpbGUgPSBtYXhfZW5naW5lX2dl
+dF9tYXhfZmlsZShlbmdpbmUpOyAKCW1heF9hY3Rpb25zX3QgKmFjdGlvbnNbMV07CglhY3Rpb25z
+WzBdID0gTWVtU3RyZWFtX3dyaXRlTE1lbV9jb252ZXJ0KG1heGZpbGUsIGludGVyZmFjZV9hY3Rp
+b25zKTsKCWlmKCFtYXhfb2soYWN0aW9uc1swXS0+ZXJyb3JzKSkgewoJCWlmKG1heF9jb25maWdf
+Z2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FCT1JUX09OX0VSUk9SKSkgYWJv
+cnQoKTsKCQllbHNlIHsgc2V0X2Vycm9yX2FuZF9mcmVlKG1heF9lcnJvcnNfdHJhY2UoYWN0aW9u
+c1swXS0+ZXJyb3JzKSk7IHJldHVybiBOVUxMO30KCX0KCW1heF9ydW5fdCAqcnVuID0gbWF4X3J1
+bl9tdWx0aV9ub25ibG9jayhlbmdpbmUsIGFjdGlvbnMsIDEpOwoJaWYocnVuID09IE5VTEwpIHsg
+CgkJaWYgKG1heF9jb25maWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FC
+T1JUX09OX0VSUk9SKSkgYWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9yKCJVbmFibGUgdG8gcnVu
+IGFjdGlvbnMuIik7IHJldHVybiBOVUxMOyB9Cgl9CgltYXhfYWN0aW9uc19mcmVlKGFjdGlvbnNb
+MF0pOwoJcmV0dXJuIHJ1bjsKfQoKCi8qKgogKiBcYnJpZWYgR3JvdXAgcnVuIGFkdmFuY2VkIHN0
+YXRpYyBmdW5jdGlvbiBmb3IgdGhlIGludGVyZmFjZSAnd3JpdGVMTWVtJy4KICogCiAqIFxwYXJh
+bSBbaW5dIGdyb3VwIEdyb3VwIHRvIHVzZS4KICogXHBhcmFtIFtpbixvdXRdIGludGVyZmFjZV9h
+Y3Rpb25zIEFjdGlvbnMgdG8gcnVuLgogKgogKiBSdW4gdGhlIGFjdGlvbnMgb24gdGhlIGZpcnN0
+IGRldmljZSBhdmFpbGFibGUgaW4gdGhlIGdyb3VwLgogKi8Kdm9pZCBNZW1TdHJlYW1fd3JpdGVM
+TWVtX3J1bl9ncm91cChtYXhfZ3JvdXBfdCAqZ3JvdXAsIE1lbVN0cmVhbV93cml0ZUxNZW1fYWN0
+aW9uc190ICppbnRlcmZhY2VfYWN0aW9ucykKewoJLyogTm90IHN0cmljdGx5IGNvcnJlY3QsIGJl
+Y2F1c2UgZXhwbGljaXRseSBsb2NraW5nIGFuIGVuZ2luZSBoZXJlLiAqLwoJbWF4X2VuZ2luZV90
+ICplbmdpbmUgPSBtYXhfbG9ja19hbnkoZ3JvdXApOwoJaWYoZW5naW5lID09IE5VTEwpIHJldHVy
+bjsKCU1lbVN0cmVhbV93cml0ZUxNZW1fcnVuKGVuZ2luZSwgaW50ZXJmYWNlX2FjdGlvbnMpOwoJ
+bWF4X3VubG9jayhlbmdpbmUpOwp9CgoKLyoqCiAqIFxicmllZiBHcm91cCBydW4gYWR2YW5jZWQg
+c3RhdGljIG5vbi1ibG9ja2luZyBmdW5jdGlvbiBmb3IgdGhlIGludGVyZmFjZSAnd3JpdGVMTWVt
+Jy4KICogCiAqCiAqIFNjaGVkdWxlIHRoZSBhY3Rpb25zIHRvIHJ1biBvbiB0aGUgZmlyc3QgZGV2
+aWNlIGF2YWlsYWJsZSBpbiB0aGUgZ3JvdXAgYW5kIHJldHVybiBpbW1lZGlhdGVseS4KICogVGhl
+IHN0YXR1cyBvZiB0aGUgcnVuIG11c3QgYmUgY2hlY2tlZCB3aXRoIDo6bWF4X3dhaXQuIAogKiBO
+b3RlIHRoYXQgdXNlIG9mIDo6bWF4X25vd2FpdCBpcyBwcm9oaWJpdGVkIHdpdGggbm9uLWJsb2Nr
+aW5nIHJ1bm5pbmcgb24gZ3JvdXBzOgogKiBzZWUgdGhlIDo6bWF4X3J1bl9ncm91cF9ub25ibG9j
+ayBkb2N1bWVudGF0aW9uIGZvciBtb3JlIGV4cGxhbmF0aW9uLgogKgogKiBccGFyYW0gW2luXSBn
+cm91cCBHcm91cCB0byB1c2UuCiAqIFxwYXJhbSBbaW5dIGludGVyZmFjZV9hY3Rpb25zIEFjdGlv
+bnMgdG8gcnVuLgogKiBccmV0dXJuIEEgaGFuZGxlIG9uIHRoZSBleGVjdXRpb24gc3RhdHVzIG9m
+IHRoZSBhY3Rpb25zLCBvciBOVUxMIGluIGNhc2Ugb2YgZXJyb3IuCiAqLwptYXhfcnVuX3QgKk1l
+bVN0cmVhbV93cml0ZUxNZW1fcnVuX2dyb3VwX25vbmJsb2NrKG1heF9ncm91cF90ICpncm91cCwg
+TWVtU3RyZWFtX3dyaXRlTE1lbV9hY3Rpb25zX3QgKmludGVyZmFjZV9hY3Rpb25zKQp7CgltYXhf
+ZmlsZV90ICptYXhmaWxlID0gbWF4X2dyb3VwX2dldF9tYXhfZmlsZShncm91cCk7CgltYXhfYWN0
+aW9uc190ICphY3Rpb25zID0gTWVtU3RyZWFtX3dyaXRlTE1lbV9jb252ZXJ0KG1heGZpbGUsIGlu
+dGVyZmFjZV9hY3Rpb25zKTsKCWlmKGFjdGlvbnMgPT0gTlVMTCkgcmV0dXJuIE5VTEw7CglpZigh
+bWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBOVUxMOwoJbWF4X3ZhbGlkYXRlKGFjdGlv
+bnMpOwoJbWF4X3J1bl90ICpydW4gPSBtYXhfcnVuX2dyb3VwX25vbmJsb2NrKGdyb3VwLCBhY3Rp
+b25zKTsKCW1heF9hY3Rpb25zX2ZyZWUoYWN0aW9ucyk7CglyZXR1cm4gcnVuOwp9CgoKLyoqCiAq
+IFxicmllZiBBcnJheSBydW4gYWR2YW5jZWQgc3RhdGljIGZ1bmN0aW9uIGZvciB0aGUgaW50ZXJm
+YWNlICd3cml0ZUxNZW0nLgogKiAKICogXHBhcmFtIFtpbl0gZW5nYXJyYXkgVGhlIGFycmF5IG9m
+IGRldmljZXMgdG8gdXNlLgogKiBccGFyYW0gW2luLG91dF0gaW50ZXJmYWNlX2FjdGlvbnMgVGhl
+IGFycmF5IG9mIGFjdGlvbnMgdG8gcnVuLgogKgogKiBSdW4gdGhlIGFycmF5IG9mIGFjdGlvbnMg
+b24gdGhlIGFycmF5IG9mIGVuZ2luZXMuICBUaGUgbGVuZ3RoIG9mIGludGVyZmFjZV9hY3Rpb25z
+CiAqIG11c3QgbWF0Y2ggdGhlIHNpemUgb2YgZW5nYXJyYXkuCiAqLwp2b2lkIE1lbVN0cmVhbV93
+cml0ZUxNZW1fcnVuX2FycmF5KG1heF9lbmdhcnJheV90ICplbmdhcnJheSwgTWVtU3RyZWFtX3dy
+aXRlTE1lbV9hY3Rpb25zX3QgKmludGVyZmFjZV9hY3Rpb25zW10pCnsKCW1heF9ydW5fdCAqcnVu
+ID0gTWVtU3RyZWFtX3dyaXRlTE1lbV9ydW5fYXJyYXlfbm9uYmxvY2soZW5nYXJyYXksIGludGVy
+ZmFjZV9hY3Rpb25zKTsKCWlmKHJ1biA9PSBOVUxMKSB7IAoJCWlmIChtYXhfY29uZmlnX2dldF9i
+b29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7
+CgkJZWxzZSB7IHNldF9lcnJvcigiVW5hYmxlIHRvIHJ1biBhY3Rpb25zLiIpO3JldHVybjsgfQoJ
+fQoJbWF4X3dhaXQocnVuKTsKfQoKCi8qKgogKiBcYnJpZWYgQXJyYXkgcnVuIGFkdmFuY2VkIHN0
+YXRpYyBub24tYmxvY2tpbmcgZnVuY3Rpb24gZm9yIHRoZSBpbnRlcmZhY2UgJ3dyaXRlTE1lbScu
+CiAqIAogKgogKiBTY2hlZHVsZSB0byBydW4gdGhlIGFycmF5IG9mIGFjdGlvbnMgb24gdGhlIGFy
+cmF5IG9mIGVuZ2luZXMsIGFuZCByZXR1cm4gaW1tZWRpYXRlbHkuCiAqIFRoZSBsZW5ndGggb2Yg
+aW50ZXJmYWNlX2FjdGlvbnMgbXVzdCBtYXRjaCB0aGUgc2l6ZSBvZiBlbmdhcnJheS4KICogVGhl
+IHN0YXR1cyBvZiB0aGUgcnVuIGNhbiBiZSBjaGVja2VkIGVpdGhlciBieSA6Om1heF93YWl0IG9y
+IDo6bWF4X25vd2FpdDsKICogbm90ZSB0aGF0IG9uZSBvZiB0aGVzZSAqbXVzdCogYmUgY2FsbGVk
+LCBzbyB0aGF0IGFzc29jaWF0ZWQgbWVtb3J5IGNhbiBiZSByZWxlYXNlZC4KICoKICogXHBhcmFt
+IFtpbl0gZW5nYXJyYXkgVGhlIGFycmF5IG9mIGRldmljZXMgdG8gdXNlLgogKiBccGFyYW0gW2lu
+XSBpbnRlcmZhY2VfYWN0aW9ucyBUaGUgYXJyYXkgb2YgYWN0aW9ucyB0byBydW4uCiAqIFxyZXR1
+cm4gQSBoYW5kbGUgb24gdGhlIGV4ZWN1dGlvbiBzdGF0dXMgb2YgdGhlIGFjdGlvbnMsIG9yIE5V
+TEwgaW4gY2FzZSBvZiBlcnJvci4KICovCm1heF9ydW5fdCAqTWVtU3RyZWFtX3dyaXRlTE1lbV9y
+dW5fYXJyYXlfbm9uYmxvY2sobWF4X2VuZ2FycmF5X3QgKmVuZ2FycmF5LCBNZW1TdHJlYW1fd3Jp
+dGVMTWVtX2FjdGlvbnNfdCAqaW50ZXJmYWNlX2FjdGlvbnNbXSkKewoJbWF4X2ZpbGVfdCAqbWF4
+ZmlsZSA9IG1heF9lbmdhcnJheV9nZXRfbWF4X2ZpbGUoZW5nYXJyYXkpOwoJaW50IGk7CgltYXhf
+YWN0YXJyYXlfdCAqYXJyX2FjdGFycmF5WzFdOwoJbWF4X2FjdGlvbnNfdCAqKmFycl9hY3Rpb25z
+WzFdOwoJYXJyX2FjdGFycmF5WzBdID0gbWF4X2FjdGFycmF5X2luaXQobWF4ZmlsZSwgZW5nYXJy
+YXktPnNpemUpOwoJaWYoYXJyX2FjdGFycmF5WzBdID09IE5VTEwpIHJldHVybiBOVUxMOwoJYXJy
+X2FjdGlvbnNbMF0gPSBtYWxsb2MoZW5nYXJyYXktPnNpemUgKiBzaXplb2YobWF4X2FjdGlvbnNf
+dCopKTsKCWZvcihpPTA7IGkgPCBhcnJfYWN0YXJyYXlbMF0tPnNpemU7IGkrKykgewoJCW1heF9h
+Y3Rpb25zX3QgKmFjdGlvbnMgPSBNZW1TdHJlYW1fd3JpdGVMTWVtX2NvbnZlcnQobWF4ZmlsZSwg
+aW50ZXJmYWNlX2FjdGlvbnNbaV0pOwoJCWlmKGFjdGlvbnMgPT0gTlVMTCkgcmV0dXJuIE5VTEw7
+CgkJYXJyX2FjdGlvbnNbMF1baV0gPSBhY3Rpb25zOwoJCW1heF9zZXRfYWN0aW9uKGFycl9hY3Rh
+cnJheVswXSwgaSwgYWN0aW9ucyk7Cgl9CgltYXhfcnVuX3QgKnJ1biA9IG1heF9ydW5fYXJyYXlf
+bXVsdGlfbm9uYmxvY2soZW5nYXJyYXksIGFycl9hY3RhcnJheSwgMSApOwoJZm9yIChpPTA7IGkg
+PCBhcnJfYWN0YXJyYXlbMF0tPnNpemU7IGkrKykgeyBtYXhfYWN0aW9uc19mcmVlKGFycl9hY3Rp
+b25zWzBdW2ldKTsgfQoJbWF4X2FjdGFycmF5X2ZyZWUoYXJyX2FjdGFycmF5WzBdKTsKCWZyZWUo
+YXJyX2FjdGlvbnNbMF0pOwoJcmV0dXJuIHJ1bjsKfQoKCi8qKgogKiBcYnJpZWYgQ29udmVydHMg
+YSBzdGF0aWMtaW50ZXJmYWNlIGFjdGlvbiBzdHJ1Y3QgaW50byBhIGR5bmFtaWMtaW50ZXJmYWNl
+IG1heF9hY3Rpb25zX3Qgc3RydWN0LgogKgogKiBOb3RlIHRoYXQgdGhpcyBpcyBhbiBpbnRlcm5h
+bCB1dGlsaXR5IGZ1bmN0aW9uIHVzZWQgYnkgb3RoZXIgZnVuY3Rpb25zIGluIHRoZSBzdGF0aWMg
+aW50ZXJmYWNlLgogKgogKiBccGFyYW0gW2luXSBtYXhmaWxlIFRoZSBtYXhmaWxlIHRvIHVzZS4K
+ICogXHBhcmFtIFtpbl0gaW50ZXJmYWNlX2FjdGlvbnMgVGhlIGludGVyZmFjZS1zcGVjaWZpYyBh
+Y3Rpb25zIHRvIHJ1bi4KICogXHJldHVybiBUaGUgZHluYW1pYy1pbnRlcmZhY2UgYWN0aW9ucyB0
+byBydW4sIG9yIE5VTEwgaW4gY2FzZSBvZiBlcnJvci4KICovCm1heF9hY3Rpb25zX3QqIE1lbVN0
+cmVhbV93cml0ZUxNZW1fY29udmVydChtYXhfZmlsZV90ICptYXhmaWxlLCBNZW1TdHJlYW1fd3Jp
+dGVMTWVtX2FjdGlvbnNfdCAqaW50ZXJmYWNlX2FjdGlvbnMpCnsKCW1heF9hY3Rpb25zX3QgKmFj
+dGlvbnMgPSBtYXhfYWN0aW9uc19pbml0KG1heGZpbGUsIE5VTEwpOwoJaWYoYWN0aW9ucyA9PSBO
+VUxMIHx8ICFtYXhfb2sobWF4ZmlsZS0+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7CgoJaW50NjRfdCBw
+YXJhbV9hZGRyZXNzID0gaW50ZXJmYWNlX2FjdGlvbnMtPnBhcmFtX2FkZHJlc3M7CgkKCWludDY0
+X3QgcGFyYW1fbmJ5dGVzID0gaW50ZXJmYWNlX2FjdGlvbnMtPnBhcmFtX25ieXRlczsKCQoJbWF4
+X2lnbm9yZV9zY2FsYXIoYWN0aW9ucywgIk1lbVN0cmVhbUtlcm5lbCIsICJydW5fY3ljbGVfY291
+bnQiICk7CglpZighbWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBOVUxMOwoJCgltYXhf
+aWdub3JlX3NjYWxhcihhY3Rpb25zLCAiTWVtU3RyZWFtS2VybmVsIiwgImEiICk7CglpZighbWF4
+X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBOVUxMOwoJCgkvKiBjb2RlIGZvciBzdHJlYW0g
+Y3B1X3RvX2xtZW0gKi8KCXNpemVfdCBpbnN0cmVhbV9zaXplX2NwdV90b19sbWVtID0gcGFyYW1f
+bmJ5dGVzOwoJaWYgKGluc3RyZWFtX3NpemVfY3B1X3RvX2xtZW0gPiAwKSB7CgkJbWF4X3F1ZXVl
+X2lucHV0KGFjdGlvbnMsICJjcHVfdG9fbG1lbSIsIGludGVyZmFjZV9hY3Rpb25zLT5pbnN0cmVh
+bV9jcHVfdG9fbG1lbSxpbnN0cmVhbV9zaXplX2NwdV90b19sbWVtKTsKCQlpZiAoIW1heF9vayhh
+Y3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCX0KCS8qIGVuZCBvZiBjb2RlIGZvciBzdHJl
+YW0gY3B1X3RvX2xtZW0gKi8KCQoJbWF4X2lnbm9yZV9zdHJlYW0oYWN0aW9ucywgImxtZW1fdG9f
+Y3B1IiApOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCQoJbWF4
+X2lnbm9yZV9zdHJlYW0oYWN0aW9ucywgInMiICk7CglpZighbWF4X29rKGFjdGlvbnMtPmVycm9y
+cykpIHJldHVybiBOVUxMOwoJCgltYXhfaWdub3JlX3N0cmVhbShhY3Rpb25zLCAieSIgKTsKCWlm
+KCFtYXhfb2soYWN0aW9ucy0+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7CgkKCW1heF9pZ25vcmVfbG1l
+bShhY3Rpb25zLCAicmVhZF9sbWVtIiApOwoJaWYgKCAhbWF4X29rKGFjdGlvbnMtPmVycm9ycykg
+KSByZXR1cm4gTlVMTDsKCQoJLyogY29kZSBmb3IgbGluZWFyIG1lbW9yeS1zdHJlYW0gIndyaXRl
+X2xtZW0iICovCglzaXplX3QgbG1lbV9hZGRyZXNzX3dyaXRlX2xtZW0gPSBwYXJhbV9hZGRyZXNz
+OwoJc2l6ZV90IGxtZW1fYXJyX3NpemVfd3JpdGVfbG1lbSA9IHBhcmFtX25ieXRlczsKCWludCBs
+bWVtX2J1cnN0X3NpemVfd3JpdGVfbG1lbSA9IG1heF9nZXRfYnVyc3Rfc2l6ZShtYXhmaWxlLCBO
+VUxMKTsKCWlmICggKGxtZW1fYWRkcmVzc193cml0ZV9sbWVtICUgbG1lbV9idXJzdF9zaXplX3dy
+aXRlX2xtZW0pICE9IDAgKSB7CgkJZnByaW50ZihzdGRvdXQsICJcblNMaUMgRXJyb3I6ICVzOiVk
+IDogTE1lbSB3cml0ZV9sbWVtIHBhcmFtZXRlciAnbG1lbV9hZGRyZXNzX3dyaXRlX2xtZW0nIGlz
+IHNldCB0byAlemQgYnl0ZXM7IGl0IG11c3QgYmUgYSBtdWx0aXBsZSBvZiAlZCBieXRlc1xuIiwg
+X19GSUxFX18sIF9fTElORV9fLCBsbWVtX2FkZHJlc3Nfd3JpdGVfbG1lbSwgbG1lbV9idXJzdF9z
+aXplX3dyaXRlX2xtZW0gKTsKCX0KCWlmICggKGxtZW1fYXJyX3NpemVfd3JpdGVfbG1lbSAlIGxt
+ZW1fYnVyc3Rfc2l6ZV93cml0ZV9sbWVtKSAhPSAwICkgewoJCWZwcmludGYoc3Rkb3V0LCAiXG5T
+TGlDIEVycm9yOiAlczolZCA6IExNZW0gd3JpdGVfbG1lbSBwYXJhbWV0ZXIgJ2xtZW1fYXJyX3Np
+emVfd3JpdGVfbG1lbScgaXMgc2V0IHRvICV6ZCBieXRlczsgaXQgbXVzdCBiZSBhIG11bHRpcGxl
+IG9mICVkIGJ5dGVzXG4iLCBfX0ZJTEVfXywgX19MSU5FX18sIGxtZW1fYXJyX3NpemVfd3JpdGVf
+bG1lbSwgbG1lbV9idXJzdF9zaXplX3dyaXRlX2xtZW0gKTsKCX0KCWlmIChsbWVtX2Fycl9zaXpl
+X3dyaXRlX2xtZW0gPiAwKSB7CgkJbWF4X2xtZW1fbGluZWFyKGFjdGlvbnMsICJ3cml0ZV9sbWVt
+IiwgbG1lbV9hZGRyZXNzX3dyaXRlX2xtZW0sIGxtZW1fYXJyX3NpemVfd3JpdGVfbG1lbSk7Cgl9
+IGVsc2UgewoJCW1heF9pZ25vcmVfbG1lbShhY3Rpb25zLCAid3JpdGVfbG1lbSIpOwoJfQoJaWYg
+KCAhbWF4X29rKGFjdGlvbnMtPmVycm9ycykgKSByZXR1cm4gTlVMTDsKCS8qIGVuZCBvZiBjb2Rl
+IGZvciBsaW5lYXIgbWVtb3J5LXN0cmVhbSAid3JpdGVfbG1lbSIgKi8KCQoJbWF4X2lnbm9yZV9s
+bWVtKGFjdGlvbnMsICJ4IiApOwoJaWYgKCAhbWF4X29rKGFjdGlvbnMtPmVycm9ycykgKSByZXR1
+cm4gTlVMTDsKCQoJcmV0dXJuIGFjdGlvbnM7Cn0KCgoKCi8qLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSov
+Ci8qLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSBJbnRlcmZhY2UgcmVhZExNZW0gLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovCi8qLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovCgoKdm9pZCBN
+ZW1TdHJlYW1fcmVhZExNZW0oCglpbnQ2NF90IHBhcmFtX2FkZHJlc3MsCglpbnQ2NF90IHBhcmFt
+X25ieXRlcywKCXZvaWQgKm91dHN0cmVhbV9sbWVtX3RvX2NwdSkKewoJKHZvaWQpIHB0aHJlYWRf
+b25jZSgmc2xpY19ic19pc19pbml0aWFsaXNlZCwgTWVtU3RyZWFtX3N0YXRpY19pbml0KTsKCWlm
+KHN0b3JlZF9tYXhmaWxlID09IE5VTEwpIHsKCQlpZihtYXhfY29uZmlnX2dldF9ib29sKE1BWF9D
+T05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7
+IHNldF9lcnJvcigiTWF4ZmlsZSB3YXMgbm90IGxvYWRlZC4iKTsgcmV0dXJuOyB9Cgl9CgltYXhf
+cnVuX3QgKnJ1biA9IE1lbVN0cmVhbV9yZWFkTE1lbV9ub25ibG9jayhwYXJhbV9hZGRyZXNzLCBw
+YXJhbV9uYnl0ZXMsIG91dHN0cmVhbV9sbWVtX3RvX2NwdSk7CglpZihydW4gPT0gTlVMTCkgeyAK
+CQlpZiAobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJP
+UlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJyb3IoIlVuYWJsZSB0byBydW4g
+YWN0aW9ucy4iKTtyZXR1cm47IH0KCX0KCW1heF93YWl0KHJ1bik7Cn0KCm1heF9ydW5fdCAqTWVt
+U3RyZWFtX3JlYWRMTWVtX25vbmJsb2NrKAoJaW50NjRfdCBwYXJhbV9hZGRyZXNzLAoJaW50NjRf
+dCBwYXJhbV9uYnl0ZXMsCgl2b2lkICpvdXRzdHJlYW1fbG1lbV90b19jcHUpCnsKCU1lbVN0cmVh
+bV9yZWFkTE1lbV9hY3Rpb25zX3QgaW50ZXJmYWNlX2FjdGlvbnM7CglpbnRlcmZhY2VfYWN0aW9u
+cy5wYXJhbV9hZGRyZXNzID0gcGFyYW1fYWRkcmVzczsKCWludGVyZmFjZV9hY3Rpb25zLnBhcmFt
+X25ieXRlcyA9IHBhcmFtX25ieXRlczsKCWludGVyZmFjZV9hY3Rpb25zLm91dHN0cmVhbV9sbWVt
+X3RvX2NwdSA9IG91dHN0cmVhbV9sbWVtX3RvX2NwdTsKCSh2b2lkKSBwdGhyZWFkX29uY2UoJnNs
+aWNfYnNfaXNfaW5pdGlhbGlzZWQsIE1lbVN0cmVhbV9zdGF0aWNfaW5pdCk7CglpZihzdG9yZWRf
+bWF4ZmlsZSA9PSBOVUxMKSB7CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NU
+QVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJy
+b3IoIk1heGZpbGUgd2FzIG5vdCBsb2FkZWQuIik7IHJldHVybiBOVUxMOyB9Cgl9CgltYXhfYWN0
+aW9uc190ICphY3Rpb25zWzFdOwoJYWN0aW9uc1swXSA9IE1lbVN0cmVhbV9yZWFkTE1lbV9jb252
+ZXJ0KHN0b3JlZF9tYXhmaWxlLCAmaW50ZXJmYWNlX2FjdGlvbnMpOwoJaWYoYWN0aW9uc1swXSA9
+PSBOVUxMKSB7IAoJCWlmKG1heF9jb25maWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNfSU5U
+RVJGQUNFX0FCT1JUX09OX0VSUk9SKSkgYWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9yKCJVbmFi
+bGUgdG8gYnVpbGQgYWN0aW9ucyIpO3JldHVybiBOVUxMOyB9Cgl9CgltYXhfdmFsaWRhdGUoYWN0
+aW9uc1swXSk7CglpZighbWF4X29rKGFjdGlvbnNbMF0tPmVycm9ycykpIHsKCQlpZihtYXhfY29u
+ZmlnX2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikp
+IGFib3J0KCk7CgkJZWxzZSB7IHNldF9lcnJvcl9hbmRfZnJlZShtYXhfZXJyb3JzX3RyYWNlKGFj
+dGlvbnNbMF0tPmVycm9ycykpOyByZXR1cm4gTlVMTDt9Cgl9CgltYXhfcnVuX3QgKnJ1biA9IG1h
+eF9ydW5fbXVsdGlfbm9uYmxvY2soc3RvcmVkX2VuZ2luZSwgYWN0aW9ucywgMSk7CglpZihydW4g
+PT0gTlVMTCkgeyAKCQlpZiAobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NUQVRJQ19J
+TlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJyb3IoIlVu
+YWJsZSB0byBydW4gYWN0aW9ucy4iKTtyZXR1cm4gTlVMTDsgfQoJfQoJaWYoIW1heF9vayhzdG9y
+ZWRfZW5naW5lLT5lcnJvcnMpICB8fCAhbWF4X29rKGFjdGlvbnNbMF0tPmVycm9ycykpIHsKCQlp
+ZihtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9P
+Tl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNldF9lcnJvcl9hbmRfZnJlZShtYXhfZXJyb3Jz
+X3RyYWNlKGFjdGlvbnNbMF0tPmVycm9ycykpOyBzZXRfZXJyb3JfYW5kX2ZyZWUobWF4X2Vycm9y
+c190cmFjZShzdG9yZWRfZW5naW5lLT5lcnJvcnMpKTsgcmV0dXJuIE5VTEw7fQoJfQoJbWF4X2Fj
+dGlvbnNfZnJlZShhY3Rpb25zWzBdKTsKCXJldHVybiBydW47Cn0KCnZvaWQgTWVtU3RyZWFtX3Jl
+YWRMTWVtX3J1bigKCW1heF9lbmdpbmVfdCAqZW5naW5lLAoJTWVtU3RyZWFtX3JlYWRMTWVtX2Fj
+dGlvbnNfdCAqaW50ZXJmYWNlX2FjdGlvbnMpCnsKCW1heF9ydW5fdCAqcnVuID0gTWVtU3RyZWFt
+X3JlYWRMTWVtX3J1bl9ub25ibG9jayhlbmdpbmUsIGludGVyZmFjZV9hY3Rpb25zKTsKCWlmKHJ1
+biA9PSBOVUxMKSB7IAoJCWlmIChtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElD
+X0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNldF9lcnJvcigi
+VW5hYmxlIHRvIHJ1biBhY3Rpb25zLiIpO3JldHVybjsgfQoJfQoJbWF4X3dhaXQocnVuKTsKfQoK
+bWF4X3J1bl90ICpNZW1TdHJlYW1fcmVhZExNZW1fcnVuX25vbmJsb2NrKAoJbWF4X2VuZ2luZV90
+ICplbmdpbmUsCglNZW1TdHJlYW1fcmVhZExNZW1fYWN0aW9uc190ICppbnRlcmZhY2VfYWN0aW9u
+cykKewoJbWF4X2ZpbGVfdCAqbWF4ZmlsZSA9IG1heF9lbmdpbmVfZ2V0X21heF9maWxlKGVuZ2lu
+ZSk7IAoJbWF4X2FjdGlvbnNfdCAqYWN0aW9uc1sxXTsKCWFjdGlvbnNbMF0gPSBNZW1TdHJlYW1f
+cmVhZExNZW1fY29udmVydChtYXhmaWxlLCBpbnRlcmZhY2VfYWN0aW9ucyk7CglpZighbWF4X29r
+KGFjdGlvbnNbMF0tPmVycm9ycykpIHsKCQlpZihtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05G
+SUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNl
+dF9lcnJvcl9hbmRfZnJlZShtYXhfZXJyb3JzX3RyYWNlKGFjdGlvbnNbMF0tPmVycm9ycykpOyBy
+ZXR1cm4gTlVMTDt9Cgl9CgltYXhfcnVuX3QgKnJ1biA9IG1heF9ydW5fbXVsdGlfbm9uYmxvY2so
+ZW5naW5lLCBhY3Rpb25zLCAxKTsKCWlmKHJ1biA9PSBOVUxMKSB7IAoJCWlmIChtYXhfY29uZmln
+X2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFi
+b3J0KCk7CgkJZWxzZSB7IHNldF9lcnJvcigiVW5hYmxlIHRvIHJ1biBhY3Rpb25zLiIpOyByZXR1
+cm4gTlVMTDsgfQoJfQoJbWF4X2FjdGlvbnNfZnJlZShhY3Rpb25zWzBdKTsKCXJldHVybiBydW47
+Cn0KCgovKioKICogXGJyaWVmIEdyb3VwIHJ1biBhZHZhbmNlZCBzdGF0aWMgZnVuY3Rpb24gZm9y
+IHRoZSBpbnRlcmZhY2UgJ3JlYWRMTWVtJy4KICogCiAqIFxwYXJhbSBbaW5dIGdyb3VwIEdyb3Vw
+IHRvIHVzZS4KICogXHBhcmFtIFtpbixvdXRdIGludGVyZmFjZV9hY3Rpb25zIEFjdGlvbnMgdG8g
+cnVuLgogKgogKiBSdW4gdGhlIGFjdGlvbnMgb24gdGhlIGZpcnN0IGRldmljZSBhdmFpbGFibGUg
+aW4gdGhlIGdyb3VwLgogKi8Kdm9pZCBNZW1TdHJlYW1fcmVhZExNZW1fcnVuX2dyb3VwKG1heF9n
+cm91cF90ICpncm91cCwgTWVtU3RyZWFtX3JlYWRMTWVtX2FjdGlvbnNfdCAqaW50ZXJmYWNlX2Fj
+dGlvbnMpCnsKCS8qIE5vdCBzdHJpY3RseSBjb3JyZWN0LCBiZWNhdXNlIGV4cGxpY2l0bHkgbG9j
+a2luZyBhbiBlbmdpbmUgaGVyZS4gKi8KCW1heF9lbmdpbmVfdCAqZW5naW5lID0gbWF4X2xvY2tf
+YW55KGdyb3VwKTsKCWlmKGVuZ2luZSA9PSBOVUxMKSByZXR1cm47CglNZW1TdHJlYW1fcmVhZExN
+ZW1fcnVuKGVuZ2luZSwgaW50ZXJmYWNlX2FjdGlvbnMpOwoJbWF4X3VubG9jayhlbmdpbmUpOwp9
+CgoKLyoqCiAqIFxicmllZiBHcm91cCBydW4gYWR2YW5jZWQgc3RhdGljIG5vbi1ibG9ja2luZyBm
+dW5jdGlvbiBmb3IgdGhlIGludGVyZmFjZSAncmVhZExNZW0nLgogKiAKICoKICogU2NoZWR1bGUg
+dGhlIGFjdGlvbnMgdG8gcnVuIG9uIHRoZSBmaXJzdCBkZXZpY2UgYXZhaWxhYmxlIGluIHRoZSBn
+cm91cCBhbmQgcmV0dXJuIGltbWVkaWF0ZWx5LgogKiBUaGUgc3RhdHVzIG9mIHRoZSBydW4gbXVz
+dCBiZSBjaGVja2VkIHdpdGggOjptYXhfd2FpdC4gCiAqIE5vdGUgdGhhdCB1c2Ugb2YgOjptYXhf
+bm93YWl0IGlzIHByb2hpYml0ZWQgd2l0aCBub24tYmxvY2tpbmcgcnVubmluZyBvbiBncm91cHM6
+CiAqIHNlZSB0aGUgOjptYXhfcnVuX2dyb3VwX25vbmJsb2NrIGRvY3VtZW50YXRpb24gZm9yIG1v
+cmUgZXhwbGFuYXRpb24uCiAqCiAqIFxwYXJhbSBbaW5dIGdyb3VwIEdyb3VwIHRvIHVzZS4KICog
+XHBhcmFtIFtpbl0gaW50ZXJmYWNlX2FjdGlvbnMgQWN0aW9ucyB0byBydW4uCiAqIFxyZXR1cm4g
+QSBoYW5kbGUgb24gdGhlIGV4ZWN1dGlvbiBzdGF0dXMgb2YgdGhlIGFjdGlvbnMsIG9yIE5VTEwg
+aW4gY2FzZSBvZiBlcnJvci4KICovCm1heF9ydW5fdCAqTWVtU3RyZWFtX3JlYWRMTWVtX3J1bl9n
+cm91cF9ub25ibG9jayhtYXhfZ3JvdXBfdCAqZ3JvdXAsIE1lbVN0cmVhbV9yZWFkTE1lbV9hY3Rp
+b25zX3QgKmludGVyZmFjZV9hY3Rpb25zKQp7CgltYXhfZmlsZV90ICptYXhmaWxlID0gbWF4X2dy
+b3VwX2dldF9tYXhfZmlsZShncm91cCk7CgltYXhfYWN0aW9uc190ICphY3Rpb25zID0gTWVtU3Ry
+ZWFtX3JlYWRMTWVtX2NvbnZlcnQobWF4ZmlsZSwgaW50ZXJmYWNlX2FjdGlvbnMpOwoJaWYoYWN0
+aW9ucyA9PSBOVUxMKSByZXR1cm4gTlVMTDsKCWlmKCFtYXhfb2soYWN0aW9ucy0+ZXJyb3JzKSkg
+cmV0dXJuIE5VTEw7CgltYXhfdmFsaWRhdGUoYWN0aW9ucyk7CgltYXhfcnVuX3QgKnJ1biA9IG1h
+eF9ydW5fZ3JvdXBfbm9uYmxvY2soZ3JvdXAsIGFjdGlvbnMpOwoJbWF4X2FjdGlvbnNfZnJlZShh
+Y3Rpb25zKTsKCXJldHVybiBydW47Cn0KCgovKioKICogXGJyaWVmIEFycmF5IHJ1biBhZHZhbmNl
+ZCBzdGF0aWMgZnVuY3Rpb24gZm9yIHRoZSBpbnRlcmZhY2UgJ3JlYWRMTWVtJy4KICogCiAqIFxw
+YXJhbSBbaW5dIGVuZ2FycmF5IFRoZSBhcnJheSBvZiBkZXZpY2VzIHRvIHVzZS4KICogXHBhcmFt
+IFtpbixvdXRdIGludGVyZmFjZV9hY3Rpb25zIFRoZSBhcnJheSBvZiBhY3Rpb25zIHRvIHJ1bi4K
+ICoKICogUnVuIHRoZSBhcnJheSBvZiBhY3Rpb25zIG9uIHRoZSBhcnJheSBvZiBlbmdpbmVzLiAg
+VGhlIGxlbmd0aCBvZiBpbnRlcmZhY2VfYWN0aW9ucwogKiBtdXN0IG1hdGNoIHRoZSBzaXplIG9m
+IGVuZ2FycmF5LgogKi8Kdm9pZCBNZW1TdHJlYW1fcmVhZExNZW1fcnVuX2FycmF5KG1heF9lbmdh
+cnJheV90ICplbmdhcnJheSwgTWVtU3RyZWFtX3JlYWRMTWVtX2FjdGlvbnNfdCAqaW50ZXJmYWNl
+X2FjdGlvbnNbXSkKewoJbWF4X3J1bl90ICpydW4gPSBNZW1TdHJlYW1fcmVhZExNZW1fcnVuX2Fy
+cmF5X25vbmJsb2NrKGVuZ2FycmF5LCBpbnRlcmZhY2VfYWN0aW9ucyk7CglpZihydW4gPT0gTlVM
+TCkgeyAKCQlpZiAobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NUQVRJQ19JTlRFUkZB
+Q0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJyb3IoIlVuYWJsZSB0
+byBydW4gYWN0aW9ucy4iKTtyZXR1cm47IH0KCX0KCW1heF93YWl0KHJ1bik7Cn0KCgovKioKICog
+XGJyaWVmIEFycmF5IHJ1biBhZHZhbmNlZCBzdGF0aWMgbm9uLWJsb2NraW5nIGZ1bmN0aW9uIGZv
+ciB0aGUgaW50ZXJmYWNlICdyZWFkTE1lbScuCiAqIAogKgogKiBTY2hlZHVsZSB0byBydW4gdGhl
+IGFycmF5IG9mIGFjdGlvbnMgb24gdGhlIGFycmF5IG9mIGVuZ2luZXMsIGFuZCByZXR1cm4gaW1t
+ZWRpYXRlbHkuCiAqIFRoZSBsZW5ndGggb2YgaW50ZXJmYWNlX2FjdGlvbnMgbXVzdCBtYXRjaCB0
+aGUgc2l6ZSBvZiBlbmdhcnJheS4KICogVGhlIHN0YXR1cyBvZiB0aGUgcnVuIGNhbiBiZSBjaGVj
+a2VkIGVpdGhlciBieSA6Om1heF93YWl0IG9yIDo6bWF4X25vd2FpdDsKICogbm90ZSB0aGF0IG9u
+ZSBvZiB0aGVzZSAqbXVzdCogYmUgY2FsbGVkLCBzbyB0aGF0IGFzc29jaWF0ZWQgbWVtb3J5IGNh
+biBiZSByZWxlYXNlZC4KICoKICogXHBhcmFtIFtpbl0gZW5nYXJyYXkgVGhlIGFycmF5IG9mIGRl
+dmljZXMgdG8gdXNlLgogKiBccGFyYW0gW2luXSBpbnRlcmZhY2VfYWN0aW9ucyBUaGUgYXJyYXkg
+b2YgYWN0aW9ucyB0byBydW4uCiAqIFxyZXR1cm4gQSBoYW5kbGUgb24gdGhlIGV4ZWN1dGlvbiBz
+dGF0dXMgb2YgdGhlIGFjdGlvbnMsIG9yIE5VTEwgaW4gY2FzZSBvZiBlcnJvci4KICovCm1heF9y
+dW5fdCAqTWVtU3RyZWFtX3JlYWRMTWVtX3J1bl9hcnJheV9ub25ibG9jayhtYXhfZW5nYXJyYXlf
+dCAqZW5nYXJyYXksIE1lbVN0cmVhbV9yZWFkTE1lbV9hY3Rpb25zX3QgKmludGVyZmFjZV9hY3Rp
+b25zW10pCnsKCW1heF9maWxlX3QgKm1heGZpbGUgPSBtYXhfZW5nYXJyYXlfZ2V0X21heF9maWxl
+KGVuZ2FycmF5KTsKCWludCBpOwoJbWF4X2FjdGFycmF5X3QgKmFycl9hY3RhcnJheVsxXTsKCW1h
+eF9hY3Rpb25zX3QgKiphcnJfYWN0aW9uc1sxXTsKCWFycl9hY3RhcnJheVswXSA9IG1heF9hY3Rh
+cnJheV9pbml0KG1heGZpbGUsIGVuZ2FycmF5LT5zaXplKTsKCWlmKGFycl9hY3RhcnJheVswXSA9
+PSBOVUxMKSByZXR1cm4gTlVMTDsKCWFycl9hY3Rpb25zWzBdID0gbWFsbG9jKGVuZ2FycmF5LT5z
+aXplICogc2l6ZW9mKG1heF9hY3Rpb25zX3QqKSk7Cglmb3IoaT0wOyBpIDwgYXJyX2FjdGFycmF5
+WzBdLT5zaXplOyBpKyspIHsKCQltYXhfYWN0aW9uc190ICphY3Rpb25zID0gTWVtU3RyZWFtX3Jl
+YWRMTWVtX2NvbnZlcnQobWF4ZmlsZSwgaW50ZXJmYWNlX2FjdGlvbnNbaV0pOwoJCWlmKGFjdGlv
+bnMgPT0gTlVMTCkgcmV0dXJuIE5VTEw7CgkJYXJyX2FjdGlvbnNbMF1baV0gPSBhY3Rpb25zOwoJ
+CW1heF9zZXRfYWN0aW9uKGFycl9hY3RhcnJheVswXSwgaSwgYWN0aW9ucyk7Cgl9CgltYXhfcnVu
+X3QgKnJ1biA9IG1heF9ydW5fYXJyYXlfbXVsdGlfbm9uYmxvY2soZW5nYXJyYXksIGFycl9hY3Rh
+cnJheSwgMSApOwoJZm9yIChpPTA7IGkgPCBhcnJfYWN0YXJyYXlbMF0tPnNpemU7IGkrKykgeyBt
+YXhfYWN0aW9uc19mcmVlKGFycl9hY3Rpb25zWzBdW2ldKTsgfQoJbWF4X2FjdGFycmF5X2ZyZWUo
+YXJyX2FjdGFycmF5WzBdKTsKCWZyZWUoYXJyX2FjdGlvbnNbMF0pOwoJcmV0dXJuIHJ1bjsKfQoK
+Ci8qKgogKiBcYnJpZWYgQ29udmVydHMgYSBzdGF0aWMtaW50ZXJmYWNlIGFjdGlvbiBzdHJ1Y3Qg
+aW50byBhIGR5bmFtaWMtaW50ZXJmYWNlIG1heF9hY3Rpb25zX3Qgc3RydWN0LgogKgogKiBOb3Rl
+IHRoYXQgdGhpcyBpcyBhbiBpbnRlcm5hbCB1dGlsaXR5IGZ1bmN0aW9uIHVzZWQgYnkgb3RoZXIg
+ZnVuY3Rpb25zIGluIHRoZSBzdGF0aWMgaW50ZXJmYWNlLgogKgogKiBccGFyYW0gW2luXSBtYXhm
+aWxlIFRoZSBtYXhmaWxlIHRvIHVzZS4KICogXHBhcmFtIFtpbl0gaW50ZXJmYWNlX2FjdGlvbnMg
+VGhlIGludGVyZmFjZS1zcGVjaWZpYyBhY3Rpb25zIHRvIHJ1bi4KICogXHJldHVybiBUaGUgZHlu
+YW1pYy1pbnRlcmZhY2UgYWN0aW9ucyB0byBydW4sIG9yIE5VTEwgaW4gY2FzZSBvZiBlcnJvci4K
+ICovCm1heF9hY3Rpb25zX3QqIE1lbVN0cmVhbV9yZWFkTE1lbV9jb252ZXJ0KG1heF9maWxlX3Qg
+Km1heGZpbGUsIE1lbVN0cmVhbV9yZWFkTE1lbV9hY3Rpb25zX3QgKmludGVyZmFjZV9hY3Rpb25z
+KQp7CgltYXhfYWN0aW9uc190ICphY3Rpb25zID0gbWF4X2FjdGlvbnNfaW5pdChtYXhmaWxlLCBO
+VUxMKTsKCWlmKGFjdGlvbnMgPT0gTlVMTCB8fCAhbWF4X29rKG1heGZpbGUtPmVycm9ycykpIHJl
+dHVybiBOVUxMOwoKCWludDY0X3QgcGFyYW1fYWRkcmVzcyA9IGludGVyZmFjZV9hY3Rpb25zLT5w
+YXJhbV9hZGRyZXNzOwoJCglpbnQ2NF90IHBhcmFtX25ieXRlcyA9IGludGVyZmFjZV9hY3Rpb25z
+LT5wYXJhbV9uYnl0ZXM7CgkKCW1heF9pZ25vcmVfc2NhbGFyKGFjdGlvbnMsICJNZW1TdHJlYW1L
+ZXJuZWwiLCAicnVuX2N5Y2xlX2NvdW50IiApOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMp
+KSByZXR1cm4gTlVMTDsKCQoJbWF4X2lnbm9yZV9zY2FsYXIoYWN0aW9ucywgIk1lbVN0cmVhbUtl
+cm5lbCIsICJhIiApOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsK
+CQoJbWF4X2lnbm9yZV9zdHJlYW0oYWN0aW9ucywgImNwdV90b19sbWVtIiApOwoJaWYoIW1heF9v
+ayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCQoJLyogY29kZSBmb3Igc3RyZWFtIGxt
+ZW1fdG9fY3B1ICovCglzaXplX3Qgb3V0c3RyZWFtX3NpemVfbG1lbV90b19jcHUgPSBwYXJhbV9u
+Ynl0ZXM7CglpZiAob3V0c3RyZWFtX3NpemVfbG1lbV90b19jcHUgPiAwKSB7CgkJbWF4X3F1ZXVl
+X291dHB1dChhY3Rpb25zLCAibG1lbV90b19jcHUiLCBpbnRlcmZhY2VfYWN0aW9ucy0+b3V0c3Ry
+ZWFtX2xtZW1fdG9fY3B1LG91dHN0cmVhbV9zaXplX2xtZW1fdG9fY3B1KTsKCQlpZiAoIW1heF9v
+ayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCX0KCS8qIGVuZCBvZiBjb2RlIGZvciBz
+dHJlYW0gbG1lbV90b19jcHUgKi8KCQoJbWF4X2lnbm9yZV9zdHJlYW0oYWN0aW9ucywgInMiICk7
+CglpZighbWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBOVUxMOwoJCgltYXhfaWdub3Jl
+X3N0cmVhbShhY3Rpb25zLCAieSIgKTsKCWlmKCFtYXhfb2soYWN0aW9ucy0+ZXJyb3JzKSkgcmV0
+dXJuIE5VTEw7CgkKCS8qIGNvZGUgZm9yIGxpbmVhciBtZW1vcnktc3RyZWFtICJyZWFkX2xtZW0i
+ICovCglzaXplX3QgbG1lbV9hZGRyZXNzX3JlYWRfbG1lbSA9IHBhcmFtX2FkZHJlc3M7CglzaXpl
+X3QgbG1lbV9hcnJfc2l6ZV9yZWFkX2xtZW0gPSBwYXJhbV9uYnl0ZXM7CglpbnQgbG1lbV9idXJz
+dF9zaXplX3JlYWRfbG1lbSA9IG1heF9nZXRfYnVyc3Rfc2l6ZShtYXhmaWxlLCBOVUxMKTsKCWlm
+ICggKGxtZW1fYWRkcmVzc19yZWFkX2xtZW0gJSBsbWVtX2J1cnN0X3NpemVfcmVhZF9sbWVtKSAh
+PSAwICkgewoJCWZwcmludGYoc3Rkb3V0LCAiXG5TTGlDIEVycm9yOiAlczolZCA6IExNZW0gcmVh
+ZF9sbWVtIHBhcmFtZXRlciAnbG1lbV9hZGRyZXNzX3JlYWRfbG1lbScgaXMgc2V0IHRvICV6ZCBi
+eXRlczsgaXQgbXVzdCBiZSBhIG11bHRpcGxlIG9mICVkIGJ5dGVzXG4iLCBfX0ZJTEVfXywgX19M
+SU5FX18sIGxtZW1fYWRkcmVzc19yZWFkX2xtZW0sIGxtZW1fYnVyc3Rfc2l6ZV9yZWFkX2xtZW0g
+KTsKCX0KCWlmICggKGxtZW1fYXJyX3NpemVfcmVhZF9sbWVtICUgbG1lbV9idXJzdF9zaXplX3Jl
+YWRfbG1lbSkgIT0gMCApIHsKCQlmcHJpbnRmKHN0ZG91dCwgIlxuU0xpQyBFcnJvcjogJXM6JWQg
+OiBMTWVtIHJlYWRfbG1lbSBwYXJhbWV0ZXIgJ2xtZW1fYXJyX3NpemVfcmVhZF9sbWVtJyBpcyBz
+ZXQgdG8gJXpkIGJ5dGVzOyBpdCBtdXN0IGJlIGEgbXVsdGlwbGUgb2YgJWQgYnl0ZXNcbiIsIF9f
+RklMRV9fLCBfX0xJTkVfXywgbG1lbV9hcnJfc2l6ZV9yZWFkX2xtZW0sIGxtZW1fYnVyc3Rfc2l6
+ZV9yZWFkX2xtZW0gKTsKCX0KCWlmIChsbWVtX2Fycl9zaXplX3JlYWRfbG1lbSA+IDApIHsKCQlt
+YXhfbG1lbV9saW5lYXIoYWN0aW9ucywgInJlYWRfbG1lbSIsIGxtZW1fYWRkcmVzc19yZWFkX2xt
+ZW0sIGxtZW1fYXJyX3NpemVfcmVhZF9sbWVtKTsKCX0gZWxzZSB7CgkJbWF4X2lnbm9yZV9sbWVt
+KGFjdGlvbnMsICJyZWFkX2xtZW0iKTsKCX0KCWlmICggIW1heF9vayhhY3Rpb25zLT5lcnJvcnMp
+ICkgcmV0dXJuIE5VTEw7CgkvKiBlbmQgb2YgY29kZSBmb3IgbGluZWFyIG1lbW9yeS1zdHJlYW0g
+InJlYWRfbG1lbSIgKi8KCQoJbWF4X2lnbm9yZV9sbWVtKGFjdGlvbnMsICJ3cml0ZV9sbWVtIiAp
+OwoJaWYgKCAhbWF4X29rKGFjdGlvbnMtPmVycm9ycykgKSByZXR1cm4gTlVMTDsKCQoJbWF4X2ln
+bm9yZV9sbWVtKGFjdGlvbnMsICJ4IiApOwoJaWYgKCAhbWF4X29rKGFjdGlvbnMtPmVycm9ycykg
+KSByZXR1cm4gTlVMTDsKCQoJcmV0dXJuIGFjdGlvbnM7Cn0KCgoKCi8qLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLSovCi8qLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSBJbnRlcmZhY2UgZGVmYXVsdCAt
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovCi8qLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovCgoK
+dm9pZCBNZW1TdHJlYW0oCglpbnQ2NF90IHBhcmFtX0EsCglpbnQ2NF90IHBhcmFtX04sCgljb25z
+dCBpbnQzMl90ICppbnN0cmVhbV95LAoJaW50MzJfdCAqb3V0c3RyZWFtX3MpCnsKCSh2b2lkKSBw
+dGhyZWFkX29uY2UoJnNsaWNfYnNfaXNfaW5pdGlhbGlzZWQsIE1lbVN0cmVhbV9zdGF0aWNfaW5p
+dCk7CglpZihzdG9yZWRfbWF4ZmlsZSA9PSBOVUxMKSB7CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9v
+bChNQVhfQ09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJ
+CWVsc2UgeyBzZXRfZXJyb3IoIk1heGZpbGUgd2FzIG5vdCBsb2FkZWQuIik7IHJldHVybjsgfQoJ
+fQoJbWF4X3J1bl90ICpydW4gPSBNZW1TdHJlYW1fbm9uYmxvY2socGFyYW1fQSwgcGFyYW1fTiwg
+aW5zdHJlYW1feSwgb3V0c3RyZWFtX3MpOwoJaWYocnVuID09IE5VTEwpIHsgCgkJaWYgKG1heF9j
+b25maWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FCT1JUX09OX0VSUk9S
+KSkgYWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9yKCJVbmFibGUgdG8gcnVuIGFjdGlvbnMuIik7
+cmV0dXJuOyB9Cgl9CgltYXhfd2FpdChydW4pOwp9CgptYXhfcnVuX3QgKk1lbVN0cmVhbV9ub25i
+bG9jaygKCWludDY0X3QgcGFyYW1fQSwKCWludDY0X3QgcGFyYW1fTiwKCWNvbnN0IGludDMyX3Qg
+Kmluc3RyZWFtX3ksCglpbnQzMl90ICpvdXRzdHJlYW1fcykKewoJTWVtU3RyZWFtX2FjdGlvbnNf
+dCBpbnRlcmZhY2VfYWN0aW9uczsKCWludGVyZmFjZV9hY3Rpb25zLnBhcmFtX0EgPSBwYXJhbV9B
+OwoJaW50ZXJmYWNlX2FjdGlvbnMucGFyYW1fTiA9IHBhcmFtX047CglpbnRlcmZhY2VfYWN0aW9u
+cy5pbnN0cmVhbV95ID0gaW5zdHJlYW1feTsKCWludGVyZmFjZV9hY3Rpb25zLm91dHN0cmVhbV9z
+ID0gb3V0c3RyZWFtX3M7Cgkodm9pZCkgcHRocmVhZF9vbmNlKCZzbGljX2JzX2lzX2luaXRpYWxp
+c2VkLCBNZW1TdHJlYW1fc3RhdGljX2luaXQpOwoJaWYoc3RvcmVkX21heGZpbGUgPT0gTlVMTCkg
+ewoJCWlmKG1heF9jb25maWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FC
+T1JUX09OX0VSUk9SKSkgYWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9yKCJNYXhmaWxlIHdhcyBu
+b3QgbG9hZGVkLiIpOyByZXR1cm4gTlVMTDsgfQoJfQoJbWF4X2FjdGlvbnNfdCAqYWN0aW9uc1sx
+XTsKCWFjdGlvbnNbMF0gPSBNZW1TdHJlYW1fY29udmVydChzdG9yZWRfbWF4ZmlsZSwgJmludGVy
+ZmFjZV9hY3Rpb25zKTsKCWlmKGFjdGlvbnNbMF0gPT0gTlVMTCkgeyAKCQlpZihtYXhfY29uZmln
+X2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFi
+b3J0KCk7CgkJZWxzZSB7IHNldF9lcnJvcigiVW5hYmxlIHRvIGJ1aWxkIGFjdGlvbnMiKTtyZXR1
+cm4gTlVMTDsgfQoJfQoJbWF4X3ZhbGlkYXRlKGFjdGlvbnNbMF0pOwoJaWYoIW1heF9vayhhY3Rp
+b25zWzBdLT5lcnJvcnMpKSB7CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NU
+QVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJy
+b3JfYW5kX2ZyZWUobWF4X2Vycm9yc190cmFjZShhY3Rpb25zWzBdLT5lcnJvcnMpKTsgcmV0dXJu
+IE5VTEw7fQoJfQoJbWF4X3J1bl90ICpydW4gPSBtYXhfcnVuX211bHRpX25vbmJsb2NrKHN0b3Jl
+ZF9lbmdpbmUsIGFjdGlvbnMsIDEpOwoJaWYocnVuID09IE5VTEwpIHsgCgkJaWYgKG1heF9jb25m
+aWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FCT1JUX09OX0VSUk9SKSkg
+YWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9yKCJVbmFibGUgdG8gcnVuIGFjdGlvbnMuIik7cmV0
+dXJuIE5VTEw7IH0KCX0KCWlmKCFtYXhfb2soc3RvcmVkX2VuZ2luZS0+ZXJyb3JzKSAgfHwgIW1h
+eF9vayhhY3Rpb25zWzBdLT5lcnJvcnMpKSB7CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhf
+Q09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2Ug
+eyBzZXRfZXJyb3JfYW5kX2ZyZWUobWF4X2Vycm9yc190cmFjZShhY3Rpb25zWzBdLT5lcnJvcnMp
+KTsgc2V0X2Vycm9yX2FuZF9mcmVlKG1heF9lcnJvcnNfdHJhY2Uoc3RvcmVkX2VuZ2luZS0+ZXJy
+b3JzKSk7IHJldHVybiBOVUxMO30KCX0KCW1heF9hY3Rpb25zX2ZyZWUoYWN0aW9uc1swXSk7Cgly
+ZXR1cm4gcnVuOwp9Cgp2b2lkIE1lbVN0cmVhbV9ydW4oCgltYXhfZW5naW5lX3QgKmVuZ2luZSwK
+CU1lbVN0cmVhbV9hY3Rpb25zX3QgKmludGVyZmFjZV9hY3Rpb25zKQp7CgltYXhfcnVuX3QgKnJ1
+biA9IE1lbVN0cmVhbV9ydW5fbm9uYmxvY2soZW5naW5lLCBpbnRlcmZhY2VfYWN0aW9ucyk7Cglp
+ZihydW4gPT0gTlVMTCkgeyAKCQlpZiAobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NU
+QVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJy
+b3IoIlVuYWJsZSB0byBydW4gYWN0aW9ucy4iKTtyZXR1cm47IH0KCX0KCW1heF93YWl0KHJ1bik7
+Cn0KCm1heF9ydW5fdCAqTWVtU3RyZWFtX3J1bl9ub25ibG9jaygKCW1heF9lbmdpbmVfdCAqZW5n
+aW5lLAoJTWVtU3RyZWFtX2FjdGlvbnNfdCAqaW50ZXJmYWNlX2FjdGlvbnMpCnsKCW1heF9maWxl
+X3QgKm1heGZpbGUgPSBtYXhfZW5naW5lX2dldF9tYXhfZmlsZShlbmdpbmUpOyAKCW1heF9hY3Rp
+b25zX3QgKmFjdGlvbnNbMV07CglhY3Rpb25zWzBdID0gTWVtU3RyZWFtX2NvbnZlcnQobWF4Zmls
+ZSwgaW50ZXJmYWNlX2FjdGlvbnMpOwoJaWYoIW1heF9vayhhY3Rpb25zWzBdLT5lcnJvcnMpKSB7
+CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJP
+UlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJyb3JfYW5kX2ZyZWUobWF4X2Vy
+cm9yc190cmFjZShhY3Rpb25zWzBdLT5lcnJvcnMpKTsgcmV0dXJuIE5VTEw7fQoJfQoJbWF4X3J1
+bl90ICpydW4gPSBtYXhfcnVuX211bHRpX25vbmJsb2NrKGVuZ2luZSwgYWN0aW9ucywgMSk7Cglp
+ZihydW4gPT0gTlVMTCkgeyAKCQlpZiAobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NU
+QVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJy
+b3IoIlVuYWJsZSB0byBydW4gYWN0aW9ucy4iKTsgcmV0dXJuIE5VTEw7IH0KCX0KCW1heF9hY3Rp
+b25zX2ZyZWUoYWN0aW9uc1swXSk7CglyZXR1cm4gcnVuOwp9CgoKLyoqCiAqIFxicmllZiBHcm91
+cCBydW4gYWR2YW5jZWQgc3RhdGljIGZ1bmN0aW9uIGZvciB0aGUgaW50ZXJmYWNlICdkZWZhdWx0
+Jy4KICogCiAqIFxwYXJhbSBbaW5dIGdyb3VwIEdyb3VwIHRvIHVzZS4KICogXHBhcmFtIFtpbixv
+dXRdIGludGVyZmFjZV9hY3Rpb25zIEFjdGlvbnMgdG8gcnVuLgogKgogKiBSdW4gdGhlIGFjdGlv
+bnMgb24gdGhlIGZpcnN0IGRldmljZSBhdmFpbGFibGUgaW4gdGhlIGdyb3VwLgogKi8Kdm9pZCBN
+ZW1TdHJlYW1fcnVuX2dyb3VwKG1heF9ncm91cF90ICpncm91cCwgTWVtU3RyZWFtX2FjdGlvbnNf
+dCAqaW50ZXJmYWNlX2FjdGlvbnMpCnsKCS8qIE5vdCBzdHJpY3RseSBjb3JyZWN0LCBiZWNhdXNl
+IGV4cGxpY2l0bHkgbG9ja2luZyBhbiBlbmdpbmUgaGVyZS4gKi8KCW1heF9lbmdpbmVfdCAqZW5n
+aW5lID0gbWF4X2xvY2tfYW55KGdyb3VwKTsKCWlmKGVuZ2luZSA9PSBOVUxMKSByZXR1cm47CglN
+ZW1TdHJlYW1fcnVuKGVuZ2luZSwgaW50ZXJmYWNlX2FjdGlvbnMpOwoJbWF4X3VubG9jayhlbmdp
+bmUpOwp9CgoKLyoqCiAqIFxicmllZiBHcm91cCBydW4gYWR2YW5jZWQgc3RhdGljIG5vbi1ibG9j
+a2luZyBmdW5jdGlvbiBmb3IgdGhlIGludGVyZmFjZSAnZGVmYXVsdCcuCiAqIAogKgogKiBTY2hl
+ZHVsZSB0aGUgYWN0aW9ucyB0byBydW4gb24gdGhlIGZpcnN0IGRldmljZSBhdmFpbGFibGUgaW4g
+dGhlIGdyb3VwIGFuZCByZXR1cm4gaW1tZWRpYXRlbHkuCiAqIFRoZSBzdGF0dXMgb2YgdGhlIHJ1
+biBtdXN0IGJlIGNoZWNrZWQgd2l0aCA6Om1heF93YWl0LiAKICogTm90ZSB0aGF0IHVzZSBvZiA6
+Om1heF9ub3dhaXQgaXMgcHJvaGliaXRlZCB3aXRoIG5vbi1ibG9ja2luZyBydW5uaW5nIG9uIGdy
+b3VwczoKICogc2VlIHRoZSA6Om1heF9ydW5fZ3JvdXBfbm9uYmxvY2sgZG9jdW1lbnRhdGlvbiBm
+b3IgbW9yZSBleHBsYW5hdGlvbi4KICoKICogXHBhcmFtIFtpbl0gZ3JvdXAgR3JvdXAgdG8gdXNl
+LgogKiBccGFyYW0gW2luXSBpbnRlcmZhY2VfYWN0aW9ucyBBY3Rpb25zIHRvIHJ1bi4KICogXHJl
+dHVybiBBIGhhbmRsZSBvbiB0aGUgZXhlY3V0aW9uIHN0YXR1cyBvZiB0aGUgYWN0aW9ucywgb3Ig
+TlVMTCBpbiBjYXNlIG9mIGVycm9yLgogKi8KbWF4X3J1bl90ICpNZW1TdHJlYW1fcnVuX2dyb3Vw
+X25vbmJsb2NrKG1heF9ncm91cF90ICpncm91cCwgTWVtU3RyZWFtX2FjdGlvbnNfdCAqaW50ZXJm
+YWNlX2FjdGlvbnMpCnsKCW1heF9maWxlX3QgKm1heGZpbGUgPSBtYXhfZ3JvdXBfZ2V0X21heF9m
+aWxlKGdyb3VwKTsKCW1heF9hY3Rpb25zX3QgKmFjdGlvbnMgPSBNZW1TdHJlYW1fY29udmVydCht
+YXhmaWxlLCBpbnRlcmZhY2VfYWN0aW9ucyk7CglpZihhY3Rpb25zID09IE5VTEwpIHJldHVybiBO
+VUxMOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCW1heF92YWxp
+ZGF0ZShhY3Rpb25zKTsKCW1heF9ydW5fdCAqcnVuID0gbWF4X3J1bl9ncm91cF9ub25ibG9jayhn
+cm91cCwgYWN0aW9ucyk7CgltYXhfYWN0aW9uc19mcmVlKGFjdGlvbnMpOwoJcmV0dXJuIHJ1bjsK
+fQoKCi8qKgogKiBcYnJpZWYgQXJyYXkgcnVuIGFkdmFuY2VkIHN0YXRpYyBmdW5jdGlvbiBmb3Ig
+dGhlIGludGVyZmFjZSAnZGVmYXVsdCcuCiAqIAogKiBccGFyYW0gW2luXSBlbmdhcnJheSBUaGUg
+YXJyYXkgb2YgZGV2aWNlcyB0byB1c2UuCiAqIFxwYXJhbSBbaW4sb3V0XSBpbnRlcmZhY2VfYWN0
+aW9ucyBUaGUgYXJyYXkgb2YgYWN0aW9ucyB0byBydW4uCiAqCiAqIFJ1biB0aGUgYXJyYXkgb2Yg
+YWN0aW9ucyBvbiB0aGUgYXJyYXkgb2YgZW5naW5lcy4gIFRoZSBsZW5ndGggb2YgaW50ZXJmYWNl
+X2FjdGlvbnMKICogbXVzdCBtYXRjaCB0aGUgc2l6ZSBvZiBlbmdhcnJheS4KICovCnZvaWQgTWVt
+U3RyZWFtX3J1bl9hcnJheShtYXhfZW5nYXJyYXlfdCAqZW5nYXJyYXksIE1lbVN0cmVhbV9hY3Rp
+b25zX3QgKmludGVyZmFjZV9hY3Rpb25zW10pCnsKCW1heF9ydW5fdCAqcnVuID0gTWVtU3RyZWFt
+X3J1bl9hcnJheV9ub25ibG9jayhlbmdhcnJheSwgaW50ZXJmYWNlX2FjdGlvbnMpOwoJaWYocnVu
+ID09IE5VTEwpIHsgCgkJaWYgKG1heF9jb25maWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNf
+SU5URVJGQUNFX0FCT1JUX09OX0VSUk9SKSkgYWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9yKCJV
+bmFibGUgdG8gcnVuIGFjdGlvbnMuIik7cmV0dXJuOyB9Cgl9CgltYXhfd2FpdChydW4pOwp9CgoK
+LyoqCiAqIFxicmllZiBBcnJheSBydW4gYWR2YW5jZWQgc3RhdGljIG5vbi1ibG9ja2luZyBmdW5j
+dGlvbiBmb3IgdGhlIGludGVyZmFjZSAnZGVmYXVsdCcuCiAqIAogKgogKiBTY2hlZHVsZSB0byBy
+dW4gdGhlIGFycmF5IG9mIGFjdGlvbnMgb24gdGhlIGFycmF5IG9mIGVuZ2luZXMsIGFuZCByZXR1
+cm4gaW1tZWRpYXRlbHkuCiAqIFRoZSBsZW5ndGggb2YgaW50ZXJmYWNlX2FjdGlvbnMgbXVzdCBt
+YXRjaCB0aGUgc2l6ZSBvZiBlbmdhcnJheS4KICogVGhlIHN0YXR1cyBvZiB0aGUgcnVuIGNhbiBi
+ZSBjaGVja2VkIGVpdGhlciBieSA6Om1heF93YWl0IG9yIDo6bWF4X25vd2FpdDsKICogbm90ZSB0
+aGF0IG9uZSBvZiB0aGVzZSAqbXVzdCogYmUgY2FsbGVkLCBzbyB0aGF0IGFzc29jaWF0ZWQgbWVt
+b3J5IGNhbiBiZSByZWxlYXNlZC4KICoKICogXHBhcmFtIFtpbl0gZW5nYXJyYXkgVGhlIGFycmF5
+IG9mIGRldmljZXMgdG8gdXNlLgogKiBccGFyYW0gW2luXSBpbnRlcmZhY2VfYWN0aW9ucyBUaGUg
+YXJyYXkgb2YgYWN0aW9ucyB0byBydW4uCiAqIFxyZXR1cm4gQSBoYW5kbGUgb24gdGhlIGV4ZWN1
+dGlvbiBzdGF0dXMgb2YgdGhlIGFjdGlvbnMsIG9yIE5VTEwgaW4gY2FzZSBvZiBlcnJvci4KICov
+Cm1heF9ydW5fdCAqTWVtU3RyZWFtX3J1bl9hcnJheV9ub25ibG9jayhtYXhfZW5nYXJyYXlfdCAq
+ZW5nYXJyYXksIE1lbVN0cmVhbV9hY3Rpb25zX3QgKmludGVyZmFjZV9hY3Rpb25zW10pCnsKCW1h
+eF9maWxlX3QgKm1heGZpbGUgPSBtYXhfZW5nYXJyYXlfZ2V0X21heF9maWxlKGVuZ2FycmF5KTsK
+CWludCBpOwoJbWF4X2FjdGFycmF5X3QgKmFycl9hY3RhcnJheVsxXTsKCW1heF9hY3Rpb25zX3Qg
+KiphcnJfYWN0aW9uc1sxXTsKCWFycl9hY3RhcnJheVswXSA9IG1heF9hY3RhcnJheV9pbml0KG1h
+eGZpbGUsIGVuZ2FycmF5LT5zaXplKTsKCWlmKGFycl9hY3RhcnJheVswXSA9PSBOVUxMKSByZXR1
+cm4gTlVMTDsKCWFycl9hY3Rpb25zWzBdID0gbWFsbG9jKGVuZ2FycmF5LT5zaXplICogc2l6ZW9m
+KG1heF9hY3Rpb25zX3QqKSk7Cglmb3IoaT0wOyBpIDwgYXJyX2FjdGFycmF5WzBdLT5zaXplOyBp
+KyspIHsKCQltYXhfYWN0aW9uc190ICphY3Rpb25zID0gTWVtU3RyZWFtX2NvbnZlcnQobWF4Zmls
+ZSwgaW50ZXJmYWNlX2FjdGlvbnNbaV0pOwoJCWlmKGFjdGlvbnMgPT0gTlVMTCkgcmV0dXJuIE5V
+TEw7CgkJYXJyX2FjdGlvbnNbMF1baV0gPSBhY3Rpb25zOwoJCW1heF9zZXRfYWN0aW9uKGFycl9h
+Y3RhcnJheVswXSwgaSwgYWN0aW9ucyk7Cgl9CgltYXhfcnVuX3QgKnJ1biA9IG1heF9ydW5fYXJy
+YXlfbXVsdGlfbm9uYmxvY2soZW5nYXJyYXksIGFycl9hY3RhcnJheSwgMSApOwoJZm9yIChpPTA7
+IGkgPCBhcnJfYWN0YXJyYXlbMF0tPnNpemU7IGkrKykgeyBtYXhfYWN0aW9uc19mcmVlKGFycl9h
+Y3Rpb25zWzBdW2ldKTsgfQoJbWF4X2FjdGFycmF5X2ZyZWUoYXJyX2FjdGFycmF5WzBdKTsKCWZy
+ZWUoYXJyX2FjdGlvbnNbMF0pOwoJcmV0dXJuIHJ1bjsKfQoKCi8qKgogKiBcYnJpZWYgQ29udmVy
+dHMgYSBzdGF0aWMtaW50ZXJmYWNlIGFjdGlvbiBzdHJ1Y3QgaW50byBhIGR5bmFtaWMtaW50ZXJm
+YWNlIG1heF9hY3Rpb25zX3Qgc3RydWN0LgogKgogKiBOb3RlIHRoYXQgdGhpcyBpcyBhbiBpbnRl
+cm5hbCB1dGlsaXR5IGZ1bmN0aW9uIHVzZWQgYnkgb3RoZXIgZnVuY3Rpb25zIGluIHRoZSBzdGF0
+aWMgaW50ZXJmYWNlLgogKgogKiBccGFyYW0gW2luXSBtYXhmaWxlIFRoZSBtYXhmaWxlIHRvIHVz
+ZS4KICogXHBhcmFtIFtpbl0gaW50ZXJmYWNlX2FjdGlvbnMgVGhlIGludGVyZmFjZS1zcGVjaWZp
+YyBhY3Rpb25zIHRvIHJ1bi4KICogXHJldHVybiBUaGUgZHluYW1pYy1pbnRlcmZhY2UgYWN0aW9u
+cyB0byBydW4sIG9yIE5VTEwgaW4gY2FzZSBvZiBlcnJvci4KICovCm1heF9hY3Rpb25zX3QqIE1l
+bVN0cmVhbV9jb252ZXJ0KG1heF9maWxlX3QgKm1heGZpbGUsIE1lbVN0cmVhbV9hY3Rpb25zX3Qg
+KmludGVyZmFjZV9hY3Rpb25zKQp7CgltYXhfYWN0aW9uc190ICphY3Rpb25zID0gbWF4X2FjdGlv
+bnNfaW5pdChtYXhmaWxlLCBOVUxMKTsKCWlmKGFjdGlvbnMgPT0gTlVMTCB8fCAhbWF4X29rKG1h
+eGZpbGUtPmVycm9ycykpIHJldHVybiBOVUxMOwoKCWludDY0X3QgcGFyYW1fQSA9IGludGVyZmFj
+ZV9hY3Rpb25zLT5wYXJhbV9BOwoJCglpbnQ2NF90IHBhcmFtX04gPSBpbnRlcmZhY2VfYWN0aW9u
+cy0+cGFyYW1fTjsKCQoKCS8qIHRlbXBvcmFyeSB2YXJpYWJsZXMgKi8KCWludDY0X3QgdG1wXzAg
+PSAocGFyYW1fTiAqIDQpOwoJaW50NjRfdCB0bXBfMSA9IChwYXJhbV9OICogNCk7CglpbnQ2NF90
+IHRtcF8yID0gKHBhcmFtX04gKiA0KTsKCgkvKiBjb2RlIGZvciBzY2FsYXIgTWVtU3RyZWFtS2Vy
+bmVsLnJ1bl9jeWNsZV9jb3VudCAqLwoJdWludDY0X3QgdGlja3NfTWVtU3RyZWFtS2VybmVsID0g
+cGFyYW1fTjsKCW1heF9zZXRfdGlja3MoYWN0aW9ucywgIk1lbVN0cmVhbUtlcm5lbCIsIHBhcmFt
+X04pOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCS8qIGVuZCBv
+ZiBjb2RlIGZvciBzY2FsYXIgTWVtU3RyZWFtS2VybmVsLnJ1bl9jeWNsZV9jb3VudCovCgkKCS8q
+IGNvZGUgZm9yIHNjYWxhciBNZW1TdHJlYW1LZXJuZWwuYSAqLwoJdWludDY0X3QgaW5zY2FsYXJf
+TWVtU3RyZWFtS2VybmVsX2EgPSBwYXJhbV9BOwoJbWF4X3NldF91aW50NjR0KGFjdGlvbnMsICJN
+ZW1TdHJlYW1LZXJuZWwiLCAiYSIsIGluc2NhbGFyX01lbVN0cmVhbUtlcm5lbF9hKTsKCWlmKCFt
+YXhfb2soYWN0aW9ucy0+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7CgkvKiBlbmQgb2YgY29kZSBmb3Ig
+c2NhbGFyIE1lbVN0cmVhbUtlcm5lbC5hKi8KCQoJbWF4X2lnbm9yZV9zdHJlYW0oYWN0aW9ucywg
+ImNwdV90b19sbWVtIiApOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVM
+TDsKCQoJbWF4X2lnbm9yZV9zdHJlYW0oYWN0aW9ucywgImxtZW1fdG9fY3B1IiApOwoJaWYoIW1h
+eF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCQoJLyogY29kZSBmb3Igc3RyZWFt
+IHkgKi8KCXNpemVfdCBpbnN0cmVhbV9zaXplX3kgPSB0bXBfMTsKCWlmIChpbnN0cmVhbV9zaXpl
+X3kgPiAwKSB7CgkJbWF4X3F1ZXVlX2lucHV0KGFjdGlvbnMsICJ5IiwgaW50ZXJmYWNlX2FjdGlv
+bnMtPmluc3RyZWFtX3ksaW5zdHJlYW1fc2l6ZV95KTsKCQlpZiAoIW1heF9vayhhY3Rpb25zLT5l
+cnJvcnMpKSByZXR1cm4gTlVMTDsKCX0KCS8qIGVuZCBvZiBjb2RlIGZvciBzdHJlYW0geSAqLwoJ
+CgkvKiBjb2RlIGZvciBzdHJlYW0gcyAqLwoJc2l6ZV90IG91dHN0cmVhbV9zaXplX3MgPSB0bXBf
+MjsKCWlmIChvdXRzdHJlYW1fc2l6ZV9zID4gMCkgewoJCW1heF9xdWV1ZV9vdXRwdXQoYWN0aW9u
+cywgInMiLCBpbnRlcmZhY2VfYWN0aW9ucy0+b3V0c3RyZWFtX3Msb3V0c3RyZWFtX3NpemVfcyk7
+CgkJaWYgKCFtYXhfb2soYWN0aW9ucy0+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7Cgl9CgkvKiBlbmQg
+b2YgY29kZSBmb3Igc3RyZWFtIHMgKi8KCQoJbWF4X2lnbm9yZV9sbWVtKGFjdGlvbnMsICJyZWFk
+X2xtZW0iICk7CglpZiAoICFtYXhfb2soYWN0aW9ucy0+ZXJyb3JzKSApIHJldHVybiBOVUxMOwoJ
+CgltYXhfaWdub3JlX2xtZW0oYWN0aW9ucywgIndyaXRlX2xtZW0iICk7CglpZiAoICFtYXhfb2so
+YWN0aW9ucy0+ZXJyb3JzKSApIHJldHVybiBOVUxMOwoJCgkvKiBjb2RlIGZvciBsaW5lYXIgbWVt
+b3J5LXN0cmVhbSAieCIgKi8KCXNpemVfdCBsbWVtX2FkZHJlc3NfeCA9IDA7CglzaXplX3QgbG1l
+bV9hcnJfc2l6ZV94ID0gdG1wXzA7CglpbnQgbG1lbV9idXJzdF9zaXplX3ggPSBtYXhfZ2V0X2J1
+cnN0X3NpemUobWF4ZmlsZSwgTlVMTCk7CglpZiAoIChsbWVtX2FkZHJlc3NfeCAlIGxtZW1fYnVy
+c3Rfc2l6ZV94KSAhPSAwICkgewoJCWZwcmludGYoc3Rkb3V0LCAiXG5TTGlDIEVycm9yOiAlczol
+ZCA6IExNZW0geCBwYXJhbWV0ZXIgJ2xtZW1fYWRkcmVzc194JyBpcyBzZXQgdG8gJXpkIGJ5dGVz
+OyBpdCBtdXN0IGJlIGEgbXVsdGlwbGUgb2YgJWQgYnl0ZXNcbiIsIF9fRklMRV9fLCBfX0xJTkVf
+XywgbG1lbV9hZGRyZXNzX3gsIGxtZW1fYnVyc3Rfc2l6ZV94ICk7Cgl9CglpZiAoIChsbWVtX2Fy
+cl9zaXplX3ggJSBsbWVtX2J1cnN0X3NpemVfeCkgIT0gMCApIHsKCQlmcHJpbnRmKHN0ZG91dCwg
+IlxuU0xpQyBFcnJvcjogJXM6JWQgOiBMTWVtIHggcGFyYW1ldGVyICdsbWVtX2Fycl9zaXplX3gn
+IGlzIHNldCB0byAlemQgYnl0ZXM7IGl0IG11c3QgYmUgYSBtdWx0aXBsZSBvZiAlZCBieXRlc1xu
+IiwgX19GSUxFX18sIF9fTElORV9fLCBsbWVtX2Fycl9zaXplX3gsIGxtZW1fYnVyc3Rfc2l6ZV94
+ICk7Cgl9CglpZiAobG1lbV9hcnJfc2l6ZV94ID4gMCkgewoJCW1heF9sbWVtX2xpbmVhcihhY3Rp
+b25zLCAieCIsIGxtZW1fYWRkcmVzc194LCBsbWVtX2Fycl9zaXplX3gpOwoJfSBlbHNlIHsKCQlt
+YXhfaWdub3JlX2xtZW0oYWN0aW9ucywgIngiKTsKCX0KCWlmICggIW1heF9vayhhY3Rpb25zLT5l
+cnJvcnMpICkgcmV0dXJuIE5VTEw7CgkvKiBlbmQgb2YgY29kZSBmb3IgbGluZWFyIG1lbW9yeS1z
+dHJlYW0gIngiICovCgkKCXJldHVybiBhY3Rpb25zOwp9CgoK
+#endif /* SLIC_B64_DEFINITIONS */
+
+#ifdef SLIC_DYNAMIC_CODE
+SLIC_MODE_START(writeLMem)	
+SLIC_PARAMETER_UINT64(int64_t, address, param_address)	
+SLIC_PARAMETER_UINT64(int64_t, nbytes, param_nbytes)	
+SLIC_SCALAR_DISABLED(MemStreamKernel, run_cycle_count)	
+SLIC_SCALAR_DISABLED(MemStreamKernel, a)	
+SLIC_STREAM(cpu_to_lmem, param_nbytes)	
+SLIC_STREAM_DISABLED(lmem_to_cpu)	
+SLIC_STREAM_DISABLED(s)	
+SLIC_STREAM_DISABLED(y)	
+SLIC_LMEM_LINEAR_DISABLED(read_lmem)	
+SLIC_LMEM_LINEAR(write_lmem, param_address, param_nbytes)	
+SLIC_LMEM_LINEAR_DISABLED(x)	
+SLIC_MODE_END(writeLMem)
+SLIC_MODE_START(readLMem)	
+SLIC_PARAMETER_UINT64(int64_t, address, param_address)	
+SLIC_PARAMETER_UINT64(int64_t, nbytes, param_nbytes)	
+SLIC_SCALAR_DISABLED(MemStreamKernel, run_cycle_count)	
+SLIC_SCALAR_DISABLED(MemStreamKernel, a)	
+SLIC_STREAM_DISABLED(cpu_to_lmem)	
+SLIC_STREAM(lmem_to_cpu, param_nbytes)	
+SLIC_STREAM_DISABLED(s)	
+SLIC_STREAM_DISABLED(y)	
+SLIC_LMEM_LINEAR(read_lmem, param_address, param_nbytes)	
+SLIC_LMEM_LINEAR_DISABLED(write_lmem)	
+SLIC_LMEM_LINEAR_DISABLED(x)	
+SLIC_MODE_END(readLMem)
+SLIC_MODE_START(default)	
+SLIC_PARAMETER_UINT64(int64_t, A, param_A)	
+SLIC_PARAMETER_UINT64(int64_t, N, param_N)	
+SLIC_TEMP_VAR(int64_t tmp_0 = (param_N * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_1 = (param_N * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_2 = (param_N * 4);)	
+SLIC_SET_TICKS(MemStreamKernel, param_N)	
+SLIC_SCALAR_UINT64(MemStreamKernel, a, param_A)	
+SLIC_STREAM_DISABLED(cpu_to_lmem)	
+SLIC_STREAM_DISABLED(lmem_to_cpu)	
+SLIC_STREAM(y, tmp_1)	
+SLIC_STREAM(s, tmp_2)	
+SLIC_LMEM_LINEAR_DISABLED(read_lmem)	
+SLIC_LMEM_LINEAR_DISABLED(write_lmem)	
+SLIC_LMEM_LINEAR(x, 0, tmp_0)	
+SLIC_MODE_END(default)
+
+#endif /* SLIC_DYNAMIC_CODE */
+
+#ifdef SKIN_META_DATA
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PG1h
+eGZpbGUgZm9ybWF0LXZlcnNpb249IjIwMTIwMjAwIiBoZWFkZXI9Ik1lbVN0cmVhbS5oIiBuYW1l
+PSJNZW1TdHJlYW0iPjxlbmdpbmVtb2RlIG5hbWU9IndyaXRlTE1lbSI+PGZ1bmN0aW9uIG5hbWU9
+Ik1lbVN0cmVhbV93cml0ZUxNZW0iIHJldHVybi12YWx1ZT0idm9pZCI+PHNjYWxhciBkZXNjPSJJ
+bnRlcmZhY2UgUGFyYW1ldGVyICZxdW90O2FkZHJlc3MmcXVvdDsuIiBkaXJlY3Rpb249IklucHV0
+IiBuYW1lPSJwYXJhbV9hZGRyZXNzIiB0eXBlPSJpbnQ2NF90Ii8+PHNjYWxhciBkZXNjPSJJbnRl
+cmZhY2UgUGFyYW1ldGVyICZxdW90O25ieXRlcyZxdW90Oy4iIGRpcmVjdGlvbj0iSW5wdXQiIG5h
+bWU9InBhcmFtX25ieXRlcyIgdHlwZT0iaW50NjRfdCIvPjxhcnJheSBkZXNjPSJUaGUgc3RyZWFt
+IHNob3VsZCBiZSBvZiBzaXplIHBhcmFtX25ieXRlcyBieXRlcy4iIGRpcmVjdGlvbj0iSW5wdXQi
+IG5hbWU9Imluc3RyZWFtX2NwdV90b19sbWVtIiBzaXplPSJwYXJhbV9uYnl0ZXMiIHRyYW5zcG9z
+ZT0idHJ1ZSIgdHlwZT0idm9pZCIvPjwvZnVuY3Rpb24+PC9lbmdpbmVtb2RlPjxlbmdpbmVtb2Rl
+IG5hbWU9InJlYWRMTWVtIj48ZnVuY3Rpb24gbmFtZT0iTWVtU3RyZWFtX3JlYWRMTWVtIiByZXR1
+cm4tdmFsdWU9InZvaWQiPjxzY2FsYXIgZGVzYz0iSW50ZXJmYWNlIFBhcmFtZXRlciAmcXVvdDth
+ZGRyZXNzJnF1b3Q7LiIgZGlyZWN0aW9uPSJJbnB1dCIgbmFtZT0icGFyYW1fYWRkcmVzcyIgdHlw
+ZT0iaW50NjRfdCIvPjxzY2FsYXIgZGVzYz0iSW50ZXJmYWNlIFBhcmFtZXRlciAmcXVvdDtuYnl0
+ZXMmcXVvdDsuIiBkaXJlY3Rpb249IklucHV0IiBuYW1lPSJwYXJhbV9uYnl0ZXMiIHR5cGU9Imlu
+dDY0X3QiLz48YXJyYXkgZGVzYz0iVGhlIHN0cmVhbSBzaG91bGQgYmUgb2Ygc2l6ZSBwYXJhbV9u
+Ynl0ZXMgYnl0ZXMuIiBkaXJlY3Rpb249Ik91dHB1dCIgbmFtZT0ib3V0c3RyZWFtX2xtZW1fdG9f
+Y3B1IiBzaXplPSJwYXJhbV9uYnl0ZXMiIHRyYW5zcG9zZT0idHJ1ZSIgdHlwZT0idm9pZCIvPjwv
+ZnVuY3Rpb24+PC9lbmdpbmVtb2RlPjxlbmdpbmVtb2RlIG5hbWU9ImRlZmF1bHQiPjxmdW5jdGlv
+biBuYW1lPSJNZW1TdHJlYW0iIHJldHVybi12YWx1ZT0idm9pZCI+PHNjYWxhciBkZXNjPSJJbnRl
+cmZhY2UgUGFyYW1ldGVyICZxdW90O0EmcXVvdDsuIiBkaXJlY3Rpb249IklucHV0IiBuYW1lPSJw
+YXJhbV9BIiB0eXBlPSJpbnQ2NF90Ii8+PHNjYWxhciBkZXNjPSJJbnRlcmZhY2UgUGFyYW1ldGVy
+ICZxdW90O04mcXVvdDsuIiBkaXJlY3Rpb249IklucHV0IiBuYW1lPSJwYXJhbV9OIiB0eXBlPSJp
+bnQ2NF90Ii8+PGFycmF5IGRlc2M9IlRoZSBzdHJlYW0gc2hvdWxkIGJlIG9mIHNpemUgKHBhcmFt
+X04gKiA0KSBieXRlcy4iIGRpcmVjdGlvbj0iSW5wdXQiIG5hbWU9Imluc3RyZWFtX3kiIHNpemU9
+IihwYXJhbV9OICogNCkiIHRyYW5zcG9zZT0idHJ1ZSIgdHlwZT0iaW50MzJfdCI+PGRpbWVuc2lv
+biBpbmRleD0iMCI+PGxlbmd0aD48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVyYXRvciBvcGVy
+YXRvcj0iLyIgdmFsdWU9IigocGFyYW1fTiAqIDQpIC8gNCkiPjxmdW5jdGlvbkNhbGw+PG51bUJp
+bmFyeU9wZXJhdG9yIG9wZXJhdG9yPSIqIiB2YWx1ZT0iKHBhcmFtX04gKiA0KSI+PHVzZXJQYXJh
+bSB2YWx1ZT0icGFyYW1fTiIvPjxjb25zdGFudFZhbHVlIHZhbHVlPSI0Ii8+PC9udW1CaW5hcnlP
+cGVyYXRvcj48L2Z1bmN0aW9uQ2FsbD48Y29uc3RhbnRWYWx1ZSB2YWx1ZT0iNCIvPjwvbnVtQmlu
+YXJ5T3BlcmF0b3I+PC9mdW5jdGlvbkNhbGw+PC9sZW5ndGg+PC9kaW1lbnNpb24+PC9hcnJheT48
+YXJyYXkgZGVzYz0iVGhlIHN0cmVhbSBzaG91bGQgYmUgb2Ygc2l6ZSAocGFyYW1fTiAqIDQpIGJ5
+dGVzLiIgZGlyZWN0aW9uPSJPdXRwdXQiIG5hbWU9Im91dHN0cmVhbV9zIiBzaXplPSIocGFyYW1f
+TiAqIDQpIiB0cmFuc3Bvc2U9InRydWUiIHR5cGU9ImludDMyX3QiPjxkaW1lbnNpb24gaW5kZXg9
+IjAiPjxsZW5ndGg+PGZ1bmN0aW9uQ2FsbD48bnVtQmluYXJ5T3BlcmF0b3Igb3BlcmF0b3I9Ii8i
+IHZhbHVlPSIoKHBhcmFtX04gKiA0KSAvIDQpIj48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVy
+YXRvciBvcGVyYXRvcj0iKiIgdmFsdWU9IihwYXJhbV9OICogNCkiPjx1c2VyUGFyYW0gdmFsdWU9
+InBhcmFtX04iLz48Y29uc3RhbnRWYWx1ZSB2YWx1ZT0iNCIvPjwvbnVtQmluYXJ5T3BlcmF0b3I+
+PC9mdW5jdGlvbkNhbGw+PGNvbnN0YW50VmFsdWUgdmFsdWU9IjQiLz48L251bUJpbmFyeU9wZXJh
+dG9yPjwvZnVuY3Rpb25DYWxsPjwvbGVuZ3RoPjwvZGltZW5zaW9uPjwvYXJyYXk+PC9mdW5jdGlv
+bj48L2VuZ2luZW1vZGU+PC9tYXhmaWxlPg==
+#endif /* SKIN_META_DATA */
+
+#ifdef PHOTON_NODE_ADD_DATA
+#define PHOTON_NODE_ADD_DATA_PRESENT 1
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 10, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 11, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 14, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 15, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 0, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 1, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 2, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 3, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 4, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 5, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 6, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 26, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 16, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 20, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 28, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 18, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 19, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 27, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 21, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 23, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 24, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MemStreamKernel, 22, "SquashFactor", 0.0)
+#endif
+

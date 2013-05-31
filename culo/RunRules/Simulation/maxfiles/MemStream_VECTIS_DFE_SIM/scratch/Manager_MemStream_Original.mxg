@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagerGraph version="2013.1" design_name="Manager_MemStream" compilation_phase="Original" hardwareBuild="false">
+	<Node id="1" instanceName="cpu_to_lmem" type="InputFlexibleClock">
+		<Output clock="STREAM" name="cpu_to_lmem" type="PULL el=1 ael=8" width="128">
+			<Stream name="Stream_2" sink="9" />
+		</Output>
+	</Node>
+	<Node id="5" instanceName="addrgen_cmd_write_lmem" type="AddrGen1DLinear">
+		<Output clock="clock" name="addrgen_cmd_write_lmem_0" type="PUSH 1" width="64">
+			<Stream name="Stream_8" sink="6" />
+		</Output>
+	</Node>
+	<Node id="11" instanceName="addrgen_cmd_read_lmem" type="AddrGen1DLinear">
+		<Output clock="clock" name="addrgen_cmd_read_lmem_0" type="PUSH 1" width="64">
+			<Stream name="Stream_14" sink="12" />
+		</Output>
+	</Node>
+	<Node id="15" instanceName="read_lmem" type="InputFlexibleClock">
+		<Output clock="STREAM" name="read_lmem" type="PULL el=1 ael=16" width="1536">
+			<Stream name="Stream_16" sink="3" />
+		</Output>
+	</Node>
+	<Node id="18" instanceName="addrgen_cmd_x" type="AddrGen1DLinear">
+		<Output clock="clock" name="addrgen_cmd_x_0" type="PUSH 1" width="64">
+			<Stream name="Stream_21" sink="19" />
+		</Output>
+	</Node>
+	<Node id="22" instanceName="x" type="InputFlexibleClock">
+		<Output clock="STREAM" name="x" type="PULL el=1 ael=16" width="1536">
+			<Stream name="Stream_23" sink="0" />
+		</Output>
+	</Node>
+	<Node id="25" instanceName="y" type="InputFlexibleClock">
+		<Output clock="STREAM" name="y" type="PULL el=1 ael=8" width="128">
+			<Stream name="Stream_26" sink="0" />
+		</Output>
+	</Node>
+	<Node id="9" instanceName="write_lmem" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="write_lmem" type="PUSH 16" width="1536">
+			<Stream name="Stream_10" source="1" />
+		</Input>
+	</Node>
+	<Node id="6" instanceName="cmd_write_lmem_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_write_lmem_0" type="PUSH 8" width="64">
+			<Stream name="Stream_7" source="5" />
+		</Input>
+	</Node>
+	<Node id="12" instanceName="cmd_read_lmem_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_read_lmem_0" type="PUSH 8" width="64">
+			<Stream name="Stream_13" source="11" />
+		</Input>
+	</Node>
+	<Node id="3" instanceName="lmem_to_cpu" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="lmem_to_cpu" type="PUSH 64" width="128">
+			<Stream name="Stream_4" source="15" />
+		</Input>
+	</Node>
+	<Node id="19" instanceName="cmd_x_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_x_0" type="PUSH 8" width="64">
+			<Stream name="Stream_20" source="18" />
+		</Input>
+	</Node>
+	<Node id="0" instanceName="MemStreamKernel" type="Kernel">
+		<PxgFile phase="original">MemStreamKernel_original.pxg</PxgFile>
+		<PxgFile phase="final-simulation">MemStreamKernel_final-simulation.pxg</PxgFile>
+		<Input clock="STREAM" name="x" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_17" source="22" />
+		</Input>
+		<Input clock="STREAM" name="y" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_24" source="25" />
+		</Input>
+		<Output clock="STREAM" name="s" type="PUSH 5" width="32">
+			<Stream name="Stream_27" sink="28" />
+		</Output>
+	</Node>
+	<Node id="28" instanceName="s" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="s" type="PUSH 64" width="128">
+			<Stream name="Stream_29" source="0" />
+		</Input>
+	</Node>
+</ManagerGraph>

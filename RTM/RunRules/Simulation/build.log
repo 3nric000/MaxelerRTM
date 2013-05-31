@@ -1,0 +1,29 @@
+gio 21:46: ########################################## 
+gio 21:46: Compiling.
+gio 21:46: ########################################## 
+
+gio 21:46: MaxCompiler version: 2013.1.
+gio 21:46: Build Simulation run rule for RTM start time: gio mag 30 21:46:13 CEST 2013.
+gio 21:46: Project location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM.
+gio 21:46: Detailed build log: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM/RunRules/Simulation/build.log.
+
+gio 21:46: Compiling Engine Code.
+gio 21:46: Building MemStream.max file. 
+gio 21:46: Setting environment variable:
+gio 21:46: MAXCOMPILER_BUILD_DIR : /home/emanuele.delsozzo/repo/MaxelerRTM/RTM/RunRules/Simulation/maxfiles
+gio 21:46: MAX_BUILDPARAMS : DFEModel='VECTIS' target='DFE_SIM' maxFileName='MemStream'  
+gio 21:46: Building output:
+gio 21:46: Exception in thread "main" java.lang.NoClassDefFoundError: rtm/MemStreamManager
+Caused by: java.lang.ClassNotFoundException: rtm.MemStreamManager
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:202)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:190)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:307)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:301)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:248)
+gio 21:46: Could not find the main class: rtm.MemStreamManager.  Program will exit.
+gio 21:46: Building: MemStream.max file finished.
+gio 21:46: Build process failed while trying to create MemStream.max file
+gio 21:46: Engine build finished.Build failed: gio mag 30 21:46:16 CEST 2013
+
+

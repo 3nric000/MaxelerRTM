@@ -1,0 +1,1654 @@
+NodeID     : 0
+Node       : Scalar input (io_p_force_disabled)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:15)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 1
+Node       : ~
+Node type  : NodeNot
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:15)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 2
+Node       : Input(p)
+Node type  : NodeInput
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:15)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 3
+Node       : Scalar input (c_0)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:18)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 4
+Node       : Scalar input (io_pp_value_force_disabled)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:19)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 5
+Node       : ~
+Node type  : NodeNot
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:19)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 6
+Node       : Input(pp_value)
+Node type  : NodeInput
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:19)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 7
+Node       : Scalar input (io_dvv_value_force_disabled)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:20)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 8
+Node       : ~
+Node type  : NodeNot
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:20)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 9
+Node       : Input(dvv_value)
+Node type  : NodeInput
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:20)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 10
+Node       : Scalar input (io_source_container_value_force_disabled)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:21)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 11
+Node       : ~
+Node type  : NodeNot
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:21)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 12
+Node       : Input(source_container_value)
+Node type  : NodeInput
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:21)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 13
+Node       : Scalar input (c_1_0)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:23)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 14
+Node       : Scalar input (c_1_1)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:24)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 15
+Node       : Scalar input (c_1_2)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:25)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 16
+Node       : Scalar input (c_1_3)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:26)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 17
+Node       : Scalar input (c_1_4)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:27)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 18
+Node       : Scalar input (c_2_0)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:29)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 19
+Node       : Scalar input (c_2_1)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:30)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 20
+Node       : Scalar input (c_2_2)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:31)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 21
+Node       : Scalar input (c_2_3)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:32)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 22
+Node       : Scalar input (c_2_4)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:33)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 23
+Node       : Scalar input (c_3_0)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:35)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 24
+Node       : Scalar input (c_3_1)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:36)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 25
+Node       : Scalar input (c_3_2)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:37)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 26
+Node       : Scalar input (c_3_3)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:38)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 27
+Node       : Scalar input (c_3_4)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:39)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 28
+Node       : stream offset: -5
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:47)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 29
+Node       : stream offset: -4
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:47)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 30
+Node       : stream offset: -3
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:47)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 31
+Node       : stream offset: -2
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:47)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 32
+Node       : stream offset: -1
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:47)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 33
+Node       : stream offset: 1
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:47)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 34
+Node       : stream offset: 2
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:47)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 35
+Node       : stream offset: 3
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:47)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 36
+Node       : stream offset: 4
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:47)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 37
+Node       : stream offset: 5
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:47)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 38
+Node       : stream offset: -480
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:53)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 39
+Node       : stream offset: -384
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:53)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 40
+Node       : stream offset: -288
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:53)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 41
+Node       : stream offset: -192
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:53)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 42
+Node       : stream offset: -96
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:53)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 43
+Node       : stream offset: 96
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:53)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 44
+Node       : stream offset: 192
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:53)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 45
+Node       : stream offset: 288
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:53)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 46
+Node       : stream offset: 384
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:53)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 47
+Node       : stream offset: 480
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:53)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 48
+Node       : stream offset: -5280
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:59)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 49
+Node       : stream offset: -4224
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:59)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 50
+Node       : stream offset: -3168
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:59)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 51
+Node       : stream offset: -2112
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:59)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 52
+Node       : stream offset: -1056
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:59)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 53
+Node       : stream offset: 1056
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:59)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 54
+Node       : stream offset: 2112
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:59)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 55
+Node       : stream offset: 3168
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:59)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 56
+Node       : stream offset: 4224
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:59)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 57
+Node       : stream offset: 5280
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:59)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 58
+Node       : 2.0
+Node type  : NodeConstantDouble
+Removed by : [PO2FPMultOptimiser]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:869)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:65)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 59
+Node       : *
+Node type  : NodeMul
+Removed by : [PO2FPMultOptimiser]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:869)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:65)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+Led to:
+  NodeID     : 127
+  Node       : PO2FPMult_N1
+  Node type  : NodePO2FPMult
+  Creator    : PO2FPMultOptimiser
+
+------------
+NodeID     : 60
+Node       : -
+Node type  : NodeSub
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.sub(DFEVar.java:812)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:65)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 61
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:66)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 62
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:67)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 63
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:67)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 64
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:66)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 65
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:68)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 66
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:68)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 67
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:66)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 68
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:69)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 69
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:69)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 70
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:66)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 71
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:70)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 72
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:70)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 73
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:66)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 74
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:71)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 75
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:71)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 76
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:66)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 77
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:72)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 78
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:72)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 79
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:66)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 80
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:73)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 81
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:73)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 82
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:66)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 83
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:74)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 84
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:74)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 85
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:66)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 86
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:75)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 87
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:75)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 88
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:66)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 89
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:76)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 90
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:76)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 91
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:66)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 92
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:77)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 93
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:77)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 94
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:66)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 95
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:78)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 96
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:78)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 97
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:66)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 98
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:79)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 99
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:79)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 100
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:66)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 101
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:80)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 102
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:80)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 103
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:66)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 104
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:81)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 105
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:81)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 106
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:65)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 107
+Node       : *
+Node type  : NodeMul
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:65)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 108
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:65)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 109
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:65)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 110
+Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
+Node type  : NodeConstantRawBits
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:85)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 111
+Node       : Scalar input (io_pp_force_disabled)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:85)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 112
+Node       : ~
+Node type  : NodeNot
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:85)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 113
+Node       : &
+Node type  : NodeAnd
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:85)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 114
+Node       : <{HWRawBits:1}>
+Node type  : NodeReinterpret
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:85)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+Led to:
+  NODE WAS REMOVED!
+  NodeID     : 126
+  Node       : {HWRawBits:1}\n0x1
+  Node type  : NodeConstantRawBits
+  Removed by : [OptimiseNodesPass]
+  Creator    : FoldConstantsPass
+
+------------
+NodeID     : 115
+Node       : <{HWRawBits:1}>
+Node type  : NodeReinterpret
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:85)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 116
+Node       : <{HWOffsetFix:1, 0, UNSIGNED}>
+Node type  : NodeReinterpret
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:85)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NodeID     : 117
+Node       : Output(pp)
+Node type  : NodeOutput
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:85)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 118
+Node       : 1.0
+Node type  : NodeConstantDouble
+Removed by : [RemoveUntypedConstants]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:34)
+
+Led to:
+  NodeID     : 190
+  Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
+  Node type  : NodeConstantRawBits
+  Creator    : RemoveUntypedConstants
+
+------------
+NodeID     : 119
+Node       : {HWOffsetFix:49, 0, UNSIGNED}\n0x1000000000000; 2.81474976710656E14
+Node type  : NodeConstantRawBits
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:34)
+
+------------
+NodeID     : 120
+Node       : Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0
+Node type  : NodeCounterV1
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:34)
+
+------------
+NodeID     : 121
+Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
+Node type  : NodeConstantRawBits
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:34)
+
+------------
+NodeID     : 122
+Node       : Scalar output (current_run_cycle_count)
+Node type  : NodeOutputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:34)
+
+------------
+NodeID     : 123
+Node       : flush on trigger
+Node type  : NodeFlush
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:34)
+
+------------
+NodeID     : 124
+Node       : Scalar input (run_cycle_count)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:34)
+
+------------
+NodeID     : 125
+Node       : ==
+Node type  : NodeEq
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:34)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 128
+Node       : FIFO(5307)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 129
+Node       : FIFO(5124)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 130
+Node       : FIFO(5111)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 131
+Node       : FIFO(5113)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 132
+Node       : FIFO(5122)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 133
+Node       : FIFO(5126)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 134
+Node       : FIFO(5133)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 135
+Node       : FIFO(5139)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 136
+Node       : FIFO(5144)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 137
+Node       : FIFO(5152)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 138
+Node       : FIFO(5155)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 139
+Node       : FIFO(5165)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 140
+Node       : FIFO(5076)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 141
+Node       : FIFO(5268)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 142
+Node       : FIFO(4992)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 143
+Node       : FIFO(5376)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 144
+Node       : FIFO(4908)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 145
+Node       : FIFO(5484)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 146
+Node       : FIFO(4824)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 147
+Node       : FIFO(5592)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 148
+Node       : FIFO(4740)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 149
+Node       : FIFO(5700)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 150
+Node       : FIFO(4176)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 151
+Node       : FIFO(6288)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 152
+Node       : FIFO(3132)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 153
+Node       : FIFO(7356)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 154
+Node       : FIFO(2088)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 155
+Node       : FIFO(8424)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NodeID     : 156
+Node       : FIFO(1044)
+Node type  : NodeFIFO
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 157
+Node       : FIFO(9492)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 158
+Node       : FIFO(9492)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NodeID     : 159
+Node       : FIFO(1068)
+Node type  : NodeFIFO
+Creator    : ScheduleApplier
+------------
+NodeID     : 160
+Node       : FIFO(4)
+Node type  : NodeFIFO
+Creator    : ScheduleApplier
+------------
+NodeID     : 161
+Node       : FIFO(1044)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 162
+Node       : FIFO(1044)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 163
+Node       : FIFO(1044)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 164
+Node       : FIFO(564)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 165
+Node       : FIFO(84)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 166
+Node       : FIFO(84)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 167
+Node       : FIFO(84)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 168
+Node       : FIFO(84)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 169
+Node       : FIFO(35)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 170
+Node       : FIFO(2)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 171
+Node       : FIFO(9)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 172
+Node       : FIFO(2)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 173
+Node       : FIFO(2)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 174
+Node       : FIFO(7)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 175
+Node       : FIFO(6)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 176
+Node       : FIFO(5)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 177
+Node       : FIFO(8)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 178
+Node       : FIFO(3)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 179
+Node       : FIFO(10)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 180
+Node       : FIFO(103)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 181
+Node       : FIFO(39)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 182
+Node       : FIFO(69)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 183
+Node       : FIFO(108)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 184
+Node       : FIFO(108)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 185
+Node       : FIFO(108)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 186
+Node       : FIFO(588)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 187
+Node       : FIFO(1068)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 188
+Node       : FIFO(1068)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 189
+Node       : FIFO(1068)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------

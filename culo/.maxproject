@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="culo_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/culo_EngineCode/bin" projectName="culo"/>
+<cpuPart internalCpuSubproject="culo_CPUCode"/>
+<watchedFiles/>
+</maxCompilerManager>
