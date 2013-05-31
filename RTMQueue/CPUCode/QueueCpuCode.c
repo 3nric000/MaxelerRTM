@@ -10,7 +10,7 @@ int main(void) {
 	int sizeBytes = size * sizeof(uint32_t);
 	uint32_t *x = malloc(sizeBytes);
 	uint32_t *y = malloc(sizeBytes);
-	uint32_t *s = malloc(2*sizeBytes);
+	uint32_t *s = malloc(sizeBytes);
 	uint32_t *controller = malloc(sizeBytes);
 	int scalar = 3;
 
@@ -40,7 +40,7 @@ int main(void) {
 	max_set_param_uint64t(act, "A", scalar);
 	max_queue_input(act, "y", y, size * sizeof(uint32_t));
 	max_queue_input(act, "controller", controller, size * sizeof(uint32_t));
-	max_queue_output(act, "s", s, 2*size * sizeof(uint32_t));
+	max_queue_output(act, "s", s, size * sizeof(uint32_t));
 	max_run(engine, act);
 	max_unload(engine);
 

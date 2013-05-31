@@ -1,833 +1,857 @@
-Fri 21:12: ########################################## 
-Fri 21:12: Compiling.
-Fri 21:12: ########################################## 
-
-Fri 21:12: MaxCompiler version: 2013.1.
-Fri 21:12: Build Simulation run rule for RTMQueue start time: Fri May 31 21:12:34 CEST 2013.
-Fri 21:12: Project location: /home/enrico.deiana/repo/MaxelerRTM/RTMQueue.
-Fri 21:12: Detailed build log: /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/build.log.
-
-Fri 21:12: Compiling Engine Code.
-Fri 21:12: Building Queue.max file. 
-Fri 21:12: Setting environment variable:
-Fri 21:12: MAXCOMPILER_BUILD_DIR : /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles
-Fri 21:12: MAX_BUILDPARAMS : DFEModel='VECTIS' target='DFE_SIM' maxFileName='Queue'  
-Fri 21:12: Building output:
-Fri 21:12: MaxCompiler version: 2013.1
-Fri 21:12: Build "Queue" start time: Fri May 31 21:12:36 CEST 2013
-Fri 21:12: Main build process running as user enrico.deiana on host maxeler
-Fri 21:12: Build location: /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles/Queue_VECTIS_DFE_SIM
-Fri 21:12: Detailed build log available in "_build.log"
-Fri 21:12: Instantiating manager
-Fri 21:12: Instantiating kernel "QueueKernel"
-Fri 21:12: Compiling manager (Configurable)
-Fri 21:12: 
-Fri 21:12: Compiling kernel "QueueKernel"
-Fri 21:12: Running back-end simulation build (3 phases)
-Fri 21:12: (1/3) - Prepare MaxFile Data (GenerateMaxFileDataFile)
-Fri 21:12: (2/3) - Compile Simulation Modules (SimCompilePass)
-Fri 21:12: (3/3) - Generate MaxFile (AddSimObjectToMaxFilePass)
-Fri 21:12: MaxFile: /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles/Queue_VECTIS_DFE_SIM/results/Queue.max (MD5Sum: 9d01455baf2f2df4bb66ddd6114a83f3)
-Fri 21:12: Build completed: Fri May 31 21:12:57 CEST 2013 (took 20 secs)
-Fri 21:12: Copying .max file. 
-Fri 21:12: Executing command:
-Fri 21:12: cp /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles/Queue_VECTIS_DFE_SIM/results/Queue.max /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles/Queue.max 
-Fri 21:12: Command output:
-Fri 21:12: Executing command:
-Fri 21:12: cp /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles/Queue_VECTIS_DFE_SIM/results/Queue.h /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles/Queue.h 
-Fri 21:12: Command output:
-Fri 21:12: Executing command:
-Fri 21:12: cp /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles/Queue_VECTIS_DFE_SIM/results/Queue.h /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/include/Queue.h 
-Fri 21:12: Command output:
-Fri 21:13: Building: Queue.max file finished.
-Fri 21:13: Engine build finished.
-Fri 21:13: Compiling CPU Code.
-Fri 21:13: Run CPU project make files updating
-Fri 21:13: Executing command:
-Fri 21:13: java -jar /opt/maxeler/maxcompiler/lib/MaxIDE/projectAdmin.jar -u /home/enrico.deiana/repo/MaxelerRTM/RTMQueue Simulation 
-Fri 21:13: Command output:
+Fri 21:17: ########################################## 
+Fri 21:17: Compiling.
+Fri 21:17: ########################################## 
+
+Fri 21:17: MaxCompiler version: 2013.1.
+Fri 21:17: Build Simulation run rule for RTMQueue start time: Fri May 31 21:17:40 CEST 2013.
+Fri 21:17: Project location: /home/enrico.deiana/repo/MaxelerRTM/RTMQueue.
+Fri 21:17: Detailed build log: /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/build.log.
+
+Fri 21:17: Compiling Engine Code.
+Fri 21:17: Building Queue.max file. 
+Fri 21:17: Setting environment variable:
+Fri 21:17: MAXCOMPILER_BUILD_DIR : /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles
+Fri 21:17: MAX_BUILDPARAMS : DFEModel='VECTIS' target='DFE_SIM' maxFileName='Queue'  
+Fri 21:17: Building output:
+Fri 21:17: MaxCompiler version: 2013.1
+Fri 21:17: Build "Queue" start time: Fri May 31 21:17:43 CEST 2013
+Fri 21:17: Main build process running as user enrico.deiana on host maxeler
+Fri 21:17: Build location: /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles/Queue_VECTIS_DFE_SIM
+Fri 21:17: Detailed build log available in "_build.log"
+Fri 21:17: Instantiating manager
+Fri 21:17: Instantiating kernel "QueueKernel"
+Fri 21:17: Compiling manager (Configurable)
+Fri 21:17: 
+Fri 21:17: Compiling kernel "QueueKernel"
+Fri 21:17: Running back-end simulation build (3 phases)
+Fri 21:17: (1/3) - Prepare MaxFile Data (GenerateMaxFileDataFile)
+Fri 21:17: (2/3) - Compile Simulation Modules (SimCompilePass)
+Fri 21:17: (3/3) - Generate MaxFile (AddSimObjectToMaxFilePass)
+Fri 21:18: MaxFile: /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles/Queue_VECTIS_DFE_SIM/results/Queue.max (MD5Sum: 9ec70071110d054f9bff9e67495e658e)
+Fri 21:18: Build completed: Fri May 31 21:18:00 CEST 2013 (took 17 secs)
+Fri 21:18: Copying .max file. 
+Fri 21:18: Executing command:
+Fri 21:18: cp /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles/Queue_VECTIS_DFE_SIM/results/Queue.max /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles/Queue.max 
+Fri 21:18: Command output:
+Fri 21:18: Executing command:
+Fri 21:18: cp /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles/Queue_VECTIS_DFE_SIM/results/Queue.h /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles/Queue.h 
+Fri 21:18: Command output:
+Fri 21:18: Executing command:
+Fri 21:18: cp /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles/Queue_VECTIS_DFE_SIM/results/Queue.h /home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/include/Queue.h 
+Fri 21:18: Command output:
+Fri 21:18: Building: Queue.max file finished.
+Fri 21:18: Engine build finished.
+Fri 21:18: Compiling CPU Code.
+Fri 21:18: Run CPU project make files updating
+Fri 21:18: Executing command:
+Fri 21:18: java -jar /opt/maxeler/maxcompiler/lib/MaxIDE/projectAdmin.jar -u /home/enrico.deiana/repo/MaxelerRTM/RTMQueue Simulation 
+Fri 21:18: Command output:
 
-Fri 21:13: MaxCompiler Project Admin Tool Version 2013.1.0
-Fri 21:13:  Copyright Maxeler Technologies 2010 - 2013. All rights reserved.
-Fri 21:13: Updating RunRule dependant Makefiles for RunRule 'Simulation'
-Fri 21:13: Found makefiles: 1
-Fri 21:13: 	Updated: Simulation
-Fri 21:13: Run CPU make.
-Fri 21:13: make RUNRULE=Simulation 
-Fri 21:13: Command output:
-Fri 21:13: make -f Makefile ../RunRules/Simulation/binaries/Queue
-Fri 21:13: make[1]: Entering directory `/home/enrico.deiana/repo/MaxelerRTM/RTMQueue/CPUCode'
-Fri 21:13: /opt/maxeler/maxcompiler/bin/sliccompile "../RunRules/Simulation/maxfiles/Queue.max" "../RunRules/Simulation/objects/slic_Queue.o"
-Fri 21:13: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=Queue -DMAXFILE_1="Queue.max"  -o "../RunRules/Simulation/objects/QueueCpuCode.o" -c "QueueCpuCode.c"
-Fri 21:13: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=Queue -DMAXFILE_1="Queue.max"  -MM -MP -MT "../RunRules/Simulation/objects/QueueCpuCode.o" "QueueCpuCode.c" > "../RunRules/Simulation/objects/QueueCpuCode.d"
-Fri 21:13: cc ../RunRules/Simulation/objects/QueueCpuCode.o ../RunRules/Simulation/objects/slic_Queue.o  -L/opt/maxeler/maxcompiler/lib -L/opt/maxeler/maxcompiler/lib/maxeleros-sim/lib -lslic -lmaxeleros -lm -lpthread  -o "../RunRules/Simulation/binaries/Queue"
-Fri 21:13: make[1]: Leaving directory `/home/enrico.deiana/repo/MaxelerRTM/RTMQueue/CPUCode'
-Fri 21:13: Build completed: Fri May 31 21:13:05 CEST 2013
+Fri 21:18: MaxCompiler Project Admin Tool Version 2013.1.0
+Fri 21:18:  Copyright Maxeler Technologies 2010 - 2013. All rights reserved.
+Fri 21:18: Updating RunRule dependant Makefiles for RunRule 'Simulation'
+Fri 21:18: Found makefiles: 1
+Fri 21:18: 	Updated: Simulation
+Fri 21:18: Run CPU make.
+Fri 21:18: make RUNRULE=Simulation 
+Fri 21:18: Command output:
+Fri 21:18: make -f Makefile ../RunRules/Simulation/binaries/Queue
+Fri 21:18: make[1]: Entering directory `/home/enrico.deiana/repo/MaxelerRTM/RTMQueue/CPUCode'
+Fri 21:18: /opt/maxeler/maxcompiler/bin/sliccompile "../RunRules/Simulation/maxfiles/Queue.max" "../RunRules/Simulation/objects/slic_Queue.o"
+Fri 21:18: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=Queue -DMAXFILE_1="Queue.max"  -o "../RunRules/Simulation/objects/QueueCpuCode.o" -c "QueueCpuCode.c"
+Fri 21:18: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=Queue -DMAXFILE_1="Queue.max"  -MM -MP -MT "../RunRules/Simulation/objects/QueueCpuCode.o" "QueueCpuCode.c" > "../RunRules/Simulation/objects/QueueCpuCode.d"
+Fri 21:18: cc ../RunRules/Simulation/objects/QueueCpuCode.o ../RunRules/Simulation/objects/slic_Queue.o  -L/opt/maxeler/maxcompiler/lib -L/opt/maxeler/maxcompiler/lib/maxeleros-sim/lib -lslic -lmaxeleros -lm -lpthread  -o "../RunRules/Simulation/binaries/Queue"
+Fri 21:18: make[1]: Leaving directory `/home/enrico.deiana/repo/MaxelerRTM/RTMQueue/CPUCode'
+Fri 21:18: Build completed: Fri May 31 21:18:07 CEST 2013
 
 
-Fri 21:13: ########################################## 
-Fri 21:13: Running
-Fri 21:13: ########################################## 
-Fri 21:13: Executing command:
-Fri 21:13: '/home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/binaries/Queue' 
-Fri 21:13: Command output:
-Fri 21:13: Writing to LMem.
-Fri 21:13: Running on DFE.
+Fri 21:18: ########################################## 
+Fri 21:18: Running
+Fri 21:18: ########################################## 
+Fri 21:18: Executing command:
+Fri 21:18: '/home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/binaries/Queue' 
+Fri 21:18: Command output:
+Fri 21:18: Writing to LMem.
+Fri 21:18: Running on DFE.
 
-Fri 21:13: x=0 y=0 controller=0 a=3 sum=3
+Fri 21:18: x=0 y=0 controller=0 a=3 sum=3
 
-Fri 21:13: x=0 y=0 controller=1 a=3 sum=3
+Fri 21:18: x=0 y=0 controller=1 a=3 sum=3
 
-Fri 21:13: x=0 y=0 controller=0 a=3 sum=3
+Fri 21:18: x=0 y=0 controller=0 a=3 sum=3
 
-Fri 21:13: x=1 y=1 controller=1 a=3 sum=5
+Fri 21:18: x=1 y=1 controller=1 a=3 sum=5
 
-Fri 21:13: x=1 y=1 controller=0 a=3 sum=5
+Fri 21:18: x=1 y=1 controller=0 a=3 sum=5
 
-Fri 21:13: x=2 y=2 controller=1 a=3 sum=7
+Fri 21:18: x=2 y=2 controller=1 a=3 sum=7
 
-Fri 21:13: x=2 y=2 controller=0 a=3 sum=7
+Fri 21:18: x=2 y=2 controller=0 a=3 sum=7
 
-Fri 21:13: x=3 y=3 controller=1 a=3 sum=9
+Fri 21:18: x=3 y=3 controller=1 a=3 sum=9
 
-Fri 21:13: x=3 y=3 controller=0 a=3 sum=9
+Fri 21:18: x=3 y=3 controller=0 a=3 sum=9
 
-Fri 21:13: x=4 y=4 controller=1 a=3 sum=11
+Fri 21:18: x=4 y=4 controller=1 a=3 sum=11
 
-Fri 21:13: x=4 y=4 controller=0 a=3 sum=11
+Fri 21:18: x=4 y=4 controller=0 a=3 sum=11
 
-Fri 21:13: x=5 y=5 controller=1 a=3 sum=13
+Fri 21:18: x=5 y=5 controller=1 a=3 sum=13
 
-Fri 21:13: x=5 y=5 controller=0 a=3 sum=13
+Fri 21:18: x=5 y=5 controller=0 a=3 sum=13
 
-Fri 21:13: x=6 y=6 controller=1 a=3 sum=15
+Fri 21:18: x=6 y=6 controller=1 a=3 sum=15
 
-Fri 21:13: x=6 y=6 controller=0 a=3 sum=15
+Fri 21:18: x=6 y=6 controller=0 a=3 sum=15
 
-Fri 21:13: x=7 y=7 controller=1 a=3 sum=17
+Fri 21:18: x=7 y=7 controller=1 a=3 sum=17
 
-Fri 21:13: x=7 y=7 controller=0 a=3 sum=17
+Fri 21:18: x=7 y=7 controller=0 a=3 sum=17
 
-Fri 21:13: x=8 y=8 controller=1 a=3 sum=19
+Fri 21:18: x=8 y=8 controller=1 a=3 sum=19
 
-Fri 21:13: x=8 y=8 controller=0 a=3 sum=19
+Fri 21:18: x=8 y=8 controller=0 a=3 sum=19
 
-Fri 21:13: x=9 y=9 controller=1 a=3 sum=21
+Fri 21:18: x=9 y=9 controller=1 a=3 sum=21
 
-Fri 21:13: x=9 y=9 controller=0 a=3 sum=21
+Fri 21:18: x=9 y=9 controller=0 a=3 sum=21
 
-Fri 21:13: x=10 y=10 controller=1 a=3 sum=23
+Fri 21:18: x=10 y=10 controller=1 a=3 sum=23
 
-Fri 21:13: x=10 y=10 controller=0 a=3 sum=23
+Fri 21:18: x=10 y=10 controller=0 a=3 sum=23
 
-Fri 21:13: x=11 y=11 controller=1 a=3 sum=25
+Fri 21:18: x=11 y=11 controller=1 a=3 sum=25
 
-Fri 21:13: x=11 y=11 controller=0 a=3 sum=25
+Fri 21:18: x=11 y=11 controller=0 a=3 sum=25
 
-Fri 21:13: x=12 y=12 controller=1 a=3 sum=27
+Fri 21:18: x=12 y=12 controller=1 a=3 sum=27
 
-Fri 21:13: x=12 y=12 controller=0 a=3 sum=27
+Fri 21:18: x=12 y=12 controller=0 a=3 sum=27
 
-Fri 21:13: x=13 y=13 controller=1 a=3 sum=29
+Fri 21:18: x=13 y=13 controller=1 a=3 sum=29
 
-Fri 21:13: x=13 y=13 controller=0 a=3 sum=29
+Fri 21:18: x=13 y=13 controller=0 a=3 sum=29
 
-Fri 21:13: x=14 y=14 controller=1 a=3 sum=31
+Fri 21:18: x=14 y=14 controller=1 a=3 sum=31
 
-Fri 21:13: x=14 y=14 controller=0 a=3 sum=31
+Fri 21:18: x=14 y=14 controller=0 a=3 sum=31
 
-Fri 21:13: x=15 y=15 controller=1 a=3 sum=33
+Fri 21:18: x=15 y=15 controller=1 a=3 sum=33
 
-Fri 21:13: x=15 y=15 controller=0 a=3 sum=33
+Fri 21:18: x=15 y=15 controller=0 a=3 sum=33
 
-Fri 21:13: x=16 y=16 controller=1 a=3 sum=35
+Fri 21:18: x=16 y=16 controller=1 a=3 sum=35
 
-Fri 21:13: x=16 y=16 controller=0 a=3 sum=35
+Fri 21:18: x=16 y=16 controller=0 a=3 sum=35
 
-Fri 21:13: x=17 y=17 controller=1 a=3 sum=37
+Fri 21:18: x=17 y=17 controller=1 a=3 sum=37
 
-Fri 21:13: x=17 y=17 controller=0 a=3 sum=37
+Fri 21:18: x=17 y=17 controller=0 a=3 sum=37
 
-Fri 21:13: x=18 y=18 controller=1 a=3 sum=39
+Fri 21:18: x=18 y=18 controller=1 a=3 sum=39
 
-Fri 21:13: x=18 y=18 controller=0 a=3 sum=39
+Fri 21:18: x=18 y=18 controller=0 a=3 sum=39
 
-Fri 21:13: x=19 y=19 controller=1 a=3 sum=41
+Fri 21:18: x=19 y=19 controller=1 a=3 sum=41
 
-Fri 21:13: x=19 y=19 controller=0 a=3 sum=41
+Fri 21:18: x=19 y=19 controller=0 a=3 sum=41
 
-Fri 21:13: x=20 y=20 controller=1 a=3 sum=43
+Fri 21:18: x=20 y=20 controller=1 a=3 sum=43
 
-Fri 21:13: x=20 y=20 controller=0 a=3 sum=43
+Fri 21:18: x=20 y=20 controller=0 a=3 sum=43
 
-Fri 21:13: x=21 y=21 controller=1 a=3 sum=45
+Fri 21:18: x=21 y=21 controller=1 a=3 sum=45
 
-Fri 21:13: x=21 y=21 controller=0 a=3 sum=45
+Fri 21:18: x=21 y=21 controller=0 a=3 sum=45
 
-Fri 21:13: x=22 y=22 controller=1 a=3 sum=47
+Fri 21:18: x=22 y=22 controller=1 a=3 sum=47
 
-Fri 21:13: x=22 y=22 controller=0 a=3 sum=47
+Fri 21:18: x=22 y=22 controller=0 a=3 sum=47
 
-Fri 21:13: x=23 y=23 controller=1 a=3 sum=49
+Fri 21:18: x=23 y=23 controller=1 a=3 sum=49
 
-Fri 21:13: x=23 y=23 controller=0 a=3 sum=49
+Fri 21:18: x=23 y=23 controller=0 a=3 sum=49
 
-Fri 21:13: x=24 y=24 controller=1 a=3 sum=51
+Fri 21:18: x=24 y=24 controller=1 a=3 sum=51
 
-Fri 21:13: x=24 y=24 controller=0 a=3 sum=51
+Fri 21:18: x=24 y=24 controller=0 a=3 sum=51
 
-Fri 21:13: x=25 y=25 controller=1 a=3 sum=53
+Fri 21:18: x=25 y=25 controller=1 a=3 sum=53
 
-Fri 21:13: x=25 y=25 controller=0 a=3 sum=53
+Fri 21:18: x=25 y=25 controller=0 a=3 sum=53
 
-Fri 21:13: x=26 y=26 controller=1 a=3 sum=55
+Fri 21:18: x=26 y=26 controller=1 a=3 sum=55
 
-Fri 21:13: x=26 y=26 controller=0 a=3 sum=55
+Fri 21:18: x=26 y=26 controller=0 a=3 sum=55
 
-Fri 21:13: x=27 y=27 controller=1 a=3 sum=57
+Fri 21:18: x=27 y=27 controller=1 a=3 sum=57
 
-Fri 21:13: x=27 y=27 controller=0 a=3 sum=57
+Fri 21:18: x=27 y=27 controller=0 a=3 sum=57
 
-Fri 21:13: x=28 y=28 controller=1 a=3 sum=59
+Fri 21:18: x=28 y=28 controller=1 a=3 sum=59
 
-Fri 21:13: x=28 y=28 controller=0 a=3 sum=59
+Fri 21:18: x=28 y=28 controller=0 a=3 sum=59
 
-Fri 21:13: x=29 y=29 controller=1 a=3 sum=61
+Fri 21:18: x=29 y=29 controller=1 a=3 sum=61
 
-Fri 21:13: x=29 y=29 controller=0 a=3 sum=61
+Fri 21:18: x=29 y=29 controller=0 a=3 sum=61
 
-Fri 21:13: x=30 y=30 controller=1 a=3 sum=63
+Fri 21:18: x=30 y=30 controller=1 a=3 sum=63
 
-Fri 21:13: x=30 y=30 controller=0 a=3 sum=63
+Fri 21:18: x=30 y=30 controller=0 a=3 sum=63
 
-Fri 21:13: x=31 y=31 controller=1 a=3 sum=65
+Fri 21:18: x=31 y=31 controller=1 a=3 sum=65
 
-Fri 21:13: x=31 y=31 controller=0 a=3 sum=65
+Fri 21:18: x=31 y=31 controller=0 a=3 sum=65
 
-Fri 21:13: x=32 y=32 controller=1 a=3 sum=67
+Fri 21:18: x=32 y=32 controller=1 a=3 sum=67
 
-Fri 21:13: x=32 y=32 controller=0 a=3 sum=67
+Fri 21:18: x=32 y=32 controller=0 a=3 sum=67
 
-Fri 21:13: x=33 y=33 controller=1 a=3 sum=69
+Fri 21:18: x=33 y=33 controller=1 a=3 sum=69
 
-Fri 21:13: x=33 y=33 controller=0 a=3 sum=69
+Fri 21:18: x=33 y=33 controller=0 a=3 sum=69
 
-Fri 21:13: x=34 y=34 controller=1 a=3 sum=71
+Fri 21:18: x=34 y=34 controller=1 a=3 sum=71
 
-Fri 21:13: x=34 y=34 controller=0 a=3 sum=71
+Fri 21:18: x=34 y=34 controller=0 a=3 sum=71
 
-Fri 21:13: x=35 y=35 controller=1 a=3 sum=73
+Fri 21:18: x=35 y=35 controller=1 a=3 sum=73
 
-Fri 21:13: x=35 y=35 controller=0 a=3 sum=73
+Fri 21:18: x=35 y=35 controller=0 a=3 sum=73
 
-Fri 21:13: x=36 y=36 controller=1 a=3 sum=75
+Fri 21:18: x=36 y=36 controller=1 a=3 sum=75
 
-Fri 21:13: x=36 y=36 controller=0 a=3 sum=75
+Fri 21:18: x=36 y=36 controller=0 a=3 sum=75
 
-Fri 21:13: x=37 y=37 controller=1 a=3 sum=77
+Fri 21:18: x=37 y=37 controller=1 a=3 sum=77
 
-Fri 21:13: x=37 y=37 controller=0 a=3 sum=77
+Fri 21:18: x=37 y=37 controller=0 a=3 sum=77
 
-Fri 21:13: x=38 y=38 controller=1 a=3 sum=79
+Fri 21:18: x=38 y=38 controller=1 a=3 sum=79
 
-Fri 21:13: x=38 y=38 controller=0 a=3 sum=79
+Fri 21:18: x=38 y=38 controller=0 a=3 sum=79
 
-Fri 21:13: x=39 y=39 controller=1 a=3 sum=81
+Fri 21:18: x=39 y=39 controller=1 a=3 sum=81
 
-Fri 21:13: x=39 y=39 controller=0 a=3 sum=81
+Fri 21:18: x=39 y=39 controller=0 a=3 sum=81
 
-Fri 21:13: x=40 y=40 controller=1 a=3 sum=83
+Fri 21:18: x=40 y=40 controller=1 a=3 sum=83
 
-Fri 21:13: x=40 y=40 controller=0 a=3 sum=83
+Fri 21:18: x=40 y=40 controller=0 a=3 sum=83
 
-Fri 21:13: x=41 y=41 controller=1 a=3 sum=85
+Fri 21:18: x=41 y=41 controller=1 a=3 sum=85
 
-Fri 21:13: x=41 y=41 controller=0 a=3 sum=85
+Fri 21:18: x=41 y=41 controller=0 a=3 sum=85
 
-Fri 21:13: x=42 y=42 controller=1 a=3 sum=87
+Fri 21:18: x=42 y=42 controller=1 a=3 sum=87
 
-Fri 21:13: x=42 y=42 controller=0 a=3 sum=87
+Fri 21:18: x=42 y=42 controller=0 a=3 sum=87
 
-Fri 21:13: x=43 y=43 controller=1 a=3 sum=89
+Fri 21:18: x=43 y=43 controller=1 a=3 sum=89
 
-Fri 21:13: x=43 y=43 controller=0 a=3 sum=89
+Fri 21:18: x=43 y=43 controller=0 a=3 sum=89
 
-Fri 21:13: x=44 y=44 controller=1 a=3 sum=91
+Fri 21:18: x=44 y=44 controller=1 a=3 sum=91
 
-Fri 21:13: x=44 y=44 controller=0 a=3 sum=91
+Fri 21:18: x=44 y=44 controller=0 a=3 sum=91
 
-Fri 21:13: x=45 y=45 controller=1 a=3 sum=93
+Fri 21:18: x=45 y=45 controller=1 a=3 sum=93
 
-Fri 21:13: x=45 y=45 controller=0 a=3 sum=93
+Fri 21:18: x=45 y=45 controller=0 a=3 sum=93
 
-Fri 21:13: x=46 y=46 controller=1 a=3 sum=95
+Fri 21:18: x=46 y=46 controller=1 a=3 sum=95
 
-Fri 21:13: x=46 y=46 controller=0 a=3 sum=95
+Fri 21:18: x=46 y=46 controller=0 a=3 sum=95
 
-Fri 21:13: x=47 y=47 controller=1 a=3 sum=97
+Fri 21:18: x=47 y=47 controller=1 a=3 sum=97
 
-Fri 21:13: x=47 y=47 controller=0 a=3 sum=97
+Fri 21:18: x=47 y=47 controller=0 a=3 sum=97
 
-Fri 21:13: x=48 y=48 controller=1 a=3 sum=99
+Fri 21:18: x=48 y=48 controller=1 a=3 sum=99
 
-Fri 21:13: x=48 y=48 controller=0 a=3 sum=99
+Fri 21:18: x=48 y=48 controller=0 a=3 sum=99
 
-Fri 21:13: x=49 y=49 controller=1 a=3 sum=101
+Fri 21:18: x=49 y=49 controller=1 a=3 sum=101
 
-Fri 21:13: x=49 y=49 controller=0 a=3 sum=101
+Fri 21:18: x=49 y=49 controller=0 a=3 sum=101
 
-Fri 21:13: x=50 y=50 controller=1 a=3 sum=103
+Fri 21:18: x=50 y=50 controller=1 a=3 sum=103
 
-Fri 21:13: x=50 y=50 controller=0 a=3 sum=103
+Fri 21:18: x=50 y=50 controller=0 a=3 sum=103
 
-Fri 21:13: x=51 y=51 controller=1 a=3 sum=105
+Fri 21:18: x=51 y=51 controller=1 a=3 sum=105
 
-Fri 21:13: x=51 y=51 controller=0 a=3 sum=105
+Fri 21:18: x=51 y=51 controller=0 a=3 sum=105
 
-Fri 21:13: x=52 y=52 controller=1 a=3 sum=107
+Fri 21:18: x=52 y=52 controller=1 a=3 sum=107
 
-Fri 21:13: x=52 y=52 controller=0 a=3 sum=107
+Fri 21:18: x=52 y=52 controller=0 a=3 sum=107
 
-Fri 21:13: x=53 y=53 controller=1 a=3 sum=109
+Fri 21:18: x=53 y=53 controller=1 a=3 sum=109
 
-Fri 21:13: x=53 y=53 controller=0 a=3 sum=109
+Fri 21:18: x=53 y=53 controller=0 a=3 sum=109
 
-Fri 21:13: x=54 y=54 controller=1 a=3 sum=111
+Fri 21:18: x=54 y=54 controller=1 a=3 sum=111
 
-Fri 21:13: x=54 y=54 controller=0 a=3 sum=111
+Fri 21:18: x=54 y=54 controller=0 a=3 sum=111
 
-Fri 21:13: x=55 y=55 controller=1 a=3 sum=113
+Fri 21:18: x=55 y=55 controller=1 a=3 sum=113
 
-Fri 21:13: x=55 y=55 controller=0 a=3 sum=113
+Fri 21:18: x=55 y=55 controller=0 a=3 sum=113
 
-Fri 21:13: x=56 y=56 controller=1 a=3 sum=115
+Fri 21:18: x=56 y=56 controller=1 a=3 sum=115
 
-Fri 21:13: x=56 y=56 controller=0 a=3 sum=115
+Fri 21:18: x=56 y=56 controller=0 a=3 sum=115
 
-Fri 21:13: x=57 y=57 controller=1 a=3 sum=117
+Fri 21:18: x=57 y=57 controller=1 a=3 sum=117
 
-Fri 21:13: x=57 y=57 controller=0 a=3 sum=117
+Fri 21:18: x=57 y=57 controller=0 a=3 sum=117
 
-Fri 21:13: x=58 y=58 controller=1 a=3 sum=119
+Fri 21:18: x=58 y=58 controller=1 a=3 sum=119
 
-Fri 21:13: x=58 y=58 controller=0 a=3 sum=119
+Fri 21:18: x=58 y=58 controller=0 a=3 sum=119
 
-Fri 21:13: x=59 y=59 controller=1 a=3 sum=121
+Fri 21:18: x=59 y=59 controller=1 a=3 sum=121
 
-Fri 21:13: x=59 y=59 controller=0 a=3 sum=121
+Fri 21:18: x=59 y=59 controller=0 a=3 sum=121
 
-Fri 21:13: x=60 y=60 controller=1 a=3 sum=123
+Fri 21:18: x=60 y=60 controller=1 a=3 sum=123
 
-Fri 21:13: x=60 y=60 controller=0 a=3 sum=123
+Fri 21:18: x=60 y=60 controller=0 a=3 sum=123
 
-Fri 21:13: x=61 y=61 controller=1 a=3 sum=125
+Fri 21:18: x=61 y=61 controller=1 a=3 sum=125
 
-Fri 21:13: x=61 y=61 controller=0 a=3 sum=125
+Fri 21:18: x=61 y=61 controller=0 a=3 sum=125
 
-Fri 21:13: x=62 y=62 controller=1 a=3 sum=127
+Fri 21:18: x=62 y=62 controller=1 a=3 sum=127
 
-Fri 21:13: x=62 y=62 controller=0 a=3 sum=127
+Fri 21:18: x=62 y=62 controller=0 a=3 sum=127
 
-Fri 21:13: x=63 y=63 controller=1 a=3 sum=129
+Fri 21:18: x=63 y=63 controller=1 a=3 sum=129
 
-Fri 21:13: x=63 y=63 controller=0 a=3 sum=129
+Fri 21:18: x=63 y=63 controller=0 a=3 sum=129
 
-Fri 21:13: x=64 y=64 controller=1 a=3 sum=131
+Fri 21:18: x=64 y=64 controller=1 a=3 sum=131
 
-Fri 21:13: x=64 y=64 controller=0 a=3 sum=131
+Fri 21:18: x=64 y=64 controller=0 a=3 sum=131
 
-Fri 21:13: x=65 y=65 controller=1 a=3 sum=133
+Fri 21:18: x=65 y=65 controller=1 a=3 sum=133
 
-Fri 21:13: x=65 y=65 controller=0 a=3 sum=133
+Fri 21:18: x=65 y=65 controller=0 a=3 sum=133
 
-Fri 21:13: x=66 y=66 controller=1 a=3 sum=135
+Fri 21:18: x=66 y=66 controller=1 a=3 sum=135
 
-Fri 21:13: x=66 y=66 controller=0 a=3 sum=135
+Fri 21:18: x=66 y=66 controller=0 a=3 sum=135
 
-Fri 21:13: x=67 y=67 controller=1 a=3 sum=137
+Fri 21:18: x=67 y=67 controller=1 a=3 sum=137
 
-Fri 21:13: x=67 y=67 controller=0 a=3 sum=137
+Fri 21:18: x=67 y=67 controller=0 a=3 sum=137
 
-Fri 21:13: x=68 y=68 controller=1 a=3 sum=139
+Fri 21:18: x=68 y=68 controller=1 a=3 sum=139
 
-Fri 21:13: x=68 y=68 controller=0 a=3 sum=139
+Fri 21:18: x=68 y=68 controller=0 a=3 sum=139
 
-Fri 21:13: x=69 y=69 controller=1 a=3 sum=141
+Fri 21:18: x=69 y=69 controller=1 a=3 sum=141
 
-Fri 21:13: x=69 y=69 controller=0 a=3 sum=141
+Fri 21:18: x=69 y=69 controller=0 a=3 sum=141
 
-Fri 21:13: x=70 y=70 controller=1 a=3 sum=143
+Fri 21:18: x=70 y=70 controller=1 a=3 sum=143
 
-Fri 21:13: x=70 y=70 controller=0 a=3 sum=143
+Fri 21:18: x=70 y=70 controller=0 a=3 sum=143
 
-Fri 21:13: x=71 y=71 controller=1 a=3 sum=145
+Fri 21:18: x=71 y=71 controller=1 a=3 sum=145
 
-Fri 21:13: x=71 y=71 controller=0 a=3 sum=145
+Fri 21:18: x=71 y=71 controller=0 a=3 sum=145
 
-Fri 21:13: x=72 y=72 controller=1 a=3 sum=147
+Fri 21:18: x=72 y=72 controller=1 a=3 sum=147
 
-Fri 21:13: x=72 y=72 controller=0 a=3 sum=147
+Fri 21:18: x=72 y=72 controller=0 a=3 sum=147
 
-Fri 21:13: x=73 y=73 controller=1 a=3 sum=149
+Fri 21:18: x=73 y=73 controller=1 a=3 sum=149
 
-Fri 21:13: x=73 y=73 controller=0 a=3 sum=149
+Fri 21:18: x=73 y=73 controller=0 a=3 sum=149
 
-Fri 21:13: x=74 y=74 controller=1 a=3 sum=151
+Fri 21:18: x=74 y=74 controller=1 a=3 sum=151
 
-Fri 21:13: x=74 y=74 controller=0 a=3 sum=151
+Fri 21:18: x=74 y=74 controller=0 a=3 sum=151
 
-Fri 21:13: x=75 y=75 controller=1 a=3 sum=153
+Fri 21:18: x=75 y=75 controller=1 a=3 sum=153
 
-Fri 21:13: x=75 y=75 controller=0 a=3 sum=153
+Fri 21:18: x=75 y=75 controller=0 a=3 sum=153
 
-Fri 21:13: x=76 y=76 controller=1 a=3 sum=155
+Fri 21:18: x=76 y=76 controller=1 a=3 sum=155
 
-Fri 21:13: x=76 y=76 controller=0 a=3 sum=155
+Fri 21:18: x=76 y=76 controller=0 a=3 sum=155
 
-Fri 21:13: x=77 y=77 controller=1 a=3 sum=157
+Fri 21:18: x=77 y=77 controller=1 a=3 sum=157
 
-Fri 21:13: x=77 y=77 controller=0 a=3 sum=157
+Fri 21:18: x=77 y=77 controller=0 a=3 sum=157
 
-Fri 21:13: x=78 y=78 controller=1 a=3 sum=159
+Fri 21:18: x=78 y=78 controller=1 a=3 sum=159
 
-Fri 21:13: x=78 y=78 controller=0 a=3 sum=159
+Fri 21:18: x=78 y=78 controller=0 a=3 sum=159
 
-Fri 21:13: x=79 y=79 controller=1 a=3 sum=161
+Fri 21:18: x=79 y=79 controller=1 a=3 sum=161
 
-Fri 21:13: x=79 y=79 controller=0 a=3 sum=161
+Fri 21:18: x=79 y=79 controller=0 a=3 sum=161
 
-Fri 21:13: x=80 y=80 controller=1 a=3 sum=163
+Fri 21:18: x=80 y=80 controller=1 a=3 sum=163
 
-Fri 21:13: x=80 y=80 controller=0 a=3 sum=163
+Fri 21:18: x=80 y=80 controller=0 a=3 sum=163
 
-Fri 21:13: x=81 y=81 controller=1 a=3 sum=165
+Fri 21:18: x=81 y=81 controller=1 a=3 sum=165
 
-Fri 21:13: x=81 y=81 controller=0 a=3 sum=165
+Fri 21:18: x=81 y=81 controller=0 a=3 sum=165
 
-Fri 21:13: x=82 y=82 controller=1 a=3 sum=167
+Fri 21:18: x=82 y=82 controller=1 a=3 sum=167
 
-Fri 21:13: x=82 y=82 controller=0 a=3 sum=167
+Fri 21:18: x=82 y=82 controller=0 a=3 sum=167
 
-Fri 21:13: x=83 y=83 controller=1 a=3 sum=169
+Fri 21:18: x=83 y=83 controller=1 a=3 sum=169
 
-Fri 21:13: x=83 y=83 controller=0 a=3 sum=169
+Fri 21:18: x=83 y=83 controller=0 a=3 sum=169
 
-Fri 21:13: x=84 y=84 controller=1 a=3 sum=171
+Fri 21:18: x=84 y=84 controller=1 a=3 sum=171
 
-Fri 21:13: x=84 y=84 controller=0 a=3 sum=171
+Fri 21:18: x=84 y=84 controller=0 a=3 sum=171
 
-Fri 21:13: x=85 y=85 controller=1 a=3 sum=173
+Fri 21:18: x=85 y=85 controller=1 a=3 sum=173
 
-Fri 21:13: x=85 y=85 controller=0 a=3 sum=173
+Fri 21:18: x=85 y=85 controller=0 a=3 sum=173
 
-Fri 21:13: x=86 y=86 controller=1 a=3 sum=175
+Fri 21:18: x=86 y=86 controller=1 a=3 sum=175
 
-Fri 21:13: x=86 y=86 controller=0 a=3 sum=175
+Fri 21:18: x=86 y=86 controller=0 a=3 sum=175
 
-Fri 21:13: x=87 y=87 controller=1 a=3 sum=177
+Fri 21:18: x=87 y=87 controller=1 a=3 sum=177
 
-Fri 21:13: x=87 y=87 controller=0 a=3 sum=177
+Fri 21:18: x=87 y=87 controller=0 a=3 sum=177
 
-Fri 21:13: x=88 y=88 controller=1 a=3 sum=179
+Fri 21:18: x=88 y=88 controller=1 a=3 sum=179
 
-Fri 21:13: x=88 y=88 controller=0 a=3 sum=179
+Fri 21:18: x=88 y=88 controller=0 a=3 sum=179
 
-Fri 21:13: x=89 y=89 controller=1 a=3 sum=181
+Fri 21:18: x=89 y=89 controller=1 a=3 sum=181
 
-Fri 21:13: x=89 y=89 controller=0 a=3 sum=181
+Fri 21:18: x=89 y=89 controller=0 a=3 sum=181
 
-Fri 21:13: x=90 y=90 controller=1 a=3 sum=183
+Fri 21:18: x=90 y=90 controller=1 a=3 sum=183
 
-Fri 21:13: x=90 y=90 controller=0 a=3 sum=183
+Fri 21:18: x=90 y=90 controller=0 a=3 sum=183
 
-Fri 21:13: x=91 y=91 controller=1 a=3 sum=185
+Fri 21:18: x=91 y=91 controller=1 a=3 sum=185
 
-Fri 21:13: x=91 y=91 controller=0 a=3 sum=185
+Fri 21:18: x=91 y=91 controller=0 a=3 sum=185
 
-Fri 21:13: x=92 y=92 controller=1 a=3 sum=187
+Fri 21:18: x=92 y=92 controller=1 a=3 sum=187
 
-Fri 21:13: x=92 y=92 controller=0 a=3 sum=187
+Fri 21:18: x=92 y=92 controller=0 a=3 sum=187
 
-Fri 21:13: x=93 y=93 controller=1 a=3 sum=189
+Fri 21:18: x=93 y=93 controller=1 a=3 sum=189
 
-Fri 21:13: x=93 y=93 controller=0 a=3 sum=189
+Fri 21:18: x=93 y=93 controller=0 a=3 sum=189
 
-Fri 21:13: x=94 y=94 controller=1 a=3 sum=191
+Fri 21:18: x=94 y=94 controller=1 a=3 sum=191
 
-Fri 21:13: x=94 y=94 controller=0 a=3 sum=191
+Fri 21:18: x=94 y=94 controller=0 a=3 sum=191
 
-Fri 21:13: x=95 y=95 controller=1 a=3 sum=193
+Fri 21:18: x=95 y=95 controller=1 a=3 sum=193
 
-Fri 21:13: x=95 y=95 controller=0 a=3 sum=193
+Fri 21:18: x=95 y=95 controller=0 a=3 sum=193
 
-Fri 21:13: x=96 y=96 controller=1 a=3 sum=195
+Fri 21:18: x=96 y=96 controller=1 a=3 sum=195
 
-Fri 21:13: x=96 y=96 controller=0 a=3 sum=195
+Fri 21:18: x=96 y=96 controller=0 a=3 sum=195
 
-Fri 21:13: x=97 y=97 controller=1 a=3 sum=197
+Fri 21:18: x=97 y=97 controller=1 a=3 sum=197
 
-Fri 21:13: x=97 y=97 controller=0 a=3 sum=197
+Fri 21:18: x=97 y=97 controller=0 a=3 sum=197
 
-Fri 21:13: x=98 y=98 controller=1 a=3 sum=199
+Fri 21:18: x=98 y=98 controller=1 a=3 sum=199
 
-Fri 21:13: x=98 y=98 controller=0 a=3 sum=199
+Fri 21:18: x=98 y=98 controller=0 a=3 sum=199
 
-Fri 21:13: x=99 y=99 controller=1 a=3 sum=201
+Fri 21:18: x=99 y=99 controller=1 a=3 sum=201
 
-Fri 21:13: x=99 y=99 controller=0 a=3 sum=201
+Fri 21:18: x=99 y=99 controller=0 a=3 sum=201
 
-Fri 21:13: x=100 y=100 controller=1 a=3 sum=203
+Fri 21:18: x=100 y=100 controller=1 a=3 sum=203
 
-Fri 21:13: x=100 y=100 controller=0 a=3 sum=203
+Fri 21:18: x=100 y=100 controller=0 a=3 sum=203
 
-Fri 21:13: x=101 y=101 controller=1 a=3 sum=205
+Fri 21:18: x=101 y=101 controller=1 a=3 sum=205
 
-Fri 21:13: x=101 y=101 controller=0 a=3 sum=205
+Fri 21:18: x=101 y=101 controller=0 a=3 sum=205
 
-Fri 21:13: x=102 y=102 controller=1 a=3 sum=207
+Fri 21:18: x=102 y=102 controller=1 a=3 sum=207
 
-Fri 21:13: x=102 y=102 controller=0 a=3 sum=207
+Fri 21:18: x=102 y=102 controller=0 a=3 sum=207
 
-Fri 21:13: x=103 y=103 controller=1 a=3 sum=209
+Fri 21:18: x=103 y=103 controller=1 a=3 sum=209
 
-Fri 21:13: x=103 y=103 controller=0 a=3 sum=209
+Fri 21:18: x=103 y=103 controller=0 a=3 sum=209
 
-Fri 21:13: x=104 y=104 controller=1 a=3 sum=211
+Fri 21:18: x=104 y=104 controller=1 a=3 sum=211
 
-Fri 21:13: x=104 y=104 controller=0 a=3 sum=211
+Fri 21:18: x=104 y=104 controller=0 a=3 sum=211
 
-Fri 21:13: x=105 y=105 controller=1 a=3 sum=213
+Fri 21:18: x=105 y=105 controller=1 a=3 sum=213
 
-Fri 21:13: x=105 y=105 controller=0 a=3 sum=213
+Fri 21:18: x=105 y=105 controller=0 a=3 sum=213
 
-Fri 21:13: x=106 y=106 controller=1 a=3 sum=215
+Fri 21:18: x=106 y=106 controller=1 a=3 sum=215
 
-Fri 21:13: x=106 y=106 controller=0 a=3 sum=215
+Fri 21:18: x=106 y=106 controller=0 a=3 sum=215
 
-Fri 21:13: x=107 y=107 controller=1 a=3 sum=217
+Fri 21:18: x=107 y=107 controller=1 a=3 sum=217
 
-Fri 21:13: x=107 y=107 controller=0 a=3 sum=217
+Fri 21:18: x=107 y=107 controller=0 a=3 sum=217
 
-Fri 21:13: x=108 y=108 controller=1 a=3 sum=219
+Fri 21:18: x=108 y=108 controller=1 a=3 sum=219
 
-Fri 21:13: x=108 y=108 controller=0 a=3 sum=219
+Fri 21:18: x=108 y=108 controller=0 a=3 sum=219
 
-Fri 21:13: x=109 y=109 controller=1 a=3 sum=221
+Fri 21:18: x=109 y=109 controller=1 a=3 sum=221
 
-Fri 21:13: x=109 y=109 controller=0 a=3 sum=221
+Fri 21:18: x=109 y=109 controller=0 a=3 sum=221
 
-Fri 21:13: x=110 y=110 controller=1 a=3 sum=223
+Fri 21:18: x=110 y=110 controller=1 a=3 sum=223
 
-Fri 21:13: x=110 y=110 controller=0 a=3 sum=223
+Fri 21:18: x=110 y=110 controller=0 a=3 sum=223
 
-Fri 21:13: x=111 y=111 controller=1 a=3 sum=225
+Fri 21:18: x=111 y=111 controller=1 a=3 sum=225
 
-Fri 21:13: x=111 y=111 controller=0 a=3 sum=225
+Fri 21:18: x=111 y=111 controller=0 a=3 sum=225
 
-Fri 21:13: x=112 y=112 controller=1 a=3 sum=227
+Fri 21:18: x=112 y=112 controller=1 a=3 sum=227
 
-Fri 21:13: x=112 y=112 controller=0 a=3 sum=227
+Fri 21:18: x=112 y=112 controller=0 a=3 sum=227
 
-Fri 21:13: x=113 y=113 c
-Fri 21:13: ontroller=1 a=3 sum=229
+Fri 21:18: x=113 y=113 controller=1 a=3 sum=229
 
-Fri 21:13: x=113 y=113 controller=0 a=3 sum=229
+Fri 21:18: x=113 y=113 controller=0 a=3 sum=229
 
-Fri 21:13: x=114 y=114 controller=1 a=3 sum=231
+Fri 21:18: x=114 y=114 controller=1 a=3 sum=231
 
-Fri 21:13: x=114 y=114 controller=0 a=3 sum=231
+Fri 21:18: x=114 y=114 controller=0 a=3 sum=231
 
-Fri 21:13: x=115 y=115 controller=1 a=3 sum=233
+Fri 21:18: x=115 y=115 controller=1 a=3 sum=233
 
-Fri 21:13: x=115 y=115 controller=0 a=3 sum=233
+Fri 21:18: x=115 y=115 controller=0 a=3 sum=233
 
-Fri 21:13: x=116 y=116 controller=1 a=3 sum=235
+Fri 21:18: x=116 y=116 controller=1 a=3 sum=235
 
-Fri 21:13: x=116 y=116 controller=0 a=3 sum=235
+Fri 21:18: x=116 y=116 controller=0 a=3 sum=235
 
-Fri 21:13: x=117 y=117 controller=1 a=3 sum=237
+Fri 21:18: x=117 y=117 controller=1 a=3 sum=237
 
-Fri 21:13: x=117 y=117 controller=0 a=3 sum=237
+Fri 21:18: x=117 y=117 controller=0 a=3 sum=237
 
-Fri 21:13: x=118 y=118 controller=1 a=3 sum=239
+Fri 21:18: x=118 y=118 controller=1 a=3 sum=239
 
-Fri 21:13: x=118 y=118 controller=0 a=3 sum=239
+Fri 21:18: x=118 y=118 controller=0 a=3 sum=239
 
-Fri 21:13: x=119 y=119 controller=1 a=3 sum=241
+Fri 21:18: x=119 y=119 controller=1 a=3 sum=241
 
-Fri 21:13: x=119 y=119 controller=0 a=3 sum=241
+Fri 21:18: x=119 y=119 controller=0 a=3 sum=241
 
-Fri 21:13: x=120 y=120 controller=1 a=3 sum=243
+Fri 21:18: x=120 y=120 controller=1 a=3 sum=243
 
-Fri 21:13: x=120 y=120 controller=0 a=3 sum=243
+Fri 21:18: x=120 y=120 controller=0 a=3 sum=243
 
-Fri 21:13: x=121 y=121 controller=1 a=3 sum=245
+Fri 21:18: x=121 y=121 controller=1 a=3 sum=245
 
-Fri 21:13: x=121 y=121 controller=0 a=3 sum=245
+Fri 21:18: x=121 y=121 controller=0 a=3 sum=245
 
-Fri 21:13: x=122 y=122 controller=1 a=3 sum=247
+Fri 21:18: x=122 y=122 controller=1 a=3 sum=247
 
-Fri 21:13: x=122 y=122 controller=0 a=3 sum=247
+Fri 21:18: x=122 y=122 controller=0 a=3 sum=247
 
-Fri 21:13: x=123 y=123 controller=1 a=3 sum=249
+Fri 21:18: x=123 y=123 controller=1 a=3 sum=249
 
-Fri 21:13: x=123 y=123 controller=0 a=3 sum=249
+Fri 21:18: x=123 y=123 controller=0 a=3 sum=249
 
-Fri 21:13: x=124 y=124 controller=1 a=3 sum=251
+Fri 21:18: x=124 y=124 controller=1 a=3 sum=251
 
-Fri 21:13: x=124 y=124 controller=0 a=3 sum=251
+Fri 21:18: x=124 y=124 controller=0 a=3 sum=251
 
-Fri 21:13: x=125 y=125 controller=1 a=3 sum=253
+Fri 21:18: x=125 y=125 controller=1 a=3 sum=253
 
-Fri 21:13: x=125 y=125 controller=0 a=3 sum=253
+Fri 21:18: x=125 y=125 controller=0 a=3 sum=253
 
-Fri 21:13: x=126 y=126 controller=1 a=3 sum=255
+Fri 21:18: x=126 y=126 controller=1 a=3 sum=255
 
-Fri 21:13: x=126 y=126 controller=0 a=3 sum=255
+Fri 21:18: x=126 y=126 controller=0 a=3 sum=255
 
-Fri 21:13: x=127 y=127 controller=1 a=3 sum=257
+Fri 21:18: x=127 y=127 controller=1 a=3 sum=257
 
-Fri 21:13: x=127 y=127 controller=0 a=3 sum=257
+Fri 21:18: x=127 y=127 controller=0 a=3 sum=257
 
-Fri 21:13: x=128 y=128 controller=1 a=3 sum=259
+Fri 21:18: x=128 y=128 controller=1 a=3 sum=259
 
-Fri 21:13: x=128 y=128 controller=0 a=3 sum=259
+Fri 21:18: x=128 y=128 controller=0 a=3 sum=259
 
-Fri 21:13: x=129 y=129 controller=1 a=3 sum=261
+Fri 21:18: x=129 y=129 controller=1 a=3 sum=261
 
-Fri 21:13: x=129 y=129 controller=0 a=3 sum=261
+Fri 21:18: x=129 y=129 controller=0 a=3 sum=261
 
-Fri 21:13: x=130 y=130 controller=1 a=3 sum=263
+Fri 21:18: x=130 y=130 controller=1 a=3 sum=263
 
-Fri 21:13: x=130 y=130 controller=0 a=3 sum=263
+Fri 21:18: x=130 y=130 controller=0 a=3 sum=263
 
-Fri 21:13: x=131 y=131 controller=1 a=3 sum=265
+Fri 21:18: x=131 y=131 control
+Fri 21:18: ler=1 a=3 sum=265
 
-Fri 21:13: x=131 y=131 controller=0 a=3 sum=265
+Fri 21:18: x=131 y=131 controller=0 a=3 sum=265
 
-Fri 21:13: x=132 y=132 controller=1 a=3 sum=267
+Fri 21:18: x=132 y=132 controller=1 a=3 sum=267
 
-Fri 21:13: x=132 y=132 controller=0 a=3 sum=267
+Fri 21:18: x=132 y=132 controller=0 a=3 sum=267
 
-Fri 21:13: x=133 y=133 controller=1 a=3 sum=269
+Fri 21:18: x=133 y=133 controller=1 a=3 sum=269
 
-Fri 21:13: x=133 y=133 controller=0 a=3 sum=269
+Fri 21:18: x=133 y=133 controller=0 a=3 sum=269
 
-Fri 21:13: x=134 y=134 controller=1 a=3 sum=271
+Fri 21:18: x=134 y=134 controller=1 a=3 sum=271
 
-Fri 21:13: x=134 y=134 controller=0 a=3 sum=271
+Fri 21:18: x=134 y=134 controller=0 a=3 sum=271
 
-Fri 21:13: x=135 y=135 controller=1 a=3 sum=273
+Fri 21:18: x=135 y=135 controller=1 a=3 sum=273
 
-Fri 21:13: x=135 y=135 controller=0 a=3 sum=273
+Fri 21:18: x=135 y=135 controller=0 a=3 sum=273
 
-Fri 21:13: x=136 y=136 controller=1 a=3 sum=275
+Fri 21:18: x=136 y=136 controller=1 a=3 sum=275
 
-Fri 21:13: x=136 y=136 controller=0 a=3 sum=275
+Fri 21:18: x=136 y=136 controller=0 a=3 sum=275
 
-Fri 21:13: x=137 y=137 controller=1 a=3 sum=277
+Fri 21:18: x=137 y=137 controller=1 a=3 sum=277
 
-Fri 21:13: x=137 y=137 controller=0 a=3 sum=277
+Fri 21:18: x=137 y=137 controller=0 a=3 sum=277
 
-Fri 21:13: x=138 y=138 controller=1 a=3 sum=279
+Fri 21:18: x=138 y=138 controller=1 a=3 sum=279
 
-Fri 21:13: x=138 y=138 controller=0 a=3 sum=279
+Fri 21:18: x=138 y=138 controller=0 a=3 sum=279
 
-Fri 21:13: x=139 y=139 controller=1 a=3 sum=281
+Fri 21:18: x=139 y=139 controller=1 a=3 sum=281
 
-Fri 21:13: x=139 y=139 controller=0 a=3 sum=281
+Fri 21:18: x=139 y=139 controller=0 a=3 sum=281
 
-Fri 21:13: x=140 y=140 controller=1 a=3 sum=283
+Fri 21:18: x=140 y=140 controller=1 a=3 sum=283
 
-Fri 21:13: x=140 y=140 controller=0 a=3 sum=283
+Fri 21:18: x=140 y=140 controller=0 a=3 sum=283
 
-Fri 21:13: x=141 y=141 controller=1 a=3 sum=285
+Fri 21:18: x=141 y=141 controller=1 a=3 sum=285
 
-Fri 21:13: x=141 y=141 controller=0 a=3 sum=285
+Fri 21:18: x=141 y=141 controller=0 a=3 sum=285
 
-Fri 21:13: x=142 y=142 controller=1 a=3 sum=287
+Fri 21:18: x=142 y=142 controller=1 a=3 sum=287
 
-Fri 21:13: x=142 y=142 controller=0 a=3 sum=287
+Fri 21:18: x=142 y=142 controller=0 a=3 sum=287
 
-Fri 21:13: x=143 y=143 controller=1 a=3 sum=289
+Fri 21:18: x=143 y=143 controller=1 a=3 sum=289
 
-Fri 21:13: x=143 y=143 controller=0 a=3 sum=289
+Fri 21:18: x=143 y=143 controller=0 a=3 sum=289
 
-Fri 21:13: x=144 y=144 controller=1 a=3 sum=291
+Fri 21:18: x=144 y=144 controller=1 a=3 sum=291
 
-Fri 21:13: x=144 y=144 controller=0 a=3 sum=291
+Fri 21:18: x=144 y=144 controller=0 a=3 sum=291
 
-Fri 21:13: x=145 y=145 controller=1 a=3 sum=293
+Fri 21:18: x=145 y=145 controller=1 a=3 sum=293
 
-Fri 21:13: x=145 y=145 controller=0 a=3 sum=293
+Fri 21:18: x=145 y=145 controller=0 a=3 sum=293
 
-Fri 21:13: x=146 y=146 controller=1 a=3 sum=295
+Fri 21:18: x=146 y=146 controller=1 a=3 sum=295
 
-Fri 21:13: x=146 y=146 controller=0 a=3 sum=295
+Fri 21:18: x=146 y=146 controller=0 a=3 sum=295
 
-Fri 21:13: x=147 y=147 controller=1 a=3 sum=297
+Fri 21:18: x=147 y=147 controller=1 a=3 sum=297
 
-Fri 21:13: x=147 y=147 controller=0 a=3 sum=297
+Fri 21:18: x=147 y=147 controller=0 a=3 sum=297
 
-Fri 21:13: x=148 y=148 controller=1 a=3 sum=299
+Fri 21:18: x=148 y=148 controller=1 a=3 sum=299
 
-Fri 21:13: x=148 y=148 controller=0 a=3 sum=299
+Fri 21:18: x=148 y=148 controller=0 a=3 sum=299
 
-Fri 21:13: x=149 y=149 controller=1 a=3 sum=301
+Fri 21:18: x=149 y=149 controller=1 a=3 sum=301
 
-Fri 21:13: x=149 y=149 controller=0 a=3 sum=301
+Fri 21:18: x=149 y=149 controller=0 a=3 sum=301
 
-Fri 21:13: x=150 y=150 controller=1 a=3 sum=303
+Fri 21:18: x=150 y=150 controller=1 a=3 sum=303
 
-Fri 21:13: x=150 y=150 controller=0 a=3 sum=303
+Fri 21:18: x=150 y=150 controller=0 a=3 sum=303
 
-Fri 21:13: x=151 y=151 controller=1 a=3 sum=305
+Fri 21:18: x=151 y=151 controller=1 a=3 sum=305
 
-Fri 21:13: x=151 y=151 controller=0 a=3 sum=305
+Fri 21:18: x=151 y=151 controller=0 a=3 sum=305
 
-Fri 21:13: x=152 y=152 controller=1 a=3 sum=307
+Fri 21:18: x=152 y=152 controller=1 a=3 sum=307
 
-Fri 21:13: x=152 y=152 controller=0 a=3 sum=307
+Fri 21:18: x=152 y=152 controller=0 a=3 sum=307
 
-Fri 21:13: x=153 y=153 controller=1 a=3 sum=309
+Fri 21:18: x=153 y=153 controller=1 a=3 sum=309
 
-Fri 21:13: x=153 y=153 controller=0 a=3 sum=309
+Fri 21:18: x=153 y=153 controller=0 a=3 sum=309
 
-Fri 21:13: x=154 y=154 controller=1 a=3 sum=311
+Fri 21:18: x=154 y=154 controller=1 a=3 sum=311
 
-Fri 21:13: x=154 y=154 controller=0 a=3 sum=311
+Fri 21:18: x=154 y=154 controller=0 a=3 sum=311
 
-Fri 21:13: x=155 y=155 controller=1 a=3 sum=313
+Fri 21:18: x=155 y=155 controller=1 a=3 sum=313
 
-Fri 21:13: x=155 y=155 controller=0 a=3 sum=313
+Fri 21:18: x=155 y=155 controller=0 a=3 sum=313
 
-Fri 21:13: x=156 y=156 controller=1 a=3 sum=315
+Fri 21:18: x=156 y=156 controller=1 a=3 sum=315
 
-Fri 21:13: x=156 y=156 controller=0 a=3 sum=315
+Fri 21:18: x=156 y=156 controller=0 a=3 sum=315
 
-Fri 21:13: x=157 y=157 controller=1 a=3 sum=317
+Fri 21:18: x=157 y=157 controller=1 a=3 sum=317
 
-Fri 21:13: x=157 y=157 controller=0 a=3 sum=317
+Fri 21:18: x=157 y=157 controller=0 a=3 sum=317
 
-Fri 21:13: x=158 y=158 controller=1 a=3 sum=319
+Fri 21:18: x=158 y=158 controller=1 a=3 sum=319
 
-Fri 21:13: x=158 y=158 controller=0 a=3 sum=319
+Fri 21:18: x=158 y=158 controller=0 a=3 sum=319
 
-Fri 21:13: x=159 y=159 controller=1 a=3 sum=321
+Fri 21:18: x=159 y=159 controller=1 a=3 sum=321
 
-Fri 21:13: x=159 y=159 controller=0 a=3 sum=321
+Fri 21:18: x=159 y=159 controller=0 a=3 sum=321
 
-Fri 21:13: x=160 y=160 controller=1 a=3 sum=323
+Fri 21:18: x=160 y=160 controller=1 a=3 sum=323
 
-Fri 21:13: x=160 y=160 controller=0 a=3 sum=323
+Fri 21:18: x=160 y=160 controller=0 a=3 sum=323
 
-Fri 21:13: x=161 y=161 controller=1 a=3 sum=325
+Fri 21:18: x=161 y=161 controller=1 a=3 sum=325
 
-Fri 21:13: x=161 y=161 controller=0 a=3 sum=325
+Fri 21:18: x=161 y=161 controller=0 a=3 sum=325
 
-Fri 21:13: x=162 y=162 controller=1 a=3 sum=327
+Fri 21:18: x=162 y=162 controller=1 a=3 sum=327
 
-Fri 21:13: x=162 y=162 controller=0 a=3 sum=327
+Fri 21:18: x=162 y=162 controller=0 a=3 sum=327
 
-Fri 21:13: x=163 y=163 controller=1 a=3 sum=329
+Fri 21:18: x=163 y=163 controller=1 a=3 sum=329
 
-Fri 21:13: x=163 y=163 controller=0 a=3 sum=329
+Fri 21:18: x=163 y=163 controller=0 a=3 sum=329
 
-Fri 21:13: x=164 y=164 controller=1 a=3
-Fri 21:13:  sum=331
+Fri 21:18: x=164 y=164 controller=1 a=3 sum=331
 
-Fri 21:13: x=164 y=164 controller=0 a=3 sum=331
+Fri 21:18: x=164 y=164 controller=0 a=3 sum=331
 
-Fri 21:13: x=165 y=165 controller=1 a=3 sum=333
+Fri 21:18: x=165 y=165 controller=1 a=3 sum=333
 
-Fri 21:13: x=165 y=165 controller=0 a=3 sum=333
+Fri 21:18: x=165 y=165 controller=0 a=3 sum=333
 
-Fri 21:13: x=166 y=166 controller=1 a=3 sum=335
+Fri 21:18: x=166 y=166 controller=1 a=3 sum=335
 
-Fri 21:13: x=166 y=166 controller=0 a=3 sum=335
+Fri 21:18: x=166 y=166 controller=0 a=3 sum=335
 
-Fri 21:13: x=167 y=167 controller=1 a=3 sum=337
+Fri 21:18: x=167 y=167 controller=1 a=3 sum=337
 
-Fri 21:13: x=167 y=167 controller=0 a=3 sum=337
+Fri 21:18: x=167 y=167 controller=0 a=3 sum=337
 
-Fri 21:13: x=168 y=168 controller=1 a=3 sum=339
+Fri 21:18: x=168 y=168 controller=1 a=3 sum=339
 
-Fri 21:13: x=168 y=168 controller=0 a=3 sum=339
+Fri 21:18: x=168 y=168 controller=0 a=3 sum=339
 
-Fri 21:13: x=169 y=169 controller=1 a=3 sum=341
+Fri 21:18: x=169 y=169 controller=1 a=3 sum=341
 
-Fri 21:13: x=169 y=169 controller=0 a=3 sum=341
+Fri 21:18: x=169 y=169 controller=0 a=3 sum=341
 
-Fri 21:13: x=170 y=170 controller=1 a=3 sum=343
+Fri 21:18: x=170 y=170 controller=1 a=3 sum=343
 
-Fri 21:13: x=170 y=170 controller=0 a=3 sum=343
+Fri 21:18: x=170 y=170 controller=0 a=3 sum=343
 
-Fri 21:13: x=171 y=171 controller=1 a=3 sum=345
+Fri 21:18: x=171 y=171 controller=1 a=3 sum=345
 
-Fri 21:13: x=171 y=171 controller=0 a=3 sum=345
+Fri 21:18: x=171 y=171 controller=0 a=3 sum=345
 
-Fri 21:13: x=172 y=172 controller=1 a=3 sum=347
+Fri 21:18: x=172 y=172 controller=1 a=3 sum=347
 
-Fri 21:13: x=172 y=172 controller=0 a=3 sum=347
+Fri 21:18: x=172 y=172 controller=0 a=3 sum=347
 
-Fri 21:13: x=173 y=173 controller=1 a=3 sum=349
+Fri 21:18: x=173 y=173 controller=1 a=3 sum=349
 
-Fri 21:13: x=173 y=173 controller=0 a=3 sum=349
+Fri 21:18: x=173 y=173 controller=0 a=3 sum=349
 
-Fri 21:13: x=174 y=174 controller=1 a=3 sum=351
+Fri 21:18: x=174 y=174 controller=1 a=3 sum=351
 
-Fri 21:13: x=174 y=174 controller=0 a=3 sum=351
+Fri 21:18: x=174 y=174 controller=0 a=3 sum=351
 
-Fri 21:13: x=175 y=175 controller=1 a=3 sum=353
+Fri 21:18: x=175 y=175 controller=1 a=3 sum=353
 
-Fri 21:13: x=175 y=175 controller=0 a=3 sum=353
+Fri 21:18: x=175 y=175 controller=0 a=3 sum=353
 
-Fri 21:13: x=176 y=176 controller=1 a=3 sum=355
+Fri 21:18: x=176 y=176 controller=1 a=3 sum=355
 
-Fri 21:13: x=176 y=176 controller=0 a=3 sum=355
+Fri 21:18: x=176 y=176 controller=0 a=3 sum=355
 
-Fri 21:13: x=177 y=177 controller=1 a=3 sum=357
+Fri 21:18: x=177 y=177 controller=1 a=3 sum=357
 
-Fri 21:13: x=177 y=177 controller=0 a=3 sum=357
+Fri 21:18: x=177 y=177 controller=0 a=3 sum=357
 
-Fri 21:13: x=178 y=178 controller=1 a=3 sum=359
+Fri 21:18: x=178 y=178 controller=1 a=3 sum=359
 
-Fri 21:13: x=178 y=178 controller=0 a=3 sum=359
+Fri 21:18: x=178 y=178 controller=0 a=3 sum=359
 
-Fri 21:13: x=179 y=179 controller=1 a=3 sum=361
+Fri 21:18: x=179 y=179 controller=1 a=3 sum=361
 
-Fri 21:13: x=179 y=179 controller=0 a=3 sum=361
+Fri 21:18: x=179 y=179 controller=0 a=3 sum=361
 
-Fri 21:13: x=180 y=180 controller=1 a=3 sum=363
+Fri 21:18: x=180 y=180 controller=1 a=3 sum=363
 
-Fri 21:13: x=180 y=180 controller=0 a=3 sum=363
+Fri 21:18: x=180 y=180 controller=0 a=3 sum=363
 
-Fri 21:13: x=181 y=181 controller=1 a=3 sum=365
+Fri 21:18: x=181 y=181 controller=1 a=3 sum=365
 
-Fri 21:13: x=181 y=181 controller=0 a=3 sum=365
+Fri 21:18: x=181 y=181 controller=0 a=3 sum=365
 
-Fri 21:13: x=182 y=182 controller=1 a=3 sum=367
+Fri 21:18: x=182 y=182 controller=1 a=3 sum=3
+Fri 21:18: 67
 
-Fri 21:13: x=182 y=182 controller=0 a=3 sum=367
+Fri 21:18: x=182 y=182 controller=0 a=3 sum=367
 
-Fri 21:13: x=183 y=183 controller=1 a=3 sum=369
+Fri 21:18: x=183 y=183 controller=1 a=3 sum=369
 
-Fri 21:13: x=183 y=183 controller=0 a=3 sum=369
+Fri 21:18: x=183 y=183 controller=0 a=3 sum=369
 
-Fri 21:13: x=184 y=184 controller=1 a=3 sum=371
+Fri 21:18: x=184 y=184 controller=1 a=3 sum=371
 
-Fri 21:13: x=184 y=184 controller=0 a=3 sum=371
+Fri 21:18: x=184 y=184 controller=0 a=3 sum=371
 
-Fri 21:13: x=185 y=185 controller=1 a=3 sum=373
+Fri 21:18: x=185 y=185 controller=1 a=3 Done.
+Fri 21:18: sum=373
 
-Fri 21:13: x=185 y=185 controller=0 a=3 sum=373
+Fri 21:18: x=185 y=185 controller=0 a=3 sum=373
 
-Fri 21:13: x=186 y=186 controller=1 a=3 sum=375
+Fri 21:18: x=186 y=186 controller=1 a=3 sum=375
 
-Fri 21:13: x=186 y=186 controller=0 a=3 sum=375
+Fri 21:18: x=186 y=186 controller=0 a=3 sum=375
 
-Fri 21:13: x=187 y=187 controller=1 a=3 sum=377
+Fri 21:18: x=187 y=187 controller=1 a=3 sum=377
 
-Fri 21:13: x=187 y=187 controller=0 a=3 sum=377
+Fri 21:18: x=187 y=187 controller=0 a=3 sum=377
 
-Fri 21:13: x=188 y=188 controller=1 a=3 sum=379
+Fri 21:18: x=188 y=188 controller=1 a=3 sum=379
+
+Fri 21:18: x=188 y=188 controller=0 a=3 sum=379
+
+Fri 21:18: x=189 y=189 controller=1 a=3 sum=381
+
+Fri 21:18: x=189 y=189 controller=0 a=3 sum=381
+
+Fri 21:18: x=190 y=190 controller=1 a=3 sum=383
+
+Fri 21:18: x=190 y=190 controller=0 a=3 sum=383
+
+Fri 21:18: x=191 y=191 controller=1 a=3 sum=385
+Fri 21:18: x=188 y=188 controller=0 a=3 sum=379
+
+Fri 21:18: x=189 y=189 controller=1 a=3 sum=381
+
+Fri 21:18: x=189 y=189 controller=0 a=3 sum=381
+
+Fri 21:18: x=190 y=190 controller=1 a=3 sum=383
+
+Fri 21:18: x=190 y=190 controller=0 a=3 sum=383
+
+Fri 21:18: x=191 y=191 controller=1 a=3 sum=385

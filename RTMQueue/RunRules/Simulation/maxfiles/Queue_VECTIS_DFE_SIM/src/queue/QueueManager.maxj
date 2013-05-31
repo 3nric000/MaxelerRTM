@@ -40,13 +40,13 @@ public class QueueManager {
 		InterfaceParam  N    = engine_interface.addParam("N", CPUTypes.INT);
 		InterfaceParam  A    = engine_interface.addParam("A", CPUTypes.INT);
 		InterfaceParam  zero = engine_interface.addConstant(0l);
-		engine_interface.setTicks(s_kernelName, 2*N);
+		engine_interface.setTicks(s_kernelName, N);
 
 		engine_interface.setScalar(s_kernelName, "a", A);
 		engine_interface.setLMemLinear("x", zero, N * size);
 		engine_interface.setStream("y", type, N * size);
 		engine_interface.setStream("controller", type, N * size);
-		engine_interface.setStream("s", type, 2*N * size);
+		engine_interface.setStream("s", type, N * size);
 
 		engine_interface.ignoreAll(Direction.IN_OUT);
 		return engine_interface;
