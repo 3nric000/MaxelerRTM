@@ -1,0 +1,65 @@
+/**
+ * Document: Manager Compiler Tutorial (maxcompiler-manager-tutorial.pdf)
+ * Chapter: 3      Example: 1      Name: MaxRing
+ * MaxFile name: MaxRing
+ * Summary:
+ *     Create a setup with two maxring-connected dataflow engines each with a mux
+ *     with a "fromcpu" and "frommaxring" port and a demux with a "tocpu" and
+ *     "tokernel" port.
+ */
+
+package maxring;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.managers.custom.CustomManager;
+import com.maxeler.maxcompiler.v2.managers.custom.DFELink;
+import com.maxeler.maxcompiler.v2.managers.custom.blocks.Demux;
+import com.maxeler.maxcompiler.v2.managers.custom.blocks.KernelBlock;
+import com.maxeler.maxcompiler.v2.managers.custom.blocks.Mux;
+import com.maxeler.maxcompiler.v2.managers.custom.stdlib.Max3RingConnection;
+import com.maxeler.maxcompiler.v2.managers.custom.stdlib.MaxRingBidirectionalStream;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.CPUTypes;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.EngineInterface;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.InterfaceParam;
+
+class MaxRingManager extends CustomManager {
+
+	MaxRingManager(EngineParameters engineParameters) {
+		super(engineParameters);
+		KernelBlock k = addKernel(
+			new MaxRingKernel(makeKernelParameters("MaxRingKernel")));
+
+		DFELink fromcpu = addStreamFromCPU("fromcpu");
+		DFELink tocpu = addStreamToCPU("tocpu");
+
+		MaxRingBidirectionalStream maxRingStream = addMaxRingBidirectionalStream(
+			"maxRingStream", Max3RingConnection.MAXRING_A);
+
+		maxRingStream.getLinkToRemoteDFE() <== k.getOutput("oData");
+
+		Demux bypassSwitch = demux("bypassSwitch");
+		tocpu <== bypassSwitch.addOutput("tocpu");
+		DFELink toKernel = bypassSwitch.addOutput("toKernel");
+		bypassSwitch.getInput() <== maxRingStream.getLinkFromRemoteDFE();
+
+		Mux inputSwitch = mux("inputSwitch");
+		inputSwitch.addInput("fromcpu") <== fromcpu;
+		inputSwitch.addInput("fromMaxRing") <== toKernel;
+		k.getInput("iData") <== inputSwitch.getOutput();
+	}
+
+	static EngineInterface interfaceDefault() {
+		EngineInterface ei = new EngineInterface();
+		InterfaceParam size = ei.addParam("dataSize", CPUTypes.INT32);
+		ei.setStream("fromcpu", CPUTypes.UINT32, size * CPUTypes.UINT32.sizeInBytes());
+		ei.setStream("tocpu", CPUTypes.UINT32, size * CPUTypes.UINT32.sizeInBytes());
+		return ei;
+	}
+
+	public static void main(String[] args) {
+		EngineParameters engineParameters = new EngineParameters(args);
+		MaxRingManager m = new MaxRingManager(engineParameters);
+		m.createSLiCinterface(interfaceDefault());
+		m.build();
+	}
+}

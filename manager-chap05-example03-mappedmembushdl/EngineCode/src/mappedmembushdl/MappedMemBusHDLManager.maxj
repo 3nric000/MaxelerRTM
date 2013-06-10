@@ -1,0 +1,35 @@
+/**
+ * Document: Manager Compiler Tutorial (maxcompiler-manager-tutorial.pdf)
+ * Chapter: 5
+ * Example: 3
+ * Summary:
+ *       Manager design that creates an instance of the custom HDL node and
+ *   wraps it in a Manager block. All IO is between the CPU and the DFE.
+ */
+package mappedmembushdl;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.managers.custom.CustomManager;
+import com.maxeler.maxcompiler.v2.managers.custom.blocks.CustomHDLBlock;
+
+class MappedMemBusHDLManager extends CustomManager {
+
+	private static final String BLOCK_NAME = "hdl_node_mapped_mem_bus";
+
+	MappedMemBusHDLManager(EngineParameters engineParameters) {
+		super(engineParameters);
+
+		MappedMemBusHDLNode hdlNode = new MappedMemBusHDLNode(this, BLOCK_NAME);
+		CustomHDLBlock hdlBlock = addCustomHDL(hdlNode);
+
+		addStreamToCPU("output") <== hdlBlock.getOutput("output");
+	}
+
+	public static void main(String[] args) {
+		EngineParameters engineParameters = new EngineParameters(args);
+		MappedMemBusHDLManager m = new MappedMemBusHDLManager(engineParameters);
+		m.suppressDefaultInterface();
+		m.build();
+	}
+}
+

@@ -1,0 +1,57 @@
+/**
+ * Document: Manager Compiler Tutorial (maxcompiler-manager-tutorial.pdf)
+ * Chapter: 1      Example: 2      Name: Dual Kernel
+ * MaxFile name: DualKernel
+ * Summary:
+ *      Stream data from the CPU to two kernels and back to the CPU
+ *      again from each.
+ */
+package dualkernel;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.managers.custom.CustomManager;
+import com.maxeler.maxcompiler.v2.managers.custom.DFELink;
+import com.maxeler.maxcompiler.v2.managers.custom.blocks.KernelBlock;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.CPUTypes;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.EngineInterface;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.InterfaceParam;
+
+class DualKernelManager extends CustomManager {
+
+	DualKernelManager(EngineParameters engineParameters) {
+		super(engineParameters);
+		KernelBlock k1 = addKernel(
+			new DualKernelKernel(makeKernelParameters("DualKernelKernel1")));
+		KernelBlock k2 = addKernel(
+			new DualKernelKernel(makeKernelParameters("DualKernelKernel2")));
+
+		DFELink x1 = addStreamFromCPU("x1");
+		DFELink x2 = addStreamFromCPU("x2");
+		k1.getInput("x") <== x1;
+		k2.getInput("x") <== x2;
+
+		DFELink y1 = addStreamToCPU("y1");
+		DFELink y2 = addStreamToCPU("y2");
+		y1 <== k1.getOutput("y");
+		y2 <== k2.getOutput("y");
+	}
+
+	static EngineInterface interfaceDefault() {
+		EngineInterface ei = new EngineInterface();
+		InterfaceParam size = ei.addParam("dataSize", CPUTypes.INT32);
+		ei.setTicks("DualKernelKernel1", size);
+		ei.setTicks("DualKernelKernel2", size);
+		ei.setStream("x1", CPUTypes.UINT32, size * CPUTypes.UINT32.sizeInBytes());
+		ei.setStream("x2", CPUTypes.UINT32, size * CPUTypes.UINT32.sizeInBytes());
+		ei.setStream("y1", CPUTypes.UINT32, size * CPUTypes.UINT32.sizeInBytes());
+		ei.setStream("y2", CPUTypes.UINT32, size * CPUTypes.UINT32.sizeInBytes());
+		return ei;
+	}
+
+	public static void main(String[] args) {
+		EngineParameters params = new EngineParameters(args);
+		DualKernelManager manager = new DualKernelManager(params);
+		manager.createSLiCinterface(interfaceDefault());
+		manager.build();
+	}
+}

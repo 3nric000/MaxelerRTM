@@ -1,0 +1,27 @@
+/**
+ * Document: Manager Compiler Tutorial (maxcompiler-manager-tutorial.pdf)
+ * Chapter: 1      Example: 3      Name: Split Stream
+ * MaxFile name: SplitStream
+ * Summary:
+ *      A kernel that increments a stream when a scalar input is set to 1
+ *      and passes data straight back out again otherwise.
+ */
+package splitstream;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class SplitStreamKernel extends Kernel {
+
+	SplitStreamKernel(KernelParameters parameters) {
+		super(parameters);
+
+		DFEVar x = io.input("x", dfeUInt(32));
+		DFEVar doAdd = io.scalarInput("doAdd", dfeBool());
+
+		DFEVar y = doAdd ? x + 1 : x;
+
+		io.output("y", y, dfeUInt(32));
+	}
+}

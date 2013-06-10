@@ -1,0 +1,66 @@
+/**
+ * Document: Manager Compiler Tutorial (maxcompiler-manager-tutorial.pdf)
+ * Chapter: 1      Example: 3      Name: Split Stream
+ * MaxFile name: SplitStream
+ * Summary:
+ *      Splits a stream from the CPU between 2 kernels and joins
+ *      the output back together again.
+ */
+
+package splitstream;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.managers.custom.CustomManager;
+import com.maxeler.maxcompiler.v2.managers.custom.DFELink;
+import com.maxeler.maxcompiler.v2.managers.custom.blocks.Demux;
+import com.maxeler.maxcompiler.v2.managers.custom.blocks.KernelBlock;
+import com.maxeler.maxcompiler.v2.managers.custom.blocks.Mux;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.CPUTypes;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.EngineInterface;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.InterfaceParam;
+
+class SplitStreamManager extends CustomManager {
+
+	SplitStreamManager(EngineParameters engineParameters) {
+		super(engineParameters);
+
+		KernelBlock k1 = addKernel(
+			new SplitStreamKernel(makeKernelParameters("SplitStreamKernel1")));
+		KernelBlock k2 = addKernel(
+			new SplitStreamKernel(makeKernelParameters("SplitStreamKernel2")));
+
+		DFELink x = addStreamFromCPU("x");
+
+		Demux split = demux("split");
+		split.getInput() <== x;
+
+		DFELink x1 = split.addOutput("x1");
+		DFELink x2 = split.addOutput("x2");
+		k1.getInput("x") <== x1;
+		k2.getInput("x") <== x2;
+
+		Mux join = mux("join");
+		join.addInput("y1") <== k1.getOutput("y");
+		join.addInput("y2") <== k2.getOutput("y");
+
+		DFELink y = addStreamToCPU("y");
+		y <== join.getOutput();
+	}
+
+	static EngineInterface interfaceDefault() {
+		EngineInterface ei = new EngineInterface();
+		InterfaceParam size = ei.addParam("dataSize", CPUTypes.INT32);
+		ei.setTicks("SplitStreamKernel1", size);
+		ei.setTicks("SplitStreamKernel2", size);
+		ei.setStream("x", CPUTypes.UINT32, size * CPUTypes.UINT32.sizeInBytes());
+		ei.setStream("y", CPUTypes.UINT32, size * CPUTypes.UINT32.sizeInBytes());
+		return ei;
+	}
+
+	public static void main(String[] args) {
+		EngineParameters engineParamenters = new EngineParameters(args);
+		SplitStreamManager m = new SplitStreamManager(engineParamenters);
+		m.createSLiCinterface(interfaceDefault());
+		m.build();
+	}
+}

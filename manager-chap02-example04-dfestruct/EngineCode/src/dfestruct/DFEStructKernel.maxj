@@ -1,0 +1,64 @@
+/**
+ * Document: Manager Compiler Tutorial (maxcompiler-manager-tutorial.pdf)
+ * Chapter: 2      Example: 4      Name: DFEstruct
+ * MaxFile name: DFEStruct
+ * Summary:
+ *     Computes the sum of the two input streams and sends it to an output
+ *     stream. Also generates the three custom memory command streams needed to
+ *     control the LMem connected to these streams using DFEStructs.
+ */
+
+package dfestruct;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.LMemCommandStream;
+import com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.CounterChain;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.composite.DFEStruct;
+import com.maxeler.maxcompiler.v2.utils.Bits;
+
+class DFEStructKernel extends Kernel {
+
+	DFEStructKernel(KernelParameters parameters) {
+		super(parameters);
+
+		DFEVar totalBursts = io.scalarInput("totalBursts",dfeUInt(32));
+		DFEVar wordsPerBurst = io.scalarInput("wordsPerBurst",dfeUInt(32));
+		CounterChain chain = control.count.makeCounterChain();
+		DFEVar burstCount = chain.addCounter(totalBursts,1);
+		DFEVar wordCount = chain.addCounter(wordsPerBurst,1);
+		DFEVar inB = io.input("inB", dfeUInt(32));
+		DFEVar inA = io.input("inA", dfeUInt(32));
+		DFEStruct BcmdStream = LMemCommandStream.getLMemCommandDFEStructType().newInstance(this);
+		DFEStruct OcmdStream = LMemCommandStream.getLMemCommandDFEStructType().newInstance(this);
+		DFEStruct AcmdStream = LMemCommandStream.getLMemCommandDFEStructType().newInstance(this);
+
+		Bits one = new Bits(15);
+		one.setBit(0, 1);
+		one.setOthers(0);
+
+		AcmdStream["address"] = burstCount;
+		AcmdStream["size"] = constant.var(dfeUInt(8), 1);
+		AcmdStream["inc"] = constant.var(dfeUInt(8), 0);
+		AcmdStream["stream"] = constant.var(dfeRawBits(15), one);
+		AcmdStream["tag"] = constant.var(false);
+		LMemCommandStream.makeKernelOutput("AcmdStream", wordCount === 0, AcmdStream);
+
+		BcmdStream["address"] = totalBursts + burstCount;
+		BcmdStream["size"] = constant.var(dfeUInt(8), 1);
+		BcmdStream["inc"] = constant.var(dfeUInt(8), 0);
+		BcmdStream["stream"] = constant.var(dfeRawBits(15), one);
+		BcmdStream["tag"] = constant.var(false);
+		LMemCommandStream.makeKernelOutput("BcmdStream", wordCount === 0, BcmdStream);
+
+		OcmdStream["address"] = totalBursts * 2 + burstCount;
+		OcmdStream["size"] = constant.var(dfeUInt(8), 1);
+		OcmdStream["inc"] = constant.var(dfeUInt(8), 0);
+		OcmdStream["stream"] = constant.var(dfeRawBits(15), one);
+		OcmdStream["tag"] = burstCount === (totalBursts - 1);
+		LMemCommandStream.makeKernelOutput("OcmdStream", wordCount === 0, OcmdStream);
+
+		io.output("oData", inA+inB, dfeUInt(32));
+	}
+}

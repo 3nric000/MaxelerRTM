@@ -1,0 +1,102 @@
+/**
+ * Document: Manager Compiler Tutorial (maxcompiler-manager-tutorial.pdf)
+ * Chapter: 2      Example: 2      Name: Control Group
+ * MaxFile name: ControlGroup
+ * Summary:
+ *     Manager design that connects the kernel's input and output streams to
+ *     LMem using a linear access pattern. Groups all memory streams into a single
+ *     control group.
+ */
+
+package controlgroup;
+
+import com.maxeler.maxcompiler.v2.build.EngineParameters;
+import com.maxeler.maxcompiler.v2.managers.custom.CustomManager;
+import com.maxeler.maxcompiler.v2.managers.custom.DFELink;
+import com.maxeler.maxcompiler.v2.managers.custom.blocks.KernelBlock;
+import com.maxeler.maxcompiler.v2.managers.custom.stdlib.MemoryControlGroup;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.CPUTypes;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.EngineInterface;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.EngineInterface.Direction;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.InterfaceParam;
+class ControlGroupManager extends CustomManager {
+	private static final String KERNEL_NAME = "ControlGroupKernel";
+	private static final CPUTypes TYPE = CPUTypes.INT32;
+
+	ControlGroupManager(EngineParameters engineParameters) {
+		super(engineParameters);
+		KernelBlock k = addKernel(new ControlGroupKernel(makeKernelParameters(KERNEL_NAME)));
+
+		MemoryControlGroup control = addMemoryControlGroup("control", MemoryControlGroup.MemoryAccessPattern.LINEAR_1D);
+
+		DFELink fromcpu = addStreamFromCPU("fromcpu");
+		DFELink tocpu = addStreamToCPU("tocpu");
+
+		DFELink cpu2lmem = addStreamToOnCardMemory("cpu2lmem", control);
+		DFELink lmem2cpu = addStreamFromOnCardMemory("lmem2cpu", control);
+
+		cpu2lmem <== fromcpu;
+		tocpu <== lmem2cpu;
+
+		DFELink inA = addStreamFromOnCardMemory("inA",control);
+		DFELink inB = addStreamFromOnCardMemory("inB",control);
+
+		k.getInput("inA") <== inA;
+		k.getInput("inB") <== inB;
+
+		DFELink oData = addStreamToOnCardMemory("oData",control);
+		oData <== k.getOutput("oData");
+	}
+
+	private static EngineInterface interfaceWrite(String name) {
+		EngineInterface ei = new EngineInterface(name);
+
+		InterfaceParam size  = ei.addParam("size", TYPE);
+		InterfaceParam start = ei.addParam("start", TYPE);
+		InterfaceParam sizeInBytes = size * TYPE.sizeInBytes();
+
+		ei.setStream("fromcpu", TYPE, sizeInBytes );
+		ei.setLMemLinear("cpu2lmem", start * TYPE.sizeInBytes(), sizeInBytes);
+		ei.ignoreAll(Direction.IN_OUT);
+		return ei;
+	}
+
+	// reads the data back to the CPU from the LMem
+	private static EngineInterface interfaceRead(String name) {
+		EngineInterface ei = new EngineInterface(name);
+
+		InterfaceParam size  = ei.addParam("size", TYPE);
+		InterfaceParam start = ei.addParam("start", TYPE);
+		InterfaceParam sizeInBytes = size * TYPE.sizeInBytes();
+
+		ei.setLMemLinear("lmem2cpu", start * TYPE.sizeInBytes(), sizeInBytes);
+		ei.setStream("tocpu", TYPE, sizeInBytes);
+		ei.ignoreAll(Direction.IN_OUT);
+		return ei;
+	}
+
+	private static EngineInterface interfaceDefault() {
+		EngineInterface ei = new EngineInterface();
+
+		InterfaceParam N    = ei.addParam("N", TYPE);
+		ei.setTicks(KERNEL_NAME, N);
+		InterfaceParam sizeInBytes = N * TYPE.sizeInBytes();
+
+		InterfaceParam zero = ei.addConstant(0l);
+		ei.setLMemLinear("inA", zero, sizeInBytes);
+		ei.setLMemLinear("inB", sizeInBytes, sizeInBytes);
+		ei.setLMemLinear("oData", 2 * sizeInBytes, sizeInBytes);
+		ei.ignoreAll(Direction.IN_OUT);
+		return ei;
+	}
+
+	public static void main(String[] args) {
+		ControlGroupManager m =
+			new ControlGroupManager(new EngineParameters(args));
+		m.createSLiCinterface(interfaceRead("readLMem"));
+		m.createSLiCinterface(interfaceWrite("writeLMem"));
+		m.createSLiCinterface(interfaceDefault());
+
+		m.build();
+	}
+}

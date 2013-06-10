@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="manager-chap02-example04-dfestruct_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/manager-chap02-example04-dfestruct_EngineCode/bin" projectName="manager-chap02-example04-dfestruct"/>
+<cpuPart internalCpuSubproject="manager-chap02-example04-dfestruct_CPUCode"/>
+</maxCompilerManager>

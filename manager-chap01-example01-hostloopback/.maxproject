@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?> <maxCompilerManager>
+<enginePart internalEngineSubproject="manager-chap01-example01-hostloopback_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/manager-chap01-example01-hostloopback_EngineCode/bin" projectName="manager-chap01-example01-hostloopback"/>
+<cpuPart internalCpuSubproject="manager-chap01-example01-hostloopback_CPUCode"/>
+</maxCompilerManager>
