@@ -1,0 +1,1536 @@
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=1 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=1 y=1 controller=1 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5
+
+x=2 y=2 controller=1 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=2 y=2 controller=0 a=3 sum=7
+
+x=3 y=3 controller=1 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=3 y=3 controller=0 a=3 sum=9
+
+x=4 y=4 controller=1 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=4 y=4 controller=0 a=3 sum=11
+
+x=5 y=5 controller=1 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=5 y=5 controller=0 a=3 sum=13
+
+x=6 y=6 controller=1 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=6 y=6 controller=0 a=3 sum=15
+
+x=7 y=7 controller=1 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=7 y=7 controller=0 a=3 sum=17
+
+x=8 y=8 controller=1 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=8 y=8 controller=0 a=3 sum=19
+
+x=9 y=9 controller=1 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=9 y=9 controller=0 a=3 sum=21
+
+x=10 y=10 controller=1 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=10 y=10 controller=0 a=3 sum=23
+
+x=11 y=11 controller=1 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25
+
+x=11 y=11 controller=0 a=3 sum=25

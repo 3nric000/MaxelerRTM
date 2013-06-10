@@ -1,0 +1,23 @@
+NodeInput Input(controller) {HWOffsetFix:32, 0, TWOSCOMPLEMENT} ID: 2
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+queue.QueueKernel.<init>(QueueKernel.maxj:15)
+queue.QueueManager.main(QueueManager.maxj:21)
+	FIFO(6) {HWOffsetFix:32, 0, TWOSCOMPLEMENT} 6 ID: 44
+
+NodeCounterV1 Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0 {HWOffsetFix:48, 0, UNSIGNED} ID: 34
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+queue.QueueManager.main(QueueManager.maxj:33)
+	FIFO(4) {HWOffsetFix:48, 0, UNSIGNED} 4 ID: 45
+
+NodeInput Input(x) {HWOffsetFix:32, 0, TWOSCOMPLEMENT} ID: 10
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
+queue.QueueKernel.<init>(QueueKernel.maxj:16)
+queue.QueueManager.main(QueueManager.maxj:21)
+	FIFO(1) {HWOffsetFix:32, 0, TWOSCOMPLEMENT} 1 ID: 42
+
+NodeInput Input(y) {HWOffsetFix:32, 0, TWOSCOMPLEMENT} ID: 18
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
+queue.QueueKernel.<init>(QueueKernel.maxj:17)
+queue.QueueManager.main(QueueManager.maxj:21)
+	FIFO(1) {HWOffsetFix:32, 0, TWOSCOMPLEMENT} 1 ID: 43
+

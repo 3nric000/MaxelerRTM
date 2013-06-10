@@ -1,0 +1,28 @@
+package queue;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEType;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class QueueKernel extends Kernel {
+
+	private static final DFEType type = dfeInt(32);
+
+	protected QueueKernel(KernelParameters parameters) {
+		super(parameters);
+
+		DFEVar controller = io.input("controller", type);
+		DFEVar x = io.input("x", type, controller.cast(dfeBool()));
+		DFEVar y = io.input("y", type, controller.cast(dfeBool()));
+		DFEVar a = io.scalarInput("a", type);
+
+		// TODO replace with your computation
+		DFEVar sum = x + y + a;
+
+		debug.printf("\nx=%d y=%d controller=%d a=%d sum=%d\n", x, y, controller, a, sum);
+
+		io.output("s", sum, type);
+	}
+
+}
