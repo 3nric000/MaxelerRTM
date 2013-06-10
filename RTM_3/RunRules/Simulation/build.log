@@ -1,65 +1,62 @@
-ven 04:01: ########################################## 
-ven 04:01: Compiling.
-ven 04:01: ########################################## 
+ven 04:19: ########################################## 
+ven 04:19: Compiling.
+ven 04:19: ########################################## 
 
-ven 04:01: MaxCompiler version: 2013.1.
-ven 04:01: Build Simulation run rule for RTM_3 start time: ven mag 31 04:01:51 CEST 2013.
-ven 04:01: Project location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3.
-ven 04:01: Detailed build log: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/build.log.
+ven 04:19: MaxCompiler version: 2013.1.
+ven 04:19: Build Simulation run rule for RTM_3 start time: ven mag 31 04:19:25 CEST 2013.
+ven 04:19: Project location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3.
+ven 04:19: Detailed build log: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/build.log.
 
-ven 04:01: Compiling Engine Code.
-ven 04:01: Engine building skipped (no changes on .max files).
-ven 04:01: Compiling CPU Code.
-ven 04:01: Run CPU project make files updating
-ven 04:01: Executing command:
-ven 04:01: java -jar /opt/maxeler/maxcompiler/lib/MaxIDE/projectAdmin.jar -u /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3 Simulation 
-ven 04:01: Command output:
+ven 04:19: Compiling Engine Code.
+ven 04:19: Engine building skipped (no changes on .max files).
+ven 04:19: Compiling CPU Code.
+ven 04:19: Run CPU project make files updating
+ven 04:19: Executing command:
+ven 04:19: java -jar /opt/maxeler/maxcompiler/lib/MaxIDE/projectAdmin.jar -u /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3 Simulation 
+ven 04:19: Command output:
 
-ven 04:01: MaxCompiler Project Admin Tool Version 2013.1.0
-ven 04:01:  Copyright Maxeler Technologies 2010 - 2013. All rights reserved.
-ven 04:01: Updating RunRule dependant Makefiles for RunRule 'Simulation'
-ven 04:01: Found makefiles: 1
-ven 04:01: 	Updated: Simulation
-ven 04:01: Run CPU make.
-ven 04:01: make RUNRULE=Simulation 
-ven 04:01: Command output:
-ven 04:01: make -f Makefile ../RunRules/Simulation/binaries/CpuMain
-ven 04:01: make[1]: Entering directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/CPUCode'
-ven 04:01: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -o "../RunRules/Simulation/objects/cpu_simulation.o" -c "cpu_simulation.c"
-ven 04:01: cpu_simulation.c: In function ‘prop_source’:
-ven 04:01: cpu_simulation.c:362: warning: unused variable ‘i’
-ven 04:01: cpu_simulation.c: In function ‘add_data’:
-ven 04:01: cpu_simulation.c:542: warning: unused variable ‘i2’
-ven 04:01: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -MM -MP -MT "../RunRules/Simulation/objects/cpu_simulation.o" "cpu_simulation.c" > "../RunRules/Simulation/objects/cpu_simulation.d"
-ven 04:01: cc ../RunRules/Simulation/objects/cpu_constructors.o ../RunRules/Simulation/objects/cpu_main.o ../RunRules/Simulation/objects/cpu_simulation.o ../RunRules/Simulation/objects/slic_CpuMain.o  -L/opt/maxeler/maxcompiler/lib -L/opt/maxeler/maxcompiler/lib/maxeleros-sim/lib -lslic -lmaxeleros -lm -lpthread  -o "../RunRules/Simulation/binaries/CpuMain"
-ven 04:01: make[1]: Leaving directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/CPUCode'
-ven 04:01: Build completed: ven mag 31 04:01:59 CEST 2013
+ven 04:19: MaxCompiler Project Admin Tool Version 2013.1.0
+ven 04:19:  Copyright Maxeler Technologies 2010 - 2013. All rights reserved.
+ven 04:19: Updating RunRule dependant Makefiles for RunRule 'Simulation'
+ven 04:19: Found makefiles: 1
+ven 04:19: 	Updated: Simulation
+ven 04:19: Run CPU make.
+ven 04:19: make RUNRULE=Simulation 
+ven 04:19: Command output:
+ven 04:19: make -f Makefile ../RunRules/Simulation/binaries/CpuMain
+ven 04:19: make[1]: Entering directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/CPUCode'
+ven 04:19: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -o "../RunRules/Simulation/objects/cpu_simulation.o" -c "cpu_simulation.c"
+ven 04:19: cpu_simulation.c: In function ‘prop_source’:
+ven 04:19: cpu_simulation.c:360: warning: unused variable ‘i’
+ven 04:19: cpu_simulation.c: In function ‘add_data’:
+ven 04:19: cpu_simulation.c:540: warning: unused variable ‘i2’
+ven 04:19: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -MM -MP -MT "../RunRules/Simulation/objects/cpu_simulation.o" "cpu_simulation.c" > "../RunRules/Simulation/objects/cpu_simulation.d"
+ven 04:19: cc ../RunRules/Simulation/objects/cpu_constructors.o ../RunRules/Simulation/objects/cpu_main.o ../RunRules/Simulation/objects/cpu_simulation.o ../RunRules/Simulation/objects/slic_CpuMain.o  -L/opt/maxeler/maxcompiler/lib -L/opt/maxeler/maxcompiler/lib/maxeleros-sim/lib -lslic -lmaxeleros -lm -lpthread  -o "../RunRules/Simulation/binaries/CpuMain"
+ven 04:19: make[1]: Leaving directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/CPUCode'
+ven 04:19: Build completed: ven mag 31 04:19:28 CEST 2013
 
 
-ven 04:01: ########################################## 
-ven 04:01: Running
-ven 04:01: ########################################## 
-ven 04:01: Executing command:
-ven 04:01: '/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/binaries/CpuMain' 
-ven 04:01: Command output:
-ven 04:02: Found receiver file: skipping receiver propagation!
-ven 04:02: [34m Parameters
-ven 04:02: 0
-ven 04:02: [34m Input earth model: (none), using water+salt simple model
-ven 04:02: [34m Output folder: ./tmp
-ven 04:02: [34m Boundary: T=20, E=20 (points)
-ven 04:02: [34m Dimensions: n1=192, n2=100, n3=100 (points)
-ven 04:02: [34m Number of frames nf=1000
-ven 04:02: [34m Damping: bc=0.000500
-ven 04:02: [34m Sampling: dx=5.000000 (m)
-ven 04:02: [34m Time scale dt=0.000400 (s)
-ven 04:02: [34m Time steps per frame: jt=1
-ven 04:02: [34m Number of time steps: nt=1000
-ven 04:02: [34m Frequency: fpeak=25.000000 (Hz)
-ven 04:02: [34m Source: (x,y,z) = (50,50,21)
-ven 04:02: [30m[34m Rerun receiver: False
-ven 04:02: [30m[34m Subsurface offsets: 32
-ven 04:02: [30mCPU version with random boundaries
-ven 04:03: SLiC Error #127 @ actions_internal.c:470 - No such pcie stream in maxfile: 'pp'
-ven 04:03: SLiC Error #518 @ stream.c:28 - Error reported from function "max_queue_output".
-ven 04:03: Abortito
+ven 04:19: ########################################## 
+ven 04:19: Running
+ven 04:19: ########################################## 
+ven 04:19: Executing command:
+ven 04:19: '/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/binaries/CpuMain' 
+ven 04:19: Command output:
+ven 04:19: [34m Parameters
+ven 04:19: [34m Input earth model: (none), using water+salt simple model
+ven 04:19: [34m Output folder: ./tmp
+ven 04:19: [34m Boundary: T=20, E=20 (points)
+ven 04:19: [34m Dimensions: n1=192, n2=100, n3=100 (points)
+ven 04:19: [34m Number of frames nf=1000
+ven 04:19: [34m Damping: bc=0.000500
+ven 04:19: [34m Sampling: dx=5.000000 (m)
+ven 04:19: [34m Time scale dt=0.000400 (s)
+ven 04:19: [34m Time steps per frame: jt=1
+ven 04:19: [34m Number of time steps: nt=1000
+ven 04:19: [34m Frequency: fpeak=25.000000 (Hz)
+ven 04:19: [34m Source: (x,y,z) = (50,50,21)
+ven 04:19: [30m[34m Rerun receiver: False
+ven 04:19: [30m[34m Subsurface offsets: 32
+ven 04:19: [30mCPU version with random boundaries
+ven 04:19: Found receiver file: skipping receiver propagation!
+ven 04:19: 0
