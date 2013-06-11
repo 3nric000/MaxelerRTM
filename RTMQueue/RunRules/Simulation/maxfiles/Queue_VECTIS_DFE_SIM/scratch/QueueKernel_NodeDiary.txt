@@ -1,114 +1,72 @@
+NODE WAS REMOVED!
 NodeID     : 0
-Node       : Scalar input (io_controller_force_disabled)
-Node type  : NodeInputMappedReg
+Node       : 1.0
+Node type  : NodeConstantDouble
+Removed by : [RemoveUntypedConstants]
 Creator    : User
 Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Count.simpleCounter(Count.java:498)
 queue.QueueKernel.<init>(QueueKernel.maxj:15)
 queue.QueueManager.main(QueueManager.maxj:21)
 
+Led to:
+  NodeID     : 45
+  Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
+  Node type  : NodeConstantRawBits
+  Creator    : RemoveUntypedConstants
+
 ------------
 NodeID     : 1
-Node       : ~
-Node type  : NodeNot
+Node       : {HWOffsetFix:33, 0, UNSIGNED}\n0x100000000; 4.294967296E9
+Node type  : NodeConstantRawBits
 Creator    : User
 Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Count.simpleCounter(Count.java:498)
 queue.QueueKernel.<init>(QueueKernel.maxj:15)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
 NodeID     : 2
-Node       : Input(controller)
-Node type  : NodeInput
+Node       : Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0
+Node type  : NodeCounterV1
 Creator    : User
 Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Count.simpleCounter(Count.java:498)
 queue.QueueKernel.<init>(QueueKernel.maxj:15)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
 NodeID     : 3
-Node       : {HWOffsetFix:1, 0, UNSIGNED}
-Node type  : NodeCast
+Node       : Scalar input (io_controller_force_disabled)
+Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
 queue.QueueKernel.<init>(QueueKernel.maxj:16)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
 NodeID     : 4
-Node       : Scalar input (io_x_force_disabled)
-Node type  : NodeInputMappedReg
+Node       : ~
+Node type  : NodeNot
 Creator    : User
 Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
 queue.QueueKernel.<init>(QueueKernel.maxj:16)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
 NodeID     : 5
-Node       : ~
-Node type  : NodeNot
+Node       : Input(controller)
+Node type  : NodeInput
 Creator    : User
 Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
 queue.QueueKernel.<init>(QueueKernel.maxj:16)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
 NodeID     : 6
-Node       : &
-Node type  : NodeAnd
-Creator    : User
-Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-queue.QueueKernel.<init>(QueueKernel.maxj:16)
-queue.QueueManager.main(QueueManager.maxj:21)
-
-------------
-NodeID     : 7
-Node       : <{HWRawBits:1}>
-Node type  : NodeReinterpret
-Creator    : User
-Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-queue.QueueKernel.<init>(QueueKernel.maxj:16)
-queue.QueueManager.main(QueueManager.maxj:21)
-
-------------
-NodeID     : 8
-Node       : <{HWRawBits:1}>
-Node type  : NodeReinterpret
-Creator    : User
-Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-queue.QueueKernel.<init>(QueueKernel.maxj:16)
-queue.QueueManager.main(QueueManager.maxj:21)
-
-------------
-NodeID     : 9
-Node       : <{HWOffsetFix:1, 0, UNSIGNED}>
-Node type  : NodeReinterpret
-Creator    : User
-Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-queue.QueueKernel.<init>(QueueKernel.maxj:16)
-queue.QueueManager.main(QueueManager.maxj:21)
-
-------------
-NodeID     : 10
-Node       : Input(x)
-Node type  : NodeInput
-Creator    : User
-Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-queue.QueueKernel.<init>(QueueKernel.maxj:16)
-queue.QueueManager.main(QueueManager.maxj:21)
-
-------------
-NodeID     : 11
 Node       : {HWOffsetFix:1, 0, UNSIGNED}
 Node type  : NodeCast
 Creator    : User
@@ -118,9 +76,59 @@ queue.QueueKernel.<init>(QueueKernel.maxj:17)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
-NodeID     : 12
-Node       : Scalar input (io_y_force_disabled)
+NodeID     : 7
+Node       : Scalar input (io_x_force_disabled)
 Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
+queue.QueueKernel.<init>(QueueKernel.maxj:17)
+queue.QueueManager.main(QueueManager.maxj:21)
+
+------------
+NodeID     : 8
+Node       : ~
+Node type  : NodeNot
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
+queue.QueueKernel.<init>(QueueKernel.maxj:17)
+queue.QueueManager.main(QueueManager.maxj:21)
+
+------------
+NodeID     : 9
+Node       : &
+Node type  : NodeAnd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
+queue.QueueKernel.<init>(QueueKernel.maxj:17)
+queue.QueueManager.main(QueueManager.maxj:21)
+
+------------
+NodeID     : 10
+Node       : <{HWRawBits:1}>
+Node type  : NodeReinterpret
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
+queue.QueueKernel.<init>(QueueKernel.maxj:17)
+queue.QueueManager.main(QueueManager.maxj:21)
+
+------------
+NodeID     : 11
+Node       : <{HWRawBits:1}>
+Node type  : NodeReinterpret
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
+queue.QueueKernel.<init>(QueueKernel.maxj:17)
+queue.QueueManager.main(QueueManager.maxj:21)
+
+------------
+NodeID     : 12
+Node       : <{HWOffsetFix:1, 0, UNSIGNED}>
+Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
@@ -129,57 +137,7 @@ queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
 NodeID     : 13
-Node       : ~
-Node type  : NodeNot
-Creator    : User
-Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-queue.QueueKernel.<init>(QueueKernel.maxj:17)
-queue.QueueManager.main(QueueManager.maxj:21)
-
-------------
-NodeID     : 14
-Node       : &
-Node type  : NodeAnd
-Creator    : User
-Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-queue.QueueKernel.<init>(QueueKernel.maxj:17)
-queue.QueueManager.main(QueueManager.maxj:21)
-
-------------
-NodeID     : 15
-Node       : <{HWRawBits:1}>
-Node type  : NodeReinterpret
-Creator    : User
-Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-queue.QueueKernel.<init>(QueueKernel.maxj:17)
-queue.QueueManager.main(QueueManager.maxj:21)
-
-------------
-NodeID     : 16
-Node       : <{HWRawBits:1}>
-Node type  : NodeReinterpret
-Creator    : User
-Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-queue.QueueKernel.<init>(QueueKernel.maxj:17)
-queue.QueueManager.main(QueueManager.maxj:21)
-
-------------
-NodeID     : 17
-Node       : <{HWOffsetFix:1, 0, UNSIGNED}>
-Node type  : NodeReinterpret
-Creator    : User
-Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-queue.QueueKernel.<init>(QueueKernel.maxj:17)
-queue.QueueManager.main(QueueManager.maxj:21)
-
-------------
-NodeID     : 18
-Node       : Input(y)
+Node       : Input(x)
 Node type  : NodeInput
 Creator    : User
 Stack Trace:
@@ -188,162 +146,178 @@ queue.QueueKernel.<init>(QueueKernel.maxj:17)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
-NodeID     : 19
+NodeID     : 14
+Node       : Scalar input (io_y_force_disabled)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+queue.QueueKernel.<init>(QueueKernel.maxj:18)
+queue.QueueManager.main(QueueManager.maxj:21)
+
+------------
+NodeID     : 15
+Node       : ~
+Node type  : NodeNot
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+queue.QueueKernel.<init>(QueueKernel.maxj:18)
+queue.QueueManager.main(QueueManager.maxj:21)
+
+------------
+NodeID     : 16
+Node       : Input(y)
+Node type  : NodeInput
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+queue.QueueKernel.<init>(QueueKernel.maxj:18)
+queue.QueueManager.main(QueueManager.maxj:21)
+
+------------
+NodeID     : 17
 Node       : Scalar input (a)
 Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-queue.QueueKernel.<init>(QueueKernel.maxj:18)
+queue.QueueKernel.<init>(QueueKernel.maxj:19)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
 NODE WAS REMOVED!
-NodeID     : 20
+NodeID     : 18
 Node       : +
 Node type  : NodeAdd
 Removed by : [TriAddExtractionPass]
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-queue.QueueKernel.<init>(QueueKernel.maxj:21)
+queue.QueueKernel.<init>(QueueKernel.maxj:22)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 Led to:
-  NodeID     : 41
+  NodeID     : 38
   Node       : 3 +
   Node type  : NodeTriAdd
   Creator    : TriAddExtractionPass
 
 ------------
 NODE WAS REMOVED!
-NodeID     : 21
+NodeID     : 19
 Node       : +
 Node type  : NodeAdd
 Removed by : [TriAddExtractionPass]
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-queue.QueueKernel.<init>(QueueKernel.maxj:21)
+queue.QueueKernel.<init>(QueueKernel.maxj:22)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
-NodeID     : 22
+NodeID     : 20
 Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
 Node type  : NodeConstantRawBits
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.Debug.printf(Debug.java:343)
-queue.QueueKernel.<init>(QueueKernel.maxj:23)
+queue.QueueKernel.<init>(QueueKernel.maxj:24)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
-NodeID     : 23
+NodeID     : 21
 Node       : NodePrintf
 Node type  : NodePrintf
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.Debug.printf(Debug.java:343)
-queue.QueueKernel.<init>(QueueKernel.maxj:23)
+queue.QueueKernel.<init>(QueueKernel.maxj:24)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
-NODE WAS REMOVED!
-NodeID     : 24
-Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
-Node type  : NodeConstantRawBits
-Removed by : [FoldConstantsPass]
+NodeID     : 22
+Node       : {HWOffsetFix:1, 0, UNSIGNED}
+Node type  : NodeCast
 Creator    : User
 Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
-queue.QueueKernel.<init>(QueueKernel.maxj:25)
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
+queue.QueueKernel.<init>(QueueKernel.maxj:26)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
-NodeID     : 25
+NodeID     : 23
 Node       : Scalar input (io_s_force_disabled)
 Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
-queue.QueueKernel.<init>(QueueKernel.maxj:25)
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
+queue.QueueKernel.<init>(QueueKernel.maxj:26)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
-NodeID     : 26
+NodeID     : 24
 Node       : ~
 Node type  : NodeNot
 Creator    : User
 Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
-queue.QueueKernel.<init>(QueueKernel.maxj:25)
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
+queue.QueueKernel.<init>(QueueKernel.maxj:26)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
-NODE WAS REMOVED!
-NodeID     : 27
+NodeID     : 25
 Node       : &
 Node type  : NodeAnd
-Removed by : [OptimiseNodesPass]
 Creator    : User
 Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
-queue.QueueKernel.<init>(QueueKernel.maxj:25)
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
+queue.QueueKernel.<init>(QueueKernel.maxj:26)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
-NODE WAS REMOVED!
+NodeID     : 26
+Node       : <{HWRawBits:1}>
+Node type  : NodeReinterpret
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
+queue.QueueKernel.<init>(QueueKernel.maxj:26)
+queue.QueueManager.main(QueueManager.maxj:21)
+
+------------
+NodeID     : 27
+Node       : <{HWRawBits:1}>
+Node type  : NodeReinterpret
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
+queue.QueueKernel.<init>(QueueKernel.maxj:26)
+queue.QueueManager.main(QueueManager.maxj:21)
+
+------------
 NodeID     : 28
-Node       : <{HWRawBits:1}>
-Node type  : NodeReinterpret
-Removed by : [FoldConstantsPass]
-Creator    : User
-Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
-queue.QueueKernel.<init>(QueueKernel.maxj:25)
-queue.QueueManager.main(QueueManager.maxj:21)
-
-Led to:
-  NODE WAS REMOVED!
-  NodeID     : 40
-  Node       : {HWRawBits:1}\n0x1
-  Node type  : NodeConstantRawBits
-  Removed by : [OptimiseNodesPass]
-  Creator    : FoldConstantsPass
-
-------------
-NodeID     : 29
-Node       : <{HWRawBits:1}>
-Node type  : NodeReinterpret
-Creator    : User
-Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
-queue.QueueKernel.<init>(QueueKernel.maxj:25)
-queue.QueueManager.main(QueueManager.maxj:21)
-
-------------
-NodeID     : 30
 Node       : <{HWOffsetFix:1, 0, UNSIGNED}>
 Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
-queue.QueueKernel.<init>(QueueKernel.maxj:25)
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
+queue.QueueKernel.<init>(QueueKernel.maxj:26)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
-NodeID     : 31
+NodeID     : 29
 Node       : Output(s)
 Node type  : NodeOutput
 Creator    : User
 Stack Trace:
-com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
-queue.QueueKernel.<init>(QueueKernel.maxj:25)
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
+queue.QueueKernel.<init>(QueueKernel.maxj:26)
 queue.QueueManager.main(QueueManager.maxj:21)
 
 ------------
 NODE WAS REMOVED!
-NodeID     : 32
+NodeID     : 30
 Node       : 1.0
 Node type  : NodeConstantDouble
 Removed by : [RemoveUntypedConstants]
@@ -353,13 +327,13 @@ com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 queue.QueueManager.main(QueueManager.maxj:33)
 
 Led to:
-  NodeID     : 46
+  NodeID     : 44
   Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
   Node type  : NodeConstantRawBits
   Creator    : RemoveUntypedConstants
 
 ------------
-NodeID     : 33
+NodeID     : 31
 Node       : {HWOffsetFix:49, 0, UNSIGNED}\n0x1000000000000; 2.81474976710656E14
 Node type  : NodeConstantRawBits
 Creator    : User
@@ -368,7 +342,7 @@ com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 queue.QueueManager.main(QueueManager.maxj:33)
 
 ------------
-NodeID     : 34
+NodeID     : 32
 Node       : Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0
 Node type  : NodeCounterV1
 Creator    : User
@@ -377,7 +351,7 @@ com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 queue.QueueManager.main(QueueManager.maxj:33)
 
 ------------
-NodeID     : 35
+NodeID     : 33
 Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
 Node type  : NodeConstantRawBits
 Creator    : User
@@ -386,7 +360,7 @@ com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 queue.QueueManager.main(QueueManager.maxj:33)
 
 ------------
-NodeID     : 36
+NodeID     : 34
 Node       : Scalar output (current_run_cycle_count)
 Node type  : NodeOutputMappedReg
 Creator    : User
@@ -395,7 +369,7 @@ com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 queue.QueueManager.main(QueueManager.maxj:33)
 
 ------------
-NodeID     : 37
+NodeID     : 35
 Node       : flush on trigger
 Node type  : NodeFlush
 Creator    : User
@@ -404,7 +378,7 @@ com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 queue.QueueManager.main(QueueManager.maxj:33)
 
 ------------
-NodeID     : 38
+NodeID     : 36
 Node       : Scalar input (run_cycle_count)
 Node type  : NodeInputMappedReg
 Creator    : User
@@ -413,7 +387,7 @@ com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 queue.QueueManager.main(QueueManager.maxj:33)
 
 ------------
-NodeID     : 39
+NodeID     : 37
 Node       : ==
 Node type  : NodeEq
 Creator    : User
@@ -422,22 +396,29 @@ com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 queue.QueueManager.main(QueueManager.maxj:33)
 
 ------------
-NodeID     : 42
+NodeID     : 39
 Node       : FIFO(1)
 Node type  : NodeFIFO
 Creator    : ScheduleApplier
 ------------
-NodeID     : 43
+NodeID     : 40
 Node       : FIFO(1)
 Node type  : NodeFIFO
 Creator    : ScheduleApplier
 ------------
-NodeID     : 44
+NodeID     : 41
 Node       : FIFO(6)
 Node type  : NodeFIFO
 Creator    : ScheduleApplier
 ------------
-NodeID     : 45
+NODE WAS REMOVED!
+NodeID     : 42
+Node       : FIFO(6)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NodeID     : 43
 Node       : FIFO(4)
 Node type  : NodeFIFO
 Creator    : ScheduleApplier

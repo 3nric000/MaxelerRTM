@@ -7,280 +7,299 @@
 namespace maxcompilersim {
 
 void QueueKernel::execute0() {
-  { // Node ID: 22 (NodeConstantRawBits)
+  { // Node ID: 20 (NodeConstantRawBits)
   }
-  { // Node ID: 0 (NodeInputMappedReg)
+  { // Node ID: 3 (NodeInputMappedReg)
   }
-  HWOffsetFix<1,0,UNSIGNED> id1out_result;
+  HWOffsetFix<1,0,UNSIGNED> id4out_result;
 
-  { // Node ID: 1 (NodeNot)
-    const HWOffsetFix<1,0,UNSIGNED> &id1in_a = id0out_io_controller_force_disabled;
+  { // Node ID: 4 (NodeNot)
+    const HWOffsetFix<1,0,UNSIGNED> &id4in_a = id3out_io_controller_force_disabled;
 
-    id1out_result = (not_fixed(id1in_a));
+    id4out_result = (not_fixed(id4in_a));
   }
   if ( (getFillLevel() >= (4l)))
-  { // Node ID: 2 (NodeInput)
-    const HWOffsetFix<1,0,UNSIGNED> &id2in_enable = id1out_result;
+  { // Node ID: 5 (NodeInput)
+    const HWOffsetFix<1,0,UNSIGNED> &id5in_enable = id4out_result;
 
-    (id2st_read_next_cycle) = ((id2in_enable.getValueAsBool())&(!(((getFlushLevel())>=(4l))&(isFlushingActive()))));
-    queueReadRequest(m_controller, id2st_read_next_cycle.getValueAsBool());
+    (id5st_read_next_cycle) = ((id5in_enable.getValueAsBool())&(!(((getFlushLevel())>=(4l))&(isFlushingActive()))));
+    queueReadRequest(m_controller, id5st_read_next_cycle.getValueAsBool());
   }
-  HWOffsetFix<1,0,UNSIGNED> id3out_o;
+  HWOffsetFix<1,0,UNSIGNED> id6out_o;
 
-  { // Node ID: 3 (NodeCast)
-    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id3in_i = id2out_data;
+  { // Node ID: 6 (NodeCast)
+    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id6in_i = id5out_data;
 
-    id3out_o = (cast_fixed2fixed<1,0,UNSIGNED,TONEAR>(id3in_i));
+    id6out_o = (cast_fixed2fixed<1,0,UNSIGNED,TONEAR>(id6in_i));
   }
-  HWRawBits<1> id7out_output;
+  HWRawBits<1> id10out_output;
 
-  { // Node ID: 7 (NodeReinterpret)
-    const HWOffsetFix<1,0,UNSIGNED> &id7in_input = id3out_o;
+  { // Node ID: 10 (NodeReinterpret)
+    const HWOffsetFix<1,0,UNSIGNED> &id10in_input = id6out_o;
 
-    id7out_output = (cast_fixed2bits(id7in_input));
+    id10out_output = (cast_fixed2bits(id10in_input));
   }
-  { // Node ID: 4 (NodeInputMappedReg)
+  { // Node ID: 7 (NodeInputMappedReg)
   }
-  HWOffsetFix<1,0,UNSIGNED> id5out_result;
+  HWOffsetFix<1,0,UNSIGNED> id8out_result;
 
-  { // Node ID: 5 (NodeNot)
-    const HWOffsetFix<1,0,UNSIGNED> &id5in_a = id4out_io_x_force_disabled;
+  { // Node ID: 8 (NodeNot)
+    const HWOffsetFix<1,0,UNSIGNED> &id8in_a = id7out_io_x_force_disabled;
 
-    id5out_result = (not_fixed(id5in_a));
+    id8out_result = (not_fixed(id8in_a));
   }
-  HWRawBits<1> id8out_output;
+  HWRawBits<1> id11out_output;
 
-  { // Node ID: 8 (NodeReinterpret)
-    const HWOffsetFix<1,0,UNSIGNED> &id8in_input = id5out_result;
+  { // Node ID: 11 (NodeReinterpret)
+    const HWOffsetFix<1,0,UNSIGNED> &id11in_input = id8out_result;
 
-    id8out_output = (cast_fixed2bits(id8in_input));
+    id11out_output = (cast_fixed2bits(id11in_input));
   }
-  HWRawBits<1> id6out_result;
+  HWRawBits<1> id9out_result;
 
-  { // Node ID: 6 (NodeAnd)
-    const HWRawBits<1> &id6in_a = id7out_output;
-    const HWRawBits<1> &id6in_b = id8out_output;
+  { // Node ID: 9 (NodeAnd)
+    const HWRawBits<1> &id9in_a = id10out_output;
+    const HWRawBits<1> &id9in_b = id11out_output;
 
-    HWRawBits<1> id6x_1;
+    HWRawBits<1> id9x_1;
 
-    (id6x_1) = (and_bits(id6in_a,id6in_b));
-    id6out_result = (id6x_1);
+    (id9x_1) = (and_bits(id9in_a,id9in_b));
+    id9out_result = (id9x_1);
   }
-  HWOffsetFix<1,0,UNSIGNED> id9out_output;
+  HWOffsetFix<1,0,UNSIGNED> id12out_output;
 
-  { // Node ID: 9 (NodeReinterpret)
-    const HWRawBits<1> &id9in_input = id6out_result;
+  { // Node ID: 12 (NodeReinterpret)
+    const HWRawBits<1> &id12in_input = id9out_result;
 
-    id9out_output = (cast_bits2fixed<1,0,UNSIGNED>(id9in_input));
-  }
-  if ( (getFillLevel() >= (9l)))
-  { // Node ID: 10 (NodeInput)
-    const HWOffsetFix<1,0,UNSIGNED> &id10in_enable = id9out_output;
-
-    (id10st_read_next_cycle) = ((id10in_enable.getValueAsBool())&(!(((getFlushLevel())>=(9l))&(isFlushingActive()))));
-    queueReadRequest(m_x, id10st_read_next_cycle.getValueAsBool());
-  }
-  { // Node ID: 42 (NodeFIFO)
-    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id42in_input = id10out_data;
-
-    id42out_output[(getCycle()+1)%2] = id42in_input;
-  }
-  HWOffsetFix<1,0,UNSIGNED> id11out_o;
-
-  { // Node ID: 11 (NodeCast)
-    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id11in_i = id2out_data;
-
-    id11out_o = (cast_fixed2fixed<1,0,UNSIGNED,TONEAR>(id11in_i));
-  }
-  HWRawBits<1> id15out_output;
-
-  { // Node ID: 15 (NodeReinterpret)
-    const HWOffsetFix<1,0,UNSIGNED> &id15in_input = id11out_o;
-
-    id15out_output = (cast_fixed2bits(id15in_input));
-  }
-  { // Node ID: 12 (NodeInputMappedReg)
-  }
-  HWOffsetFix<1,0,UNSIGNED> id13out_result;
-
-  { // Node ID: 13 (NodeNot)
-    const HWOffsetFix<1,0,UNSIGNED> &id13in_a = id12out_io_y_force_disabled;
-
-    id13out_result = (not_fixed(id13in_a));
-  }
-  HWRawBits<1> id16out_output;
-
-  { // Node ID: 16 (NodeReinterpret)
-    const HWOffsetFix<1,0,UNSIGNED> &id16in_input = id13out_result;
-
-    id16out_output = (cast_fixed2bits(id16in_input));
-  }
-  HWRawBits<1> id14out_result;
-
-  { // Node ID: 14 (NodeAnd)
-    const HWRawBits<1> &id14in_a = id15out_output;
-    const HWRawBits<1> &id14in_b = id16out_output;
-
-    HWRawBits<1> id14x_1;
-
-    (id14x_1) = (and_bits(id14in_a,id14in_b));
-    id14out_result = (id14x_1);
-  }
-  HWOffsetFix<1,0,UNSIGNED> id17out_output;
-
-  { // Node ID: 17 (NodeReinterpret)
-    const HWRawBits<1> &id17in_input = id14out_result;
-
-    id17out_output = (cast_bits2fixed<1,0,UNSIGNED>(id17in_input));
+    id12out_output = (cast_bits2fixed<1,0,UNSIGNED>(id12in_input));
   }
   if ( (getFillLevel() >= (9l)))
-  { // Node ID: 18 (NodeInput)
-    const HWOffsetFix<1,0,UNSIGNED> &id18in_enable = id17out_output;
+  { // Node ID: 13 (NodeInput)
+    const HWOffsetFix<1,0,UNSIGNED> &id13in_enable = id12out_output;
 
-    (id18st_read_next_cycle) = ((id18in_enable.getValueAsBool())&(!(((getFlushLevel())>=(9l))&(isFlushingActive()))));
-    queueReadRequest(m_y, id18st_read_next_cycle.getValueAsBool());
+    (id13st_read_next_cycle) = ((id13in_enable.getValueAsBool())&(!(((getFlushLevel())>=(9l))&(isFlushingActive()))));
+    queueReadRequest(m_x, id13st_read_next_cycle.getValueAsBool());
   }
-  { // Node ID: 43 (NodeFIFO)
-    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id43in_input = id18out_data;
+  { // Node ID: 39 (NodeFIFO)
+    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id39in_input = id13out_data;
 
-    id43out_output[(getCycle()+1)%2] = id43in_input;
+    id39out_output[(getCycle()+1)%2] = id39in_input;
   }
-  { // Node ID: 44 (NodeFIFO)
-    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id44in_input = id2out_data;
-
-    id44out_output[(getCycle()+6)%7] = id44in_input;
+  { // Node ID: 14 (NodeInputMappedReg)
   }
-  { // Node ID: 19 (NodeInputMappedReg)
+  HWOffsetFix<1,0,UNSIGNED> id15out_result;
+
+  { // Node ID: 15 (NodeNot)
+    const HWOffsetFix<1,0,UNSIGNED> &id15in_a = id14out_io_y_force_disabled;
+
+    id15out_result = (not_fixed(id15in_a));
   }
-  { // Node ID: 41 (NodeTriAdd)
-    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id41in_a = id10out_data;
-    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id41in_b = id18out_data;
-    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id41in_c = id19out_a;
+  if ( (getFillLevel() >= (9l)))
+  { // Node ID: 16 (NodeInput)
+    const HWOffsetFix<1,0,UNSIGNED> &id16in_enable = id15out_result;
 
-    HWOffsetFix<32,0,TWOSCOMPLEMENT> id41x_1;
-
-    (id41x_1) = (add_fixed<32,0,TWOSCOMPLEMENT,TRUNCATE>((add_fixed<32,0,TWOSCOMPLEMENT,TRUNCATE>(id41in_a,id41in_b)),id41in_c));
-    id41out_result[(getCycle()+1)%2] = (id41x_1);
+    (id16st_read_next_cycle) = ((id16in_enable.getValueAsBool())&(!(((getFlushLevel())>=(9l))&(isFlushingActive()))));
+    queueReadRequest(m_y, id16st_read_next_cycle.getValueAsBool());
   }
-  if ( (getFillLevel() >= (15l)) && (getFlushLevel() < (15l)|| !isFlushingActive() ))
-  { // Node ID: 23 (NodePrintf)
-    const HWOffsetFix<1,0,UNSIGNED> &id23in_condition = id22out_value;
-    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id23in_arg0 = id42out_output[getCycle()%2];
-    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id23in_arg1 = id43out_output[getCycle()%2];
-    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id23in_arg2 = id44out_output[getCycle()%7];
-    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id23in_arg3 = id19out_a;
-    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id23in_arg4 = id41out_result[getCycle()%2];
+  { // Node ID: 40 (NodeFIFO)
+    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id40in_input = id16out_data;
 
-    if((id23in_condition.getValueAsBool())) {
-      const HWOffsetFix<32,0,TWOSCOMPLEMENT> &_format_arg_0 = id23in_arg0;
-      const HWOffsetFix<32,0,TWOSCOMPLEMENT> &_format_arg_1 = id23in_arg1;
-      const HWOffsetFix<32,0,TWOSCOMPLEMENT> &_format_arg_2 = id23in_arg2;
-      const HWOffsetFix<32,0,TWOSCOMPLEMENT> &_format_arg_3 = id23in_arg3;
-      const HWOffsetFix<32,0,TWOSCOMPLEMENT> &_format_arg_4 = id23in_arg4;
-      simPrintf("", 23, format_string_QueueKernel_1("\nx=%d y=%d controller=%d a=%d sum=%d\n", _format_arg_0, _format_arg_1, _format_arg_2, _format_arg_3, _format_arg_4));
+    id40out_output[(getCycle()+1)%2] = id40in_input;
+  }
+  { // Node ID: 41 (NodeFIFO)
+    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id41in_input = id5out_data;
+
+    id41out_output[(getCycle()+6)%7] = id41in_input;
+  }
+  { // Node ID: 17 (NodeInputMappedReg)
+  }
+  { // Node ID: 38 (NodeTriAdd)
+    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id38in_a = id13out_data;
+    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id38in_b = id16out_data;
+    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id38in_c = id17out_a;
+
+    HWOffsetFix<32,0,TWOSCOMPLEMENT> id38x_1;
+
+    (id38x_1) = (add_fixed<32,0,TWOSCOMPLEMENT,TRUNCATE>((add_fixed<32,0,TWOSCOMPLEMENT,TRUNCATE>(id38in_a,id38in_b)),id38in_c));
+    id38out_result[(getCycle()+1)%2] = (id38x_1);
+  }
+  { // Node ID: 45 (NodeConstantRawBits)
+  }
+  { // Node ID: 1 (NodeConstantRawBits)
+  }
+  if ( (getFillLevel() >= (15l)))
+  { // Node ID: 2 (NodeCounterV1)
+    const HWOffsetFix<1,0,UNSIGNED> &id2in_enable = id45out_value;
+    const HWOffsetFix<33,0,UNSIGNED> &id2in_max = id1out_value;
+
+    HWOffsetFix<33,0,UNSIGNED> id2x_1;
+    HWOffsetFix<1,0,UNSIGNED> id2x_2;
+    HWOffsetFix<1,0,UNSIGNED> id2x_3;
+    HWOffsetFix<33,0,UNSIGNED> id2x_4t_1e_1;
+
+    id2out_count = (cast_fixed2fixed<32,0,UNSIGNED,TRUNCATE>((id2st_count)));
+    (id2x_1) = (add_fixed<33,0,UNSIGNED,TRUNCATE>((id2st_count),(c_hw_fix_33_0_uns_bits_2)));
+    (id2x_2) = (gte_fixed((id2x_1),id2in_max));
+    (id2x_3) = (and_fixed((id2x_2),id2in_enable));
+    id2out_wrap = (id2x_3);
+    if((id2in_enable.getValueAsBool())) {
+      if(((id2x_3).getValueAsBool())) {
+        (id2st_count) = (c_hw_fix_33_0_uns_bits_1);
+      }
+      else {
+        (id2x_4t_1e_1) = (id2x_1);
+        (id2st_count) = (id2x_4t_1e_1);
+      }
     }
     else {
-      simPrintf("", 23, format_string_QueueKernel_2(""));
     }
-  }
-  { // Node ID: 25 (NodeInputMappedReg)
-  }
-  HWOffsetFix<1,0,UNSIGNED> id26out_result;
-
-  { // Node ID: 26 (NodeNot)
-    const HWOffsetFix<1,0,UNSIGNED> &id26in_a = id25out_io_s_force_disabled;
-
-    id26out_result = (not_fixed(id26in_a));
-  }
-  HWRawBits<1> id29out_output;
-
-  { // Node ID: 29 (NodeReinterpret)
-    const HWOffsetFix<1,0,UNSIGNED> &id29in_input = id26out_result;
-
-    id29out_output = (cast_fixed2bits(id29in_input));
-  }
-  HWOffsetFix<1,0,UNSIGNED> id30out_output;
-
-  { // Node ID: 30 (NodeReinterpret)
-    const HWRawBits<1> &id30in_input = id29out_output;
-
-    id30out_output = (cast_bits2fixed<1,0,UNSIGNED>(id30in_input));
   }
   if ( (getFillLevel() >= (15l)) && (getFlushLevel() < (15l)|| !isFlushingActive() ))
-  { // Node ID: 31 (NodeOutput)
-    const HWOffsetFix<1,0,UNSIGNED> &id31in_output_control = id30out_output;
-    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id31in_data = id41out_result[getCycle()%2];
+  { // Node ID: 21 (NodePrintf)
+    const HWOffsetFix<1,0,UNSIGNED> &id21in_condition = id20out_value;
+    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id21in_arg0 = id39out_output[getCycle()%2];
+    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id21in_arg1 = id40out_output[getCycle()%2];
+    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id21in_arg2 = id41out_output[getCycle()%7];
+    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id21in_arg3 = id17out_a;
+    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id21in_arg4 = id38out_result[getCycle()%2];
+    const HWOffsetFix<32,0,UNSIGNED> &id21in_arg5 = id2out_count;
 
-    bool id31x_1;
-
-    (id31x_1) = ((id31in_output_control.getValueAsBool())&(!(((getFlushLevel())>=(15l))&(isFlushingActive()))));
-    if((id31x_1)) {
-      writeOutput(m_s, id31in_data);
+    if((id21in_condition.getValueAsBool())) {
+      const HWOffsetFix<32,0,TWOSCOMPLEMENT> &_format_arg_0 = id21in_arg0;
+      const HWOffsetFix<32,0,TWOSCOMPLEMENT> &_format_arg_1 = id21in_arg1;
+      const HWOffsetFix<32,0,TWOSCOMPLEMENT> &_format_arg_2 = id21in_arg2;
+      const HWOffsetFix<32,0,TWOSCOMPLEMENT> &_format_arg_3 = id21in_arg3;
+      const HWOffsetFix<32,0,TWOSCOMPLEMENT> &_format_arg_4 = id21in_arg4;
+      const HWOffsetFix<32,0,UNSIGNED> &_format_arg_5 = id21in_arg5;
+      simPrintf("", 21, format_string_QueueKernel_1("\nx=%d y=%d controller=%d a=%d sum=%d count=%d\n", _format_arg_0, _format_arg_1, _format_arg_2, _format_arg_3, _format_arg_4, _format_arg_5));
+    }
+    else {
+      simPrintf("", 21, format_string_QueueKernel_2(""));
     }
   }
-  { // Node ID: 35 (NodeConstantRawBits)
+  HWOffsetFix<1,0,UNSIGNED> id22out_o;
+
+  { // Node ID: 22 (NodeCast)
+    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id22in_i = id41out_output[getCycle()%7];
+
+    id22out_o = (cast_fixed2fixed<1,0,UNSIGNED,TONEAR>(id22in_i));
   }
-  { // Node ID: 46 (NodeConstantRawBits)
+  HWRawBits<1> id26out_output;
+
+  { // Node ID: 26 (NodeReinterpret)
+    const HWOffsetFix<1,0,UNSIGNED> &id26in_input = id22out_o;
+
+    id26out_output = (cast_fixed2bits(id26in_input));
+  }
+  { // Node ID: 23 (NodeInputMappedReg)
+  }
+  HWOffsetFix<1,0,UNSIGNED> id24out_result;
+
+  { // Node ID: 24 (NodeNot)
+    const HWOffsetFix<1,0,UNSIGNED> &id24in_a = id23out_io_s_force_disabled;
+
+    id24out_result = (not_fixed(id24in_a));
+  }
+  HWRawBits<1> id27out_output;
+
+  { // Node ID: 27 (NodeReinterpret)
+    const HWOffsetFix<1,0,UNSIGNED> &id27in_input = id24out_result;
+
+    id27out_output = (cast_fixed2bits(id27in_input));
+  }
+  HWRawBits<1> id25out_result;
+
+  { // Node ID: 25 (NodeAnd)
+    const HWRawBits<1> &id25in_a = id26out_output;
+    const HWRawBits<1> &id25in_b = id27out_output;
+
+    HWRawBits<1> id25x_1;
+
+    (id25x_1) = (and_bits(id25in_a,id25in_b));
+    id25out_result = (id25x_1);
+  }
+  HWOffsetFix<1,0,UNSIGNED> id28out_output;
+
+  { // Node ID: 28 (NodeReinterpret)
+    const HWRawBits<1> &id28in_input = id25out_result;
+
+    id28out_output = (cast_bits2fixed<1,0,UNSIGNED>(id28in_input));
+  }
+  if ( (getFillLevel() >= (15l)) && (getFlushLevel() < (15l)|| !isFlushingActive() ))
+  { // Node ID: 29 (NodeOutput)
+    const HWOffsetFix<1,0,UNSIGNED> &id29in_output_control = id28out_output;
+    const HWOffsetFix<32,0,TWOSCOMPLEMENT> &id29in_data = id38out_result[getCycle()%2];
+
+    bool id29x_1;
+
+    (id29x_1) = ((id29in_output_control.getValueAsBool())&(!(((getFlushLevel())>=(15l))&(isFlushingActive()))));
+    if((id29x_1)) {
+      writeOutput(m_s, id29in_data);
+    }
   }
   { // Node ID: 33 (NodeConstantRawBits)
   }
+  { // Node ID: 44 (NodeConstantRawBits)
+  }
+  { // Node ID: 31 (NodeConstantRawBits)
+  }
   if ( (getFillLevel() >= (0l)))
-  { // Node ID: 34 (NodeCounterV1)
-    const HWOffsetFix<1,0,UNSIGNED> &id34in_enable = id46out_value;
-    const HWOffsetFix<49,0,UNSIGNED> &id34in_max = id33out_value;
+  { // Node ID: 32 (NodeCounterV1)
+    const HWOffsetFix<1,0,UNSIGNED> &id32in_enable = id44out_value;
+    const HWOffsetFix<49,0,UNSIGNED> &id32in_max = id31out_value;
 
-    HWOffsetFix<49,0,UNSIGNED> id34x_1;
-    HWOffsetFix<1,0,UNSIGNED> id34x_2;
-    HWOffsetFix<1,0,UNSIGNED> id34x_3;
-    HWOffsetFix<49,0,UNSIGNED> id34x_4t_1e_1;
+    HWOffsetFix<49,0,UNSIGNED> id32x_1;
+    HWOffsetFix<1,0,UNSIGNED> id32x_2;
+    HWOffsetFix<1,0,UNSIGNED> id32x_3;
+    HWOffsetFix<49,0,UNSIGNED> id32x_4t_1e_1;
 
-    id34out_count = (cast_fixed2fixed<48,0,UNSIGNED,TRUNCATE>((id34st_count)));
-    (id34x_1) = (add_fixed<49,0,UNSIGNED,TRUNCATE>((id34st_count),(c_hw_fix_49_0_uns_bits_2)));
-    (id34x_2) = (gte_fixed((id34x_1),id34in_max));
-    (id34x_3) = (and_fixed((id34x_2),id34in_enable));
-    id34out_wrap = (id34x_3);
-    if((id34in_enable.getValueAsBool())) {
-      if(((id34x_3).getValueAsBool())) {
-        (id34st_count) = (c_hw_fix_49_0_uns_bits_1);
+    id32out_count = (cast_fixed2fixed<48,0,UNSIGNED,TRUNCATE>((id32st_count)));
+    (id32x_1) = (add_fixed<49,0,UNSIGNED,TRUNCATE>((id32st_count),(c_hw_fix_49_0_uns_bits_2)));
+    (id32x_2) = (gte_fixed((id32x_1),id32in_max));
+    (id32x_3) = (and_fixed((id32x_2),id32in_enable));
+    id32out_wrap = (id32x_3);
+    if((id32in_enable.getValueAsBool())) {
+      if(((id32x_3).getValueAsBool())) {
+        (id32st_count) = (c_hw_fix_49_0_uns_bits_1);
       }
       else {
-        (id34x_4t_1e_1) = (id34x_1);
-        (id34st_count) = (id34x_4t_1e_1);
+        (id32x_4t_1e_1) = (id32x_1);
+        (id32st_count) = (id32x_4t_1e_1);
       }
     }
     else {
     }
   }
-  { // Node ID: 45 (NodeFIFO)
-    const HWOffsetFix<48,0,UNSIGNED> &id45in_input = id34out_count;
+  { // Node ID: 43 (NodeFIFO)
+    const HWOffsetFix<48,0,UNSIGNED> &id43in_input = id32out_count;
 
-    id45out_output[(getCycle()+4)%5] = id45in_input;
+    id43out_output[(getCycle()+4)%5] = id43in_input;
   }
   if ( (getFillLevel() >= (4l)) && (getFlushLevel() < (4l)|| !isFlushingActive() ))
-  { // Node ID: 36 (NodeOutputMappedReg)
-    const HWOffsetFix<1,0,UNSIGNED> &id36in_load = id35out_value;
-    const HWOffsetFix<48,0,UNSIGNED> &id36in_data = id45out_output[getCycle()%5];
+  { // Node ID: 34 (NodeOutputMappedReg)
+    const HWOffsetFix<1,0,UNSIGNED> &id34in_load = id33out_value;
+    const HWOffsetFix<48,0,UNSIGNED> &id34in_data = id43out_output[getCycle()%5];
 
-    bool id36x_1;
+    bool id34x_1;
 
-    (id36x_1) = ((id36in_load.getValueAsBool())&(!(((getFlushLevel())>=(4l))&(isFlushingActive()))));
-    if((id36x_1)) {
-      setMappedRegValue("current_run_cycle_count", id36in_data);
+    (id34x_1) = ((id34in_load.getValueAsBool())&(!(((getFlushLevel())>=(4l))&(isFlushingActive()))));
+    if((id34x_1)) {
+      setMappedRegValue("current_run_cycle_count", id34in_data);
     }
   }
-  { // Node ID: 38 (NodeInputMappedReg)
+  { // Node ID: 36 (NodeInputMappedReg)
   }
-  { // Node ID: 39 (NodeEq)
-    const HWOffsetFix<48,0,UNSIGNED> &id39in_a = id34out_count;
-    const HWOffsetFix<48,0,UNSIGNED> &id39in_b = id38out_run_cycle_count;
+  { // Node ID: 37 (NodeEq)
+    const HWOffsetFix<48,0,UNSIGNED> &id37in_a = id32out_count;
+    const HWOffsetFix<48,0,UNSIGNED> &id37in_b = id36out_run_cycle_count;
 
-    id39out_result[(getCycle()+1)%2] = (eq_fixed(id39in_a,id39in_b));
+    id37out_result[(getCycle()+1)%2] = (eq_fixed(id37in_a,id37in_b));
   }
   if ( (getFillLevel() >= (1l)))
-  { // Node ID: 37 (NodeFlush)
-    const HWOffsetFix<1,0,UNSIGNED> &id37in_start = id39out_result[getCycle()%2];
+  { // Node ID: 35 (NodeFlush)
+    const HWOffsetFix<1,0,UNSIGNED> &id35in_start = id37out_result[getCycle()%2];
 
-    if((id37in_start.getValueAsBool())) {
+    if((id35in_start.getValueAsBool())) {
       startFlushing();
     }
   }

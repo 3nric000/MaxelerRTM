@@ -291,8 +291,8 @@ max_actions_t* Queue_readLMem_convert(max_file_t *maxfile, Queue_readLMem_action
  * 
  * \param [in] param_A Interface Parameter "A".
  * \param [in] param_N Interface Parameter "N".
- * \param [in] instream_controller The stream should be of size (param_N * 4) bytes.
- * \param [in] instream_y The stream should be of size (param_N * 4) bytes.
+ * \param [in] instream_controller The stream should be of size ((param_N * 2) * 4) bytes.
+ * \param [in] instream_y The stream should be of size ((param_N * 2) * 4) bytes.
  * \param [out] outstream_s The stream should be of size (param_N * 4) bytes.
  */
 void Queue(
@@ -312,8 +312,8 @@ void Queue(
  * 
  * \param [in] param_A Interface Parameter "A".
  * \param [in] param_N Interface Parameter "N".
- * \param [in] instream_controller The stream should be of size (param_N * 4) bytes.
- * \param [in] instream_y The stream should be of size (param_N * 4) bytes.
+ * \param [in] instream_controller The stream should be of size ((param_N * 2) * 4) bytes.
+ * \param [in] instream_y The stream should be of size ((param_N * 2) * 4) bytes.
  * \param [out] outstream_s The stream should be of size (param_N * 4) bytes.
  * \return A handle on the execution status, or NULL in case of error.
  */
@@ -331,8 +331,8 @@ max_run_t *Queue_nonblock(
 typedef struct { 
 	int64_t param_A; /**<  [in] Interface Parameter "A". */
 	int64_t param_N; /**<  [in] Interface Parameter "N". */
-	const int32_t *instream_controller; /**<  [in] The stream should be of size (param_N * 4) bytes. */
-	const int32_t *instream_y; /**<  [in] The stream should be of size (param_N * 4) bytes. */
+	const int32_t *instream_controller; /**<  [in] The stream should be of size ((param_N * 2) * 4) bytes. */
+	const int32_t *instream_y; /**<  [in] The stream should be of size ((param_N * 2) * 4) bytes. */
 	int32_t *outstream_s; /**<  [out] The stream should be of size (param_N * 4) bytes. */
 } Queue_actions_t;
 

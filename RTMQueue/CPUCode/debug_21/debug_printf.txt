@@ -1,0 +1,1524 @@
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=1 controller=1 a=3 sum=4
+
+x=0 y=2 controller=0 a=3 sum=5
+
+x=1 y=3 controller=1 a=3 sum=7
+
+x=1 y=4 controller=0 a=3 sum=8
+
+x=2 y=5 controller=1 a=3 sum=10
+
+x=2 y=6 controller=0 a=3 sum=11
+
+x=3 y=7 controller=1 a=3 sum=13
+
+x=3 y=8 controller=0 a=3 sum=14
+
+x=4 y=9 controller=1 a=3 sum=16
+
+x=4 y=10 controller=0 a=3 sum=17
+
+x=5 y=11 controller=1 a=3 sum=19
+
+x=5 y=12 controller=0 a=3 sum=20
+
+x=6 y=13 controller=1 a=3 sum=22
+
+x=6 y=14 controller=0 a=3 sum=23
+
+x=7 y=15 controller=1 a=3 sum=25
+
+x=7 y=16 controller=0 a=3 sum=26
+
+x=8 y=17 controller=1 a=3 sum=28
+
+x=8 y=18 controller=0 a=3 sum=29
+
+x=9 y=19 controller=1 a=3 sum=31
+
+x=9 y=20 controller=0 a=3 sum=32
+
+x=10 y=21 controller=1 a=3 sum=34
+
+x=10 y=22 controller=0 a=3 sum=35
+
+x=11 y=23 controller=1 a=3 sum=37
+
+x=11 y=24 controller=0 a=3 sum=38
+
+x=12 y=25 controller=1 a=3 sum=40
+
+x=12 y=26 controller=0 a=3 sum=41
+
+x=13 y=27 controller=1 a=3 sum=43
+
+x=13 y=28 controller=0 a=3 sum=44
+
+x=14 y=29 controller=1 a=3 sum=46
+
+x=14 y=30 controller=0 a=3 sum=47
+
+x=15 y=31 controller=1 a=3 sum=49
+
+x=15 y=32 controller=0 a=3 sum=50
+
+x=16 y=33 controller=1 a=3 sum=52
+
+x=16 y=34 controller=0 a=3 sum=53
+
+x=17 y=35 controller=1 a=3 sum=55
+
+x=17 y=36 controller=0 a=3 sum=56
+
+x=18 y=37 controller=1 a=3 sum=58
+
+x=18 y=38 controller=0 a=3 sum=59
+
+x=19 y=39 controller=1 a=3 sum=61
+
+x=19 y=40 controller=0 a=3 sum=62
+
+x=20 y=41 controller=1 a=3 sum=64
+
+x=20 y=42 controller=0 a=3 sum=65
+
+x=21 y=43 controller=1 a=3 sum=67
+
+x=21 y=44 controller=0 a=3 sum=68
+
+x=22 y=45 controller=1 a=3 sum=70
+
+x=22 y=46 controller=0 a=3 sum=71
+
+x=23 y=47 controller=1 a=3 sum=73
+
+x=23 y=48 controller=0 a=3 sum=74
+
+x=24 y=49 controller=1 a=3 sum=76
+
+x=24 y=50 controller=0 a=3 sum=77
+
+x=25 y=51 controller=1 a=3 sum=79
+
+x=25 y=52 controller=0 a=3 sum=80
+
+x=26 y=53 controller=1 a=3 sum=82
+
+x=26 y=54 controller=0 a=3 sum=83
+
+x=27 y=55 controller=1 a=3 sum=85
+
+x=27 y=56 controller=0 a=3 sum=86
+
+x=28 y=57 controller=1 a=3 sum=88
+
+x=28 y=58 controller=0 a=3 sum=89
+
+x=29 y=59 controller=1 a=3 sum=91
+
+x=29 y=60 controller=0 a=3 sum=92
+
+x=30 y=61 controller=1 a=3 sum=94
+
+x=30 y=62 controller=0 a=3 sum=95
+
+x=31 y=63 controller=1 a=3 sum=97
+
+x=31 y=64 controller=0 a=3 sum=98
+
+x=32 y=65 controller=1 a=3 sum=100
+
+x=32 y=66 controller=0 a=3 sum=101
+
+x=33 y=67 controller=1 a=3 sum=103
+
+x=33 y=68 controller=0 a=3 sum=104
+
+x=34 y=69 controller=1 a=3 sum=106
+
+x=34 y=70 controller=0 a=3 sum=107
+
+x=35 y=71 controller=1 a=3 sum=109
+
+x=35 y=72 controller=0 a=3 sum=110
+
+x=36 y=73 controller=1 a=3 sum=112
+
+x=36 y=74 controller=0 a=3 sum=113
+
+x=37 y=75 controller=1 a=3 sum=115
+
+x=37 y=76 controller=0 a=3 sum=116
+
+x=38 y=77 controller=1 a=3 sum=118
+
+x=38 y=78 controller=0 a=3 sum=119
+
+x=39 y=79 controller=1 a=3 sum=121
+
+x=39 y=80 controller=0 a=3 sum=122
+
+x=40 y=81 controller=1 a=3 sum=124
+
+x=40 y=82 controller=0 a=3 sum=125
+
+x=41 y=83 controller=1 a=3 sum=127
+
+x=41 y=84 controller=0 a=3 sum=128
+
+x=42 y=85 controller=1 a=3 sum=130
+
+x=42 y=86 controller=0 a=3 sum=131
+
+x=43 y=87 controller=1 a=3 sum=133
+
+x=43 y=88 controller=0 a=3 sum=134
+
+x=44 y=89 controller=1 a=3 sum=136
+
+x=44 y=90 controller=0 a=3 sum=137
+
+x=45 y=91 controller=1 a=3 sum=139
+
+x=45 y=92 controller=0 a=3 sum=140
+
+x=46 y=93 controller=1 a=3 sum=142
+
+x=46 y=94 controller=0 a=3 sum=143
+
+x=47 y=95 controller=1 a=3 sum=145
+
+x=47 y=96 controller=0 a=3 sum=146
+
+x=48 y=97 controller=1 a=3 sum=148
+
+x=48 y=98 controller=0 a=3 sum=149
+
+x=49 y=99 controller=1 a=3 sum=151
+
+x=49 y=100 controller=0 a=3 sum=152
+
+x=50 y=101 controller=1 a=3 sum=154
+
+x=50 y=102 controller=0 a=3 sum=155
+
+x=51 y=103 controller=1 a=3 sum=157
+
+x=51 y=104 controller=0 a=3 sum=158
+
+x=52 y=105 controller=1 a=3 sum=160
+
+x=52 y=106 controller=0 a=3 sum=161
+
+x=53 y=107 controller=1 a=3 sum=163
+
+x=53 y=108 controller=0 a=3 sum=164
+
+x=54 y=109 controller=1 a=3 sum=166
+
+x=54 y=110 controller=0 a=3 sum=167
+
+x=55 y=111 controller=1 a=3 sum=169
+
+x=55 y=112 controller=0 a=3 sum=170
+
+x=56 y=113 controller=1 a=3 sum=172
+
+x=56 y=114 controller=0 a=3 sum=173
+
+x=57 y=115 controller=1 a=3 sum=175
+
+x=57 y=116 controller=0 a=3 sum=176
+
+x=58 y=117 controller=1 a=3 sum=178
+
+x=58 y=118 controller=0 a=3 sum=179
+
+x=59 y=119 controller=1 a=3 sum=181
+
+x=59 y=120 controller=0 a=3 sum=182
+
+x=60 y=121 controller=1 a=3 sum=184
+
+x=60 y=122 controller=0 a=3 sum=185
+
+x=61 y=123 controller=1 a=3 sum=187
+
+x=61 y=124 controller=0 a=3 sum=188
+
+x=62 y=125 controller=1 a=3 sum=190
+
+x=62 y=126 controller=0 a=3 sum=191
+
+x=63 y=127 controller=1 a=3 sum=193
+
+x=63 y=128 controller=0 a=3 sum=194
+
+x=64 y=129 controller=1 a=3 sum=196
+
+x=64 y=130 controller=0 a=3 sum=197
+
+x=65 y=131 controller=1 a=3 sum=199
+
+x=65 y=132 controller=0 a=3 sum=200
+
+x=66 y=133 controller=1 a=3 sum=202
+
+x=66 y=134 controller=0 a=3 sum=203
+
+x=67 y=135 controller=1 a=3 sum=205
+
+x=67 y=136 controller=0 a=3 sum=206
+
+x=68 y=137 controller=1 a=3 sum=208
+
+x=68 y=138 controller=0 a=3 sum=209
+
+x=69 y=139 controller=1 a=3 sum=211
+
+x=69 y=140 controller=0 a=3 sum=212
+
+x=70 y=141 controller=1 a=3 sum=214
+
+x=70 y=142 controller=0 a=3 sum=215
+
+x=71 y=143 controller=1 a=3 sum=217
+
+x=71 y=144 controller=0 a=3 sum=218
+
+x=72 y=145 controller=1 a=3 sum=220
+
+x=72 y=146 controller=0 a=3 sum=221
+
+x=73 y=147 controller=1 a=3 sum=223
+
+x=73 y=148 controller=0 a=3 sum=224
+
+x=74 y=149 controller=1 a=3 sum=226
+
+x=74 y=150 controller=0 a=3 sum=227
+
+x=75 y=151 controller=1 a=3 sum=229
+
+x=75 y=152 controller=0 a=3 sum=230
+
+x=76 y=153 controller=1 a=3 sum=232
+
+x=76 y=154 controller=0 a=3 sum=233
+
+x=77 y=155 controller=1 a=3 sum=235
+
+x=77 y=156 controller=0 a=3 sum=236
+
+x=78 y=157 controller=1 a=3 sum=238
+
+x=78 y=158 controller=0 a=3 sum=239
+
+x=79 y=159 controller=1 a=3 sum=241
+
+x=79 y=160 controller=0 a=3 sum=242
+
+x=80 y=161 controller=1 a=3 sum=244
+
+x=80 y=162 controller=0 a=3 sum=245
+
+x=81 y=163 controller=1 a=3 sum=247
+
+x=81 y=164 controller=0 a=3 sum=248
+
+x=82 y=165 controller=1 a=3 sum=250
+
+x=82 y=166 controller=0 a=3 sum=251
+
+x=83 y=167 controller=1 a=3 sum=253
+
+x=83 y=168 controller=0 a=3 sum=254
+
+x=84 y=169 controller=1 a=3 sum=256
+
+x=84 y=170 controller=0 a=3 sum=257
+
+x=85 y=171 controller=1 a=3 sum=259
+
+x=85 y=172 controller=0 a=3 sum=260
+
+x=86 y=173 controller=1 a=3 sum=262
+
+x=86 y=174 controller=0 a=3 sum=263
+
+x=87 y=175 controller=1 a=3 sum=265
+
+x=87 y=176 controller=0 a=3 sum=266
+
+x=88 y=177 controller=1 a=3 sum=268
+
+x=88 y=178 controller=0 a=3 sum=269
+
+x=89 y=179 controller=1 a=3 sum=271
+
+x=89 y=180 controller=0 a=3 sum=272
+
+x=90 y=181 controller=1 a=3 sum=274
+
+x=90 y=182 controller=0 a=3 sum=275
+
+x=91 y=183 controller=1 a=3 sum=277
+
+x=91 y=184 controller=0 a=3 sum=278
+
+x=92 y=185 controller=1 a=3 sum=280
+
+x=92 y=186 controller=0 a=3 sum=281
+
+x=93 y=187 controller=1 a=3 sum=283
+
+x=93 y=188 controller=0 a=3 sum=284
+
+x=94 y=189 controller=1 a=3 sum=286
+
+x=94 y=190 controller=0 a=3 sum=287
+
+x=95 y=191 controller=1 a=3 sum=289
+
+x=95 y=192 controller=0 a=3 sum=290
+
+x=96 y=193 controller=1 a=3 sum=292
+
+x=96 y=194 controller=0 a=3 sum=293
+
+x=97 y=195 controller=1 a=3 sum=295
+
+x=97 y=196 controller=0 a=3 sum=296
+
+x=98 y=197 controller=1 a=3 sum=298
+
+x=98 y=198 controller=0 a=3 sum=299
+
+x=99 y=199 controller=1 a=3 sum=301
+
+x=99 y=200 controller=0 a=3 sum=302
+
+x=100 y=201 controller=1 a=3 sum=304
+
+x=100 y=202 controller=0 a=3 sum=305
+
+x=101 y=203 controller=1 a=3 sum=307
+
+x=101 y=204 controller=0 a=3 sum=308
+
+x=102 y=205 controller=1 a=3 sum=310
+
+x=102 y=206 controller=0 a=3 sum=311
+
+x=103 y=207 controller=1 a=3 sum=313
+
+x=103 y=208 controller=0 a=3 sum=314
+
+x=104 y=209 controller=1 a=3 sum=316
+
+x=104 y=210 controller=0 a=3 sum=317
+
+x=105 y=211 controller=1 a=3 sum=319
+
+x=105 y=212 controller=0 a=3 sum=320
+
+x=106 y=213 controller=1 a=3 sum=322
+
+x=106 y=214 controller=0 a=3 sum=323
+
+x=107 y=215 controller=1 a=3 sum=325
+
+x=107 y=216 controller=0 a=3 sum=326
+
+x=108 y=217 controller=1 a=3 sum=328
+
+x=108 y=218 controller=0 a=3 sum=329
+
+x=109 y=219 controller=1 a=3 sum=331
+
+x=109 y=220 controller=0 a=3 sum=332
+
+x=110 y=221 controller=1 a=3 sum=334
+
+x=110 y=222 controller=0 a=3 sum=335
+
+x=111 y=223 controller=1 a=3 sum=337
+
+x=111 y=224 controller=0 a=3 sum=338
+
+x=112 y=225 controller=1 a=3 sum=340
+
+x=112 y=226 controller=0 a=3 sum=341
+
+x=113 y=227 controller=1 a=3 sum=343
+
+x=113 y=228 controller=0 a=3 sum=344
+
+x=114 y=229 controller=1 a=3 sum=346
+
+x=114 y=230 controller=0 a=3 sum=347
+
+x=115 y=231 controller=1 a=3 sum=349
+
+x=115 y=232 controller=0 a=3 sum=350
+
+x=116 y=233 controller=1 a=3 sum=352
+
+x=116 y=234 controller=0 a=3 sum=353
+
+x=117 y=235 controller=1 a=3 sum=355
+
+x=117 y=236 controller=0 a=3 sum=356
+
+x=118 y=237 controller=1 a=3 sum=358
+
+x=118 y=238 controller=0 a=3 sum=359
+
+x=119 y=239 controller=1 a=3 sum=361
+
+x=119 y=240 controller=0 a=3 sum=362
+
+x=120 y=241 controller=1 a=3 sum=364
+
+x=120 y=242 controller=0 a=3 sum=365
+
+x=121 y=243 controller=1 a=3 sum=367
+
+x=121 y=244 controller=0 a=3 sum=368
+
+x=122 y=245 controller=1 a=3 sum=370
+
+x=122 y=246 controller=0 a=3 sum=371
+
+x=123 y=247 controller=1 a=3 sum=373
+
+x=123 y=248 controller=0 a=3 sum=374
+
+x=124 y=249 controller=1 a=3 sum=376
+
+x=124 y=250 controller=0 a=3 sum=377
+
+x=125 y=251 controller=1 a=3 sum=379
+
+x=125 y=252 controller=0 a=3 sum=380
+
+x=126 y=253 controller=1 a=3 sum=382
+
+x=126 y=254 controller=0 a=3 sum=383
+
+x=127 y=255 controller=1 a=3 sum=385
+
+x=127 y=256 controller=0 a=3 sum=386
+
+x=128 y=257 controller=1 a=3 sum=388
+
+x=128 y=258 controller=0 a=3 sum=389
+
+x=129 y=259 controller=1 a=3 sum=391
+
+x=129 y=260 controller=0 a=3 sum=392
+
+x=130 y=261 controller=1 a=3 sum=394
+
+x=130 y=262 controller=0 a=3 sum=395
+
+x=131 y=263 controller=1 a=3 sum=397
+
+x=131 y=264 controller=0 a=3 sum=398
+
+x=132 y=265 controller=1 a=3 sum=400
+
+x=132 y=266 controller=0 a=3 sum=401
+
+x=133 y=267 controller=1 a=3 sum=403
+
+x=133 y=268 controller=0 a=3 sum=404
+
+x=134 y=269 controller=1 a=3 sum=406
+
+x=134 y=270 controller=0 a=3 sum=407
+
+x=135 y=271 controller=1 a=3 sum=409
+
+x=135 y=272 controller=0 a=3 sum=410
+
+x=136 y=273 controller=1 a=3 sum=412
+
+x=136 y=274 controller=0 a=3 sum=413
+
+x=137 y=275 controller=1 a=3 sum=415
+
+x=137 y=276 controller=0 a=3 sum=416
+
+x=138 y=277 controller=1 a=3 sum=418
+
+x=138 y=278 controller=0 a=3 sum=419
+
+x=139 y=279 controller=1 a=3 sum=421
+
+x=139 y=280 controller=0 a=3 sum=422
+
+x=140 y=281 controller=1 a=3 sum=424
+
+x=140 y=282 controller=0 a=3 sum=425
+
+x=141 y=283 controller=1 a=3 sum=427
+
+x=141 y=284 controller=0 a=3 sum=428
+
+x=142 y=285 controller=1 a=3 sum=430
+
+x=142 y=286 controller=0 a=3 sum=431
+
+x=143 y=287 controller=1 a=3 sum=433
+
+x=143 y=288 controller=0 a=3 sum=434
+
+x=144 y=289 controller=1 a=3 sum=436
+
+x=144 y=290 controller=0 a=3 sum=437
+
+x=145 y=291 controller=1 a=3 sum=439
+
+x=145 y=292 controller=0 a=3 sum=440
+
+x=146 y=293 controller=1 a=3 sum=442
+
+x=146 y=294 controller=0 a=3 sum=443
+
+x=147 y=295 controller=1 a=3 sum=445
+
+x=147 y=296 controller=0 a=3 sum=446
+
+x=148 y=297 controller=1 a=3 sum=448
+
+x=148 y=298 controller=0 a=3 sum=449
+
+x=149 y=299 controller=1 a=3 sum=451
+
+x=149 y=300 controller=0 a=3 sum=452
+
+x=150 y=301 controller=1 a=3 sum=454
+
+x=150 y=302 controller=0 a=3 sum=455
+
+x=151 y=303 controller=1 a=3 sum=457
+
+x=151 y=304 controller=0 a=3 sum=458
+
+x=152 y=305 controller=1 a=3 sum=460
+
+x=152 y=306 controller=0 a=3 sum=461
+
+x=153 y=307 controller=1 a=3 sum=463
+
+x=153 y=308 controller=0 a=3 sum=464
+
+x=154 y=309 controller=1 a=3 sum=466
+
+x=154 y=310 controller=0 a=3 sum=467
+
+x=155 y=311 controller=1 a=3 sum=469
+
+x=155 y=312 controller=0 a=3 sum=470
+
+x=156 y=313 controller=1 a=3 sum=472
+
+x=156 y=314 controller=0 a=3 sum=473
+
+x=157 y=315 controller=1 a=3 sum=475
+
+x=157 y=316 controller=0 a=3 sum=476
+
+x=158 y=317 controller=1 a=3 sum=478
+
+x=158 y=318 controller=0 a=3 sum=479
+
+x=159 y=319 controller=1 a=3 sum=481
+
+x=159 y=320 controller=0 a=3 sum=482
+
+x=160 y=321 controller=1 a=3 sum=484
+
+x=160 y=322 controller=0 a=3 sum=485
+
+x=161 y=323 controller=1 a=3 sum=487
+
+x=161 y=324 controller=0 a=3 sum=488
+
+x=162 y=325 controller=1 a=3 sum=490
+
+x=162 y=326 controller=0 a=3 sum=491
+
+x=163 y=327 controller=1 a=3 sum=493
+
+x=163 y=328 controller=0 a=3 sum=494
+
+x=164 y=329 controller=1 a=3 sum=496
+
+x=164 y=330 controller=0 a=3 sum=497
+
+x=165 y=331 controller=1 a=3 sum=499
+
+x=165 y=332 controller=0 a=3 sum=500
+
+x=166 y=333 controller=1 a=3 sum=502
+
+x=166 y=334 controller=0 a=3 sum=503
+
+x=167 y=335 controller=1 a=3 sum=505
+
+x=167 y=336 controller=0 a=3 sum=506
+
+x=168 y=337 controller=1 a=3 sum=508
+
+x=168 y=338 controller=0 a=3 sum=509
+
+x=169 y=339 controller=1 a=3 sum=511
+
+x=169 y=340 controller=0 a=3 sum=512
+
+x=170 y=341 controller=1 a=3 sum=514
+
+x=170 y=342 controller=0 a=3 sum=515
+
+x=171 y=343 controller=1 a=3 sum=517
+
+x=171 y=344 controller=0 a=3 sum=518
+
+x=172 y=345 controller=1 a=3 sum=520
+
+x=172 y=346 controller=0 a=3 sum=521
+
+x=173 y=347 controller=1 a=3 sum=523
+
+x=173 y=348 controller=0 a=3 sum=524
+
+x=174 y=349 controller=1 a=3 sum=526
+
+x=174 y=350 controller=0 a=3 sum=527
+
+x=175 y=351 controller=1 a=3 sum=529
+
+x=175 y=352 controller=0 a=3 sum=530
+
+x=176 y=353 controller=1 a=3 sum=532
+
+x=176 y=354 controller=0 a=3 sum=533
+
+x=177 y=355 controller=1 a=3 sum=535
+
+x=177 y=356 controller=0 a=3 sum=536
+
+x=178 y=357 controller=1 a=3 sum=538
+
+x=178 y=358 controller=0 a=3 sum=539
+
+x=179 y=359 controller=1 a=3 sum=541
+
+x=179 y=360 controller=0 a=3 sum=542
+
+x=180 y=361 controller=1 a=3 sum=544
+
+x=180 y=362 controller=0 a=3 sum=545
+
+x=181 y=363 controller=1 a=3 sum=547
+
+x=181 y=364 controller=0 a=3 sum=548
+
+x=182 y=365 controller=1 a=3 sum=550
+
+x=182 y=366 controller=0 a=3 sum=551
+
+x=183 y=367 controller=1 a=3 sum=553
+
+x=183 y=368 controller=0 a=3 sum=554
+
+x=184 y=369 controller=1 a=3 sum=556
+
+x=184 y=370 controller=0 a=3 sum=557
+
+x=185 y=371 controller=1 a=3 sum=559
+
+x=185 y=372 controller=0 a=3 sum=560
+
+x=186 y=373 controller=1 a=3 sum=562
+
+x=186 y=374 controller=0 a=3 sum=563
+
+x=187 y=375 controller=1 a=3 sum=565
+
+x=187 y=376 controller=0 a=3 sum=566
+
+x=188 y=377 controller=1 a=3 sum=568
+
+x=188 y=378 controller=0 a=3 sum=569
+
+x=189 y=379 controller=1 a=3 sum=571
+
+x=189 y=380 controller=0 a=3 sum=572
+
+x=190 y=381 controller=1 a=3 sum=574
+
+x=190 y=382 controller=0 a=3 sum=575
+
+x=191 y=383 controller=1 a=3 sum=577
+
+x=191 y=384 controller=0 a=3 sum=578
+
+x=192 y=385 controller=1 a=3 sum=580
+
+x=192 y=386 controller=0 a=3 sum=581
+
+x=193 y=387 controller=1 a=3 sum=583
+
+x=193 y=388 controller=0 a=3 sum=584
+
+x=194 y=389 controller=1 a=3 sum=586
+
+x=194 y=390 controller=0 a=3 sum=587
+
+x=195 y=391 controller=1 a=3 sum=589
+
+x=195 y=392 controller=0 a=3 sum=590
+
+x=196 y=393 controller=1 a=3 sum=592
+
+x=196 y=394 controller=0 a=3 sum=593
+
+x=197 y=395 controller=1 a=3 sum=595
+
+x=197 y=396 controller=0 a=3 sum=596
+
+x=198 y=397 controller=1 a=3 sum=598
+
+x=198 y=398 controller=0 a=3 sum=599
+
+x=199 y=399 controller=1 a=3 sum=601
+
+x=199 y=400 controller=0 a=3 sum=602
+
+x=200 y=401 controller=1 a=3 sum=604
+
+x=200 y=402 controller=0 a=3 sum=605
+
+x=201 y=403 controller=1 a=3 sum=607
+
+x=201 y=404 controller=0 a=3 sum=608
+
+x=202 y=405 controller=1 a=3 sum=610
+
+x=202 y=406 controller=0 a=3 sum=611
+
+x=203 y=407 controller=1 a=3 sum=613
+
+x=203 y=408 controller=0 a=3 sum=614
+
+x=204 y=409 controller=1 a=3 sum=616
+
+x=204 y=410 controller=0 a=3 sum=617
+
+x=205 y=411 controller=1 a=3 sum=619
+
+x=205 y=412 controller=0 a=3 sum=620
+
+x=206 y=413 controller=1 a=3 sum=622
+
+x=206 y=414 controller=0 a=3 sum=623
+
+x=207 y=415 controller=1 a=3 sum=625
+
+x=207 y=416 controller=0 a=3 sum=626
+
+x=208 y=417 controller=1 a=3 sum=628
+
+x=208 y=418 controller=0 a=3 sum=629
+
+x=209 y=419 controller=1 a=3 sum=631
+
+x=209 y=420 controller=0 a=3 sum=632
+
+x=210 y=421 controller=1 a=3 sum=634
+
+x=210 y=422 controller=0 a=3 sum=635
+
+x=211 y=423 controller=1 a=3 sum=637
+
+x=211 y=424 controller=0 a=3 sum=638
+
+x=212 y=425 controller=1 a=3 sum=640
+
+x=212 y=426 controller=0 a=3 sum=641
+
+x=213 y=427 controller=1 a=3 sum=643
+
+x=213 y=428 controller=0 a=3 sum=644
+
+x=214 y=429 controller=1 a=3 sum=646
+
+x=214 y=430 controller=0 a=3 sum=647
+
+x=215 y=431 controller=1 a=3 sum=649
+
+x=215 y=432 controller=0 a=3 sum=650
+
+x=216 y=433 controller=1 a=3 sum=652
+
+x=216 y=434 controller=0 a=3 sum=653
+
+x=217 y=435 controller=1 a=3 sum=655
+
+x=217 y=436 controller=0 a=3 sum=656
+
+x=218 y=437 controller=1 a=3 sum=658
+
+x=218 y=438 controller=0 a=3 sum=659
+
+x=219 y=439 controller=1 a=3 sum=661
+
+x=219 y=440 controller=0 a=3 sum=662
+
+x=220 y=441 controller=1 a=3 sum=664
+
+x=220 y=442 controller=0 a=3 sum=665
+
+x=221 y=443 controller=1 a=3 sum=667
+
+x=221 y=444 controller=0 a=3 sum=668
+
+x=222 y=445 controller=1 a=3 sum=670
+
+x=222 y=446 controller=0 a=3 sum=671
+
+x=223 y=447 controller=1 a=3 sum=673
+
+x=223 y=448 controller=0 a=3 sum=674
+
+x=224 y=449 controller=1 a=3 sum=676
+
+x=224 y=450 controller=0 a=3 sum=677
+
+x=225 y=451 controller=1 a=3 sum=679
+
+x=225 y=452 controller=0 a=3 sum=680
+
+x=226 y=453 controller=1 a=3 sum=682
+
+x=226 y=454 controller=0 a=3 sum=683
+
+x=227 y=455 controller=1 a=3 sum=685
+
+x=227 y=456 controller=0 a=3 sum=686
+
+x=228 y=457 controller=1 a=3 sum=688
+
+x=228 y=458 controller=0 a=3 sum=689
+
+x=229 y=459 controller=1 a=3 sum=691
+
+x=229 y=460 controller=0 a=3 sum=692
+
+x=230 y=461 controller=1 a=3 sum=694
+
+x=230 y=462 controller=0 a=3 sum=695
+
+x=231 y=463 controller=1 a=3 sum=697
+
+x=231 y=464 controller=0 a=3 sum=698
+
+x=232 y=465 controller=1 a=3 sum=700
+
+x=232 y=466 controller=0 a=3 sum=701
+
+x=233 y=467 controller=1 a=3 sum=703
+
+x=233 y=468 controller=0 a=3 sum=704
+
+x=234 y=469 controller=1 a=3 sum=706
+
+x=234 y=470 controller=0 a=3 sum=707
+
+x=235 y=471 controller=1 a=3 sum=709
+
+x=235 y=472 controller=0 a=3 sum=710
+
+x=236 y=473 controller=1 a=3 sum=712
+
+x=236 y=474 controller=0 a=3 sum=713
+
+x=237 y=475 controller=1 a=3 sum=715
+
+x=237 y=476 controller=0 a=3 sum=716
+
+x=238 y=477 controller=1 a=3 sum=718
+
+x=238 y=478 controller=0 a=3 sum=719
+
+x=239 y=479 controller=1 a=3 sum=721
+
+x=239 y=480 controller=0 a=3 sum=722
+
+x=240 y=481 controller=1 a=3 sum=724
+
+x=240 y=482 controller=0 a=3 sum=725
+
+x=241 y=483 controller=1 a=3 sum=727
+
+x=241 y=484 controller=0 a=3 sum=728
+
+x=242 y=485 controller=1 a=3 sum=730
+
+x=242 y=486 controller=0 a=3 sum=731
+
+x=243 y=487 controller=1 a=3 sum=733
+
+x=243 y=488 controller=0 a=3 sum=734
+
+x=244 y=489 controller=1 a=3 sum=736
+
+x=244 y=490 controller=0 a=3 sum=737
+
+x=245 y=491 controller=1 a=3 sum=739
+
+x=245 y=492 controller=0 a=3 sum=740
+
+x=246 y=493 controller=1 a=3 sum=742
+
+x=246 y=494 controller=0 a=3 sum=743
+
+x=247 y=495 controller=1 a=3 sum=745
+
+x=247 y=496 controller=0 a=3 sum=746
+
+x=248 y=497 controller=1 a=3 sum=748
+
+x=248 y=498 controller=0 a=3 sum=749
+
+x=249 y=499 controller=1 a=3 sum=751
+
+x=249 y=500 controller=0 a=3 sum=752
+
+x=250 y=501 controller=1 a=3 sum=754
+
+x=250 y=502 controller=0 a=3 sum=755
+
+x=251 y=503 controller=1 a=3 sum=757
+
+x=251 y=504 controller=0 a=3 sum=758
+
+x=252 y=505 controller=1 a=3 sum=760
+
+x=252 y=506 controller=0 a=3 sum=761
+
+x=253 y=507 controller=1 a=3 sum=763
+
+x=253 y=508 controller=0 a=3 sum=764
+
+x=254 y=509 controller=1 a=3 sum=766
+
+x=254 y=510 controller=0 a=3 sum=767
+
+x=255 y=511 controller=1 a=3 sum=769
+
+x=255 y=512 controller=0 a=3 sum=770
+
+x=256 y=513 controller=1 a=3 sum=772
+
+x=256 y=514 controller=0 a=3 sum=773
+
+x=257 y=515 controller=1 a=3 sum=775
+
+x=257 y=516 controller=0 a=3 sum=776
+
+x=258 y=517 controller=1 a=3 sum=778
+
+x=258 y=518 controller=0 a=3 sum=779
+
+x=259 y=519 controller=1 a=3 sum=781
+
+x=259 y=520 controller=0 a=3 sum=782
+
+x=260 y=521 controller=1 a=3 sum=784
+
+x=260 y=522 controller=0 a=3 sum=785
+
+x=261 y=523 controller=1 a=3 sum=787
+
+x=261 y=524 controller=0 a=3 sum=788
+
+x=262 y=525 controller=1 a=3 sum=790
+
+x=262 y=526 controller=0 a=3 sum=791
+
+x=263 y=527 controller=1 a=3 sum=793
+
+x=263 y=528 controller=0 a=3 sum=794
+
+x=264 y=529 controller=1 a=3 sum=796
+
+x=264 y=530 controller=0 a=3 sum=797
+
+x=265 y=531 controller=1 a=3 sum=799
+
+x=265 y=532 controller=0 a=3 sum=800
+
+x=266 y=533 controller=1 a=3 sum=802
+
+x=266 y=534 controller=0 a=3 sum=803
+
+x=267 y=535 controller=1 a=3 sum=805
+
+x=267 y=536 controller=0 a=3 sum=806
+
+x=268 y=537 controller=1 a=3 sum=808
+
+x=268 y=538 controller=0 a=3 sum=809
+
+x=269 y=539 controller=1 a=3 sum=811
+
+x=269 y=540 controller=0 a=3 sum=812
+
+x=270 y=541 controller=1 a=3 sum=814
+
+x=270 y=542 controller=0 a=3 sum=815
+
+x=271 y=543 controller=1 a=3 sum=817
+
+x=271 y=544 controller=0 a=3 sum=818
+
+x=272 y=545 controller=1 a=3 sum=820
+
+x=272 y=546 controller=0 a=3 sum=821
+
+x=273 y=547 controller=1 a=3 sum=823
+
+x=273 y=548 controller=0 a=3 sum=824
+
+x=274 y=549 controller=1 a=3 sum=826
+
+x=274 y=550 controller=0 a=3 sum=827
+
+x=275 y=551 controller=1 a=3 sum=829
+
+x=275 y=552 controller=0 a=3 sum=830
+
+x=276 y=553 controller=1 a=3 sum=832
+
+x=276 y=554 controller=0 a=3 sum=833
+
+x=277 y=555 controller=1 a=3 sum=835
+
+x=277 y=556 controller=0 a=3 sum=836
+
+x=278 y=557 controller=1 a=3 sum=838
+
+x=278 y=558 controller=0 a=3 sum=839
+
+x=279 y=559 controller=1 a=3 sum=841
+
+x=279 y=560 controller=0 a=3 sum=842
+
+x=280 y=561 controller=1 a=3 sum=844
+
+x=280 y=562 controller=0 a=3 sum=845
+
+x=281 y=563 controller=1 a=3 sum=847
+
+x=281 y=564 controller=0 a=3 sum=848
+
+x=282 y=565 controller=1 a=3 sum=850
+
+x=282 y=566 controller=0 a=3 sum=851
+
+x=283 y=567 controller=1 a=3 sum=853
+
+x=283 y=568 controller=0 a=3 sum=854
+
+x=284 y=569 controller=1 a=3 sum=856
+
+x=284 y=570 controller=0 a=3 sum=857
+
+x=285 y=571 controller=1 a=3 sum=859
+
+x=285 y=572 controller=0 a=3 sum=860
+
+x=286 y=573 controller=1 a=3 sum=862
+
+x=286 y=574 controller=0 a=3 sum=863
+
+x=287 y=575 controller=1 a=3 sum=865
+
+x=287 y=576 controller=0 a=3 sum=866
+
+x=288 y=577 controller=1 a=3 sum=868
+
+x=288 y=578 controller=0 a=3 sum=869
+
+x=289 y=579 controller=1 a=3 sum=871
+
+x=289 y=580 controller=0 a=3 sum=872
+
+x=290 y=581 controller=1 a=3 sum=874
+
+x=290 y=582 controller=0 a=3 sum=875
+
+x=291 y=583 controller=1 a=3 sum=877
+
+x=291 y=584 controller=0 a=3 sum=878
+
+x=292 y=585 controller=1 a=3 sum=880
+
+x=292 y=586 controller=0 a=3 sum=881
+
+x=293 y=587 controller=1 a=3 sum=883
+
+x=293 y=588 controller=0 a=3 sum=884
+
+x=294 y=589 controller=1 a=3 sum=886
+
+x=294 y=590 controller=0 a=3 sum=887
+
+x=295 y=591 controller=1 a=3 sum=889
+
+x=295 y=592 controller=0 a=3 sum=890
+
+x=296 y=593 controller=1 a=3 sum=892
+
+x=296 y=594 controller=0 a=3 sum=893
+
+x=297 y=595 controller=1 a=3 sum=895
+
+x=297 y=596 controller=0 a=3 sum=896
+
+x=298 y=597 controller=1 a=3 sum=898
+
+x=298 y=598 controller=0 a=3 sum=899
+
+x=299 y=599 controller=1 a=3 sum=901
+
+x=299 y=600 controller=0 a=3 sum=902
+
+x=300 y=601 controller=1 a=3 sum=904
+
+x=300 y=602 controller=0 a=3 sum=905
+
+x=301 y=603 controller=1 a=3 sum=907
+
+x=301 y=604 controller=0 a=3 sum=908
+
+x=302 y=605 controller=1 a=3 sum=910
+
+x=302 y=606 controller=0 a=3 sum=911
+
+x=303 y=607 controller=1 a=3 sum=913
+
+x=303 y=608 controller=0 a=3 sum=914
+
+x=304 y=609 controller=1 a=3 sum=916
+
+x=304 y=610 controller=0 a=3 sum=917
+
+x=305 y=611 controller=1 a=3 sum=919
+
+x=305 y=612 controller=0 a=3 sum=920
+
+x=306 y=613 controller=1 a=3 sum=922
+
+x=306 y=614 controller=0 a=3 sum=923
+
+x=307 y=615 controller=1 a=3 sum=925
+
+x=307 y=616 controller=0 a=3 sum=926
+
+x=308 y=617 controller=1 a=3 sum=928
+
+x=308 y=618 controller=0 a=3 sum=929
+
+x=309 y=619 controller=1 a=3 sum=931
+
+x=309 y=620 controller=0 a=3 sum=932
+
+x=310 y=621 controller=1 a=3 sum=934
+
+x=310 y=622 controller=0 a=3 sum=935
+
+x=311 y=623 controller=1 a=3 sum=937
+
+x=311 y=624 controller=0 a=3 sum=938
+
+x=312 y=625 controller=1 a=3 sum=940
+
+x=312 y=626 controller=0 a=3 sum=941
+
+x=313 y=627 controller=1 a=3 sum=943
+
+x=313 y=628 controller=0 a=3 sum=944
+
+x=314 y=629 controller=1 a=3 sum=946
+
+x=314 y=630 controller=0 a=3 sum=947
+
+x=315 y=631 controller=1 a=3 sum=949
+
+x=315 y=632 controller=0 a=3 sum=950
+
+x=316 y=633 controller=1 a=3 sum=952
+
+x=316 y=634 controller=0 a=3 sum=953
+
+x=317 y=635 controller=1 a=3 sum=955
+
+x=317 y=636 controller=0 a=3 sum=956
+
+x=318 y=637 controller=1 a=3 sum=958
+
+x=318 y=638 controller=0 a=3 sum=959
+
+x=319 y=639 controller=1 a=3 sum=961
+
+x=319 y=640 controller=0 a=3 sum=962
+
+x=320 y=641 controller=1 a=3 sum=964
+
+x=320 y=642 controller=0 a=3 sum=965
+
+x=321 y=643 controller=1 a=3 sum=967
+
+x=321 y=644 controller=0 a=3 sum=968
+
+x=322 y=645 controller=1 a=3 sum=970
+
+x=322 y=646 controller=0 a=3 sum=971
+
+x=323 y=647 controller=1 a=3 sum=973
+
+x=323 y=648 controller=0 a=3 sum=974
+
+x=324 y=649 controller=1 a=3 sum=976
+
+x=324 y=650 controller=0 a=3 sum=977
+
+x=325 y=651 controller=1 a=3 sum=979
+
+x=325 y=652 controller=0 a=3 sum=980
+
+x=326 y=653 controller=1 a=3 sum=982
+
+x=326 y=654 controller=0 a=3 sum=983
+
+x=327 y=655 controller=1 a=3 sum=985
+
+x=327 y=656 controller=0 a=3 sum=986
+
+x=328 y=657 controller=1 a=3 sum=988
+
+x=328 y=658 controller=0 a=3 sum=989
+
+x=329 y=659 controller=1 a=3 sum=991
+
+x=329 y=660 controller=0 a=3 sum=992
+
+x=330 y=661 controller=1 a=3 sum=994
+
+x=330 y=662 controller=0 a=3 sum=995
+
+x=331 y=663 controller=1 a=3 sum=997
+
+x=331 y=664 controller=0 a=3 sum=998
+
+x=332 y=665 controller=1 a=3 sum=1000
+
+x=332 y=666 controller=0 a=3 sum=1001
+
+x=333 y=667 controller=1 a=3 sum=1003
+
+x=333 y=668 controller=0 a=3 sum=1004
+
+x=334 y=669 controller=1 a=3 sum=1006
+
+x=334 y=670 controller=0 a=3 sum=1007
+
+x=335 y=671 controller=1 a=3 sum=1009
+
+x=335 y=672 controller=0 a=3 sum=1010
+
+x=336 y=673 controller=1 a=3 sum=1012
+
+x=336 y=674 controller=0 a=3 sum=1013
+
+x=337 y=675 controller=1 a=3 sum=1015
+
+x=337 y=676 controller=0 a=3 sum=1016
+
+x=338 y=677 controller=1 a=3 sum=1018
+
+x=338 y=678 controller=0 a=3 sum=1019
+
+x=339 y=679 controller=1 a=3 sum=1021
+
+x=339 y=680 controller=0 a=3 sum=1022
+
+x=340 y=681 controller=1 a=3 sum=1024
+
+x=340 y=682 controller=0 a=3 sum=1025
+
+x=341 y=683 controller=1 a=3 sum=1027
+
+x=341 y=684 controller=0 a=3 sum=1028
+
+x=342 y=685 controller=1 a=3 sum=1030
+
+x=342 y=686 controller=0 a=3 sum=1031
+
+x=343 y=687 controller=1 a=3 sum=1033
+
+x=343 y=688 controller=0 a=3 sum=1034
+
+x=344 y=689 controller=1 a=3 sum=1036
+
+x=344 y=690 controller=0 a=3 sum=1037
+
+x=345 y=691 controller=1 a=3 sum=1039
+
+x=345 y=692 controller=0 a=3 sum=1040
+
+x=346 y=693 controller=1 a=3 sum=1042
+
+x=346 y=694 controller=0 a=3 sum=1043
+
+x=347 y=695 controller=1 a=3 sum=1045
+
+x=347 y=696 controller=0 a=3 sum=1046
+
+x=348 y=697 controller=1 a=3 sum=1048
+
+x=348 y=698 controller=0 a=3 sum=1049
+
+x=349 y=699 controller=1 a=3 sum=1051
+
+x=349 y=700 controller=0 a=3 sum=1052
+
+x=350 y=701 controller=1 a=3 sum=1054
+
+x=350 y=702 controller=0 a=3 sum=1055
+
+x=351 y=703 controller=1 a=3 sum=1057
+
+x=351 y=704 controller=0 a=3 sum=1058
+
+x=352 y=705 controller=1 a=3 sum=1060
+
+x=352 y=706 controller=0 a=3 sum=1061
+
+x=353 y=707 controller=1 a=3 sum=1063
+
+x=353 y=708 controller=0 a=3 sum=1064
+
+x=354 y=709 controller=1 a=3 sum=1066
+
+x=354 y=710 controller=0 a=3 sum=1067
+
+x=355 y=711 controller=1 a=3 sum=1069
+
+x=355 y=712 controller=0 a=3 sum=1070
+
+x=356 y=713 controller=1 a=3 sum=1072
+
+x=356 y=714 controller=0 a=3 sum=1073
+
+x=357 y=715 controller=1 a=3 sum=1075
+
+x=357 y=716 controller=0 a=3 sum=1076
+
+x=358 y=717 controller=1 a=3 sum=1078
+
+x=358 y=718 controller=0 a=3 sum=1079
+
+x=359 y=719 controller=1 a=3 sum=1081
+
+x=359 y=720 controller=0 a=3 sum=1082
+
+x=360 y=721 controller=1 a=3 sum=1084
+
+x=360 y=722 controller=0 a=3 sum=1085
+
+x=361 y=723 controller=1 a=3 sum=1087
+
+x=361 y=724 controller=0 a=3 sum=1088
+
+x=362 y=725 controller=1 a=3 sum=1090
+
+x=362 y=726 controller=0 a=3 sum=1091
+
+x=363 y=727 controller=1 a=3 sum=1093
+
+x=363 y=728 controller=0 a=3 sum=1094
+
+x=364 y=729 controller=1 a=3 sum=1096
+
+x=364 y=730 controller=0 a=3 sum=1097
+
+x=365 y=731 controller=1 a=3 sum=1099
+
+x=365 y=732 controller=0 a=3 sum=1100
+
+x=366 y=733 controller=1 a=3 sum=1102
+
+x=366 y=734 controller=0 a=3 sum=1103
+
+x=367 y=735 controller=1 a=3 sum=1105
+
+x=367 y=736 controller=0 a=3 sum=1106
+
+x=368 y=737 controller=1 a=3 sum=1108
+
+x=368 y=738 controller=0 a=3 sum=1109
+
+x=369 y=739 controller=1 a=3 sum=1111
+
+x=369 y=740 controller=0 a=3 sum=1112
+
+x=370 y=741 controller=1 a=3 sum=1114
+
+x=370 y=742 controller=0 a=3 sum=1115
+
+x=371 y=743 controller=1 a=3 sum=1117
+
+x=371 y=744 controller=0 a=3 sum=1118
+
+x=372 y=745 controller=1 a=3 sum=1120
+
+x=372 y=746 controller=0 a=3 sum=1121
+
+x=373 y=747 controller=1 a=3 sum=1123
+
+x=373 y=748 controller=0 a=3 sum=1124
+
+x=374 y=749 controller=1 a=3 sum=1126
+
+x=374 y=750 controller=0 a=3 sum=1127
+
+x=375 y=751 controller=1 a=3 sum=1129
+
+x=375 y=752 controller=0 a=3 sum=1130
+
+x=376 y=753 controller=1 a=3 sum=1132
+
+x=376 y=754 controller=0 a=3 sum=1133
+
+x=377 y=755 controller=1 a=3 sum=1135
+
+x=377 y=756 controller=0 a=3 sum=1136
+
+x=378 y=757 controller=1 a=3 sum=1138
+
+x=378 y=758 controller=0 a=3 sum=1139
+
+x=379 y=759 controller=1 a=3 sum=1141
+
+x=379 y=760 controller=0 a=3 sum=1142
+
+x=380 y=761 controller=1 a=3 sum=1144
