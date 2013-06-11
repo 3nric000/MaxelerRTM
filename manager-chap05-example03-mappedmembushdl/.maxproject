@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="manager-chap05-example03-mappedmembushdl_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/manager-chap05-example03-mappedmembushdl_EngineCode/bin" projectName="manager-chap05-example03-mappedmembushdl"/>
+<cpuPart internalCpuSubproject="manager-chap05-example03-mappedmembushdl_CPUCode"/>
+</maxCompilerManager>

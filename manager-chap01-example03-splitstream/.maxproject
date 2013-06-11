@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="manager-chap01-example03-splitstream_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/manager-chap01-example03-splitstream_EngineCode/bin" projectName="manager-chap01-example03-splitstream"/>
+<cpuPart internalCpuSubproject="manager-chap01-example03-splitstream_CPUCode"/>
+</maxCompilerManager>

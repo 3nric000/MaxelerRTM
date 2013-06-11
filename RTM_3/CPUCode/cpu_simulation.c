@@ -15,7 +15,7 @@
 #include "cpu_constructors.h"
 #include "Maxfiles.h"
 #include "MaxSLiCInterface.h"
-int counter =0;
+int counter = 0;
 //--------------------------------------------------------------
 // Construct 10th order space stencil
 //--------------------------------------------------------------
@@ -162,9 +162,7 @@ void do_step_damping(float *__restrict p, float *__restrict pp,
 void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 		float *__restrict source_container) {
 
-	if(!counter%10){
-		printf("%d\n", counter);
-	}
+	printf("%d\n", counter);
 	counter++;
 	/*int i3;  //Indexes
 	 int n12=n1*n2;
@@ -206,92 +204,148 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	int const xzSize = 11;
 	int const burst = 96;
 	//int sizeC = 5;
-	float *pp_value;
-	float *dvv_value;
-	float *source_container_value;
+	float *px;
+	float *py;
+	int stencilSize = 10;
 	int sizeBytes = size * sizeof(float);
+	int sizepxy = size * stencilSize * sizeof(float);
 	//int sizeCBytes = sizeC * sizeof(float);
+	uint32_t *controller = malloc(sizepxy);
 
-	max_file_t *maxfile = CpuMain_init();
-	max_engine_t *engine = max_load(maxfile, "*");
-
-	//printf("Writing to LMem.\n");
-	max_actions_t* act = max_actions_init(maxfile, "writeLMem");
-	max_set_param_uint64t(act, "address", 0);
-	max_set_param_uint64t(act, "nbytes", sizeBytes);
-	//printf("Loading p in LMem\n");
-	max_queue_input(act, "cpu_to_lmem", p, size * sizeof(float));
-	max_run(engine, act);
+	px = malloc(sizepxy);
+	py = malloc(sizepxy);
 
 	//printf("Running on DFE.\n");
 	//act = max_actions_init(maxfile, "writeLMem");
 
 	//printf("Loading c_x, n1, n1m, n2, burst, xzSize in LMem");
 	//max_run(engine, act);
-
+	int index = 0;
 	for (offS = 0; offS < n3; offS++) { //Loop over slowest axis
 		for (offM = 0; offM < n2; offM++) { //Loop over middle axis
-			//for (offF = 0; offF < n1m; offF = offF + 8) {
-				offF = 0;
+			for (offF = 0; offF < n1m; offF++) {
 				//printf("Creating pp_value, dvv_value, source_container_value streams\n");
-				pp_value = malloc(sizeof(float) * n1);
-				dvv_value = malloc(sizeof(float) * n1);
-				source_container_value = malloc(sizeof(float) * n1);
+				px[index] = p[(offF) + (offM) * n1 + (offS - 5) * n12];
+				controller[index]=0;
+				py[index++] = p[(offF) + (offM - 5) * n1 + (offS) * n12];
 
-				for (int i = 0; i < n1; i++) {
-					pp_value[i] = pp[offF + offM * n1 + offS * n12 + i];
-					dvv_value[i] = dvv[offF + offM * n1 + offS * n12 + i];
-					source_container_value[i] = source_container[offF + offM
-							* n1 + offS * n12 + i];
-				}
+				px[index] = p[(offF) + (offM) * n1 + (offS - 4) * n12];
+				controller[index]=0;
+				py[index++] = p[(offF) + (offM - 4) * n1 + (offS) * n12];
 
-				//printf("loading values\n");
-				act = max_actions_init(maxfile, "default");
+				px[index] = p[(offF) + (offM) * n1 + (offS - 3) * n12];
+				controller[index]=0;
+				py[index++] = p[(offF) + (offM - 3) * n1 + (offS) * n12];
 
-				max_set_param_double(act, "c_1_0", (double) c_1[0]);
-				max_set_param_double(act, "c_1_1", (double) c_1[1]);
-				max_set_param_double(act, "c_1_2", (double) c_1[2]);
-				max_set_param_double(act, "c_1_3", (double) c_1[3]);
-				max_set_param_double(act, "c_1_4", (double) c_1[4]);
+				px[index] = p[(offF) + (offM) * n1 + (offS - 2) * n12];
+				controller[index]=0;
+				py[index++] = p[(offF) + (offM - 2) * n1 + (offS) * n12];
 
-				max_set_param_double(act, "c_2_0", (double) c_2[0]);
-				max_set_param_double(act, "c_2_1", (double) c_2[1]);
-				max_set_param_double(act, "c_2_2", (double) c_2[2]);
-				max_set_param_double(act, "c_2_3", (double) c_2[3]);
-				max_set_param_double(act, "c_2_4", (double) c_2[4]);
+				px[index] = p[(offF) + (offM) * n1 + (offS - 1) * n12];
+				controller[index]=0;
+				py[index++] = p[(offF) + (offM - 1) * n1 + (offS) * n12];
 
-				max_set_param_double(act, "c_3_0", (double) c_3[0]);
-				max_set_param_double(act, "c_3_1", (double) c_3[1]);
-				max_set_param_double(act, "c_3_2", (double) c_3[2]);
-				max_set_param_double(act, "c_3_3", (double) c_3[3]);
-				max_set_param_double(act, "c_3_4", (double) c_3[4]);
+				px[index] = p[(offF) + (offM) * n1 + (offS + 1) * n12];
+				controller[index]=0;
+				py[index++] = p[(offF) + (offM + 1) * n1 + (offS) * n12];
 
-				max_set_param_uint64t(act, "n1", n1);
-				//max_set_param_uint64t(act, "n1m", n1m);
-				max_set_param_uint64t(act, "n2", n2);
-				max_set_param_double(act, "c_0", (double) c_0);
+				px[index] = p[(offF) + (offM) * n1 + (offS + 2) * n12];
+				controller[index]=0;
+				py[index++] = p[(offF) + (offM + 2) * n1 + (offS) * n12];
 
-				max_set_param_uint64t(act, "burst", burst);
+				px[index] = p[(offF) + (offM) * n1 + (offS + 3) * n12];
+				controller[index]=0;
+				py[index++] = p[(offF) + (offM + 3) * n1 + (offS) * n12];
 
-				max_set_param_uint64t(act, "xzSize", xzSize);
+				px[index] = p[(offF) + (offM) * n1 + (offS + 4) * n12];
+				controller[index]=0;
+				py[index++] = p[(offF) + (offM + 4) * n1 + (offS) * n12];
 
-				max_queue_input(act, "pp_value", pp_value, n1 * sizeof(float));
-				max_queue_input(act, "dvv_value", dvv_value, n1 * sizeof(float));
-				max_queue_input(act, "source_container_value",
-						source_container_value, n1 * sizeof(float));
-				max_set_param_uint64t(act, "offM", offM);
-				max_set_param_uint64t(act, "offF", offF);
-				max_set_param_uint64t(act, "offS", offS);
-
-				//printf("running DFE\n");
-				max_run(engine, act);
-
-				free(pp_value);
-				free(dvv_value);
-				free(source_container_value);
-			//}
+				px[index] = p[(offF) + (offM) * n1 + (offS + 5) * n12];
+				controller[index]=1;
+				py[index++] = p[(offF) + (offM + 5) * n1 + (offS) * n12];
+			}
 		}
 	}
+
+	max_file_t *maxfile = CpuMain_init();
+	max_engine_t *engine = max_load(maxfile, "*");
+
+	printf("Writing to LMem.\n");
+	max_actions_t* act = max_actions_init(maxfile, "writeLMem");
+	max_set_param_uint64t(act, "address", 0);
+	max_set_param_uint64t(act, "nbytes", sizeBytes);
+	printf("Loading p in LMem\n");
+	max_queue_input(act, "cpu_to_lmem", p, size * sizeof(float));
+
+	max_set_param_uint64t(act, "address", sizeBytes);
+	max_set_param_uint64t(act, "nbytes", sizeBytes);
+	printf("Loading pp in LMem\n");
+	max_queue_input(act, "cpu_to_lmem", pp, size * sizeof(float));
+
+	max_set_param_uint64t(act, "address", 2 * sizeBytes);
+	max_set_param_uint64t(act, "nbytes", sizeBytes);
+	printf("Loading dvv in LMem\n");
+	max_queue_input(act, "cpu_to_lmem", dvv, size * sizeof(float));
+
+	max_set_param_uint64t(act, "address", 3 * sizeBytes);
+	max_set_param_uint64t(act, "nbytes", sizeBytes);
+	printf("Loading source_container in LMem\n");
+	max_queue_input(act, "cpu_to_lmem", source_container, size * sizeof(float));
+
+	max_set_param_uint64t(act, "address", 4 * sizeBytes);
+	max_set_param_uint64t(act, "nbytes", sizepxy);
+	printf("Loading px in LMem\n");
+	max_queue_input(act, "cpu_to_lmem", px, sizepxy);
+
+	max_set_param_uint64t(act, "address", 4 * sizeBytes + sizepxy);
+	max_set_param_uint64t(act, "nbytes", sizepxy);
+	printf("Loading py in LMem\n");
+	max_queue_input(act, "cpu_to_lmem", py, sizepxy);
+
+	max_run(engine, act);
+
+	printf("loading values\n");
+	act = max_actions_init(maxfile, "default");
+
+	max_queue_input(act, "controller", controller, sizepxy);
+
+	max_set_param_double(act, "c_1_0", (double) c_1[0]);
+	max_set_param_double(act, "c_1_1", (double) c_1[1]);
+	max_set_param_double(act, "c_1_2", (double) c_1[2]);
+	max_set_param_double(act, "c_1_3", (double) c_1[3]);
+	max_set_param_double(act, "c_1_4", (double) c_1[4]);
+
+	max_set_param_double(act, "c_2_0", (double) c_2[0]);
+	max_set_param_double(act, "c_2_1", (double) c_2[1]);
+	max_set_param_double(act, "c_2_2", (double) c_2[2]);
+	max_set_param_double(act, "c_2_3", (double) c_2[3]);
+	max_set_param_double(act, "c_2_4", (double) c_2[4]);
+
+	max_set_param_double(act, "c_3_0", (double) c_3[0]);
+	max_set_param_double(act, "c_3_1", (double) c_3[1]);
+	max_set_param_double(act, "c_3_2", (double) c_3[2]);
+	max_set_param_double(act, "c_3_3", (double) c_3[3]);
+	max_set_param_double(act, "c_3_4", (double) c_3[4]);
+
+	max_set_param_uint64t(act, "n1", n1);
+	//max_set_param_uint64t(act, "n1m", n1m);
+	max_set_param_uint64t(act, "n2", n2);
+	max_set_param_double(act, "c_0", (double) c_0);
+
+	max_set_param_uint64t(act, "burst", burst);
+
+	max_set_param_uint64t(act, "xzSize", xzSize);
+
+	max_set_param_uint64t(act, "offM", offM);
+	max_set_param_uint64t(act, "offF", offF);
+	max_set_param_uint64t(act, "offS", offS);
+
+	printf("running DFE\n");
+	max_run(engine, act);
+
+	free(px);
+	free(py);
 
 	act = max_actions_init(maxfile, "readLMem");
 	max_set_param_uint64t(act, "address", sizeBytes);

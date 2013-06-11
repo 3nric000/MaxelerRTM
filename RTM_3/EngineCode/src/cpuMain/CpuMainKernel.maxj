@@ -8,17 +8,29 @@ import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
 class CpuMainKernel extends Kernel {
 
 	private static final DFEType typeFloat = dfeFloat(8,24);
+	private static final DFEType typeInt = dfeInt(32);
 
 	protected CpuMainKernel(KernelParameters parameters) {
 		super(parameters);
 
-		DFEVar p = io.input("p", typeFloat);
+		DFEVar controller = io.input("controller", typeInt);
+		DFEVar p = io.input("p", typeFloat, controller.cast(dfeBool()));
+		DFEVar pp = io.input("pp", typeFloat, controller.cast(dfeBool()));
+		DFEVar dvv = io.input("dvv", typeFloat, controller.cast(dfeBool()));
+		DFEVar source_container = io.input("source_container", typeFloat, controller.cast(dfeBool()));
+		DFEVar ppx = io.input("ppx", typeFloat);
+		DFEVar ppy = io.input("ppy", typeFloat);
+
+
+
+
+
 		/*DFEVar n1 = io.scalarInput("n1", typeInt);
 		DFEVar n2 = io.scalarInput("n2", typeInt);*/
 		DFEVar c_0 = io.scalarInput("c_0", typeFloat);
-		DFEVar pp_value = io.input("pp_value", typeFloat);
+		/*DFEVar pp_value = io.input("pp_value", typeFloat);
 		DFEVar dvv_value = io.input("dvv_value", typeFloat);
-		DFEVar source_container_value = io.input("source_container_value", typeFloat);
+		DFEVar source_container_value = io.input("source_container_value", typeFloat);*/
 
 		DFEVar c_1_0 = io.scalarInput("c_1_0", typeFloat);
 		DFEVar c_1_1 = io.scalarInput("c_1_1", typeFloat);
@@ -40,7 +52,9 @@ class CpuMainKernel extends Kernel {
 
 
 
-		DFEVar window[]=new DFEVar[30];
+
+
+		/*DFEVar window[]=new DFEVar[30];
 		int i=0;
 		for(int j=-5; j<=5; j++){
 			if(j!=0){
@@ -59,17 +73,22 @@ class CpuMainKernel extends Kernel {
 			window[i]=stream.offset(p,j*96*11);
 			i++;
 			}
-		}
+		}*/
 
 		DFEVar result;
-		result=(2.0*p-pp_value+dvv_value*(
+		result= 2.0*p-pp+dvv*(
 				p*c_0
-				+c_1_0*(window[5]+window[4])
-				+c_1_1*(window[6]+window[3])
-				+c_1_2*(window[7]+window[2])
-				+c_1_3*(window[8]+window[1])
-				+c_1_4*(window[9]+window[0])
-				+c_2_0*(window[15]+window[14])
+				+c_1_0*(stream.offset(p, 1)+stream.offset(p,-1))
+
+
+
+				+c_1_1*(stream.offset(p, 2)+stream.offset(p,-2))
+				+c_1_2*(stream.offset(p, 3)+stream.offset(p,-3))
+				+c_1_3*(stream.offset(p, 4)+stream.offset(p,-4))
+				+c_1_4*(stream.offset(p, 5)+stream.offset(p,-5))
+
+
+				+c_2_0*(stream.offset(py, -4) + stream.offset(py, ))
 				+c_2_1*(window[16]+window[13])
 				+c_2_2*(window[17]+window[12])
 				+c_2_3*(window[18]+window[11])
@@ -79,10 +98,10 @@ class CpuMainKernel extends Kernel {
 				+c_3_2*(window[27]+window[22])
 				+c_3_3*(window[28]+window[21])
 				+c_3_4*(window[29]+window[20])
-				))+source_container_value;
+				))+source_container;
 
 
-		io.output("pp", result, typeFloat);
+		io.output("pp", result, typeFloat, controller.cast(dfeBool()));
 	}
 
 }

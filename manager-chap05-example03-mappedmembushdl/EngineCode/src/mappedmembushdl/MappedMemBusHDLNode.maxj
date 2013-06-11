@@ -1,0 +1,30 @@
+/**
+ * Document: Manager Compiler Tutorial (maxcompiler-manager-tutorial.pdf)
+ * Chapter: 5
+ * Example: 3
+ * Summary:
+ *      Custom HDL Node demonstrating the use of the mapped memory bus.
+ */
+package mappedmembushdl;
+
+import com.maxeler.maxcompiler.v2.managers.custom.CustomManager;
+import com.maxeler.maxcompiler.v2.managers.custom.blocks.CustomHDLNode;
+
+class MappedMemBusHDLNode extends CustomHDLNode {
+
+	MappedMemBusHDLNode(CustomManager manager, String instance_name) {
+		super(manager, instance_name, "mapped_mem_hdl");
+
+		CustomNodeClock m_clk;
+
+		m_clk = addClockDomain("clk");
+		m_clk.setNeedsReset("rst");
+
+		addOutputStream("output", 32, m_clk, CustomNodeFlowControl.PUSH, 1);
+
+		setMappedMemoryClock(m_clk);
+		addMappedMemoryInterface("example");
+
+		addVHDLSource("MappedMemBusHDLSource.vhdl", false);
+	}
+}

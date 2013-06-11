@@ -1,0 +1,22 @@
+/**
+ * Document: Manager Compiler Tutorial (maxcompiler-manager-tutorial.pdf)
+ * Chapter: 1      Example: 1      Name: Host loopback
+ * MaxFile name: HostLoopback
+ * Summary:
+ *     A simple kernel that increments values in a stream by 1.
+ */
+package hostloopback;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class HostLoopbackKernel extends Kernel {
+	HostLoopbackKernel(KernelParameters parameters) {
+		super(parameters);
+
+		DFEVar x = io.input("x", dfeUInt(32));
+		DFEVar y = x + 1;
+		io.output("y", y, dfeUInt(32));
+	}
+}

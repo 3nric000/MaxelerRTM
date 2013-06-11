@@ -1,0 +1,32 @@
+/**
+ * Document: Manager Compiler Tutorial (maxcompiler-manager-tutorial.pdf)
+ * Chapter: 5      Example: 2      Name: Scalar HDL
+ * MaxFile name: ScalarHDL
+ * Summary:
+ *     Custom HDL node that defines the interface between MaxCompiler and an
+ *     external IP block which implements a counter. Makes use of a pull input,
+ *     a push output and a scalar input.
+ */
+package scalarhdl;
+
+import com.maxeler.maxcompiler.v2.managers.custom.CustomManager;
+import com.maxeler.maxcompiler.v2.managers.custom.blocks.CustomHDLNode;
+
+/*
+ * Custom HDL node which includes some VHDL source.
+ */
+final class ScalarHDLNode extends CustomHDLNode{
+	ScalarHDLNode(CustomManager manager, String instance_name) {
+		super(manager, instance_name, "scalar_hdl");
+
+		CustomNodeClock nodeClock = addClockDomain("clk");
+		nodeClock.setNeedsReset("rst");
+
+		addInputStream("max", 32, nodeClock, CustomNodeFlowControl.PULL, 1);
+		addOutputStream("count", 32, nodeClock, CustomNodeFlowControl.PUSH, 1);
+
+		addScalarInput("hold_count", 32);
+
+		addVHDLSource("ScalarHDLSource.vhdl", false);
+	}
+}
