@@ -14,8 +14,8 @@ import com.maxeler.maxcompiler.v2.managers.standard.Manager;
 public class CpuMainManager{
 
 	private static final String s_kernel1 = "linearKernel";
-	private static final String s_kernel2 = "xyKernel";
-	private static final String s_kernel3 = "sumKernel";
+	//private static final String s_kernel2 = "xyKernel";
+	//private static final String s_kernel3 = "sumKernel";
 
 	/*CpuMainManager(EngineParameters engineParameters){
 		super(engineParameters);
@@ -41,8 +41,8 @@ public class CpuMainManager{
 		CpuMainEngineParameters params = new CpuMainEngineParameters(args);
 		Manager manager = new Manager(params);
 		Kernel  kernel1  = new CpuMainKernel(manager.makeKernelParameters(s_kernel1));
-		Kernel  kernel2  = new CpuMainKernel(manager.makeKernelParameters(s_kernel2));
-		Kernel  kernel3  = new CpuMainKernel(manager.makeKernelParameters(s_kernel3));
+		//Kernel  kernel2  = new CpuMainKernel(manager.makeKernelParameters(s_kernel2));
+		//Kernel  kernel3  = new CpuMainKernel(manager.makeKernelParameters(s_kernel3));
 		manager.setKernel(kernel1);
 		manager.setIO(
 			link("p", IODestination.LMEM_LINEAR_1D),
@@ -51,7 +51,8 @@ public class CpuMainManager{
 			link("source_container", IODestination.LMEM_LINEAR_1D),
 			link("px", IODestination.LMEM_LINEAR_1D),
 			link("py", IODestination.LMEM_LINEAR_1D),
-			link("controller", IODestination.CPU));
+			link("controller", IODestination.CPU),
+			link("ppresult", IODestination.CPU));
 
 		manager.createSLiCinterface(interfaceDefault());
 
@@ -95,17 +96,19 @@ public class CpuMainManager{
 		InterfaceParam  dvv_value    = engine_interface.addParam("dvv_value", CPUTypes.DOUBLE);
 		InterfaceParam  source_container_value    = engine_interface.addParam("source_container_value", CPUTypes.DOUBLE);
 		*/
-		InterfaceParam  burst    = engine_interface.addParam("burst", CPUTypes.INT);
+		/*InterfaceParam  burst    = engine_interface.addParam("burst", CPUTypes.INT);
 		InterfaceParam  xzSize    = engine_interface.addParam("xzSize", CPUTypes.INT);
 
 		InterfaceParam  offM    = engine_interface.addParam("offM", CPUTypes.INT);
 		InterfaceParam  offF    = engine_interface.addParam("offF", CPUTypes.INT);
 		InterfaceParam  offS    = engine_interface.addParam("offS", CPUTypes.INT);
+
+		InterfaceParam  five = engine_interface.addConstant(5l);*/
 		InterfaceParam  zero = engine_interface.addConstant(0l);
-		InterfaceParam  five = engine_interface.addConstant(5l);
-		engine_interface.setTicks(s_kernel1, n1*n2*n2);
-		engine_interface.setTicks(s_kernel2, n1*n2*n2*10);
-		engine_interface.setTicks(s_kernel3, n1*n2*n2);
+		InterfaceParam  ten = engine_interface.addConstant(10l);
+		engine_interface.setTicks(s_kernel1, n1*n2*n2*ten);
+		//engine_interface.setTicks(s_kernel2, n1*n2*n2*10);
+		//engine_interface.setTicks(s_kernel3, n1*n2*n2);
 
 
 		//roba da passare al kernel con lo stream

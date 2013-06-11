@@ -196,7 +196,7 @@ objdir/max_msi.O0.o: max_msi.cpp \
  /opt/maxeler/maxcompiler/lib/boost/include/boost/detail/lcast_precision.hpp \
  /opt/maxeler/maxcompiler/lib/boost/include/boost/integer_traits.hpp \
  StreamStatus.h StructToGroupDummy.h RunLengthExpander.h TCP.h Ethernet.h \
- Timestamp.h ../../MaxCompilerDesignData.dat cpu_mainKernel.h \
+ Timestamp.h ../../MaxCompilerDesignData.dat linearKernel.h \
  /opt/maxeler/maxcompiler/lib/maxeleros-sim/include/maxdriver.h \
  /opt/maxeler/maxcompiler/lib/maxeleros-sim/include/maxerrors.h \
  /opt/maxeler/maxcompiler/lib/maxeleros-sim/include/max_msi.h \
@@ -674,7 +674,7 @@ Timestamp.h:
 
 ../../MaxCompilerDesignData.dat:
 
-cpu_mainKernel.h:
+linearKernel.h:
 
 /opt/maxeler/maxcompiler/lib/maxeleros-sim/include/maxdriver.h:
 

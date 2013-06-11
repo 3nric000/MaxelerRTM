@@ -2,7 +2,7 @@
 <ManagerGraph version="2013.1" design_name="Manager_CpuMain" compilation_phase="Final" hardwareBuild="false">
 	<Node id="1" instanceName="cpu_to_lmem" type="InputFlexibleClock">
 		<Output clock="STREAM" name="cpu_to_lmem" type="PULL el=1 ael=8" width="128">
-			<Stream name="Stream_2" sink="40" />
+			<Stream name="Stream_2" sink="65" />
 		</Output>
 	</Node>
 	<Node id="5" instanceName="addrgen_cmd_write_lmem" type="AddrGen1DLinear">
@@ -17,47 +17,82 @@
 	</Node>
 	<Node id="15" instanceName="read_lmem" type="InputFlexibleClock">
 		<Output clock="STREAM" name="read_lmem" type="PULL el=1 ael=16" width="1536">
-			<Stream name="Stream_16" sink="44" />
+			<Stream name="Stream_16" sink="69" />
 		</Output>
 	</Node>
-	<Node id="18" instanceName="dvv_value" type="InputFlexibleClock">
-		<Output clock="STREAM" name="dvv_value" type="PULL el=1 ael=8" width="128">
-			<Stream name="Stream_19" sink="56" />
+	<Node id="18" instanceName="controller" type="InputFlexibleClock">
+		<Output clock="STREAM" name="controller" type="PULL el=1 ael=8" width="128">
+			<Stream name="Stream_19" sink="73" />
 		</Output>
 	</Node>
-	<Node id="21" instanceName="addrgen_cmd_p" type="AddrGen3DBlocking">
-		<Output clock="STREAM" name="addrgen_cmd_p_0" type="PUSH 1" width="64">
+	<Node id="21" instanceName="addrgen_cmd_dvv" type="AddrGen1DLinear">
+		<Output clock="STREAM" name="addrgen_cmd_dvv_0" type="PUSH 1" width="64">
 			<Stream name="Stream_24" sink="22" />
 		</Output>
 	</Node>
-	<Node id="25" instanceName="p" type="InputFlexibleClock">
+	<Node id="25" instanceName="dvv" type="InputFlexibleClock">
+		<Output clock="STREAM" name="dvv" type="PULL el=1 ael=16" width="1536">
+			<Stream name="Stream_26" sink="85" />
+		</Output>
+	</Node>
+	<Node id="28" instanceName="addrgen_cmd_p" type="AddrGen1DLinear">
+		<Output clock="STREAM" name="addrgen_cmd_p_0" type="PUSH 1" width="64">
+			<Stream name="Stream_31" sink="29" />
+		</Output>
+	</Node>
+	<Node id="32" instanceName="p" type="InputFlexibleClock">
 		<Output clock="STREAM" name="p" type="PULL el=1 ael=16" width="1536">
-			<Stream name="Stream_26" sink="48" />
+			<Stream name="Stream_33" sink="77" />
 		</Output>
 	</Node>
-	<Node id="28" instanceName="pp_value" type="InputFlexibleClock">
-		<Output clock="STREAM" name="pp_value" type="PULL el=1 ael=8" width="128">
-			<Stream name="Stream_29" sink="52" />
-		</Output>
-	</Node>
-	<Node id="31" instanceName="source_container_value" type="InputFlexibleClock">
-		<Output clock="STREAM" name="source_container_value" type="PULL el=1 ael=8" width="128">
-			<Stream name="Stream_32" sink="60" />
-		</Output>
-	</Node>
-	<Node id="34" instanceName="addrgen_cmd_pp" type="AddrGen3DBlocking">
+	<Node id="35" instanceName="addrgen_cmd_pp" type="AddrGen1DLinear">
 		<Output clock="STREAM" name="addrgen_cmd_pp_0" type="PUSH 1" width="64">
-			<Stream name="Stream_37" sink="35" />
+			<Stream name="Stream_38" sink="36" />
 		</Output>
 	</Node>
-	<Node id="96" instanceName="MemoryControllerPro" type="MemoryControllerPro">
+	<Node id="39" instanceName="pp" type="InputFlexibleClock">
+		<Output clock="STREAM" name="pp" type="PULL el=1 ael=16" width="1536">
+			<Stream name="Stream_40" sink="81" />
+		</Output>
 	</Node>
-	<Node id="40" instanceName="Stream_10" type="DualAspectReg">
+	<Node id="42" instanceName="addrgen_cmd_px" type="AddrGen1DLinear">
+		<Output clock="STREAM" name="addrgen_cmd_px_0" type="PUSH 1" width="64">
+			<Stream name="Stream_45" sink="43" />
+		</Output>
+	</Node>
+	<Node id="46" instanceName="px" type="InputFlexibleClock">
+		<Output clock="STREAM" name="px" type="PULL el=1 ael=16" width="1536">
+			<Stream name="Stream_47" sink="93" />
+		</Output>
+	</Node>
+	<Node id="49" instanceName="addrgen_cmd_py" type="AddrGen1DLinear">
+		<Output clock="STREAM" name="addrgen_cmd_py_0" type="PUSH 1" width="64">
+			<Stream name="Stream_52" sink="50" />
+		</Output>
+	</Node>
+	<Node id="53" instanceName="py" type="InputFlexibleClock">
+		<Output clock="STREAM" name="py" type="PULL el=1 ael=16" width="1536">
+			<Stream name="Stream_54" sink="97" />
+		</Output>
+	</Node>
+	<Node id="56" instanceName="addrgen_cmd_source_container" type="AddrGen1DLinear">
+		<Output clock="STREAM" name="addrgen_cmd_source_container_0" type="PUSH 1" width="64">
+			<Stream name="Stream_59" sink="57" />
+		</Output>
+	</Node>
+	<Node id="60" instanceName="source_container" type="InputFlexibleClock">
+		<Output clock="STREAM" name="source_container" type="PULL el=1 ael=16" width="1536">
+			<Stream name="Stream_61" sink="89" />
+		</Output>
+	</Node>
+	<Node id="145" instanceName="MemoryControllerPro" type="MemoryControllerPro">
+	</Node>
+	<Node id="65" instanceName="Stream_10" type="DualAspectReg">
 		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="128">
-			<Stream name="Stream_41" source="1" />
+			<Stream name="Stream_66" source="1" />
 		</Input>
 		<Output clock="STREAM" name="output" type="PULL el=1 ael=0" width="1536">
-			<Stream name="Stream_42" sink="68" />
+			<Stream name="Stream_67" sink="105" />
 		</Output>
 	</Node>
 	<Node id="6" instanceName="cmd_write_lmem_0" type="OutputFlexibleClock">
@@ -70,152 +105,229 @@
 			<Stream name="Stream_13" source="11" />
 		</Input>
 	</Node>
-	<Node id="44" instanceName="Stream_4" type="DualAspectMux">
+	<Node id="69" instanceName="Stream_4" type="DualAspectMux">
 		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="1536">
-			<Stream name="Stream_45" source="15" />
+			<Stream name="Stream_70" source="15" />
 		</Input>
 		<Output clock="STREAM" name="output" type="PUSH 2" width="128">
-			<Stream name="Stream_46" sink="3" />
+			<Stream name="Stream_71" sink="3" />
 		</Output>
 	</Node>
-	<Node id="56" instanceName="Stream_17" type="DualAspectMux">
+	<Node id="73" instanceName="Stream_17" type="DualAspectMux">
 		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="128">
-			<Stream name="Stream_57" source="18" />
+			<Stream name="Stream_74" source="18" />
 		</Input>
 		<Output clock="STREAM" name="output" type="PUSH 2" width="32">
-			<Stream name="Stream_58" sink="84" />
+			<Stream name="Stream_75" sink="113" />
 		</Output>
 	</Node>
-	<Node id="22" instanceName="cmd_p_0" type="OutputFlexibleClock">
-		<Input clock="STREAM" name="cmd_p_0" type="PUSH 8" width="64">
+	<Node id="22" instanceName="cmd_dvv_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_dvv_0" type="PUSH 8" width="64">
 			<Stream name="Stream_23" source="21" />
 		</Input>
 	</Node>
-	<Node id="48" instanceName="Stream_20" type="DualAspectMux">
+	<Node id="85" instanceName="Stream_20" type="DualAspectMux">
 		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="1536">
-			<Stream name="Stream_49" source="25" />
+			<Stream name="Stream_86" source="25" />
 		</Input>
 		<Output clock="STREAM" name="output" type="PUSH 2" width="32">
-			<Stream name="Stream_50" sink="76" />
+			<Stream name="Stream_87" sink="125" />
 		</Output>
 	</Node>
-	<Node id="52" instanceName="Stream_27" type="DualAspectMux">
-		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="128">
-			<Stream name="Stream_53" source="28" />
+	<Node id="29" instanceName="cmd_p_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_p_0" type="PUSH 8" width="64">
+			<Stream name="Stream_30" source="28" />
+		</Input>
+	</Node>
+	<Node id="77" instanceName="Stream_27" type="DualAspectMux">
+		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="1536">
+			<Stream name="Stream_78" source="32" />
 		</Input>
 		<Output clock="STREAM" name="output" type="PUSH 2" width="32">
-			<Stream name="Stream_54" sink="80" />
+			<Stream name="Stream_79" sink="117" />
 		</Output>
 	</Node>
-	<Node id="60" instanceName="Stream_30" type="DualAspectMux">
-		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="128">
-			<Stream name="Stream_61" source="31" />
-		</Input>
-		<Output clock="STREAM" name="output" type="PUSH 2" width="32">
-			<Stream name="Stream_62" sink="88" />
-		</Output>
-	</Node>
-	<Node id="35" instanceName="cmd_pp_0" type="OutputFlexibleClock">
+	<Node id="36" instanceName="cmd_pp_0" type="OutputFlexibleClock">
 		<Input clock="STREAM" name="cmd_pp_0" type="PUSH 8" width="64">
-			<Stream name="Stream_36" source="34" />
+			<Stream name="Stream_37" source="35" />
 		</Input>
 	</Node>
-	<Node id="68" instanceName="Stream_43" type="PullPushAdapter">
+	<Node id="81" instanceName="Stream_34" type="DualAspectMux">
 		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="1536">
-			<Stream name="Stream_69" source="40" />
+			<Stream name="Stream_82" source="39" />
+		</Input>
+		<Output clock="STREAM" name="output" type="PUSH 2" width="32">
+			<Stream name="Stream_83" sink="121" />
+		</Output>
+	</Node>
+	<Node id="43" instanceName="cmd_px_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_px_0" type="PUSH 8" width="64">
+			<Stream name="Stream_44" source="42" />
+		</Input>
+	</Node>
+	<Node id="93" instanceName="Stream_41" type="DualAspectMux">
+		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="1536">
+			<Stream name="Stream_94" source="46" />
+		</Input>
+		<Output clock="STREAM" name="output" type="PUSH 2" width="32">
+			<Stream name="Stream_95" sink="133" />
+		</Output>
+	</Node>
+	<Node id="50" instanceName="cmd_py_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_py_0" type="PUSH 8" width="64">
+			<Stream name="Stream_51" source="49" />
+		</Input>
+	</Node>
+	<Node id="97" instanceName="Stream_48" type="DualAspectMux">
+		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="1536">
+			<Stream name="Stream_98" source="53" />
+		</Input>
+		<Output clock="STREAM" name="output" type="PUSH 2" width="32">
+			<Stream name="Stream_99" sink="137" />
+		</Output>
+	</Node>
+	<Node id="57" instanceName="cmd_source_container_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_source_container_0" type="PUSH 8" width="64">
+			<Stream name="Stream_58" source="56" />
+		</Input>
+	</Node>
+	<Node id="89" instanceName="Stream_55" type="DualAspectMux">
+		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="1536">
+			<Stream name="Stream_90" source="60" />
+		</Input>
+		<Output clock="STREAM" name="output" type="PUSH 2" width="32">
+			<Stream name="Stream_91" sink="129" />
+		</Output>
+	</Node>
+	<Node id="105" instanceName="Stream_68" type="PullPushAdapter">
+		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="1536">
+			<Stream name="Stream_106" source="65" />
 		</Input>
 		<Output clock="STREAM" name="output" type="PUSH 1" width="1536">
-			<Stream name="Stream_70" sink="9" />
+			<Stream name="Stream_107" sink="9" />
 		</Output>
 	</Node>
 	<Node id="3" instanceName="lmem_to_cpu" type="OutputFlexibleClock">
 		<Input clock="STREAM" name="lmem_to_cpu" type="PUSH 64" width="128">
-			<Stream name="Stream_47" source="44" />
+			<Stream name="Stream_72" source="69" />
 		</Input>
 	</Node>
-	<Node id="84" instanceName="Stream_59" type="Fifo">
+	<Node id="113" instanceName="Stream_76" type="Fifo">
 		<Input clock="STREAM" name="input" type="PUSH 2" width="32">
-			<Stream name="Stream_85" source="56" />
+			<Stream name="Stream_114" source="73" />
 		</Input>
 		<Output clock="STREAM" name="output" type="PULL el=1 ael=2" width="32">
-			<Stream name="Stream_86" sink="0" />
+			<Stream name="Stream_115" sink="0" />
 		</Output>
 	</Node>
-	<Node id="76" instanceName="Stream_51" type="Fifo">
+	<Node id="125" instanceName="Stream_88" type="Fifo">
 		<Input clock="STREAM" name="input" type="PUSH 2" width="32">
-			<Stream name="Stream_77" source="48" />
+			<Stream name="Stream_126" source="85" />
 		</Input>
 		<Output clock="STREAM" name="output" type="PULL el=1 ael=2" width="32">
-			<Stream name="Stream_78" sink="0" />
+			<Stream name="Stream_127" sink="0" />
 		</Output>
 	</Node>
-	<Node id="80" instanceName="Stream_55" type="Fifo">
+	<Node id="117" instanceName="Stream_80" type="Fifo">
 		<Input clock="STREAM" name="input" type="PUSH 2" width="32">
-			<Stream name="Stream_81" source="52" />
+			<Stream name="Stream_118" source="77" />
 		</Input>
 		<Output clock="STREAM" name="output" type="PULL el=1 ael=2" width="32">
-			<Stream name="Stream_82" sink="0" />
+			<Stream name="Stream_119" sink="0" />
 		</Output>
 	</Node>
-	<Node id="88" instanceName="Stream_63" type="Fifo">
+	<Node id="121" instanceName="Stream_84" type="Fifo">
 		<Input clock="STREAM" name="input" type="PUSH 2" width="32">
-			<Stream name="Stream_89" source="60" />
+			<Stream name="Stream_122" source="81" />
 		</Input>
 		<Output clock="STREAM" name="output" type="PULL el=1 ael=2" width="32">
-			<Stream name="Stream_90" sink="0" />
+			<Stream name="Stream_123" sink="0" />
+		</Output>
+	</Node>
+	<Node id="133" instanceName="Stream_96" type="Fifo">
+		<Input clock="STREAM" name="input" type="PUSH 2" width="32">
+			<Stream name="Stream_134" source="93" />
+		</Input>
+		<Output clock="STREAM" name="output" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_135" sink="0" />
+		</Output>
+	</Node>
+	<Node id="137" instanceName="Stream_100" type="Fifo">
+		<Input clock="STREAM" name="input" type="PUSH 2" width="32">
+			<Stream name="Stream_138" source="97" />
+		</Input>
+		<Output clock="STREAM" name="output" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_139" sink="0" />
+		</Output>
+	</Node>
+	<Node id="129" instanceName="Stream_92" type="Fifo">
+		<Input clock="STREAM" name="input" type="PUSH 2" width="32">
+			<Stream name="Stream_130" source="89" />
+		</Input>
+		<Output clock="STREAM" name="output" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_131" sink="0" />
 		</Output>
 	</Node>
 	<Node id="9" instanceName="write_lmem" type="OutputFlexibleClock">
 		<Input clock="STREAM" name="write_lmem" type="PUSH 16" width="1536">
-			<Stream name="Stream_71" source="68" />
+			<Stream name="Stream_108" source="105" />
 		</Input>
 	</Node>
-	<Node id="0" instanceName="cpu_mainKernel" type="Kernel">
-		<PxgFile phase="original">cpu_mainKernel_original.pxg</PxgFile>
-		<PxgFile phase="final-simulation">cpu_mainKernel_final-simulation.pxg</PxgFile>
+	<Node id="0" instanceName="linearKernel" type="Kernel">
+		<PxgFile phase="original">linearKernel_original.pxg</PxgFile>
+		<PxgFile phase="final-simulation">linearKernel_final-simulation.pxg</PxgFile>
+		<Input clock="STREAM" name="controller" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_116" source="113" />
+		</Input>
 		<Input clock="STREAM" name="p" type="PULL el=1 ael=2" width="32">
-			<Stream name="Stream_79" source="76" />
+			<Stream name="Stream_120" source="117" />
 		</Input>
-		<Input clock="STREAM" name="pp_value" type="PULL el=1 ael=2" width="32">
-			<Stream name="Stream_83" source="80" />
+		<Input clock="STREAM" name="pp" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_124" source="121" />
 		</Input>
-		<Input clock="STREAM" name="dvv_value" type="PULL el=1 ael=2" width="32">
-			<Stream name="Stream_87" source="84" />
+		<Input clock="STREAM" name="dvv" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_128" source="125" />
 		</Input>
-		<Input clock="STREAM" name="source_container_value" type="PULL el=1 ael=2" width="32">
-			<Stream name="Stream_91" source="88" />
+		<Input clock="STREAM" name="source_container" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_132" source="129" />
 		</Input>
-		<Output clock="STREAM" name="pp" type="PUSH 5" width="32">
-			<Stream name="Stream_33" sink="92" />
+		<Input clock="STREAM" name="px" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_136" source="133" />
+		</Input>
+		<Input clock="STREAM" name="py" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_140" source="137" />
+		</Input>
+		<Output clock="STREAM" name="ppresult" type="PUSH 5" width="32">
+			<Stream name="Stream_62" sink="141" />
 		</Output>
 	</Node>
-	<Node id="92" instanceName="Stream_65" type="Fifo">
+	<Node id="141" instanceName="Stream_102" type="Fifo">
 		<Input clock="STREAM" name="input" type="PUSH 5" width="32">
-			<Stream name="Stream_93" source="0" />
+			<Stream name="Stream_142" source="0" />
 		</Input>
 		<Output clock="STREAM" name="output" type="PULL el=1 ael=0" width="32">
-			<Stream name="Stream_94" sink="64" />
+			<Stream name="Stream_143" sink="101" />
 		</Output>
 	</Node>
-	<Node id="64" instanceName="Stream_39" type="DualAspectReg">
+	<Node id="101" instanceName="Stream_64" type="DualAspectReg">
 		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="32">
-			<Stream name="Stream_95" source="92" />
+			<Stream name="Stream_144" source="141" />
 		</Input>
-		<Output clock="STREAM" name="output" type="PULL el=1 ael=0" width="1536">
-			<Stream name="Stream_66" sink="72" />
+		<Output clock="STREAM" name="output" type="PULL el=1 ael=0" width="128">
+			<Stream name="Stream_103" sink="109" />
 		</Output>
 	</Node>
-	<Node id="72" instanceName="Stream_67" type="PullPushAdapter">
-		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="1536">
-			<Stream name="Stream_73" source="64" />
+	<Node id="109" instanceName="Stream_104" type="PullPushAdapter">
+		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="128">
+			<Stream name="Stream_110" source="101" />
 		</Input>
-		<Output clock="STREAM" name="output" type="PUSH 1" width="1536">
-			<Stream name="Stream_74" sink="38" />
+		<Output clock="STREAM" name="output" type="PUSH 1" width="128">
+			<Stream name="Stream_111" sink="63" />
 		</Output>
 	</Node>
-	<Node id="38" instanceName="pp" type="OutputFlexibleClock">
-		<Input clock="STREAM" name="pp" type="PUSH 16" width="1536">
-			<Stream name="Stream_75" source="72" />
+	<Node id="63" instanceName="ppresult" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="ppresult" type="PUSH 64" width="128">
+			<Stream name="Stream_112" source="109" />
 		</Input>
 	</Node>
 </ManagerGraph>

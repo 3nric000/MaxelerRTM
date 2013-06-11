@@ -20,34 +20,69 @@
 			<Stream name="Stream_16" sink="3" />
 		</Output>
 	</Node>
-	<Node id="18" instanceName="dvv_value" type="InputFlexibleClock">
-		<Output clock="STREAM" name="dvv_value" type="PULL el=1 ael=8" width="128">
+	<Node id="18" instanceName="controller" type="InputFlexibleClock">
+		<Output clock="STREAM" name="controller" type="PULL el=1 ael=8" width="128">
 			<Stream name="Stream_19" sink="0" />
 		</Output>
 	</Node>
-	<Node id="21" instanceName="addrgen_cmd_p" type="AddrGen3DBlocking">
-		<Output clock="clock" name="addrgen_cmd_p_0" type="PUSH 1" width="64">
+	<Node id="21" instanceName="addrgen_cmd_dvv" type="AddrGen1DLinear">
+		<Output clock="clock" name="addrgen_cmd_dvv_0" type="PUSH 1" width="64">
 			<Stream name="Stream_24" sink="22" />
 		</Output>
 	</Node>
-	<Node id="25" instanceName="p" type="InputFlexibleClock">
-		<Output clock="STREAM" name="p" type="PULL el=1 ael=16" width="1536">
+	<Node id="25" instanceName="dvv" type="InputFlexibleClock">
+		<Output clock="STREAM" name="dvv" type="PULL el=1 ael=16" width="1536">
 			<Stream name="Stream_26" sink="0" />
 		</Output>
 	</Node>
-	<Node id="28" instanceName="pp_value" type="InputFlexibleClock">
-		<Output clock="STREAM" name="pp_value" type="PULL el=1 ael=8" width="128">
-			<Stream name="Stream_29" sink="0" />
+	<Node id="28" instanceName="addrgen_cmd_p" type="AddrGen1DLinear">
+		<Output clock="clock" name="addrgen_cmd_p_0" type="PUSH 1" width="64">
+			<Stream name="Stream_31" sink="29" />
 		</Output>
 	</Node>
-	<Node id="31" instanceName="source_container_value" type="InputFlexibleClock">
-		<Output clock="STREAM" name="source_container_value" type="PULL el=1 ael=8" width="128">
-			<Stream name="Stream_32" sink="0" />
+	<Node id="32" instanceName="p" type="InputFlexibleClock">
+		<Output clock="STREAM" name="p" type="PULL el=1 ael=16" width="1536">
+			<Stream name="Stream_33" sink="0" />
 		</Output>
 	</Node>
-	<Node id="34" instanceName="addrgen_cmd_pp" type="AddrGen3DBlocking">
+	<Node id="35" instanceName="addrgen_cmd_pp" type="AddrGen1DLinear">
 		<Output clock="clock" name="addrgen_cmd_pp_0" type="PUSH 1" width="64">
-			<Stream name="Stream_37" sink="35" />
+			<Stream name="Stream_38" sink="36" />
+		</Output>
+	</Node>
+	<Node id="39" instanceName="pp" type="InputFlexibleClock">
+		<Output clock="STREAM" name="pp" type="PULL el=1 ael=16" width="1536">
+			<Stream name="Stream_40" sink="0" />
+		</Output>
+	</Node>
+	<Node id="42" instanceName="addrgen_cmd_px" type="AddrGen1DLinear">
+		<Output clock="clock" name="addrgen_cmd_px_0" type="PUSH 1" width="64">
+			<Stream name="Stream_45" sink="43" />
+		</Output>
+	</Node>
+	<Node id="46" instanceName="px" type="InputFlexibleClock">
+		<Output clock="STREAM" name="px" type="PULL el=1 ael=16" width="1536">
+			<Stream name="Stream_47" sink="0" />
+		</Output>
+	</Node>
+	<Node id="49" instanceName="addrgen_cmd_py" type="AddrGen1DLinear">
+		<Output clock="clock" name="addrgen_cmd_py_0" type="PUSH 1" width="64">
+			<Stream name="Stream_52" sink="50" />
+		</Output>
+	</Node>
+	<Node id="53" instanceName="py" type="InputFlexibleClock">
+		<Output clock="STREAM" name="py" type="PULL el=1 ael=16" width="1536">
+			<Stream name="Stream_54" sink="0" />
+		</Output>
+	</Node>
+	<Node id="56" instanceName="addrgen_cmd_source_container" type="AddrGen1DLinear">
+		<Output clock="clock" name="addrgen_cmd_source_container_0" type="PUSH 1" width="64">
+			<Stream name="Stream_59" sink="57" />
+		</Output>
+	</Node>
+	<Node id="60" instanceName="source_container" type="InputFlexibleClock">
+		<Output clock="STREAM" name="source_container" type="PULL el=1 ael=16" width="1536">
+			<Stream name="Stream_61" sink="0" />
 		</Output>
 	</Node>
 	<Node id="9" instanceName="write_lmem" type="OutputFlexibleClock">
@@ -70,38 +105,67 @@
 			<Stream name="Stream_4" source="15" />
 		</Input>
 	</Node>
-	<Node id="22" instanceName="cmd_p_0" type="OutputFlexibleClock">
-		<Input clock="STREAM" name="cmd_p_0" type="PUSH 8" width="64">
+	<Node id="22" instanceName="cmd_dvv_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_dvv_0" type="PUSH 8" width="64">
 			<Stream name="Stream_23" source="21" />
 		</Input>
 	</Node>
-	<Node id="0" instanceName="cpu_mainKernel" type="Kernel">
-		<PxgFile phase="original">cpu_mainKernel_original.pxg</PxgFile>
-		<PxgFile phase="final-simulation">cpu_mainKernel_final-simulation.pxg</PxgFile>
-		<Input clock="STREAM" name="p" type="PULL el=1 ael=2" width="32">
-			<Stream name="Stream_20" source="25" />
+	<Node id="29" instanceName="cmd_p_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_p_0" type="PUSH 8" width="64">
+			<Stream name="Stream_30" source="28" />
 		</Input>
-		<Input clock="STREAM" name="pp_value" type="PULL el=1 ael=2" width="32">
-			<Stream name="Stream_27" source="28" />
+	</Node>
+	<Node id="36" instanceName="cmd_pp_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_pp_0" type="PUSH 8" width="64">
+			<Stream name="Stream_37" source="35" />
 		</Input>
-		<Input clock="STREAM" name="dvv_value" type="PULL el=1 ael=2" width="32">
+	</Node>
+	<Node id="43" instanceName="cmd_px_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_px_0" type="PUSH 8" width="64">
+			<Stream name="Stream_44" source="42" />
+		</Input>
+	</Node>
+	<Node id="50" instanceName="cmd_py_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_py_0" type="PUSH 8" width="64">
+			<Stream name="Stream_51" source="49" />
+		</Input>
+	</Node>
+	<Node id="57" instanceName="cmd_source_container_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_source_container_0" type="PUSH 8" width="64">
+			<Stream name="Stream_58" source="56" />
+		</Input>
+	</Node>
+	<Node id="0" instanceName="linearKernel" type="Kernel">
+		<PxgFile phase="original">linearKernel_original.pxg</PxgFile>
+		<PxgFile phase="final-simulation">linearKernel_final-simulation.pxg</PxgFile>
+		<Input clock="STREAM" name="controller" type="PULL el=1 ael=2" width="32">
 			<Stream name="Stream_17" source="18" />
 		</Input>
-		<Input clock="STREAM" name="source_container_value" type="PULL el=1 ael=2" width="32">
-			<Stream name="Stream_30" source="31" />
+		<Input clock="STREAM" name="p" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_27" source="32" />
 		</Input>
-		<Output clock="STREAM" name="pp" type="PUSH 5" width="32">
-			<Stream name="Stream_33" sink="38" />
+		<Input clock="STREAM" name="pp" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_34" source="39" />
+		</Input>
+		<Input clock="STREAM" name="dvv" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_20" source="25" />
+		</Input>
+		<Input clock="STREAM" name="source_container" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_55" source="60" />
+		</Input>
+		<Input clock="STREAM" name="px" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_41" source="46" />
+		</Input>
+		<Input clock="STREAM" name="py" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_48" source="53" />
+		</Input>
+		<Output clock="STREAM" name="ppresult" type="PUSH 5" width="32">
+			<Stream name="Stream_62" sink="63" />
 		</Output>
 	</Node>
-	<Node id="35" instanceName="cmd_pp_0" type="OutputFlexibleClock">
-		<Input clock="STREAM" name="cmd_pp_0" type="PUSH 8" width="64">
-			<Stream name="Stream_36" source="34" />
-		</Input>
-	</Node>
-	<Node id="38" instanceName="pp" type="OutputFlexibleClock">
-		<Input clock="STREAM" name="pp" type="PUSH 16" width="1536">
-			<Stream name="Stream_39" source="0" />
+	<Node id="63" instanceName="ppresult" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="ppresult" type="PUSH 64" width="128">
+			<Stream name="Stream_64" source="0" />
 		</Input>
 	</Node>
 </ManagerGraph>

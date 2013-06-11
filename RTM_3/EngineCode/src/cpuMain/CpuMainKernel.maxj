@@ -13,13 +13,14 @@ class CpuMainKernel extends Kernel {
 	protected CpuMainKernel(KernelParameters parameters) {
 		super(parameters);
 
+		DFEVar count = control.count.simpleCounter(32);
 		DFEVar controller = io.input("controller", typeInt);
 		DFEVar p = io.input("p", typeFloat, controller.cast(dfeBool()));
 		DFEVar pp = io.input("pp", typeFloat, controller.cast(dfeBool()));
 		DFEVar dvv = io.input("dvv", typeFloat, controller.cast(dfeBool()));
 		DFEVar source_container = io.input("source_container", typeFloat, controller.cast(dfeBool()));
-		DFEVar ppx = io.input("ppx", typeFloat);
-		DFEVar ppy = io.input("ppy", typeFloat);
+		DFEVar px = io.input("px", typeFloat);
+		DFEVar py = io.input("py", typeFloat);
 
 
 
@@ -79,29 +80,25 @@ class CpuMainKernel extends Kernel {
 		result= 2.0*p-pp+dvv*(
 				p*c_0
 				+c_1_0*(stream.offset(p, 1)+stream.offset(p,-1))
-
-
-
 				+c_1_1*(stream.offset(p, 2)+stream.offset(p,-2))
 				+c_1_2*(stream.offset(p, 3)+stream.offset(p,-3))
 				+c_1_3*(stream.offset(p, 4)+stream.offset(p,-4))
 				+c_1_4*(stream.offset(p, 5)+stream.offset(p,-5))
+				+c_2_0*(stream.offset(py, -4) + stream.offset(py, -5))
+				+c_2_1*(stream.offset(py, -3) + stream.offset(py, -6))
+				+c_2_2*(stream.offset(py, -2) + stream.offset(py, -7))
+				+c_2_3*(stream.offset(py, -1) + stream.offset(py, -8))
+				+c_2_4*(py + stream.offset(py, -9))
+				+c_3_0*(stream.offset(px, -4) + stream.offset(px, -5))
+				+c_3_1*(stream.offset(px, -3) + stream.offset(px, -6))
+				+c_3_2*(stream.offset(px, -2) + stream.offset(px, -7))
+				+c_3_3*(stream.offset(px, -1) + stream.offset(px, -8))
+				+c_3_4*(px + stream.offset(px, -9))
+				)+source_container;
 
+		debug.printf("count=%d, result=%f\n", count, result);
 
-				+c_2_0*(stream.offset(py, -4) + stream.offset(py, ))
-				+c_2_1*(window[16]+window[13])
-				+c_2_2*(window[17]+window[12])
-				+c_2_3*(window[18]+window[11])
-				+c_2_4*(window[19]+window[10])
-				+c_3_0*(window[25]+window[24])
-				+c_3_1*(window[26]+window[23])
-				+c_3_2*(window[27]+window[22])
-				+c_3_3*(window[28]+window[21])
-				+c_3_4*(window[29]+window[20])
-				))+source_container;
-
-
-		io.output("pp", result, typeFloat, controller.cast(dfeBool()));
+		io.output("ppresult", result, typeFloat, controller.cast(dfeBool()));
 	}
 
 }

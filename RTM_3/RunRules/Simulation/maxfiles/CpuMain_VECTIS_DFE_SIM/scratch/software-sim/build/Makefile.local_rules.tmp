@@ -7,9 +7,9 @@ TARGET_BIN := CpuMain.so
 HDRDIR := stdsimheader.h.gch
 HDRS := stdsimheader.h.O0Impl stdsimheader.h.O2
 OBJS :=  \
-	$(OBJDIR)/cpu_mainKernel_exec0.NoTplInst.O2.o \
-	$(OBJDIR)/cpu_mainKernel.O0.o \
-	$(OBJDIR)/cpu_mainKernel_Templates.O2.o \
+	$(OBJDIR)/linearKernel_exec0.NoTplInst.O2.o \
+	$(OBJDIR)/linearKernel.O0.o \
+	$(OBJDIR)/linearKernel_Templates.O2.o \
 	$(OBJDIR)/max_msi.O0.o
 PRECOMPILED_OBJS :=  \
 	StructToGroupDummy.o \

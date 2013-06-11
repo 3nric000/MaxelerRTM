@@ -24,155 +24,181 @@ ADDRGEN_CMD_READ_LMEM version:0,000,instance:0
 		BITS width:32,mask:0xffffffff
 	_OFFSET_0 base:0x22,width:32,bytemask:0xf
 		BITS width:32,mask:0xffffffff
-ADDRGEN_CMD_P version:0,000,instance:0
+ADDRGEN_CMD_DVV version:0,000,instance:0
 	_ADDR_EN base:0x26,width:1,bytemask:0x1
 		BITS width:1,mask:0x1
 	_CMDSIZE base:0x27,width:8,bytemask:0x1
 		BITS width:8,mask:0xff
-	_BLOCKSIZE_X base:0x28,width:10,bytemask:0x3
-		BITS width:10,mask:0x3ff
-	_BLOCKSIZE_Y base:0x2a,width:10,bytemask:0x3
-		BITS width:10,mask:0x3ff
-	_BLOCKSIZE_Z base:0x2c,width:12,bytemask:0x3
-		BITS width:12,mask:0xfff
-	_WRAP_X base:0x2e,width:10,bytemask:0x3
-		BITS width:10,mask:0x3ff
-	_WRAP_Y base:0x30,width:10,bytemask:0x3
-		BITS width:10,mask:0x3ff
-	_WRAP_Z base:0x32,width:12,bytemask:0x3
-		BITS width:12,mask:0xfff
-	_START_X_ADDR base:0x34,width:10,bytemask:0x3
-		BITS width:10,mask:0x3ff
-	_START_Y_ADDR base:0x36,width:32,bytemask:0xf
+	_BLOCKSIZE_X base:0x28,width:33,bytemask:0x1f
+		BITS width:33,mask:0xffffffff
+	_WRAP_X base:0x2d,width:32,bytemask:0xf
 		BITS width:32,mask:0xffffffff
-	_START_Z_ADDR base:0x3a,width:32,bytemask:0xf
+	_START_X_ADDR base:0x31,width:32,bytemask:0xf
 		BITS width:32,mask:0xffffffff
-	_STRIDE_Y base:0x3e,width:11,bytemask:0x3
-		BITS width:11,mask:0x7ff
-	_STRIDE_Z base:0x40,width:21,bytemask:0x7
-		BITS width:21,mask:0x1fffff
-	_OFFSET_0 base:0x43,width:32,bytemask:0xf
+	_OFFSET_0 base:0x35,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+ADDRGEN_CMD_P version:0,000,instance:0
+	_ADDR_EN base:0x39,width:1,bytemask:0x1
+		BITS width:1,mask:0x1
+	_CMDSIZE base:0x3a,width:8,bytemask:0x1
+		BITS width:8,mask:0xff
+	_BLOCKSIZE_X base:0x3b,width:33,bytemask:0x1f
+		BITS width:33,mask:0xffffffff
+	_WRAP_X base:0x40,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	_START_X_ADDR base:0x44,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	_OFFSET_0 base:0x48,width:32,bytemask:0xf
 		BITS width:32,mask:0xffffffff
 ADDRGEN_CMD_PP version:0,000,instance:0
-	_ADDR_EN base:0x47,width:1,bytemask:0x1
+	_ADDR_EN base:0x4c,width:1,bytemask:0x1
 		BITS width:1,mask:0x1
-	_CMDSIZE base:0x48,width:8,bytemask:0x1
+	_CMDSIZE base:0x4d,width:8,bytemask:0x1
 		BITS width:8,mask:0xff
-	_BLOCKSIZE_X base:0x49,width:10,bytemask:0x3
-		BITS width:10,mask:0x3ff
-	_BLOCKSIZE_Y base:0x4b,width:10,bytemask:0x3
-		BITS width:10,mask:0x3ff
-	_BLOCKSIZE_Z base:0x4d,width:12,bytemask:0x3
-		BITS width:12,mask:0xfff
-	_WRAP_X base:0x4f,width:10,bytemask:0x3
-		BITS width:10,mask:0x3ff
-	_WRAP_Y base:0x51,width:10,bytemask:0x3
-		BITS width:10,mask:0x3ff
-	_WRAP_Z base:0x53,width:12,bytemask:0x3
-		BITS width:12,mask:0xfff
-	_START_X_ADDR base:0x55,width:10,bytemask:0x3
-		BITS width:10,mask:0x3ff
-	_START_Y_ADDR base:0x57,width:32,bytemask:0xf
+	_BLOCKSIZE_X base:0x4e,width:33,bytemask:0x1f
+		BITS width:33,mask:0xffffffff
+	_WRAP_X base:0x53,width:32,bytemask:0xf
 		BITS width:32,mask:0xffffffff
-	_START_Z_ADDR base:0x5b,width:32,bytemask:0xf
+	_START_X_ADDR base:0x57,width:32,bytemask:0xf
 		BITS width:32,mask:0xffffffff
-	_STRIDE_Y base:0x5f,width:11,bytemask:0x3
-		BITS width:11,mask:0x7ff
-	_STRIDE_Z base:0x61,width:21,bytemask:0x7
+	_OFFSET_0 base:0x5b,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+ADDRGEN_CMD_PX version:0,000,instance:0
+	_ADDR_EN base:0x5f,width:1,bytemask:0x1
+		BITS width:1,mask:0x1
+	_CMDSIZE base:0x60,width:8,bytemask:0x1
+		BITS width:8,mask:0xff
+	_BLOCKSIZE_X base:0x61,width:33,bytemask:0x1f
+		BITS width:33,mask:0xffffffff
+	_WRAP_X base:0x66,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	_START_X_ADDR base:0x6a,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	_OFFSET_0 base:0x6e,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+ADDRGEN_CMD_PY version:0,000,instance:0
+	_ADDR_EN base:0x72,width:1,bytemask:0x1
+		BITS width:1,mask:0x1
+	_CMDSIZE base:0x73,width:8,bytemask:0x1
+		BITS width:8,mask:0xff
+	_BLOCKSIZE_X base:0x74,width:33,bytemask:0x1f
+		BITS width:33,mask:0xffffffff
+	_WRAP_X base:0x79,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	_START_X_ADDR base:0x7d,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	_OFFSET_0 base:0x81,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+ADDRGEN_CMD_SOURCE_CONTAINER version:0,000,instance:0
+	_ADDR_EN base:0x85,width:1,bytemask:0x1
+		BITS width:1,mask:0x1
+	_CMDSIZE base:0x86,width:8,bytemask:0x1
+		BITS width:8,mask:0xff
+	_BLOCKSIZE_X base:0x87,width:33,bytemask:0x1f
+		BITS width:33,mask:0xffffffff
+	_WRAP_X base:0x8c,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	_START_X_ADDR base:0x90,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	_OFFSET_0 base:0x94,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+LINEARKERNEL version:0,000,instance:0
+	IO_CONTROLLER_FORCE_DISABLED base:0x98,width:1,bytemask:0x1
+		BITS width:1,mask:0x1
+	IO_P_FORCE_DISABLED base:0x99,width:1,bytemask:0x1
+		BITS width:1,mask:0x1
+	IO_PP_FORCE_DISABLED base:0x9a,width:1,bytemask:0x1
+		BITS width:1,mask:0x1
+	IO_DVV_FORCE_DISABLED base:0x9b,width:1,bytemask:0x1
+		BITS width:1,mask:0x1
+	IO_SOURCE_CONTAINER_FORCE_DISABLED base:0x9c,width:1,bytemask:0x1
+		BITS width:1,mask:0x1
+	IO_PX_FORCE_DISABLED base:0x9d,width:1,bytemask:0x1
+		BITS width:1,mask:0x1
+	IO_PY_FORCE_DISABLED base:0x9e,width:1,bytemask:0x1
+		BITS width:1,mask:0x1
+	C_0 base:0x9f,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	C_1_0 base:0xa3,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	C_1_1 base:0xa7,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	C_1_2 base:0xab,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	C_1_3 base:0xaf,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	C_1_4 base:0xb3,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	C_2_0 base:0xb7,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	C_2_1 base:0xbb,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	C_2_2 base:0xbf,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	C_2_3 base:0xc3,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	C_2_4 base:0xc7,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	C_3_0 base:0xcb,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	C_3_1 base:0xcf,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	C_3_2 base:0xd3,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	C_3_3 base:0xd7,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	C_3_4 base:0xdb,width:32,bytemask:0xf
+		BITS width:32,mask:0xffffffff
+	IO_PPRESULT_FORCE_DISABLED base:0xdf,width:1,bytemask:0x1
+		BITS width:1,mask:0x1
+	RUN_CYCLE_COUNT base:0xe0,width:48,bytemask:0x3f
+		BITS width:48,mask:0xffffffff
+	CURRENT_RUN_CYCLE_COUNT base:0xe6,width:48,bytemask:0x3f
+		BITS width:48,mask:0xffffffff
+	DBG_CTLD_ALMOST_EMPTY base:0xec,width:7,bytemask:0x1
+		BITS width:7,mask:0x7f
+	DBG_CTLD_DONE base:0xed,width:7,bytemask:0x1
+		BITS width:7,mask:0x7f
+	DBG_CTLD_EMPTY base:0xee,width:7,bytemask:0x1
+		BITS width:7,mask:0x7f
+	DBG_CTLD_READ base:0xef,width:7,bytemask:0x1
+		BITS width:7,mask:0x7f
+	DBG_CTLD_READ_PIPE_DBG base:0xf0,width:21,bytemask:0x7
 		BITS width:21,mask:0x1fffff
-	_OFFSET_0 base:0x64,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-CPU_MAINKERNEL version:0,000,instance:0
-	IO_P_FORCE_DISABLED base:0x68,width:1,bytemask:0x1
+	DBG_CTLD_REQUEST base:0xf3,width:7,bytemask:0x1
+		BITS width:7,mask:0x7f
+	DBG_DONE_OUT base:0xf4,width:1,bytemask:0x1
 		BITS width:1,mask:0x1
-	C_0 base:0x69,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	IO_PP_VALUE_FORCE_DISABLED base:0x6d,width:1,bytemask:0x1
+	DBG_FILL_LEVEL base:0xf5,width:8,bytemask:0x1
+		BITS width:8,mask:0xff
+	DBG_FLUSH_LEVEL base:0xf6,width:8,bytemask:0x1
+		BITS width:8,mask:0xff
+	DBG_FLUSH_START base:0xf7,width:1,bytemask:0x1
 		BITS width:1,mask:0x1
-	IO_DVV_VALUE_FORCE_DISABLED base:0x6e,width:1,bytemask:0x1
+	DBG_FLUSH_START_LEVEL base:0xf8,width:8,bytemask:0x1
+		BITS width:8,mask:0xff
+	DBG_FLUSHING base:0xf9,width:1,bytemask:0x1
 		BITS width:1,mask:0x1
-	IO_SOURCE_CONTAINER_VALUE_FORCE_DISABLED base:0x6f,width:1,bytemask:0x1
+	DBG_FULL_LEVEL base:0xfa,width:8,bytemask:0x1
+		BITS width:8,mask:0xff
+	DBG_OUT_STALL base:0xfb,width:1,bytemask:0x1
 		BITS width:1,mask:0x1
-	C_1_0 base:0x70,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	C_1_1 base:0x74,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	C_1_2 base:0x78,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	C_1_3 base:0x7c,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	C_1_4 base:0x80,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	C_2_0 base:0x84,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	C_2_1 base:0x88,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	C_2_2 base:0x8c,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	C_2_3 base:0x90,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	C_2_4 base:0x94,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	C_3_0 base:0x98,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	C_3_1 base:0x9c,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	C_3_2 base:0xa0,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	C_3_3 base:0xa4,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	C_3_4 base:0xa8,width:32,bytemask:0xf
-		BITS width:32,mask:0xffffffff
-	IO_PP_FORCE_DISABLED base:0xac,width:1,bytemask:0x1
+	DBG_OUT_VALID base:0xfc,width:1,bytemask:0x1
 		BITS width:1,mask:0x1
-	RUN_CYCLE_COUNT base:0xad,width:48,bytemask:0x3f
-		BITS width:48,mask:0xffffffff
-	CURRENT_RUN_CYCLE_COUNT base:0xb3,width:48,bytemask:0x3f
-		BITS width:48,mask:0xffffffff
-	DBG_CTLD_ALMOST_EMPTY base:0xb9,width:4,bytemask:0x1
-		BITS width:4,mask:0xf
-	DBG_CTLD_DONE base:0xba,width:4,bytemask:0x1
-		BITS width:4,mask:0xf
-	DBG_CTLD_EMPTY base:0xbb,width:4,bytemask:0x1
-		BITS width:4,mask:0xf
-	DBG_CTLD_READ base:0xbc,width:4,bytemask:0x1
-		BITS width:4,mask:0xf
-	DBG_CTLD_READ_PIPE_DBG base:0xbd,width:12,bytemask:0x3
-		BITS width:12,mask:0xfff
-	DBG_CTLD_REQUEST base:0xbf,width:4,bytemask:0x1
-		BITS width:4,mask:0xf
-	DBG_DONE_OUT base:0xc0,width:1,bytemask:0x1
-		BITS width:1,mask:0x1
-	DBG_FILL_LEVEL base:0xc1,width:14,bytemask:0x3
-		BITS width:14,mask:0x3fff
-	DBG_FLUSH_LEVEL base:0xc3,width:14,bytemask:0x3
-		BITS width:14,mask:0x3fff
-	DBG_FLUSH_START base:0xc5,width:1,bytemask:0x1
-		BITS width:1,mask:0x1
-	DBG_FLUSH_START_LEVEL base:0xc6,width:14,bytemask:0x3
-		BITS width:14,mask:0x3fff
-	DBG_FLUSHING base:0xc8,width:1,bytemask:0x1
-		BITS width:1,mask:0x1
-	DBG_FULL_LEVEL base:0xc9,width:14,bytemask:0x3
-		BITS width:14,mask:0x3fff
-	DBG_OUT_STALL base:0xcb,width:1,bytemask:0x1
-		BITS width:1,mask:0x1
-	DBG_OUT_VALID base:0xcc,width:1,bytemask:0x1
-		BITS width:1,mask:0x1
-	DBG_STALL_VECTOR base:0xcd,width:1,bytemask:0x1
+	DBG_STALL_VECTOR base:0xfd,width:1,bytemask:0x1
 		BITS width:1,mask:0x1
 MEMORYCONTROLLERPRO version:0,000,instance:0
-	MEMORYCONTROLLERPRO_INT_ENABLE_AND base:0xce,width:4,bytemask:0x1
-		BITS width:4,mask:0xf
-	MEMORYCONTROLLERPRO_INT_DISABLE_OR base:0xcf,width:4,bytemask:0x1
-		BITS width:4,mask:0xf
-	MEMORYCONTROLLERPRO_PHY_INIT_DONE base:0xd0,width:1,bytemask:0x1
+	MEMORYCONTROLLERPRO_INT_ENABLE_AND base:0xfe,width:8,bytemask:0x1
+		BITS width:8,mask:0xff
+	MEMORYCONTROLLERPRO_INT_DISABLE_OR base:0xff,width:8,bytemask:0x1
+		BITS width:8,mask:0xff
+	MEMORYCONTROLLERPRO_PHY_INIT_DONE base:0x100,width:1,bytemask:0x1
 		BITS width:1,mask:0x1
-	MEMORYCONTROLLERPRO_ARB_CONTROL base:0xd1,width:8,bytemask:0x1
+	MEMORYCONTROLLERPRO_ARB_CONTROL base:0x101,width:8,bytemask:0x1
 		BITS width:8,mask:0xff
 IFPGA version:1,000,instance:0
-	IFPGA_CTRL base:0xd2,width:8,bytemask:0x1
+	IFPGA_CTRL base:0x102,width:8,bytemask:0x1
 		BITS width:8,mask:0xff
 SIGNALFORWARDINGADAPTER version:1,000,instance:0
-	SFA_FORWARD_EN base:0xd3,width:32,bytemask:0xf
+	SFA_FORWARD_EN base:0x103,width:32,bytemask:0xf
 		BITS width:32,mask:0xffffffff

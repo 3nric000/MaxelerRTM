@@ -226,43 +226,43 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 			for (offF = 0; offF < n1m; offF++) {
 				//printf("Creating pp_value, dvv_value, source_container_value streams\n");
 				px[index] = p[(offF) + (offM) * n1 + (offS - 5) * n12];
-				controller[index]=0;
+				controller[index] = 0;
 				py[index++] = p[(offF) + (offM - 5) * n1 + (offS) * n12];
 
 				px[index] = p[(offF) + (offM) * n1 + (offS - 4) * n12];
-				controller[index]=0;
+				controller[index] = 0;
 				py[index++] = p[(offF) + (offM - 4) * n1 + (offS) * n12];
 
 				px[index] = p[(offF) + (offM) * n1 + (offS - 3) * n12];
-				controller[index]=0;
+				controller[index] = 0;
 				py[index++] = p[(offF) + (offM - 3) * n1 + (offS) * n12];
 
 				px[index] = p[(offF) + (offM) * n1 + (offS - 2) * n12];
-				controller[index]=0;
+				controller[index] = 0;
 				py[index++] = p[(offF) + (offM - 2) * n1 + (offS) * n12];
 
 				px[index] = p[(offF) + (offM) * n1 + (offS - 1) * n12];
-				controller[index]=0;
+				controller[index] = 0;
 				py[index++] = p[(offF) + (offM - 1) * n1 + (offS) * n12];
 
 				px[index] = p[(offF) + (offM) * n1 + (offS + 1) * n12];
-				controller[index]=0;
+				controller[index] = 0;
 				py[index++] = p[(offF) + (offM + 1) * n1 + (offS) * n12];
 
 				px[index] = p[(offF) + (offM) * n1 + (offS + 2) * n12];
-				controller[index]=0;
+				controller[index] = 0;
 				py[index++] = p[(offF) + (offM + 2) * n1 + (offS) * n12];
 
 				px[index] = p[(offF) + (offM) * n1 + (offS + 3) * n12];
-				controller[index]=0;
+				controller[index] = 0;
 				py[index++] = p[(offF) + (offM + 3) * n1 + (offS) * n12];
 
 				px[index] = p[(offF) + (offM) * n1 + (offS + 4) * n12];
-				controller[index]=0;
+				controller[index] = 0;
 				py[index++] = p[(offF) + (offM + 4) * n1 + (offS) * n12];
 
 				px[index] = p[(offF) + (offM) * n1 + (offS + 5) * n12];
-				controller[index]=1;
+				controller[index] = 1;
 				py[index++] = p[(offF) + (offM + 5) * n1 + (offS) * n12];
 			}
 		}
@@ -272,32 +272,50 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	max_engine_t *engine = max_load(maxfile, "*");
 
 	printf("Writing to LMem.\n");
+
+
 	max_actions_t* act = max_actions_init(maxfile, "writeLMem");
+
 	max_set_param_uint64t(act, "address", 0);
 	max_set_param_uint64t(act, "nbytes", sizeBytes);
 	printf("Loading p in LMem\n");
 	max_queue_input(act, "cpu_to_lmem", p, size * sizeof(float));
+	max_run(engine, act);
 
+
+	act = max_actions_init(maxfile, "writeLMem");
 	max_set_param_uint64t(act, "address", sizeBytes);
 	max_set_param_uint64t(act, "nbytes", sizeBytes);
 	printf("Loading pp in LMem\n");
 	max_queue_input(act, "cpu_to_lmem", pp, size * sizeof(float));
+	max_run(engine, act);
 
+
+	act = max_actions_init(maxfile, "writeLMem");
 	max_set_param_uint64t(act, "address", 2 * sizeBytes);
 	max_set_param_uint64t(act, "nbytes", sizeBytes);
 	printf("Loading dvv in LMem\n");
 	max_queue_input(act, "cpu_to_lmem", dvv, size * sizeof(float));
+	max_run(engine, act);
 
+
+	act = max_actions_init(maxfile, "writeLMem");
 	max_set_param_uint64t(act, "address", 3 * sizeBytes);
 	max_set_param_uint64t(act, "nbytes", sizeBytes);
 	printf("Loading source_container in LMem\n");
 	max_queue_input(act, "cpu_to_lmem", source_container, size * sizeof(float));
+	max_run(engine, act);
 
+
+	act = max_actions_init(maxfile, "writeLMem");
 	max_set_param_uint64t(act, "address", 4 * sizeBytes);
 	max_set_param_uint64t(act, "nbytes", sizepxy);
 	printf("Loading px in LMem\n");
 	max_queue_input(act, "cpu_to_lmem", px, sizepxy);
+	max_run(engine, act);
 
+
+	act = max_actions_init(maxfile, "writeLMem");
 	max_set_param_uint64t(act, "address", 4 * sizeBytes + sizepxy);
 	max_set_param_uint64t(act, "nbytes", sizepxy);
 	printf("Loading py in LMem\n");
@@ -333,13 +351,13 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	max_set_param_uint64t(act, "n2", n2);
 	max_set_param_double(act, "c_0", (double) c_0);
 
-	max_set_param_uint64t(act, "burst", burst);
+	//max_set_param_uint64t(act, "burst", burst);
 
-	max_set_param_uint64t(act, "xzSize", xzSize);
+	//max_set_param_uint64t(act, "xzSize", xzSize);
 
-	max_set_param_uint64t(act, "offM", offM);
-	max_set_param_uint64t(act, "offF", offF);
-	max_set_param_uint64t(act, "offS", offS);
+	//max_set_param_uint64t(act, "offM", offM);
+	//max_set_param_uint64t(act, "offF", offF);
+	//max_set_param_uint64t(act, "offS", offS);
 
 	printf("running DFE\n");
 	max_run(engine, act);
@@ -347,10 +365,10 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	free(px);
 	free(py);
 
-	act = max_actions_init(maxfile, "readLMem");
-	max_set_param_uint64t(act, "address", sizeBytes);
-	max_set_param_uint64t(act, "nbytes", sizeBytes);
-	max_queue_output(act, "pp", pp, size * sizeof(uint32_t));
+	act = max_actions_init(maxfile, "default");
+	//max_set_param_uint64t(act, "address", sizeBytes);
+	//max_set_param_uint64t(act, "nbytes", sizeBytes);
+	max_queue_output(act, "ppresult", pp, size * sizeof(uint32_t));
 
 	max_unload(engine);
 

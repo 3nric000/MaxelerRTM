@@ -289,7 +289,6 @@ max_actions_t* CpuMain_readLMem_convert(max_file_t *maxfile, CpuMain_readLMem_ac
 /**
  * \brief Basic static function for the interface 'default'.
  * 
- * \param [in] param_burst Interface Parameter "burst".
  * \param [in] param_c_0 Interface Parameter "c_0".
  * \param [in] param_c_1_0 Interface Parameter "c_1_0".
  * \param [in] param_c_1_1 Interface Parameter "c_1_1".
@@ -308,16 +307,9 @@ max_actions_t* CpuMain_readLMem_convert(max_file_t *maxfile, CpuMain_readLMem_ac
  * \param [in] param_c_3_4 Interface Parameter "c_3_4".
  * \param [in] param_n1 Interface Parameter "n1".
  * \param [in] param_n2 Interface Parameter "n2".
- * \param [in] param_offF Interface Parameter "offF".
- * \param [in] param_offM Interface Parameter "offM".
- * \param [in] param_offS Interface Parameter "offS".
- * \param [in] param_xzSize Interface Parameter "xzSize".
- * \param [in] instream_dvv_value The stream should be of size 32 bytes.
- * \param [in] instream_pp_value The stream should be of size 32 bytes.
- * \param [in] instream_source_container_value The stream should be of size 32 bytes.
+ * \param [in] instream_controller The stream should be of size ((((param_n1 * param_n2) * param_n2) * 10) * 4) bytes.
  */
 void CpuMain(
-	int64_t param_burst,
 	double param_c_0,
 	double param_c_1_0,
 	double param_c_1_1,
@@ -336,13 +328,7 @@ void CpuMain(
 	double param_c_3_4,
 	int64_t param_n1,
 	int64_t param_n2,
-	int64_t param_offF,
-	int64_t param_offM,
-	int64_t param_offS,
-	int64_t param_xzSize,
-	const float *instream_dvv_value,
-	const float *instream_pp_value,
-	const float *instream_source_container_value);
+	const int32_t *instream_controller);
 
 /**
  * \brief Basic static non-blocking function for the interface 'default'.
@@ -352,7 +338,6 @@ void CpuMain(
  * note that one of these *must* be called, so that associated memory can be released.
  * 
  * 
- * \param [in] param_burst Interface Parameter "burst".
  * \param [in] param_c_0 Interface Parameter "c_0".
  * \param [in] param_c_1_0 Interface Parameter "c_1_0".
  * \param [in] param_c_1_1 Interface Parameter "c_1_1".
@@ -371,17 +356,10 @@ void CpuMain(
  * \param [in] param_c_3_4 Interface Parameter "c_3_4".
  * \param [in] param_n1 Interface Parameter "n1".
  * \param [in] param_n2 Interface Parameter "n2".
- * \param [in] param_offF Interface Parameter "offF".
- * \param [in] param_offM Interface Parameter "offM".
- * \param [in] param_offS Interface Parameter "offS".
- * \param [in] param_xzSize Interface Parameter "xzSize".
- * \param [in] instream_dvv_value The stream should be of size 32 bytes.
- * \param [in] instream_pp_value The stream should be of size 32 bytes.
- * \param [in] instream_source_container_value The stream should be of size 32 bytes.
+ * \param [in] instream_controller The stream should be of size ((((param_n1 * param_n2) * param_n2) * 10) * 4) bytes.
  * \return A handle on the execution status, or NULL in case of error.
  */
 max_run_t *CpuMain_nonblock(
-	int64_t param_burst,
 	double param_c_0,
 	double param_c_1_0,
 	double param_c_1_1,
@@ -400,20 +378,13 @@ max_run_t *CpuMain_nonblock(
 	double param_c_3_4,
 	int64_t param_n1,
 	int64_t param_n2,
-	int64_t param_offF,
-	int64_t param_offM,
-	int64_t param_offS,
-	int64_t param_xzSize,
-	const float *instream_dvv_value,
-	const float *instream_pp_value,
-	const float *instream_source_container_value);
+	const int32_t *instream_controller);
 
 /**
  * \brief Advanced static interface, structure for the engine interface 'default'
  * 
  */
 typedef struct { 
-	int64_t param_burst; /**<  [in] Interface Parameter "burst". */
 	double param_c_0; /**<  [in] Interface Parameter "c_0". */
 	double param_c_1_0; /**<  [in] Interface Parameter "c_1_0". */
 	double param_c_1_1; /**<  [in] Interface Parameter "c_1_1". */
@@ -432,13 +403,7 @@ typedef struct {
 	double param_c_3_4; /**<  [in] Interface Parameter "c_3_4". */
 	int64_t param_n1; /**<  [in] Interface Parameter "n1". */
 	int64_t param_n2; /**<  [in] Interface Parameter "n2". */
-	int64_t param_offF; /**<  [in] Interface Parameter "offF". */
-	int64_t param_offM; /**<  [in] Interface Parameter "offM". */
-	int64_t param_offS; /**<  [in] Interface Parameter "offS". */
-	int64_t param_xzSize; /**<  [in] Interface Parameter "xzSize". */
-	const float *instream_dvv_value; /**<  [in] The stream should be of size 32 bytes. */
-	const float *instream_pp_value; /**<  [in] The stream should be of size 32 bytes. */
-	const float *instream_source_container_value; /**<  [in] The stream should be of size 32 bytes. */
+	const int32_t *instream_controller; /**<  [in] The stream should be of size ((((param_n1 * param_n2) * param_n2) * 10) * 4) bytes. */
 } CpuMain_actions_t;
 
 /**

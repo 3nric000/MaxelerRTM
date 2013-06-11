@@ -1,1 +1,0 @@
-../scratch/cpu_mainKernel_NodeDiary.txt
