@@ -1,7 +1,7 @@
 Reading model section from scheduler.mod...
 90 lines were read
 Reading data section from QueueKernel_scheduler_1_C.dat...
-153 lines were read
+160 lines were read
 Generating schedulingEquation...
 Generating bufferingEquation...
 Generating afterFlushNode...
@@ -10,24 +10,24 @@ Generating autoVarLatencyUserMin...
 Generating autoVarLatencyUserMax...
 Generating fifos...
 Model has been successfully generated
-ipp_basic_tech:  1 row(s) and 1 column(s) removed
+ipp_basic_tech:  1 row(s) and 2 column(s) removed
 ipp_reduce_bnds: 1 pass(es) made, 0 bound(s) reduced
 ipp_basic_tech:  0 row(s) and 0 column(s) removed
 ipp_reduce_coef: 1 pass(es) made, 0 coefficient(s) reduced
-lpx_intopt: presolved MIP has 46 rows, 32 columns, 112 non-zeros
-lpx_intopt: 32 integer columns, none of which are binary
-lpx_adv_basis: size of triangular part = 46
+lpx_intopt: presolved MIP has 48 rows, 34 columns, 117 non-zeros
+lpx_intopt: 34 integer columns, none of which are binary
+lpx_adv_basis: size of triangular part = 48
 Solving LP relaxation...
       0:   objval =  -1.000000000e+00   infeas =   1.000000000e+00 (0)
-     26:   objval =   6.880000000e+02   infeas =   0.000000000e+00 (0)
-*    26:   objval =   6.880000000e+02   infeas =   0.000000000e+00 (0)
-*    31:   objval =   4.480000000e+02   infeas =   0.000000000e+00 (0)
+     26:   objval =   8.860000000e+02   infeas =   0.000000000e+00 (0)
+*    26:   objval =   8.860000000e+02   infeas =   0.000000000e+00 (0)
+*    34:   objval =   4.480000000e+02   infeas =   0.000000000e+00 (0)
 OPTIMAL SOLUTION FOUND
 Integer optimization begins...
-+    31: mip =     not found yet >=              -inf        (1; 0)
-+    31: >>>>>   4.480000000e+02 >=   4.480000000e+02   0.0% (1; 0)
-+    31: mip =   4.480000000e+02 >=     tree is empty   0.0% (0; 1)
++    34: mip =     not found yet >=              -inf        (1; 0)
++    34: >>>>>   4.480000000e+02 >=   4.480000000e+02   0.0% (1; 0)
++    34: mip =   4.480000000e+02 >=     tree is empty   0.0% (0; 1)
 INTEGER OPTIMAL SOLUTION FOUND
 Time used:   0.0 secs
-Memory used: 0.2 Mb (245954 bytes)
+Memory used: 0.2 Mb (259634 bytes)
 Model has been successfully processed

@@ -1,0 +1,10 @@
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=0 y=0 controller=1 a=3 sum=3
+
+x=0 y=0 controller=0 a=3 sum=3
+
+x=1 y=1 controller=1 a=3 sum=5
+
+x=1 y=1 controller=0 a=3 sum=5

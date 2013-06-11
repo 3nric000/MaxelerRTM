@@ -8,54 +8,63 @@ QueueKernel::QueueKernel(const std::string &instance_name) :
 , c_hw_fix_1_0_uns_bits((HWOffsetFix<1,0,UNSIGNED>(varint_u<1>(0x1l))))
 , c_hw_fix_1_0_uns_bits_1((HWOffsetFix<1,0,UNSIGNED>(varint_u<1>(0x0l))))
 , c_hw_fix_32_0_sgn_undef((HWOffsetFix<32,0,TWOSCOMPLEMENT>()))
+, c_hw_fix_33_0_uns_bits((HWOffsetFix<33,0,UNSIGNED>(varint_u<33>(0x100000000l))))
+, c_hw_fix_33_0_uns_bits_1((HWOffsetFix<33,0,UNSIGNED>(varint_u<33>(0x000000000l))))
+, c_hw_fix_33_0_uns_bits_2((HWOffsetFix<33,0,UNSIGNED>(varint_u<33>(0x000000001l))))
 , c_hw_fix_49_0_uns_bits((HWOffsetFix<49,0,UNSIGNED>(varint_u<49>(0x1000000000000l))))
 , c_hw_fix_49_0_uns_bits_1((HWOffsetFix<49,0,UNSIGNED>(varint_u<49>(0x0000000000000l))))
 , c_hw_fix_49_0_uns_bits_2((HWOffsetFix<49,0,UNSIGNED>(varint_u<49>(0x0000000000001l))))
 , c_hw_fix_48_0_uns_undef((HWOffsetFix<48,0,UNSIGNED>()))
 {
-  { // Node ID: 22 (NodeConstantRawBits)
-    id22out_value = (c_hw_fix_1_0_uns_bits);
+  { // Node ID: 20 (NodeConstantRawBits)
+    id20out_value = (c_hw_fix_1_0_uns_bits);
   }
-  { // Node ID: 0 (NodeInputMappedReg)
+  { // Node ID: 3 (NodeInputMappedReg)
     registerMappedRegister("io_controller_force_disabled", Data(1));
   }
-  { // Node ID: 2 (NodeInput)
+  { // Node ID: 5 (NodeInput)
      m_controller =  registerInput("controller",0,5);
   }
-  { // Node ID: 4 (NodeInputMappedReg)
+  { // Node ID: 7 (NodeInputMappedReg)
     registerMappedRegister("io_x_force_disabled", Data(1));
   }
-  { // Node ID: 10 (NodeInput)
+  { // Node ID: 13 (NodeInput)
      m_x =  registerInput("x",1,5);
   }
-  { // Node ID: 12 (NodeInputMappedReg)
+  { // Node ID: 14 (NodeInputMappedReg)
     registerMappedRegister("io_y_force_disabled", Data(1));
   }
-  { // Node ID: 18 (NodeInput)
+  { // Node ID: 16 (NodeInput)
      m_y =  registerInput("y",2,5);
   }
-  { // Node ID: 19 (NodeInputMappedReg)
+  { // Node ID: 17 (NodeInputMappedReg)
     registerMappedRegister("a", Data(32));
   }
-  { // Node ID: 25 (NodeInputMappedReg)
+  { // Node ID: 45 (NodeConstantRawBits)
+    id45out_value = (c_hw_fix_1_0_uns_bits);
+  }
+  { // Node ID: 1 (NodeConstantRawBits)
+    id1out_value = (c_hw_fix_33_0_uns_bits);
+  }
+  { // Node ID: 23 (NodeInputMappedReg)
     registerMappedRegister("io_s_force_disabled", Data(1));
   }
-  { // Node ID: 31 (NodeOutput)
+  { // Node ID: 29 (NodeOutput)
     m_s = registerOutput("s",0 );
   }
-  { // Node ID: 35 (NodeConstantRawBits)
-    id35out_value = (c_hw_fix_1_0_uns_bits);
-  }
-  { // Node ID: 46 (NodeConstantRawBits)
-    id46out_value = (c_hw_fix_1_0_uns_bits);
-  }
   { // Node ID: 33 (NodeConstantRawBits)
-    id33out_value = (c_hw_fix_49_0_uns_bits);
+    id33out_value = (c_hw_fix_1_0_uns_bits);
   }
-  { // Node ID: 36 (NodeOutputMappedReg)
+  { // Node ID: 44 (NodeConstantRawBits)
+    id44out_value = (c_hw_fix_1_0_uns_bits);
+  }
+  { // Node ID: 31 (NodeConstantRawBits)
+    id31out_value = (c_hw_fix_49_0_uns_bits);
+  }
+  { // Node ID: 34 (NodeOutputMappedReg)
     registerMappedRegister("current_run_cycle_count", Data(48));
   }
-  { // Node ID: 38 (NodeInputMappedReg)
+  { // Node ID: 36 (NodeInputMappedReg)
     registerMappedRegister("run_cycle_count", Data(48));
   }
 }
@@ -65,112 +74,116 @@ void QueueKernel::resetComputation() {
 }
 
 void QueueKernel::resetComputationAfterFlush() {
-  { // Node ID: 0 (NodeInputMappedReg)
-    id0out_io_controller_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_controller_force_disabled");
+  { // Node ID: 3 (NodeInputMappedReg)
+    id3out_io_controller_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_controller_force_disabled");
   }
-  { // Node ID: 2 (NodeInput)
+  { // Node ID: 5 (NodeInput)
 
-    (id2st_read_next_cycle) = (c_hw_fix_1_0_uns_bits_1);
-    (id2st_last_read_value) = (c_hw_fix_32_0_sgn_undef);
+    (id5st_read_next_cycle) = (c_hw_fix_1_0_uns_bits_1);
+    (id5st_last_read_value) = (c_hw_fix_32_0_sgn_undef);
   }
-  { // Node ID: 4 (NodeInputMappedReg)
-    id4out_io_x_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_x_force_disabled");
+  { // Node ID: 7 (NodeInputMappedReg)
+    id7out_io_x_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_x_force_disabled");
   }
-  { // Node ID: 10 (NodeInput)
+  { // Node ID: 13 (NodeInput)
 
-    (id10st_read_next_cycle) = (c_hw_fix_1_0_uns_bits_1);
-    (id10st_last_read_value) = (c_hw_fix_32_0_sgn_undef);
+    (id13st_read_next_cycle) = (c_hw_fix_1_0_uns_bits_1);
+    (id13st_last_read_value) = (c_hw_fix_32_0_sgn_undef);
   }
-  { // Node ID: 42 (NodeFIFO)
-
-    for(int i=0; i<2; i++)
-    {
-      id42out_output[i] = (c_hw_fix_32_0_sgn_undef);
-    }
-  }
-  { // Node ID: 12 (NodeInputMappedReg)
-    id12out_io_y_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_y_force_disabled");
-  }
-  { // Node ID: 18 (NodeInput)
-
-    (id18st_read_next_cycle) = (c_hw_fix_1_0_uns_bits_1);
-    (id18st_last_read_value) = (c_hw_fix_32_0_sgn_undef);
-  }
-  { // Node ID: 43 (NodeFIFO)
+  { // Node ID: 39 (NodeFIFO)
 
     for(int i=0; i<2; i++)
     {
-      id43out_output[i] = (c_hw_fix_32_0_sgn_undef);
+      id39out_output[i] = (c_hw_fix_32_0_sgn_undef);
     }
   }
-  { // Node ID: 44 (NodeFIFO)
+  { // Node ID: 14 (NodeInputMappedReg)
+    id14out_io_y_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_y_force_disabled");
+  }
+  { // Node ID: 16 (NodeInput)
+
+    (id16st_read_next_cycle) = (c_hw_fix_1_0_uns_bits_1);
+    (id16st_last_read_value) = (c_hw_fix_32_0_sgn_undef);
+  }
+  { // Node ID: 40 (NodeFIFO)
+
+    for(int i=0; i<2; i++)
+    {
+      id40out_output[i] = (c_hw_fix_32_0_sgn_undef);
+    }
+  }
+  { // Node ID: 41 (NodeFIFO)
 
     for(int i=0; i<7; i++)
     {
-      id44out_output[i] = (c_hw_fix_32_0_sgn_undef);
+      id41out_output[i] = (c_hw_fix_32_0_sgn_undef);
     }
   }
-  { // Node ID: 19 (NodeInputMappedReg)
-    id19out_a = getMappedRegValue<HWOffsetFix<32,0,TWOSCOMPLEMENT> >("a");
+  { // Node ID: 17 (NodeInputMappedReg)
+    id17out_a = getMappedRegValue<HWOffsetFix<32,0,TWOSCOMPLEMENT> >("a");
   }
-  { // Node ID: 25 (NodeInputMappedReg)
-    id25out_io_s_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_s_force_disabled");
-  }
-  { // Node ID: 34 (NodeCounterV1)
+  { // Node ID: 2 (NodeCounterV1)
 
-    (id34st_count) = (c_hw_fix_49_0_uns_bits_1);
+    (id2st_count) = (c_hw_fix_33_0_uns_bits_1);
   }
-  { // Node ID: 45 (NodeFIFO)
+  { // Node ID: 23 (NodeInputMappedReg)
+    id23out_io_s_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_s_force_disabled");
+  }
+  { // Node ID: 32 (NodeCounterV1)
+
+    (id32st_count) = (c_hw_fix_49_0_uns_bits_1);
+  }
+  { // Node ID: 43 (NodeFIFO)
 
     for(int i=0; i<5; i++)
     {
-      id45out_output[i] = (c_hw_fix_48_0_uns_undef);
+      id43out_output[i] = (c_hw_fix_48_0_uns_undef);
     }
   }
-  { // Node ID: 38 (NodeInputMappedReg)
-    id38out_run_cycle_count = getMappedRegValue<HWOffsetFix<48,0,UNSIGNED> >("run_cycle_count");
+  { // Node ID: 36 (NodeInputMappedReg)
+    id36out_run_cycle_count = getMappedRegValue<HWOffsetFix<48,0,UNSIGNED> >("run_cycle_count");
   }
 }
 
 void QueueKernel::updateState() {
-  { // Node ID: 0 (NodeInputMappedReg)
-    id0out_io_controller_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_controller_force_disabled");
+  { // Node ID: 3 (NodeInputMappedReg)
+    id3out_io_controller_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_controller_force_disabled");
   }
-  { // Node ID: 4 (NodeInputMappedReg)
-    id4out_io_x_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_x_force_disabled");
+  { // Node ID: 7 (NodeInputMappedReg)
+    id7out_io_x_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_x_force_disabled");
   }
-  { // Node ID: 12 (NodeInputMappedReg)
-    id12out_io_y_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_y_force_disabled");
+  { // Node ID: 14 (NodeInputMappedReg)
+    id14out_io_y_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_y_force_disabled");
   }
-  { // Node ID: 19 (NodeInputMappedReg)
-    id19out_a = getMappedRegValue<HWOffsetFix<32,0,TWOSCOMPLEMENT> >("a");
+  { // Node ID: 17 (NodeInputMappedReg)
+    id17out_a = getMappedRegValue<HWOffsetFix<32,0,TWOSCOMPLEMENT> >("a");
   }
-  { // Node ID: 25 (NodeInputMappedReg)
-    id25out_io_s_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_s_force_disabled");
+  { // Node ID: 23 (NodeInputMappedReg)
+    id23out_io_s_force_disabled = getMappedRegValue<HWOffsetFix<1,0,UNSIGNED> >("io_s_force_disabled");
   }
-  { // Node ID: 38 (NodeInputMappedReg)
-    id38out_run_cycle_count = getMappedRegValue<HWOffsetFix<48,0,UNSIGNED> >("run_cycle_count");
+  { // Node ID: 36 (NodeInputMappedReg)
+    id36out_run_cycle_count = getMappedRegValue<HWOffsetFix<48,0,UNSIGNED> >("run_cycle_count");
   }
 }
 
 void QueueKernel::preExecute() {
-  { // Node ID: 2 (NodeInput)
+  { // Node ID: 5 (NodeInput)
     if(((needsToReadInput(m_controller))&(((getFlushLevel())<((4l)+(5)))|(!(isFlushingActive()))))) {
-      (id2st_last_read_value) = (readInput<HWOffsetFix<32,0,TWOSCOMPLEMENT> >(m_controller));
+      (id5st_last_read_value) = (readInput<HWOffsetFix<32,0,TWOSCOMPLEMENT> >(m_controller));
     }
-    id2out_data = (id2st_last_read_value);
+    id5out_data = (id5st_last_read_value);
   }
-  { // Node ID: 10 (NodeInput)
+  { // Node ID: 13 (NodeInput)
     if(((needsToReadInput(m_x))&(((getFlushLevel())<((9l)+(5)))|(!(isFlushingActive()))))) {
-      (id10st_last_read_value) = (readInput<HWOffsetFix<32,0,TWOSCOMPLEMENT> >(m_x));
+      (id13st_last_read_value) = (readInput<HWOffsetFix<32,0,TWOSCOMPLEMENT> >(m_x));
     }
-    id10out_data = (id10st_last_read_value);
+    id13out_data = (id13st_last_read_value);
   }
-  { // Node ID: 18 (NodeInput)
+  { // Node ID: 16 (NodeInput)
     if(((needsToReadInput(m_y))&(((getFlushLevel())<((9l)+(5)))|(!(isFlushingActive()))))) {
-      (id18st_last_read_value) = (readInput<HWOffsetFix<32,0,TWOSCOMPLEMENT> >(m_y));
+      (id16st_last_read_value) = (readInput<HWOffsetFix<32,0,TWOSCOMPLEMENT> >(m_y));
     }
-    id18out_data = (id18st_last_read_value);
+    id16out_data = (id16st_last_read_value);
   }
 }
 

@@ -12,7 +12,7 @@
 #define MAXFILE_BUILD_INFO_PRESENT 1
 #define MAXFILE_BUILD_NAME "Queue"
 #define MAXFILE_BUILD_DIR  "/home/enrico.deiana/repo/MaxelerRTM/RTMQueue/RunRules/Simulation/maxfiles/Queue_VECTIS_DFE_SIM"
-#define MAXFILE_BUILD_DATE  20130531
+#define MAXFILE_BUILD_DATE  20130610
 #define MAXFILE_BUILD_REV   1
 #endif
 
@@ -228,7 +228,7 @@ MANAGER_NODE_CPP_SIM_MODEL_CTOR(MemoryControllerPro, MemoryControllerPro, "Memor
 MANAGER_NODE_CPP_SIM_MODEL_CTOR(CapabilityReg, CapRegs, "CapabilityReg", 0, 3, 2, 0, 0, 0, 0, 0, 103)
 MANAGER_NODE_CPP_SIM_MODEL_CTOR(ifpga, IFPGARegs)
 MANAGER_NODE_CPP_SIM_MODEL_CTOR(sfa, SFARegs)
-MANAGER_NODE_CPP_SIM_MODEL_CTOR(ChecksumMemory, ChecksumMem, "ChecksumMemory", "f227695a7c37cc0d3fbcd52f4cf091b98843533c1976288db9b21f5fc8a36e4f")
+MANAGER_NODE_CPP_SIM_MODEL_CTOR(ChecksumMemory, ChecksumMem, "ChecksumMemory", "f227695a7c37cc0d3fbcd52f4cf091b930a8c392513540a565918b7ae7fa6dcd")
 #endif
 
 #ifdef MANAGER_NODE_CPP_SIM_MODEL_SETUP
@@ -396,7 +396,7 @@ REG_V2(SignalForwardingAdapter.SFA_FORWARD_EN, 0x63, 4, hwBits(32), HOST_READ_WR
 
 #ifdef CHECKSUM
 #define CHECKSUM_PRESENT 1
-CHECKSUM("f227695a7c37cc0d3fbcd52f4cf091b98843533c1976288db9b21f5fc8a36e4f")
+CHECKSUM("f227695a7c37cc0d3fbcd52f4cf091b930a8c392513540a565918b7ae7fa6dcd")
 #endif
 
 #ifdef MANAGER_MEMCTL
@@ -723,8 +723,8 @@ max_actions_t* Queue_readLMem_convert(max_file_t *maxfile, Queue_readLMem_action
  * 
  * \param [in] param_A Interface Parameter "A".
  * \param [in] param_N Interface Parameter "N".
- * \param [in] instream_controller The stream should be of size (param_N * 4) bytes.
- * \param [in] instream_y The stream should be of size (param_N * 4) bytes.
+ * \param [in] instream_controller The stream should be of size ((param_N * 2) * 4) bytes.
+ * \param [in] instream_y The stream should be of size ((param_N * 2) * 4) bytes.
  * \param [out] outstream_s The stream should be of size (param_N * 4) bytes.
  */
 void Queue(
@@ -744,8 +744,8 @@ void Queue(
  * 
  * \param [in] param_A Interface Parameter "A".
  * \param [in] param_N Interface Parameter "N".
- * \param [in] instream_controller The stream should be of size (param_N * 4) bytes.
- * \param [in] instream_y The stream should be of size (param_N * 4) bytes.
+ * \param [in] instream_controller The stream should be of size ((param_N * 2) * 4) bytes.
+ * \param [in] instream_y The stream should be of size ((param_N * 2) * 4) bytes.
  * \param [out] outstream_s The stream should be of size (param_N * 4) bytes.
  * \return A handle on the execution status, or NULL in case of error.
  */
@@ -763,8 +763,8 @@ max_run_t *Queue_nonblock(
 typedef struct { 
 	int64_t param_A; /**<  [in] Interface Parameter "A". */
 	int64_t param_N; /**<  [in] Interface Parameter "N". */
-	const int32_t *instream_controller; /**<  [in] The stream should be of size (param_N * 4) bytes. */
-	const int32_t *instream_y; /**<  [in] The stream should be of size (param_N * 4) bytes. */
+	const int32_t *instream_controller; /**<  [in] The stream should be of size ((param_N * 2) * 4) bytes. */
+	const int32_t *instream_y; /**<  [in] The stream should be of size ((param_N * 2) * 4) bytes. */
 	int32_t *outstream_s; /**<  [out] The stream should be of size (param_N * 4) bytes. */
 } Queue_actions_t;
 
@@ -877,46 +877,47 @@ void Queue_free(void);
 
 #ifdef PHOTON_NODE_DATA
 #define PHOTON_NODE_DATA_PRESENT 1
-PHOTON_NODE_DATA(QueueKernel, 22, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.kernelcompiler.Debug.printf(Debug.java:343)\nqueue.QueueKernel.<init>(QueueKernel.maxj:23)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 0, NodeInputMappedReg, "Scalar input (io_controller_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nqueue.QueueKernel.<init>(QueueKernel.maxj:15)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 1, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nqueue.QueueKernel.<init>(QueueKernel.maxj:15)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 2, NodeInput, "Input(controller)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nqueue.QueueKernel.<init>(QueueKernel.maxj:15)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 3, NodeCast, "{HWOffsetFix:1, 0, UNSIGNED}", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)\nqueue.QueueKernel.<init>(QueueKernel.maxj:16)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 7, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:16)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 4, NodeInputMappedReg, "Scalar input (io_x_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:16)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 5, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:16)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 8, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:16)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 6, NodeAnd, "&", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:16)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 9, NodeReinterpret, "<{HWOffsetFix:1, 0, UNSIGNED}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:16)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 10, NodeInput, "Input(x)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:16)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 42, NodeFIFO, "FIFO(1)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
-PHOTON_NODE_DATA(QueueKernel, 11, NodeCast, "{HWOffsetFix:1, 0, UNSIGNED}", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 15, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 12, NodeInputMappedReg, "Scalar input (io_y_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 13, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 16, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 14, NodeAnd, "&", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 17, NodeReinterpret, "<{HWOffsetFix:1, 0, UNSIGNED}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 18, NodeInput, "Input(y)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 43, NodeFIFO, "FIFO(1)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
-PHOTON_NODE_DATA(QueueKernel, 44, NodeFIFO, "FIFO(6)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
-PHOTON_NODE_DATA(QueueKernel, 19, NodeInputMappedReg, "Scalar input (a)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)\nqueue.QueueKernel.<init>(QueueKernel.maxj:18)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 41, NodeTriAdd, "3 +", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\nqueue.QueueKernel.<init>(QueueKernel.maxj:21)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 23, NodePrintf, "NodePrintf", "com.maxeler.maxcompiler.v2.kernelcompiler.Debug.printf(Debug.java:343)\nqueue.QueueKernel.<init>(QueueKernel.maxj:23)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 25, NodeInputMappedReg, "Scalar input (io_s_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nqueue.QueueKernel.<init>(QueueKernel.maxj:25)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 26, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nqueue.QueueKernel.<init>(QueueKernel.maxj:25)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 29, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nqueue.QueueKernel.<init>(QueueKernel.maxj:25)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 30, NodeReinterpret, "<{HWOffsetFix:1, 0, UNSIGNED}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nqueue.QueueKernel.<init>(QueueKernel.maxj:25)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 31, NodeOutput, "Output(s)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nqueue.QueueKernel.<init>(QueueKernel.maxj:25)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
-PHOTON_NODE_DATA(QueueKernel, 35, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
-PHOTON_NODE_DATA(QueueKernel, 46, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
-PHOTON_NODE_DATA(QueueKernel, 33, NodeConstantRawBits, "{HWOffsetFix:49, 0, UNSIGNED}\n0x1000000000000; 2.81474976710656E14", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
-PHOTON_NODE_DATA(QueueKernel, 34, NodeCounterV1, "Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
-PHOTON_NODE_DATA(QueueKernel, 45, NodeFIFO, "FIFO(4)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
-PHOTON_NODE_DATA(QueueKernel, 36, NodeOutputMappedReg, "Scalar output (current_run_cycle_count)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
-PHOTON_NODE_DATA(QueueKernel, 38, NodeInputMappedReg, "Scalar input (run_cycle_count)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
-PHOTON_NODE_DATA(QueueKernel, 39, NodeEq, "==", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
-PHOTON_NODE_DATA(QueueKernel, 37, NodeFlush, "flush on trigger", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
+PHOTON_NODE_DATA(QueueKernel, 20, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.kernelcompiler.Debug.printf(Debug.java:343)\nqueue.QueueKernel.<init>(QueueKernel.maxj:24)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 3, NodeInputMappedReg, "Scalar input (io_controller_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nqueue.QueueKernel.<init>(QueueKernel.maxj:16)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 4, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nqueue.QueueKernel.<init>(QueueKernel.maxj:16)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 5, NodeInput, "Input(controller)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nqueue.QueueKernel.<init>(QueueKernel.maxj:16)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 6, NodeCast, "{HWOffsetFix:1, 0, UNSIGNED}", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 10, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 7, NodeInputMappedReg, "Scalar input (io_x_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 8, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 11, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 9, NodeAnd, "&", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 12, NodeReinterpret, "<{HWOffsetFix:1, 0, UNSIGNED}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 13, NodeInput, "Input(x)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\nqueue.QueueKernel.<init>(QueueKernel.maxj:17)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 39, NodeFIFO, "FIFO(1)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
+PHOTON_NODE_DATA(QueueKernel, 14, NodeInputMappedReg, "Scalar input (io_y_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nqueue.QueueKernel.<init>(QueueKernel.maxj:18)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 15, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nqueue.QueueKernel.<init>(QueueKernel.maxj:18)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 16, NodeInput, "Input(y)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nqueue.QueueKernel.<init>(QueueKernel.maxj:18)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 40, NodeFIFO, "FIFO(1)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
+PHOTON_NODE_DATA(QueueKernel, 41, NodeFIFO, "FIFO(6)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
+PHOTON_NODE_DATA(QueueKernel, 17, NodeInputMappedReg, "Scalar input (a)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)\nqueue.QueueKernel.<init>(QueueKernel.maxj:19)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 38, NodeTriAdd, "3 +", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\nqueue.QueueKernel.<init>(QueueKernel.maxj:22)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 45, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Count.simpleCounter(Count.java:498)\nqueue.QueueKernel.<init>(QueueKernel.maxj:15)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 1, NodeConstantRawBits, "{HWOffsetFix:33, 0, UNSIGNED}\n0x100000000; 4.294967296E9", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Count.simpleCounter(Count.java:498)\nqueue.QueueKernel.<init>(QueueKernel.maxj:15)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 2, NodeCounterV1, "Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Count.simpleCounter(Count.java:498)\nqueue.QueueKernel.<init>(QueueKernel.maxj:15)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 21, NodePrintf, "NodePrintf", "com.maxeler.maxcompiler.v2.kernelcompiler.Debug.printf(Debug.java:343)\nqueue.QueueKernel.<init>(QueueKernel.maxj:24)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 22, NodeCast, "{HWOffsetFix:1, 0, UNSIGNED}", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)\nqueue.QueueKernel.<init>(QueueKernel.maxj:26)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 26, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)\nqueue.QueueKernel.<init>(QueueKernel.maxj:26)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 23, NodeInputMappedReg, "Scalar input (io_s_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)\nqueue.QueueKernel.<init>(QueueKernel.maxj:26)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 24, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)\nqueue.QueueKernel.<init>(QueueKernel.maxj:26)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 27, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)\nqueue.QueueKernel.<init>(QueueKernel.maxj:26)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 25, NodeAnd, "&", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)\nqueue.QueueKernel.<init>(QueueKernel.maxj:26)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 28, NodeReinterpret, "<{HWOffsetFix:1, 0, UNSIGNED}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)\nqueue.QueueKernel.<init>(QueueKernel.maxj:26)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 29, NodeOutput, "Output(s)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)\nqueue.QueueKernel.<init>(QueueKernel.maxj:26)\nqueue.QueueManager.main(QueueManager.maxj:21)\n")
+PHOTON_NODE_DATA(QueueKernel, 33, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
+PHOTON_NODE_DATA(QueueKernel, 44, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
+PHOTON_NODE_DATA(QueueKernel, 31, NodeConstantRawBits, "{HWOffsetFix:49, 0, UNSIGNED}\n0x1000000000000; 2.81474976710656E14", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
+PHOTON_NODE_DATA(QueueKernel, 32, NodeCounterV1, "Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
+PHOTON_NODE_DATA(QueueKernel, 43, NodeFIFO, "FIFO(4)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
+PHOTON_NODE_DATA(QueueKernel, 34, NodeOutputMappedReg, "Scalar output (current_run_cycle_count)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
+PHOTON_NODE_DATA(QueueKernel, 36, NodeInputMappedReg, "Scalar input (run_cycle_count)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
+PHOTON_NODE_DATA(QueueKernel, 37, NodeEq, "==", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
+PHOTON_NODE_DATA(QueueKernel, 35, NodeFlush, "flush on trigger", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nqueue.QueueManager.main(QueueManager.maxj:33)\n")
 #endif
 
 #ifdef SLIC_USE_DEFINITIONS
@@ -1755,14 +1756,15 @@ max_actions_t* Queue_convert(max_file_t *maxfile, Queue_actions_t *interface_act
 	
 
 	/* temporary variables */
-	int64_t tmp_0 = (param_N * 4);
+	int64_t tmp_0 = (2 * param_N);
 	int64_t tmp_1 = (param_N * 4);
-	int64_t tmp_2 = (param_N * 4);
-	int64_t tmp_3 = (param_N * 4);
+	int64_t tmp_2 = ((param_N * 2) * 4);
+	int64_t tmp_3 = ((param_N * 2) * 4);
+	int64_t tmp_4 = (param_N * 4);
 
 	/* code for scalar QueueKernel.run_cycle_count */
-	uint64_t ticks_QueueKernel = param_N;
-	max_set_ticks(actions, "QueueKernel", param_N);
+	uint64_t ticks_QueueKernel = tmp_0;
+	max_set_ticks(actions, "QueueKernel", tmp_0);
 	if(!max_ok(actions->errors)) return NULL;
 	/* end of code for scalar QueueKernel.run_cycle_count*/
 	
@@ -1773,7 +1775,7 @@ max_actions_t* Queue_convert(max_file_t *maxfile, Queue_actions_t *interface_act
 	/* end of code for scalar QueueKernel.a*/
 	
 	/* code for stream controller */
-	size_t instream_size_controller = tmp_2;
+	size_t instream_size_controller = tmp_3;
 	if (instream_size_controller > 0) {
 		max_queue_input(actions, "controller", interface_actions->instream_controller,instream_size_controller);
 		if (!max_ok(actions->errors)) return NULL;
@@ -1787,7 +1789,7 @@ max_actions_t* Queue_convert(max_file_t *maxfile, Queue_actions_t *interface_act
 	if(!max_ok(actions->errors)) return NULL;
 	
 	/* code for stream y */
-	size_t instream_size_y = tmp_1;
+	size_t instream_size_y = tmp_2;
 	if (instream_size_y > 0) {
 		max_queue_input(actions, "y", interface_actions->instream_y,instream_size_y);
 		if (!max_ok(actions->errors)) return NULL;
@@ -1795,7 +1797,7 @@ max_actions_t* Queue_convert(max_file_t *maxfile, Queue_actions_t *interface_act
 	/* end of code for stream y */
 	
 	/* code for stream s */
-	size_t outstream_size_s = tmp_3;
+	size_t outstream_size_s = tmp_4;
 	if (outstream_size_s > 0) {
 		max_queue_output(actions, "s", interface_actions->outstream_s,outstream_size_s);
 		if (!max_ok(actions->errors)) return NULL;
@@ -1810,7 +1812,7 @@ max_actions_t* Queue_convert(max_file_t *maxfile, Queue_actions_t *interface_act
 	
 	/* code for linear memory-stream "x" */
 	size_t lmem_address_x = 0;
-	size_t lmem_arr_size_x = tmp_0;
+	size_t lmem_arr_size_x = tmp_1;
 	int lmem_burst_size_x = max_get_burst_size(maxfile, NULL);
 	if ( (lmem_address_x % lmem_burst_size_x) != 0 ) {
 		fprintf(stdout, "\nSLiC Error: %s:%d : LMem x parameter 'lmem_address_x' is set to %zd bytes; it must be a multiple of %d bytes\n", __FILE__, __LINE__, lmem_address_x, lmem_burst_size_x );
@@ -2376,54 +2378,55 @@ dGlvbnNfdCAqYWN0aW9ucyA9IG1heF9hY3Rpb25zX2luaXQobWF4ZmlsZSwgTlVMTCk7CglpZihh
 Y3Rpb25zID09IE5VTEwgfHwgIW1heF9vayhtYXhmaWxlLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsK
 CglpbnQ2NF90IHBhcmFtX0EgPSBpbnRlcmZhY2VfYWN0aW9ucy0+cGFyYW1fQTsKCQoJaW50NjRf
 dCBwYXJhbV9OID0gaW50ZXJmYWNlX2FjdGlvbnMtPnBhcmFtX047CgkKCgkvKiB0ZW1wb3Jhcnkg
-dmFyaWFibGVzICovCglpbnQ2NF90IHRtcF8wID0gKHBhcmFtX04gKiA0KTsKCWludDY0X3QgdG1w
-XzEgPSAocGFyYW1fTiAqIDQpOwoJaW50NjRfdCB0bXBfMiA9IChwYXJhbV9OICogNCk7CglpbnQ2
-NF90IHRtcF8zID0gKHBhcmFtX04gKiA0KTsKCgkvKiBjb2RlIGZvciBzY2FsYXIgUXVldWVLZXJu
-ZWwucnVuX2N5Y2xlX2NvdW50ICovCgl1aW50NjRfdCB0aWNrc19RdWV1ZUtlcm5lbCA9IHBhcmFt
-X047CgltYXhfc2V0X3RpY2tzKGFjdGlvbnMsICJRdWV1ZUtlcm5lbCIsIHBhcmFtX04pOwoJaWYo
-IW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCS8qIGVuZCBvZiBjb2RlIGZv
-ciBzY2FsYXIgUXVldWVLZXJuZWwucnVuX2N5Y2xlX2NvdW50Ki8KCQoJLyogY29kZSBmb3Igc2Nh
-bGFyIFF1ZXVlS2VybmVsLmEgKi8KCXVpbnQ2NF90IGluc2NhbGFyX1F1ZXVlS2VybmVsX2EgPSBw
-YXJhbV9BOwoJbWF4X3NldF91aW50NjR0KGFjdGlvbnMsICJRdWV1ZUtlcm5lbCIsICJhIiwgaW5z
-Y2FsYXJfUXVldWVLZXJuZWxfYSk7CglpZighbWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVy
-biBOVUxMOwoJLyogZW5kIG9mIGNvZGUgZm9yIHNjYWxhciBRdWV1ZUtlcm5lbC5hKi8KCQoJLyog
-Y29kZSBmb3Igc3RyZWFtIGNvbnRyb2xsZXIgKi8KCXNpemVfdCBpbnN0cmVhbV9zaXplX2NvbnRy
-b2xsZXIgPSB0bXBfMjsKCWlmIChpbnN0cmVhbV9zaXplX2NvbnRyb2xsZXIgPiAwKSB7CgkJbWF4
-X3F1ZXVlX2lucHV0KGFjdGlvbnMsICJjb250cm9sbGVyIiwgaW50ZXJmYWNlX2FjdGlvbnMtPmlu
-c3RyZWFtX2NvbnRyb2xsZXIsaW5zdHJlYW1fc2l6ZV9jb250cm9sbGVyKTsKCQlpZiAoIW1heF9v
-ayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCX0KCS8qIGVuZCBvZiBjb2RlIGZvciBz
-dHJlYW0gY29udHJvbGxlciAqLwoJCgltYXhfaWdub3JlX3N0cmVhbShhY3Rpb25zLCAiY3B1X3Rv
-X2xtZW0iICk7CglpZighbWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBOVUxMOwoJCglt
-YXhfaWdub3JlX3N0cmVhbShhY3Rpb25zLCAibG1lbV90b19jcHUiICk7CglpZighbWF4X29rKGFj
-dGlvbnMtPmVycm9ycykpIHJldHVybiBOVUxMOwoJCgkvKiBjb2RlIGZvciBzdHJlYW0geSAqLwoJ
-c2l6ZV90IGluc3RyZWFtX3NpemVfeSA9IHRtcF8xOwoJaWYgKGluc3RyZWFtX3NpemVfeSA+IDAp
-IHsKCQltYXhfcXVldWVfaW5wdXQoYWN0aW9ucywgInkiLCBpbnRlcmZhY2VfYWN0aW9ucy0+aW5z
-dHJlYW1feSxpbnN0cmVhbV9zaXplX3kpOwoJCWlmICghbWF4X29rKGFjdGlvbnMtPmVycm9ycykp
-IHJldHVybiBOVUxMOwoJfQoJLyogZW5kIG9mIGNvZGUgZm9yIHN0cmVhbSB5ICovCgkKCS8qIGNv
-ZGUgZm9yIHN0cmVhbSBzICovCglzaXplX3Qgb3V0c3RyZWFtX3NpemVfcyA9IHRtcF8zOwoJaWYg
-KG91dHN0cmVhbV9zaXplX3MgPiAwKSB7CgkJbWF4X3F1ZXVlX291dHB1dChhY3Rpb25zLCAicyIs
-IGludGVyZmFjZV9hY3Rpb25zLT5vdXRzdHJlYW1fcyxvdXRzdHJlYW1fc2l6ZV9zKTsKCQlpZiAo
-IW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCX0KCS8qIGVuZCBvZiBjb2Rl
-IGZvciBzdHJlYW0gcyAqLwoJCgltYXhfaWdub3JlX2xtZW0oYWN0aW9ucywgInJlYWRfbG1lbSIg
-KTsKCWlmICggIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpICkgcmV0dXJuIE5VTEw7CgkKCW1heF9p
-Z25vcmVfbG1lbShhY3Rpb25zLCAid3JpdGVfbG1lbSIgKTsKCWlmICggIW1heF9vayhhY3Rpb25z
-LT5lcnJvcnMpICkgcmV0dXJuIE5VTEw7CgkKCS8qIGNvZGUgZm9yIGxpbmVhciBtZW1vcnktc3Ry
-ZWFtICJ4IiAqLwoJc2l6ZV90IGxtZW1fYWRkcmVzc194ID0gMDsKCXNpemVfdCBsbWVtX2Fycl9z
-aXplX3ggPSB0bXBfMDsKCWludCBsbWVtX2J1cnN0X3NpemVfeCA9IG1heF9nZXRfYnVyc3Rfc2l6
-ZShtYXhmaWxlLCBOVUxMKTsKCWlmICggKGxtZW1fYWRkcmVzc194ICUgbG1lbV9idXJzdF9zaXpl
-X3gpICE9IDAgKSB7CgkJZnByaW50ZihzdGRvdXQsICJcblNMaUMgRXJyb3I6ICVzOiVkIDogTE1l
-bSB4IHBhcmFtZXRlciAnbG1lbV9hZGRyZXNzX3gnIGlzIHNldCB0byAlemQgYnl0ZXM7IGl0IG11
-c3QgYmUgYSBtdWx0aXBsZSBvZiAlZCBieXRlc1xuIiwgX19GSUxFX18sIF9fTElORV9fLCBsbWVt
-X2FkZHJlc3NfeCwgbG1lbV9idXJzdF9zaXplX3ggKTsKCX0KCWlmICggKGxtZW1fYXJyX3NpemVf
-eCAlIGxtZW1fYnVyc3Rfc2l6ZV94KSAhPSAwICkgewoJCWZwcmludGYoc3Rkb3V0LCAiXG5TTGlD
-IEVycm9yOiAlczolZCA6IExNZW0geCBwYXJhbWV0ZXIgJ2xtZW1fYXJyX3NpemVfeCcgaXMgc2V0
-IHRvICV6ZCBieXRlczsgaXQgbXVzdCBiZSBhIG11bHRpcGxlIG9mICVkIGJ5dGVzXG4iLCBfX0ZJ
-TEVfXywgX19MSU5FX18sIGxtZW1fYXJyX3NpemVfeCwgbG1lbV9idXJzdF9zaXplX3ggKTsKCX0K
-CWlmIChsbWVtX2Fycl9zaXplX3ggPiAwKSB7CgkJbWF4X2xtZW1fbGluZWFyKGFjdGlvbnMsICJ4
-IiwgbG1lbV9hZGRyZXNzX3gsIGxtZW1fYXJyX3NpemVfeCk7Cgl9IGVsc2UgewoJCW1heF9pZ25v
-cmVfbG1lbShhY3Rpb25zLCAieCIpOwoJfQoJaWYgKCAhbWF4X29rKGFjdGlvbnMtPmVycm9ycykg
-KSByZXR1cm4gTlVMTDsKCS8qIGVuZCBvZiBjb2RlIGZvciBsaW5lYXIgbWVtb3J5LXN0cmVhbSAi
-eCIgKi8KCQoJcmV0dXJuIGFjdGlvbnM7Cn0KCgo=
+dmFyaWFibGVzICovCglpbnQ2NF90IHRtcF8wID0gKDIgKiBwYXJhbV9OKTsKCWludDY0X3QgdG1w
+XzEgPSAocGFyYW1fTiAqIDQpOwoJaW50NjRfdCB0bXBfMiA9ICgocGFyYW1fTiAqIDIpICogNCk7
+CglpbnQ2NF90IHRtcF8zID0gKChwYXJhbV9OICogMikgKiA0KTsKCWludDY0X3QgdG1wXzQgPSAo
+cGFyYW1fTiAqIDQpOwoKCS8qIGNvZGUgZm9yIHNjYWxhciBRdWV1ZUtlcm5lbC5ydW5fY3ljbGVf
+Y291bnQgKi8KCXVpbnQ2NF90IHRpY2tzX1F1ZXVlS2VybmVsID0gdG1wXzA7CgltYXhfc2V0X3Rp
+Y2tzKGFjdGlvbnMsICJRdWV1ZUtlcm5lbCIsIHRtcF8wKTsKCWlmKCFtYXhfb2soYWN0aW9ucy0+
+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7CgkvKiBlbmQgb2YgY29kZSBmb3Igc2NhbGFyIFF1ZXVlS2Vy
+bmVsLnJ1bl9jeWNsZV9jb3VudCovCgkKCS8qIGNvZGUgZm9yIHNjYWxhciBRdWV1ZUtlcm5lbC5h
+ICovCgl1aW50NjRfdCBpbnNjYWxhcl9RdWV1ZUtlcm5lbF9hID0gcGFyYW1fQTsKCW1heF9zZXRf
+dWludDY0dChhY3Rpb25zLCAiUXVldWVLZXJuZWwiLCAiYSIsIGluc2NhbGFyX1F1ZXVlS2VybmVs
+X2EpOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCS8qIGVuZCBv
+ZiBjb2RlIGZvciBzY2FsYXIgUXVldWVLZXJuZWwuYSovCgkKCS8qIGNvZGUgZm9yIHN0cmVhbSBj
+b250cm9sbGVyICovCglzaXplX3QgaW5zdHJlYW1fc2l6ZV9jb250cm9sbGVyID0gdG1wXzM7Cglp
+ZiAoaW5zdHJlYW1fc2l6ZV9jb250cm9sbGVyID4gMCkgewoJCW1heF9xdWV1ZV9pbnB1dChhY3Rp
+b25zLCAiY29udHJvbGxlciIsIGludGVyZmFjZV9hY3Rpb25zLT5pbnN0cmVhbV9jb250cm9sbGVy
+LGluc3RyZWFtX3NpemVfY29udHJvbGxlcik7CgkJaWYgKCFtYXhfb2soYWN0aW9ucy0+ZXJyb3Jz
+KSkgcmV0dXJuIE5VTEw7Cgl9CgkvKiBlbmQgb2YgY29kZSBmb3Igc3RyZWFtIGNvbnRyb2xsZXIg
+Ki8KCQoJbWF4X2lnbm9yZV9zdHJlYW0oYWN0aW9ucywgImNwdV90b19sbWVtIiApOwoJaWYoIW1h
+eF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCQoJbWF4X2lnbm9yZV9zdHJlYW0o
+YWN0aW9ucywgImxtZW1fdG9fY3B1IiApOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSBy
+ZXR1cm4gTlVMTDsKCQoJLyogY29kZSBmb3Igc3RyZWFtIHkgKi8KCXNpemVfdCBpbnN0cmVhbV9z
+aXplX3kgPSB0bXBfMjsKCWlmIChpbnN0cmVhbV9zaXplX3kgPiAwKSB7CgkJbWF4X3F1ZXVlX2lu
+cHV0KGFjdGlvbnMsICJ5IiwgaW50ZXJmYWNlX2FjdGlvbnMtPmluc3RyZWFtX3ksaW5zdHJlYW1f
+c2l6ZV95KTsKCQlpZiAoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCX0K
+CS8qIGVuZCBvZiBjb2RlIGZvciBzdHJlYW0geSAqLwoJCgkvKiBjb2RlIGZvciBzdHJlYW0gcyAq
+LwoJc2l6ZV90IG91dHN0cmVhbV9zaXplX3MgPSB0bXBfNDsKCWlmIChvdXRzdHJlYW1fc2l6ZV9z
+ID4gMCkgewoJCW1heF9xdWV1ZV9vdXRwdXQoYWN0aW9ucywgInMiLCBpbnRlcmZhY2VfYWN0aW9u
+cy0+b3V0c3RyZWFtX3Msb3V0c3RyZWFtX3NpemVfcyk7CgkJaWYgKCFtYXhfb2soYWN0aW9ucy0+
+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7Cgl9CgkvKiBlbmQgb2YgY29kZSBmb3Igc3RyZWFtIHMgKi8K
+CQoJbWF4X2lnbm9yZV9sbWVtKGFjdGlvbnMsICJyZWFkX2xtZW0iICk7CglpZiAoICFtYXhfb2so
+YWN0aW9ucy0+ZXJyb3JzKSApIHJldHVybiBOVUxMOwoJCgltYXhfaWdub3JlX2xtZW0oYWN0aW9u
+cywgIndyaXRlX2xtZW0iICk7CglpZiAoICFtYXhfb2soYWN0aW9ucy0+ZXJyb3JzKSApIHJldHVy
+biBOVUxMOwoJCgkvKiBjb2RlIGZvciBsaW5lYXIgbWVtb3J5LXN0cmVhbSAieCIgKi8KCXNpemVf
+dCBsbWVtX2FkZHJlc3NfeCA9IDA7CglzaXplX3QgbG1lbV9hcnJfc2l6ZV94ID0gdG1wXzE7Cglp
+bnQgbG1lbV9idXJzdF9zaXplX3ggPSBtYXhfZ2V0X2J1cnN0X3NpemUobWF4ZmlsZSwgTlVMTCk7
+CglpZiAoIChsbWVtX2FkZHJlc3NfeCAlIGxtZW1fYnVyc3Rfc2l6ZV94KSAhPSAwICkgewoJCWZw
+cmludGYoc3Rkb3V0LCAiXG5TTGlDIEVycm9yOiAlczolZCA6IExNZW0geCBwYXJhbWV0ZXIgJ2xt
+ZW1fYWRkcmVzc194JyBpcyBzZXQgdG8gJXpkIGJ5dGVzOyBpdCBtdXN0IGJlIGEgbXVsdGlwbGUg
+b2YgJWQgYnl0ZXNcbiIsIF9fRklMRV9fLCBfX0xJTkVfXywgbG1lbV9hZGRyZXNzX3gsIGxtZW1f
+YnVyc3Rfc2l6ZV94ICk7Cgl9CglpZiAoIChsbWVtX2Fycl9zaXplX3ggJSBsbWVtX2J1cnN0X3Np
+emVfeCkgIT0gMCApIHsKCQlmcHJpbnRmKHN0ZG91dCwgIlxuU0xpQyBFcnJvcjogJXM6JWQgOiBM
+TWVtIHggcGFyYW1ldGVyICdsbWVtX2Fycl9zaXplX3gnIGlzIHNldCB0byAlemQgYnl0ZXM7IGl0
+IG11c3QgYmUgYSBtdWx0aXBsZSBvZiAlZCBieXRlc1xuIiwgX19GSUxFX18sIF9fTElORV9fLCBs
+bWVtX2Fycl9zaXplX3gsIGxtZW1fYnVyc3Rfc2l6ZV94ICk7Cgl9CglpZiAobG1lbV9hcnJfc2l6
+ZV94ID4gMCkgewoJCW1heF9sbWVtX2xpbmVhcihhY3Rpb25zLCAieCIsIGxtZW1fYWRkcmVzc194
+LCBsbWVtX2Fycl9zaXplX3gpOwoJfSBlbHNlIHsKCQltYXhfaWdub3JlX2xtZW0oYWN0aW9ucywg
+IngiKTsKCX0KCWlmICggIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpICkgcmV0dXJuIE5VTEw7Cgkv
+KiBlbmQgb2YgY29kZSBmb3IgbGluZWFyIG1lbW9yeS1zdHJlYW0gIngiICovCgkKCXJldHVybiBh
+Y3Rpb25zOwp9CgoK
 #endif /* SLIC_B64_DEFINITIONS */
 
 #ifdef SLIC_DYNAMIC_CODE
@@ -2458,20 +2461,21 @@ SLIC_MODE_END(readLMem)
 SLIC_MODE_START(default)	
 SLIC_PARAMETER_UINT64(int64_t, A, param_A)	
 SLIC_PARAMETER_UINT64(int64_t, N, param_N)	
-SLIC_TEMP_VAR(int64_t tmp_0 = (param_N * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_0 = (2 * param_N);)	
 SLIC_TEMP_VAR(int64_t tmp_1 = (param_N * 4);)	
-SLIC_TEMP_VAR(int64_t tmp_2 = (param_N * 4);)	
-SLIC_TEMP_VAR(int64_t tmp_3 = (param_N * 4);)	
-SLIC_SET_TICKS(QueueKernel, param_N)	
+SLIC_TEMP_VAR(int64_t tmp_2 = ((param_N * 2) * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_3 = ((param_N * 2) * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_4 = (param_N * 4);)	
+SLIC_SET_TICKS(QueueKernel, tmp_0)	
 SLIC_SCALAR_UINT64(QueueKernel, a, param_A)	
-SLIC_STREAM(controller, tmp_2)	
+SLIC_STREAM(controller, tmp_3)	
 SLIC_STREAM_DISABLED(cpu_to_lmem)	
 SLIC_STREAM_DISABLED(lmem_to_cpu)	
-SLIC_STREAM(y, tmp_1)	
-SLIC_STREAM(s, tmp_3)	
+SLIC_STREAM(y, tmp_2)	
+SLIC_STREAM(s, tmp_4)	
 SLIC_LMEM_LINEAR_DISABLED(read_lmem)	
 SLIC_LMEM_LINEAR_DISABLED(write_lmem)	
-SLIC_LMEM_LINEAR(x, 0, tmp_0)	
+SLIC_LMEM_LINEAR(x, 0, tmp_1)	
 SLIC_MODE_END(default)
 
 #endif /* SLIC_DYNAMIC_CODE */
@@ -2501,77 +2505,83 @@ ZXR1cm4tdmFsdWU9InZvaWQiPjxzY2FsYXIgZGVzYz0iSW50ZXJmYWNlIFBhcmFtZXRlciAmcXVv
 dDtBJnF1b3Q7LiIgZGlyZWN0aW9uPSJJbnB1dCIgbmFtZT0icGFyYW1fQSIgdHlwZT0iaW50NjRf
 dCIvPjxzY2FsYXIgZGVzYz0iSW50ZXJmYWNlIFBhcmFtZXRlciAmcXVvdDtOJnF1b3Q7LiIgZGly
 ZWN0aW9uPSJJbnB1dCIgbmFtZT0icGFyYW1fTiIgdHlwZT0iaW50NjRfdCIvPjxhcnJheSBkZXNj
-PSJUaGUgc3RyZWFtIHNob3VsZCBiZSBvZiBzaXplIChwYXJhbV9OICogNCkgYnl0ZXMuIiBkaXJl
-Y3Rpb249IklucHV0IiBuYW1lPSJpbnN0cmVhbV9jb250cm9sbGVyIiBzaXplPSIocGFyYW1fTiAq
-IDQpIiB0cmFuc3Bvc2U9InRydWUiIHR5cGU9ImludDMyX3QiPjxkaW1lbnNpb24gaW5kZXg9IjAi
-PjxsZW5ndGg+PGZ1bmN0aW9uQ2FsbD48bnVtQmluYXJ5T3BlcmF0b3Igb3BlcmF0b3I9Ii8iIHZh
-bHVlPSIoKHBhcmFtX04gKiA0KSAvIDQpIj48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVyYXRv
-ciBvcGVyYXRvcj0iKiIgdmFsdWU9IihwYXJhbV9OICogNCkiPjx1c2VyUGFyYW0gdmFsdWU9InBh
-cmFtX04iLz48Y29uc3RhbnRWYWx1ZSB2YWx1ZT0iNCIvPjwvbnVtQmluYXJ5T3BlcmF0b3I+PC9m
-dW5jdGlvbkNhbGw+PGNvbnN0YW50VmFsdWUgdmFsdWU9IjQiLz48L251bUJpbmFyeU9wZXJhdG9y
-PjwvZnVuY3Rpb25DYWxsPjwvbGVuZ3RoPjwvZGltZW5zaW9uPjwvYXJyYXk+PGFycmF5IGRlc2M9
-IlRoZSBzdHJlYW0gc2hvdWxkIGJlIG9mIHNpemUgKHBhcmFtX04gKiA0KSBieXRlcy4iIGRpcmVj
-dGlvbj0iSW5wdXQiIG5hbWU9Imluc3RyZWFtX3kiIHNpemU9IihwYXJhbV9OICogNCkiIHRyYW5z
-cG9zZT0idHJ1ZSIgdHlwZT0iaW50MzJfdCI+PGRpbWVuc2lvbiBpbmRleD0iMCI+PGxlbmd0aD48
-ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVyYXRvciBvcGVyYXRvcj0iLyIgdmFsdWU9IigocGFy
-YW1fTiAqIDQpIC8gNCkiPjxmdW5jdGlvbkNhbGw+PG51bUJpbmFyeU9wZXJhdG9yIG9wZXJhdG9y
-PSIqIiB2YWx1ZT0iKHBhcmFtX04gKiA0KSI+PHVzZXJQYXJhbSB2YWx1ZT0icGFyYW1fTiIvPjxj
-b25zdGFudFZhbHVlIHZhbHVlPSI0Ii8+PC9udW1CaW5hcnlPcGVyYXRvcj48L2Z1bmN0aW9uQ2Fs
-bD48Y29uc3RhbnRWYWx1ZSB2YWx1ZT0iNCIvPjwvbnVtQmluYXJ5T3BlcmF0b3I+PC9mdW5jdGlv
-bkNhbGw+PC9sZW5ndGg+PC9kaW1lbnNpb24+PC9hcnJheT48YXJyYXkgZGVzYz0iVGhlIHN0cmVh
-bSBzaG91bGQgYmUgb2Ygc2l6ZSAocGFyYW1fTiAqIDQpIGJ5dGVzLiIgZGlyZWN0aW9uPSJPdXRw
-dXQiIG5hbWU9Im91dHN0cmVhbV9zIiBzaXplPSIocGFyYW1fTiAqIDQpIiB0cmFuc3Bvc2U9InRy
-dWUiIHR5cGU9ImludDMyX3QiPjxkaW1lbnNpb24gaW5kZXg9IjAiPjxsZW5ndGg+PGZ1bmN0aW9u
-Q2FsbD48bnVtQmluYXJ5T3BlcmF0b3Igb3BlcmF0b3I9Ii8iIHZhbHVlPSIoKHBhcmFtX04gKiA0
-KSAvIDQpIj48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVyYXRvciBvcGVyYXRvcj0iKiIgdmFs
-dWU9IihwYXJhbV9OICogNCkiPjx1c2VyUGFyYW0gdmFsdWU9InBhcmFtX04iLz48Y29uc3RhbnRW
+PSJUaGUgc3RyZWFtIHNob3VsZCBiZSBvZiBzaXplICgocGFyYW1fTiAqIDIpICogNCkgYnl0ZXMu
+IiBkaXJlY3Rpb249IklucHV0IiBuYW1lPSJpbnN0cmVhbV9jb250cm9sbGVyIiBzaXplPSIoKHBh
+cmFtX04gKiAyKSAqIDQpIiB0cmFuc3Bvc2U9InRydWUiIHR5cGU9ImludDMyX3QiPjxkaW1lbnNp
+b24gaW5kZXg9IjAiPjxsZW5ndGg+PGZ1bmN0aW9uQ2FsbD48bnVtQmluYXJ5T3BlcmF0b3Igb3Bl
+cmF0b3I9Ii8iIHZhbHVlPSIoKChwYXJhbV9OICogMikgKiA0KSAvIDQpIj48ZnVuY3Rpb25DYWxs
+PjxudW1CaW5hcnlPcGVyYXRvciBvcGVyYXRvcj0iKiIgdmFsdWU9IigocGFyYW1fTiAqIDIpICog
+NCkiPjxmdW5jdGlvbkNhbGw+PG51bUJpbmFyeU9wZXJhdG9yIG9wZXJhdG9yPSIqIiB2YWx1ZT0i
+KHBhcmFtX04gKiAyKSI+PHVzZXJQYXJhbSB2YWx1ZT0icGFyYW1fTiIvPjxjb25zdGFudFZhbHVl
+IHZhbHVlPSIyIi8+PC9udW1CaW5hcnlPcGVyYXRvcj48L2Z1bmN0aW9uQ2FsbD48Y29uc3RhbnRW
 YWx1ZSB2YWx1ZT0iNCIvPjwvbnVtQmluYXJ5T3BlcmF0b3I+PC9mdW5jdGlvbkNhbGw+PGNvbnN0
 YW50VmFsdWUgdmFsdWU9IjQiLz48L251bUJpbmFyeU9wZXJhdG9yPjwvZnVuY3Rpb25DYWxsPjwv
-bGVuZ3RoPjwvZGltZW5zaW9uPjwvYXJyYXk+PC9mdW5jdGlvbj48L2VuZ2luZW1vZGU+PC9tYXhm
-aWxlPg==
+bGVuZ3RoPjwvZGltZW5zaW9uPjwvYXJyYXk+PGFycmF5IGRlc2M9IlRoZSBzdHJlYW0gc2hvdWxk
+IGJlIG9mIHNpemUgKChwYXJhbV9OICogMikgKiA0KSBieXRlcy4iIGRpcmVjdGlvbj0iSW5wdXQi
+IG5hbWU9Imluc3RyZWFtX3kiIHNpemU9IigocGFyYW1fTiAqIDIpICogNCkiIHRyYW5zcG9zZT0i
+dHJ1ZSIgdHlwZT0iaW50MzJfdCI+PGRpbWVuc2lvbiBpbmRleD0iMCI+PGxlbmd0aD48ZnVuY3Rp
+b25DYWxsPjxudW1CaW5hcnlPcGVyYXRvciBvcGVyYXRvcj0iLyIgdmFsdWU9IigoKHBhcmFtX04g
+KiAyKSAqIDQpIC8gNCkiPjxmdW5jdGlvbkNhbGw+PG51bUJpbmFyeU9wZXJhdG9yIG9wZXJhdG9y
+PSIqIiB2YWx1ZT0iKChwYXJhbV9OICogMikgKiA0KSI+PGZ1bmN0aW9uQ2FsbD48bnVtQmluYXJ5
+T3BlcmF0b3Igb3BlcmF0b3I9IioiIHZhbHVlPSIocGFyYW1fTiAqIDIpIj48dXNlclBhcmFtIHZh
+bHVlPSJwYXJhbV9OIi8+PGNvbnN0YW50VmFsdWUgdmFsdWU9IjIiLz48L251bUJpbmFyeU9wZXJh
+dG9yPjwvZnVuY3Rpb25DYWxsPjxjb25zdGFudFZhbHVlIHZhbHVlPSI0Ii8+PC9udW1CaW5hcnlP
+cGVyYXRvcj48L2Z1bmN0aW9uQ2FsbD48Y29uc3RhbnRWYWx1ZSB2YWx1ZT0iNCIvPjwvbnVtQmlu
+YXJ5T3BlcmF0b3I+PC9mdW5jdGlvbkNhbGw+PC9sZW5ndGg+PC9kaW1lbnNpb24+PC9hcnJheT48
+YXJyYXkgZGVzYz0iVGhlIHN0cmVhbSBzaG91bGQgYmUgb2Ygc2l6ZSAocGFyYW1fTiAqIDQpIGJ5
+dGVzLiIgZGlyZWN0aW9uPSJPdXRwdXQiIG5hbWU9Im91dHN0cmVhbV9zIiBzaXplPSIocGFyYW1f
+TiAqIDQpIiB0cmFuc3Bvc2U9InRydWUiIHR5cGU9ImludDMyX3QiPjxkaW1lbnNpb24gaW5kZXg9
+IjAiPjxsZW5ndGg+PGZ1bmN0aW9uQ2FsbD48bnVtQmluYXJ5T3BlcmF0b3Igb3BlcmF0b3I9Ii8i
+IHZhbHVlPSIoKHBhcmFtX04gKiA0KSAvIDQpIj48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVy
+YXRvciBvcGVyYXRvcj0iKiIgdmFsdWU9IihwYXJhbV9OICogNCkiPjx1c2VyUGFyYW0gdmFsdWU9
+InBhcmFtX04iLz48Y29uc3RhbnRWYWx1ZSB2YWx1ZT0iNCIvPjwvbnVtQmluYXJ5T3BlcmF0b3I+
+PC9mdW5jdGlvbkNhbGw+PGNvbnN0YW50VmFsdWUgdmFsdWU9IjQiLz48L251bUJpbmFyeU9wZXJh
+dG9yPjwvZnVuY3Rpb25DYWxsPjwvbGVuZ3RoPjwvZGltZW5zaW9uPjwvYXJyYXk+PC9mdW5jdGlv
+bj48L2VuZ2luZW1vZGU+PC9tYXhmaWxlPg==
 #endif /* SKIN_META_DATA */
 
 #ifdef PHOTON_NODE_ADD_DATA
 #define PHOTON_NODE_ADD_DATA_PRESENT 1
-PHOTON_NODE_ADD_DATA(QueueKernel, 22, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 0, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 1, "SquashFactor", 1.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 2, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 20, "SquashFactor", 0.0)
 PHOTON_NODE_ADD_DATA(QueueKernel, 3, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 7, "SquashFactor", 1.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 4, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 5, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 4, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 5, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 6, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 10, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 7, "SquashFactor", 0.0)
 PHOTON_NODE_ADD_DATA(QueueKernel, 8, "SquashFactor", 1.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 6, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 11, "SquashFactor", 1.0)
 PHOTON_NODE_ADD_DATA(QueueKernel, 9, "SquashFactor", 1.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 10, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 42, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 11, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 15, "SquashFactor", 1.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 12, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 13, "SquashFactor", 1.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 16, "SquashFactor", 1.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 14, "SquashFactor", 1.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 17, "SquashFactor", 1.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 18, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 43, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 44, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 19, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 41, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 23, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 25, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 26, "SquashFactor", 1.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 29, "SquashFactor", 1.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 30, "SquashFactor", 1.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 31, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 35, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 46, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 33, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 34, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 45, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 36, "SquashFactor", 0.0)
-PHOTON_NODE_ADD_DATA(QueueKernel, 38, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 12, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 13, "SquashFactor", 0.0)
 PHOTON_NODE_ADD_DATA(QueueKernel, 39, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 14, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 15, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 16, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 40, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 41, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 17, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 38, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 45, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 1, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 2, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 21, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 22, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 26, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 23, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 24, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 27, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 25, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 28, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 29, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 33, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 44, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 31, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 32, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 43, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 34, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 36, "SquashFactor", 0.0)
 PHOTON_NODE_ADD_DATA(QueueKernel, 37, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(QueueKernel, 35, "SquashFactor", 0.0)
 #endif
 

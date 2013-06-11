@@ -2,14 +2,16 @@
 Pre-schedule statistics
 
 
-Total nodes: 32
+Total nodes: 33
 
 Node class;Type;Length;Num
 NodeAnd;{HWRawBits:1};0;2
 NodeCast;{HWOffsetFix:1, 0, UNSIGNED};0;2
-NodeConstantDouble;HWUntypedConst;0;1
+NodeConstantDouble;HWUntypedConst;0;2
 NodeConstantRawBits;{HWOffsetFix:1, 0, UNSIGNED};0;2
+NodeConstantRawBits;{HWOffsetFix:33, 0, UNSIGNED};0;1
 NodeConstantRawBits;{HWOffsetFix:49, 0, UNSIGNED};0;1
+NodeCounterV1;{HWOffsetFix:32, 0, UNSIGNED};0;1
 NodeCounterV1;{HWOffsetFix:48, 0, UNSIGNED};0;1
 NodeEq;{HWOffsetFix:1, 0, UNSIGNED};0;1
 NodeInput;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};0;3
@@ -17,21 +19,23 @@ NodeInputMappedReg;{HWOffsetFix:1, 0, UNSIGNED};0;4
 NodeInputMappedReg;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};0;1
 NodeInputMappedReg;{HWOffsetFix:48, 0, UNSIGNED};0;1
 NodeNot;{HWOffsetFix:1, 0, UNSIGNED};0;4
-NodeReinterpret;{HWOffsetFix:1, 0, UNSIGNED};0;3
-NodeReinterpret;{HWRawBits:1};0;5
+NodeReinterpret;{HWOffsetFix:1, 0, UNSIGNED};0;2
+NodeReinterpret;{HWRawBits:1};0;4
 NodeTriAdd;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};0;1
 
 Post-schedule statistics (pass 1)
 
 
-Total nodes: 32
+Total nodes: 33
 
 Node class;Type;Length;Num
 NodeAnd;{HWRawBits:1};0;2
 NodeCast;{HWOffsetFix:1, 0, UNSIGNED};0;2
-NodeConstantDouble;HWUntypedConst;0;1
+NodeConstantDouble;HWUntypedConst;0;2
 NodeConstantRawBits;{HWOffsetFix:1, 0, UNSIGNED};0;2
+NodeConstantRawBits;{HWOffsetFix:33, 0, UNSIGNED};0;1
 NodeConstantRawBits;{HWOffsetFix:49, 0, UNSIGNED};0;1
+NodeCounterV1;{HWOffsetFix:32, 0, UNSIGNED};0;1
 NodeCounterV1;{HWOffsetFix:48, 0, UNSIGNED};0;1
 NodeEq;{HWOffsetFix:1, 0, UNSIGNED};0;1
 NodeInput;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};0;3
@@ -39,46 +43,50 @@ NodeInputMappedReg;{HWOffsetFix:1, 0, UNSIGNED};0;4
 NodeInputMappedReg;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};0;1
 NodeInputMappedReg;{HWOffsetFix:48, 0, UNSIGNED};0;1
 NodeNot;{HWOffsetFix:1, 0, UNSIGNED};0;4
-NodeReinterpret;{HWOffsetFix:1, 0, UNSIGNED};0;3
-NodeReinterpret;{HWRawBits:1};0;5
+NodeReinterpret;{HWOffsetFix:1, 0, UNSIGNED};0;2
+NodeReinterpret;{HWRawBits:1};0;4
 NodeTriAdd;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};0;1
 
 Post-schedule statistics (pass 2)
 
 
-Total nodes: 36
+Total nodes: 38
 
 Node class;Type;Length;Num
 NodeAnd;{HWRawBits:1};0;2
 NodeCast;{HWOffsetFix:1, 0, UNSIGNED};0;2
-NodeConstantDouble;HWUntypedConst;0;1
+NodeConstantDouble;HWUntypedConst;0;2
 NodeConstantRawBits;{HWOffsetFix:1, 0, UNSIGNED};0;2
+NodeConstantRawBits;{HWOffsetFix:33, 0, UNSIGNED};0;1
 NodeConstantRawBits;{HWOffsetFix:49, 0, UNSIGNED};0;1
+NodeCounterV1;{HWOffsetFix:32, 0, UNSIGNED};0;1
 NodeCounterV1;{HWOffsetFix:48, 0, UNSIGNED};0;1
 NodeEq;{HWOffsetFix:1, 0, UNSIGNED};0;1
 NodeFIFO;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};1;2
-NodeFIFO;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};6;1
+NodeFIFO;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};6;2
 NodeFIFO;{HWOffsetFix:48, 0, UNSIGNED};4;1
 NodeInput;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};0;3
 NodeInputMappedReg;{HWOffsetFix:1, 0, UNSIGNED};0;4
 NodeInputMappedReg;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};0;1
 NodeInputMappedReg;{HWOffsetFix:48, 0, UNSIGNED};0;1
 NodeNot;{HWOffsetFix:1, 0, UNSIGNED};0;4
-NodeReinterpret;{HWOffsetFix:1, 0, UNSIGNED};0;3
-NodeReinterpret;{HWRawBits:1};0;5
+NodeReinterpret;{HWOffsetFix:1, 0, UNSIGNED};0;2
+NodeReinterpret;{HWRawBits:1};0;4
 NodeTriAdd;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};0;1
 
 Final statistics
 
 
-Total nodes: 36
+Total nodes: 37
 
 Node class;Type;Length;Num
 NodeAnd;{HWRawBits:1};0;2
 NodeCast;{HWOffsetFix:1, 0, UNSIGNED};0;2
-NodeConstantDouble;HWUntypedConst;0;1
+NodeConstantDouble;HWUntypedConst;0;2
 NodeConstantRawBits;{HWOffsetFix:1, 0, UNSIGNED};0;2
+NodeConstantRawBits;{HWOffsetFix:33, 0, UNSIGNED};0;1
 NodeConstantRawBits;{HWOffsetFix:49, 0, UNSIGNED};0;1
+NodeCounterV1;{HWOffsetFix:32, 0, UNSIGNED};0;1
 NodeCounterV1;{HWOffsetFix:48, 0, UNSIGNED};0;1
 NodeEq;{HWOffsetFix:1, 0, UNSIGNED};0;1
 NodeFIFO;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};1;2
@@ -89,6 +97,6 @@ NodeInputMappedReg;{HWOffsetFix:1, 0, UNSIGNED};0;4
 NodeInputMappedReg;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};0;1
 NodeInputMappedReg;{HWOffsetFix:48, 0, UNSIGNED};0;1
 NodeNot;{HWOffsetFix:1, 0, UNSIGNED};0;4
-NodeReinterpret;{HWOffsetFix:1, 0, UNSIGNED};0;3
-NodeReinterpret;{HWRawBits:1};0;5
+NodeReinterpret;{HWOffsetFix:1, 0, UNSIGNED};0;2
+NodeReinterpret;{HWRawBits:1};0;4
 NodeTriAdd;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};0;1
