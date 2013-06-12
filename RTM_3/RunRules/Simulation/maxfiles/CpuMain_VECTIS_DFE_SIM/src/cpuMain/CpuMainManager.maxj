@@ -64,7 +64,7 @@ public class CpuMainManager{
 	private static EngineInterface interfaceDefault() {
 		EngineInterface engine_interface = new EngineInterface();
 		CPUTypes   type = CPUTypes.FLOAT;
-		int        size = type.sizeInBytes();
+		int        sizeFloat = type.sizeInBytes();
 		CPUTypes   typeInt = CPUTypes.INT32;
 		int        sizeInt = typeInt.sizeInBytes();
 
@@ -87,8 +87,8 @@ public class CpuMainManager{
 		InterfaceParam  c_3_3    = engine_interface.addParam("c_3_3", CPUTypes.DOUBLE);
 		InterfaceParam  c_3_4    = engine_interface.addParam("c_3_4", CPUTypes.DOUBLE);
 
-		InterfaceParam  n1    = engine_interface.addParam("n1", CPUTypes.INT);
-		InterfaceParam  n2    = engine_interface.addParam("n2", CPUTypes.INT);
+		InterfaceParam  size    = engine_interface.addParam("size", CPUTypes.INT);
+		InterfaceParam  stencilSize    = engine_interface.addParam("stencilSize", CPUTypes.INT);
 		InterfaceParam  c_0    = engine_interface.addParam("c_0", CPUTypes.DOUBLE);
 
 
@@ -105,8 +105,8 @@ public class CpuMainManager{
 
 		InterfaceParam  five = engine_interface.addConstant(5l);*/
 		InterfaceParam  zero = engine_interface.addConstant(0l);
-		InterfaceParam  ten = engine_interface.addConstant(10l);
-		engine_interface.setTicks(s_kernel1, n1*n2*n2*ten);
+		//InterfaceParam  ten = engine_interface.addConstant(10l);
+		engine_interface.setTicks(s_kernel1, size*stencilSize);
 		//engine_interface.setTicks(s_kernel2, n1*n2*n2*10);
 		//engine_interface.setTicks(s_kernel3, n1*n2*n2);
 
@@ -115,7 +115,7 @@ public class CpuMainManager{
 		/*engine_interface.setScalar(s_kernelName, "offM", offM);
 		engine_interface.setScalar(s_kernelName, "offF", offF);
 		engine_interface.setScalar(s_kernelName, "offS", offS);*/
-		engine_interface.setStream("controller", typeInt, n1*n2*n2*10*sizeInt);
+		engine_interface.setStream("controller", typeInt, size*stencilSize*sizeInt);
 
 		engine_interface.setScalar(s_kernel1, "c_0", c_0);
 
@@ -143,12 +143,12 @@ public class CpuMainManager{
 
 		/*engine_interface.setScalar(s_kernelName, "burst", burst);
 		engine_interface.setScalar(s_kernelName, "xzSize", xzSize);*/
-		engine_interface.setLMemLinear("p", zero, n1 * n2 * n2 * size);
-		engine_interface.setLMemLinear("pp", n1 * n2 * n2 * size, n1 * n2 * n2 * size);
-		engine_interface.setLMemLinear("dvv", 2*(n1 * n2 * n2 * size),n1 * n2 * n2 * size);
-		engine_interface.setLMemLinear("source_container", 3*(n1 * n2 * n2 * size),n1 * n2 * n2 * size);
-		engine_interface.setLMemLinear("px", 4*(n1 * n2 * n2 * size), n1*n2*n2*10*size);
-		engine_interface.setLMemLinear("py", 4*(n1 * n2 * n2 * size)+n1*n2*n2*10*size, n1*n2*n2*10*size);
+		engine_interface.setLMemLinear("p", zero, size * sizeFloat);
+		engine_interface.setLMemLinear("pp", size * sizeFloat, size * sizeFloat);
+		engine_interface.setLMemLinear("dvv", 2*(size * sizeFloat),size * sizeFloat);
+		engine_interface.setLMemLinear("source_container", 3*(size * sizeFloat),size * sizeFloat);
+		engine_interface.setLMemLinear("px", 4*(size * sizeFloat), size*stencilSize*sizeFloat);
+		engine_interface.setLMemLinear("py", 4*(size * sizeFloat)+size*stencilSize*sizeFloat, size*stencilSize*sizeFloat);
 
 
 		/*engine_interface.setLMemLinear("dvv", n1 * n2 * n2 * size * 2, n1 * n2 * n2 * size);

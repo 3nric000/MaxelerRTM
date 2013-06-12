@@ -108,7 +108,7 @@ char * create_params(char *params_file){
 				exit(-1);
 			}
 			n1m=n1;
-			n1=96-n1%96+n1;
+			n1=96-n1m%96+n1m;
 		}else if(!strcmp(buff1,"N2")){
 			fscanf(fd,"%d\n",&n2);
 			if(n2<0){

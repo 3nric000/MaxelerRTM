@@ -305,9 +305,9 @@ max_actions_t* CpuMain_readLMem_convert(max_file_t *maxfile, CpuMain_readLMem_ac
  * \param [in] param_c_3_2 Interface Parameter "c_3_2".
  * \param [in] param_c_3_3 Interface Parameter "c_3_3".
  * \param [in] param_c_3_4 Interface Parameter "c_3_4".
- * \param [in] param_n1 Interface Parameter "n1".
- * \param [in] param_n2 Interface Parameter "n2".
- * \param [in] instream_controller The stream should be of size ((((param_n1 * param_n2) * param_n2) * 10) * 4) bytes.
+ * \param [in] param_size Interface Parameter "size".
+ * \param [in] param_stencilSize Interface Parameter "stencilSize".
+ * \param [in] instream_controller The stream should be of size ((param_size * param_stencilSize) * 4) bytes.
  */
 void CpuMain(
 	double param_c_0,
@@ -326,8 +326,8 @@ void CpuMain(
 	double param_c_3_2,
 	double param_c_3_3,
 	double param_c_3_4,
-	int64_t param_n1,
-	int64_t param_n2,
+	int64_t param_size,
+	int64_t param_stencilSize,
 	const int32_t *instream_controller);
 
 /**
@@ -354,9 +354,9 @@ void CpuMain(
  * \param [in] param_c_3_2 Interface Parameter "c_3_2".
  * \param [in] param_c_3_3 Interface Parameter "c_3_3".
  * \param [in] param_c_3_4 Interface Parameter "c_3_4".
- * \param [in] param_n1 Interface Parameter "n1".
- * \param [in] param_n2 Interface Parameter "n2".
- * \param [in] instream_controller The stream should be of size ((((param_n1 * param_n2) * param_n2) * 10) * 4) bytes.
+ * \param [in] param_size Interface Parameter "size".
+ * \param [in] param_stencilSize Interface Parameter "stencilSize".
+ * \param [in] instream_controller The stream should be of size ((param_size * param_stencilSize) * 4) bytes.
  * \return A handle on the execution status, or NULL in case of error.
  */
 max_run_t *CpuMain_nonblock(
@@ -376,8 +376,8 @@ max_run_t *CpuMain_nonblock(
 	double param_c_3_2,
 	double param_c_3_3,
 	double param_c_3_4,
-	int64_t param_n1,
-	int64_t param_n2,
+	int64_t param_size,
+	int64_t param_stencilSize,
 	const int32_t *instream_controller);
 
 /**
@@ -401,9 +401,9 @@ typedef struct {
 	double param_c_3_2; /**<  [in] Interface Parameter "c_3_2". */
 	double param_c_3_3; /**<  [in] Interface Parameter "c_3_3". */
 	double param_c_3_4; /**<  [in] Interface Parameter "c_3_4". */
-	int64_t param_n1; /**<  [in] Interface Parameter "n1". */
-	int64_t param_n2; /**<  [in] Interface Parameter "n2". */
-	const int32_t *instream_controller; /**<  [in] The stream should be of size ((((param_n1 * param_n2) * param_n2) * 10) * 4) bytes. */
+	int64_t param_size; /**<  [in] Interface Parameter "size". */
+	int64_t param_stencilSize; /**<  [in] Interface Parameter "stencilSize". */
+	const int32_t *instream_controller; /**<  [in] The stream should be of size ((param_size * param_stencilSize) * 4) bytes. */
 } CpuMain_actions_t;
 
 /**

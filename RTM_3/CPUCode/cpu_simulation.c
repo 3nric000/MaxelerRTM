@@ -210,7 +210,7 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	int sizeBytes = size * sizeof(float);
 	int sizepxy = size * stencilSize * sizeof(float);
 	//int sizeCBytes = sizeC * sizeof(float);
-	uint32_t *controller = malloc(sizepxy);
+	uint32_t *controller = malloc(size*stencilSize*sizeof(uint32_t));
 
 	px = malloc(sizepxy);
 	py = malloc(sizepxy);
@@ -223,7 +223,7 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	int index = 0;
 	for (offS = 0; offS < n3; offS++) { //Loop over slowest axis
 		for (offM = 0; offM < n2; offM++) { //Loop over middle axis
-			for (offF = 0; offF < n1m; offF++) {
+			for (offF = 0; offF < n1; offF++) {
 				//printf("Creating pp_value, dvv_value, source_container_value streams\n");
 				px[index] = p[(offF) + (offM) * n1 + (offS - 5) * n12];
 				controller[index] = 0;
@@ -314,6 +314,7 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	max_queue_input(act, "cpu_to_lmem", px, sizepxy);
 	max_run(engine, act);
 
+	printf("%d\n", size*stencilSize);
 
 	act = max_actions_init(maxfile, "writeLMem");
 	max_set_param_uint64t(act, "address", 4 * sizeBytes + sizepxy);
@@ -326,7 +327,7 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	printf("loading values\n");
 	act = max_actions_init(maxfile, "default");
 
-	max_queue_input(act, "controller", controller, sizepxy);
+	max_queue_input(act, "controller", controller, size*stencilSize*sizeof(uint32_t));
 
 	max_set_param_double(act, "c_1_0", (double) c_1[0]);
 	max_set_param_double(act, "c_1_1", (double) c_1[1]);
@@ -346,9 +347,9 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	max_set_param_double(act, "c_3_3", (double) c_3[3]);
 	max_set_param_double(act, "c_3_4", (double) c_3[4]);
 
-	max_set_param_uint64t(act, "n1", n1);
+	max_set_param_uint64t(act, "size", size);
 	//max_set_param_uint64t(act, "n1m", n1m);
-	max_set_param_uint64t(act, "n2", n2);
+	max_set_param_uint64t(act, "stencilSize", stencilSize);
 	max_set_param_double(act, "c_0", (double) c_0);
 
 	//max_set_param_uint64t(act, "burst", burst);
@@ -368,7 +369,7 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	act = max_actions_init(maxfile, "default");
 	//max_set_param_uint64t(act, "address", sizeBytes);
 	//max_set_param_uint64t(act, "nbytes", sizeBytes);
-	max_queue_output(act, "ppresult", pp, size * sizeof(uint32_t));
+	max_queue_output(act, "ppresult", pp, size * sizeof(float));
 
 	max_unload(engine);
 
