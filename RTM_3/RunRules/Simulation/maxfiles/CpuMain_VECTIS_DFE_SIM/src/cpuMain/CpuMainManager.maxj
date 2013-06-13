@@ -44,7 +44,7 @@ public class CpuMainManager{
 		//Kernel  kernel2  = new CpuMainKernel(manager.makeKernelParameters(s_kernel2));
 		//Kernel  kernel3  = new CpuMainKernel(manager.makeKernelParameters(s_kernel3));
 		manager.setKernel(kernel1);
-		manager.setIO(
+		/*manager.setIO(
 			link("p", IODestination.LMEM_LINEAR_1D),
 			link("pp", IODestination.LMEM_LINEAR_1D),
 			link("dvv", IODestination.LMEM_LINEAR_1D),
@@ -52,7 +52,16 @@ public class CpuMainManager{
 			link("px", IODestination.LMEM_LINEAR_1D),
 			link("py", IODestination.LMEM_LINEAR_1D),
 			link("controller", IODestination.CPU),
-			link("ppresult", IODestination.CPU));
+			link("ppresult", IODestination.CPU));*/
+		manager.setIO(
+				link("p", IODestination.CPU),
+				link("pp", IODestination.CPU),
+				link("dvv", IODestination.CPU),
+				link("source_container", IODestination.CPU),
+				link("px", IODestination.CPU),
+				link("py", IODestination.CPU),
+				link("controller", IODestination.CPU),
+				link("ppresult", IODestination.CPU));
 
 		manager.createSLiCinterface(interfaceDefault());
 
@@ -104,9 +113,12 @@ public class CpuMainManager{
 		InterfaceParam  offS    = engine_interface.addParam("offS", CPUTypes.INT);
 
 		InterfaceParam  five = engine_interface.addConstant(5l);*/
-		InterfaceParam  zero = engine_interface.addConstant(0l);
+		//InterfaceParam  zero = engine_interface.addConstant(0l);
 		//InterfaceParam  ten = engine_interface.addConstant(10l);
-		engine_interface.setTicks(s_kernel1, size*stencilSize);
+		InterfaceParam  sizeController = engine_interface.addParam("sizeController", CPUTypes.INT);
+		engine_interface.setTicks(s_kernel1, sizeController);
+		//long qwerty = 19200000;
+		//engine_interface.setTicks(s_kernel1, sizeController);
 		//engine_interface.setTicks(s_kernel2, n1*n2*n2*10);
 		//engine_interface.setTicks(s_kernel3, n1*n2*n2);
 
@@ -115,7 +127,15 @@ public class CpuMainManager{
 		/*engine_interface.setScalar(s_kernelName, "offM", offM);
 		engine_interface.setScalar(s_kernelName, "offF", offF);
 		engine_interface.setScalar(s_kernelName, "offS", offS);*/
+
+		engine_interface.setStream("p", type, size*sizeFloat);
+		engine_interface.setStream("pp", type, size*sizeFloat);
+		engine_interface.setStream("dvv", type, size*sizeFloat);
+		engine_interface.setStream("source_container", type, size*sizeFloat);
+		engine_interface.setStream("px", type, size*stencilSize*sizeFloat);
+		engine_interface.setStream("py", type, size*stencilSize*sizeFloat);
 		engine_interface.setStream("controller", typeInt, size*stencilSize*sizeInt);
+		engine_interface.setStream("ppresult", type, size*sizeFloat);
 
 		engine_interface.setScalar(s_kernel1, "c_0", c_0);
 
@@ -143,13 +163,15 @@ public class CpuMainManager{
 
 		/*engine_interface.setScalar(s_kernelName, "burst", burst);
 		engine_interface.setScalar(s_kernelName, "xzSize", xzSize);*/
-		engine_interface.setLMemLinear("p", zero, size * sizeFloat);
+
+
+		/*engine_interface.setLMemLinear("p", zero, size * sizeFloat);
 		engine_interface.setLMemLinear("pp", size * sizeFloat, size * sizeFloat);
 		engine_interface.setLMemLinear("dvv", 2*(size * sizeFloat),size * sizeFloat);
 		engine_interface.setLMemLinear("source_container", 3*(size * sizeFloat),size * sizeFloat);
 		engine_interface.setLMemLinear("px", 4*(size * sizeFloat), size*stencilSize*sizeFloat);
 		engine_interface.setLMemLinear("py", 4*(size * sizeFloat)+size*stencilSize*sizeFloat, size*stencilSize*sizeFloat);
-
+	*/
 
 		/*engine_interface.setLMemLinear("dvv", n1 * n2 * n2 * size * 2, n1 * n2 * n2 * size);
 		engine_interface.setLMemLinear("c_1", n1 * n2 * n2 * size * 3, five * size);

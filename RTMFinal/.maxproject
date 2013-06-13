@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager>
+<enginePart internalEngineSubproject="RTMFinal_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/RTMFinal_EngineCode/bin" projectName="RTMFinal"/>
+<cpuPart internalCpuSubproject="RTMFinal_CPUCode"/>
+<watchedFiles/>
+</maxCompilerManager>

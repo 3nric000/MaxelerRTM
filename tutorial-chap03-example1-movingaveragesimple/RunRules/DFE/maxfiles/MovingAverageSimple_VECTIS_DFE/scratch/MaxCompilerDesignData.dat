@@ -1,0 +1,143 @@
+/*             !!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/*             !!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/*             !!                         !! */
+/*             !!  Preliminary   Version  !! */
+/*             !!                         !! */
+/*             !!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/*             !!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* At: CoreCompile MovingAverageSimpleKernel */
+#error
+
+#ifdef STRING_PARAM
+#define STRING_PARAM_PRESENT 1
+STRING_PARAM(BOARD_MODEL, "MAX3424A")
+#endif
+
+
+
+
+#ifdef MANAGER_NODE
+#define MANAGER_NODE_PRESENT 1
+MANAGER_NODE(MovingAverageSimpleKernel, Kernel)
+MANAGER_NODE(x, PCIe_From_Host_fwd)
+MANAGER_NODE(y, PCIe_To_Host_fwd)
+MANAGER_NODE(Stream_1, DualAspectMux)
+MANAGER_NODE(Stream_6, DualAspectReg)
+MANAGER_NODE(Stream_14, StreamPullPushAdapter)
+MANAGER_NODE(Stream_10, Fifo)
+MANAGER_NODE(Stream_12, Fifo)
+#endif
+
+#ifdef MANAGER_NODE_IO
+#define MANAGER_NODE_IO_PRESENT 1
+MANAGER_NODE_IO(MovingAverageSimpleKernel, x, IN, STREAM, 32, PULL)
+MANAGER_NODE_IO(MovingAverageSimpleKernel, y, OUT, STREAM, 32, PUSH)
+MANAGER_NODE_IO(x, x, OUT, STREAM, 128, PULL)
+MANAGER_NODE_IO(y, y, IN, STREAM, 128, PUSH)
+MANAGER_NODE_IO(Stream_1, input, IN, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_1, output, OUT, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_6, input, IN, STREAM, 32, PULL)
+MANAGER_NODE_IO(Stream_6, output, OUT, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_14, input, IN, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_14, output, OUT, STREAM, 128, PUSH)
+MANAGER_NODE_IO(Stream_10, input, IN, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_10, output, OUT, STREAM, 32, PULL)
+MANAGER_NODE_IO(Stream_12, input, IN, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_12, output, OUT, STREAM, 32, PULL)
+#endif
+
+#ifdef MANAGER_STREAM
+#define MANAGER_STREAM_PRESENT 1
+MANAGER_STREAM(x, x, Stream_1, input, 128)
+MANAGER_STREAM(MovingAverageSimpleKernel, y, Stream_12, input, 32)
+MANAGER_STREAM(Stream_1, output, Stream_10, input, 32)
+MANAGER_STREAM(Stream_6, output, Stream_14, input, 128)
+MANAGER_STREAM(Stream_14, output, y, y, 128)
+MANAGER_STREAM(Stream_10, output, MovingAverageSimpleKernel, x, 32)
+MANAGER_STREAM(Stream_12, output, Stream_6, input, 32)
+#endif
+
+#ifdef MANAGER_NODE_PROPERTY
+#define MANAGER_NODE_PROPERTY_PRESENT 1
+MANAGER_NODE_PROPERTY(MovingAverageSimpleKernel, control_pipelining_depth, 2)
+#endif
+
+
+#ifdef KERNEL_CORE
+#define KERNEL_CORE_PRESENT 1
+KERNEL_CORE(MovingAverageSimpleKernel)
+#endif
+
+#ifdef KERNEL_HOST_CONTROLLED
+#define KERNEL_HOST_CONTROLLED_PRESENT 1
+KERNEL_HOST_CONTROLLED(MovingAverageSimpleKernel, MovingAverageSimpleKernel)
+#endif
+
+#ifdef DEBUG_INPUT_BITS
+#define DEBUG_INPUT_BITS_PRESENT 1
+DEBUG_INPUT_BITS(MovingAverageSimpleKernel, x, 0)
+#endif
+
+#ifdef DEBUG_OUTPUT_BITS
+#define DEBUG_OUTPUT_BITS_PRESENT 1
+DEBUG_OUTPUT_BITS(MovingAverageSimpleKernel, y, 0)
+#endif
+
+#ifdef PHOTON_NODE_DATA
+#define PHOTON_NODE_DATA_PRESENT 1
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 10, NodeInputMappedReg, "Scalar input (io_y_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:26)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 11, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:26)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 14, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:26)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 15, NodeReinterpret, "<{HWOffsetFix:1, 0, UNSIGNED}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:26)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 0, NodeInputMappedReg, "Scalar input (io_x_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:19)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 1, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:19)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 2, NodeInput, "Input(x)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:19)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 26, NodeFIFO, "FIFO(1)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 3, NodeStreamOffset, "stream offset: -1", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:21)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 5, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:23)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 4, NodeStreamOffset, "stream offset: 1", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:22)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 28, NodeFIFO, "FIFO(10)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 6, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:23)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 31, NodeConstantRawBits, "{HWFloat:8, 24}\n0x40400000; 3.0", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.div(DFEVar.java:898)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:24)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 8, NodeDiv, "/", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.div(DFEVar.java:898)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:24)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 16, NodeOutput, "Output(y)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:26)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 20, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 30, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 18, NodeConstantRawBits, "{HWOffsetFix:49, 0, UNSIGNED}\n0x1000000000000; 2.81474976710656E14", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 19, NodeCounterV1, "Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 29, NodeFIFO, "FIFO(4)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 21, NodeOutputMappedReg, "Scalar output (current_run_cycle_count)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 23, NodeInputMappedReg, "Scalar input (run_cycle_count)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 24, NodeEq, "==", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 22, NodeFlush, "flush on trigger", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+#endif
+
+#ifdef PHOTON_NODE_ADD_DATA
+#define PHOTON_NODE_ADD_DATA_PRESENT 1
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 10, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 11, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 14, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 15, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 0, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 1, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 2, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 26, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 3, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 5, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 4, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 28, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 6, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 31, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 8, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 16, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 20, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 30, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 18, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 19, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 29, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 21, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 23, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 24, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 22, "SquashFactor", 0.0)
+#endif
+

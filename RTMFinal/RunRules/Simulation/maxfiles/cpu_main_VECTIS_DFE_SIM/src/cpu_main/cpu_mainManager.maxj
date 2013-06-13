@@ -1,0 +1,129 @@
+package cpu_main;
+
+import static com.maxeler.maxcompiler.v2.managers.standard.Manager.link;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.managers.BuildConfig;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.CPUTypes;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.EngineInterface;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.EngineInterface.Direction;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.InterfaceParam;
+import com.maxeler.maxcompiler.v2.managers.standard.IOLink.IODestination;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager;
+
+public class cpu_mainManager {
+
+	private static final String s_kernelName = "cpu_mainKernel";
+
+	public static void main(String[] args) {
+		cpu_mainEngineParameters params = new cpu_mainEngineParameters(args);
+		Manager manager = new Manager(params);
+		Kernel  kernel  = new cpu_mainKernel(manager.makeKernelParameters(s_kernelName));
+		manager.setKernel(kernel);
+		manager.setIO(
+			link("p", IODestination.LMEM_BLOCKED_3D),
+			link("pp", IODestination.LMEM_BLOCKED_3D),
+			link("pp_value", IODestination.CPU),
+			link("dvv_value", IODestination.CPU),
+			link("source_container_value", IODestination.CPU));
+
+		manager.createSLiCinterface(interfaceDefault());
+
+		configBuild(manager, params);
+
+		manager.build();
+	}
+
+	private static EngineInterface interfaceDefault() {
+		EngineInterface engine_interface = new EngineInterface();
+		CPUTypes   type = CPUTypes.FLOAT;
+		int        size = type.sizeInBytes();
+		InterfaceParam  n1    = engine_interface.addParam("n1", CPUTypes.INT);
+		InterfaceParam  n2    = engine_interface.addParam("n2", CPUTypes.INT);
+		InterfaceParam  c_0    = engine_interface.addParam("c_0", CPUTypes.DOUBLE);
+
+		InterfaceParam  c_1_0    = engine_interface.addParam("c_1_0", CPUTypes.DOUBLE);
+		InterfaceParam  c_1_1    = engine_interface.addParam("c_1_1", CPUTypes.DOUBLE);
+		InterfaceParam  c_1_2    = engine_interface.addParam("c_1_2", CPUTypes.DOUBLE);
+		InterfaceParam  c_1_3    = engine_interface.addParam("c_1_3", CPUTypes.DOUBLE);
+		InterfaceParam  c_1_4    = engine_interface.addParam("c_1_4", CPUTypes.DOUBLE);
+
+		InterfaceParam  c_2_0    = engine_interface.addParam("c_2_0", CPUTypes.DOUBLE);
+		InterfaceParam  c_2_1    = engine_interface.addParam("c_2_1", CPUTypes.DOUBLE);
+		InterfaceParam  c_2_2    = engine_interface.addParam("c_2_2", CPUTypes.DOUBLE);
+		InterfaceParam  c_2_3    = engine_interface.addParam("c_2_3", CPUTypes.DOUBLE);
+		InterfaceParam  c_2_4    = engine_interface.addParam("c_2_4", CPUTypes.DOUBLE);
+
+		InterfaceParam  c_3_0    = engine_interface.addParam("c_3_0", CPUTypes.DOUBLE);
+		InterfaceParam  c_3_1    = engine_interface.addParam("c_3_1", CPUTypes.DOUBLE);
+		InterfaceParam  c_3_2    = engine_interface.addParam("c_3_2", CPUTypes.DOUBLE);
+		InterfaceParam  c_3_3    = engine_interface.addParam("c_3_3", CPUTypes.DOUBLE);
+		InterfaceParam  c_3_4    = engine_interface.addParam("c_3_4", CPUTypes.DOUBLE);
+
+		/*InterfaceParam  pp_value    = engine_interface.addParam("pp_value", CPUTypes.DOUBLE);
+		InterfaceParam  dvv_value    = engine_interface.addParam("dvv_value", CPUTypes.DOUBLE);
+		InterfaceParam  source_container_value    = engine_interface.addParam("source_container_value", CPUTypes.DOUBLE);
+		*/
+		InterfaceParam  burst    = engine_interface.addParam("burst", CPUTypes.INT);
+		InterfaceParam  xzSize    = engine_interface.addParam("xzSize", CPUTypes.INT);
+
+		InterfaceParam  offM    = engine_interface.addParam("offM", CPUTypes.INT);
+		InterfaceParam  offF    = engine_interface.addParam("offF", CPUTypes.INT);
+		InterfaceParam  offS    = engine_interface.addParam("offS", CPUTypes.INT);
+		InterfaceParam  zero = engine_interface.addConstant(0l);
+		InterfaceParam  five = engine_interface.addConstant(5l);
+		engine_interface.setTicks(s_kernelName, 8);
+
+		//roba da passare al kernel con lo stream
+		/*engine_interface.setScalar(s_kernelName, "offM", offM);
+		engine_interface.setScalar(s_kernelName, "offF", offF);
+		engine_interface.setScalar(s_kernelName, "offS", offS);*/
+		engine_interface.setScalar(s_kernelName, "c_0", c_0);
+
+		engine_interface.setScalar(s_kernelName, "c_1_0", c_1_0);
+		engine_interface.setScalar(s_kernelName, "c_1_1", c_1_1);
+		engine_interface.setScalar(s_kernelName, "c_1_2", c_1_2);
+		engine_interface.setScalar(s_kernelName, "c_1_3", c_1_3);
+		engine_interface.setScalar(s_kernelName, "c_1_4", c_1_4);
+
+		engine_interface.setScalar(s_kernelName, "c_2_0", c_2_0);
+		engine_interface.setScalar(s_kernelName, "c_2_1", c_2_1);
+		engine_interface.setScalar(s_kernelName, "c_2_2", c_2_2);
+		engine_interface.setScalar(s_kernelName, "c_2_3", c_2_3);
+		engine_interface.setScalar(s_kernelName, "c_2_4", c_2_4);
+
+		engine_interface.setScalar(s_kernelName, "c_3_0", c_3_0);
+		engine_interface.setScalar(s_kernelName, "c_3_1", c_3_1);
+		engine_interface.setScalar(s_kernelName, "c_3_2", c_3_2);
+		engine_interface.setScalar(s_kernelName, "c_3_3", c_3_3);
+		engine_interface.setScalar(s_kernelName, "c_3_4", c_3_4);
+
+		/*engine_interface.setScalar(s_kernelName, "pp_value", pp_value);
+		engine_interface.setScalar(s_kernelName, "dvv_value", dvv_value);
+		engine_interface.setScalar(s_kernelName, "source_container_value", source_container_value);*/
+
+		/*engine_interface.setScalar(s_kernelName, "burst", burst);
+		engine_interface.setScalar(s_kernelName, "xzSize", xzSize);*/
+		engine_interface.setLMemBlocked("p", zero, n1 * size, n2, n2, burst*size, xzSize, xzSize, offF+five, offM*n1+five, offS*n1*n2+five);
+
+		/*engine_interface.setLMemLinear("dvv", n1 * n2 * n2 * size * 2, n1 * n2 * n2 * size);
+		engine_interface.setLMemLinear("c_1", n1 * n2 * n2 * size * 3, five * size);
+		engine_interface.setLMemLinear("c_2", n1 * n2 * n2 * size * 3 + five * size, five * size);
+		engine_interface.setLMemLinear("c_3", n1 * n2 * n2 * size * 3 + 2* five * size, five * size);*/
+
+		engine_interface.setStream("pp_value", type, 8 * size);
+		engine_interface.setStream("dvv_value", type, 8 * size);
+		engine_interface.setStream("source_container_value", type, 8 * size);
+
+		engine_interface.ignoreAll(Direction.IN_OUT);
+		return engine_interface;
+	}
+
+	private static void configBuild(Manager manager, cpu_mainEngineParameters params) {
+		manager.setEnableStreamStatusBlocks(false);
+		BuildConfig buildConfig = manager.getBuildConfig();
+		buildConfig.setMPPRCostTableSearchRange(params.getMPPRStartCT(), params.getMPPREndCT());
+		buildConfig.setMPPRParallelism(params.getMPPRThreads());
+		buildConfig.setMPPRRetryNearMissesThreshold(params.getMPPRRetryThreshold());
+	}
+}

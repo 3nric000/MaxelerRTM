@@ -1,0 +1,157 @@
+Apache Ant version 1.6.5 compiled on January 6 2007
+Buildfile: CpuMain.xml
+Detected Java version: 1.5 in: /usr/java/jdk1.6.0_21/jre
+Detected OS: Linux
+parsing buildfile /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/CpuMain.xml with URI = file:///home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/CpuMain.xml
+Project base dir set to: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/EngineCode
+ [property] Loading Environment env.
+Property ${-*-command-variables-*-} has not been set
+Property ${env.MAXCOMPILERJCP} has not been set
+Build sequence for target(s) `run' is [build, run]
+Complete build sequence is [build, run, help, clean, all, jar, ]
+
+build:
+      [ant] calling target(s) [default] in build file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/CpuMain_Build.xml
+parsing buildfile /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/CpuMain_Build.xml with URI = file:///home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/CpuMain_Build.xml
+Project base dir set to: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/EngineCode
+ [property] Loading Environment env.
+Property ${-*-command-variables-*-} has not been set
+Property ${env.MAXCOMPILERJCP} has not been set
+      [ant] Entering /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/CpuMain_Build.xml...
+Build sequence for target(s) `all' is [clean, build, all]
+Complete build sequence is [clean, build, all, ]
+
+clean:
+   [delete] Deleting directory /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/dist
+   [delete] Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/dist/bin/cpuMain/CpuMainKernel.class
+   [delete] Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/dist/bin/cpuMain/CpuMainManager.class
+   [delete] Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/dist/bin/cpuMain/CpuMainEngineParameters.class
+   [delete] Deleting directory /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/dist/bin/cpuMain
+   [delete] Deleting directory /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/dist/bin
+   [delete] Deleting directory /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/dist
+
+build:
+    [mkdir] Created dir: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/dist
+    [mkdir] Created dir: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/dist/bin
+
+
+[maxjcompiler] Compiling to folder /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/dist/bin
+
+[maxjcompiler] Comiling files and folders:
+[maxjcompiler] /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/EngineCode/src
+
+[maxjcompiler] Compiler options:
+[maxjcompiler] -noExit
+[maxjcompiler] -classpath
+[maxjcompiler] /opt/maxeler/maxcompiler/lib/MaxCompiler.jar
+[maxjcompiler] -d
+[maxjcompiler] /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/dist/bin
+
+all:
+      [ant] Exiting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/CpuMain_Build.xml.
+
+run:
+     [java] Executing '/usr/java/jdk1.6.0_21/jre/bin/java' with arguments:
+     [java] '-Xmx2048m'
+     [java] '-classpath'
+     [java] '/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/dist/bin:/opt/maxeler/maxcompiler/lib/MaxCompiler.jar'
+     [java] 'cpuMain.CpuMainManager'
+     [java] 
+     [java] The ' characters around the executable and arguments are
+     [java] not part of the command.
+     [java] Setting environment variable: MAXSOURCEDIRS=src
+     [java] gio 18:20: MaxCompiler version: 2013.1
+     [java] gio 18:20: Build "CpuMain" start time: Thu Jun 13 18:20:22 CEST 2013
+     [java] gio 18:20: Main build process running as user emanuele.delsozzo on host maxeler
+     [java] gio 18:20: Build location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE
+     [java] gio 18:20: Detailed build log available in "_build.log"
+     [java] gio 18:20: Instantiating manager
+     [java] gio 18:20: Instantiating kernel "linearKernel"
+     [java] gio 18:20: Compiling manager (Configurable)
+     [java] gio 18:20: 
+     [java] gio 18:20: Compiling kernel "linearKernel"
+     [java] gio 18:20: WARNING: The license for ISE CANNOT be checked out
+     [java] gio 18:20: WARNING: Unable to check out license for 'ISE' in attempt 1/10
+     [java] gio 18:20: WARNING: The license for ISE CANNOT be checked out
+     [java] gio 18:20: WARNING: Unable to check out license for 'ISE' in attempt 2/10
+     [java] gio 18:20: WARNING: The license for ISE CANNOT be checked out
+     [java] gio 18:20: WARNING: Unable to check out license for 'ISE' in attempt 3/10
+     [java] gio 18:20: WARNING: The license for ISE CANNOT be checked out
+     [java] gio 18:20: WARNING: Unable to check out license for 'ISE' in attempt 4/10
+     [java] gio 18:20: WARNING: The license for ISE CANNOT be checked out
+     [java] gio 18:20: WARNING: Unable to check out license for 'ISE' in attempt 5/10
+     [java] gio 18:20: WARNING: The license for ISE CANNOT be checked out
+     [java] gio 18:20: WARNING: Unable to check out license for 'ISE' in attempt 6/10
+     [java] gio 18:20: WARNING: The license for ISE CANNOT be checked out
+     [java] gio 18:20: WARNING: Unable to check out license for 'ISE' in attempt 7/10
+     [java] gio 18:20: WARNING: The license for ISE CANNOT be checked out
+     [java] gio 18:20: WARNING: Unable to check out license for 'ISE' in attempt 8/10
+     [java] gio 18:20: WARNING: The license for ISE CANNOT be checked out
+     [java] gio 18:20: WARNING: Unable to check out license for 'ISE' in attempt 9/10
+     [java] gio 18:20: WARNING: The license for ISE CANNOT be checked out
+     [java] gio 18:20: WARNING: Unable to check out license for 'ISE' in attempt 10/10
+     [java] gio 18:20: WARNING: Please check the output of  lmutil lmdiag -n ISE
+     [java] gio 18:20: WARNING: The following environment variables may be involved in this issue:
+     [java] gio 18:20: WARNING:  - XILINXD_LICENSE_FILE is not set
+     [java] gio 18:20: WARNING:  - LM_LICENSE_FILE=2100@ipeca-home
+     [java] gio 18:20: ERROR: ----------------------------
+     [java] gio 18:20: ERROR: Exception in thread "main":
+     [java] gio 18:20: ERROR:  
+     [java] gio 18:20: ERROR:   Error in MaxDC pass processing node created via:
+     [java] gio 18:20: ERROR:   com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+     [java] gio 18:20: ERROR:   cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)
+     [java] gio 18:20: ERROR:   
+     [java] gio 18:20: ERROR:   -> (WARNING: unlogged MaxelerException) 
+     [java] gio 18:20: ERROR:   com.maxeler.licensing.external_tools.LicenseError: Licenses cannot be checked 
+     [java] gio 18:20: ERROR:   out for ISE
+     [java] gio 18:20: ERROR: 
+     [java] gio 18:20: ERROR: Exception Stack Trace com.maxeler.photon.core.PhotonException: 
+     [java] gio 18:20: ERROR:    at com.maxeler.licensing.external_tools.CheckXilinxLicenses.check(CheckXilinxLicenses.java:115)
+     [java] gio 18:20: ERROR:    at com.maxeler.licensing.external_tools.CheckXilinxLicenses.check(CheckXilinxLicenses.java:59)
+     [java] gio 18:20: ERROR:    at com.maxeler.maxdc.xilinx.coregen.CoregenComponent.<init>(CoregenComponent.java:43)
+     [java] gio 18:20: ERROR:    at com.maxeler.maxdc.xilinx.coregen.CGBlockMem.<init>(CGBlockMem.java:158)
+     [java] gio 18:20: ERROR:    at com.maxeler.maxdc.xilinx.coregen.CGBlockMem_42.<init>(CGBlockMem_42.java:30)
+     [java] gio 18:20: ERROR:    at com.maxeler.maxdc.xilinx.coregen.CGBlockMem.make(CGBlockMem.java:65)
+     [java] gio 18:20: ERROR:    at com.maxeler.photon.hw.xilinx.CGBlockRAMDelay.<init>(CGBlockRAMDelay.java:111)
+     [java] gio 18:20: ERROR:    at com.maxeler.photon.hw.xilinx.CGBlockRAMDelayFactory.makeBlockRAMDelay(CGBlockRAMDelayFactory.java:33)
+     [java] gio 18:20: ERROR:    at com.maxeler.photon.hw.MultiStageDelay.makeBRAMDelay(MultiStageDelay.java:621)
+     [java] gio 18:20: ERROR:    at com.maxeler.photon.hw.MultiStageDelay.makeAllDelays(MultiStageDelay.java:548)
+     [java] gio 18:20: ERROR:    at com.maxeler.photon.hw.MultiStageDelay.<init>(MultiStageDelay.java:668)
+     [java] gio 18:20: ERROR:    at com.maxeler.photon.nodes.NodeFIFO.makeStatic(NodeFIFO.java:277)
+     [java] gio 18:20: ERROR:    at com.maxeler.photon.nodes.NodeFIFO.make(NodeFIFO.java:194)
+     [java] gio 18:20: ERROR:    at com.maxeler.photon.graph_passes.maxdc_gen.PhotonMaxDCEntity.instantiateNode(PhotonMaxDCEntity.java:1208)
+     [java] gio 18:20: ERROR:    at com.maxeler.photon.graph_passes.maxdc_gen.PhotonMaxDCEntity.makeNode(PhotonMaxDCEntity.java:1519)
+     [java] gio 18:20: ERROR:    at com.maxeler.photon.graph_passes.maxdc_gen.PhotonMaxDCTopEntity.processNode(PhotonMaxDCTopEntity.java:253)
+     [java] gio 18:20: ERROR:    at com.maxeler.photon.core.GraphPassRunner.run(GraphPassRunner.java:431)
+     [java] gio 18:20: ERROR:    at com.maxeler.photon.core.GraphPassRunner.run(GraphPassRunner.java:488)
+     [java] gio 18:20: ERROR:    at com.maxeler.photon.core.PhotonCompileManager.runGraphPass(PhotonCompileManager.java:165)
+     [java] gio 18:20: ERROR:    at com.maxeler.photon.compile_managers.MaxDCCompileManager.buildPhotonSBA(MaxDCCompileManager.java:114)
+     [java] gio 18:20: ERROR:    at com.maxeler.maxeleros.managercompiler.nodes.WrapperNodePhoton.build(WrapperNodePhoton.java:439)
+     [java] gio 18:20: ERROR:    at com.maxeler.maxeleros.managercompiler.core.WrapperDesignEntity.<init>(WrapperDesignEntity.java:81)
+     [java] gio 18:20: ERROR:    at com.maxeler.maxeleros.managercompiler.core.WrapperCompileManager.build(WrapperCompileManager.java:280)
+     [java] gio 18:20: ERROR:    at com.maxeler.maxcompiler.v2.managers.custom.CustomManager.buildInternal(CustomManager.java:871)
+     [java] gio 18:20: ERROR:    at com.maxeler.maxcompiler.v2.managers.custom.CustomManager.realBuild(CustomManager.java:1333)
+     [java] gio 18:20: ERROR:    at com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+     [java] gio 18:20: ERROR:    at com.maxeler.maxcompiler.v2.managers.standard.Manager.makeFullManager(Manager.java:1063)
+     [java] gio 18:20: ERROR:    at com.maxeler.maxcompiler.v2.managers.standard.Manager.realBuild(Manager.java:432)
+     [java] gio 18:20: ERROR:    at com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+     [java] gio 18:20: ERROR:    at cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)
+     [java] gio 18:20: ERROR: ----------------------------
+
+BUILD FAILED
+/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/CpuMain.xml:22: Java returned: 1
+	at org.apache.tools.ant.taskdefs.Java.execute(Java.java:87)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:275)
+	at org.apache.tools.ant.Task.perform(Task.java:364)
+	at org.apache.tools.ant.Target.execute(Target.java:341)
+	at org.apache.tools.ant.Target.performTasks(Target.java:369)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1216)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1185)
+	at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:40)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1068)
+	at org.apache.tools.ant.Main.runBuild(Main.java:668)
+	at org.apache.tools.ant.Main.startAnt(Main.java:187)
+	at org.apache.tools.ant.launch.Launcher.run(Launcher.java:246)
+	at org.apache.tools.ant.launch.Launcher.main(Launcher.java:67)
+
+Total time: 13 seconds

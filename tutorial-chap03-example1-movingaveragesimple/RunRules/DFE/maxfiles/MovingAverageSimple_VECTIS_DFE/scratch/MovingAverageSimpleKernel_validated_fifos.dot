@@ -1,0 +1,19 @@
+digraph MovingAverageSimpleKernel_validated_fifos{
+	NodeInput2 [shape=invhouse, label="x\nID: 2"];
+	NodeStreamOffset3 [shape=diamond, label="-1\nID: 3"];
+	NodeAdd5 [label="+\nID: 5"];
+	NodeStreamOffset4 [shape=diamond, label="1\nID: 4"];
+	NodeAdd6 [label="+\nID: 6"];
+	NodeConstantDouble7 [shape=box, label="3.0\nID: 7"];
+	NodeDiv8 [label="/\nID: 8"];
+	NodeOutput16 [shape=house, label="y\nID: 16"];
+	NodeInput2 -> NodeStreamOffset3[color="/dark28/1" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeStreamOffset3 -> NodeAdd5[color="/dark28/2" photon_data="EDGE,SrcNode:3,SrcNodePort:output"];
+	NodeInput2 -> NodeAdd5[color="/dark28/3" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeInput2 -> NodeStreamOffset4[color="/dark28/4" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeAdd5 -> NodeAdd6[color="/dark28/5" photon_data="EDGE,SrcNode:5,SrcNodePort:result"];
+	NodeStreamOffset4 -> NodeAdd6[color="/dark28/6" photon_data="EDGE,SrcNode:4,SrcNodePort:output"];
+	NodeAdd6 -> NodeDiv8[color="/dark28/7" photon_data="EDGE,SrcNode:6,SrcNodePort:result"];
+	NodeConstantDouble7 -> NodeDiv8[color="/dark28/8" photon_data="EDGE,SrcNode:7,SrcNodePort:value"];
+	NodeDiv8 -> NodeOutput16[color="/dark28/1" photon_data="EDGE,SrcNode:8,SrcNodePort:result"];
+}

@@ -1,0 +1,46 @@
+NodeInput Input(p) {HWFloat:8, 24} ID: 2
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:15)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+	FIFO(1068) {HWFloat:8, 24} 1068 ID: 187
+	FIFO(1068) {HWFloat:8, 24} 1068 ID: 188
+	FIFO(1068) {HWFloat:8, 24} 1068 ID: 189
+	FIFO(1044) {HWFloat:8, 24} 1044 ID: 156
+	FIFO(1044) {HWFloat:8, 24} 1044 ID: 161
+	FIFO(1044) {HWFloat:8, 24} 1044 ID: 162
+	FIFO(1044) {HWFloat:8, 24} 1044 ID: 163
+	FIFO(588) {HWFloat:8, 24} 588 ID: 186
+	FIFO(564) {HWFloat:8, 24} 564 ID: 164
+	FIFO(108) {HWFloat:8, 24} 108 ID: 183
+	FIFO(108) {HWFloat:8, 24} 108 ID: 184
+	FIFO(108) {HWFloat:8, 24} 108 ID: 185
+	FIFO(103) {HWFloat:8, 24} 103 ID: 180
+	FIFO(84) {HWFloat:8, 24} 84 ID: 165
+	FIFO(84) {HWFloat:8, 24} 84 ID: 166
+	FIFO(84) {HWFloat:8, 24} 84 ID: 167
+	FIFO(84) {HWFloat:8, 24} 84 ID: 168
+	FIFO(69) {HWFloat:8, 24} 69 ID: 182
+	FIFO(39) {HWFloat:8, 24} 39 ID: 181
+	FIFO(35) {HWFloat:8, 24} 35 ID: 169
+	FIFO(10) {HWFloat:8, 24} 10 ID: 179
+	FIFO(9) {HWFloat:8, 24} 9 ID: 171
+	FIFO(8) {HWFloat:8, 24} 8 ID: 177
+	FIFO(7) {HWFloat:8, 24} 7 ID: 174
+	FIFO(6) {HWFloat:8, 24} 6 ID: 175
+	FIFO(5) {HWFloat:8, 24} 5 ID: 176
+	FIFO(3) {HWFloat:8, 24} 3 ID: 178
+	FIFO(2) {HWFloat:8, 24} 2 ID: 170
+	FIFO(2) {HWFloat:8, 24} 2 ID: 172
+	FIFO(2) {HWFloat:8, 24} 2 ID: 173
+
+NodeStreamOffset stream offset: -5280 {HWFloat:8, 24} ID: 48
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+cpu_main.cpu_mainKernel.<init>(cpu_mainKernel.maxj:59)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:21)
+	FIFO(1068) {HWFloat:8, 24} 1068 ID: 159
+
+NodeCounterV1 Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0 {HWOffsetFix:48, 0, UNSIGNED} ID: 120
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpu_main.cpu_mainManager.main(cpu_mainManager.maxj:34)
+	FIFO(4) {HWOffsetFix:48, 0, UNSIGNED} 4 ID: 160
+

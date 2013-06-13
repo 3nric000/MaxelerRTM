@@ -1,0 +1,22 @@
+gio 18:21: PROGRESS: MaxCompiler version: 2013.1
+gio 18:21: PROGRESS: Build "MovingAverageSimple" start time: Thu Jun 13 18:21:18 CEST 2013
+gio 18:21: PROGRESS: Main build process running as user emanuele.delsozzo on host maxeler
+gio 18:21: INFO    : Loading build properties from bundled MaxCompiler_build.conf...
+gio 18:21: INFO    : Loading default build properties from /opt/maxeler/MaxCompiler_build.conf
+gio 18:21: INFO    : User build properties not found in file: /home/emanuele.delsozzo/.MaxCompiler_build_user.conf
+gio 18:21: INFO    : No user-specified external build property file has been specified.
+gio 18:21: INFO    : (Set environment variable MAXCOMPILER_BUILD_CONF_FILE to assign one)
+gio 18:21: PROGRESS: Build location: /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/maxfiles/MovingAverageSimple_VECTIS_DFE
+gio 18:21: PROGRESS: Detailed build log available in "_build.log"
+gio 18:21: INFO    : Created build manager MovingAverageSimple (MovingAverageSimple_VECTIS_DFE Thu Jun 13 18:21:18 CEST 2013). (18:21:18 13/06/13)
+gio 18:21: INFO    : Working in dir: /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/maxfiles/MovingAverageSimple_VECTIS_DFE
+gio 18:21: INFO    : Java class path (2 paths):
+gio 18:21: INFO    : 	/home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/EngineCode/bin
+gio 18:21: INFO    : 	/opt/maxeler/maxcompiler/lib/MaxCompiler.jar
+gio 18:21: INFO    : Java process started by 'main' method in class 'movingaveragesimple.MovingAverageSimpleManager'.
+gio 18:21: INFO    : build.arbitrated_core_cache parameter is blank, not using core-cache
+gio 18:21: INFO    : Checking license files in directory: /opt/maxeler/maxcompiler/licenses
+gio 18:21: INFO    : All license signatures valid.
+gio 18:21: INFO    : Backing-up source-files (old source files in build directory will be removed first)...
+gio 18:21: INFO    : Source directories: /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/EngineCode/src:
+gio 18:21: INFO    : Deleting directory: src

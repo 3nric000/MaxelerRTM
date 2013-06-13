@@ -1,0 +1,17 @@
+NodeStreamOffset stream offset: 1 {HWFloat:8, 24} ID: 4
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
+movingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:22)
+movingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)
+	FIFO(10) {HWFloat:8, 24} 10 ID: 28
+
+NodeCounterV1 Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0 {HWOffsetFix:48, 0, UNSIGNED} ID: 19
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+movingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)
+	FIFO(4) {HWOffsetFix:48, 0, UNSIGNED} 4 ID: 29
+
+NodeInput Input(x) {HWFloat:8, 24} ID: 2
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+movingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:19)
+movingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)
+	FIFO(1) {HWFloat:8, 24} 1 ID: 26
+

@@ -1,0 +1,5 @@
+Release 13.3 - par O.76xd (lin64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+Usage: par [-ol std|high] [-pl std|high] [-rl std|high] [-xe n|c] [-mt on|off|1|2|3|4] [-t <costtable:1,100>] [-p] [-k]
+[-r] [-w] [-smartguide <guidefile[.ncd]>] [-x] [-nopad] [-power on|off|xe] [-activityfile <activityfile[.vcd|.saif]>]
+[-ntd] [-intstyle ise|xflow|silent|pa] [-ise <projectrepositoryfile>] [-filter <filter_file[.filter]>] <infile[.ncd]>

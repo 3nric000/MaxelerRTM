@@ -1,0 +1,120 @@
+gio 17:45: ########################################## 
+gio 17:45: Compiling.
+gio 17:45: ########################################## 
+
+gio 17:45: MaxCompiler version: 2013.1.
+gio 17:45: Build Simulation run rule for RTMFinal start time: gio giu 13 17:45:07 CEST 2013.
+gio 17:45: Project location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinal.
+gio 17:45: Detailed build log: /home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinal/RunRules/Simulation/build.log.
+
+gio 17:45: Compiling Engine Code.
+gio 17:45: Engine building skipped (no changes on .max files).
+gio 17:45: Compiling CPU Code.
+gio 17:45: Run CPU project make files updating
+gio 17:45: Executing command:
+gio 17:45: java -jar /opt/maxeler/maxcompiler/lib/MaxIDE/projectAdmin.jar -u /home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinal Simulation 
+gio 17:45: Command output:
+
+gio 17:45: MaxCompiler Project Admin Tool Version 2013.1.0
+gio 17:45:  Copyright Maxeler Technologies 2010 - 2013. All rights reserved.
+gio 17:45: Updating RunRule dependant Makefiles for RunRule 'Simulation'
+gio 17:45: Found makefiles: 1
+gio 17:45: 	Updated: Simulation
+gio 17:45: Run CPU make.
+gio 17:45: make RUNRULE=Simulation 
+gio 17:45: Command output:
+gio 17:45: make -f Makefile ../RunRules/Simulation/binaries/CpuMain
+gio 17:45: make[1]: Entering directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinal/CPUCode'
+gio 17:45: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -o "../RunRules/Simulation/objects/cpu_simulation.o" -c "cpu_simulation.c"
+gio 17:45: cpu_simulation.c: In function ‘do_step’:
+gio 17:45: cpu_simulation.c:172: warning: unused variable ‘tmp’
+gio 17:45: cpu_simulation.c:171: warning: unused variable ‘pcopy’
+gio 17:45: cpu_simulation.c: In function ‘prop_source’:
+gio 17:45: cpu_simulation.c:376: warning: unused variable ‘i’
+gio 17:45: cpu_simulation.c: In function ‘add_data’:
+gio 17:45: cpu_simulation.c:556: warning: unused variable ‘i2’
+gio 17:45: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -MM -MP -MT "../RunRules/Simulation/objects/cpu_simulation.o" "cpu_simulation.c" > "../RunRules/Simulation/objects/cpu_simulation.d"
+gio 17:45: cc ../RunRules/Simulation/objects/cpu_constructors.o ../RunRules/Simulation/objects/cpu_main.o ../RunRules/Simulation/objects/cpu_simulation.o ../RunRules/Simulation/objects/slic_CpuMain.o  -L/opt/maxeler/maxcompiler/lib -L/opt/maxeler/maxcompiler/lib/maxeleros-sim/lib -lslic -lmaxeleros -lm -lpthread  -o "../RunRules/Simulation/binaries/CpuMain"
+gio 17:45: make[1]: Leaving directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinal/CPUCode'
+gio 17:45: Build completed: gio giu 13 17:45:08 CEST 2013
+
+
+gio 17:45: ########################################## 
+gio 17:45: Running
+gio 17:45: ########################################## 
+gio 17:45: Executing command:
+gio 17:45: '/home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinal/RunRules/Simulation/binaries/CpuMain' 
+gio 17:45: Command output:
+gio 17:45: [34m Parameters
+gio 17:45: [34m Input earth model: (none), using water+salt simple model
+gio 17:45: [34m Output folder: ./tmp
+gio 17:45: [34m Boundary: T=20, E=20 (points)
+gio 17:45: [34m Dimensions: n1=100, n2=100, n3=100 (points)
+gio 17:45: [34m Number of frames nf=1000
+gio 17:45: [34m Damping: bc=0.000500
+gio 17:45: [34m Sampling: dx=5.000000 (m)
+gio 17:45: [34m Time scale dt=0.000400 (s)
+gio 17:45: [34m Time steps per frame: jt=1
+gio 17:45: [34m Number of time steps: nt=1000
+gio 17:45: [34m Frequency: fpeak=25.000000 (Hz)
+gio 17:45: [34m Source: (x,y,z) = (50,50,21)
+gio 17:45: [30m[34m Rerun receiver: False
+gio 17:45: [30m[34m Subsurface offsets: 32
+gio 17:45: [30mCPU version with random boundaries
+gio 17:45: Found receiver file: skipping receiver propagation!
+gio 17:45: 0
+gio 17:45: malloc varie
+gio 17:45: parte il for
+gio 17:45: finito il for
+gio 17:45: loading values
+gio 17:45: running DFE
+gio 17:46: unload DFE
+gio 17:46: 1
+gio 17:46: malloc varie
+gio 17:46: parte il for
+gio 17:46: finito il for
+gio 17:46: loading values
+gio 17:46: running DFE
+gio 17:47: unload DFE
+gio 17:47: 2
+gio 17:47: malloc varie
+gio 17:47: parte il for
+gio 17:47: finito il for
+gio 17:47: loading values
+gio 17:47: running DFE
+gio 17:48: unload DFE
+gio 17:48: 3
+gio 17:48: malloc varie
+gio 17:48: parte il for
+gio 17:48: finito il for
+gio 17:48: loading values
+gio 17:48: running DFE
+gio 17:49: unload DFE
+gio 17:49: 4
+gio 17:49: malloc varie
+gio 17:49: parte il for
+gio 17:49: finito il for
+gio 17:49: loading values
+gio 17:49: running DFE
+gio 17:50: unload DFE
+gio 17:50: 5
+gio 17:50: malloc varie
+gio 17:50: parte il for
+gio 17:50: finito il for
+gio 17:50: loading values
+gio 17:50: running DFE
+gio 17:52: unload DFE
+gio 17:52: 6
+gio 17:52: malloc varie
+gio 17:52: parte il for
+gio 17:52: finito il for
+gio 17:52: loading values
+gio 17:52: running DFE
+gio 17:53: unload DFE
+gio 17:53: 7
+gio 17:53: malloc varie
+gio 17:53: parte il for
+gio 17:53: finito il for
+gio 17:53: loading values
+gio 17:53: running DFE
+gio 17:54: Terminated

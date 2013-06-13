@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagerGraph version="2013.1" design_name="Manager_MovingAverageSimple" compilation_phase="Original" hardwareBuild="false">
+	<Node id="2" instanceName="x" type="InputFlexibleClock">
+		<Output clock="STREAM" name="x" type="PULL el=1 ael=8" width="128">
+			<Stream name="Stream_3" sink="0" />
+		</Output>
+	</Node>
+	<Node id="0" instanceName="MovingAverageSimpleKernel" type="Kernel">
+		<Input clock="STREAM" name="x" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_1" source="2" />
+		</Input>
+		<Output clock="STREAM" name="y" type="PUSH 5" width="32">
+			<Stream name="Stream_4" sink="5" />
+		</Output>
+	</Node>
+	<Node id="5" instanceName="y" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="y" type="PUSH 64" width="128">
+			<Stream name="Stream_6" source="0" />
+		</Input>
+	</Node>
+</ManagerGraph>

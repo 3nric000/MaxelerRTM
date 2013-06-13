@@ -15,13 +15,11 @@
 #include "cpu_constructors.h"
 #include "Maxfiles.h"
 #include "MaxSLiCInterface.h"
-int counter = 0;
 //--------------------------------------------------------------
 // Construct 10th order space stencil
 //--------------------------------------------------------------
 
 void construct_stencil() {
-
 	float sm = 0.;
 	int i;
 
@@ -96,14 +94,14 @@ void do_step_damping(float *__restrict p, float *__restrict pp,
 				f2 = 0; //Not in boundary
 			f2 = f2 * f2; //Distance in boundary
 
-			for (i1 = ORDER; i1 < n1m - ORDER; i1++) { //Loop over fast axis
+			for (i1 = ORDER; i1 < n1 - ORDER; i1++) { //Loop over fast axis
 				int is;
 				float scale;
 
 				if (i1 < BOUND_T)
 					f1 = (BOUND_T - i1); //Inside neg boundary
-				else if (i1 >= n1m - SPONGE_WIDTH)
-					f1 = (i1 - (n1m - SPONGE_WIDTH) + 1);//Inside pos bound
+				else if (i1 >= n1 - SPONGE_WIDTH)
+					f1 = (i1 - (n1 - SPONGE_WIDTH) + 1);//Inside pos bound
 				else
 					f1 = 0; // Not in boundary
 				f1 = f1 * f1; //Distance in boundary
@@ -162,172 +160,158 @@ void do_step_damping(float *__restrict p, float *__restrict pp,
 void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 		float *__restrict source_container) {
 
-	printf("%d\n", counter);
-	counter++;
-	/*int i3;  //Indexes
-	 int n12=n1*n2;
-
-	 // #pragma omp parallel for
-	 for(i3=ORDER; i3 < n3-ORDER; i3++){   //Loop over slowest axis
-	 int i1;
-	 int i2;
-	 for(i2=ORDER; i2 < n2-ORDER; i2++){ //Loop over middle axis
-	 for(i1=ORDER; i1< n1m-ORDER; i1++){  //Loop over fast axis
-	 //Wavefield update
-	 pp[i1+i2*n1+i3*n12]=(2.0*p[i1+i2*n1+i3*n12]-pp[i1+i2*n1+i3*n12]+dvv[i1+i2*n1+i3*n12]*(
-	 p[i1+i2*n1+i3*n12]*c_0
-	 +c_1[0]*(p[(i1+1)+(i2  )*n1+(i3  )*n12]+p[(i1-1)+(i2  )*n1+(i3  )*n12])
-	 +c_1[1]*(p[(i1+2)+(i2  )*n1+(i3  )*n12]+p[(i1-2)+(i2  )*n1+(i3  )*n12])
-	 +c_1[2]*(p[(i1+3)+(i2  )*n1+(i3  )*n12]+p[(i1-3)+(i2  )*n1+(i3  )*n12])
-	 +c_1[3]*(p[(i1+4)+(i2  )*n1+(i3  )*n12]+p[(i1-4)+(i2  )*n1+(i3  )*n12])
-	 +c_1[4]*(p[(i1+5)+(i2  )*n1+(i3  )*n12]+p[(i1-5)+(i2  )*n1+(i3  )*n12])
-	 +c_2[0]*(p[(i1  )+(i2+1)*n1+(i3  )*n12]+p[(i1  )+(i2-1)*n1+(i3  )*n12])
-	 +c_2[1]*(p[(i1  )+(i2+2)*n1+(i3  )*n12]+p[(i1  )+(i2-2)*n1+(i3  )*n12])
-	 +c_2[2]*(p[(i1  )+(i2+3)*n1+(i3  )*n12]+p[(i1  )+(i2-3)*n1+(i3  )*n12])
-	 +c_2[3]*(p[(i1  )+(i2+4)*n1+(i3  )*n12]+p[(i1  )+(i2-4)*n1+(i3  )*n12])
-	 +c_2[4]*(p[(i1  )+(i2+5)*n1+(i3  )*n12]+p[(i1  )+(i2-5)*n1+(i3  )*n12])
-	 +c_3[0]*(p[(i1  )+(i2  )*n1+(i3+1)*n12]+p[(i1  )+(i2  )*n1+(i3-1)*n12])
-	 +c_3[1]*(p[(i1  )+(i2  )*n1+(i3+2)*n12]+p[(i1  )+(i2  )*n1+(i3-2)*n12])
-	 +c_3[2]*(p[(i1  )+(i2  )*n1+(i3+3)*n12]+p[(i1  )+(i2  )*n1+(i3-3)*n12])
-	 +c_3[3]*(p[(i1  )+(i2  )*n1+(i3+4)*n12]+p[(i1  )+(i2  )*n1+(i3-4)*n12])
-	 +c_3[4]*(p[(i1  )+(i2  )*n1+(i3+5)*n12]+p[(i1  )+(i2  )*n1+(i3-5)*n12])
-	 ))+source_container[i1+i2*n1+i3*n12];
-	 }
-	 }
-	 }
-	 return;
-	 */
-
+	int i3, i2, i1;
 	int n12 = n1 * n2;
-	int offM, offF, offS;
-	int size = n1 * n2 * n2;
-	int const xzSize = 11;
-	int const burst = 96;
-	//int sizeC = 5;
+	int const size = n1 * n2 * n3;
 	float *px;
 	float *py;
-	int stencilSize = 10;
+	float *pcopy;
+	float *tmp;
+	float *ppresult, *ppresult1;
+	int const stencilSize = 10;
 	int sizeBytes = size * sizeof(float);
 	int sizepxy = size * stencilSize * sizeof(float);
-	//int sizeCBytes = sizeC * sizeof(float);
-	uint32_t *controller = malloc(size*stencilSize*sizeof(uint32_t));
 
+	uint32_t *controller = malloc(size * stencilSize * sizeof(uint32_t));
+	ppresult = malloc(sizeBytes);
 	px = malloc(sizepxy);
 	py = malloc(sizepxy);
+	ppresult1 = malloc(sizeBytes);
+	//pcopy = malloc(sizeBytes);
+	//memcpy(pcopy, p, size);
 
-	//printf("Running on DFE.\n");
-	//act = max_actions_init(maxfile, "writeLMem");
 
-	//printf("Loading c_x, n1, n1m, n2, burst, xzSize in LMem");
-	//max_run(engine, act);
+	for (i3 = ORDER; i3 < n3 - ORDER; i3++) { //Loop over slowest axis
+		int i1;
+		int i2;
+		for (i2 = ORDER; i2 < n2 - ORDER; i2++) { //Loop over middle axis
+			for (i1 = ORDER; i1 < n1 - ORDER; i1++) { //Loop over fast axis
+				//Wavefield update
+				ppresult1[i1 + i2 * n1 + i3 * n12] = (2.0 * p[i1 + i2 * n1 + i3
+						* n12] - pp[i1 + i2 * n1 + i3 * n12] + dvv[i1 + i2 * n1
+						+ i3 * n12] * (p[i1 + i2 * n1 + i3 * n12] * c_0
+						+ c_1[0] * (p[(i1 + 1) + (i2) * n1 + (i3) * n12]
+								+ p[(i1 - 1) + (i2) * n1 + (i3) * n12])
+						+ c_1[1] * (p[(i1 + 2) + (i2) * n1 + (i3) * n12]
+								+ p[(i1 - 2) + (i2) * n1 + (i3) * n12])
+						+ c_1[2] * (p[(i1 + 3) + (i2) * n1 + (i3) * n12]
+								+ p[(i1 - 3) + (i2) * n1 + (i3) * n12])
+						+ c_1[3] * (p[(i1 + 4) + (i2) * n1 + (i3) * n12]
+								+ p[(i1 - 4) + (i2) * n1 + (i3) * n12])
+						+ c_1[4] * (p[(i1 + 5) + (i2) * n1 + (i3) * n12]
+								+ p[(i1 - 5) + (i2) * n1 + (i3) * n12])
+						+ c_2[0] * (p[(i1) + (i2 + 1) * n1 + (i3) * n12]
+								+ p[(i1) + (i2 - 1) * n1 + (i3) * n12])
+						+ c_2[1] * (p[(i1) + (i2 + 2) * n1 + (i3) * n12]
+								+ p[(i1) + (i2 - 2) * n1 + (i3) * n12])
+						+ c_2[2] * (p[(i1) + (i2 + 3) * n1 + (i3) * n12]
+								+ p[(i1) + (i2 - 3) * n1 + (i3) * n12])
+						+ c_2[3] * (p[(i1) + (i2 + 4) * n1 + (i3) * n12]
+								+ p[(i1) + (i2 - 4) * n1 + (i3) * n12])
+						+ c_2[4] * (p[(i1) + (i2 + 5) * n1 + (i3) * n12]
+								+ p[(i1) + (i2 - 5) * n1 + (i3) * n12])
+						+ c_3[0] * (p[(i1) + (i2) * n1 + (i3 + 1) * n12]
+								+ p[(i1) + (i2) * n1 + (i3 - 1) * n12])
+						+ c_3[1] * (p[(i1) + (i2) * n1 + (i3 + 2) * n12]
+								+ p[(i1) + (i2) * n1 + (i3 - 2) * n12])
+						+ c_3[2] * (p[(i1) + (i2) * n1 + (i3 + 3) * n12]
+								+ p[(i1) + (i2) * n1 + (i3 - 3) * n12])
+						+ c_3[3] * (p[(i1) + (i2) * n1 + (i3 + 4) * n12]
+								+ p[(i1) + (i2) * n1 + (i3 - 4) * n12])
+						+ c_3[4] * (p[(i1) + (i2) * n1 + (i3 + 5) * n12]
+								+ p[(i1) + (i2) * n1 + (i3 - 5) * n12])))
+						+ source_container[i1 + i2 * n1 + i3 * n12];
+			}
+		}
+	}
+
 	int index = 0;
-	for (offS = 0; offS < n3; offS++) { //Loop over slowest axis
-		for (offM = 0; offM < n2; offM++) { //Loop over middle axis
-			for (offF = 0; offF < n1; offF++) {
-				//printf("Creating pp_value, dvv_value, source_container_value streams\n");
-				px[index] = p[(offF) + (offM) * n1 + (offS - 5) * n12];
-				controller[index] = 0;
-				py[index++] = p[(offF) + (offM - 5) * n1 + (offS) * n12];
 
-				px[index] = p[(offF) + (offM) * n1 + (offS - 4) * n12];
-				controller[index] = 0;
-				py[index++] = p[(offF) + (offM - 4) * n1 + (offS) * n12];
+	for (index = 0; index < size * stencilSize; index++) {
+		px[index] = 0;
+		py[index] = 0;
+		controller[index] = 0;
+	}
 
-				px[index] = p[(offF) + (offM) * n1 + (offS - 3) * n12];
-				controller[index] = 0;
-				py[index++] = p[(offF) + (offM - 3) * n1 + (offS) * n12];
+	for (index = 9; index < size * stencilSize; index += 10) {
+		controller[index] = 1;
+	}
+	index = 0;
 
-				px[index] = p[(offF) + (offM) * n1 + (offS - 2) * n12];
-				controller[index] = 0;
-				py[index++] = p[(offF) + (offM - 2) * n1 + (offS) * n12];
+	for (i3 = ORDER; i3 < n3 - ORDER; i3++) { //Loop over slowest axis
+		/*int i1;
+		 int i2;*/
+		for (i2 = ORDER; i2 < n2 - ORDER; i2++) { //Loop over middle axis
+			for (i1 = ORDER; i1 < n1 - ORDER; i1++, index++) {
 
-				px[index] = p[(offF) + (offM) * n1 + (offS - 1) * n12];
-				controller[index] = 0;
-				py[index++] = p[(offF) + (offM - 1) * n1 + (offS) * n12];
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 9] = p[(i1)
+						+ (i2) * n1 + (i3 - 5) * n12];
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 9] = p[(i1)
+						+ (i2 - 5) * n1 + (i3) * n12];
 
-				px[index] = p[(offF) + (offM) * n1 + (offS + 1) * n12];
-				controller[index] = 0;
-				py[index++] = p[(offF) + (offM + 1) * n1 + (offS) * n12];
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 8] = p[(i1)
+						+ (i2) * n1 + (i3 - 4) * n12];
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 8] = p[(i1)
+						+ (i2 - 4) * n1 + (i3) * n12];
 
-				px[index] = p[(offF) + (offM) * n1 + (offS + 2) * n12];
-				controller[index] = 0;
-				py[index++] = p[(offF) + (offM + 2) * n1 + (offS) * n12];
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 7] = p[(i1)
+						+ (i2) * n1 + (i3 - 3) * n12];
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 7] = p[(i1)
+						+ (i2 - 3) * n1 + (i3) * n12];
 
-				px[index] = p[(offF) + (offM) * n1 + (offS + 3) * n12];
-				controller[index] = 0;
-				py[index++] = p[(offF) + (offM + 3) * n1 + (offS) * n12];
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 6] = p[(i1)
+						+ (i2) * n1 + (i3 - 2) * n12];
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 6] = p[(i1)
+						+ (i2 - 2) * n1 + (i3) * n12];
 
-				px[index] = p[(offF) + (offM) * n1 + (offS + 4) * n12];
-				controller[index] = 0;
-				py[index++] = p[(offF) + (offM + 4) * n1 + (offS) * n12];
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 5] = p[(i1)
+						+ (i2) * n1 + (i3 - 1) * n12];
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 5] = p[(i1)
+						+ (i2 - 1) * n1 + (i3) * n12];
 
-				px[index] = p[(offF) + (offM) * n1 + (offS + 5) * n12];
-				controller[index] = 1;
-				py[index++] = p[(offF) + (offM + 5) * n1 + (offS) * n12];
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 4] = p[(i1)
+						+ (i2) * n1 + (i3 + 1) * n12];
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 4] = p[(i1)
+						+ (i2 + 1) * n1 + (i3) * n12];
+
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 3] = p[(i1)
+						+ (i2) * n1 + (i3 + 2) * n12];
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 3] = p[(i1)
+						+ (i2 + 2) * n1 + (i3) * n12];
+
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 2] = p[(i1)
+						+ (i2) * n1 + (i3 + 3) * n12];
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 2] = p[(i1)
+						+ (i2 + 3) * n1 + (i3) * n12];
+
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 1] = p[(i1)
+						+ (i2) * n1 + (i3 + 4) * n12];
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 1] = p[(i1)
+						+ (i2 + 4) * n1 + (i3) * n12];
+
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize] = p[(i1)
+						+ (i2) * n1 + (i3 + 5) * n12];
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize] = p[(i1)
+						+ (i2 + 5) * n1 + (i3) * n12];
 			}
 		}
 	}
 
 	max_file_t *maxfile = CpuMain_init();
 	max_engine_t *engine = max_load(maxfile, "*");
-
-	printf("Writing to LMem.\n");
-
-
-	max_actions_t* act = max_actions_init(maxfile, "writeLMem");
-
-	max_set_param_uint64t(act, "address", 0);
-	max_set_param_uint64t(act, "nbytes", sizeBytes);
-	printf("Loading p in LMem\n");
-	max_queue_input(act, "cpu_to_lmem", p, size * sizeof(float));
-	max_run(engine, act);
-
-
-	act = max_actions_init(maxfile, "writeLMem");
-	max_set_param_uint64t(act, "address", sizeBytes);
-	max_set_param_uint64t(act, "nbytes", sizeBytes);
-	printf("Loading pp in LMem\n");
-	max_queue_input(act, "cpu_to_lmem", pp, size * sizeof(float));
-	max_run(engine, act);
-
-
-	act = max_actions_init(maxfile, "writeLMem");
-	max_set_param_uint64t(act, "address", 2 * sizeBytes);
-	max_set_param_uint64t(act, "nbytes", sizeBytes);
-	printf("Loading dvv in LMem\n");
-	max_queue_input(act, "cpu_to_lmem", dvv, size * sizeof(float));
-	max_run(engine, act);
-
-
-	act = max_actions_init(maxfile, "writeLMem");
-	max_set_param_uint64t(act, "address", 3 * sizeBytes);
-	max_set_param_uint64t(act, "nbytes", sizeBytes);
-	printf("Loading source_container in LMem\n");
-	max_queue_input(act, "cpu_to_lmem", source_container, size * sizeof(float));
-	max_run(engine, act);
-
-
-	act = max_actions_init(maxfile, "writeLMem");
-	max_set_param_uint64t(act, "address", 4 * sizeBytes);
-	max_set_param_uint64t(act, "nbytes", sizepxy);
-	printf("Loading px in LMem\n");
-	max_queue_input(act, "cpu_to_lmem", px, sizepxy);
-	max_run(engine, act);
-
-	printf("%d\n", size*stencilSize);
-
-	act = max_actions_init(maxfile, "writeLMem");
-	max_set_param_uint64t(act, "address", 4 * sizeBytes + sizepxy);
-	max_set_param_uint64t(act, "nbytes", sizepxy);
-	printf("Loading py in LMem\n");
-	max_queue_input(act, "cpu_to_lmem", py, sizepxy);
-
-	max_run(engine, act);
-
 	printf("loading values\n");
-	act = max_actions_init(maxfile, "default");
+	max_actions_t* act = max_actions_init(maxfile, "default");
 
-	max_queue_input(act, "controller", controller, size*stencilSize*sizeof(uint32_t));
+	max_queue_input(act, "p", p, size * sizeof(float));
+	max_queue_input(act, "pp", pp, size * sizeof(float));
+	max_queue_input(act, "dvv", dvv, size * sizeof(float));
+	max_queue_input(act, "source_container", source_container, size
+			* sizeof(float));
+	max_queue_input(act, "px", px, size * stencilSize * sizeof(float));
+	max_queue_input(act, "py", py, size * stencilSize * sizeof(float));
+	max_queue_input(act, "controller", controller, size * stencilSize
+			* sizeof(uint32_t));
+	max_queue_output(act, "ppresult", ppresult, size * sizeof(float));
 
 	max_set_param_double(act, "c_1_0", (double) c_1[0]);
 	max_set_param_double(act, "c_1_1", (double) c_1[1]);
@@ -348,31 +332,42 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	max_set_param_double(act, "c_3_4", (double) c_3[4]);
 
 	max_set_param_uint64t(act, "size", size);
-	//max_set_param_uint64t(act, "n1m", n1m);
 	max_set_param_uint64t(act, "stencilSize", stencilSize);
+	max_set_param_uint64t(act, "sizeController", stencilSize * size);
 	max_set_param_double(act, "c_0", (double) c_0);
-
-	//max_set_param_uint64t(act, "burst", burst);
-
-	//max_set_param_uint64t(act, "xzSize", xzSize);
-
-	//max_set_param_uint64t(act, "offM", offM);
-	//max_set_param_uint64t(act, "offF", offF);
-	//max_set_param_uint64t(act, "offS", offS);
 
 	printf("running DFE\n");
 	max_run(engine, act);
+	max_unload(engine);
+	printf("unload DFE\n");
 
 	free(px);
 	free(py);
+	free(controller);
+	//free(pcopy);
+	/*tmp = pp;
 
-	act = max_actions_init(maxfile, "default");
-	//max_set_param_uint64t(act, "address", sizeBytes);
-	//max_set_param_uint64t(act, "nbytes", sizeBytes);
-	max_queue_output(act, "ppresult", pp, size * sizeof(float));
+	 free(tmp);*/
 
-	max_unload(engine);
+	int check = 1;
 
+	for (i3 = ORDER; i3 < n3 - ORDER && check; i3++) { //Loop over slowest axis
+		/*int i1;
+		 int i2;*/
+		for (i2 = ORDER; i2 < n2 - ORDER && check; i2++) { //Loop over middle axis
+			for (i1 = ORDER; i1 < n1 - ORDER && check; i1++) {
+				if(ppresult1[i1 + i2 * n1 + i3 * n12]!=ppresult[i1 + i2 * n1 + i3 * n12]){
+					check=0;
+					printf("ppresult1=%f, ppresult=%f\n", ppresult1[i1 + i2 * n1 + i3 * n12],  ppresult[i1 + i2 * n1 + i3 * n12]);
+				}
+			}
+		}
+	}
+
+	printf("check=%d\n", check);
+
+	memcpy(pp, ppresult1, size);
+	free(ppresult);
 }
 /*
  * add_source - add source to wavefield
@@ -484,7 +479,7 @@ void prop_source(int model) {
 		}
 
 #ifdef DEBUG
-		if(it%jt==0) fwrite(&(p1[isy*n2*n1]), sizeof(float), n1m*n2, fd);
+		if(it%jt==0) fwrite(&(p1[isy*n2*n1]), sizeof(float), n1*n2, fd);
 		//Print progress
 		switch(it%100) {
 			case 0: fprintf(stderr," Propagating  Forward %5d of %5d |\r",it,nt);break;
@@ -594,7 +589,7 @@ void image_it(float *__restrict source_container, float *__restrict receiver,
 		int sub;
 		for (sub = 0; sub <= num_subsurface_offsets; sub++) {
 			for (j = sub; j < n2 - sub; j++) {
-				for (i = 0; i < n1m; i++) {
+				for (i = 0; i < n1; i++) {
 					image_container[sub][i + j * n1 + k * n1 * n2]
 							+= source_container[i + (j - sub) * n1 + k * n1
 									* n2] * receiver[i + (j + sub) * n1 + k
@@ -685,8 +680,8 @@ void migrate_shot() {
 		if (it % jt == 0)
 			image_it(p2s, p2g, image); //Apply imaging condition
 #ifdef DEBUG
-		if(it%jt==0) fwrite(&(p2g[(n3/2)*n2*n1]), sizeof(float), n1m*n2, fd1);
-		if(it%jt==0) fwrite(&(p2s[(n3/2)*n2*n1]), sizeof(float), n1m*n2, fd2);
+		if(it%jt==0) fwrite(&(p2g[(n3/2)*n2*n1]), sizeof(float), n1*n2, fd1);
+		if(it%jt==0) fwrite(&(p2s[(n3/2)*n2*n1]), sizeof(float), n1*n2, fd2);
 #endif
 		p_aux = p1s;
 		p1s = p2s;

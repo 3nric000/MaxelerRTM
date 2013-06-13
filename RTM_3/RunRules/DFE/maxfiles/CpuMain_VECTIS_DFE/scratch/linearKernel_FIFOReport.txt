@@ -1,0 +1,93 @@
+NodeSub - {HWFloat:8, 24} ID: 59
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.sub(DFEVar.java:812)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
+cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
+	FIFO(142) {HWFloat:8, 24} 142 ID: 189
+
+NodeInput Input(p) {HWFloat:8, 24} ID: 10
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
+cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
+	FIFO(10) {HWFloat:8, 24} 10 ID: 202
+	FIFO(9) {HWFloat:8, 24} 9 ID: 194
+	FIFO(8) {HWFloat:8, 24} 8 ID: 200
+	FIFO(7) {HWFloat:8, 24} 7 ID: 197
+	FIFO(6) {HWFloat:8, 24} 6 ID: 198
+	FIFO(5) {HWFloat:8, 24} 5 ID: 199
+	FIFO(3) {HWFloat:8, 24} 3 ID: 201
+	FIFO(2) {HWFloat:8, 24} 2 ID: 160
+	FIFO(2) {HWFloat:8, 24} 2 ID: 195
+	FIFO(2) {HWFloat:8, 24} 2 ID: 196
+
+NodeInput Input(py) {HWFloat:8, 24} ID: 40
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:24)
+cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
+	FIFO(10) {HWFloat:8, 24} 10 ID: 203
+	FIFO(8) {HWFloat:8, 24} 8 ID: 205
+	FIFO(7) {HWFloat:8, 24} 7 ID: 209
+	FIFO(5) {HWFloat:8, 24} 5 ID: 206
+	FIFO(4) {HWFloat:8, 24} 4 ID: 207
+	FIFO(3) {HWFloat:8, 24} 3 ID: 204
+	FIFO(2) {HWFloat:8, 24} 2 ID: 208
+	FIFO(1) {HWFloat:8, 24} 1 ID: 169
+
+NodeInput Input(px) {HWFloat:8, 24} ID: 37
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:23)
+cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
+	FIFO(10) {HWFloat:8, 24} 10 ID: 210
+	FIFO(8) {HWFloat:8, 24} 8 ID: 212
+	FIFO(7) {HWFloat:8, 24} 7 ID: 216
+	FIFO(5) {HWFloat:8, 24} 5 ID: 213
+	FIFO(4) {HWFloat:8, 24} 4 ID: 214
+	FIFO(3) {HWFloat:8, 24} 3 ID: 211
+	FIFO(2) {HWFloat:8, 24} 2 ID: 215
+	FIFO(1) {HWFloat:8, 24} 1 ID: 179
+
+NodeMul * {HWFloat:8, 24} ID: 108
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:92)
+cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
+	FIFO(13) {HWFloat:8, 24} 13 ID: 178
+
+NodeMul * {HWFloat:8, 24} ID: 132
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:97)
+cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
+	FIFO(13) {HWFloat:8, 24} 13 ID: 188
+
+NodeCat @ {HWRawBits:3} ID: 217
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)
+	FIFO(110) {HWRawBits:3} 110 ID: 218
+
+NodeCounterV1 Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0 {HWOffsetFix:48, 0, UNSIGNED} ID: 147
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)
+	FIFO(4) {HWOffsetFix:48, 0, UNSIGNED} 4 ID: 193
+
+NodeReinterpret <{HWOffsetFix:1, 0, UNSIGNED}> {HWOffsetFix:1, 0, UNSIGNED} ID: 143
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:102)
+cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
+	FIFO(128) {HWOffsetFix:1, 0, UNSIGNED} 128 ID: 192
+
+NodeAnd & {HWRawBits:1} ID: 30
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)
+cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
+	FIFO(111) {HWRawBits:1} 111 ID: 191
+
+NodeReinterpret <{HWOffsetFix:1, 0, UNSIGNED}> {HWOffsetFix:1, 0, UNSIGNED} ID: 25
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
+cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
+	FIFO(91) {HWOffsetFix:1, 0, UNSIGNED} 91 ID: 158
+
+NodeCast {HWOffsetFix:1, 0, UNSIGNED} {HWOffsetFix:1, 0, UNSIGNED} ID: 11
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
+cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
+	FIFO(55) {HWOffsetFix:1, 0, UNSIGNED} 55 ID: 156
+

@@ -9,11 +9,12 @@ class CpuMainKernel extends Kernel {
 
 	private static final DFEType typeFloat = dfeFloat(8,24);
 	private static final DFEType typeInt = dfeInt(32);
+	//DFEVar result;
 
 	protected CpuMainKernel(KernelParameters parameters) {
 		super(parameters);
-
-		DFEVar count = control.count.simpleCounter(32);
+		//DFEVar hund = constant.var(100);
+		//DFEVar count = control.count.simpleCounter(32);
 		DFEVar controller = io.input("controller", typeInt);
 		DFEVar p = io.input("p", typeFloat, controller.cast(dfeBool()));
 		DFEVar pp = io.input("pp", typeFloat, controller.cast(dfeBool()));
@@ -76,8 +77,8 @@ class CpuMainKernel extends Kernel {
 			}
 		}*/
 
-		DFEVar result;
-		result= 2.0*p-pp+dvv*(
+
+		DFEVar result= 2.0*p-pp+dvv*(
 				p*c_0
 				+c_1_0*(stream.offset(p, 1)+stream.offset(p,-1))
 				+c_1_1*(stream.offset(p, 2)+stream.offset(p,-2))
@@ -96,7 +97,7 @@ class CpuMainKernel extends Kernel {
 				+c_3_4*(px + stream.offset(px, -9))
 				)+source_container;
 
-		debug.printf("count=%d, result=%f\n", count, result);
+		//debug.printf(count%hund,"%d\n", count);
 
 		io.output("ppresult", result, typeFloat, controller.cast(dfeBool()));
 	}
