@@ -364,7 +364,7 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	/*int check = 1;
 	for (i3 = ORDER; i3 < n3 - ORDER && check; i3++) { //Loop over slowest axis
 		/*int i1;
-		 int i2;*/
+		 int i2;*//*
 		for (i2 = ORDER; i2 < n2 - ORDER && check; i2++) { //Loop over middle axis
 			for (i1 = ORDER; i1 < n1 - ORDER && check; i1++) {
 				if(ppresult1[i1 + i2 * n1 + i3 * n12]!=ppresult[i1 + i2 * n1 + i3 * n12]){
