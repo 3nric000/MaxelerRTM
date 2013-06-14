@@ -43,8 +43,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="154" dst_node_input="input" src_node_id="137" src_node_output="o" />
 	<Node group="[]" id="154" pipelineFactor="0.0" type="NodeFIFO">
 		<Input name="input" type="hwOffsetFix(1, 0, UNSIGNED)" />
-		<Output latency="110" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
-		<Text>FIFO(110)</Text>
+		<Output latency="111" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Text>FIFO(111)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -106,8 +106,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="192" dst_node_input="input" src_node_id="143" src_node_output="output" />
 	<Node group="[]" id="192" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwOffsetFix(1, 0, UNSIGNED)" />
-		<Output latency="128" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
-		<Text>FIFO(128)</Text>
+		<Output latency="127" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Text>FIFO(127)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -397,8 +397,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="157" dst_node_input="input" src_node_id="19" src_node_output="o" />
 	<Node group="[]" id="157" pipelineFactor="0.0" type="NodeFIFO">
 		<Input name="input" type="hwOffsetFix(1, 0, UNSIGNED)" />
-		<Output latency="110" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
-		<Text>FIFO(110)</Text>
+		<Output latency="111" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Text>FIFO(111)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -460,8 +460,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="158" dst_node_input="input" src_node_id="25" src_node_output="output" />
 	<Node group="[]" id="158" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwOffsetFix(1, 0, UNSIGNED)" />
-		<Output latency="91" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
-		<Text>FIFO(91)</Text>
+		<Output latency="90" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Text>FIFO(90)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -829,8 +829,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="88" dst_node_input="a" src_node_id="86" src_node_output="output" />
 	<Node group="[]" id="169" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="1" name="output" type="hwFloat(8, 24)" />
-		<Text>FIFO(1)</Text>
+		<Output latency="2" name="output" type="hwFloat(8, 24)" />
+		<Text>FIFO(2)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -838,8 +838,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	<Edge dst_node_id="203" dst_node_input="input" src_node_id="169" src_node_output="output" />
 	<Node group="[]" id="87" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-5" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -5</Text>
+		<Output latency="-6" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -6</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:88)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -886,8 +886,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="94" dst_node_input="a" src_node_id="48" src_node_output="c_2_1" />
 	<Node group="[]" id="203" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="10" name="output" type="hwFloat(8, 24)" />
-		<Text>FIFO(10)</Text>
+		<Output latency="9" name="output" type="hwFloat(8, 24)" />
+		<Text>FIFO(9)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -904,8 +904,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="93" dst_node_input="a" src_node_id="91" src_node_output="output" />
 	<Node group="[]" id="204" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="3" name="output" type="hwFloat(8, 24)" />
-		<Text>FIFO(3)</Text>
+		<Output latency="4" name="output" type="hwFloat(8, 24)" />
+		<Text>FIFO(4)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -913,8 +913,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	<Edge dst_node_id="205" dst_node_input="input" src_node_id="204" src_node_output="output" />
 	<Node group="[]" id="92" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-6" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -6</Text>
+		<Output latency="-7" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -7</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:89)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -961,8 +961,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="99" dst_node_input="a" src_node_id="49" src_node_output="c_2_2" />
 	<Node group="[]" id="205" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="8" name="output" type="hwFloat(8, 24)" />
-		<Text>FIFO(8)</Text>
+		<Output latency="7" name="output" type="hwFloat(8, 24)" />
+		<Text>FIFO(7)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -979,8 +979,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="98" dst_node_input="a" src_node_id="96" src_node_output="output" />
 	<Node group="[]" id="206" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="5" name="output" type="hwFloat(8, 24)" />
-		<Text>FIFO(5)</Text>
+		<Output latency="6" name="output" type="hwFloat(8, 24)" />
+		<Text>FIFO(6)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -988,8 +988,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	<Edge dst_node_id="207" dst_node_input="input" src_node_id="206" src_node_output="output" />
 	<Node group="[]" id="97" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-7" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -7</Text>
+		<Output latency="-8" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -8</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:90)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -1036,8 +1036,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="104" dst_node_input="a" src_node_id="50" src_node_output="c_2_3" />
 	<Node group="[]" id="207" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="4" name="output" type="hwFloat(8, 24)" />
-		<Text>FIFO(4)</Text>
+		<Output latency="3" name="output" type="hwFloat(8, 24)" />
+		<Text>FIFO(3)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -1063,8 +1063,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="103" dst_node_input="a" src_node_id="101" src_node_output="output" />
 	<Node group="[]" id="209" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="7" name="output" type="hwFloat(8, 24)" />
-		<Text>FIFO(7)</Text>
+		<Output latency="8" name="output" type="hwFloat(8, 24)" />
+		<Text>FIFO(8)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -1072,8 +1072,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	<Edge dst_node_id="106" dst_node_input="input" src_node_id="209" src_node_output="output" />
 	<Node group="[]" id="102" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-8" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -8</Text>
+		<Output latency="-9" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -9</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:91)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -1120,8 +1120,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="108" dst_node_input="a" src_node_id="51" src_node_output="c_2_4" />
 	<Node group="[]" id="106" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-9" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -9</Text>
+		<Output latency="-10" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -10</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:92)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -1214,8 +1214,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="112" dst_node_input="a" src_node_id="110" src_node_output="output" />
 	<Node group="[]" id="179" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="1" name="output" type="hwFloat(8, 24)" />
-		<Text>FIFO(1)</Text>
+		<Output latency="2" name="output" type="hwFloat(8, 24)" />
+		<Text>FIFO(2)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -1223,8 +1223,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	<Edge dst_node_id="210" dst_node_input="input" src_node_id="179" src_node_output="output" />
 	<Node group="[]" id="111" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-5" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -5</Text>
+		<Output latency="-6" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -6</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:93)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -1271,8 +1271,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="118" dst_node_input="a" src_node_id="53" src_node_output="c_3_1" />
 	<Node group="[]" id="210" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="10" name="output" type="hwFloat(8, 24)" />
-		<Text>FIFO(10)</Text>
+		<Output latency="9" name="output" type="hwFloat(8, 24)" />
+		<Text>FIFO(9)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -1289,8 +1289,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="117" dst_node_input="a" src_node_id="115" src_node_output="output" />
 	<Node group="[]" id="211" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="3" name="output" type="hwFloat(8, 24)" />
-		<Text>FIFO(3)</Text>
+		<Output latency="4" name="output" type="hwFloat(8, 24)" />
+		<Text>FIFO(4)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -1298,8 +1298,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	<Edge dst_node_id="212" dst_node_input="input" src_node_id="211" src_node_output="output" />
 	<Node group="[]" id="116" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-6" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -6</Text>
+		<Output latency="-7" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -7</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:94)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -1346,8 +1346,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="123" dst_node_input="a" src_node_id="54" src_node_output="c_3_2" />
 	<Node group="[]" id="212" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="8" name="output" type="hwFloat(8, 24)" />
-		<Text>FIFO(8)</Text>
+		<Output latency="7" name="output" type="hwFloat(8, 24)" />
+		<Text>FIFO(7)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -1364,8 +1364,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="122" dst_node_input="a" src_node_id="120" src_node_output="output" />
 	<Node group="[]" id="213" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="5" name="output" type="hwFloat(8, 24)" />
-		<Text>FIFO(5)</Text>
+		<Output latency="6" name="output" type="hwFloat(8, 24)" />
+		<Text>FIFO(6)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -1373,8 +1373,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	<Edge dst_node_id="214" dst_node_input="input" src_node_id="213" src_node_output="output" />
 	<Node group="[]" id="121" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-7" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -7</Text>
+		<Output latency="-8" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -8</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:95)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -1421,8 +1421,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="128" dst_node_input="a" src_node_id="55" src_node_output="c_3_3" />
 	<Node group="[]" id="214" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="4" name="output" type="hwFloat(8, 24)" />
-		<Text>FIFO(4)</Text>
+		<Output latency="3" name="output" type="hwFloat(8, 24)" />
+		<Text>FIFO(3)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -1448,8 +1448,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="127" dst_node_input="a" src_node_id="125" src_node_output="output" />
 	<Node group="[]" id="216" pipelineFactor="1.0" type="NodeFIFO">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="7" name="output" type="hwFloat(8, 24)" />
-		<Text>FIFO(7)</Text>
+		<Output latency="8" name="output" type="hwFloat(8, 24)" />
+		<Text>FIFO(8)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -1457,8 +1457,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	<Edge dst_node_id="130" dst_node_input="input" src_node_id="216" src_node_output="output" />
 	<Node group="[]" id="126" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-8" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -8</Text>
+		<Output latency="-9" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -9</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:96)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -1505,8 +1505,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="132" dst_node_input="a" src_node_id="56" src_node_output="c_3_4" />
 	<Node group="[]" id="130" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-9" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -9</Text>
+		<Output latency="-10" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -10</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:97)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -1581,8 +1581,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="190" dst_node_input="input" src_node_id="27" src_node_output="o" />
 	<Node group="[]" id="190" pipelineFactor="0.0" type="NodeFIFO">
 		<Input name="input" type="hwOffsetFix(1, 0, UNSIGNED)" />
-		<Output latency="110" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
-		<Text>FIFO(110)</Text>
+		<Output latency="111" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
+		<Text>FIFO(111)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>
@@ -1635,8 +1635,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="191" dst_node_input="input" src_node_id="30" src_node_output="result" />
 	<Node group="[]" id="191" pipelineFactor="0.0" type="NodeFIFO">
 		<Input name="input" type="hwBits(1)" />
-		<Output latency="111" name="output" type="hwBits(1)" />
-		<Text>FIFO(111)</Text>
+		<Output latency="110" name="output" type="hwBits(1)" />
+		<Text>FIFO(110)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)</OriginStackTrace>
 	</Node>

@@ -1,0 +1,908 @@
+/*             !!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/*             !!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/*             !!                         !! */
+/*             !!  Preliminary   Version  !! */
+/*             !!                         !! */
+/*             !!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/*             !!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* At: Main build */
+#error
+#ifdef PARAM
+#define PARAM_PRESENT 1
+PARAM(MEC_SUPPORTED, 1)
+PARAM(PERF_MONITOR_VERSION, 2)
+PARAM(ON_CARD_MEMORY_FREQUENCY, 303)
+#endif
+
+#ifdef STRING_PARAM
+#define STRING_PARAM_PRESENT 1
+STRING_PARAM(BOARD_MODEL, "MAX3424A")
+#endif
+
+
+
+
+#ifdef MANAGER_NODE
+#define MANAGER_NODE_PRESENT 1
+MANAGER_NODE(MovingAverageSimpleKernel, Kernel)
+MANAGER_NODE(x, PCIe_From_Host_fwd)
+MANAGER_NODE(y, PCIe_To_Host_fwd)
+MANAGER_NODE(Stream_1, DualAspectMux)
+MANAGER_NODE(Stream_6, DualAspectReg)
+MANAGER_NODE(Stream_14, StreamPullPushAdapter)
+MANAGER_NODE(Stream_10, Fifo)
+MANAGER_NODE(Stream_12, Fifo)
+#endif
+
+#ifdef MANAGER_NODE_IO
+#define MANAGER_NODE_IO_PRESENT 1
+MANAGER_NODE_IO(MovingAverageSimpleKernel, x, IN, STREAM, 32, PULL)
+MANAGER_NODE_IO(MovingAverageSimpleKernel, y, OUT, STREAM, 32, PUSH)
+MANAGER_NODE_IO(x, x, OUT, STREAM, 128, PULL)
+MANAGER_NODE_IO(y, y, IN, STREAM, 128, PUSH)
+MANAGER_NODE_IO(Stream_1, input, IN, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_1, output, OUT, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_6, input, IN, STREAM, 32, PULL)
+MANAGER_NODE_IO(Stream_6, output, OUT, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_14, input, IN, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_14, output, OUT, STREAM, 128, PUSH)
+MANAGER_NODE_IO(Stream_10, input, IN, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_10, output, OUT, STREAM, 32, PULL)
+MANAGER_NODE_IO(Stream_12, input, IN, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_12, output, OUT, STREAM, 32, PULL)
+#endif
+
+#ifdef MANAGER_STREAM
+#define MANAGER_STREAM_PRESENT 1
+MANAGER_STREAM(x, x, Stream_1, input, 128)
+MANAGER_STREAM(MovingAverageSimpleKernel, y, Stream_12, input, 32)
+MANAGER_STREAM(Stream_1, output, Stream_10, input, 32)
+MANAGER_STREAM(Stream_6, output, Stream_14, input, 128)
+MANAGER_STREAM(Stream_14, output, y, y, 128)
+MANAGER_STREAM(Stream_10, output, MovingAverageSimpleKernel, x, 32)
+MANAGER_STREAM(Stream_12, output, Stream_6, input, 32)
+#endif
+
+#ifdef MANAGER_NODE_PROPERTY
+#define MANAGER_NODE_PROPERTY_PRESENT 1
+MANAGER_NODE_PROPERTY(MovingAverageSimpleKernel, control_pipelining_depth, 2)
+#endif
+
+
+#ifdef KERNEL_CORE
+#define KERNEL_CORE_PRESENT 1
+KERNEL_CORE(MovingAverageSimpleKernel)
+#endif
+
+#ifdef KERNEL_HOST_CONTROLLED
+#define KERNEL_HOST_CONTROLLED_PRESENT 1
+KERNEL_HOST_CONTROLLED(MovingAverageSimpleKernel, MovingAverageSimpleKernel)
+#endif
+
+#ifdef DEBUG_INPUT_BITS
+#define DEBUG_INPUT_BITS_PRESENT 1
+DEBUG_INPUT_BITS(MovingAverageSimpleKernel, x, 0)
+#endif
+
+#ifdef DEBUG_OUTPUT_BITS
+#define DEBUG_OUTPUT_BITS_PRESENT 1
+DEBUG_OUTPUT_BITS(MovingAverageSimpleKernel, y, 0)
+#endif
+
+
+
+
+
+
+
+
+#ifdef SCALABLE_CLOCK
+#define SCALABLE_CLOCK_PRESENT 1
+SCALABLE_CLOCK(STREAM, ClockReset_STREAM, stream_clkprim_rst, stream_clkprim_locked, 100)
+#endif
+
+#ifdef CHECKSUM_RAM
+#define CHECKSUM_RAM_PRESENT 1
+CHECKSUM_RAM(RAMB18_X0Y0)
+#endif
+
+#ifdef HOST_FORWARDED_STREAM
+#define HOST_FORWARDED_STREAM_PRESENT 1
+HOST_FORWARDED_STREAM(x, STREAM_FROM_HOST, 0)
+HOST_FORWARDED_STREAM(y, STREAM_TO_HOST, 0)
+#endif
+
+
+
+#ifdef DEFINE_DESIGN_NAME
+#define DESIGN_NAME MovingAverageSimple
+#endif /* DEFINE_DESIGN_NAME */
+
+#ifndef SLIC_NO_DECLARATIONS
+/**\file */
+#ifndef SLIC_DECLARATIONS_MovingAverageSimple_H
+#define SLIC_DECLARATIONS_MovingAverageSimple_H
+#include "MaxSLiCInterface.h"
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
+
+
+/*----------------------------------------------------------------------------*/
+/*---------------------------- Interface default -----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+
+/**
+ * \brief Basic static function for the interface 'default'.
+ * 
+ * \param [in] param_N Interface Parameter "N".: Number of data items to process
+ * \param [in] instream_x The stream should be of size (param_N * 4) bytes.
+ * \param [out] outstream_y The stream should be of size (param_N * 4) bytes.
+ */
+void MovingAverageSimple(
+	int32_t param_N,
+	const float *instream_x,
+	float *outstream_y);
+
+/**
+ * \brief Basic static non-blocking function for the interface 'default'.
+ * 
+ * Schedule to run on an engine and return immediately.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ * 
+ * 
+ * \param [in] param_N Interface Parameter "N".: Number of data items to process
+ * \param [in] instream_x The stream should be of size (param_N * 4) bytes.
+ * \param [out] outstream_y The stream should be of size (param_N * 4) bytes.
+ * \return A handle on the execution status, or NULL in case of error.
+ */
+max_run_t *MovingAverageSimple_nonblock(
+	int32_t param_N,
+	const float *instream_x,
+	float *outstream_y);
+
+/**
+ * \brief Advanced static interface, structure for the engine interface 'default'
+ * 
+ */
+typedef struct { 
+	int32_t param_N; /**<  [in] Interface Parameter "N".: Number of data items to process */
+	const float *instream_x; /**<  [in] The stream should be of size (param_N * 4) bytes. */
+	float *outstream_y; /**<  [out] The stream should be of size (param_N * 4) bytes. */
+} MovingAverageSimple_actions_t;
+
+/**
+ * \brief Advanced static function for the interface 'default'.
+ * 
+ * \param [in] engine The engine on which the actions will be executed.
+ * \param [in,out] interface_actions Actions to be executed.
+ */
+void MovingAverageSimple_run(
+	max_engine_t *engine,
+	MovingAverageSimple_actions_t *interface_actions);
+
+/**
+ * \brief Advanced static non-blocking function for the interface 'default'.
+ *
+ * Schedule the actions to run on the engine and return immediately.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * 
+ * \param [in] engine The engine on which the actions will be executed.
+ * \param [in] interface_actions Actions to be executed.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MovingAverageSimple_run_nonblock(
+	max_engine_t *engine,
+	MovingAverageSimple_actions_t *interface_actions);
+
+/**
+ * \brief Group run advanced static function for the interface 'default'.
+ * 
+ * \param [in] group Group to use.
+ * \param [in,out] interface_actions Actions to run.
+ *
+ * Run the actions on the first device available in the group.
+ */
+void MovingAverageSimple_run_group(max_group_t *group, MovingAverageSimple_actions_t *interface_actions);
+
+/**
+ * \brief Group run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule the actions to run on the first device available in the group and return immediately.
+ * The status of the run must be checked with ::max_wait. 
+ * Note that use of ::max_nowait is prohibited with non-blocking running on groups:
+ * see the ::max_run_group_nonblock documentation for more explanation.
+ *
+ * \param [in] group Group to use.
+ * \param [in] interface_actions Actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MovingAverageSimple_run_group_nonblock(max_group_t *group, MovingAverageSimple_actions_t *interface_actions);
+
+/**
+ * \brief Array run advanced static function for the interface 'default'.
+ * 
+ * \param [in] engarray The array of devices to use.
+ * \param [in,out] interface_actions The array of actions to run.
+ *
+ * Run the array of actions on the array of engines.  The length of interface_actions
+ * must match the size of engarray.
+ */
+void MovingAverageSimple_run_array(max_engarray_t *engarray, MovingAverageSimple_actions_t *interface_actions[]);
+
+/**
+ * \brief Array run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule to run the array of actions on the array of engines, and return immediately.
+ * The length of interface_actions must match the size of engarray.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * \param [in] engarray The array of devices to use.
+ * \param [in] interface_actions The array of actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MovingAverageSimple_run_array_nonblock(max_engarray_t *engarray, MovingAverageSimple_actions_t *interface_actions[]);
+
+/**
+ * \brief Converts a static-interface action struct into a dynamic-interface max_actions_t struct.
+ *
+ * Note that this is an internal utility function used by other functions in the static interface.
+ *
+ * \param [in] maxfile The maxfile to use.
+ * \param [in] interface_actions The interface-specific actions to run.
+ * \return The dynamic-interface actions to run, or NULL in case of error.
+ */
+max_actions_t* MovingAverageSimple_convert(max_file_t *maxfile, MovingAverageSimple_actions_t *interface_actions);
+
+/**
+ * \brief Initialise a maxfile.
+ */
+max_file_t* MovingAverageSimple_init(void);
+
+/* Error handling functions */
+int MovingAverageSimple_has_errors(void);
+const char* MovingAverageSimple_get_errors(void);
+void MovingAverageSimple_clear_errors(void);
+/* Free statically allocated maxfile data */
+void MovingAverageSimple_free(void);
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+#endif /* SLIC_DECLARATIONS_MovingAverageSimple_H */
+
+#endif /* SLIC_NO_DECLARATIONS */
+
+#ifdef PHOTON_NODE_DATA
+#define PHOTON_NODE_DATA_PRESENT 1
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 10, NodeInputMappedReg, "Scalar input (io_y_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:26)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 11, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:26)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 14, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:26)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 15, NodeReinterpret, "<{HWOffsetFix:1, 0, UNSIGNED}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:26)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 0, NodeInputMappedReg, "Scalar input (io_x_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:19)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 1, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:19)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 2, NodeInput, "Input(x)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:19)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 26, NodeFIFO, "FIFO(1)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 3, NodeStreamOffset, "stream offset: -1", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:21)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 5, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:23)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 4, NodeStreamOffset, "stream offset: 1", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:22)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 28, NodeFIFO, "FIFO(10)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 6, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:23)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 31, NodeConstantRawBits, "{HWFloat:8, 24}\n0x40400000; 3.0", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.div(DFEVar.java:898)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:24)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 8, NodeDiv, "/", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.div(DFEVar.java:898)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:24)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 16, NodeOutput, "Output(y)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\nmovingaveragesimple.MovingAverageSimpleKernel.<init>(MovingAverageSimpleKernel.maxj:26)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:22)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 20, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 30, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 18, NodeConstantRawBits, "{HWOffsetFix:49, 0, UNSIGNED}\n0x1000000000000; 2.81474976710656E14", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 19, NodeCounterV1, "Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 29, NodeFIFO, "FIFO(4)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 21, NodeOutputMappedReg, "Scalar output (current_run_cycle_count)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 23, NodeInputMappedReg, "Scalar input (run_cycle_count)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 24, NodeEq, "==", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+PHOTON_NODE_DATA(MovingAverageSimpleKernel, 22, NodeFlush, "flush on trigger", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\nmovingaveragesimple.MovingAverageSimpleManager.main(MovingAverageSimpleManager.maxj:27)\n")
+#endif
+
+#ifdef SLIC_USE_DEFINITIONS
+#include <stdio.h>
+#include <math.h>
+#include <pthread.h>
+#include <string.h>
+static max_file_t *stored_maxfile = NULL;
+static max_engine_t *stored_engine = NULL;
+static char *stored_error = NULL;
+static int stored_has_error = 0;
+static pthread_once_t slic_bs_is_initialised = PTHREAD_ONCE_INIT;
+
+static void set_error(const char *error_str)
+{
+	stored_has_error = 1; 
+	if(stored_error == NULL) {
+		stored_error = strdup(error_str);
+	} else {
+		char *nerr = malloc(strlen(stored_error) + strlen(error_str) + 2);
+		sprintf(nerr, "%s\n%s", stored_error, error_str);
+		free(stored_error);
+		stored_error = nerr;
+	}
+}
+static void set_error_and_free(char *error_str){
+	set_error(error_str);
+	free(error_str);
+}
+int MovingAverageSimple_has_errors(void)
+{	return stored_has_error; }
+const char* MovingAverageSimple_get_errors(void)
+{	return stored_error; }
+void MovingAverageSimple_clear_errors(void)
+{
+	free(stored_error);
+	stored_error = NULL;
+	stored_has_error = 0;
+}
+
+static void MovingAverageSimple_static_init(void) 
+{
+	stored_maxfile = MovingAverageSimple_init();
+	if (stored_maxfile == NULL || !max_ok(stored_maxfile->errors)) {
+		stored_maxfile = NULL;
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to load maxfile"); return; }
+	}
+	if(!max_ok(max_global_errors())) {
+		set_error_and_free(max_errors_trace(max_global_errors()));
+		return;
+	}
+	if(!max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR))
+		max_errors_mode(stored_maxfile->errors, 0);
+	time_t timeout_previous = max_load_timeout(stored_maxfile, 30);
+	stored_engine = max_load(stored_maxfile, "*");
+	if (!max_ok(stored_maxfile->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) {
+			fprintf(stderr, "\nUnable to load engine: aborting now.\n\n");
+			fflush(stderr);
+			abort();
+		} else {
+			set_error_and_free(max_errors_trace(stored_maxfile->errors));
+			max_file_free(stored_maxfile);
+			stored_maxfile = NULL;
+			return;
+		} 
+	} 
+	max_load_timeout(stored_maxfile, timeout_previous);
+}
+void MovingAverageSimple_free(void)
+{
+	if(stored_engine != NULL)
+		max_unload(stored_engine);
+	if(stored_maxfile != NULL)
+		max_file_free(stored_maxfile);
+	if(stored_error != NULL)
+		free(stored_error);
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+/*---------------------------- Interface default -----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+void MovingAverageSimple(
+	int32_t param_N,
+	const float *instream_x,
+	float *outstream_y)
+{
+	(void) pthread_once(&slic_bs_is_initialised, MovingAverageSimple_static_init);
+	if(stored_maxfile == NULL) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Maxfile was not loaded."); return; }
+	}
+	max_run_t *run = MovingAverageSimple_nonblock(param_N, instream_x, outstream_y);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+max_run_t *MovingAverageSimple_nonblock(
+	int32_t param_N,
+	const float *instream_x,
+	float *outstream_y)
+{
+	MovingAverageSimple_actions_t interface_actions;
+	interface_actions.param_N = param_N;
+	interface_actions.instream_x = instream_x;
+	interface_actions.outstream_y = outstream_y;
+	(void) pthread_once(&slic_bs_is_initialised, MovingAverageSimple_static_init);
+	if(stored_maxfile == NULL) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Maxfile was not loaded."); return NULL; }
+	}
+	max_actions_t *actions[1];
+	actions[0] = MovingAverageSimple_convert(stored_maxfile, &interface_actions);
+	if(actions[0] == NULL) { 
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to build actions");return NULL; }
+	}
+	max_validate(actions[0]);
+	if(!max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); return NULL;}
+	}
+	max_run_t *run = max_run_multi_nonblock(stored_engine, actions, 1);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return NULL; }
+	}
+	if(!max_ok(stored_engine->errors)  || !max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); set_error_and_free(max_errors_trace(stored_engine->errors)); return NULL;}
+	}
+	max_actions_free(actions[0]);
+	return run;
+}
+
+void MovingAverageSimple_run(
+	max_engine_t *engine,
+	MovingAverageSimple_actions_t *interface_actions)
+{
+	max_run_t *run = MovingAverageSimple_run_nonblock(engine, interface_actions);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+max_run_t *MovingAverageSimple_run_nonblock(
+	max_engine_t *engine,
+	MovingAverageSimple_actions_t *interface_actions)
+{
+	max_file_t *maxfile = max_engine_get_max_file(engine); 
+	max_actions_t *actions[1];
+	actions[0] = MovingAverageSimple_convert(maxfile, interface_actions);
+	if(!max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); return NULL;}
+	}
+	max_run_t *run = max_run_multi_nonblock(engine, actions, 1);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions."); return NULL; }
+	}
+	max_actions_free(actions[0]);
+	return run;
+}
+
+
+/**
+ * \brief Group run advanced static function for the interface 'default'.
+ * 
+ * \param [in] group Group to use.
+ * \param [in,out] interface_actions Actions to run.
+ *
+ * Run the actions on the first device available in the group.
+ */
+void MovingAverageSimple_run_group(max_group_t *group, MovingAverageSimple_actions_t *interface_actions)
+{
+	/* Not strictly correct, because explicitly locking an engine here. */
+	max_engine_t *engine = max_lock_any(group);
+	if(engine == NULL) return;
+	MovingAverageSimple_run(engine, interface_actions);
+	max_unlock(engine);
+}
+
+
+/**
+ * \brief Group run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule the actions to run on the first device available in the group and return immediately.
+ * The status of the run must be checked with ::max_wait. 
+ * Note that use of ::max_nowait is prohibited with non-blocking running on groups:
+ * see the ::max_run_group_nonblock documentation for more explanation.
+ *
+ * \param [in] group Group to use.
+ * \param [in] interface_actions Actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MovingAverageSimple_run_group_nonblock(max_group_t *group, MovingAverageSimple_actions_t *interface_actions)
+{
+	max_file_t *maxfile = max_group_get_max_file(group);
+	max_actions_t *actions = MovingAverageSimple_convert(maxfile, interface_actions);
+	if(actions == NULL) return NULL;
+	if(!max_ok(actions->errors)) return NULL;
+	max_validate(actions);
+	max_run_t *run = max_run_group_nonblock(group, actions);
+	max_actions_free(actions);
+	return run;
+}
+
+
+/**
+ * \brief Array run advanced static function for the interface 'default'.
+ * 
+ * \param [in] engarray The array of devices to use.
+ * \param [in,out] interface_actions The array of actions to run.
+ *
+ * Run the array of actions on the array of engines.  The length of interface_actions
+ * must match the size of engarray.
+ */
+void MovingAverageSimple_run_array(max_engarray_t *engarray, MovingAverageSimple_actions_t *interface_actions[])
+{
+	max_run_t *run = MovingAverageSimple_run_array_nonblock(engarray, interface_actions);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+
+/**
+ * \brief Array run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule to run the array of actions on the array of engines, and return immediately.
+ * The length of interface_actions must match the size of engarray.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * \param [in] engarray The array of devices to use.
+ * \param [in] interface_actions The array of actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *MovingAverageSimple_run_array_nonblock(max_engarray_t *engarray, MovingAverageSimple_actions_t *interface_actions[])
+{
+	max_file_t *maxfile = max_engarray_get_max_file(engarray);
+	int i;
+	max_actarray_t *arr_actarray[1];
+	max_actions_t **arr_actions[1];
+	arr_actarray[0] = max_actarray_init(maxfile, engarray->size);
+	if(arr_actarray[0] == NULL) return NULL;
+	arr_actions[0] = malloc(engarray->size * sizeof(max_actions_t*));
+	for(i=0; i < arr_actarray[0]->size; i++) {
+		max_actions_t *actions = MovingAverageSimple_convert(maxfile, interface_actions[i]);
+		if(actions == NULL) return NULL;
+		arr_actions[0][i] = actions;
+		max_set_action(arr_actarray[0], i, actions);
+	}
+	max_run_t *run = max_run_array_multi_nonblock(engarray, arr_actarray, 1 );
+	for (i=0; i < arr_actarray[0]->size; i++) { max_actions_free(arr_actions[0][i]); }
+	max_actarray_free(arr_actarray[0]);
+	free(arr_actions[0]);
+	return run;
+}
+
+
+/**
+ * \brief Converts a static-interface action struct into a dynamic-interface max_actions_t struct.
+ *
+ * Note that this is an internal utility function used by other functions in the static interface.
+ *
+ * \param [in] maxfile The maxfile to use.
+ * \param [in] interface_actions The interface-specific actions to run.
+ * \return The dynamic-interface actions to run, or NULL in case of error.
+ */
+max_actions_t* MovingAverageSimple_convert(max_file_t *maxfile, MovingAverageSimple_actions_t *interface_actions)
+{
+	max_actions_t *actions = max_actions_init(maxfile, NULL);
+	if(actions == NULL || !max_ok(maxfile->errors)) return NULL;
+
+	int32_t param_N = interface_actions->param_N;
+	
+
+	/* temporary variables */
+	int64_t tmp_0 = (param_N * 4);
+	int64_t tmp_1 = (param_N * 4);
+
+	/* code for scalar MovingAverageSimpleKernel.run_cycle_count */
+	uint64_t ticks_MovingAverageSimpleKernel = param_N;
+	max_set_ticks(actions, "MovingAverageSimpleKernel", param_N);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar MovingAverageSimpleKernel.run_cycle_count*/
+	
+	/* code for stream x */
+	size_t instream_size_x = tmp_0;
+	if (instream_size_x > 0) {
+		max_queue_input(actions, "x", interface_actions->instream_x,instream_size_x);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream x */
+	
+	/* code for stream y */
+	size_t outstream_size_y = tmp_1;
+	if (outstream_size_y > 0) {
+		max_queue_output(actions, "y", interface_actions->outstream_y,outstream_size_y);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream y */
+	
+	return actions;
+}
+
+
+
+#endif /* SLIC_USE_DEFINITIONS */
+
+#ifdef SLIC_B64_DEFINITIONS
+I2luY2x1ZGUgPHN0ZGlvLmg+CiNpbmNsdWRlIDxtYXRoLmg+CiNpbmNsdWRlIDxwdGhyZWFkLmg+
+CiNpbmNsdWRlIDxzdHJpbmcuaD4Kc3RhdGljIG1heF9maWxlX3QgKnN0b3JlZF9tYXhmaWxlID0g
+TlVMTDsKc3RhdGljIG1heF9lbmdpbmVfdCAqc3RvcmVkX2VuZ2luZSA9IE5VTEw7CnN0YXRpYyBj
+aGFyICpzdG9yZWRfZXJyb3IgPSBOVUxMOwpzdGF0aWMgaW50IHN0b3JlZF9oYXNfZXJyb3IgPSAw
+OwpzdGF0aWMgcHRocmVhZF9vbmNlX3Qgc2xpY19ic19pc19pbml0aWFsaXNlZCA9IFBUSFJFQURf
+T05DRV9JTklUOwoKc3RhdGljIHZvaWQgc2V0X2Vycm9yKGNvbnN0IGNoYXIgKmVycm9yX3N0cikK
+ewoJc3RvcmVkX2hhc19lcnJvciA9IDE7IAoJaWYoc3RvcmVkX2Vycm9yID09IE5VTEwpIHsKCQlz
+dG9yZWRfZXJyb3IgPSBzdHJkdXAoZXJyb3Jfc3RyKTsKCX0gZWxzZSB7CgkJY2hhciAqbmVyciA9
+IG1hbGxvYyhzdHJsZW4oc3RvcmVkX2Vycm9yKSArIHN0cmxlbihlcnJvcl9zdHIpICsgMik7CgkJ
+c3ByaW50ZihuZXJyLCAiJXNcbiVzIiwgc3RvcmVkX2Vycm9yLCBlcnJvcl9zdHIpOwoJCWZyZWUo
+c3RvcmVkX2Vycm9yKTsKCQlzdG9yZWRfZXJyb3IgPSBuZXJyOwoJfQp9CnN0YXRpYyB2b2lkIHNl
+dF9lcnJvcl9hbmRfZnJlZShjaGFyICplcnJvcl9zdHIpewoJc2V0X2Vycm9yKGVycm9yX3N0cik7
+CglmcmVlKGVycm9yX3N0cik7Cn0KaW50IE1vdmluZ0F2ZXJhZ2VTaW1wbGVfaGFzX2Vycm9ycyh2
+b2lkKQp7CXJldHVybiBzdG9yZWRfaGFzX2Vycm9yOyB9CmNvbnN0IGNoYXIqIE1vdmluZ0F2ZXJh
+Z2VTaW1wbGVfZ2V0X2Vycm9ycyh2b2lkKQp7CXJldHVybiBzdG9yZWRfZXJyb3I7IH0Kdm9pZCBN
+b3ZpbmdBdmVyYWdlU2ltcGxlX2NsZWFyX2Vycm9ycyh2b2lkKQp7CglmcmVlKHN0b3JlZF9lcnJv
+cik7CglzdG9yZWRfZXJyb3IgPSBOVUxMOwoJc3RvcmVkX2hhc19lcnJvciA9IDA7Cn0KCnN0YXRp
+YyB2b2lkIE1vdmluZ0F2ZXJhZ2VTaW1wbGVfc3RhdGljX2luaXQodm9pZCkgCnsKCXN0b3JlZF9t
+YXhmaWxlID0gTW92aW5nQXZlcmFnZVNpbXBsZV9pbml0KCk7CglpZiAoc3RvcmVkX21heGZpbGUg
+PT0gTlVMTCB8fCAhbWF4X29rKHN0b3JlZF9tYXhmaWxlLT5lcnJvcnMpKSB7CgkJc3RvcmVkX21h
+eGZpbGUgPSBOVUxMOwoJCWlmKG1heF9jb25maWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNf
+SU5URVJGQUNFX0FCT1JUX09OX0VSUk9SKSkgYWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9yKCJV
+bmFibGUgdG8gbG9hZCBtYXhmaWxlIik7IHJldHVybjsgfQoJfQoJaWYoIW1heF9vayhtYXhfZ2xv
+YmFsX2Vycm9ycygpKSkgewoJCXNldF9lcnJvcl9hbmRfZnJlZShtYXhfZXJyb3JzX3RyYWNlKG1h
+eF9nbG9iYWxfZXJyb3JzKCkpKTsKCQlyZXR1cm47Cgl9CglpZighbWF4X2NvbmZpZ19nZXRfYm9v
+bChNQVhfQ09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKQoJCW1heF9lcnJv
+cnNfbW9kZShzdG9yZWRfbWF4ZmlsZS0+ZXJyb3JzLCAwKTsKCXRpbWVfdCB0aW1lb3V0X3ByZXZp
+b3VzID0gbWF4X2xvYWRfdGltZW91dChzdG9yZWRfbWF4ZmlsZSwgMzApOwoJc3RvcmVkX2VuZ2lu
+ZSA9IG1heF9sb2FkKHN0b3JlZF9tYXhmaWxlLCAiKiIpOwoJaWYgKCFtYXhfb2soc3RvcmVkX21h
+eGZpbGUtPmVycm9ycykpIHsKCQlpZihtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05GSUdfU1RB
+VElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIHsKCQkJZnByaW50ZihzdGRlcnIsICJcblVu
+YWJsZSB0byBsb2FkIGVuZ2luZTogYWJvcnRpbmcgbm93LlxuXG4iKTsKCQkJZmZsdXNoKHN0ZGVy
+cik7CgkJCWFib3J0KCk7CgkJfSBlbHNlIHsKCQkJc2V0X2Vycm9yX2FuZF9mcmVlKG1heF9lcnJv
+cnNfdHJhY2Uoc3RvcmVkX21heGZpbGUtPmVycm9ycykpOwoJCQltYXhfZmlsZV9mcmVlKHN0b3Jl
+ZF9tYXhmaWxlKTsKCQkJc3RvcmVkX21heGZpbGUgPSBOVUxMOwoJCQlyZXR1cm47CgkJfSAKCX0g
+CgltYXhfbG9hZF90aW1lb3V0KHN0b3JlZF9tYXhmaWxlLCB0aW1lb3V0X3ByZXZpb3VzKTsKfQp2
+b2lkIE1vdmluZ0F2ZXJhZ2VTaW1wbGVfZnJlZSh2b2lkKQp7CglpZihzdG9yZWRfZW5naW5lICE9
+IE5VTEwpCgkJbWF4X3VubG9hZChzdG9yZWRfZW5naW5lKTsKCWlmKHN0b3JlZF9tYXhmaWxlICE9
+IE5VTEwpCgkJbWF4X2ZpbGVfZnJlZShzdG9yZWRfbWF4ZmlsZSk7CglpZihzdG9yZWRfZXJyb3Ig
+IT0gTlVMTCkKCQlmcmVlKHN0b3JlZF9lcnJvcik7Cn0KCgoKLyotLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+Ki8KLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIEludGVyZmFjZSBkZWZhdWx0IC0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi8KLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi8KCgp2b2lk
+IE1vdmluZ0F2ZXJhZ2VTaW1wbGUoCglpbnQzMl90IHBhcmFtX04sCgljb25zdCBmbG9hdCAqaW5z
+dHJlYW1feCwKCWZsb2F0ICpvdXRzdHJlYW1feSkKewoJKHZvaWQpIHB0aHJlYWRfb25jZSgmc2xp
+Y19ic19pc19pbml0aWFsaXNlZCwgTW92aW5nQXZlcmFnZVNpbXBsZV9zdGF0aWNfaW5pdCk7Cglp
+ZihzdG9yZWRfbWF4ZmlsZSA9PSBOVUxMKSB7CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhf
+Q09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2Ug
+eyBzZXRfZXJyb3IoIk1heGZpbGUgd2FzIG5vdCBsb2FkZWQuIik7IHJldHVybjsgfQoJfQoJbWF4
+X3J1bl90ICpydW4gPSBNb3ZpbmdBdmVyYWdlU2ltcGxlX25vbmJsb2NrKHBhcmFtX04sIGluc3Ry
+ZWFtX3gsIG91dHN0cmVhbV95KTsKCWlmKHJ1biA9PSBOVUxMKSB7IAoJCWlmIChtYXhfY29uZmln
+X2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFi
+b3J0KCk7CgkJZWxzZSB7IHNldF9lcnJvcigiVW5hYmxlIHRvIHJ1biBhY3Rpb25zLiIpO3JldHVy
+bjsgfQoJfQoJbWF4X3dhaXQocnVuKTsKfQoKbWF4X3J1bl90ICpNb3ZpbmdBdmVyYWdlU2ltcGxl
+X25vbmJsb2NrKAoJaW50MzJfdCBwYXJhbV9OLAoJY29uc3QgZmxvYXQgKmluc3RyZWFtX3gsCglm
+bG9hdCAqb3V0c3RyZWFtX3kpCnsKCU1vdmluZ0F2ZXJhZ2VTaW1wbGVfYWN0aW9uc190IGludGVy
+ZmFjZV9hY3Rpb25zOwoJaW50ZXJmYWNlX2FjdGlvbnMucGFyYW1fTiA9IHBhcmFtX047CglpbnRl
+cmZhY2VfYWN0aW9ucy5pbnN0cmVhbV94ID0gaW5zdHJlYW1feDsKCWludGVyZmFjZV9hY3Rpb25z
+Lm91dHN0cmVhbV95ID0gb3V0c3RyZWFtX3k7Cgkodm9pZCkgcHRocmVhZF9vbmNlKCZzbGljX2Jz
+X2lzX2luaXRpYWxpc2VkLCBNb3ZpbmdBdmVyYWdlU2ltcGxlX3N0YXRpY19pbml0KTsKCWlmKHN0
+b3JlZF9tYXhmaWxlID09IE5VTEwpIHsKCQlpZihtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05G
+SUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNl
+dF9lcnJvcigiTWF4ZmlsZSB3YXMgbm90IGxvYWRlZC4iKTsgcmV0dXJuIE5VTEw7IH0KCX0KCW1h
+eF9hY3Rpb25zX3QgKmFjdGlvbnNbMV07CglhY3Rpb25zWzBdID0gTW92aW5nQXZlcmFnZVNpbXBs
+ZV9jb252ZXJ0KHN0b3JlZF9tYXhmaWxlLCAmaW50ZXJmYWNlX2FjdGlvbnMpOwoJaWYoYWN0aW9u
+c1swXSA9PSBOVUxMKSB7IAoJCWlmKG1heF9jb25maWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFU
+SUNfSU5URVJGQUNFX0FCT1JUX09OX0VSUk9SKSkgYWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9y
+KCJVbmFibGUgdG8gYnVpbGQgYWN0aW9ucyIpO3JldHVybiBOVUxMOyB9Cgl9CgltYXhfdmFsaWRh
+dGUoYWN0aW9uc1swXSk7CglpZighbWF4X29rKGFjdGlvbnNbMF0tPmVycm9ycykpIHsKCQlpZiht
+YXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9F
+UlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNldF9lcnJvcl9hbmRfZnJlZShtYXhfZXJyb3JzX3Ry
+YWNlKGFjdGlvbnNbMF0tPmVycm9ycykpOyByZXR1cm4gTlVMTDt9Cgl9CgltYXhfcnVuX3QgKnJ1
+biA9IG1heF9ydW5fbXVsdGlfbm9uYmxvY2soc3RvcmVkX2VuZ2luZSwgYWN0aW9ucywgMSk7Cglp
+ZihydW4gPT0gTlVMTCkgeyAKCQlpZiAobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NU
+QVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJy
+b3IoIlVuYWJsZSB0byBydW4gYWN0aW9ucy4iKTtyZXR1cm4gTlVMTDsgfQoJfQoJaWYoIW1heF9v
+ayhzdG9yZWRfZW5naW5lLT5lcnJvcnMpICB8fCAhbWF4X29rKGFjdGlvbnNbMF0tPmVycm9ycykp
+IHsKCQlpZihtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVSRkFDRV9B
+Qk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNldF9lcnJvcl9hbmRfZnJlZShtYXhf
+ZXJyb3JzX3RyYWNlKGFjdGlvbnNbMF0tPmVycm9ycykpOyBzZXRfZXJyb3JfYW5kX2ZyZWUobWF4
+X2Vycm9yc190cmFjZShzdG9yZWRfZW5naW5lLT5lcnJvcnMpKTsgcmV0dXJuIE5VTEw7fQoJfQoJ
+bWF4X2FjdGlvbnNfZnJlZShhY3Rpb25zWzBdKTsKCXJldHVybiBydW47Cn0KCnZvaWQgTW92aW5n
+QXZlcmFnZVNpbXBsZV9ydW4oCgltYXhfZW5naW5lX3QgKmVuZ2luZSwKCU1vdmluZ0F2ZXJhZ2VT
+aW1wbGVfYWN0aW9uc190ICppbnRlcmZhY2VfYWN0aW9ucykKewoJbWF4X3J1bl90ICpydW4gPSBN
+b3ZpbmdBdmVyYWdlU2ltcGxlX3J1bl9ub25ibG9jayhlbmdpbmUsIGludGVyZmFjZV9hY3Rpb25z
+KTsKCWlmKHJ1biA9PSBOVUxMKSB7IAoJCWlmIChtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05G
+SUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNl
+dF9lcnJvcigiVW5hYmxlIHRvIHJ1biBhY3Rpb25zLiIpO3JldHVybjsgfQoJfQoJbWF4X3dhaXQo
+cnVuKTsKfQoKbWF4X3J1bl90ICpNb3ZpbmdBdmVyYWdlU2ltcGxlX3J1bl9ub25ibG9jaygKCW1h
+eF9lbmdpbmVfdCAqZW5naW5lLAoJTW92aW5nQXZlcmFnZVNpbXBsZV9hY3Rpb25zX3QgKmludGVy
+ZmFjZV9hY3Rpb25zKQp7CgltYXhfZmlsZV90ICptYXhmaWxlID0gbWF4X2VuZ2luZV9nZXRfbWF4
+X2ZpbGUoZW5naW5lKTsgCgltYXhfYWN0aW9uc190ICphY3Rpb25zWzFdOwoJYWN0aW9uc1swXSA9
+IE1vdmluZ0F2ZXJhZ2VTaW1wbGVfY29udmVydChtYXhmaWxlLCBpbnRlcmZhY2VfYWN0aW9ucyk7
+CglpZighbWF4X29rKGFjdGlvbnNbMF0tPmVycm9ycykpIHsKCQlpZihtYXhfY29uZmlnX2dldF9i
+b29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7
+CgkJZWxzZSB7IHNldF9lcnJvcl9hbmRfZnJlZShtYXhfZXJyb3JzX3RyYWNlKGFjdGlvbnNbMF0t
+PmVycm9ycykpOyByZXR1cm4gTlVMTDt9Cgl9CgltYXhfcnVuX3QgKnJ1biA9IG1heF9ydW5fbXVs
+dGlfbm9uYmxvY2soZW5naW5lLCBhY3Rpb25zLCAxKTsKCWlmKHJ1biA9PSBOVUxMKSB7IAoJCWlm
+IChtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9P
+Tl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNldF9lcnJvcigiVW5hYmxlIHRvIHJ1biBhY3Rp
+b25zLiIpOyByZXR1cm4gTlVMTDsgfQoJfQoJbWF4X2FjdGlvbnNfZnJlZShhY3Rpb25zWzBdKTsK
+CXJldHVybiBydW47Cn0KCgovKioKICogXGJyaWVmIEdyb3VwIHJ1biBhZHZhbmNlZCBzdGF0aWMg
+ZnVuY3Rpb24gZm9yIHRoZSBpbnRlcmZhY2UgJ2RlZmF1bHQnLgogKiAKICogXHBhcmFtIFtpbl0g
+Z3JvdXAgR3JvdXAgdG8gdXNlLgogKiBccGFyYW0gW2luLG91dF0gaW50ZXJmYWNlX2FjdGlvbnMg
+QWN0aW9ucyB0byBydW4uCiAqCiAqIFJ1biB0aGUgYWN0aW9ucyBvbiB0aGUgZmlyc3QgZGV2aWNl
+IGF2YWlsYWJsZSBpbiB0aGUgZ3JvdXAuCiAqLwp2b2lkIE1vdmluZ0F2ZXJhZ2VTaW1wbGVfcnVu
+X2dyb3VwKG1heF9ncm91cF90ICpncm91cCwgTW92aW5nQXZlcmFnZVNpbXBsZV9hY3Rpb25zX3Qg
+KmludGVyZmFjZV9hY3Rpb25zKQp7CgkvKiBOb3Qgc3RyaWN0bHkgY29ycmVjdCwgYmVjYXVzZSBl
+eHBsaWNpdGx5IGxvY2tpbmcgYW4gZW5naW5lIGhlcmUuICovCgltYXhfZW5naW5lX3QgKmVuZ2lu
+ZSA9IG1heF9sb2NrX2FueShncm91cCk7CglpZihlbmdpbmUgPT0gTlVMTCkgcmV0dXJuOwoJTW92
+aW5nQXZlcmFnZVNpbXBsZV9ydW4oZW5naW5lLCBpbnRlcmZhY2VfYWN0aW9ucyk7CgltYXhfdW5s
+b2NrKGVuZ2luZSk7Cn0KCgovKioKICogXGJyaWVmIEdyb3VwIHJ1biBhZHZhbmNlZCBzdGF0aWMg
+bm9uLWJsb2NraW5nIGZ1bmN0aW9uIGZvciB0aGUgaW50ZXJmYWNlICdkZWZhdWx0Jy4KICogCiAq
+CiAqIFNjaGVkdWxlIHRoZSBhY3Rpb25zIHRvIHJ1biBvbiB0aGUgZmlyc3QgZGV2aWNlIGF2YWls
+YWJsZSBpbiB0aGUgZ3JvdXAgYW5kIHJldHVybiBpbW1lZGlhdGVseS4KICogVGhlIHN0YXR1cyBv
+ZiB0aGUgcnVuIG11c3QgYmUgY2hlY2tlZCB3aXRoIDo6bWF4X3dhaXQuIAogKiBOb3RlIHRoYXQg
+dXNlIG9mIDo6bWF4X25vd2FpdCBpcyBwcm9oaWJpdGVkIHdpdGggbm9uLWJsb2NraW5nIHJ1bm5p
+bmcgb24gZ3JvdXBzOgogKiBzZWUgdGhlIDo6bWF4X3J1bl9ncm91cF9ub25ibG9jayBkb2N1bWVu
+dGF0aW9uIGZvciBtb3JlIGV4cGxhbmF0aW9uLgogKgogKiBccGFyYW0gW2luXSBncm91cCBHcm91
+cCB0byB1c2UuCiAqIFxwYXJhbSBbaW5dIGludGVyZmFjZV9hY3Rpb25zIEFjdGlvbnMgdG8gcnVu
+LgogKiBccmV0dXJuIEEgaGFuZGxlIG9uIHRoZSBleGVjdXRpb24gc3RhdHVzIG9mIHRoZSBhY3Rp
+b25zLCBvciBOVUxMIGluIGNhc2Ugb2YgZXJyb3IuCiAqLwptYXhfcnVuX3QgKk1vdmluZ0F2ZXJh
+Z2VTaW1wbGVfcnVuX2dyb3VwX25vbmJsb2NrKG1heF9ncm91cF90ICpncm91cCwgTW92aW5nQXZl
+cmFnZVNpbXBsZV9hY3Rpb25zX3QgKmludGVyZmFjZV9hY3Rpb25zKQp7CgltYXhfZmlsZV90ICpt
+YXhmaWxlID0gbWF4X2dyb3VwX2dldF9tYXhfZmlsZShncm91cCk7CgltYXhfYWN0aW9uc190ICph
+Y3Rpb25zID0gTW92aW5nQXZlcmFnZVNpbXBsZV9jb252ZXJ0KG1heGZpbGUsIGludGVyZmFjZV9h
+Y3Rpb25zKTsKCWlmKGFjdGlvbnMgPT0gTlVMTCkgcmV0dXJuIE5VTEw7CglpZighbWF4X29rKGFj
+dGlvbnMtPmVycm9ycykpIHJldHVybiBOVUxMOwoJbWF4X3ZhbGlkYXRlKGFjdGlvbnMpOwoJbWF4
+X3J1bl90ICpydW4gPSBtYXhfcnVuX2dyb3VwX25vbmJsb2NrKGdyb3VwLCBhY3Rpb25zKTsKCW1h
+eF9hY3Rpb25zX2ZyZWUoYWN0aW9ucyk7CglyZXR1cm4gcnVuOwp9CgoKLyoqCiAqIFxicmllZiBB
+cnJheSBydW4gYWR2YW5jZWQgc3RhdGljIGZ1bmN0aW9uIGZvciB0aGUgaW50ZXJmYWNlICdkZWZh
+dWx0Jy4KICogCiAqIFxwYXJhbSBbaW5dIGVuZ2FycmF5IFRoZSBhcnJheSBvZiBkZXZpY2VzIHRv
+IHVzZS4KICogXHBhcmFtIFtpbixvdXRdIGludGVyZmFjZV9hY3Rpb25zIFRoZSBhcnJheSBvZiBh
+Y3Rpb25zIHRvIHJ1bi4KICoKICogUnVuIHRoZSBhcnJheSBvZiBhY3Rpb25zIG9uIHRoZSBhcnJh
+eSBvZiBlbmdpbmVzLiAgVGhlIGxlbmd0aCBvZiBpbnRlcmZhY2VfYWN0aW9ucwogKiBtdXN0IG1h
+dGNoIHRoZSBzaXplIG9mIGVuZ2FycmF5LgogKi8Kdm9pZCBNb3ZpbmdBdmVyYWdlU2ltcGxlX3J1
+bl9hcnJheShtYXhfZW5nYXJyYXlfdCAqZW5nYXJyYXksIE1vdmluZ0F2ZXJhZ2VTaW1wbGVfYWN0
+aW9uc190ICppbnRlcmZhY2VfYWN0aW9uc1tdKQp7CgltYXhfcnVuX3QgKnJ1biA9IE1vdmluZ0F2
+ZXJhZ2VTaW1wbGVfcnVuX2FycmF5X25vbmJsb2NrKGVuZ2FycmF5LCBpbnRlcmZhY2VfYWN0aW9u
+cyk7CglpZihydW4gPT0gTlVMTCkgeyAKCQlpZiAobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09O
+RklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBz
+ZXRfZXJyb3IoIlVuYWJsZSB0byBydW4gYWN0aW9ucy4iKTtyZXR1cm47IH0KCX0KCW1heF93YWl0
+KHJ1bik7Cn0KCgovKioKICogXGJyaWVmIEFycmF5IHJ1biBhZHZhbmNlZCBzdGF0aWMgbm9uLWJs
+b2NraW5nIGZ1bmN0aW9uIGZvciB0aGUgaW50ZXJmYWNlICdkZWZhdWx0Jy4KICogCiAqCiAqIFNj
+aGVkdWxlIHRvIHJ1biB0aGUgYXJyYXkgb2YgYWN0aW9ucyBvbiB0aGUgYXJyYXkgb2YgZW5naW5l
+cywgYW5kIHJldHVybiBpbW1lZGlhdGVseS4KICogVGhlIGxlbmd0aCBvZiBpbnRlcmZhY2VfYWN0
+aW9ucyBtdXN0IG1hdGNoIHRoZSBzaXplIG9mIGVuZ2FycmF5LgogKiBUaGUgc3RhdHVzIG9mIHRo
+ZSBydW4gY2FuIGJlIGNoZWNrZWQgZWl0aGVyIGJ5IDo6bWF4X3dhaXQgb3IgOjptYXhfbm93YWl0
+OwogKiBub3RlIHRoYXQgb25lIG9mIHRoZXNlICptdXN0KiBiZSBjYWxsZWQsIHNvIHRoYXQgYXNz
+b2NpYXRlZCBtZW1vcnkgY2FuIGJlIHJlbGVhc2VkLgogKgogKiBccGFyYW0gW2luXSBlbmdhcnJh
+eSBUaGUgYXJyYXkgb2YgZGV2aWNlcyB0byB1c2UuCiAqIFxwYXJhbSBbaW5dIGludGVyZmFjZV9h
+Y3Rpb25zIFRoZSBhcnJheSBvZiBhY3Rpb25zIHRvIHJ1bi4KICogXHJldHVybiBBIGhhbmRsZSBv
+biB0aGUgZXhlY3V0aW9uIHN0YXR1cyBvZiB0aGUgYWN0aW9ucywgb3IgTlVMTCBpbiBjYXNlIG9m
+IGVycm9yLgogKi8KbWF4X3J1bl90ICpNb3ZpbmdBdmVyYWdlU2ltcGxlX3J1bl9hcnJheV9ub25i
+bG9jayhtYXhfZW5nYXJyYXlfdCAqZW5nYXJyYXksIE1vdmluZ0F2ZXJhZ2VTaW1wbGVfYWN0aW9u
+c190ICppbnRlcmZhY2VfYWN0aW9uc1tdKQp7CgltYXhfZmlsZV90ICptYXhmaWxlID0gbWF4X2Vu
+Z2FycmF5X2dldF9tYXhfZmlsZShlbmdhcnJheSk7CglpbnQgaTsKCW1heF9hY3RhcnJheV90ICph
+cnJfYWN0YXJyYXlbMV07CgltYXhfYWN0aW9uc190ICoqYXJyX2FjdGlvbnNbMV07CglhcnJfYWN0
+YXJyYXlbMF0gPSBtYXhfYWN0YXJyYXlfaW5pdChtYXhmaWxlLCBlbmdhcnJheS0+c2l6ZSk7Cglp
+ZihhcnJfYWN0YXJyYXlbMF0gPT0gTlVMTCkgcmV0dXJuIE5VTEw7CglhcnJfYWN0aW9uc1swXSA9
+IG1hbGxvYyhlbmdhcnJheS0+c2l6ZSAqIHNpemVvZihtYXhfYWN0aW9uc190KikpOwoJZm9yKGk9
+MDsgaSA8IGFycl9hY3RhcnJheVswXS0+c2l6ZTsgaSsrKSB7CgkJbWF4X2FjdGlvbnNfdCAqYWN0
+aW9ucyA9IE1vdmluZ0F2ZXJhZ2VTaW1wbGVfY29udmVydChtYXhmaWxlLCBpbnRlcmZhY2VfYWN0
+aW9uc1tpXSk7CgkJaWYoYWN0aW9ucyA9PSBOVUxMKSByZXR1cm4gTlVMTDsKCQlhcnJfYWN0aW9u
+c1swXVtpXSA9IGFjdGlvbnM7CgkJbWF4X3NldF9hY3Rpb24oYXJyX2FjdGFycmF5WzBdLCBpLCBh
+Y3Rpb25zKTsKCX0KCW1heF9ydW5fdCAqcnVuID0gbWF4X3J1bl9hcnJheV9tdWx0aV9ub25ibG9j
+ayhlbmdhcnJheSwgYXJyX2FjdGFycmF5LCAxICk7Cglmb3IgKGk9MDsgaSA8IGFycl9hY3RhcnJh
+eVswXS0+c2l6ZTsgaSsrKSB7IG1heF9hY3Rpb25zX2ZyZWUoYXJyX2FjdGlvbnNbMF1baV0pOyB9
+CgltYXhfYWN0YXJyYXlfZnJlZShhcnJfYWN0YXJyYXlbMF0pOwoJZnJlZShhcnJfYWN0aW9uc1sw
+XSk7CglyZXR1cm4gcnVuOwp9CgoKLyoqCiAqIFxicmllZiBDb252ZXJ0cyBhIHN0YXRpYy1pbnRl
+cmZhY2UgYWN0aW9uIHN0cnVjdCBpbnRvIGEgZHluYW1pYy1pbnRlcmZhY2UgbWF4X2FjdGlvbnNf
+dCBzdHJ1Y3QuCiAqCiAqIE5vdGUgdGhhdCB0aGlzIGlzIGFuIGludGVybmFsIHV0aWxpdHkgZnVu
+Y3Rpb24gdXNlZCBieSBvdGhlciBmdW5jdGlvbnMgaW4gdGhlIHN0YXRpYyBpbnRlcmZhY2UuCiAq
+CiAqIFxwYXJhbSBbaW5dIG1heGZpbGUgVGhlIG1heGZpbGUgdG8gdXNlLgogKiBccGFyYW0gW2lu
+XSBpbnRlcmZhY2VfYWN0aW9ucyBUaGUgaW50ZXJmYWNlLXNwZWNpZmljIGFjdGlvbnMgdG8gcnVu
+LgogKiBccmV0dXJuIFRoZSBkeW5hbWljLWludGVyZmFjZSBhY3Rpb25zIHRvIHJ1biwgb3IgTlVM
+TCBpbiBjYXNlIG9mIGVycm9yLgogKi8KbWF4X2FjdGlvbnNfdCogTW92aW5nQXZlcmFnZVNpbXBs
+ZV9jb252ZXJ0KG1heF9maWxlX3QgKm1heGZpbGUsIE1vdmluZ0F2ZXJhZ2VTaW1wbGVfYWN0aW9u
+c190ICppbnRlcmZhY2VfYWN0aW9ucykKewoJbWF4X2FjdGlvbnNfdCAqYWN0aW9ucyA9IG1heF9h
+Y3Rpb25zX2luaXQobWF4ZmlsZSwgTlVMTCk7CglpZihhY3Rpb25zID09IE5VTEwgfHwgIW1heF9v
+ayhtYXhmaWxlLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCglpbnQzMl90IHBhcmFtX04gPSBpbnRl
+cmZhY2VfYWN0aW9ucy0+cGFyYW1fTjsKCQoKCS8qIHRlbXBvcmFyeSB2YXJpYWJsZXMgKi8KCWlu
+dDY0X3QgdG1wXzAgPSAocGFyYW1fTiAqIDQpOwoJaW50NjRfdCB0bXBfMSA9IChwYXJhbV9OICog
+NCk7CgoJLyogY29kZSBmb3Igc2NhbGFyIE1vdmluZ0F2ZXJhZ2VTaW1wbGVLZXJuZWwucnVuX2N5
+Y2xlX2NvdW50ICovCgl1aW50NjRfdCB0aWNrc19Nb3ZpbmdBdmVyYWdlU2ltcGxlS2VybmVsID0g
+cGFyYW1fTjsKCW1heF9zZXRfdGlja3MoYWN0aW9ucywgIk1vdmluZ0F2ZXJhZ2VTaW1wbGVLZXJu
+ZWwiLCBwYXJhbV9OKTsKCWlmKCFtYXhfb2soYWN0aW9ucy0+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7
+CgkvKiBlbmQgb2YgY29kZSBmb3Igc2NhbGFyIE1vdmluZ0F2ZXJhZ2VTaW1wbGVLZXJuZWwucnVu
+X2N5Y2xlX2NvdW50Ki8KCQoJLyogY29kZSBmb3Igc3RyZWFtIHggKi8KCXNpemVfdCBpbnN0cmVh
+bV9zaXplX3ggPSB0bXBfMDsKCWlmIChpbnN0cmVhbV9zaXplX3ggPiAwKSB7CgkJbWF4X3F1ZXVl
+X2lucHV0KGFjdGlvbnMsICJ4IiwgaW50ZXJmYWNlX2FjdGlvbnMtPmluc3RyZWFtX3gsaW5zdHJl
+YW1fc2l6ZV94KTsKCQlpZiAoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsK
+CX0KCS8qIGVuZCBvZiBjb2RlIGZvciBzdHJlYW0geCAqLwoJCgkvKiBjb2RlIGZvciBzdHJlYW0g
+eSAqLwoJc2l6ZV90IG91dHN0cmVhbV9zaXplX3kgPSB0bXBfMTsKCWlmIChvdXRzdHJlYW1fc2l6
+ZV95ID4gMCkgewoJCW1heF9xdWV1ZV9vdXRwdXQoYWN0aW9ucywgInkiLCBpbnRlcmZhY2VfYWN0
+aW9ucy0+b3V0c3RyZWFtX3ksb3V0c3RyZWFtX3NpemVfeSk7CgkJaWYgKCFtYXhfb2soYWN0aW9u
+cy0+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7Cgl9CgkvKiBlbmQgb2YgY29kZSBmb3Igc3RyZWFtIHkg
+Ki8KCQoJcmV0dXJuIGFjdGlvbnM7Cn0KCgo=
+#endif /* SLIC_B64_DEFINITIONS */
+
+#ifdef SLIC_DYNAMIC_CODE
+SLIC_MODE_START(default)	
+SLIC_PARAMETER_UINT64(int32_t, N, param_N)	
+SLIC_TEMP_VAR(int64_t tmp_0 = (param_N * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_1 = (param_N * 4);)	
+SLIC_SET_TICKS(MovingAverageSimpleKernel, param_N)	
+SLIC_STREAM(x, tmp_0)	
+SLIC_STREAM(y, tmp_1)	
+SLIC_MODE_END(default)
+
+#endif /* SLIC_DYNAMIC_CODE */
+
+#ifdef SKIN_META_DATA
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PG1h
+eGZpbGUgZm9ybWF0LXZlcnNpb249IjIwMTIwMjAwIiBoZWFkZXI9Ik1vdmluZ0F2ZXJhZ2VTaW1w
+bGUuaCIgbmFtZT0iTW92aW5nQXZlcmFnZVNpbXBsZSI+PGVuZ2luZW1vZGUgbmFtZT0iZGVmYXVs
+dCI+PGZ1bmN0aW9uIG5hbWU9Ik1vdmluZ0F2ZXJhZ2VTaW1wbGUiIHJldHVybi12YWx1ZT0idm9p
+ZCI+PHNjYWxhciBkZXNjPSJJbnRlcmZhY2UgUGFyYW1ldGVyICZxdW90O04mcXVvdDsuOiBOdW1i
+ZXIgb2YgZGF0YSBpdGVtcyB0byBwcm9jZXNzIiBkaXJlY3Rpb249IklucHV0IiBuYW1lPSJwYXJh
+bV9OIiB0eXBlPSJpbnQzMl90Ii8+PGFycmF5IGRlc2M9IlRoZSBzdHJlYW0gc2hvdWxkIGJlIG9m
+IHNpemUgKHBhcmFtX04gKiA0KSBieXRlcy4iIGRpcmVjdGlvbj0iSW5wdXQiIG5hbWU9Imluc3Ry
+ZWFtX3giIHNpemU9IihwYXJhbV9OICogNCkiIHRyYW5zcG9zZT0idHJ1ZSIgdHlwZT0iZmxvYXQi
+PjxkaW1lbnNpb24gaW5kZXg9IjAiPjxsZW5ndGg+PGZ1bmN0aW9uQ2FsbD48bnVtQmluYXJ5T3Bl
+cmF0b3Igb3BlcmF0b3I9Ii8iIHZhbHVlPSIoKHBhcmFtX04gKiA0KSAvIDQpIj48ZnVuY3Rpb25D
+YWxsPjxudW1CaW5hcnlPcGVyYXRvciBvcGVyYXRvcj0iKiIgdmFsdWU9IihwYXJhbV9OICogNCki
+Pjx1c2VyUGFyYW0gdmFsdWU9InBhcmFtX04iLz48Y29uc3RhbnRWYWx1ZSB2YWx1ZT0iNCIvPjwv
+bnVtQmluYXJ5T3BlcmF0b3I+PC9mdW5jdGlvbkNhbGw+PGNvbnN0YW50VmFsdWUgdmFsdWU9IjQi
+Lz48L251bUJpbmFyeU9wZXJhdG9yPjwvZnVuY3Rpb25DYWxsPjwvbGVuZ3RoPjwvZGltZW5zaW9u
+PjwvYXJyYXk+PGFycmF5IGRlc2M9IlRoZSBzdHJlYW0gc2hvdWxkIGJlIG9mIHNpemUgKHBhcmFt
+X04gKiA0KSBieXRlcy4iIGRpcmVjdGlvbj0iT3V0cHV0IiBuYW1lPSJvdXRzdHJlYW1feSIgc2l6
+ZT0iKHBhcmFtX04gKiA0KSIgdHJhbnNwb3NlPSJ0cnVlIiB0eXBlPSJmbG9hdCI+PGRpbWVuc2lv
+biBpbmRleD0iMCI+PGxlbmd0aD48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVyYXRvciBvcGVy
+YXRvcj0iLyIgdmFsdWU9IigocGFyYW1fTiAqIDQpIC8gNCkiPjxmdW5jdGlvbkNhbGw+PG51bUJp
+bmFyeU9wZXJhdG9yIG9wZXJhdG9yPSIqIiB2YWx1ZT0iKHBhcmFtX04gKiA0KSI+PHVzZXJQYXJh
+bSB2YWx1ZT0icGFyYW1fTiIvPjxjb25zdGFudFZhbHVlIHZhbHVlPSI0Ii8+PC9udW1CaW5hcnlP
+cGVyYXRvcj48L2Z1bmN0aW9uQ2FsbD48Y29uc3RhbnRWYWx1ZSB2YWx1ZT0iNCIvPjwvbnVtQmlu
+YXJ5T3BlcmF0b3I+PC9mdW5jdGlvbkNhbGw+PC9sZW5ndGg+PC9kaW1lbnNpb24+PC9hcnJheT48
+L2Z1bmN0aW9uPjwvZW5naW5lbW9kZT48L21heGZpbGU+
+#endif /* SKIN_META_DATA */
+
+#ifdef PHOTON_NODE_ADD_DATA
+#define PHOTON_NODE_ADD_DATA_PRESENT 1
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 10, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 11, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 14, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 15, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 0, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 1, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 2, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 26, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 3, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 5, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 4, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 28, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 6, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 31, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 8, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 16, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 20, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 30, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 18, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 19, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 29, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 21, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 23, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 24, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(MovingAverageSimpleKernel, 22, "SquashFactor", 0.0)
+#endif
+

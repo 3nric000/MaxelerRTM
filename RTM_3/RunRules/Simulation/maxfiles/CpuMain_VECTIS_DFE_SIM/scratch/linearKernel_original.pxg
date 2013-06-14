@@ -719,8 +719,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="88" dst_node_input="a" src_node_id="86" src_node_output="output" />
 	<Node group="[]" id="87" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-5" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -5</Text>
+		<Output latency="-6" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -6</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:88)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -776,8 +776,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="93" dst_node_input="a" src_node_id="91" src_node_output="output" />
 	<Node group="[]" id="92" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-6" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -6</Text>
+		<Output latency="-7" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -7</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:89)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -833,8 +833,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="98" dst_node_input="a" src_node_id="96" src_node_output="output" />
 	<Node group="[]" id="97" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-7" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -7</Text>
+		<Output latency="-8" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -8</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:90)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -890,8 +890,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="103" dst_node_input="a" src_node_id="101" src_node_output="output" />
 	<Node group="[]" id="102" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-8" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -8</Text>
+		<Output latency="-9" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -9</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:91)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -938,8 +938,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="108" dst_node_input="a" src_node_id="51" src_node_output="c_2_4" />
 	<Node group="[]" id="106" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-9" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -9</Text>
+		<Output latency="-10" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -10</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:92)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -1032,8 +1032,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="112" dst_node_input="a" src_node_id="110" src_node_output="output" />
 	<Node group="[]" id="111" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-5" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -5</Text>
+		<Output latency="-6" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -6</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:93)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -1089,8 +1089,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="117" dst_node_input="a" src_node_id="115" src_node_output="output" />
 	<Node group="[]" id="116" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-6" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -6</Text>
+		<Output latency="-7" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -7</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:94)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -1146,8 +1146,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="122" dst_node_input="a" src_node_id="120" src_node_output="output" />
 	<Node group="[]" id="121" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-7" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -7</Text>
+		<Output latency="-8" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -8</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:95)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -1203,8 +1203,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="127" dst_node_input="a" src_node_id="125" src_node_output="output" />
 	<Node group="[]" id="126" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-8" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -8</Text>
+		<Output latency="-9" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -9</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:96)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
@@ -1251,8 +1251,8 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	<Edge dst_node_id="132" dst_node_input="a" src_node_id="56" src_node_output="c_3_4" />
 	<Node group="[]" id="130" pipelineFactor="1.0" type="NodeStreamOffset">
 		<Input name="input" type="hwFloat(8, 24)" />
-		<Output latency="-9" name="output" type="hwFloat(8, 24)" />
-		<Text>stream offset: -9</Text>
+		<Output latency="-10" name="output" type="hwFloat(8, 24)" />
+		<Text>stream offset: -10</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
 cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:97)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>

@@ -5,8 +5,14 @@
 /*             !!                         !! */
 /*             !!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 /*             !!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-/* At: CoreCompile linearKernel */
+/* At: Main build */
 #error
+#ifdef PARAM
+#define PARAM_PRESENT 1
+PARAM(MEC_SUPPORTED, 1)
+PARAM(PERF_MONITOR_VERSION, 2)
+PARAM(ON_CARD_MEMORY_FREQUENCY, 303)
+#endif
 
 #ifdef STRING_PARAM
 #define STRING_PARAM_PRESENT 1
@@ -161,6 +167,325 @@ DEBUG_INPUT_BITS(linearKernel, py, 6)
 DEBUG_OUTPUT_BITS(linearKernel, ppresult, 0)
 #endif
 
+
+
+
+
+
+
+
+#ifdef SCALABLE_CLOCK
+#define SCALABLE_CLOCK_PRESENT 1
+SCALABLE_CLOCK(STREAM, ClockReset_STREAM, stream_clkprim_rst, stream_clkprim_locked, 100)
+#endif
+
+#ifdef CHECKSUM_RAM
+#define CHECKSUM_RAM_PRESENT 1
+CHECKSUM_RAM(RAMB18_X0Y0)
+#endif
+
+#ifdef HOST_FORWARDED_STREAM
+#define HOST_FORWARDED_STREAM_PRESENT 1
+HOST_FORWARDED_STREAM(controller, STREAM_FROM_HOST, 0)
+HOST_FORWARDED_STREAM(dvv, STREAM_FROM_HOST, 1)
+HOST_FORWARDED_STREAM(p, STREAM_FROM_HOST, 2)
+HOST_FORWARDED_STREAM(pp, STREAM_FROM_HOST, 3)
+HOST_FORWARDED_STREAM(px, STREAM_FROM_HOST, 4)
+HOST_FORWARDED_STREAM(py, STREAM_FROM_HOST, 5)
+HOST_FORWARDED_STREAM(source_container, STREAM_FROM_HOST, 6)
+HOST_FORWARDED_STREAM(ppresult, STREAM_TO_HOST, 0)
+#endif
+
+
+
+#ifdef DEFINE_DESIGN_NAME
+#define DESIGN_NAME CpuMain
+#endif /* DEFINE_DESIGN_NAME */
+
+#ifndef SLIC_NO_DECLARATIONS
+/**\file */
+#ifndef SLIC_DECLARATIONS_CpuMain_H
+#define SLIC_DECLARATIONS_CpuMain_H
+#include "MaxSLiCInterface.h"
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
+
+
+/*----------------------------------------------------------------------------*/
+/*---------------------------- Interface default -----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+
+/**
+ * \brief Basic static function for the interface 'default'.
+ * 
+ * \param [in] param_c_0 Interface Parameter "c_0".
+ * \param [in] param_c_1_0 Interface Parameter "c_1_0".
+ * \param [in] param_c_1_1 Interface Parameter "c_1_1".
+ * \param [in] param_c_1_2 Interface Parameter "c_1_2".
+ * \param [in] param_c_1_3 Interface Parameter "c_1_3".
+ * \param [in] param_c_1_4 Interface Parameter "c_1_4".
+ * \param [in] param_c_2_0 Interface Parameter "c_2_0".
+ * \param [in] param_c_2_1 Interface Parameter "c_2_1".
+ * \param [in] param_c_2_2 Interface Parameter "c_2_2".
+ * \param [in] param_c_2_3 Interface Parameter "c_2_3".
+ * \param [in] param_c_2_4 Interface Parameter "c_2_4".
+ * \param [in] param_c_3_0 Interface Parameter "c_3_0".
+ * \param [in] param_c_3_1 Interface Parameter "c_3_1".
+ * \param [in] param_c_3_2 Interface Parameter "c_3_2".
+ * \param [in] param_c_3_3 Interface Parameter "c_3_3".
+ * \param [in] param_c_3_4 Interface Parameter "c_3_4".
+ * \param [in] param_size Interface Parameter "size".
+ * \param [in] param_sizeController Interface Parameter "sizeController".
+ * \param [in] param_stencilSize Interface Parameter "stencilSize".
+ * \param [in] instream_controller The stream should be of size ((param_size * param_stencilSize) * 4) bytes.
+ * \param [in] instream_dvv The stream should be of size (param_size * 4) bytes.
+ * \param [in] instream_p The stream should be of size (param_size * 4) bytes.
+ * \param [in] instream_pp The stream should be of size (param_size * 4) bytes.
+ * \param [in] instream_px The stream should be of size ((param_size * param_stencilSize) * 4) bytes.
+ * \param [in] instream_py The stream should be of size ((param_size * param_stencilSize) * 4) bytes.
+ * \param [in] instream_source_container The stream should be of size (param_size * 4) bytes.
+ * \param [out] outstream_ppresult The stream should be of size (param_size * 4) bytes.
+ */
+void CpuMain(
+	double param_c_0,
+	double param_c_1_0,
+	double param_c_1_1,
+	double param_c_1_2,
+	double param_c_1_3,
+	double param_c_1_4,
+	double param_c_2_0,
+	double param_c_2_1,
+	double param_c_2_2,
+	double param_c_2_3,
+	double param_c_2_4,
+	double param_c_3_0,
+	double param_c_3_1,
+	double param_c_3_2,
+	double param_c_3_3,
+	double param_c_3_4,
+	int64_t param_size,
+	int64_t param_sizeController,
+	int64_t param_stencilSize,
+	const int32_t *instream_controller,
+	const float *instream_dvv,
+	const float *instream_p,
+	const float *instream_pp,
+	const float *instream_px,
+	const float *instream_py,
+	const float *instream_source_container,
+	float *outstream_ppresult);
+
+/**
+ * \brief Basic static non-blocking function for the interface 'default'.
+ * 
+ * Schedule to run on an engine and return immediately.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ * 
+ * 
+ * \param [in] param_c_0 Interface Parameter "c_0".
+ * \param [in] param_c_1_0 Interface Parameter "c_1_0".
+ * \param [in] param_c_1_1 Interface Parameter "c_1_1".
+ * \param [in] param_c_1_2 Interface Parameter "c_1_2".
+ * \param [in] param_c_1_3 Interface Parameter "c_1_3".
+ * \param [in] param_c_1_4 Interface Parameter "c_1_4".
+ * \param [in] param_c_2_0 Interface Parameter "c_2_0".
+ * \param [in] param_c_2_1 Interface Parameter "c_2_1".
+ * \param [in] param_c_2_2 Interface Parameter "c_2_2".
+ * \param [in] param_c_2_3 Interface Parameter "c_2_3".
+ * \param [in] param_c_2_4 Interface Parameter "c_2_4".
+ * \param [in] param_c_3_0 Interface Parameter "c_3_0".
+ * \param [in] param_c_3_1 Interface Parameter "c_3_1".
+ * \param [in] param_c_3_2 Interface Parameter "c_3_2".
+ * \param [in] param_c_3_3 Interface Parameter "c_3_3".
+ * \param [in] param_c_3_4 Interface Parameter "c_3_4".
+ * \param [in] param_size Interface Parameter "size".
+ * \param [in] param_sizeController Interface Parameter "sizeController".
+ * \param [in] param_stencilSize Interface Parameter "stencilSize".
+ * \param [in] instream_controller The stream should be of size ((param_size * param_stencilSize) * 4) bytes.
+ * \param [in] instream_dvv The stream should be of size (param_size * 4) bytes.
+ * \param [in] instream_p The stream should be of size (param_size * 4) bytes.
+ * \param [in] instream_pp The stream should be of size (param_size * 4) bytes.
+ * \param [in] instream_px The stream should be of size ((param_size * param_stencilSize) * 4) bytes.
+ * \param [in] instream_py The stream should be of size ((param_size * param_stencilSize) * 4) bytes.
+ * \param [in] instream_source_container The stream should be of size (param_size * 4) bytes.
+ * \param [out] outstream_ppresult The stream should be of size (param_size * 4) bytes.
+ * \return A handle on the execution status, or NULL in case of error.
+ */
+max_run_t *CpuMain_nonblock(
+	double param_c_0,
+	double param_c_1_0,
+	double param_c_1_1,
+	double param_c_1_2,
+	double param_c_1_3,
+	double param_c_1_4,
+	double param_c_2_0,
+	double param_c_2_1,
+	double param_c_2_2,
+	double param_c_2_3,
+	double param_c_2_4,
+	double param_c_3_0,
+	double param_c_3_1,
+	double param_c_3_2,
+	double param_c_3_3,
+	double param_c_3_4,
+	int64_t param_size,
+	int64_t param_sizeController,
+	int64_t param_stencilSize,
+	const int32_t *instream_controller,
+	const float *instream_dvv,
+	const float *instream_p,
+	const float *instream_pp,
+	const float *instream_px,
+	const float *instream_py,
+	const float *instream_source_container,
+	float *outstream_ppresult);
+
+/**
+ * \brief Advanced static interface, structure for the engine interface 'default'
+ * 
+ */
+typedef struct { 
+	double param_c_0; /**<  [in] Interface Parameter "c_0". */
+	double param_c_1_0; /**<  [in] Interface Parameter "c_1_0". */
+	double param_c_1_1; /**<  [in] Interface Parameter "c_1_1". */
+	double param_c_1_2; /**<  [in] Interface Parameter "c_1_2". */
+	double param_c_1_3; /**<  [in] Interface Parameter "c_1_3". */
+	double param_c_1_4; /**<  [in] Interface Parameter "c_1_4". */
+	double param_c_2_0; /**<  [in] Interface Parameter "c_2_0". */
+	double param_c_2_1; /**<  [in] Interface Parameter "c_2_1". */
+	double param_c_2_2; /**<  [in] Interface Parameter "c_2_2". */
+	double param_c_2_3; /**<  [in] Interface Parameter "c_2_3". */
+	double param_c_2_4; /**<  [in] Interface Parameter "c_2_4". */
+	double param_c_3_0; /**<  [in] Interface Parameter "c_3_0". */
+	double param_c_3_1; /**<  [in] Interface Parameter "c_3_1". */
+	double param_c_3_2; /**<  [in] Interface Parameter "c_3_2". */
+	double param_c_3_3; /**<  [in] Interface Parameter "c_3_3". */
+	double param_c_3_4; /**<  [in] Interface Parameter "c_3_4". */
+	int64_t param_size; /**<  [in] Interface Parameter "size". */
+	int64_t param_sizeController; /**<  [in] Interface Parameter "sizeController". */
+	int64_t param_stencilSize; /**<  [in] Interface Parameter "stencilSize". */
+	const int32_t *instream_controller; /**<  [in] The stream should be of size ((param_size * param_stencilSize) * 4) bytes. */
+	const float *instream_dvv; /**<  [in] The stream should be of size (param_size * 4) bytes. */
+	const float *instream_p; /**<  [in] The stream should be of size (param_size * 4) bytes. */
+	const float *instream_pp; /**<  [in] The stream should be of size (param_size * 4) bytes. */
+	const float *instream_px; /**<  [in] The stream should be of size ((param_size * param_stencilSize) * 4) bytes. */
+	const float *instream_py; /**<  [in] The stream should be of size ((param_size * param_stencilSize) * 4) bytes. */
+	const float *instream_source_container; /**<  [in] The stream should be of size (param_size * 4) bytes. */
+	float *outstream_ppresult; /**<  [out] The stream should be of size (param_size * 4) bytes. */
+} CpuMain_actions_t;
+
+/**
+ * \brief Advanced static function for the interface 'default'.
+ * 
+ * \param [in] engine The engine on which the actions will be executed.
+ * \param [in,out] interface_actions Actions to be executed.
+ */
+void CpuMain_run(
+	max_engine_t *engine,
+	CpuMain_actions_t *interface_actions);
+
+/**
+ * \brief Advanced static non-blocking function for the interface 'default'.
+ *
+ * Schedule the actions to run on the engine and return immediately.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * 
+ * \param [in] engine The engine on which the actions will be executed.
+ * \param [in] interface_actions Actions to be executed.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *CpuMain_run_nonblock(
+	max_engine_t *engine,
+	CpuMain_actions_t *interface_actions);
+
+/**
+ * \brief Group run advanced static function for the interface 'default'.
+ * 
+ * \param [in] group Group to use.
+ * \param [in,out] interface_actions Actions to run.
+ *
+ * Run the actions on the first device available in the group.
+ */
+void CpuMain_run_group(max_group_t *group, CpuMain_actions_t *interface_actions);
+
+/**
+ * \brief Group run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule the actions to run on the first device available in the group and return immediately.
+ * The status of the run must be checked with ::max_wait. 
+ * Note that use of ::max_nowait is prohibited with non-blocking running on groups:
+ * see the ::max_run_group_nonblock documentation for more explanation.
+ *
+ * \param [in] group Group to use.
+ * \param [in] interface_actions Actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *CpuMain_run_group_nonblock(max_group_t *group, CpuMain_actions_t *interface_actions);
+
+/**
+ * \brief Array run advanced static function for the interface 'default'.
+ * 
+ * \param [in] engarray The array of devices to use.
+ * \param [in,out] interface_actions The array of actions to run.
+ *
+ * Run the array of actions on the array of engines.  The length of interface_actions
+ * must match the size of engarray.
+ */
+void CpuMain_run_array(max_engarray_t *engarray, CpuMain_actions_t *interface_actions[]);
+
+/**
+ * \brief Array run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule to run the array of actions on the array of engines, and return immediately.
+ * The length of interface_actions must match the size of engarray.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * \param [in] engarray The array of devices to use.
+ * \param [in] interface_actions The array of actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *CpuMain_run_array_nonblock(max_engarray_t *engarray, CpuMain_actions_t *interface_actions[]);
+
+/**
+ * \brief Converts a static-interface action struct into a dynamic-interface max_actions_t struct.
+ *
+ * Note that this is an internal utility function used by other functions in the static interface.
+ *
+ * \param [in] maxfile The maxfile to use.
+ * \param [in] interface_actions The interface-specific actions to run.
+ * \return The dynamic-interface actions to run, or NULL in case of error.
+ */
+max_actions_t* CpuMain_convert(max_file_t *maxfile, CpuMain_actions_t *interface_actions);
+
+/**
+ * \brief Initialise a maxfile.
+ */
+max_file_t* CpuMain_init(void);
+
+/* Error handling functions */
+int CpuMain_has_errors(void);
+const char* CpuMain_get_errors(void);
+void CpuMain_clear_errors(void);
+/* Free statically allocated maxfile data */
+void CpuMain_free(void);
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+#endif /* SLIC_DECLARATIONS_CpuMain_H */
+
+#endif /* SLIC_NO_DECLARATIONS */
+
 #ifdef PHOTON_NODE_DATA
 #define PHOTON_NODE_DATA_PRESENT 1
 PHOTON_NODE_DATA(linearKernel, 0, NodeInputMappedReg, "Scalar input (io_controller_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:18)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
@@ -170,7 +495,7 @@ PHOTON_NODE_DATA(linearKernel, 137, NodeCast, "{HWOffsetFix:1, 0, UNSIGNED}", "c
 PHOTON_NODE_DATA(linearKernel, 19, NodeCast, "{HWOffsetFix:1, 0, UNSIGNED}", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 27, NodeCast, "{HWOffsetFix:1, 0, UNSIGNED}", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 217, NodeCat, "@", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
-PHOTON_NODE_DATA(linearKernel, 218, NodeFIFO, "FIFO(110)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 218, NodeFIFO, "FIFO(111)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 PHOTON_NODE_DATA(linearKernel, 219, NodeSlice, "[2:2]", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 PHOTON_NODE_DATA(linearKernel, 220, NodeReinterpret, "<{HWOffsetFix:1, 0, UNSIGNED}>", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 PHOTON_NODE_DATA(linearKernel, 141, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:102)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
@@ -179,7 +504,7 @@ PHOTON_NODE_DATA(linearKernel, 139, NodeNot, "~", "com.maxeler.maxcompiler.v2.ke
 PHOTON_NODE_DATA(linearKernel, 142, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:102)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 140, NodeAnd, "&", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:102)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 143, NodeReinterpret, "<{HWOffsetFix:1, 0, UNSIGNED}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:102)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 192, NodeFIFO, "FIFO(128)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 192, NodeFIFO, "FIFO(127)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 PHOTON_NODE_DATA(linearKernel, 3, NodeCast, "{HWOffsetFix:1, 0, UNSIGNED}", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 7, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 4, NodeInputMappedReg, "Scalar input (io_p_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
@@ -218,7 +543,7 @@ PHOTON_NODE_DATA(linearKernel, 21, NodeNot, "~", "com.maxeler.maxcompiler.v2.ker
 PHOTON_NODE_DATA(linearKernel, 24, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 22, NodeAnd, "&", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 25, NodeReinterpret, "<{HWOffsetFix:1, 0, UNSIGNED}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 158, NodeFIFO, "FIFO(91)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 158, NodeFIFO, "FIFO(90)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 PHOTON_NODE_DATA(linearKernel, 26, NodeInput, "Input(dvv)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 41, NodeInputMappedReg, "Scalar input (c_0)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:32)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 60, NodeMul, "*", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
@@ -257,38 +582,38 @@ PHOTON_NODE_DATA(linearKernel, 38, NodeInputMappedReg, "Scalar input (io_py_forc
 PHOTON_NODE_DATA(linearKernel, 39, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:24)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 40, NodeInput, "Input(py)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:24)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 86, NodeStreamOffset, "stream offset: -4", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:88)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 169, NodeFIFO, "FIFO(1)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
-PHOTON_NODE_DATA(linearKernel, 87, NodeStreamOffset, "stream offset: -5", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:88)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
+PHOTON_NODE_DATA(linearKernel, 169, NodeFIFO, "FIFO(2)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 87, NodeStreamOffset, "stream offset: -6", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:88)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 88, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:88)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 89, NodeMul, "*", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:88)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 90, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 48, NodeInputMappedReg, "Scalar input (c_2_1)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:44)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 203, NodeFIFO, "FIFO(10)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 203, NodeFIFO, "FIFO(9)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 PHOTON_NODE_DATA(linearKernel, 91, NodeStreamOffset, "stream offset: -3", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:89)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 204, NodeFIFO, "FIFO(3)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
-PHOTON_NODE_DATA(linearKernel, 92, NodeStreamOffset, "stream offset: -6", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:89)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
+PHOTON_NODE_DATA(linearKernel, 204, NodeFIFO, "FIFO(4)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 92, NodeStreamOffset, "stream offset: -7", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:89)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 93, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:89)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 94, NodeMul, "*", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:89)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 95, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 49, NodeInputMappedReg, "Scalar input (c_2_2)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:45)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 205, NodeFIFO, "FIFO(8)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 205, NodeFIFO, "FIFO(7)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 PHOTON_NODE_DATA(linearKernel, 96, NodeStreamOffset, "stream offset: -2", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:90)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 206, NodeFIFO, "FIFO(5)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
-PHOTON_NODE_DATA(linearKernel, 97, NodeStreamOffset, "stream offset: -7", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:90)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
+PHOTON_NODE_DATA(linearKernel, 206, NodeFIFO, "FIFO(6)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 97, NodeStreamOffset, "stream offset: -8", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:90)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 98, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:90)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 99, NodeMul, "*", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:90)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 100, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 50, NodeInputMappedReg, "Scalar input (c_2_3)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:46)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 207, NodeFIFO, "FIFO(4)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 207, NodeFIFO, "FIFO(3)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 PHOTON_NODE_DATA(linearKernel, 208, NodeFIFO, "FIFO(2)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 PHOTON_NODE_DATA(linearKernel, 101, NodeStreamOffset, "stream offset: -1", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:91)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 209, NodeFIFO, "FIFO(7)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
-PHOTON_NODE_DATA(linearKernel, 102, NodeStreamOffset, "stream offset: -8", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:91)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
+PHOTON_NODE_DATA(linearKernel, 209, NodeFIFO, "FIFO(8)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 102, NodeStreamOffset, "stream offset: -9", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:91)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 103, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:91)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 104, NodeMul, "*", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:91)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 105, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 51, NodeInputMappedReg, "Scalar input (c_2_4)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:47)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 106, NodeStreamOffset, "stream offset: -9", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:92)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
+PHOTON_NODE_DATA(linearKernel, 106, NodeStreamOffset, "stream offset: -10", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:92)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 107, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:92)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 108, NodeMul, "*", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:92)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 178, NodeFIFO, "FIFO(13)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
@@ -298,38 +623,38 @@ PHOTON_NODE_DATA(linearKernel, 35, NodeInputMappedReg, "Scalar input (io_px_forc
 PHOTON_NODE_DATA(linearKernel, 36, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:23)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 37, NodeInput, "Input(px)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:23)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 110, NodeStreamOffset, "stream offset: -4", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:93)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 179, NodeFIFO, "FIFO(1)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
-PHOTON_NODE_DATA(linearKernel, 111, NodeStreamOffset, "stream offset: -5", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:93)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
+PHOTON_NODE_DATA(linearKernel, 179, NodeFIFO, "FIFO(2)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 111, NodeStreamOffset, "stream offset: -6", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:93)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 112, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:93)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 113, NodeMul, "*", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:93)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 114, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 53, NodeInputMappedReg, "Scalar input (c_3_1)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:50)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 210, NodeFIFO, "FIFO(10)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 210, NodeFIFO, "FIFO(9)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 PHOTON_NODE_DATA(linearKernel, 115, NodeStreamOffset, "stream offset: -3", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:94)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 211, NodeFIFO, "FIFO(3)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
-PHOTON_NODE_DATA(linearKernel, 116, NodeStreamOffset, "stream offset: -6", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:94)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
+PHOTON_NODE_DATA(linearKernel, 211, NodeFIFO, "FIFO(4)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 116, NodeStreamOffset, "stream offset: -7", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:94)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 117, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:94)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 118, NodeMul, "*", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:94)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 119, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 54, NodeInputMappedReg, "Scalar input (c_3_2)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:51)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 212, NodeFIFO, "FIFO(8)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 212, NodeFIFO, "FIFO(7)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 PHOTON_NODE_DATA(linearKernel, 120, NodeStreamOffset, "stream offset: -2", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:95)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 213, NodeFIFO, "FIFO(5)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
-PHOTON_NODE_DATA(linearKernel, 121, NodeStreamOffset, "stream offset: -7", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:95)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
+PHOTON_NODE_DATA(linearKernel, 213, NodeFIFO, "FIFO(6)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 121, NodeStreamOffset, "stream offset: -8", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:95)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 122, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:95)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 123, NodeMul, "*", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:95)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 124, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 55, NodeInputMappedReg, "Scalar input (c_3_3)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:52)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 214, NodeFIFO, "FIFO(4)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 214, NodeFIFO, "FIFO(3)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 PHOTON_NODE_DATA(linearKernel, 215, NodeFIFO, "FIFO(2)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 PHOTON_NODE_DATA(linearKernel, 125, NodeStreamOffset, "stream offset: -1", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:96)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 216, NodeFIFO, "FIFO(7)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
-PHOTON_NODE_DATA(linearKernel, 126, NodeStreamOffset, "stream offset: -8", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:96)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
+PHOTON_NODE_DATA(linearKernel, 216, NodeFIFO, "FIFO(8)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 126, NodeStreamOffset, "stream offset: -9", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:96)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 127, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:96)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 128, NodeMul, "*", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:96)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 129, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 56, NodeInputMappedReg, "Scalar input (c_3_4)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:53)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 130, NodeStreamOffset, "stream offset: -9", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:97)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
+PHOTON_NODE_DATA(linearKernel, 130, NodeStreamOffset, "stream offset: -10", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:97)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 131, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:97)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 132, NodeMul, "*", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:97)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 188, NodeFIFO, "FIFO(13)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
@@ -343,7 +668,7 @@ PHOTON_NODE_DATA(linearKernel, 28, NodeInputMappedReg, "Scalar input (io_source_
 PHOTON_NODE_DATA(linearKernel, 29, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 32, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 30, NodeAnd, "&", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
-PHOTON_NODE_DATA(linearKernel, 191, NodeFIFO, "FIFO(111)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
+PHOTON_NODE_DATA(linearKernel, 191, NodeFIFO, "FIFO(110)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 PHOTON_NODE_DATA(linearKernel, 33, NodeReinterpret, "<{HWOffsetFix:1, 0, UNSIGNED}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 34, NodeInput, "Input(source_container)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
 PHOTON_NODE_DATA(linearKernel, 136, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ncpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:43)\n")
@@ -358,6 +683,1147 @@ PHOTON_NODE_DATA(linearKernel, 151, NodeInputMappedReg, "Scalar input (run_cycle
 PHOTON_NODE_DATA(linearKernel, 152, NodeEq, "==", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 PHOTON_NODE_DATA(linearKernel, 150, NodeFlush, "flush on trigger", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ncpuMain.CpuMainManager.main(CpuMainManager.maxj:70)\n")
 #endif
+
+#ifdef SLIC_USE_DEFINITIONS
+#include <stdio.h>
+#include <math.h>
+#include <pthread.h>
+#include <string.h>
+static max_file_t *stored_maxfile = NULL;
+static max_engine_t *stored_engine = NULL;
+static char *stored_error = NULL;
+static int stored_has_error = 0;
+static pthread_once_t slic_bs_is_initialised = PTHREAD_ONCE_INIT;
+
+static void set_error(const char *error_str)
+{
+	stored_has_error = 1; 
+	if(stored_error == NULL) {
+		stored_error = strdup(error_str);
+	} else {
+		char *nerr = malloc(strlen(stored_error) + strlen(error_str) + 2);
+		sprintf(nerr, "%s\n%s", stored_error, error_str);
+		free(stored_error);
+		stored_error = nerr;
+	}
+}
+static void set_error_and_free(char *error_str){
+	set_error(error_str);
+	free(error_str);
+}
+int CpuMain_has_errors(void)
+{	return stored_has_error; }
+const char* CpuMain_get_errors(void)
+{	return stored_error; }
+void CpuMain_clear_errors(void)
+{
+	free(stored_error);
+	stored_error = NULL;
+	stored_has_error = 0;
+}
+
+static void CpuMain_static_init(void) 
+{
+	stored_maxfile = CpuMain_init();
+	if (stored_maxfile == NULL || !max_ok(stored_maxfile->errors)) {
+		stored_maxfile = NULL;
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to load maxfile"); return; }
+	}
+	if(!max_ok(max_global_errors())) {
+		set_error_and_free(max_errors_trace(max_global_errors()));
+		return;
+	}
+	if(!max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR))
+		max_errors_mode(stored_maxfile->errors, 0);
+	time_t timeout_previous = max_load_timeout(stored_maxfile, 30);
+	stored_engine = max_load(stored_maxfile, "*");
+	if (!max_ok(stored_maxfile->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) {
+			fprintf(stderr, "\nUnable to load engine: aborting now.\n\n");
+			fflush(stderr);
+			abort();
+		} else {
+			set_error_and_free(max_errors_trace(stored_maxfile->errors));
+			max_file_free(stored_maxfile);
+			stored_maxfile = NULL;
+			return;
+		} 
+	} 
+	max_load_timeout(stored_maxfile, timeout_previous);
+}
+void CpuMain_free(void)
+{
+	if(stored_engine != NULL)
+		max_unload(stored_engine);
+	if(stored_maxfile != NULL)
+		max_file_free(stored_maxfile);
+	if(stored_error != NULL)
+		free(stored_error);
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+/*---------------------------- Interface default -----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+void CpuMain(
+	double param_c_0,
+	double param_c_1_0,
+	double param_c_1_1,
+	double param_c_1_2,
+	double param_c_1_3,
+	double param_c_1_4,
+	double param_c_2_0,
+	double param_c_2_1,
+	double param_c_2_2,
+	double param_c_2_3,
+	double param_c_2_4,
+	double param_c_3_0,
+	double param_c_3_1,
+	double param_c_3_2,
+	double param_c_3_3,
+	double param_c_3_4,
+	int64_t param_size,
+	int64_t param_sizeController,
+	int64_t param_stencilSize,
+	const int32_t *instream_controller,
+	const float *instream_dvv,
+	const float *instream_p,
+	const float *instream_pp,
+	const float *instream_px,
+	const float *instream_py,
+	const float *instream_source_container,
+	float *outstream_ppresult)
+{
+	(void) pthread_once(&slic_bs_is_initialised, CpuMain_static_init);
+	if(stored_maxfile == NULL) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Maxfile was not loaded."); return; }
+	}
+	max_run_t *run = CpuMain_nonblock(param_c_0, param_c_1_0, param_c_1_1, param_c_1_2, param_c_1_3, param_c_1_4, param_c_2_0, param_c_2_1, param_c_2_2, param_c_2_3, param_c_2_4, param_c_3_0, param_c_3_1, param_c_3_2, param_c_3_3, param_c_3_4, param_size, param_sizeController, param_stencilSize, instream_controller, instream_dvv, instream_p, instream_pp, instream_px, instream_py, instream_source_container, outstream_ppresult);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+max_run_t *CpuMain_nonblock(
+	double param_c_0,
+	double param_c_1_0,
+	double param_c_1_1,
+	double param_c_1_2,
+	double param_c_1_3,
+	double param_c_1_4,
+	double param_c_2_0,
+	double param_c_2_1,
+	double param_c_2_2,
+	double param_c_2_3,
+	double param_c_2_4,
+	double param_c_3_0,
+	double param_c_3_1,
+	double param_c_3_2,
+	double param_c_3_3,
+	double param_c_3_4,
+	int64_t param_size,
+	int64_t param_sizeController,
+	int64_t param_stencilSize,
+	const int32_t *instream_controller,
+	const float *instream_dvv,
+	const float *instream_p,
+	const float *instream_pp,
+	const float *instream_px,
+	const float *instream_py,
+	const float *instream_source_container,
+	float *outstream_ppresult)
+{
+	CpuMain_actions_t interface_actions;
+	interface_actions.param_c_0 = param_c_0;
+	interface_actions.param_c_1_0 = param_c_1_0;
+	interface_actions.param_c_1_1 = param_c_1_1;
+	interface_actions.param_c_1_2 = param_c_1_2;
+	interface_actions.param_c_1_3 = param_c_1_3;
+	interface_actions.param_c_1_4 = param_c_1_4;
+	interface_actions.param_c_2_0 = param_c_2_0;
+	interface_actions.param_c_2_1 = param_c_2_1;
+	interface_actions.param_c_2_2 = param_c_2_2;
+	interface_actions.param_c_2_3 = param_c_2_3;
+	interface_actions.param_c_2_4 = param_c_2_4;
+	interface_actions.param_c_3_0 = param_c_3_0;
+	interface_actions.param_c_3_1 = param_c_3_1;
+	interface_actions.param_c_3_2 = param_c_3_2;
+	interface_actions.param_c_3_3 = param_c_3_3;
+	interface_actions.param_c_3_4 = param_c_3_4;
+	interface_actions.param_size = param_size;
+	interface_actions.param_sizeController = param_sizeController;
+	interface_actions.param_stencilSize = param_stencilSize;
+	interface_actions.instream_controller = instream_controller;
+	interface_actions.instream_dvv = instream_dvv;
+	interface_actions.instream_p = instream_p;
+	interface_actions.instream_pp = instream_pp;
+	interface_actions.instream_px = instream_px;
+	interface_actions.instream_py = instream_py;
+	interface_actions.instream_source_container = instream_source_container;
+	interface_actions.outstream_ppresult = outstream_ppresult;
+	(void) pthread_once(&slic_bs_is_initialised, CpuMain_static_init);
+	if(stored_maxfile == NULL) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Maxfile was not loaded."); return NULL; }
+	}
+	max_actions_t *actions[1];
+	actions[0] = CpuMain_convert(stored_maxfile, &interface_actions);
+	if(actions[0] == NULL) { 
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to build actions");return NULL; }
+	}
+	max_validate(actions[0]);
+	if(!max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); return NULL;}
+	}
+	max_run_t *run = max_run_multi_nonblock(stored_engine, actions, 1);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return NULL; }
+	}
+	if(!max_ok(stored_engine->errors)  || !max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); set_error_and_free(max_errors_trace(stored_engine->errors)); return NULL;}
+	}
+	max_actions_free(actions[0]);
+	return run;
+}
+
+void CpuMain_run(
+	max_engine_t *engine,
+	CpuMain_actions_t *interface_actions)
+{
+	max_run_t *run = CpuMain_run_nonblock(engine, interface_actions);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+max_run_t *CpuMain_run_nonblock(
+	max_engine_t *engine,
+	CpuMain_actions_t *interface_actions)
+{
+	max_file_t *maxfile = max_engine_get_max_file(engine); 
+	max_actions_t *actions[1];
+	actions[0] = CpuMain_convert(maxfile, interface_actions);
+	if(!max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); return NULL;}
+	}
+	max_run_t *run = max_run_multi_nonblock(engine, actions, 1);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions."); return NULL; }
+	}
+	max_actions_free(actions[0]);
+	return run;
+}
+
+
+/**
+ * \brief Group run advanced static function for the interface 'default'.
+ * 
+ * \param [in] group Group to use.
+ * \param [in,out] interface_actions Actions to run.
+ *
+ * Run the actions on the first device available in the group.
+ */
+void CpuMain_run_group(max_group_t *group, CpuMain_actions_t *interface_actions)
+{
+	/* Not strictly correct, because explicitly locking an engine here. */
+	max_engine_t *engine = max_lock_any(group);
+	if(engine == NULL) return;
+	CpuMain_run(engine, interface_actions);
+	max_unlock(engine);
+}
+
+
+/**
+ * \brief Group run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule the actions to run on the first device available in the group and return immediately.
+ * The status of the run must be checked with ::max_wait. 
+ * Note that use of ::max_nowait is prohibited with non-blocking running on groups:
+ * see the ::max_run_group_nonblock documentation for more explanation.
+ *
+ * \param [in] group Group to use.
+ * \param [in] interface_actions Actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *CpuMain_run_group_nonblock(max_group_t *group, CpuMain_actions_t *interface_actions)
+{
+	max_file_t *maxfile = max_group_get_max_file(group);
+	max_actions_t *actions = CpuMain_convert(maxfile, interface_actions);
+	if(actions == NULL) return NULL;
+	if(!max_ok(actions->errors)) return NULL;
+	max_validate(actions);
+	max_run_t *run = max_run_group_nonblock(group, actions);
+	max_actions_free(actions);
+	return run;
+}
+
+
+/**
+ * \brief Array run advanced static function for the interface 'default'.
+ * 
+ * \param [in] engarray The array of devices to use.
+ * \param [in,out] interface_actions The array of actions to run.
+ *
+ * Run the array of actions on the array of engines.  The length of interface_actions
+ * must match the size of engarray.
+ */
+void CpuMain_run_array(max_engarray_t *engarray, CpuMain_actions_t *interface_actions[])
+{
+	max_run_t *run = CpuMain_run_array_nonblock(engarray, interface_actions);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+
+/**
+ * \brief Array run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule to run the array of actions on the array of engines, and return immediately.
+ * The length of interface_actions must match the size of engarray.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * \param [in] engarray The array of devices to use.
+ * \param [in] interface_actions The array of actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *CpuMain_run_array_nonblock(max_engarray_t *engarray, CpuMain_actions_t *interface_actions[])
+{
+	max_file_t *maxfile = max_engarray_get_max_file(engarray);
+	int i;
+	max_actarray_t *arr_actarray[1];
+	max_actions_t **arr_actions[1];
+	arr_actarray[0] = max_actarray_init(maxfile, engarray->size);
+	if(arr_actarray[0] == NULL) return NULL;
+	arr_actions[0] = malloc(engarray->size * sizeof(max_actions_t*));
+	for(i=0; i < arr_actarray[0]->size; i++) {
+		max_actions_t *actions = CpuMain_convert(maxfile, interface_actions[i]);
+		if(actions == NULL) return NULL;
+		arr_actions[0][i] = actions;
+		max_set_action(arr_actarray[0], i, actions);
+	}
+	max_run_t *run = max_run_array_multi_nonblock(engarray, arr_actarray, 1 );
+	for (i=0; i < arr_actarray[0]->size; i++) { max_actions_free(arr_actions[0][i]); }
+	max_actarray_free(arr_actarray[0]);
+	free(arr_actions[0]);
+	return run;
+}
+
+
+/**
+ * \brief Converts a static-interface action struct into a dynamic-interface max_actions_t struct.
+ *
+ * Note that this is an internal utility function used by other functions in the static interface.
+ *
+ * \param [in] maxfile The maxfile to use.
+ * \param [in] interface_actions The interface-specific actions to run.
+ * \return The dynamic-interface actions to run, or NULL in case of error.
+ */
+max_actions_t* CpuMain_convert(max_file_t *maxfile, CpuMain_actions_t *interface_actions)
+{
+	max_actions_t *actions = max_actions_init(maxfile, NULL);
+	if(actions == NULL || !max_ok(maxfile->errors)) return NULL;
+
+	double param_c_0 = interface_actions->param_c_0;
+	
+	double param_c_1_0 = interface_actions->param_c_1_0;
+	
+	double param_c_1_1 = interface_actions->param_c_1_1;
+	
+	double param_c_1_2 = interface_actions->param_c_1_2;
+	
+	double param_c_1_3 = interface_actions->param_c_1_3;
+	
+	double param_c_1_4 = interface_actions->param_c_1_4;
+	
+	double param_c_2_0 = interface_actions->param_c_2_0;
+	
+	double param_c_2_1 = interface_actions->param_c_2_1;
+	
+	double param_c_2_2 = interface_actions->param_c_2_2;
+	
+	double param_c_2_3 = interface_actions->param_c_2_3;
+	
+	double param_c_2_4 = interface_actions->param_c_2_4;
+	
+	double param_c_3_0 = interface_actions->param_c_3_0;
+	
+	double param_c_3_1 = interface_actions->param_c_3_1;
+	
+	double param_c_3_2 = interface_actions->param_c_3_2;
+	
+	double param_c_3_3 = interface_actions->param_c_3_3;
+	
+	double param_c_3_4 = interface_actions->param_c_3_4;
+	
+	int64_t param_size = interface_actions->param_size;
+	
+	int64_t param_sizeController = interface_actions->param_sizeController;
+	
+	int64_t param_stencilSize = interface_actions->param_stencilSize;
+	
+
+	/* temporary variables */
+	int64_t tmp_0 = (param_size * 4);
+	int64_t tmp_1 = (param_size * 4);
+	int64_t tmp_2 = (param_size * 4);
+	int64_t tmp_3 = (param_size * 4);
+	int64_t tmp_4 = ((param_size * param_stencilSize) * 4);
+	int64_t tmp_5 = ((param_size * param_stencilSize) * 4);
+	int64_t tmp_6 = ((param_size * param_stencilSize) * 4);
+	int64_t tmp_7 = (param_size * 4);
+
+	/* code for scalar linearKernel.run_cycle_count */
+	uint64_t ticks_linearKernel = param_sizeController;
+	max_set_ticks(actions, "linearKernel", param_sizeController);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.run_cycle_count*/
+	
+	/* code for scalar linearKernel.c_0 */
+	double inscalar_linearKernel_c_0 = param_c_0;
+	max_set_double(actions, "linearKernel", "c_0", inscalar_linearKernel_c_0);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_0*/
+	
+	/* code for scalar linearKernel.c_1_0 */
+	double inscalar_linearKernel_c_1_0 = param_c_1_0;
+	max_set_double(actions, "linearKernel", "c_1_0", inscalar_linearKernel_c_1_0);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_1_0*/
+	
+	/* code for scalar linearKernel.c_1_1 */
+	double inscalar_linearKernel_c_1_1 = param_c_1_1;
+	max_set_double(actions, "linearKernel", "c_1_1", inscalar_linearKernel_c_1_1);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_1_1*/
+	
+	/* code for scalar linearKernel.c_1_2 */
+	double inscalar_linearKernel_c_1_2 = param_c_1_2;
+	max_set_double(actions, "linearKernel", "c_1_2", inscalar_linearKernel_c_1_2);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_1_2*/
+	
+	/* code for scalar linearKernel.c_1_3 */
+	double inscalar_linearKernel_c_1_3 = param_c_1_3;
+	max_set_double(actions, "linearKernel", "c_1_3", inscalar_linearKernel_c_1_3);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_1_3*/
+	
+	/* code for scalar linearKernel.c_1_4 */
+	double inscalar_linearKernel_c_1_4 = param_c_1_4;
+	max_set_double(actions, "linearKernel", "c_1_4", inscalar_linearKernel_c_1_4);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_1_4*/
+	
+	/* code for scalar linearKernel.c_2_0 */
+	double inscalar_linearKernel_c_2_0 = param_c_2_0;
+	max_set_double(actions, "linearKernel", "c_2_0", inscalar_linearKernel_c_2_0);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_2_0*/
+	
+	/* code for scalar linearKernel.c_2_1 */
+	double inscalar_linearKernel_c_2_1 = param_c_2_1;
+	max_set_double(actions, "linearKernel", "c_2_1", inscalar_linearKernel_c_2_1);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_2_1*/
+	
+	/* code for scalar linearKernel.c_2_2 */
+	double inscalar_linearKernel_c_2_2 = param_c_2_2;
+	max_set_double(actions, "linearKernel", "c_2_2", inscalar_linearKernel_c_2_2);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_2_2*/
+	
+	/* code for scalar linearKernel.c_2_3 */
+	double inscalar_linearKernel_c_2_3 = param_c_2_3;
+	max_set_double(actions, "linearKernel", "c_2_3", inscalar_linearKernel_c_2_3);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_2_3*/
+	
+	/* code for scalar linearKernel.c_2_4 */
+	double inscalar_linearKernel_c_2_4 = param_c_2_4;
+	max_set_double(actions, "linearKernel", "c_2_4", inscalar_linearKernel_c_2_4);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_2_4*/
+	
+	/* code for scalar linearKernel.c_3_0 */
+	double inscalar_linearKernel_c_3_0 = param_c_3_0;
+	max_set_double(actions, "linearKernel", "c_3_0", inscalar_linearKernel_c_3_0);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_3_0*/
+	
+	/* code for scalar linearKernel.c_3_1 */
+	double inscalar_linearKernel_c_3_1 = param_c_3_1;
+	max_set_double(actions, "linearKernel", "c_3_1", inscalar_linearKernel_c_3_1);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_3_1*/
+	
+	/* code for scalar linearKernel.c_3_2 */
+	double inscalar_linearKernel_c_3_2 = param_c_3_2;
+	max_set_double(actions, "linearKernel", "c_3_2", inscalar_linearKernel_c_3_2);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_3_2*/
+	
+	/* code for scalar linearKernel.c_3_3 */
+	double inscalar_linearKernel_c_3_3 = param_c_3_3;
+	max_set_double(actions, "linearKernel", "c_3_3", inscalar_linearKernel_c_3_3);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_3_3*/
+	
+	/* code for scalar linearKernel.c_3_4 */
+	double inscalar_linearKernel_c_3_4 = param_c_3_4;
+	max_set_double(actions, "linearKernel", "c_3_4", inscalar_linearKernel_c_3_4);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar linearKernel.c_3_4*/
+	
+	/* code for stream controller */
+	size_t instream_size_controller = tmp_6;
+	if (instream_size_controller > 0) {
+		max_queue_input(actions, "controller", interface_actions->instream_controller,instream_size_controller);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream controller */
+	
+	/* code for stream dvv */
+	size_t instream_size_dvv = tmp_2;
+	if (instream_size_dvv > 0) {
+		max_queue_input(actions, "dvv", interface_actions->instream_dvv,instream_size_dvv);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream dvv */
+	
+	/* code for stream p */
+	size_t instream_size_p = tmp_0;
+	if (instream_size_p > 0) {
+		max_queue_input(actions, "p", interface_actions->instream_p,instream_size_p);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream p */
+	
+	/* code for stream pp */
+	size_t instream_size_pp = tmp_1;
+	if (instream_size_pp > 0) {
+		max_queue_input(actions, "pp", interface_actions->instream_pp,instream_size_pp);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream pp */
+	
+	/* code for stream px */
+	size_t instream_size_px = tmp_4;
+	if (instream_size_px > 0) {
+		max_queue_input(actions, "px", interface_actions->instream_px,instream_size_px);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream px */
+	
+	/* code for stream py */
+	size_t instream_size_py = tmp_5;
+	if (instream_size_py > 0) {
+		max_queue_input(actions, "py", interface_actions->instream_py,instream_size_py);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream py */
+	
+	/* code for stream source_container */
+	size_t instream_size_source_container = tmp_3;
+	if (instream_size_source_container > 0) {
+		max_queue_input(actions, "source_container", interface_actions->instream_source_container,instream_size_source_container);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream source_container */
+	
+	/* code for stream ppresult */
+	size_t outstream_size_ppresult = tmp_7;
+	if (outstream_size_ppresult > 0) {
+		max_queue_output(actions, "ppresult", interface_actions->outstream_ppresult,outstream_size_ppresult);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream ppresult */
+	
+	return actions;
+}
+
+
+
+#endif /* SLIC_USE_DEFINITIONS */
+
+#ifdef SLIC_B64_DEFINITIONS
+I2luY2x1ZGUgPHN0ZGlvLmg+CiNpbmNsdWRlIDxtYXRoLmg+CiNpbmNsdWRlIDxwdGhyZWFkLmg+
+CiNpbmNsdWRlIDxzdHJpbmcuaD4Kc3RhdGljIG1heF9maWxlX3QgKnN0b3JlZF9tYXhmaWxlID0g
+TlVMTDsKc3RhdGljIG1heF9lbmdpbmVfdCAqc3RvcmVkX2VuZ2luZSA9IE5VTEw7CnN0YXRpYyBj
+aGFyICpzdG9yZWRfZXJyb3IgPSBOVUxMOwpzdGF0aWMgaW50IHN0b3JlZF9oYXNfZXJyb3IgPSAw
+OwpzdGF0aWMgcHRocmVhZF9vbmNlX3Qgc2xpY19ic19pc19pbml0aWFsaXNlZCA9IFBUSFJFQURf
+T05DRV9JTklUOwoKc3RhdGljIHZvaWQgc2V0X2Vycm9yKGNvbnN0IGNoYXIgKmVycm9yX3N0cikK
+ewoJc3RvcmVkX2hhc19lcnJvciA9IDE7IAoJaWYoc3RvcmVkX2Vycm9yID09IE5VTEwpIHsKCQlz
+dG9yZWRfZXJyb3IgPSBzdHJkdXAoZXJyb3Jfc3RyKTsKCX0gZWxzZSB7CgkJY2hhciAqbmVyciA9
+IG1hbGxvYyhzdHJsZW4oc3RvcmVkX2Vycm9yKSArIHN0cmxlbihlcnJvcl9zdHIpICsgMik7CgkJ
+c3ByaW50ZihuZXJyLCAiJXNcbiVzIiwgc3RvcmVkX2Vycm9yLCBlcnJvcl9zdHIpOwoJCWZyZWUo
+c3RvcmVkX2Vycm9yKTsKCQlzdG9yZWRfZXJyb3IgPSBuZXJyOwoJfQp9CnN0YXRpYyB2b2lkIHNl
+dF9lcnJvcl9hbmRfZnJlZShjaGFyICplcnJvcl9zdHIpewoJc2V0X2Vycm9yKGVycm9yX3N0cik7
+CglmcmVlKGVycm9yX3N0cik7Cn0KaW50IENwdU1haW5faGFzX2Vycm9ycyh2b2lkKQp7CXJldHVy
+biBzdG9yZWRfaGFzX2Vycm9yOyB9CmNvbnN0IGNoYXIqIENwdU1haW5fZ2V0X2Vycm9ycyh2b2lk
+KQp7CXJldHVybiBzdG9yZWRfZXJyb3I7IH0Kdm9pZCBDcHVNYWluX2NsZWFyX2Vycm9ycyh2b2lk
+KQp7CglmcmVlKHN0b3JlZF9lcnJvcik7CglzdG9yZWRfZXJyb3IgPSBOVUxMOwoJc3RvcmVkX2hh
+c19lcnJvciA9IDA7Cn0KCnN0YXRpYyB2b2lkIENwdU1haW5fc3RhdGljX2luaXQodm9pZCkgCnsK
+CXN0b3JlZF9tYXhmaWxlID0gQ3B1TWFpbl9pbml0KCk7CglpZiAoc3RvcmVkX21heGZpbGUgPT0g
+TlVMTCB8fCAhbWF4X29rKHN0b3JlZF9tYXhmaWxlLT5lcnJvcnMpKSB7CgkJc3RvcmVkX21heGZp
+bGUgPSBOVUxMOwoJCWlmKG1heF9jb25maWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNfSU5U
+RVJGQUNFX0FCT1JUX09OX0VSUk9SKSkgYWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9yKCJVbmFi
+bGUgdG8gbG9hZCBtYXhmaWxlIik7IHJldHVybjsgfQoJfQoJaWYoIW1heF9vayhtYXhfZ2xvYmFs
+X2Vycm9ycygpKSkgewoJCXNldF9lcnJvcl9hbmRfZnJlZShtYXhfZXJyb3JzX3RyYWNlKG1heF9n
+bG9iYWxfZXJyb3JzKCkpKTsKCQlyZXR1cm47Cgl9CglpZighbWF4X2NvbmZpZ19nZXRfYm9vbChN
+QVhfQ09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKQoJCW1heF9lcnJvcnNf
+bW9kZShzdG9yZWRfbWF4ZmlsZS0+ZXJyb3JzLCAwKTsKCXRpbWVfdCB0aW1lb3V0X3ByZXZpb3Vz
+ID0gbWF4X2xvYWRfdGltZW91dChzdG9yZWRfbWF4ZmlsZSwgMzApOwoJc3RvcmVkX2VuZ2luZSA9
+IG1heF9sb2FkKHN0b3JlZF9tYXhmaWxlLCAiKiIpOwoJaWYgKCFtYXhfb2soc3RvcmVkX21heGZp
+bGUtPmVycm9ycykpIHsKCQlpZihtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElD
+X0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIHsKCQkJZnByaW50ZihzdGRlcnIsICJcblVuYWJs
+ZSB0byBsb2FkIGVuZ2luZTogYWJvcnRpbmcgbm93LlxuXG4iKTsKCQkJZmZsdXNoKHN0ZGVycik7
+CgkJCWFib3J0KCk7CgkJfSBlbHNlIHsKCQkJc2V0X2Vycm9yX2FuZF9mcmVlKG1heF9lcnJvcnNf
+dHJhY2Uoc3RvcmVkX21heGZpbGUtPmVycm9ycykpOwoJCQltYXhfZmlsZV9mcmVlKHN0b3JlZF9t
+YXhmaWxlKTsKCQkJc3RvcmVkX21heGZpbGUgPSBOVUxMOwoJCQlyZXR1cm47CgkJfSAKCX0gCglt
+YXhfbG9hZF90aW1lb3V0KHN0b3JlZF9tYXhmaWxlLCB0aW1lb3V0X3ByZXZpb3VzKTsKfQp2b2lk
+IENwdU1haW5fZnJlZSh2b2lkKQp7CglpZihzdG9yZWRfZW5naW5lICE9IE5VTEwpCgkJbWF4X3Vu
+bG9hZChzdG9yZWRfZW5naW5lKTsKCWlmKHN0b3JlZF9tYXhmaWxlICE9IE5VTEwpCgkJbWF4X2Zp
+bGVfZnJlZShzdG9yZWRfbWF4ZmlsZSk7CglpZihzdG9yZWRfZXJyb3IgIT0gTlVMTCkKCQlmcmVl
+KHN0b3JlZF9lcnJvcik7Cn0KCgoKLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi8KLyotLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tIEludGVyZmFjZSBkZWZhdWx0IC0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tKi8KLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi8KCgp2b2lkIENwdU1haW4oCglkb3Vi
+bGUgcGFyYW1fY18wLAoJZG91YmxlIHBhcmFtX2NfMV8wLAoJZG91YmxlIHBhcmFtX2NfMV8xLAoJ
+ZG91YmxlIHBhcmFtX2NfMV8yLAoJZG91YmxlIHBhcmFtX2NfMV8zLAoJZG91YmxlIHBhcmFtX2Nf
+MV80LAoJZG91YmxlIHBhcmFtX2NfMl8wLAoJZG91YmxlIHBhcmFtX2NfMl8xLAoJZG91YmxlIHBh
+cmFtX2NfMl8yLAoJZG91YmxlIHBhcmFtX2NfMl8zLAoJZG91YmxlIHBhcmFtX2NfMl80LAoJZG91
+YmxlIHBhcmFtX2NfM18wLAoJZG91YmxlIHBhcmFtX2NfM18xLAoJZG91YmxlIHBhcmFtX2NfM18y
+LAoJZG91YmxlIHBhcmFtX2NfM18zLAoJZG91YmxlIHBhcmFtX2NfM180LAoJaW50NjRfdCBwYXJh
+bV9zaXplLAoJaW50NjRfdCBwYXJhbV9zaXplQ29udHJvbGxlciwKCWludDY0X3QgcGFyYW1fc3Rl
+bmNpbFNpemUsCgljb25zdCBpbnQzMl90ICppbnN0cmVhbV9jb250cm9sbGVyLAoJY29uc3QgZmxv
+YXQgKmluc3RyZWFtX2R2diwKCWNvbnN0IGZsb2F0ICppbnN0cmVhbV9wLAoJY29uc3QgZmxvYXQg
+Kmluc3RyZWFtX3BwLAoJY29uc3QgZmxvYXQgKmluc3RyZWFtX3B4LAoJY29uc3QgZmxvYXQgKmlu
+c3RyZWFtX3B5LAoJY29uc3QgZmxvYXQgKmluc3RyZWFtX3NvdXJjZV9jb250YWluZXIsCglmbG9h
+dCAqb3V0c3RyZWFtX3BwcmVzdWx0KQp7Cgkodm9pZCkgcHRocmVhZF9vbmNlKCZzbGljX2JzX2lz
+X2luaXRpYWxpc2VkLCBDcHVNYWluX3N0YXRpY19pbml0KTsKCWlmKHN0b3JlZF9tYXhmaWxlID09
+IE5VTEwpIHsKCQlpZihtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVS
+RkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNldF9lcnJvcigiTWF4Zmls
+ZSB3YXMgbm90IGxvYWRlZC4iKTsgcmV0dXJuOyB9Cgl9CgltYXhfcnVuX3QgKnJ1biA9IENwdU1h
+aW5fbm9uYmxvY2socGFyYW1fY18wLCBwYXJhbV9jXzFfMCwgcGFyYW1fY18xXzEsIHBhcmFtX2Nf
+MV8yLCBwYXJhbV9jXzFfMywgcGFyYW1fY18xXzQsIHBhcmFtX2NfMl8wLCBwYXJhbV9jXzJfMSwg
+cGFyYW1fY18yXzIsIHBhcmFtX2NfMl8zLCBwYXJhbV9jXzJfNCwgcGFyYW1fY18zXzAsIHBhcmFt
+X2NfM18xLCBwYXJhbV9jXzNfMiwgcGFyYW1fY18zXzMsIHBhcmFtX2NfM180LCBwYXJhbV9zaXpl
+LCBwYXJhbV9zaXplQ29udHJvbGxlciwgcGFyYW1fc3RlbmNpbFNpemUsIGluc3RyZWFtX2NvbnRy
+b2xsZXIsIGluc3RyZWFtX2R2diwgaW5zdHJlYW1fcCwgaW5zdHJlYW1fcHAsIGluc3RyZWFtX3B4
+LCBpbnN0cmVhbV9weSwgaW5zdHJlYW1fc291cmNlX2NvbnRhaW5lciwgb3V0c3RyZWFtX3BwcmVz
+dWx0KTsKCWlmKHJ1biA9PSBOVUxMKSB7IAoJCWlmIChtYXhfY29uZmlnX2dldF9ib29sKE1BWF9D
+T05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7
+IHNldF9lcnJvcigiVW5hYmxlIHRvIHJ1biBhY3Rpb25zLiIpO3JldHVybjsgfQoJfQoJbWF4X3dh
+aXQocnVuKTsKfQoKbWF4X3J1bl90ICpDcHVNYWluX25vbmJsb2NrKAoJZG91YmxlIHBhcmFtX2Nf
+MCwKCWRvdWJsZSBwYXJhbV9jXzFfMCwKCWRvdWJsZSBwYXJhbV9jXzFfMSwKCWRvdWJsZSBwYXJh
+bV9jXzFfMiwKCWRvdWJsZSBwYXJhbV9jXzFfMywKCWRvdWJsZSBwYXJhbV9jXzFfNCwKCWRvdWJs
+ZSBwYXJhbV9jXzJfMCwKCWRvdWJsZSBwYXJhbV9jXzJfMSwKCWRvdWJsZSBwYXJhbV9jXzJfMiwK
+CWRvdWJsZSBwYXJhbV9jXzJfMywKCWRvdWJsZSBwYXJhbV9jXzJfNCwKCWRvdWJsZSBwYXJhbV9j
+XzNfMCwKCWRvdWJsZSBwYXJhbV9jXzNfMSwKCWRvdWJsZSBwYXJhbV9jXzNfMiwKCWRvdWJsZSBw
+YXJhbV9jXzNfMywKCWRvdWJsZSBwYXJhbV9jXzNfNCwKCWludDY0X3QgcGFyYW1fc2l6ZSwKCWlu
+dDY0X3QgcGFyYW1fc2l6ZUNvbnRyb2xsZXIsCglpbnQ2NF90IHBhcmFtX3N0ZW5jaWxTaXplLAoJ
+Y29uc3QgaW50MzJfdCAqaW5zdHJlYW1fY29udHJvbGxlciwKCWNvbnN0IGZsb2F0ICppbnN0cmVh
+bV9kdnYsCgljb25zdCBmbG9hdCAqaW5zdHJlYW1fcCwKCWNvbnN0IGZsb2F0ICppbnN0cmVhbV9w
+cCwKCWNvbnN0IGZsb2F0ICppbnN0cmVhbV9weCwKCWNvbnN0IGZsb2F0ICppbnN0cmVhbV9weSwK
+CWNvbnN0IGZsb2F0ICppbnN0cmVhbV9zb3VyY2VfY29udGFpbmVyLAoJZmxvYXQgKm91dHN0cmVh
+bV9wcHJlc3VsdCkKewoJQ3B1TWFpbl9hY3Rpb25zX3QgaW50ZXJmYWNlX2FjdGlvbnM7CglpbnRl
+cmZhY2VfYWN0aW9ucy5wYXJhbV9jXzAgPSBwYXJhbV9jXzA7CglpbnRlcmZhY2VfYWN0aW9ucy5w
+YXJhbV9jXzFfMCA9IHBhcmFtX2NfMV8wOwoJaW50ZXJmYWNlX2FjdGlvbnMucGFyYW1fY18xXzEg
+PSBwYXJhbV9jXzFfMTsKCWludGVyZmFjZV9hY3Rpb25zLnBhcmFtX2NfMV8yID0gcGFyYW1fY18x
+XzI7CglpbnRlcmZhY2VfYWN0aW9ucy5wYXJhbV9jXzFfMyA9IHBhcmFtX2NfMV8zOwoJaW50ZXJm
+YWNlX2FjdGlvbnMucGFyYW1fY18xXzQgPSBwYXJhbV9jXzFfNDsKCWludGVyZmFjZV9hY3Rpb25z
+LnBhcmFtX2NfMl8wID0gcGFyYW1fY18yXzA7CglpbnRlcmZhY2VfYWN0aW9ucy5wYXJhbV9jXzJf
+MSA9IHBhcmFtX2NfMl8xOwoJaW50ZXJmYWNlX2FjdGlvbnMucGFyYW1fY18yXzIgPSBwYXJhbV9j
+XzJfMjsKCWludGVyZmFjZV9hY3Rpb25zLnBhcmFtX2NfMl8zID0gcGFyYW1fY18yXzM7CglpbnRl
+cmZhY2VfYWN0aW9ucy5wYXJhbV9jXzJfNCA9IHBhcmFtX2NfMl80OwoJaW50ZXJmYWNlX2FjdGlv
+bnMucGFyYW1fY18zXzAgPSBwYXJhbV9jXzNfMDsKCWludGVyZmFjZV9hY3Rpb25zLnBhcmFtX2Nf
+M18xID0gcGFyYW1fY18zXzE7CglpbnRlcmZhY2VfYWN0aW9ucy5wYXJhbV9jXzNfMiA9IHBhcmFt
+X2NfM18yOwoJaW50ZXJmYWNlX2FjdGlvbnMucGFyYW1fY18zXzMgPSBwYXJhbV9jXzNfMzsKCWlu
+dGVyZmFjZV9hY3Rpb25zLnBhcmFtX2NfM180ID0gcGFyYW1fY18zXzQ7CglpbnRlcmZhY2VfYWN0
+aW9ucy5wYXJhbV9zaXplID0gcGFyYW1fc2l6ZTsKCWludGVyZmFjZV9hY3Rpb25zLnBhcmFtX3Np
+emVDb250cm9sbGVyID0gcGFyYW1fc2l6ZUNvbnRyb2xsZXI7CglpbnRlcmZhY2VfYWN0aW9ucy5w
+YXJhbV9zdGVuY2lsU2l6ZSA9IHBhcmFtX3N0ZW5jaWxTaXplOwoJaW50ZXJmYWNlX2FjdGlvbnMu
+aW5zdHJlYW1fY29udHJvbGxlciA9IGluc3RyZWFtX2NvbnRyb2xsZXI7CglpbnRlcmZhY2VfYWN0
+aW9ucy5pbnN0cmVhbV9kdnYgPSBpbnN0cmVhbV9kdnY7CglpbnRlcmZhY2VfYWN0aW9ucy5pbnN0
+cmVhbV9wID0gaW5zdHJlYW1fcDsKCWludGVyZmFjZV9hY3Rpb25zLmluc3RyZWFtX3BwID0gaW5z
+dHJlYW1fcHA7CglpbnRlcmZhY2VfYWN0aW9ucy5pbnN0cmVhbV9weCA9IGluc3RyZWFtX3B4OwoJ
+aW50ZXJmYWNlX2FjdGlvbnMuaW5zdHJlYW1fcHkgPSBpbnN0cmVhbV9weTsKCWludGVyZmFjZV9h
+Y3Rpb25zLmluc3RyZWFtX3NvdXJjZV9jb250YWluZXIgPSBpbnN0cmVhbV9zb3VyY2VfY29udGFp
+bmVyOwoJaW50ZXJmYWNlX2FjdGlvbnMub3V0c3RyZWFtX3BwcmVzdWx0ID0gb3V0c3RyZWFtX3Bw
+cmVzdWx0OwoJKHZvaWQpIHB0aHJlYWRfb25jZSgmc2xpY19ic19pc19pbml0aWFsaXNlZCwgQ3B1
+TWFpbl9zdGF0aWNfaW5pdCk7CglpZihzdG9yZWRfbWF4ZmlsZSA9PSBOVUxMKSB7CgkJaWYobWF4
+X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJS
+T1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJyb3IoIk1heGZpbGUgd2FzIG5vdCBsb2FkZWQu
+Iik7IHJldHVybiBOVUxMOyB9Cgl9CgltYXhfYWN0aW9uc190ICphY3Rpb25zWzFdOwoJYWN0aW9u
+c1swXSA9IENwdU1haW5fY29udmVydChzdG9yZWRfbWF4ZmlsZSwgJmludGVyZmFjZV9hY3Rpb25z
+KTsKCWlmKGFjdGlvbnNbMF0gPT0gTlVMTCkgeyAKCQlpZihtYXhfY29uZmlnX2dldF9ib29sKE1B
+WF9DT05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxz
+ZSB7IHNldF9lcnJvcigiVW5hYmxlIHRvIGJ1aWxkIGFjdGlvbnMiKTtyZXR1cm4gTlVMTDsgfQoJ
+fQoJbWF4X3ZhbGlkYXRlKGFjdGlvbnNbMF0pOwoJaWYoIW1heF9vayhhY3Rpb25zWzBdLT5lcnJv
+cnMpKSB7CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NUQVRJQ19JTlRFUkZB
+Q0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJyb3JfYW5kX2ZyZWUo
+bWF4X2Vycm9yc190cmFjZShhY3Rpb25zWzBdLT5lcnJvcnMpKTsgcmV0dXJuIE5VTEw7fQoJfQoJ
+bWF4X3J1bl90ICpydW4gPSBtYXhfcnVuX211bHRpX25vbmJsb2NrKHN0b3JlZF9lbmdpbmUsIGFj
+dGlvbnMsIDEpOwoJaWYocnVuID09IE5VTEwpIHsgCgkJaWYgKG1heF9jb25maWdfZ2V0X2Jvb2wo
+TUFYX0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FCT1JUX09OX0VSUk9SKSkgYWJvcnQoKTsKCQll
+bHNlIHsgc2V0X2Vycm9yKCJVbmFibGUgdG8gcnVuIGFjdGlvbnMuIik7cmV0dXJuIE5VTEw7IH0K
+CX0KCWlmKCFtYXhfb2soc3RvcmVkX2VuZ2luZS0+ZXJyb3JzKSAgfHwgIW1heF9vayhhY3Rpb25z
+WzBdLT5lcnJvcnMpKSB7CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NUQVRJ
+Q19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJyb3Jf
+YW5kX2ZyZWUobWF4X2Vycm9yc190cmFjZShhY3Rpb25zWzBdLT5lcnJvcnMpKTsgc2V0X2Vycm9y
+X2FuZF9mcmVlKG1heF9lcnJvcnNfdHJhY2Uoc3RvcmVkX2VuZ2luZS0+ZXJyb3JzKSk7IHJldHVy
+biBOVUxMO30KCX0KCW1heF9hY3Rpb25zX2ZyZWUoYWN0aW9uc1swXSk7CglyZXR1cm4gcnVuOwp9
+Cgp2b2lkIENwdU1haW5fcnVuKAoJbWF4X2VuZ2luZV90ICplbmdpbmUsCglDcHVNYWluX2FjdGlv
+bnNfdCAqaW50ZXJmYWNlX2FjdGlvbnMpCnsKCW1heF9ydW5fdCAqcnVuID0gQ3B1TWFpbl9ydW5f
+bm9uYmxvY2soZW5naW5lLCBpbnRlcmZhY2VfYWN0aW9ucyk7CglpZihydW4gPT0gTlVMTCkgeyAK
+CQlpZiAobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJP
+UlRfT05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJyb3IoIlVuYWJsZSB0byBydW4g
+YWN0aW9ucy4iKTtyZXR1cm47IH0KCX0KCW1heF93YWl0KHJ1bik7Cn0KCm1heF9ydW5fdCAqQ3B1
+TWFpbl9ydW5fbm9uYmxvY2soCgltYXhfZW5naW5lX3QgKmVuZ2luZSwKCUNwdU1haW5fYWN0aW9u
+c190ICppbnRlcmZhY2VfYWN0aW9ucykKewoJbWF4X2ZpbGVfdCAqbWF4ZmlsZSA9IG1heF9lbmdp
+bmVfZ2V0X21heF9maWxlKGVuZ2luZSk7IAoJbWF4X2FjdGlvbnNfdCAqYWN0aW9uc1sxXTsKCWFj
+dGlvbnNbMF0gPSBDcHVNYWluX2NvbnZlcnQobWF4ZmlsZSwgaW50ZXJmYWNlX2FjdGlvbnMpOwoJ
+aWYoIW1heF9vayhhY3Rpb25zWzBdLT5lcnJvcnMpKSB7CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9v
+bChNQVhfQ09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9ydCgpOwoJ
+CWVsc2UgeyBzZXRfZXJyb3JfYW5kX2ZyZWUobWF4X2Vycm9yc190cmFjZShhY3Rpb25zWzBdLT5l
+cnJvcnMpKTsgcmV0dXJuIE5VTEw7fQoJfQoJbWF4X3J1bl90ICpydW4gPSBtYXhfcnVuX211bHRp
+X25vbmJsb2NrKGVuZ2luZSwgYWN0aW9ucywgMSk7CglpZihydW4gPT0gTlVMTCkgeyAKCQlpZiAo
+bWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05f
+RVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJyb3IoIlVuYWJsZSB0byBydW4gYWN0aW9u
+cy4iKTsgcmV0dXJuIE5VTEw7IH0KCX0KCW1heF9hY3Rpb25zX2ZyZWUoYWN0aW9uc1swXSk7Cgly
+ZXR1cm4gcnVuOwp9CgoKLyoqCiAqIFxicmllZiBHcm91cCBydW4gYWR2YW5jZWQgc3RhdGljIGZ1
+bmN0aW9uIGZvciB0aGUgaW50ZXJmYWNlICdkZWZhdWx0Jy4KICogCiAqIFxwYXJhbSBbaW5dIGdy
+b3VwIEdyb3VwIHRvIHVzZS4KICogXHBhcmFtIFtpbixvdXRdIGludGVyZmFjZV9hY3Rpb25zIEFj
+dGlvbnMgdG8gcnVuLgogKgogKiBSdW4gdGhlIGFjdGlvbnMgb24gdGhlIGZpcnN0IGRldmljZSBh
+dmFpbGFibGUgaW4gdGhlIGdyb3VwLgogKi8Kdm9pZCBDcHVNYWluX3J1bl9ncm91cChtYXhfZ3Jv
+dXBfdCAqZ3JvdXAsIENwdU1haW5fYWN0aW9uc190ICppbnRlcmZhY2VfYWN0aW9ucykKewoJLyog
+Tm90IHN0cmljdGx5IGNvcnJlY3QsIGJlY2F1c2UgZXhwbGljaXRseSBsb2NraW5nIGFuIGVuZ2lu
+ZSBoZXJlLiAqLwoJbWF4X2VuZ2luZV90ICplbmdpbmUgPSBtYXhfbG9ja19hbnkoZ3JvdXApOwoJ
+aWYoZW5naW5lID09IE5VTEwpIHJldHVybjsKCUNwdU1haW5fcnVuKGVuZ2luZSwgaW50ZXJmYWNl
+X2FjdGlvbnMpOwoJbWF4X3VubG9jayhlbmdpbmUpOwp9CgoKLyoqCiAqIFxicmllZiBHcm91cCBy
+dW4gYWR2YW5jZWQgc3RhdGljIG5vbi1ibG9ja2luZyBmdW5jdGlvbiBmb3IgdGhlIGludGVyZmFj
+ZSAnZGVmYXVsdCcuCiAqIAogKgogKiBTY2hlZHVsZSB0aGUgYWN0aW9ucyB0byBydW4gb24gdGhl
+IGZpcnN0IGRldmljZSBhdmFpbGFibGUgaW4gdGhlIGdyb3VwIGFuZCByZXR1cm4gaW1tZWRpYXRl
+bHkuCiAqIFRoZSBzdGF0dXMgb2YgdGhlIHJ1biBtdXN0IGJlIGNoZWNrZWQgd2l0aCA6Om1heF93
+YWl0LiAKICogTm90ZSB0aGF0IHVzZSBvZiA6Om1heF9ub3dhaXQgaXMgcHJvaGliaXRlZCB3aXRo
+IG5vbi1ibG9ja2luZyBydW5uaW5nIG9uIGdyb3VwczoKICogc2VlIHRoZSA6Om1heF9ydW5fZ3Jv
+dXBfbm9uYmxvY2sgZG9jdW1lbnRhdGlvbiBmb3IgbW9yZSBleHBsYW5hdGlvbi4KICoKICogXHBh
+cmFtIFtpbl0gZ3JvdXAgR3JvdXAgdG8gdXNlLgogKiBccGFyYW0gW2luXSBpbnRlcmZhY2VfYWN0
+aW9ucyBBY3Rpb25zIHRvIHJ1bi4KICogXHJldHVybiBBIGhhbmRsZSBvbiB0aGUgZXhlY3V0aW9u
+IHN0YXR1cyBvZiB0aGUgYWN0aW9ucywgb3IgTlVMTCBpbiBjYXNlIG9mIGVycm9yLgogKi8KbWF4
+X3J1bl90ICpDcHVNYWluX3J1bl9ncm91cF9ub25ibG9jayhtYXhfZ3JvdXBfdCAqZ3JvdXAsIENw
+dU1haW5fYWN0aW9uc190ICppbnRlcmZhY2VfYWN0aW9ucykKewoJbWF4X2ZpbGVfdCAqbWF4Zmls
+ZSA9IG1heF9ncm91cF9nZXRfbWF4X2ZpbGUoZ3JvdXApOwoJbWF4X2FjdGlvbnNfdCAqYWN0aW9u
+cyA9IENwdU1haW5fY29udmVydChtYXhmaWxlLCBpbnRlcmZhY2VfYWN0aW9ucyk7CglpZihhY3Rp
+b25zID09IE5VTEwpIHJldHVybiBOVUxMOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSBy
+ZXR1cm4gTlVMTDsKCW1heF92YWxpZGF0ZShhY3Rpb25zKTsKCW1heF9ydW5fdCAqcnVuID0gbWF4
+X3J1bl9ncm91cF9ub25ibG9jayhncm91cCwgYWN0aW9ucyk7CgltYXhfYWN0aW9uc19mcmVlKGFj
+dGlvbnMpOwoJcmV0dXJuIHJ1bjsKfQoKCi8qKgogKiBcYnJpZWYgQXJyYXkgcnVuIGFkdmFuY2Vk
+IHN0YXRpYyBmdW5jdGlvbiBmb3IgdGhlIGludGVyZmFjZSAnZGVmYXVsdCcuCiAqIAogKiBccGFy
+YW0gW2luXSBlbmdhcnJheSBUaGUgYXJyYXkgb2YgZGV2aWNlcyB0byB1c2UuCiAqIFxwYXJhbSBb
+aW4sb3V0XSBpbnRlcmZhY2VfYWN0aW9ucyBUaGUgYXJyYXkgb2YgYWN0aW9ucyB0byBydW4uCiAq
+CiAqIFJ1biB0aGUgYXJyYXkgb2YgYWN0aW9ucyBvbiB0aGUgYXJyYXkgb2YgZW5naW5lcy4gIFRo
+ZSBsZW5ndGggb2YgaW50ZXJmYWNlX2FjdGlvbnMKICogbXVzdCBtYXRjaCB0aGUgc2l6ZSBvZiBl
+bmdhcnJheS4KICovCnZvaWQgQ3B1TWFpbl9ydW5fYXJyYXkobWF4X2VuZ2FycmF5X3QgKmVuZ2Fy
+cmF5LCBDcHVNYWluX2FjdGlvbnNfdCAqaW50ZXJmYWNlX2FjdGlvbnNbXSkKewoJbWF4X3J1bl90
+ICpydW4gPSBDcHVNYWluX3J1bl9hcnJheV9ub25ibG9jayhlbmdhcnJheSwgaW50ZXJmYWNlX2Fj
+dGlvbnMpOwoJaWYocnVuID09IE5VTEwpIHsgCgkJaWYgKG1heF9jb25maWdfZ2V0X2Jvb2woTUFY
+X0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FCT1JUX09OX0VSUk9SKSkgYWJvcnQoKTsKCQllbHNl
+IHsgc2V0X2Vycm9yKCJVbmFibGUgdG8gcnVuIGFjdGlvbnMuIik7cmV0dXJuOyB9Cgl9CgltYXhf
+d2FpdChydW4pOwp9CgoKLyoqCiAqIFxicmllZiBBcnJheSBydW4gYWR2YW5jZWQgc3RhdGljIG5v
+bi1ibG9ja2luZyBmdW5jdGlvbiBmb3IgdGhlIGludGVyZmFjZSAnZGVmYXVsdCcuCiAqIAogKgog
+KiBTY2hlZHVsZSB0byBydW4gdGhlIGFycmF5IG9mIGFjdGlvbnMgb24gdGhlIGFycmF5IG9mIGVu
+Z2luZXMsIGFuZCByZXR1cm4gaW1tZWRpYXRlbHkuCiAqIFRoZSBsZW5ndGggb2YgaW50ZXJmYWNl
+X2FjdGlvbnMgbXVzdCBtYXRjaCB0aGUgc2l6ZSBvZiBlbmdhcnJheS4KICogVGhlIHN0YXR1cyBv
+ZiB0aGUgcnVuIGNhbiBiZSBjaGVja2VkIGVpdGhlciBieSA6Om1heF93YWl0IG9yIDo6bWF4X25v
+d2FpdDsKICogbm90ZSB0aGF0IG9uZSBvZiB0aGVzZSAqbXVzdCogYmUgY2FsbGVkLCBzbyB0aGF0
+IGFzc29jaWF0ZWQgbWVtb3J5IGNhbiBiZSByZWxlYXNlZC4KICoKICogXHBhcmFtIFtpbl0gZW5n
+YXJyYXkgVGhlIGFycmF5IG9mIGRldmljZXMgdG8gdXNlLgogKiBccGFyYW0gW2luXSBpbnRlcmZh
+Y2VfYWN0aW9ucyBUaGUgYXJyYXkgb2YgYWN0aW9ucyB0byBydW4uCiAqIFxyZXR1cm4gQSBoYW5k
+bGUgb24gdGhlIGV4ZWN1dGlvbiBzdGF0dXMgb2YgdGhlIGFjdGlvbnMsIG9yIE5VTEwgaW4gY2Fz
+ZSBvZiBlcnJvci4KICovCm1heF9ydW5fdCAqQ3B1TWFpbl9ydW5fYXJyYXlfbm9uYmxvY2sobWF4
+X2VuZ2FycmF5X3QgKmVuZ2FycmF5LCBDcHVNYWluX2FjdGlvbnNfdCAqaW50ZXJmYWNlX2FjdGlv
+bnNbXSkKewoJbWF4X2ZpbGVfdCAqbWF4ZmlsZSA9IG1heF9lbmdhcnJheV9nZXRfbWF4X2ZpbGUo
+ZW5nYXJyYXkpOwoJaW50IGk7CgltYXhfYWN0YXJyYXlfdCAqYXJyX2FjdGFycmF5WzFdOwoJbWF4
+X2FjdGlvbnNfdCAqKmFycl9hY3Rpb25zWzFdOwoJYXJyX2FjdGFycmF5WzBdID0gbWF4X2FjdGFy
+cmF5X2luaXQobWF4ZmlsZSwgZW5nYXJyYXktPnNpemUpOwoJaWYoYXJyX2FjdGFycmF5WzBdID09
+IE5VTEwpIHJldHVybiBOVUxMOwoJYXJyX2FjdGlvbnNbMF0gPSBtYWxsb2MoZW5nYXJyYXktPnNp
+emUgKiBzaXplb2YobWF4X2FjdGlvbnNfdCopKTsKCWZvcihpPTA7IGkgPCBhcnJfYWN0YXJyYXlb
+MF0tPnNpemU7IGkrKykgewoJCW1heF9hY3Rpb25zX3QgKmFjdGlvbnMgPSBDcHVNYWluX2NvbnZl
+cnQobWF4ZmlsZSwgaW50ZXJmYWNlX2FjdGlvbnNbaV0pOwoJCWlmKGFjdGlvbnMgPT0gTlVMTCkg
+cmV0dXJuIE5VTEw7CgkJYXJyX2FjdGlvbnNbMF1baV0gPSBhY3Rpb25zOwoJCW1heF9zZXRfYWN0
+aW9uKGFycl9hY3RhcnJheVswXSwgaSwgYWN0aW9ucyk7Cgl9CgltYXhfcnVuX3QgKnJ1biA9IG1h
+eF9ydW5fYXJyYXlfbXVsdGlfbm9uYmxvY2soZW5nYXJyYXksIGFycl9hY3RhcnJheSwgMSApOwoJ
+Zm9yIChpPTA7IGkgPCBhcnJfYWN0YXJyYXlbMF0tPnNpemU7IGkrKykgeyBtYXhfYWN0aW9uc19m
+cmVlKGFycl9hY3Rpb25zWzBdW2ldKTsgfQoJbWF4X2FjdGFycmF5X2ZyZWUoYXJyX2FjdGFycmF5
+WzBdKTsKCWZyZWUoYXJyX2FjdGlvbnNbMF0pOwoJcmV0dXJuIHJ1bjsKfQoKCi8qKgogKiBcYnJp
+ZWYgQ29udmVydHMgYSBzdGF0aWMtaW50ZXJmYWNlIGFjdGlvbiBzdHJ1Y3QgaW50byBhIGR5bmFt
+aWMtaW50ZXJmYWNlIG1heF9hY3Rpb25zX3Qgc3RydWN0LgogKgogKiBOb3RlIHRoYXQgdGhpcyBp
+cyBhbiBpbnRlcm5hbCB1dGlsaXR5IGZ1bmN0aW9uIHVzZWQgYnkgb3RoZXIgZnVuY3Rpb25zIGlu
+IHRoZSBzdGF0aWMgaW50ZXJmYWNlLgogKgogKiBccGFyYW0gW2luXSBtYXhmaWxlIFRoZSBtYXhm
+aWxlIHRvIHVzZS4KICogXHBhcmFtIFtpbl0gaW50ZXJmYWNlX2FjdGlvbnMgVGhlIGludGVyZmFj
+ZS1zcGVjaWZpYyBhY3Rpb25zIHRvIHJ1bi4KICogXHJldHVybiBUaGUgZHluYW1pYy1pbnRlcmZh
+Y2UgYWN0aW9ucyB0byBydW4sIG9yIE5VTEwgaW4gY2FzZSBvZiBlcnJvci4KICovCm1heF9hY3Rp
+b25zX3QqIENwdU1haW5fY29udmVydChtYXhfZmlsZV90ICptYXhmaWxlLCBDcHVNYWluX2FjdGlv
+bnNfdCAqaW50ZXJmYWNlX2FjdGlvbnMpCnsKCW1heF9hY3Rpb25zX3QgKmFjdGlvbnMgPSBtYXhf
+YWN0aW9uc19pbml0KG1heGZpbGUsIE5VTEwpOwoJaWYoYWN0aW9ucyA9PSBOVUxMIHx8ICFtYXhf
+b2sobWF4ZmlsZS0+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7CgoJZG91YmxlIHBhcmFtX2NfMCA9IGlu
+dGVyZmFjZV9hY3Rpb25zLT5wYXJhbV9jXzA7CgkKCWRvdWJsZSBwYXJhbV9jXzFfMCA9IGludGVy
+ZmFjZV9hY3Rpb25zLT5wYXJhbV9jXzFfMDsKCQoJZG91YmxlIHBhcmFtX2NfMV8xID0gaW50ZXJm
+YWNlX2FjdGlvbnMtPnBhcmFtX2NfMV8xOwoJCglkb3VibGUgcGFyYW1fY18xXzIgPSBpbnRlcmZh
+Y2VfYWN0aW9ucy0+cGFyYW1fY18xXzI7CgkKCWRvdWJsZSBwYXJhbV9jXzFfMyA9IGludGVyZmFj
+ZV9hY3Rpb25zLT5wYXJhbV9jXzFfMzsKCQoJZG91YmxlIHBhcmFtX2NfMV80ID0gaW50ZXJmYWNl
+X2FjdGlvbnMtPnBhcmFtX2NfMV80OwoJCglkb3VibGUgcGFyYW1fY18yXzAgPSBpbnRlcmZhY2Vf
+YWN0aW9ucy0+cGFyYW1fY18yXzA7CgkKCWRvdWJsZSBwYXJhbV9jXzJfMSA9IGludGVyZmFjZV9h
+Y3Rpb25zLT5wYXJhbV9jXzJfMTsKCQoJZG91YmxlIHBhcmFtX2NfMl8yID0gaW50ZXJmYWNlX2Fj
+dGlvbnMtPnBhcmFtX2NfMl8yOwoJCglkb3VibGUgcGFyYW1fY18yXzMgPSBpbnRlcmZhY2VfYWN0
+aW9ucy0+cGFyYW1fY18yXzM7CgkKCWRvdWJsZSBwYXJhbV9jXzJfNCA9IGludGVyZmFjZV9hY3Rp
+b25zLT5wYXJhbV9jXzJfNDsKCQoJZG91YmxlIHBhcmFtX2NfM18wID0gaW50ZXJmYWNlX2FjdGlv
+bnMtPnBhcmFtX2NfM18wOwoJCglkb3VibGUgcGFyYW1fY18zXzEgPSBpbnRlcmZhY2VfYWN0aW9u
+cy0+cGFyYW1fY18zXzE7CgkKCWRvdWJsZSBwYXJhbV9jXzNfMiA9IGludGVyZmFjZV9hY3Rpb25z
+LT5wYXJhbV9jXzNfMjsKCQoJZG91YmxlIHBhcmFtX2NfM18zID0gaW50ZXJmYWNlX2FjdGlvbnMt
+PnBhcmFtX2NfM18zOwoJCglkb3VibGUgcGFyYW1fY18zXzQgPSBpbnRlcmZhY2VfYWN0aW9ucy0+
+cGFyYW1fY18zXzQ7CgkKCWludDY0X3QgcGFyYW1fc2l6ZSA9IGludGVyZmFjZV9hY3Rpb25zLT5w
+YXJhbV9zaXplOwoJCglpbnQ2NF90IHBhcmFtX3NpemVDb250cm9sbGVyID0gaW50ZXJmYWNlX2Fj
+dGlvbnMtPnBhcmFtX3NpemVDb250cm9sbGVyOwoJCglpbnQ2NF90IHBhcmFtX3N0ZW5jaWxTaXpl
+ID0gaW50ZXJmYWNlX2FjdGlvbnMtPnBhcmFtX3N0ZW5jaWxTaXplOwoJCgoJLyogdGVtcG9yYXJ5
+IHZhcmlhYmxlcyAqLwoJaW50NjRfdCB0bXBfMCA9IChwYXJhbV9zaXplICogNCk7CglpbnQ2NF90
+IHRtcF8xID0gKHBhcmFtX3NpemUgKiA0KTsKCWludDY0X3QgdG1wXzIgPSAocGFyYW1fc2l6ZSAq
+IDQpOwoJaW50NjRfdCB0bXBfMyA9IChwYXJhbV9zaXplICogNCk7CglpbnQ2NF90IHRtcF80ID0g
+KChwYXJhbV9zaXplICogcGFyYW1fc3RlbmNpbFNpemUpICogNCk7CglpbnQ2NF90IHRtcF81ID0g
+KChwYXJhbV9zaXplICogcGFyYW1fc3RlbmNpbFNpemUpICogNCk7CglpbnQ2NF90IHRtcF82ID0g
+KChwYXJhbV9zaXplICogcGFyYW1fc3RlbmNpbFNpemUpICogNCk7CglpbnQ2NF90IHRtcF83ID0g
+KHBhcmFtX3NpemUgKiA0KTsKCgkvKiBjb2RlIGZvciBzY2FsYXIgbGluZWFyS2VybmVsLnJ1bl9j
+eWNsZV9jb3VudCAqLwoJdWludDY0X3QgdGlja3NfbGluZWFyS2VybmVsID0gcGFyYW1fc2l6ZUNv
+bnRyb2xsZXI7CgltYXhfc2V0X3RpY2tzKGFjdGlvbnMsICJsaW5lYXJLZXJuZWwiLCBwYXJhbV9z
+aXplQ29udHJvbGxlcik7CglpZighbWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBOVUxM
+OwoJLyogZW5kIG9mIGNvZGUgZm9yIHNjYWxhciBsaW5lYXJLZXJuZWwucnVuX2N5Y2xlX2NvdW50
+Ki8KCQoJLyogY29kZSBmb3Igc2NhbGFyIGxpbmVhcktlcm5lbC5jXzAgKi8KCWRvdWJsZSBpbnNj
+YWxhcl9saW5lYXJLZXJuZWxfY18wID0gcGFyYW1fY18wOwoJbWF4X3NldF9kb3VibGUoYWN0aW9u
+cywgImxpbmVhcktlcm5lbCIsICJjXzAiLCBpbnNjYWxhcl9saW5lYXJLZXJuZWxfY18wKTsKCWlm
+KCFtYXhfb2soYWN0aW9ucy0+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7CgkvKiBlbmQgb2YgY29kZSBm
+b3Igc2NhbGFyIGxpbmVhcktlcm5lbC5jXzAqLwoJCgkvKiBjb2RlIGZvciBzY2FsYXIgbGluZWFy
+S2VybmVsLmNfMV8wICovCglkb3VibGUgaW5zY2FsYXJfbGluZWFyS2VybmVsX2NfMV8wID0gcGFy
+YW1fY18xXzA7CgltYXhfc2V0X2RvdWJsZShhY3Rpb25zLCAibGluZWFyS2VybmVsIiwgImNfMV8w
+IiwgaW5zY2FsYXJfbGluZWFyS2VybmVsX2NfMV8wKTsKCWlmKCFtYXhfb2soYWN0aW9ucy0+ZXJy
+b3JzKSkgcmV0dXJuIE5VTEw7CgkvKiBlbmQgb2YgY29kZSBmb3Igc2NhbGFyIGxpbmVhcktlcm5l
+bC5jXzFfMCovCgkKCS8qIGNvZGUgZm9yIHNjYWxhciBsaW5lYXJLZXJuZWwuY18xXzEgKi8KCWRv
+dWJsZSBpbnNjYWxhcl9saW5lYXJLZXJuZWxfY18xXzEgPSBwYXJhbV9jXzFfMTsKCW1heF9zZXRf
+ZG91YmxlKGFjdGlvbnMsICJsaW5lYXJLZXJuZWwiLCAiY18xXzEiLCBpbnNjYWxhcl9saW5lYXJL
+ZXJuZWxfY18xXzEpOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsK
+CS8qIGVuZCBvZiBjb2RlIGZvciBzY2FsYXIgbGluZWFyS2VybmVsLmNfMV8xKi8KCQoJLyogY29k
+ZSBmb3Igc2NhbGFyIGxpbmVhcktlcm5lbC5jXzFfMiAqLwoJZG91YmxlIGluc2NhbGFyX2xpbmVh
+cktlcm5lbF9jXzFfMiA9IHBhcmFtX2NfMV8yOwoJbWF4X3NldF9kb3VibGUoYWN0aW9ucywgImxp
+bmVhcktlcm5lbCIsICJjXzFfMiIsIGluc2NhbGFyX2xpbmVhcktlcm5lbF9jXzFfMik7CglpZigh
+bWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBOVUxMOwoJLyogZW5kIG9mIGNvZGUgZm9y
+IHNjYWxhciBsaW5lYXJLZXJuZWwuY18xXzIqLwoJCgkvKiBjb2RlIGZvciBzY2FsYXIgbGluZWFy
+S2VybmVsLmNfMV8zICovCglkb3VibGUgaW5zY2FsYXJfbGluZWFyS2VybmVsX2NfMV8zID0gcGFy
+YW1fY18xXzM7CgltYXhfc2V0X2RvdWJsZShhY3Rpb25zLCAibGluZWFyS2VybmVsIiwgImNfMV8z
+IiwgaW5zY2FsYXJfbGluZWFyS2VybmVsX2NfMV8zKTsKCWlmKCFtYXhfb2soYWN0aW9ucy0+ZXJy
+b3JzKSkgcmV0dXJuIE5VTEw7CgkvKiBlbmQgb2YgY29kZSBmb3Igc2NhbGFyIGxpbmVhcktlcm5l
+bC5jXzFfMyovCgkKCS8qIGNvZGUgZm9yIHNjYWxhciBsaW5lYXJLZXJuZWwuY18xXzQgKi8KCWRv
+dWJsZSBpbnNjYWxhcl9saW5lYXJLZXJuZWxfY18xXzQgPSBwYXJhbV9jXzFfNDsKCW1heF9zZXRf
+ZG91YmxlKGFjdGlvbnMsICJsaW5lYXJLZXJuZWwiLCAiY18xXzQiLCBpbnNjYWxhcl9saW5lYXJL
+ZXJuZWxfY18xXzQpOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsK
+CS8qIGVuZCBvZiBjb2RlIGZvciBzY2FsYXIgbGluZWFyS2VybmVsLmNfMV80Ki8KCQoJLyogY29k
+ZSBmb3Igc2NhbGFyIGxpbmVhcktlcm5lbC5jXzJfMCAqLwoJZG91YmxlIGluc2NhbGFyX2xpbmVh
+cktlcm5lbF9jXzJfMCA9IHBhcmFtX2NfMl8wOwoJbWF4X3NldF9kb3VibGUoYWN0aW9ucywgImxp
+bmVhcktlcm5lbCIsICJjXzJfMCIsIGluc2NhbGFyX2xpbmVhcktlcm5lbF9jXzJfMCk7CglpZigh
+bWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBOVUxMOwoJLyogZW5kIG9mIGNvZGUgZm9y
+IHNjYWxhciBsaW5lYXJLZXJuZWwuY18yXzAqLwoJCgkvKiBjb2RlIGZvciBzY2FsYXIgbGluZWFy
+S2VybmVsLmNfMl8xICovCglkb3VibGUgaW5zY2FsYXJfbGluZWFyS2VybmVsX2NfMl8xID0gcGFy
+YW1fY18yXzE7CgltYXhfc2V0X2RvdWJsZShhY3Rpb25zLCAibGluZWFyS2VybmVsIiwgImNfMl8x
+IiwgaW5zY2FsYXJfbGluZWFyS2VybmVsX2NfMl8xKTsKCWlmKCFtYXhfb2soYWN0aW9ucy0+ZXJy
+b3JzKSkgcmV0dXJuIE5VTEw7CgkvKiBlbmQgb2YgY29kZSBmb3Igc2NhbGFyIGxpbmVhcktlcm5l
+bC5jXzJfMSovCgkKCS8qIGNvZGUgZm9yIHNjYWxhciBsaW5lYXJLZXJuZWwuY18yXzIgKi8KCWRv
+dWJsZSBpbnNjYWxhcl9saW5lYXJLZXJuZWxfY18yXzIgPSBwYXJhbV9jXzJfMjsKCW1heF9zZXRf
+ZG91YmxlKGFjdGlvbnMsICJsaW5lYXJLZXJuZWwiLCAiY18yXzIiLCBpbnNjYWxhcl9saW5lYXJL
+ZXJuZWxfY18yXzIpOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsK
+CS8qIGVuZCBvZiBjb2RlIGZvciBzY2FsYXIgbGluZWFyS2VybmVsLmNfMl8yKi8KCQoJLyogY29k
+ZSBmb3Igc2NhbGFyIGxpbmVhcktlcm5lbC5jXzJfMyAqLwoJZG91YmxlIGluc2NhbGFyX2xpbmVh
+cktlcm5lbF9jXzJfMyA9IHBhcmFtX2NfMl8zOwoJbWF4X3NldF9kb3VibGUoYWN0aW9ucywgImxp
+bmVhcktlcm5lbCIsICJjXzJfMyIsIGluc2NhbGFyX2xpbmVhcktlcm5lbF9jXzJfMyk7CglpZigh
+bWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBOVUxMOwoJLyogZW5kIG9mIGNvZGUgZm9y
+IHNjYWxhciBsaW5lYXJLZXJuZWwuY18yXzMqLwoJCgkvKiBjb2RlIGZvciBzY2FsYXIgbGluZWFy
+S2VybmVsLmNfMl80ICovCglkb3VibGUgaW5zY2FsYXJfbGluZWFyS2VybmVsX2NfMl80ID0gcGFy
+YW1fY18yXzQ7CgltYXhfc2V0X2RvdWJsZShhY3Rpb25zLCAibGluZWFyS2VybmVsIiwgImNfMl80
+IiwgaW5zY2FsYXJfbGluZWFyS2VybmVsX2NfMl80KTsKCWlmKCFtYXhfb2soYWN0aW9ucy0+ZXJy
+b3JzKSkgcmV0dXJuIE5VTEw7CgkvKiBlbmQgb2YgY29kZSBmb3Igc2NhbGFyIGxpbmVhcktlcm5l
+bC5jXzJfNCovCgkKCS8qIGNvZGUgZm9yIHNjYWxhciBsaW5lYXJLZXJuZWwuY18zXzAgKi8KCWRv
+dWJsZSBpbnNjYWxhcl9saW5lYXJLZXJuZWxfY18zXzAgPSBwYXJhbV9jXzNfMDsKCW1heF9zZXRf
+ZG91YmxlKGFjdGlvbnMsICJsaW5lYXJLZXJuZWwiLCAiY18zXzAiLCBpbnNjYWxhcl9saW5lYXJL
+ZXJuZWxfY18zXzApOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsK
+CS8qIGVuZCBvZiBjb2RlIGZvciBzY2FsYXIgbGluZWFyS2VybmVsLmNfM18wKi8KCQoJLyogY29k
+ZSBmb3Igc2NhbGFyIGxpbmVhcktlcm5lbC5jXzNfMSAqLwoJZG91YmxlIGluc2NhbGFyX2xpbmVh
+cktlcm5lbF9jXzNfMSA9IHBhcmFtX2NfM18xOwoJbWF4X3NldF9kb3VibGUoYWN0aW9ucywgImxp
+bmVhcktlcm5lbCIsICJjXzNfMSIsIGluc2NhbGFyX2xpbmVhcktlcm5lbF9jXzNfMSk7CglpZigh
+bWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBOVUxMOwoJLyogZW5kIG9mIGNvZGUgZm9y
+IHNjYWxhciBsaW5lYXJLZXJuZWwuY18zXzEqLwoJCgkvKiBjb2RlIGZvciBzY2FsYXIgbGluZWFy
+S2VybmVsLmNfM18yICovCglkb3VibGUgaW5zY2FsYXJfbGluZWFyS2VybmVsX2NfM18yID0gcGFy
+YW1fY18zXzI7CgltYXhfc2V0X2RvdWJsZShhY3Rpb25zLCAibGluZWFyS2VybmVsIiwgImNfM18y
+IiwgaW5zY2FsYXJfbGluZWFyS2VybmVsX2NfM18yKTsKCWlmKCFtYXhfb2soYWN0aW9ucy0+ZXJy
+b3JzKSkgcmV0dXJuIE5VTEw7CgkvKiBlbmQgb2YgY29kZSBmb3Igc2NhbGFyIGxpbmVhcktlcm5l
+bC5jXzNfMiovCgkKCS8qIGNvZGUgZm9yIHNjYWxhciBsaW5lYXJLZXJuZWwuY18zXzMgKi8KCWRv
+dWJsZSBpbnNjYWxhcl9saW5lYXJLZXJuZWxfY18zXzMgPSBwYXJhbV9jXzNfMzsKCW1heF9zZXRf
+ZG91YmxlKGFjdGlvbnMsICJsaW5lYXJLZXJuZWwiLCAiY18zXzMiLCBpbnNjYWxhcl9saW5lYXJL
+ZXJuZWxfY18zXzMpOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsK
+CS8qIGVuZCBvZiBjb2RlIGZvciBzY2FsYXIgbGluZWFyS2VybmVsLmNfM18zKi8KCQoJLyogY29k
+ZSBmb3Igc2NhbGFyIGxpbmVhcktlcm5lbC5jXzNfNCAqLwoJZG91YmxlIGluc2NhbGFyX2xpbmVh
+cktlcm5lbF9jXzNfNCA9IHBhcmFtX2NfM180OwoJbWF4X3NldF9kb3VibGUoYWN0aW9ucywgImxp
+bmVhcktlcm5lbCIsICJjXzNfNCIsIGluc2NhbGFyX2xpbmVhcktlcm5lbF9jXzNfNCk7CglpZigh
+bWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBOVUxMOwoJLyogZW5kIG9mIGNvZGUgZm9y
+IHNjYWxhciBsaW5lYXJLZXJuZWwuY18zXzQqLwoJCgkvKiBjb2RlIGZvciBzdHJlYW0gY29udHJv
+bGxlciAqLwoJc2l6ZV90IGluc3RyZWFtX3NpemVfY29udHJvbGxlciA9IHRtcF82OwoJaWYgKGlu
+c3RyZWFtX3NpemVfY29udHJvbGxlciA+IDApIHsKCQltYXhfcXVldWVfaW5wdXQoYWN0aW9ucywg
+ImNvbnRyb2xsZXIiLCBpbnRlcmZhY2VfYWN0aW9ucy0+aW5zdHJlYW1fY29udHJvbGxlcixpbnN0
+cmVhbV9zaXplX2NvbnRyb2xsZXIpOwoJCWlmICghbWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJl
+dHVybiBOVUxMOwoJfQoJLyogZW5kIG9mIGNvZGUgZm9yIHN0cmVhbSBjb250cm9sbGVyICovCgkK
+CS8qIGNvZGUgZm9yIHN0cmVhbSBkdnYgKi8KCXNpemVfdCBpbnN0cmVhbV9zaXplX2R2diA9IHRt
+cF8yOwoJaWYgKGluc3RyZWFtX3NpemVfZHZ2ID4gMCkgewoJCW1heF9xdWV1ZV9pbnB1dChhY3Rp
+b25zLCAiZHZ2IiwgaW50ZXJmYWNlX2FjdGlvbnMtPmluc3RyZWFtX2R2dixpbnN0cmVhbV9zaXpl
+X2R2dik7CgkJaWYgKCFtYXhfb2soYWN0aW9ucy0+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7Cgl9Cgkv
+KiBlbmQgb2YgY29kZSBmb3Igc3RyZWFtIGR2diAqLwoJCgkvKiBjb2RlIGZvciBzdHJlYW0gcCAq
+LwoJc2l6ZV90IGluc3RyZWFtX3NpemVfcCA9IHRtcF8wOwoJaWYgKGluc3RyZWFtX3NpemVfcCA+
+IDApIHsKCQltYXhfcXVldWVfaW5wdXQoYWN0aW9ucywgInAiLCBpbnRlcmZhY2VfYWN0aW9ucy0+
+aW5zdHJlYW1fcCxpbnN0cmVhbV9zaXplX3ApOwoJCWlmICghbWF4X29rKGFjdGlvbnMtPmVycm9y
+cykpIHJldHVybiBOVUxMOwoJfQoJLyogZW5kIG9mIGNvZGUgZm9yIHN0cmVhbSBwICovCgkKCS8q
+IGNvZGUgZm9yIHN0cmVhbSBwcCAqLwoJc2l6ZV90IGluc3RyZWFtX3NpemVfcHAgPSB0bXBfMTsK
+CWlmIChpbnN0cmVhbV9zaXplX3BwID4gMCkgewoJCW1heF9xdWV1ZV9pbnB1dChhY3Rpb25zLCAi
+cHAiLCBpbnRlcmZhY2VfYWN0aW9ucy0+aW5zdHJlYW1fcHAsaW5zdHJlYW1fc2l6ZV9wcCk7CgkJ
+aWYgKCFtYXhfb2soYWN0aW9ucy0+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7Cgl9CgkvKiBlbmQgb2Yg
+Y29kZSBmb3Igc3RyZWFtIHBwICovCgkKCS8qIGNvZGUgZm9yIHN0cmVhbSBweCAqLwoJc2l6ZV90
+IGluc3RyZWFtX3NpemVfcHggPSB0bXBfNDsKCWlmIChpbnN0cmVhbV9zaXplX3B4ID4gMCkgewoJ
+CW1heF9xdWV1ZV9pbnB1dChhY3Rpb25zLCAicHgiLCBpbnRlcmZhY2VfYWN0aW9ucy0+aW5zdHJl
+YW1fcHgsaW5zdHJlYW1fc2l6ZV9weCk7CgkJaWYgKCFtYXhfb2soYWN0aW9ucy0+ZXJyb3JzKSkg
+cmV0dXJuIE5VTEw7Cgl9CgkvKiBlbmQgb2YgY29kZSBmb3Igc3RyZWFtIHB4ICovCgkKCS8qIGNv
+ZGUgZm9yIHN0cmVhbSBweSAqLwoJc2l6ZV90IGluc3RyZWFtX3NpemVfcHkgPSB0bXBfNTsKCWlm
+IChpbnN0cmVhbV9zaXplX3B5ID4gMCkgewoJCW1heF9xdWV1ZV9pbnB1dChhY3Rpb25zLCAicHki
+LCBpbnRlcmZhY2VfYWN0aW9ucy0+aW5zdHJlYW1fcHksaW5zdHJlYW1fc2l6ZV9weSk7CgkJaWYg
+KCFtYXhfb2soYWN0aW9ucy0+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7Cgl9CgkvKiBlbmQgb2YgY29k
+ZSBmb3Igc3RyZWFtIHB5ICovCgkKCS8qIGNvZGUgZm9yIHN0cmVhbSBzb3VyY2VfY29udGFpbmVy
+ICovCglzaXplX3QgaW5zdHJlYW1fc2l6ZV9zb3VyY2VfY29udGFpbmVyID0gdG1wXzM7CglpZiAo
+aW5zdHJlYW1fc2l6ZV9zb3VyY2VfY29udGFpbmVyID4gMCkgewoJCW1heF9xdWV1ZV9pbnB1dChh
+Y3Rpb25zLCAic291cmNlX2NvbnRhaW5lciIsIGludGVyZmFjZV9hY3Rpb25zLT5pbnN0cmVhbV9z
+b3VyY2VfY29udGFpbmVyLGluc3RyZWFtX3NpemVfc291cmNlX2NvbnRhaW5lcik7CgkJaWYgKCFt
+YXhfb2soYWN0aW9ucy0+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7Cgl9CgkvKiBlbmQgb2YgY29kZSBm
+b3Igc3RyZWFtIHNvdXJjZV9jb250YWluZXIgKi8KCQoJLyogY29kZSBmb3Igc3RyZWFtIHBwcmVz
+dWx0ICovCglzaXplX3Qgb3V0c3RyZWFtX3NpemVfcHByZXN1bHQgPSB0bXBfNzsKCWlmIChvdXRz
+dHJlYW1fc2l6ZV9wcHJlc3VsdCA+IDApIHsKCQltYXhfcXVldWVfb3V0cHV0KGFjdGlvbnMsICJw
+cHJlc3VsdCIsIGludGVyZmFjZV9hY3Rpb25zLT5vdXRzdHJlYW1fcHByZXN1bHQsb3V0c3RyZWFt
+X3NpemVfcHByZXN1bHQpOwoJCWlmICghbWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBO
+VUxMOwoJfQoJLyogZW5kIG9mIGNvZGUgZm9yIHN0cmVhbSBwcHJlc3VsdCAqLwoJCglyZXR1cm4g
+YWN0aW9uczsKfQoKCg==
+#endif /* SLIC_B64_DEFINITIONS */
+
+#ifdef SLIC_DYNAMIC_CODE
+SLIC_MODE_START(default)	
+SLIC_PARAMETER_DOUBLE(double, c_0, param_c_0)	
+SLIC_PARAMETER_DOUBLE(double, c_1_0, param_c_1_0)	
+SLIC_PARAMETER_DOUBLE(double, c_1_1, param_c_1_1)	
+SLIC_PARAMETER_DOUBLE(double, c_1_2, param_c_1_2)	
+SLIC_PARAMETER_DOUBLE(double, c_1_3, param_c_1_3)	
+SLIC_PARAMETER_DOUBLE(double, c_1_4, param_c_1_4)	
+SLIC_PARAMETER_DOUBLE(double, c_2_0, param_c_2_0)	
+SLIC_PARAMETER_DOUBLE(double, c_2_1, param_c_2_1)	
+SLIC_PARAMETER_DOUBLE(double, c_2_2, param_c_2_2)	
+SLIC_PARAMETER_DOUBLE(double, c_2_3, param_c_2_3)	
+SLIC_PARAMETER_DOUBLE(double, c_2_4, param_c_2_4)	
+SLIC_PARAMETER_DOUBLE(double, c_3_0, param_c_3_0)	
+SLIC_PARAMETER_DOUBLE(double, c_3_1, param_c_3_1)	
+SLIC_PARAMETER_DOUBLE(double, c_3_2, param_c_3_2)	
+SLIC_PARAMETER_DOUBLE(double, c_3_3, param_c_3_3)	
+SLIC_PARAMETER_DOUBLE(double, c_3_4, param_c_3_4)	
+SLIC_PARAMETER_UINT64(int64_t, size, param_size)	
+SLIC_PARAMETER_UINT64(int64_t, sizeController, param_sizeController)	
+SLIC_PARAMETER_UINT64(int64_t, stencilSize, param_stencilSize)	
+SLIC_TEMP_VAR(int64_t tmp_0 = (param_size * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_1 = (param_size * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_2 = (param_size * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_3 = (param_size * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_4 = ((param_size * param_stencilSize) * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_5 = ((param_size * param_stencilSize) * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_6 = ((param_size * param_stencilSize) * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_7 = (param_size * 4);)	
+SLIC_SET_TICKS(linearKernel, param_sizeController)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_0, param_c_0)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_1_0, param_c_1_0)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_1_1, param_c_1_1)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_1_2, param_c_1_2)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_1_3, param_c_1_3)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_1_4, param_c_1_4)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_2_0, param_c_2_0)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_2_1, param_c_2_1)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_2_2, param_c_2_2)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_2_3, param_c_2_3)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_2_4, param_c_2_4)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_3_0, param_c_3_0)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_3_1, param_c_3_1)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_3_2, param_c_3_2)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_3_3, param_c_3_3)	
+SLIC_SCALAR_DOUBLE(linearKernel, c_3_4, param_c_3_4)	
+SLIC_STREAM(controller, tmp_6)	
+SLIC_STREAM(dvv, tmp_2)	
+SLIC_STREAM(p, tmp_0)	
+SLIC_STREAM(pp, tmp_1)	
+SLIC_STREAM(px, tmp_4)	
+SLIC_STREAM(py, tmp_5)	
+SLIC_STREAM(source_container, tmp_3)	
+SLIC_STREAM(ppresult, tmp_7)	
+SLIC_MODE_END(default)
+
+#endif /* SLIC_DYNAMIC_CODE */
+
+#ifdef SKIN_META_DATA
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PG1h
+eGZpbGUgZm9ybWF0LXZlcnNpb249IjIwMTIwMjAwIiBoZWFkZXI9IkNwdU1haW4uaCIgbmFtZT0i
+Q3B1TWFpbiI+PGVuZ2luZW1vZGUgbmFtZT0iZGVmYXVsdCI+PGZ1bmN0aW9uIG5hbWU9IkNwdU1h
+aW4iIHJldHVybi12YWx1ZT0idm9pZCI+PHNjYWxhciBkZXNjPSJJbnRlcmZhY2UgUGFyYW1ldGVy
+ICZxdW90O2NfMCZxdW90Oy4iIGRpcmVjdGlvbj0iSW5wdXQiIG5hbWU9InBhcmFtX2NfMCIgdHlw
+ZT0iZG91YmxlIi8+PHNjYWxhciBkZXNjPSJJbnRlcmZhY2UgUGFyYW1ldGVyICZxdW90O2NfMV8w
+JnF1b3Q7LiIgZGlyZWN0aW9uPSJJbnB1dCIgbmFtZT0icGFyYW1fY18xXzAiIHR5cGU9ImRvdWJs
+ZSIvPjxzY2FsYXIgZGVzYz0iSW50ZXJmYWNlIFBhcmFtZXRlciAmcXVvdDtjXzFfMSZxdW90Oy4i
+IGRpcmVjdGlvbj0iSW5wdXQiIG5hbWU9InBhcmFtX2NfMV8xIiB0eXBlPSJkb3VibGUiLz48c2Nh
+bGFyIGRlc2M9IkludGVyZmFjZSBQYXJhbWV0ZXIgJnF1b3Q7Y18xXzImcXVvdDsuIiBkaXJlY3Rp
+b249IklucHV0IiBuYW1lPSJwYXJhbV9jXzFfMiIgdHlwZT0iZG91YmxlIi8+PHNjYWxhciBkZXNj
+PSJJbnRlcmZhY2UgUGFyYW1ldGVyICZxdW90O2NfMV8zJnF1b3Q7LiIgZGlyZWN0aW9uPSJJbnB1
+dCIgbmFtZT0icGFyYW1fY18xXzMiIHR5cGU9ImRvdWJsZSIvPjxzY2FsYXIgZGVzYz0iSW50ZXJm
+YWNlIFBhcmFtZXRlciAmcXVvdDtjXzFfNCZxdW90Oy4iIGRpcmVjdGlvbj0iSW5wdXQiIG5hbWU9
+InBhcmFtX2NfMV80IiB0eXBlPSJkb3VibGUiLz48c2NhbGFyIGRlc2M9IkludGVyZmFjZSBQYXJh
+bWV0ZXIgJnF1b3Q7Y18yXzAmcXVvdDsuIiBkaXJlY3Rpb249IklucHV0IiBuYW1lPSJwYXJhbV9j
+XzJfMCIgdHlwZT0iZG91YmxlIi8+PHNjYWxhciBkZXNjPSJJbnRlcmZhY2UgUGFyYW1ldGVyICZx
+dW90O2NfMl8xJnF1b3Q7LiIgZGlyZWN0aW9uPSJJbnB1dCIgbmFtZT0icGFyYW1fY18yXzEiIHR5
+cGU9ImRvdWJsZSIvPjxzY2FsYXIgZGVzYz0iSW50ZXJmYWNlIFBhcmFtZXRlciAmcXVvdDtjXzJf
+MiZxdW90Oy4iIGRpcmVjdGlvbj0iSW5wdXQiIG5hbWU9InBhcmFtX2NfMl8yIiB0eXBlPSJkb3Vi
+bGUiLz48c2NhbGFyIGRlc2M9IkludGVyZmFjZSBQYXJhbWV0ZXIgJnF1b3Q7Y18yXzMmcXVvdDsu
+IiBkaXJlY3Rpb249IklucHV0IiBuYW1lPSJwYXJhbV9jXzJfMyIgdHlwZT0iZG91YmxlIi8+PHNj
+YWxhciBkZXNjPSJJbnRlcmZhY2UgUGFyYW1ldGVyICZxdW90O2NfMl80JnF1b3Q7LiIgZGlyZWN0
+aW9uPSJJbnB1dCIgbmFtZT0icGFyYW1fY18yXzQiIHR5cGU9ImRvdWJsZSIvPjxzY2FsYXIgZGVz
+Yz0iSW50ZXJmYWNlIFBhcmFtZXRlciAmcXVvdDtjXzNfMCZxdW90Oy4iIGRpcmVjdGlvbj0iSW5w
+dXQiIG5hbWU9InBhcmFtX2NfM18wIiB0eXBlPSJkb3VibGUiLz48c2NhbGFyIGRlc2M9IkludGVy
+ZmFjZSBQYXJhbWV0ZXIgJnF1b3Q7Y18zXzEmcXVvdDsuIiBkaXJlY3Rpb249IklucHV0IiBuYW1l
+PSJwYXJhbV9jXzNfMSIgdHlwZT0iZG91YmxlIi8+PHNjYWxhciBkZXNjPSJJbnRlcmZhY2UgUGFy
+YW1ldGVyICZxdW90O2NfM18yJnF1b3Q7LiIgZGlyZWN0aW9uPSJJbnB1dCIgbmFtZT0icGFyYW1f
+Y18zXzIiIHR5cGU9ImRvdWJsZSIvPjxzY2FsYXIgZGVzYz0iSW50ZXJmYWNlIFBhcmFtZXRlciAm
+cXVvdDtjXzNfMyZxdW90Oy4iIGRpcmVjdGlvbj0iSW5wdXQiIG5hbWU9InBhcmFtX2NfM18zIiB0
+eXBlPSJkb3VibGUiLz48c2NhbGFyIGRlc2M9IkludGVyZmFjZSBQYXJhbWV0ZXIgJnF1b3Q7Y18z
+XzQmcXVvdDsuIiBkaXJlY3Rpb249IklucHV0IiBuYW1lPSJwYXJhbV9jXzNfNCIgdHlwZT0iZG91
+YmxlIi8+PHNjYWxhciBkZXNjPSJJbnRlcmZhY2UgUGFyYW1ldGVyICZxdW90O3NpemUmcXVvdDsu
+IiBkaXJlY3Rpb249IklucHV0IiBuYW1lPSJwYXJhbV9zaXplIiB0eXBlPSJpbnQ2NF90Ii8+PHNj
+YWxhciBkZXNjPSJJbnRlcmZhY2UgUGFyYW1ldGVyICZxdW90O3NpemVDb250cm9sbGVyJnF1b3Q7
+LiIgZGlyZWN0aW9uPSJJbnB1dCIgbmFtZT0icGFyYW1fc2l6ZUNvbnRyb2xsZXIiIHR5cGU9Imlu
+dDY0X3QiLz48c2NhbGFyIGRlc2M9IkludGVyZmFjZSBQYXJhbWV0ZXIgJnF1b3Q7c3RlbmNpbFNp
+emUmcXVvdDsuIiBkaXJlY3Rpb249IklucHV0IiBuYW1lPSJwYXJhbV9zdGVuY2lsU2l6ZSIgdHlw
+ZT0iaW50NjRfdCIvPjxhcnJheSBkZXNjPSJUaGUgc3RyZWFtIHNob3VsZCBiZSBvZiBzaXplICgo
+cGFyYW1fc2l6ZSAqIHBhcmFtX3N0ZW5jaWxTaXplKSAqIDQpIGJ5dGVzLiIgZGlyZWN0aW9uPSJJ
+bnB1dCIgbmFtZT0iaW5zdHJlYW1fY29udHJvbGxlciIgc2l6ZT0iKChwYXJhbV9zaXplICogcGFy
+YW1fc3RlbmNpbFNpemUpICogNCkiIHRyYW5zcG9zZT0idHJ1ZSIgdHlwZT0iaW50MzJfdCI+PGRp
+bWVuc2lvbiBpbmRleD0iMCI+PGxlbmd0aD48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVyYXRv
+ciBvcGVyYXRvcj0iLyIgdmFsdWU9IigoKHBhcmFtX3NpemUgKiBwYXJhbV9zdGVuY2lsU2l6ZSkg
+KiA0KSAvIDQpIj48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVyYXRvciBvcGVyYXRvcj0iKiIg
+dmFsdWU9IigocGFyYW1fc2l6ZSAqIHBhcmFtX3N0ZW5jaWxTaXplKSAqIDQpIj48ZnVuY3Rpb25D
+YWxsPjxudW1CaW5hcnlPcGVyYXRvciBvcGVyYXRvcj0iKiIgdmFsdWU9IihwYXJhbV9zaXplICog
+cGFyYW1fc3RlbmNpbFNpemUpIj48dXNlclBhcmFtIHZhbHVlPSJwYXJhbV9zaXplIi8+PHVzZXJQ
+YXJhbSB2YWx1ZT0icGFyYW1fc3RlbmNpbFNpemUiLz48L251bUJpbmFyeU9wZXJhdG9yPjwvZnVu
+Y3Rpb25DYWxsPjxjb25zdGFudFZhbHVlIHZhbHVlPSI0Ii8+PC9udW1CaW5hcnlPcGVyYXRvcj48
+L2Z1bmN0aW9uQ2FsbD48Y29uc3RhbnRWYWx1ZSB2YWx1ZT0iNCIvPjwvbnVtQmluYXJ5T3BlcmF0
+b3I+PC9mdW5jdGlvbkNhbGw+PC9sZW5ndGg+PC9kaW1lbnNpb24+PC9hcnJheT48YXJyYXkgZGVz
+Yz0iVGhlIHN0cmVhbSBzaG91bGQgYmUgb2Ygc2l6ZSAocGFyYW1fc2l6ZSAqIDQpIGJ5dGVzLiIg
+ZGlyZWN0aW9uPSJJbnB1dCIgbmFtZT0iaW5zdHJlYW1fZHZ2IiBzaXplPSIocGFyYW1fc2l6ZSAq
+IDQpIiB0cmFuc3Bvc2U9InRydWUiIHR5cGU9ImZsb2F0Ij48ZGltZW5zaW9uIGluZGV4PSIwIj48
+bGVuZ3RoPjxmdW5jdGlvbkNhbGw+PG51bUJpbmFyeU9wZXJhdG9yIG9wZXJhdG9yPSIvIiB2YWx1
+ZT0iKChwYXJhbV9zaXplICogNCkgLyA0KSI+PGZ1bmN0aW9uQ2FsbD48bnVtQmluYXJ5T3BlcmF0
+b3Igb3BlcmF0b3I9IioiIHZhbHVlPSIocGFyYW1fc2l6ZSAqIDQpIj48dXNlclBhcmFtIHZhbHVl
+PSJwYXJhbV9zaXplIi8+PGNvbnN0YW50VmFsdWUgdmFsdWU9IjQiLz48L251bUJpbmFyeU9wZXJh
+dG9yPjwvZnVuY3Rpb25DYWxsPjxjb25zdGFudFZhbHVlIHZhbHVlPSI0Ii8+PC9udW1CaW5hcnlP
+cGVyYXRvcj48L2Z1bmN0aW9uQ2FsbD48L2xlbmd0aD48L2RpbWVuc2lvbj48L2FycmF5PjxhcnJh
+eSBkZXNjPSJUaGUgc3RyZWFtIHNob3VsZCBiZSBvZiBzaXplIChwYXJhbV9zaXplICogNCkgYnl0
+ZXMuIiBkaXJlY3Rpb249IklucHV0IiBuYW1lPSJpbnN0cmVhbV9wIiBzaXplPSIocGFyYW1fc2l6
+ZSAqIDQpIiB0cmFuc3Bvc2U9InRydWUiIHR5cGU9ImZsb2F0Ij48ZGltZW5zaW9uIGluZGV4PSIw
+Ij48bGVuZ3RoPjxmdW5jdGlvbkNhbGw+PG51bUJpbmFyeU9wZXJhdG9yIG9wZXJhdG9yPSIvIiB2
+YWx1ZT0iKChwYXJhbV9zaXplICogNCkgLyA0KSI+PGZ1bmN0aW9uQ2FsbD48bnVtQmluYXJ5T3Bl
+cmF0b3Igb3BlcmF0b3I9IioiIHZhbHVlPSIocGFyYW1fc2l6ZSAqIDQpIj48dXNlclBhcmFtIHZh
+bHVlPSJwYXJhbV9zaXplIi8+PGNvbnN0YW50VmFsdWUgdmFsdWU9IjQiLz48L251bUJpbmFyeU9w
+ZXJhdG9yPjwvZnVuY3Rpb25DYWxsPjxjb25zdGFudFZhbHVlIHZhbHVlPSI0Ii8+PC9udW1CaW5h
+cnlPcGVyYXRvcj48L2Z1bmN0aW9uQ2FsbD48L2xlbmd0aD48L2RpbWVuc2lvbj48L2FycmF5Pjxh
+cnJheSBkZXNjPSJUaGUgc3RyZWFtIHNob3VsZCBiZSBvZiBzaXplIChwYXJhbV9zaXplICogNCkg
+Ynl0ZXMuIiBkaXJlY3Rpb249IklucHV0IiBuYW1lPSJpbnN0cmVhbV9wcCIgc2l6ZT0iKHBhcmFt
+X3NpemUgKiA0KSIgdHJhbnNwb3NlPSJ0cnVlIiB0eXBlPSJmbG9hdCI+PGRpbWVuc2lvbiBpbmRl
+eD0iMCI+PGxlbmd0aD48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVyYXRvciBvcGVyYXRvcj0i
+LyIgdmFsdWU9IigocGFyYW1fc2l6ZSAqIDQpIC8gNCkiPjxmdW5jdGlvbkNhbGw+PG51bUJpbmFy
+eU9wZXJhdG9yIG9wZXJhdG9yPSIqIiB2YWx1ZT0iKHBhcmFtX3NpemUgKiA0KSI+PHVzZXJQYXJh
+bSB2YWx1ZT0icGFyYW1fc2l6ZSIvPjxjb25zdGFudFZhbHVlIHZhbHVlPSI0Ii8+PC9udW1CaW5h
+cnlPcGVyYXRvcj48L2Z1bmN0aW9uQ2FsbD48Y29uc3RhbnRWYWx1ZSB2YWx1ZT0iNCIvPjwvbnVt
+QmluYXJ5T3BlcmF0b3I+PC9mdW5jdGlvbkNhbGw+PC9sZW5ndGg+PC9kaW1lbnNpb24+PC9hcnJh
+eT48YXJyYXkgZGVzYz0iVGhlIHN0cmVhbSBzaG91bGQgYmUgb2Ygc2l6ZSAoKHBhcmFtX3NpemUg
+KiBwYXJhbV9zdGVuY2lsU2l6ZSkgKiA0KSBieXRlcy4iIGRpcmVjdGlvbj0iSW5wdXQiIG5hbWU9
+Imluc3RyZWFtX3B4IiBzaXplPSIoKHBhcmFtX3NpemUgKiBwYXJhbV9zdGVuY2lsU2l6ZSkgKiA0
+KSIgdHJhbnNwb3NlPSJ0cnVlIiB0eXBlPSJmbG9hdCI+PGRpbWVuc2lvbiBpbmRleD0iMCI+PGxl
+bmd0aD48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVyYXRvciBvcGVyYXRvcj0iLyIgdmFsdWU9
+IigoKHBhcmFtX3NpemUgKiBwYXJhbV9zdGVuY2lsU2l6ZSkgKiA0KSAvIDQpIj48ZnVuY3Rpb25D
+YWxsPjxudW1CaW5hcnlPcGVyYXRvciBvcGVyYXRvcj0iKiIgdmFsdWU9IigocGFyYW1fc2l6ZSAq
+IHBhcmFtX3N0ZW5jaWxTaXplKSAqIDQpIj48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVyYXRv
+ciBvcGVyYXRvcj0iKiIgdmFsdWU9IihwYXJhbV9zaXplICogcGFyYW1fc3RlbmNpbFNpemUpIj48
+dXNlclBhcmFtIHZhbHVlPSJwYXJhbV9zaXplIi8+PHVzZXJQYXJhbSB2YWx1ZT0icGFyYW1fc3Rl
+bmNpbFNpemUiLz48L251bUJpbmFyeU9wZXJhdG9yPjwvZnVuY3Rpb25DYWxsPjxjb25zdGFudFZh
+bHVlIHZhbHVlPSI0Ii8+PC9udW1CaW5hcnlPcGVyYXRvcj48L2Z1bmN0aW9uQ2FsbD48Y29uc3Rh
+bnRWYWx1ZSB2YWx1ZT0iNCIvPjwvbnVtQmluYXJ5T3BlcmF0b3I+PC9mdW5jdGlvbkNhbGw+PC9s
+ZW5ndGg+PC9kaW1lbnNpb24+PC9hcnJheT48YXJyYXkgZGVzYz0iVGhlIHN0cmVhbSBzaG91bGQg
+YmUgb2Ygc2l6ZSAoKHBhcmFtX3NpemUgKiBwYXJhbV9zdGVuY2lsU2l6ZSkgKiA0KSBieXRlcy4i
+IGRpcmVjdGlvbj0iSW5wdXQiIG5hbWU9Imluc3RyZWFtX3B5IiBzaXplPSIoKHBhcmFtX3NpemUg
+KiBwYXJhbV9zdGVuY2lsU2l6ZSkgKiA0KSIgdHJhbnNwb3NlPSJ0cnVlIiB0eXBlPSJmbG9hdCI+
+PGRpbWVuc2lvbiBpbmRleD0iMCI+PGxlbmd0aD48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVy
+YXRvciBvcGVyYXRvcj0iLyIgdmFsdWU9IigoKHBhcmFtX3NpemUgKiBwYXJhbV9zdGVuY2lsU2l6
+ZSkgKiA0KSAvIDQpIj48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVyYXRvciBvcGVyYXRvcj0i
+KiIgdmFsdWU9IigocGFyYW1fc2l6ZSAqIHBhcmFtX3N0ZW5jaWxTaXplKSAqIDQpIj48ZnVuY3Rp
+b25DYWxsPjxudW1CaW5hcnlPcGVyYXRvciBvcGVyYXRvcj0iKiIgdmFsdWU9IihwYXJhbV9zaXpl
+ICogcGFyYW1fc3RlbmNpbFNpemUpIj48dXNlclBhcmFtIHZhbHVlPSJwYXJhbV9zaXplIi8+PHVz
+ZXJQYXJhbSB2YWx1ZT0icGFyYW1fc3RlbmNpbFNpemUiLz48L251bUJpbmFyeU9wZXJhdG9yPjwv
+ZnVuY3Rpb25DYWxsPjxjb25zdGFudFZhbHVlIHZhbHVlPSI0Ii8+PC9udW1CaW5hcnlPcGVyYXRv
+cj48L2Z1bmN0aW9uQ2FsbD48Y29uc3RhbnRWYWx1ZSB2YWx1ZT0iNCIvPjwvbnVtQmluYXJ5T3Bl
+cmF0b3I+PC9mdW5jdGlvbkNhbGw+PC9sZW5ndGg+PC9kaW1lbnNpb24+PC9hcnJheT48YXJyYXkg
+ZGVzYz0iVGhlIHN0cmVhbSBzaG91bGQgYmUgb2Ygc2l6ZSAocGFyYW1fc2l6ZSAqIDQpIGJ5dGVz
+LiIgZGlyZWN0aW9uPSJJbnB1dCIgbmFtZT0iaW5zdHJlYW1fc291cmNlX2NvbnRhaW5lciIgc2l6
+ZT0iKHBhcmFtX3NpemUgKiA0KSIgdHJhbnNwb3NlPSJ0cnVlIiB0eXBlPSJmbG9hdCI+PGRpbWVu
+c2lvbiBpbmRleD0iMCI+PGxlbmd0aD48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVyYXRvciBv
+cGVyYXRvcj0iLyIgdmFsdWU9IigocGFyYW1fc2l6ZSAqIDQpIC8gNCkiPjxmdW5jdGlvbkNhbGw+
+PG51bUJpbmFyeU9wZXJhdG9yIG9wZXJhdG9yPSIqIiB2YWx1ZT0iKHBhcmFtX3NpemUgKiA0KSI+
+PHVzZXJQYXJhbSB2YWx1ZT0icGFyYW1fc2l6ZSIvPjxjb25zdGFudFZhbHVlIHZhbHVlPSI0Ii8+
+PC9udW1CaW5hcnlPcGVyYXRvcj48L2Z1bmN0aW9uQ2FsbD48Y29uc3RhbnRWYWx1ZSB2YWx1ZT0i
+NCIvPjwvbnVtQmluYXJ5T3BlcmF0b3I+PC9mdW5jdGlvbkNhbGw+PC9sZW5ndGg+PC9kaW1lbnNp
+b24+PC9hcnJheT48YXJyYXkgZGVzYz0iVGhlIHN0cmVhbSBzaG91bGQgYmUgb2Ygc2l6ZSAocGFy
+YW1fc2l6ZSAqIDQpIGJ5dGVzLiIgZGlyZWN0aW9uPSJPdXRwdXQiIG5hbWU9Im91dHN0cmVhbV9w
+cHJlc3VsdCIgc2l6ZT0iKHBhcmFtX3NpemUgKiA0KSIgdHJhbnNwb3NlPSJ0cnVlIiB0eXBlPSJm
+bG9hdCI+PGRpbWVuc2lvbiBpbmRleD0iMCI+PGxlbmd0aD48ZnVuY3Rpb25DYWxsPjxudW1CaW5h
+cnlPcGVyYXRvciBvcGVyYXRvcj0iLyIgdmFsdWU9IigocGFyYW1fc2l6ZSAqIDQpIC8gNCkiPjxm
+dW5jdGlvbkNhbGw+PG51bUJpbmFyeU9wZXJhdG9yIG9wZXJhdG9yPSIqIiB2YWx1ZT0iKHBhcmFt
+X3NpemUgKiA0KSI+PHVzZXJQYXJhbSB2YWx1ZT0icGFyYW1fc2l6ZSIvPjxjb25zdGFudFZhbHVl
+IHZhbHVlPSI0Ii8+PC9udW1CaW5hcnlPcGVyYXRvcj48L2Z1bmN0aW9uQ2FsbD48Y29uc3RhbnRW
+YWx1ZSB2YWx1ZT0iNCIvPjwvbnVtQmluYXJ5T3BlcmF0b3I+PC9mdW5jdGlvbkNhbGw+PC9sZW5n
+dGg+PC9kaW1lbnNpb24+PC9hcnJheT48L2Z1bmN0aW9uPjwvZW5naW5lbW9kZT48L21heGZpbGU+
+
+#endif /* SKIN_META_DATA */
 
 #ifdef PHOTON_NODE_ADD_DATA
 #define PHOTON_NODE_ADD_DATA_PRESENT 1

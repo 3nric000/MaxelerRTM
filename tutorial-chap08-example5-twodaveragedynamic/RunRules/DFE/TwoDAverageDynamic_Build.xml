@@ -21,7 +21,7 @@
 		<copy includeemptydirs="false" todir="../RunRules/DFE/dist/bin">
 			<fileset dir="src" excludes="**/*.uad, **/*.ucd, **/*.uld, **/*.upd, **/*.udd, **/*.uod, **/*.usd, **/*.utd, **/*.uud, **/*.odd, **/*.ead, **/*.ecd, **/*.eld, **/*.epd, **/*.edd, **/*.eod, **/*.esd, **/*.etd, **/*.eud, **/*.urd*.uml, **/*.ecore, **/*.launch, **/*.java, **/*.maxj, **/package.html"/>
 		</copy>
-		<maxjcompiler srcdir="src"  destdir="../RunRules/DFE/dist/bin" debug="true" debuglevel="lines,vars,source" source="1.6" target="1.6" failonerror="true">
+		<maxjcompiler srcdir="src" destdir="../RunRules/DFE/dist/bin" debug="true" debuglevel="lines,vars,source" source="1.6" target="1.6" failonerror="true">
 			<classpath>
 				<pathelement path="${maxcompilerdirpath}"/>
 			</classpath>

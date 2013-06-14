@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagerGraph version="2013.1" design_name="Manager_MovingAverageSimple" compilation_phase="Final" hardwareBuild="true">
+	<Node id="2" instanceName="x" type="InputFlexibleClock">
+		<Output clock="STREAM" name="x" type="PULL el=1 ael=8" width="128">
+			<Stream name="Stream_3" sink="7" />
+		</Output>
+	</Node>
+	<Node id="7" instanceName="Stream_1" type="DualAspectMux">
+		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="128">
+			<Stream name="Stream_8" source="2" />
+		</Input>
+		<Output clock="STREAM" name="output" type="PUSH 2" width="32">
+			<Stream name="Stream_9" sink="19" />
+		</Output>
+	</Node>
+	<Node id="19" instanceName="Stream_10" type="Fifo">
+		<Input clock="STREAM" name="input" type="PUSH 2" width="32">
+			<Stream name="Stream_20" source="7" />
+		</Input>
+		<Output clock="STREAM" name="output" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_21" sink="0" />
+		</Output>
+	</Node>
+	<Node id="0" instanceName="MovingAverageSimpleKernel" type="Kernel">
+		<PxgFile phase="original">MovingAverageSimpleKernel_original.pxg</PxgFile>
+		<PxgFile phase="final-hardware">MovingAverageSimpleKernel_final-hardware.pxg</PxgFile>
+		<Input clock="STREAM" name="x" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_22" source="19" />
+		</Input>
+		<Output clock="STREAM" name="y" type="PUSH 5" width="32">
+			<Stream name="Stream_4" sink="23" />
+		</Output>
+	</Node>
+	<Node id="23" instanceName="Stream_12" type="Fifo">
+		<Input clock="STREAM" name="input" type="PUSH 5" width="32">
+			<Stream name="Stream_24" source="0" />
+		</Input>
+		<Output clock="STREAM" name="output" type="PULL el=1 ael=0" width="32">
+			<Stream name="Stream_25" sink="11" />
+		</Output>
+	</Node>
+	<Node id="11" instanceName="Stream_6" type="DualAspectReg">
+		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="32">
+			<Stream name="Stream_26" source="23" />
+		</Input>
+		<Output clock="STREAM" name="output" type="PULL el=1 ael=0" width="128">
+			<Stream name="Stream_13" sink="15" />
+		</Output>
+	</Node>
+	<Node id="15" instanceName="Stream_14" type="PullPushAdapter">
+		<Input clock="STREAM" name="input" type="PULL el=1 ael=0" width="128">
+			<Stream name="Stream_16" source="11" />
+		</Input>
+		<Output clock="STREAM" name="output" type="PUSH 1" width="128">
+			<Stream name="Stream_17" sink="5" />
+		</Output>
+	</Node>
+	<Node id="5" instanceName="y" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="y" type="PUSH 64" width="128">
+			<Stream name="Stream_18" source="15" />
+		</Input>
+	</Node>
+</ManagerGraph>

@@ -1,0 +1,113 @@
+data;
+set nodes
+NodeInput_ID2_0
+NodeStreamOffset_ID3_1
+NodeAdd_ID5_2
+NodeStreamOffset_ID4_3
+NodeAdd_ID6_4
+NodeDiv_ID8_5
+NodeOutput_ID16_6
+NodeCounterV1_ID19_7
+NodeOutputMappedReg_ID21_8
+NodeEq_ID24_9
+NodeFlush_ID22_10
+;
+set inputsLeadingToFlush
+;
+set nodesAfterFlush
+NodeInput_ID2_0
+NodeOutput_ID16_6
+NodeOutputMappedReg_ID21_8
+;
+set iDescs
+InputDesc_11
+InputDesc_12
+InputDesc_13
+InputDesc_14
+InputDesc_15
+InputDesc_16
+InputDesc_17
+InputDesc_18
+InputDesc_19
+InputDesc_20
+InputDesc_21
+;
+set oDescs
+OutputDesc_22
+OutputDesc_23
+OutputDesc_24
+OutputDesc_25
+OutputDesc_26
+OutputDesc_27
+OutputDesc_28
+OutputDesc_29
+OutputDesc_30
+;
+set constrainedPairs
+;
+param flushNode := NodeFlush_ID22_10;
+param flushNodeStartLatency := 3;
+param inputFlushDistanceFactor := 0;
+param : getChild getParent getODesc getLatency :=
+InputDesc_11 NodeStreamOffset_ID3_1 NodeInput_ID2_0 OutputDesc_22 5
+InputDesc_12 NodeAdd_ID5_2 NodeStreamOffset_ID3_1 OutputDesc_23 -1
+InputDesc_13 NodeAdd_ID5_2 NodeInput_ID2_0 OutputDesc_22 5
+InputDesc_14 NodeStreamOffset_ID4_3 NodeInput_ID2_0 OutputDesc_22 5
+InputDesc_15 NodeAdd_ID6_4 NodeAdd_ID5_2 OutputDesc_24 12
+InputDesc_16 NodeAdd_ID6_4 NodeStreamOffset_ID4_3 OutputDesc_25 1
+InputDesc_17 NodeDiv_ID8_5 NodeAdd_ID6_4 OutputDesc_26 12
+InputDesc_18 NodeOutput_ID16_6 NodeDiv_ID8_5 OutputDesc_27 28
+InputDesc_19 NodeOutputMappedReg_ID21_8 NodeCounterV1_ID19_7 OutputDesc_28 0
+InputDesc_20 NodeEq_ID24_9 NodeCounterV1_ID19_7 OutputDesc_28 0
+InputDesc_21 NodeFlush_ID22_10 NodeEq_ID24_9 OutputDesc_30 1
+;
+param : getWidth :=
+OutputDesc_22 32
+OutputDesc_23 32
+OutputDesc_24 32
+OutputDesc_25 32
+OutputDesc_26 32
+OutputDesc_27 32
+OutputDesc_28 48
+OutputDesc_29 1
+OutputDesc_30 1
+;
+param : getPairConstraint :=
+;
+set autoVars :=
+;
+param getAutoVarCoeff :
+
+:=
+;
+param getAutoVarUserMinCoeffAutoVar :
+
+:=
+;
+param getAutoVarUserMaxCoeffAutoVar :
+
+:=
+;
+param getAutoVarUserMinCoeffMeasurement :
+
+:=
+;
+param getAutoVarUserMaxCoeffMeasurement :
+
+:=
+;
+param getAutoVarUserMin :=
+;
+param getAutoVarUserMax :=
+;
+set measurements := 
+;
+param getMeasurementStart := 
+;
+param getMeasurementEnd := 
+;
+param getMeasurementCoeff :
+
+:=
+;
+end;

@@ -1,0 +1,1334 @@
+NodeID     : 0
+Node       : Scalar input (io_inStream_force_disabled)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:21)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 1
+Node       : ~
+Node type  : NodeNot
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:21)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 2
+Node       : Input(inStream)
+Node type  : NodeInput
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:21)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 3
+Node       : Scalar input (nx)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:22)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 4
+Node       : -1.0
+Node type  : NodeConstantDouble
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 5
+Node       : *
+Node type  : NodeMul
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NodeID     : 106
+  Node       : (-)
+  Node type  : NodeNeg
+  Creator    : OptimiseNodesPass
+
+  NodeID     : 107
+  Node       : {HWOffsetFix:32, 0, TWOSCOMPLEMENT}
+  Node type  : NodeCast
+  Creator    : OptimiseNodesPass
+
+------------
+NODE WAS REMOVED!
+NodeID     : 6
+Node       : -1.0
+Node type  : NodeConstantDouble
+Removed by : [RemoveUntypedConstants]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NodeID     : 140
+  Node       : {HWOffsetFix:32, 0, TWOSCOMPLEMENT}\n0xffffffff; -1.0
+  Node type  : NodeConstantRawBits
+  Creator    : RemoveUntypedConstants
+
+------------
+NodeID     : 7
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 8
+Node       : stream offset: -4097
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 9
+Node       : stream offset: -4097
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 10
+Node       : dynamic offset: [-4097, 0]
+Node type  : NodeDynamicStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 11
+Node       : 0.0
+Node type  : NodeConstantDouble
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 12
+Node       : *
+Node type  : NodeMul
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NODE WAS REMOVED!
+  NodeID     : 101
+  Node       : {HWOffsetFix:32, 0, TWOSCOMPLEMENT}\n0x00000000; 0.0
+  Node type  : NodeConstantRawBits
+  Removed by : [FoldConstantsPass]
+  Creator    : FoldConstantsPass
+
+------------
+NODE WAS REMOVED!
+NodeID     : 13
+Node       : -1.0
+Node type  : NodeConstantDouble
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 14
+Node       : +
+Node type  : NodeAdd
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NodeID     : 102
+  Node       : {HWOffsetFix:32, 0, TWOSCOMPLEMENT}\n0xffffffff; -1.0
+  Node type  : NodeConstantRawBits
+  Creator    : FoldConstantsPass
+
+------------
+NodeID     : 15
+Node       : stream offset: -1
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 16
+Node       : stream offset: -1
+Node type  : NodeStreamOffset
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 17
+Node       : dynamic offset: [-1, 0]
+Node type  : NodeDynamicStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 18
+Node       : 1.0
+Node type  : NodeConstantDouble
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 19
+Node       : *
+Node type  : NodeMul
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 20
+Node       : -1.0
+Node type  : NodeConstantDouble
+Removed by : [RemoveUntypedConstants]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NodeID     : 139
+  Node       : {HWOffsetFix:32, 0, TWOSCOMPLEMENT}\n0xffffffff; -1.0
+  Node type  : NodeConstantRawBits
+  Creator    : RemoveUntypedConstants
+
+------------
+NodeID     : 21
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 22
+Node       : stream offset: -4095
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 23
+Node       : dynamic offset: [0, 4095]
+Node type  : NodeDynamicStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 24
+Node       : -1.0
+Node type  : NodeConstantDouble
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 25
+Node       : *
+Node type  : NodeMul
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NodeID     : 108
+  Node       : (-)
+  Node type  : NodeNeg
+  Creator    : OptimiseNodesPass
+
+  NodeID     : 109
+  Node       : {HWOffsetFix:32, 0, TWOSCOMPLEMENT}
+  Node type  : NodeCast
+  Creator    : OptimiseNodesPass
+
+------------
+NODE WAS REMOVED!
+NodeID     : 26
+Node       : 0.0
+Node type  : NodeConstantDouble
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 27
+Node       : +
+Node type  : NodeAdd
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 28
+Node       : stream offset: -4096
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 29
+Node       : stream offset: -4096
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 30
+Node       : dynamic offset: [-4096, 0]
+Node type  : NodeDynamicStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 31
+Node       : 0.0
+Node type  : NodeConstantDouble
+Removed by : [Init Graph]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 32
+Node       : *
+Node type  : NodeMul
+Removed by : [Init Graph]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 33
+Node       : 0.0
+Node type  : NodeConstantDouble
+Removed by : [Init Graph]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 34
+Node       : +
+Node type  : NodeAdd
+Removed by : [Init Graph]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 35
+Node       : stream offset: 0
+Node type  : NodeStreamOffset
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 36
+Node       : 1.0
+Node type  : NodeConstantDouble
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 37
+Node       : *
+Node type  : NodeMul
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 38
+Node       : 0.0
+Node type  : NodeConstantDouble
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 39
+Node       : +
+Node type  : NodeAdd
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 40
+Node       : stream offset: -4096
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 41
+Node       : dynamic offset: [0, 4096]
+Node type  : NodeDynamicStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 42
+Node       : -1.0
+Node type  : NodeConstantDouble
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 43
+Node       : *
+Node type  : NodeMul
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NodeID     : 110
+  Node       : (-)
+  Node type  : NodeNeg
+  Creator    : OptimiseNodesPass
+
+  NodeID     : 111
+  Node       : {HWOffsetFix:32, 0, TWOSCOMPLEMENT}
+  Node type  : NodeCast
+  Creator    : OptimiseNodesPass
+
+------------
+NODE WAS REMOVED!
+NodeID     : 44
+Node       : 1.0
+Node type  : NodeConstantDouble
+Removed by : [RemoveUntypedConstants]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NodeID     : 138
+  Node       : {HWOffsetFix:32, 0, TWOSCOMPLEMENT}\n0x00000001; 1.0
+  Node type  : NodeConstantRawBits
+  Creator    : RemoveUntypedConstants
+
+------------
+NodeID     : 45
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 46
+Node       : stream offset: -4095
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 47
+Node       : stream offset: -4095
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 48
+Node       : dynamic offset: [-4095, 0]
+Node type  : NodeDynamicStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 49
+Node       : 0.0
+Node type  : NodeConstantDouble
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 50
+Node       : *
+Node type  : NodeMul
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NODE WAS REMOVED!
+  NodeID     : 103
+  Node       : {HWOffsetFix:32, 0, TWOSCOMPLEMENT}\n0x00000000; 0.0
+  Node type  : NodeConstantRawBits
+  Removed by : [FoldConstantsPass]
+  Creator    : FoldConstantsPass
+
+------------
+NODE WAS REMOVED!
+NodeID     : 51
+Node       : 1.0
+Node type  : NodeConstantDouble
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 52
+Node       : +
+Node type  : NodeAdd
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NodeID     : 104
+  Node       : {HWOffsetFix:32, 0, TWOSCOMPLEMENT}\n0x00000001; 1.0
+  Node type  : NodeConstantRawBits
+  Creator    : FoldConstantsPass
+
+------------
+NODE WAS REMOVED!
+NodeID     : 53
+Node       : stream offset: -1
+Node type  : NodeStreamOffset
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 54
+Node       : dynamic offset: [0, 1]
+Node type  : NodeDynamicStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 55
+Node       : 1.0
+Node type  : NodeConstantDouble
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 56
+Node       : *
+Node type  : NodeMul
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 57
+Node       : 1.0
+Node type  : NodeConstantDouble
+Removed by : [RemoveUntypedConstants]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NodeID     : 137
+  Node       : {HWOffsetFix:32, 0, TWOSCOMPLEMENT}\n0x00000001; 1.0
+  Node type  : NodeConstantRawBits
+  Creator    : RemoveUntypedConstants
+
+------------
+NodeID     : 58
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 59
+Node       : stream offset: -4097
+Node type  : NodeStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 60
+Node       : dynamic offset: [0, 4097]
+Node type  : NodeDynamicStreamOffset
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 61
+Node       : {HWFloat:8, 24}\n0x00000000; 0.0
+Node type  : NodeConstantRawBits
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Constant.var(Constant.java:99)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:36)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 62
+Node       : +
+Node type  : NodeAdd
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 63
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 64
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 65
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 66
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 67
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 68
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 69
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 70
+Node       : +
+Node type  : NodeAdd
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 71
+Node       : 9.0
+Node type  : NodeConstantDouble
+Removed by : [RemoveUntypedConstants]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.div(DFEVar.java:898)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:41)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NodeID     : 136
+  Node       : {HWFloat:8, 24}\n0x41100000; 9.0
+  Node type  : NodeConstantRawBits
+  Creator    : RemoveUntypedConstants
+
+------------
+NodeID     : 72
+Node       : /
+Node type  : NodeDiv
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.div(DFEVar.java:898)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:41)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 73
+Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
+Node type  : NodeConstantRawBits
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:44)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 74
+Node       : Scalar input (io_outStream_force_disabled)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:44)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 75
+Node       : ~
+Node type  : NodeNot
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:44)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 76
+Node       : &
+Node type  : NodeAnd
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:44)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 77
+Node       : <{HWRawBits:1}>
+Node type  : NodeReinterpret
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:44)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NODE WAS REMOVED!
+  NodeID     : 100
+  Node       : {HWRawBits:1}\n0x1
+  Node type  : NodeConstantRawBits
+  Removed by : [OptimiseNodesPass]
+  Creator    : FoldConstantsPass
+
+------------
+NodeID     : 78
+Node       : <{HWRawBits:1}>
+Node type  : NodeReinterpret
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:44)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 79
+Node       : <{HWOffsetFix:1, 0, UNSIGNED}>
+Node type  : NodeReinterpret
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:44)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 80
+Node       : Output(outStream)
+Node type  : NodeOutput
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:44)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 81
+Node       : 1.0
+Node type  : NodeConstantDouble
+Removed by : [RemoveUntypedConstants]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Count.simpleCounter(Count.java:515)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NodeID     : 135
+  Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
+  Node type  : NodeConstantRawBits
+  Creator    : RemoveUntypedConstants
+
+------------
+NODE WAS REMOVED!
+NodeID     : 82
+Node       : 32.0
+Node type  : NodeConstantDouble
+Removed by : [RemoveUntypedConstants]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Count.simpleCounter(Count.java:515)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NodeID     : 134
+  Node       : {HWOffsetFix:33, 0, UNSIGNED}\n0x000000020; 32.0
+  Node type  : NodeConstantRawBits
+  Creator    : RemoveUntypedConstants
+
+------------
+NodeID     : 83
+Node       : Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0
+Node type  : NodeCounterV1
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Count.simpleCounter(Count.java:515)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 84
+Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
+Node type  : NodeConstantRawBits
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 85
+Node       : Scalar input (io_counter_force_disabled)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 86
+Node       : ~
+Node type  : NodeNot
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 87
+Node       : &
+Node type  : NodeAnd
+Removed by : [OptimiseNodesPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 88
+Node       : <{HWRawBits:1}>
+Node type  : NodeReinterpret
+Removed by : [FoldConstantsPass]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+Led to:
+  NODE WAS REMOVED!
+  NodeID     : 105
+  Node       : {HWRawBits:1}\n0x1
+  Node type  : NodeConstantRawBits
+  Removed by : [OptimiseNodesPass]
+  Creator    : FoldConstantsPass
+
+------------
+NodeID     : 89
+Node       : <{HWRawBits:1}>
+Node type  : NodeReinterpret
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 90
+Node       : <{HWOffsetFix:1, 0, UNSIGNED}>
+Node type  : NodeReinterpret
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NodeID     : 91
+Node       : Output(counter)
+Node type  : NodeOutput
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 92
+Node       : 1.0
+Node type  : NodeConstantDouble
+Removed by : [RemoveUntypedConstants]
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)
+
+Led to:
+  NodeID     : 133
+  Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
+  Node type  : NodeConstantRawBits
+  Creator    : RemoveUntypedConstants
+
+------------
+NodeID     : 93
+Node       : {HWOffsetFix:49, 0, UNSIGNED}\n0x1000000000000; 2.81474976710656E14
+Node type  : NodeConstantRawBits
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)
+
+------------
+NodeID     : 94
+Node       : Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0
+Node type  : NodeCounterV1
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)
+
+------------
+NodeID     : 95
+Node       : {HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0
+Node type  : NodeConstantRawBits
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)
+
+------------
+NodeID     : 96
+Node       : Scalar output (current_run_cycle_count)
+Node type  : NodeOutputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)
+
+------------
+NodeID     : 97
+Node       : flush on trigger
+Node type  : NodeFlush
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)
+
+------------
+NodeID     : 98
+Node       : Scalar input (run_cycle_count)
+Node type  : NodeInputMappedReg
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)
+
+------------
+NodeID     : 99
+Node       : ==
+Node type  : NodeEq
+Creator    : User
+Stack Trace:
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)
+
+------------
+NODE WAS REMOVED!
+NodeID     : 112
+Node       : FIFO(4083)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 113
+Node       : FIFO(4083)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 114
+Node       : FIFO(4107)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 115
+Node       : FIFO(4122)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 116
+Node       : FIFO(35)
+Node type  : NodeFIFO
+Removed by : [FIFOCoalesceRespectingPlacementPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 117
+Node       : FIFO(4143)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 118
+Node       : FIFO(4143)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NodeID     : 119
+Node       : FIFO(11)
+Node type  : NodeFIFO
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 120
+Node       : FIFO(70)
+Node type  : NodeFIFO
+Removed by : [TapFIFOsPass]
+Creator    : ScheduleApplier
+------------
+NodeID     : 121
+Node       : FIFO(4)
+Node type  : NodeFIFO
+Creator    : ScheduleApplier
+------------
+NODE WAS REMOVED!
+NodeID     : 122
+Node       : FIFO(35)
+Node type  : NodeFIFO
+Removed by : [FIFOCoalesceRespectingPlacementPass]
+Creator    : TapFIFOsPass
+------------
+NodeID     : 123
+Node       : FIFO(4013)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 124
+Node       : FIFO(24)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 125
+Node       : FIFO(15)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 126
+Node       : FIFO(21)
+Node type  : NodeFIFO
+Creator    : TapFIFOsPass
+------------
+NodeID     : 127
+Node       : @
+Node type  : NodeCat
+Creator    : FIFOCoalesceRespectingPlacementPass
+------------
+NodeID     : 128
+Node       : FIFO(35)
+Node type  : NodeFIFO
+Creator    : FIFOCoalesceRespectingPlacementPass
+------------
+NodeID     : 129
+Node       : [63:32]
+Node type  : NodeSlice
+Creator    : FIFOCoalesceRespectingPlacementPass
+------------
+NodeID     : 130
+Node       : <{HWFloat:8, 24}>
+Node type  : NodeReinterpret
+Creator    : FIFOCoalesceRespectingPlacementPass
+------------
+NodeID     : 131
+Node       : [31:0]
+Node type  : NodeSlice
+Creator    : FIFOCoalesceRespectingPlacementPass
+------------
+NodeID     : 132
+Node       : <{HWFloat:8, 24}>
+Node type  : NodeReinterpret
+Creator    : FIFOCoalesceRespectingPlacementPass
+------------

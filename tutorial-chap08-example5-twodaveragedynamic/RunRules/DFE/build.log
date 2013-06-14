@@ -1,0 +1,39 @@
+ven 02:48: ########################################## 
+ven 02:48: Compiling.
+ven 02:48: ########################################## 
+
+ven 02:48: MaxCompiler version: 2013.1.
+ven 02:48: Build DFE run rule for tutorial-chap08-example5-twodaveragedynamic start time: ven giu 14 02:48:16 CEST 2013.
+ven 02:48: Project location: /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap08-example5-twodaveragedynamic.
+ven 02:48: Detailed build log: /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap08-example5-twodaveragedynamic/RunRules/DFE/build.log.
+
+ven 02:48: Compiling Engine Code.
+ven 02:48: Building TwoDAverageDynamic.max file. 
+ven 02:48: Setting environment variable:
+ven 02:48: MAXCOMPILER_BUILD_DIR : /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap08-example5-twodaveragedynamic/RunRules/DFE/maxfiles
+ven 02:48: MAX_BUILDPARAMS : DFEModel='VECTIS' target='DFE' maxFileName='TwoDAverageDynamic'  
+ven 02:48: Building output:
+ven 02:49: MaxCompiler version: 2013.1
+ven 02:49: Build "TwoDAverageDynamic" start time: Fri Jun 14 02:49:07 CEST 2013
+ven 02:49: Main build process running as user emanuele.delsozzo on host maxeler
+ven 02:49: Build location: /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap08-example5-twodaveragedynamic/RunRules/DFE/maxfiles/TwoDAverageDynamic_VECTIS_DFE
+ven 02:49: Detailed build log available in "_build.log"
+ven 02:49: Instantiating manager
+ven 02:49: Instantiating kernel "TwoDAverageDynamicKernel"
+ven 02:49: Compiling manager (CPU I/O Only)
+ven 02:49: 
+ven 02:49: Compiling kernel "TwoDAverageDynamicKernel"
+ven 02:50: Generating input files (VHDL, netlists, MegaWizard/CoreGen)
+ven 02:50: ERROR: Error running external tool :-
+ven 02:50: ERROR: Problem            : Error running Xilinx Core Generator: Errors reported in coregen.log. The first error is: 
+ven 02:50: ERROR: sim - C_REFCLK_FREQUENCY: Invalid value '250,000'.
+ven 02:50: ERROR: Program log        : /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap08-example5-twodaveragedynamic/RunRules/DFE/maxfiles/TwoDAverageDynamic_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/coregen.log
+ven 02:50: ERROR: Command run        :  coregen -b CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr.xco -p CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr.cgp
+ven 02:50: ERROR: Directory run in   : /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap08-example5-twodaveragedynamic/RunRules/DFE/maxfiles/TwoDAverageDynamic_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr
+ven 02:50: ERROR: Exit code          : 1
+ven 02:50: ERROR: Detailed build log : /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap08-example5-twodaveragedynamic/RunRules/DFE/maxfiles/TwoDAverageDynamic_VECTIS_DFE/_build.log
+ven 02:50: Building: TwoDAverageDynamic.max file finished.
+ven 02:50: Build process failed while trying to create TwoDAverageDynamic.max file
+ven 02:50: Engine build finished.Build failed: ven giu 14 02:50:45 CEST 2013
+
+

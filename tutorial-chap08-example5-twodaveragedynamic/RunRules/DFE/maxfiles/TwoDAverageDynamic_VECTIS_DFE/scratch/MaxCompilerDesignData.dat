@@ -1,0 +1,1107 @@
+/*             !!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/*             !!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/*             !!                         !! */
+/*             !!  Preliminary   Version  !! */
+/*             !!                         !! */
+/*             !!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/*             !!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* At: Main build */
+#error
+#ifdef PARAM
+#define PARAM_PRESENT 1
+PARAM(nxMax, 4096)
+PARAM(MEC_SUPPORTED, 1)
+PARAM(PERF_MONITOR_VERSION, 2)
+PARAM(ON_CARD_MEMORY_FREQUENCY, 303)
+#endif
+
+#ifdef STRING_PARAM
+#define STRING_PARAM_PRESENT 1
+STRING_PARAM(BOARD_MODEL, "MAX3424A")
+#endif
+
+
+
+
+#ifdef MANAGER_NODE
+#define MANAGER_NODE_PRESENT 1
+MANAGER_NODE(TwoDAverageDynamicKernel, Kernel)
+MANAGER_NODE(inStream, PCIe_From_Host_fwd)
+MANAGER_NODE(outStream, PCIe_To_Host_fwd)
+MANAGER_NODE(counter, PCIe_To_Host_fwd)
+MANAGER_NODE(Stream_1, DualAspectMux)
+MANAGER_NODE(Stream_6, DualAspectReg)
+MANAGER_NODE(Stream_9, DualAspectReg)
+MANAGER_NODE(Stream_17, StreamPullPushAdapter)
+MANAGER_NODE(Stream_21, StreamPullPushAdapter)
+MANAGER_NODE(Stream_13, Fifo)
+MANAGER_NODE(Stream_15, Fifo)
+MANAGER_NODE(Stream_19, Fifo)
+#endif
+
+#ifdef MANAGER_NODE_IO
+#define MANAGER_NODE_IO_PRESENT 1
+MANAGER_NODE_IO(TwoDAverageDynamicKernel, inStream, IN, STREAM, 32, PULL)
+MANAGER_NODE_IO(TwoDAverageDynamicKernel, outStream, OUT, STREAM, 32, PUSH)
+MANAGER_NODE_IO(TwoDAverageDynamicKernel, counter, OUT, STREAM, 32, PUSH)
+MANAGER_NODE_IO(inStream, inStream, OUT, STREAM, 128, PULL)
+MANAGER_NODE_IO(outStream, outStream, IN, STREAM, 128, PUSH)
+MANAGER_NODE_IO(counter, counter, IN, STREAM, 128, PUSH)
+MANAGER_NODE_IO(Stream_1, input, IN, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_1, output, OUT, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_6, input, IN, STREAM, 32, PULL)
+MANAGER_NODE_IO(Stream_6, output, OUT, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_9, input, IN, STREAM, 32, PULL)
+MANAGER_NODE_IO(Stream_9, output, OUT, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_17, input, IN, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_17, output, OUT, STREAM, 128, PUSH)
+MANAGER_NODE_IO(Stream_21, input, IN, STREAM, 128, PULL)
+MANAGER_NODE_IO(Stream_21, output, OUT, STREAM, 128, PUSH)
+MANAGER_NODE_IO(Stream_13, input, IN, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_13, output, OUT, STREAM, 32, PULL)
+MANAGER_NODE_IO(Stream_15, input, IN, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_15, output, OUT, STREAM, 32, PULL)
+MANAGER_NODE_IO(Stream_19, input, IN, STREAM, 32, PUSH)
+MANAGER_NODE_IO(Stream_19, output, OUT, STREAM, 32, PULL)
+#endif
+
+#ifdef MANAGER_STREAM
+#define MANAGER_STREAM_PRESENT 1
+MANAGER_STREAM(inStream, inStream, Stream_1, input, 128)
+MANAGER_STREAM(TwoDAverageDynamicKernel, outStream, Stream_15, input, 32)
+MANAGER_STREAM(TwoDAverageDynamicKernel, counter, Stream_19, input, 32)
+MANAGER_STREAM(Stream_1, output, Stream_13, input, 32)
+MANAGER_STREAM(Stream_6, output, Stream_17, input, 128)
+MANAGER_STREAM(Stream_9, output, Stream_21, input, 128)
+MANAGER_STREAM(Stream_17, output, outStream, outStream, 128)
+MANAGER_STREAM(Stream_21, output, counter, counter, 128)
+MANAGER_STREAM(Stream_13, output, TwoDAverageDynamicKernel, inStream, 32)
+MANAGER_STREAM(Stream_15, output, Stream_6, input, 32)
+MANAGER_STREAM(Stream_19, output, Stream_9, input, 32)
+#endif
+
+#ifdef MANAGER_NODE_PROPERTY
+#define MANAGER_NODE_PROPERTY_PRESENT 1
+MANAGER_NODE_PROPERTY(TwoDAverageDynamicKernel, control_pipelining_depth, 2)
+#endif
+
+
+#ifdef KERNEL_CORE
+#define KERNEL_CORE_PRESENT 1
+KERNEL_CORE(TwoDAverageDynamicKernel)
+#endif
+
+#ifdef KERNEL_HOST_CONTROLLED
+#define KERNEL_HOST_CONTROLLED_PRESENT 1
+KERNEL_HOST_CONTROLLED(TwoDAverageDynamicKernel, TwoDAverageDynamicKernel)
+#endif
+
+#ifdef DEBUG_INPUT_BITS
+#define DEBUG_INPUT_BITS_PRESENT 1
+DEBUG_INPUT_BITS(TwoDAverageDynamicKernel, inStream, 0)
+#endif
+
+#ifdef DEBUG_OUTPUT_BITS
+#define DEBUG_OUTPUT_BITS_PRESENT 1
+DEBUG_OUTPUT_BITS(TwoDAverageDynamicKernel, outStream, 0)
+DEBUG_OUTPUT_BITS(TwoDAverageDynamicKernel, counter, 1)
+#endif
+
+
+
+
+
+
+
+
+#ifdef SCALABLE_CLOCK
+#define SCALABLE_CLOCK_PRESENT 1
+SCALABLE_CLOCK(STREAM, ClockReset_STREAM, stream_clkprim_rst, stream_clkprim_locked, 100)
+#endif
+
+#ifdef CHECKSUM_RAM
+#define CHECKSUM_RAM_PRESENT 1
+CHECKSUM_RAM(RAMB18_X0Y0)
+#endif
+
+#ifdef HOST_FORWARDED_STREAM
+#define HOST_FORWARDED_STREAM_PRESENT 1
+HOST_FORWARDED_STREAM(inStream, STREAM_FROM_HOST, 0)
+HOST_FORWARDED_STREAM(outStream, STREAM_TO_HOST, 0)
+HOST_FORWARDED_STREAM(counter, STREAM_TO_HOST, 1)
+#endif
+
+
+
+#ifdef DEFINE_DESIGN_NAME
+#define DESIGN_NAME TwoDAverageDynamic
+#endif /* DEFINE_DESIGN_NAME */
+
+#ifndef SLIC_NO_DECLARATIONS
+/**\file */
+#ifndef SLIC_DECLARATIONS_TwoDAverageDynamic_H
+#define SLIC_DECLARATIONS_TwoDAverageDynamic_H
+#include "MaxSLiCInterface.h"
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
+#define TwoDAverageDynamic_nxMax (4096)
+
+
+/*----------------------------------------------------------------------------*/
+/*---------------------------- Interface default -----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+
+/**
+ * \brief Basic static function for the interface 'default'.
+ * 
+ * \param [in] param_N Interface Parameter "N".: Number of data items to process
+ * \param [in] inscalar_TwoDAverageDynamicKernel_nx Input scalar parameter "TwoDAverageDynamicKernel.nx".
+ * \param [in] instream_inStream The stream should be of size (param_N * 4) bytes.
+ * \param [out] outstream_counter The stream should be of size (param_N * 4) bytes.
+ * \param [out] outstream_outStream The stream should be of size (param_N * 4) bytes.
+ */
+void TwoDAverageDynamic(
+	int32_t param_N,
+	uint64_t inscalar_TwoDAverageDynamicKernel_nx,
+	const float *instream_inStream,
+	uint32_t *outstream_counter,
+	float *outstream_outStream);
+
+/**
+ * \brief Basic static non-blocking function for the interface 'default'.
+ * 
+ * Schedule to run on an engine and return immediately.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ * 
+ * 
+ * \param [in] param_N Interface Parameter "N".: Number of data items to process
+ * \param [in] inscalar_TwoDAverageDynamicKernel_nx Input scalar parameter "TwoDAverageDynamicKernel.nx".
+ * \param [in] instream_inStream The stream should be of size (param_N * 4) bytes.
+ * \param [out] outstream_counter The stream should be of size (param_N * 4) bytes.
+ * \param [out] outstream_outStream The stream should be of size (param_N * 4) bytes.
+ * \return A handle on the execution status, or NULL in case of error.
+ */
+max_run_t *TwoDAverageDynamic_nonblock(
+	int32_t param_N,
+	uint64_t inscalar_TwoDAverageDynamicKernel_nx,
+	const float *instream_inStream,
+	uint32_t *outstream_counter,
+	float *outstream_outStream);
+
+/**
+ * \brief Advanced static interface, structure for the engine interface 'default'
+ * 
+ */
+typedef struct { 
+	int32_t param_N; /**<  [in] Interface Parameter "N".: Number of data items to process */
+	uint64_t inscalar_TwoDAverageDynamicKernel_nx; /**<  [in] Input scalar parameter "TwoDAverageDynamicKernel.nx". */
+	const float *instream_inStream; /**<  [in] The stream should be of size (param_N * 4) bytes. */
+	uint32_t *outstream_counter; /**<  [out] The stream should be of size (param_N * 4) bytes. */
+	float *outstream_outStream; /**<  [out] The stream should be of size (param_N * 4) bytes. */
+} TwoDAverageDynamic_actions_t;
+
+/**
+ * \brief Advanced static function for the interface 'default'.
+ * 
+ * \param [in] engine The engine on which the actions will be executed.
+ * \param [in,out] interface_actions Actions to be executed.
+ */
+void TwoDAverageDynamic_run(
+	max_engine_t *engine,
+	TwoDAverageDynamic_actions_t *interface_actions);
+
+/**
+ * \brief Advanced static non-blocking function for the interface 'default'.
+ *
+ * Schedule the actions to run on the engine and return immediately.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * 
+ * \param [in] engine The engine on which the actions will be executed.
+ * \param [in] interface_actions Actions to be executed.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *TwoDAverageDynamic_run_nonblock(
+	max_engine_t *engine,
+	TwoDAverageDynamic_actions_t *interface_actions);
+
+/**
+ * \brief Group run advanced static function for the interface 'default'.
+ * 
+ * \param [in] group Group to use.
+ * \param [in,out] interface_actions Actions to run.
+ *
+ * Run the actions on the first device available in the group.
+ */
+void TwoDAverageDynamic_run_group(max_group_t *group, TwoDAverageDynamic_actions_t *interface_actions);
+
+/**
+ * \brief Group run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule the actions to run on the first device available in the group and return immediately.
+ * The status of the run must be checked with ::max_wait. 
+ * Note that use of ::max_nowait is prohibited with non-blocking running on groups:
+ * see the ::max_run_group_nonblock documentation for more explanation.
+ *
+ * \param [in] group Group to use.
+ * \param [in] interface_actions Actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *TwoDAverageDynamic_run_group_nonblock(max_group_t *group, TwoDAverageDynamic_actions_t *interface_actions);
+
+/**
+ * \brief Array run advanced static function for the interface 'default'.
+ * 
+ * \param [in] engarray The array of devices to use.
+ * \param [in,out] interface_actions The array of actions to run.
+ *
+ * Run the array of actions on the array of engines.  The length of interface_actions
+ * must match the size of engarray.
+ */
+void TwoDAverageDynamic_run_array(max_engarray_t *engarray, TwoDAverageDynamic_actions_t *interface_actions[]);
+
+/**
+ * \brief Array run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule to run the array of actions on the array of engines, and return immediately.
+ * The length of interface_actions must match the size of engarray.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * \param [in] engarray The array of devices to use.
+ * \param [in] interface_actions The array of actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *TwoDAverageDynamic_run_array_nonblock(max_engarray_t *engarray, TwoDAverageDynamic_actions_t *interface_actions[]);
+
+/**
+ * \brief Converts a static-interface action struct into a dynamic-interface max_actions_t struct.
+ *
+ * Note that this is an internal utility function used by other functions in the static interface.
+ *
+ * \param [in] maxfile The maxfile to use.
+ * \param [in] interface_actions The interface-specific actions to run.
+ * \return The dynamic-interface actions to run, or NULL in case of error.
+ */
+max_actions_t* TwoDAverageDynamic_convert(max_file_t *maxfile, TwoDAverageDynamic_actions_t *interface_actions);
+
+/**
+ * \brief Initialise a maxfile.
+ */
+max_file_t* TwoDAverageDynamic_init(void);
+
+/* Error handling functions */
+int TwoDAverageDynamic_has_errors(void);
+const char* TwoDAverageDynamic_get_errors(void);
+void TwoDAverageDynamic_clear_errors(void);
+/* Free statically allocated maxfile data */
+void TwoDAverageDynamic_free(void);
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+#endif /* SLIC_DECLARATIONS_TwoDAverageDynamic_H */
+
+#endif /* SLIC_NO_DECLARATIONS */
+
+#ifdef PHOTON_NODE_DATA
+#define PHOTON_NODE_DATA_PRESENT 1
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 74, NodeInputMappedReg, "Scalar input (io_outStream_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:44)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 75, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:44)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 78, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:44)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 79, NodeReinterpret, "<{HWOffsetFix:1, 0, UNSIGNED}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:44)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 0, NodeInputMappedReg, "Scalar input (io_inStream_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:21)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 1, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:21)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 2, NodeInput, "Input(inStream)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:21)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 129, NodeSlice, "[63:32]", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 130, NodeReinterpret, "<{HWFloat:8, 24}>", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 127, NodeCat, "@", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 128, NodeFIFO, "FIFO(35)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 131, NodeSlice, "[31:0]", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 132, NodeReinterpret, "<{HWFloat:8, 24}>", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 123, NodeFIFO, "FIFO(4013)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 8, NodeStreamOffset, "stream offset: -4097", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 3, NodeInputMappedReg, "Scalar input (nx)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:22)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 106, NodeNeg, "(-)", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 107, NodeCast, "{HWOffsetFix:32, 0, TWOSCOMPLEMENT}", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 140, NodeConstantRawBits, "{HWOffsetFix:32, 0, TWOSCOMPLEMENT}\n0xffffffff; -1.0", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 7, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 9, NodeStreamOffset, "stream offset: -4097", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 10, NodeDynamicStreamOffset, "dynamic offset: [-4097, 0]", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 15, NodeStreamOffset, "stream offset: -1", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 102, NodeConstantRawBits, "{HWOffsetFix:32, 0, TWOSCOMPLEMENT}\n0xffffffff; -1.0", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 17, NodeDynamicStreamOffset, "dynamic offset: [-1, 0]", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 63, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 139, NodeConstantRawBits, "{HWOffsetFix:32, 0, TWOSCOMPLEMENT}\n0xffffffff; -1.0", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 21, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 22, NodeStreamOffset, "stream offset: -4095", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 23, NodeDynamicStreamOffset, "dynamic offset: [0, 4095]", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 64, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 124, NodeFIFO, "FIFO(24)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 28, NodeStreamOffset, "stream offset: -4096", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 108, NodeNeg, "(-)", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 109, NodeCast, "{HWOffsetFix:32, 0, TWOSCOMPLEMENT}", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 29, NodeStreamOffset, "stream offset: -4096", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 30, NodeDynamicStreamOffset, "dynamic offset: [-4096, 0]", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 65, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 125, NodeFIFO, "FIFO(15)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 66, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 40, NodeStreamOffset, "stream offset: -4096", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 41, NodeDynamicStreamOffset, "dynamic offset: [0, 4096]", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 67, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 126, NodeFIFO, "FIFO(21)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 46, NodeStreamOffset, "stream offset: -4095", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 110, NodeNeg, "(-)", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 111, NodeCast, "{HWOffsetFix:32, 0, TWOSCOMPLEMENT}", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:877)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 138, NodeConstantRawBits, "{HWOffsetFix:32, 0, TWOSCOMPLEMENT}\n0x00000001; 1.0", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 45, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 47, NodeStreamOffset, "stream offset: -4095", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 48, NodeDynamicStreamOffset, "dynamic offset: [-4095, 0]", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 68, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 104, NodeConstantRawBits, "{HWOffsetFix:32, 0, TWOSCOMPLEMENT}\n0x00000001; 1.0", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 54, NodeDynamicStreamOffset, "dynamic offset: [0, 1]", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 119, NodeFIFO, "FIFO(11)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 69, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 137, NodeConstantRawBits, "{HWOffsetFix:32, 0, TWOSCOMPLEMENT}\n0x00000001; 1.0", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 58, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:787)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 59, NodeStreamOffset, "stream offset: -4097", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 60, NodeDynamicStreamOffset, "dynamic offset: [0, 4097]", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 70, NodeAdd, "+", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:38)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 136, NodeConstantRawBits, "{HWFloat:8, 24}\n0x41100000; 9.0", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.div(DFEVar.java:898)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:41)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 72, NodeDiv, "/", "com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.div(DFEVar.java:898)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:41)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 80, NodeOutput, "Output(outStream)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:44)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 85, NodeInputMappedReg, "Scalar input (io_counter_force_disabled)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 86, NodeNot, "~", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 89, NodeReinterpret, "<{HWRawBits:1}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 90, NodeReinterpret, "<{HWOffsetFix:1, 0, UNSIGNED}>", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 135, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Count.simpleCounter(Count.java:515)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 134, NodeConstantRawBits, "{HWOffsetFix:33, 0, UNSIGNED}\n0x000000020; 32.0", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Count.simpleCounter(Count.java:515)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 83, NodeCounterV1, "Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Count.simpleCounter(Count.java:515)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 91, NodeOutput, "Output(counter)", "com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:764)\ntwodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:45)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 95, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 133, NodeConstantRawBits, "{HWOffsetFix:1, 0, UNSIGNED}\n0x1; 1.0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 93, NodeConstantRawBits, "{HWOffsetFix:49, 0, UNSIGNED}\n0x1000000000000; 2.81474976710656E14", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 94, NodeCounterV1, "Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 121, NodeFIFO, "FIFO(4)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 96, NodeOutputMappedReg, "Scalar output (current_run_cycle_count)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 98, NodeInputMappedReg, "Scalar input (run_cycle_count)", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 99, NodeEq, "==", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+PHOTON_NODE_DATA(TwoDAverageDynamicKernel, 97, NodeFlush, "flush on trigger", "com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)\ntwodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)\n")
+#endif
+
+#ifdef SLIC_USE_DEFINITIONS
+#include <stdio.h>
+#include <math.h>
+#include <pthread.h>
+#include <string.h>
+static max_file_t *stored_maxfile = NULL;
+static max_engine_t *stored_engine = NULL;
+static char *stored_error = NULL;
+static int stored_has_error = 0;
+static pthread_once_t slic_bs_is_initialised = PTHREAD_ONCE_INIT;
+
+static void set_error(const char *error_str)
+{
+	stored_has_error = 1; 
+	if(stored_error == NULL) {
+		stored_error = strdup(error_str);
+	} else {
+		char *nerr = malloc(strlen(stored_error) + strlen(error_str) + 2);
+		sprintf(nerr, "%s\n%s", stored_error, error_str);
+		free(stored_error);
+		stored_error = nerr;
+	}
+}
+static void set_error_and_free(char *error_str){
+	set_error(error_str);
+	free(error_str);
+}
+int TwoDAverageDynamic_has_errors(void)
+{	return stored_has_error; }
+const char* TwoDAverageDynamic_get_errors(void)
+{	return stored_error; }
+void TwoDAverageDynamic_clear_errors(void)
+{
+	free(stored_error);
+	stored_error = NULL;
+	stored_has_error = 0;
+}
+
+static void TwoDAverageDynamic_static_init(void) 
+{
+	stored_maxfile = TwoDAverageDynamic_init();
+	if (stored_maxfile == NULL || !max_ok(stored_maxfile->errors)) {
+		stored_maxfile = NULL;
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to load maxfile"); return; }
+	}
+	if(!max_ok(max_global_errors())) {
+		set_error_and_free(max_errors_trace(max_global_errors()));
+		return;
+	}
+	if(!max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR))
+		max_errors_mode(stored_maxfile->errors, 0);
+	time_t timeout_previous = max_load_timeout(stored_maxfile, 30);
+	stored_engine = max_load(stored_maxfile, "*");
+	if (!max_ok(stored_maxfile->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) {
+			fprintf(stderr, "\nUnable to load engine: aborting now.\n\n");
+			fflush(stderr);
+			abort();
+		} else {
+			set_error_and_free(max_errors_trace(stored_maxfile->errors));
+			max_file_free(stored_maxfile);
+			stored_maxfile = NULL;
+			return;
+		} 
+	} 
+	max_load_timeout(stored_maxfile, timeout_previous);
+}
+void TwoDAverageDynamic_free(void)
+{
+	if(stored_engine != NULL)
+		max_unload(stored_engine);
+	if(stored_maxfile != NULL)
+		max_file_free(stored_maxfile);
+	if(stored_error != NULL)
+		free(stored_error);
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+/*---------------------------- Interface default -----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+void TwoDAverageDynamic(
+	int32_t param_N,
+	uint64_t inscalar_TwoDAverageDynamicKernel_nx,
+	const float *instream_inStream,
+	uint32_t *outstream_counter,
+	float *outstream_outStream)
+{
+	(void) pthread_once(&slic_bs_is_initialised, TwoDAverageDynamic_static_init);
+	if(stored_maxfile == NULL) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Maxfile was not loaded."); return; }
+	}
+	max_run_t *run = TwoDAverageDynamic_nonblock(param_N, inscalar_TwoDAverageDynamicKernel_nx, instream_inStream, outstream_counter, outstream_outStream);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+max_run_t *TwoDAverageDynamic_nonblock(
+	int32_t param_N,
+	uint64_t inscalar_TwoDAverageDynamicKernel_nx,
+	const float *instream_inStream,
+	uint32_t *outstream_counter,
+	float *outstream_outStream)
+{
+	TwoDAverageDynamic_actions_t interface_actions;
+	interface_actions.param_N = param_N;
+	interface_actions.inscalar_TwoDAverageDynamicKernel_nx = inscalar_TwoDAverageDynamicKernel_nx;
+	interface_actions.instream_inStream = instream_inStream;
+	interface_actions.outstream_counter = outstream_counter;
+	interface_actions.outstream_outStream = outstream_outStream;
+	(void) pthread_once(&slic_bs_is_initialised, TwoDAverageDynamic_static_init);
+	if(stored_maxfile == NULL) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Maxfile was not loaded."); return NULL; }
+	}
+	max_actions_t *actions[1];
+	actions[0] = TwoDAverageDynamic_convert(stored_maxfile, &interface_actions);
+	if(actions[0] == NULL) { 
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to build actions");return NULL; }
+	}
+	max_validate(actions[0]);
+	if(!max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); return NULL;}
+	}
+	max_run_t *run = max_run_multi_nonblock(stored_engine, actions, 1);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return NULL; }
+	}
+	if(!max_ok(stored_engine->errors)  || !max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); set_error_and_free(max_errors_trace(stored_engine->errors)); return NULL;}
+	}
+	max_actions_free(actions[0]);
+	return run;
+}
+
+void TwoDAverageDynamic_run(
+	max_engine_t *engine,
+	TwoDAverageDynamic_actions_t *interface_actions)
+{
+	max_run_t *run = TwoDAverageDynamic_run_nonblock(engine, interface_actions);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+max_run_t *TwoDAverageDynamic_run_nonblock(
+	max_engine_t *engine,
+	TwoDAverageDynamic_actions_t *interface_actions)
+{
+	max_file_t *maxfile = max_engine_get_max_file(engine); 
+	max_actions_t *actions[1];
+	actions[0] = TwoDAverageDynamic_convert(maxfile, interface_actions);
+	if(!max_ok(actions[0]->errors)) {
+		if(max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error_and_free(max_errors_trace(actions[0]->errors)); return NULL;}
+	}
+	max_run_t *run = max_run_multi_nonblock(engine, actions, 1);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions."); return NULL; }
+	}
+	max_actions_free(actions[0]);
+	return run;
+}
+
+
+/**
+ * \brief Group run advanced static function for the interface 'default'.
+ * 
+ * \param [in] group Group to use.
+ * \param [in,out] interface_actions Actions to run.
+ *
+ * Run the actions on the first device available in the group.
+ */
+void TwoDAverageDynamic_run_group(max_group_t *group, TwoDAverageDynamic_actions_t *interface_actions)
+{
+	/* Not strictly correct, because explicitly locking an engine here. */
+	max_engine_t *engine = max_lock_any(group);
+	if(engine == NULL) return;
+	TwoDAverageDynamic_run(engine, interface_actions);
+	max_unlock(engine);
+}
+
+
+/**
+ * \brief Group run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule the actions to run on the first device available in the group and return immediately.
+ * The status of the run must be checked with ::max_wait. 
+ * Note that use of ::max_nowait is prohibited with non-blocking running on groups:
+ * see the ::max_run_group_nonblock documentation for more explanation.
+ *
+ * \param [in] group Group to use.
+ * \param [in] interface_actions Actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *TwoDAverageDynamic_run_group_nonblock(max_group_t *group, TwoDAverageDynamic_actions_t *interface_actions)
+{
+	max_file_t *maxfile = max_group_get_max_file(group);
+	max_actions_t *actions = TwoDAverageDynamic_convert(maxfile, interface_actions);
+	if(actions == NULL) return NULL;
+	if(!max_ok(actions->errors)) return NULL;
+	max_validate(actions);
+	max_run_t *run = max_run_group_nonblock(group, actions);
+	max_actions_free(actions);
+	return run;
+}
+
+
+/**
+ * \brief Array run advanced static function for the interface 'default'.
+ * 
+ * \param [in] engarray The array of devices to use.
+ * \param [in,out] interface_actions The array of actions to run.
+ *
+ * Run the array of actions on the array of engines.  The length of interface_actions
+ * must match the size of engarray.
+ */
+void TwoDAverageDynamic_run_array(max_engarray_t *engarray, TwoDAverageDynamic_actions_t *interface_actions[])
+{
+	max_run_t *run = TwoDAverageDynamic_run_array_nonblock(engarray, interface_actions);
+	if(run == NULL) { 
+		if (max_config_get_bool(MAX_CONFIG_STATIC_INTERFACE_ABORT_ON_ERROR)) abort();
+		else { set_error("Unable to run actions.");return; }
+	}
+	max_wait(run);
+}
+
+
+/**
+ * \brief Array run advanced static non-blocking function for the interface 'default'.
+ * 
+ *
+ * Schedule to run the array of actions on the array of engines, and return immediately.
+ * The length of interface_actions must match the size of engarray.
+ * The status of the run can be checked either by ::max_wait or ::max_nowait;
+ * note that one of these *must* be called, so that associated memory can be released.
+ *
+ * \param [in] engarray The array of devices to use.
+ * \param [in] interface_actions The array of actions to run.
+ * \return A handle on the execution status of the actions, or NULL in case of error.
+ */
+max_run_t *TwoDAverageDynamic_run_array_nonblock(max_engarray_t *engarray, TwoDAverageDynamic_actions_t *interface_actions[])
+{
+	max_file_t *maxfile = max_engarray_get_max_file(engarray);
+	int i;
+	max_actarray_t *arr_actarray[1];
+	max_actions_t **arr_actions[1];
+	arr_actarray[0] = max_actarray_init(maxfile, engarray->size);
+	if(arr_actarray[0] == NULL) return NULL;
+	arr_actions[0] = malloc(engarray->size * sizeof(max_actions_t*));
+	for(i=0; i < arr_actarray[0]->size; i++) {
+		max_actions_t *actions = TwoDAverageDynamic_convert(maxfile, interface_actions[i]);
+		if(actions == NULL) return NULL;
+		arr_actions[0][i] = actions;
+		max_set_action(arr_actarray[0], i, actions);
+	}
+	max_run_t *run = max_run_array_multi_nonblock(engarray, arr_actarray, 1 );
+	for (i=0; i < arr_actarray[0]->size; i++) { max_actions_free(arr_actions[0][i]); }
+	max_actarray_free(arr_actarray[0]);
+	free(arr_actions[0]);
+	return run;
+}
+
+
+/**
+ * \brief Converts a static-interface action struct into a dynamic-interface max_actions_t struct.
+ *
+ * Note that this is an internal utility function used by other functions in the static interface.
+ *
+ * \param [in] maxfile The maxfile to use.
+ * \param [in] interface_actions The interface-specific actions to run.
+ * \return The dynamic-interface actions to run, or NULL in case of error.
+ */
+max_actions_t* TwoDAverageDynamic_convert(max_file_t *maxfile, TwoDAverageDynamic_actions_t *interface_actions)
+{
+	max_actions_t *actions = max_actions_init(maxfile, NULL);
+	if(actions == NULL || !max_ok(maxfile->errors)) return NULL;
+
+	int32_t param_N = interface_actions->param_N;
+	
+
+	/* temporary variables */
+	int64_t tmp_0 = (param_N * 4);
+	int64_t tmp_1 = (param_N * 4);
+	int64_t tmp_2 = (param_N * 4);
+
+	/* code for scalar TwoDAverageDynamicKernel.run_cycle_count */
+	uint64_t ticks_TwoDAverageDynamicKernel = param_N;
+	max_set_ticks(actions, "TwoDAverageDynamicKernel", param_N);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar TwoDAverageDynamicKernel.run_cycle_count*/
+	
+	/* code for scalar TwoDAverageDynamicKernel.nx */
+	uint64_t inscalar_TwoDAverageDynamicKernel_nx = interface_actions->inscalar_TwoDAverageDynamicKernel_nx;
+	max_set_uint64t(actions, "TwoDAverageDynamicKernel", "nx", inscalar_TwoDAverageDynamicKernel_nx);
+	if(!max_ok(actions->errors)) return NULL;
+	/* end of code for scalar TwoDAverageDynamicKernel.nx*/
+	
+	/* code for stream inStream */
+	size_t instream_size_inStream = tmp_0;
+	if (instream_size_inStream > 0) {
+		max_queue_input(actions, "inStream", interface_actions->instream_inStream,instream_size_inStream);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream inStream */
+	
+	/* code for stream counter */
+	size_t outstream_size_counter = tmp_2;
+	if (outstream_size_counter > 0) {
+		max_queue_output(actions, "counter", interface_actions->outstream_counter,outstream_size_counter);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream counter */
+	
+	/* code for stream outStream */
+	size_t outstream_size_outStream = tmp_1;
+	if (outstream_size_outStream > 0) {
+		max_queue_output(actions, "outStream", interface_actions->outstream_outStream,outstream_size_outStream);
+		if (!max_ok(actions->errors)) return NULL;
+	}
+	/* end of code for stream outStream */
+	
+	return actions;
+}
+
+
+
+#endif /* SLIC_USE_DEFINITIONS */
+
+#ifdef SLIC_B64_DEFINITIONS
+I2luY2x1ZGUgPHN0ZGlvLmg+CiNpbmNsdWRlIDxtYXRoLmg+CiNpbmNsdWRlIDxwdGhyZWFkLmg+
+CiNpbmNsdWRlIDxzdHJpbmcuaD4Kc3RhdGljIG1heF9maWxlX3QgKnN0b3JlZF9tYXhmaWxlID0g
+TlVMTDsKc3RhdGljIG1heF9lbmdpbmVfdCAqc3RvcmVkX2VuZ2luZSA9IE5VTEw7CnN0YXRpYyBj
+aGFyICpzdG9yZWRfZXJyb3IgPSBOVUxMOwpzdGF0aWMgaW50IHN0b3JlZF9oYXNfZXJyb3IgPSAw
+OwpzdGF0aWMgcHRocmVhZF9vbmNlX3Qgc2xpY19ic19pc19pbml0aWFsaXNlZCA9IFBUSFJFQURf
+T05DRV9JTklUOwoKc3RhdGljIHZvaWQgc2V0X2Vycm9yKGNvbnN0IGNoYXIgKmVycm9yX3N0cikK
+ewoJc3RvcmVkX2hhc19lcnJvciA9IDE7IAoJaWYoc3RvcmVkX2Vycm9yID09IE5VTEwpIHsKCQlz
+dG9yZWRfZXJyb3IgPSBzdHJkdXAoZXJyb3Jfc3RyKTsKCX0gZWxzZSB7CgkJY2hhciAqbmVyciA9
+IG1hbGxvYyhzdHJsZW4oc3RvcmVkX2Vycm9yKSArIHN0cmxlbihlcnJvcl9zdHIpICsgMik7CgkJ
+c3ByaW50ZihuZXJyLCAiJXNcbiVzIiwgc3RvcmVkX2Vycm9yLCBlcnJvcl9zdHIpOwoJCWZyZWUo
+c3RvcmVkX2Vycm9yKTsKCQlzdG9yZWRfZXJyb3IgPSBuZXJyOwoJfQp9CnN0YXRpYyB2b2lkIHNl
+dF9lcnJvcl9hbmRfZnJlZShjaGFyICplcnJvcl9zdHIpewoJc2V0X2Vycm9yKGVycm9yX3N0cik7
+CglmcmVlKGVycm9yX3N0cik7Cn0KaW50IFR3b0RBdmVyYWdlRHluYW1pY19oYXNfZXJyb3JzKHZv
+aWQpCnsJcmV0dXJuIHN0b3JlZF9oYXNfZXJyb3I7IH0KY29uc3QgY2hhciogVHdvREF2ZXJhZ2VE
+eW5hbWljX2dldF9lcnJvcnModm9pZCkKewlyZXR1cm4gc3RvcmVkX2Vycm9yOyB9CnZvaWQgVHdv
+REF2ZXJhZ2VEeW5hbWljX2NsZWFyX2Vycm9ycyh2b2lkKQp7CglmcmVlKHN0b3JlZF9lcnJvcik7
+CglzdG9yZWRfZXJyb3IgPSBOVUxMOwoJc3RvcmVkX2hhc19lcnJvciA9IDA7Cn0KCnN0YXRpYyB2
+b2lkIFR3b0RBdmVyYWdlRHluYW1pY19zdGF0aWNfaW5pdCh2b2lkKSAKewoJc3RvcmVkX21heGZp
+bGUgPSBUd29EQXZlcmFnZUR5bmFtaWNfaW5pdCgpOwoJaWYgKHN0b3JlZF9tYXhmaWxlID09IE5V
+TEwgfHwgIW1heF9vayhzdG9yZWRfbWF4ZmlsZS0+ZXJyb3JzKSkgewoJCXN0b3JlZF9tYXhmaWxl
+ID0gTlVMTDsKCQlpZihtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVS
+RkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNldF9lcnJvcigiVW5hYmxl
+IHRvIGxvYWQgbWF4ZmlsZSIpOyByZXR1cm47IH0KCX0KCWlmKCFtYXhfb2sobWF4X2dsb2JhbF9l
+cnJvcnMoKSkpIHsKCQlzZXRfZXJyb3JfYW5kX2ZyZWUobWF4X2Vycm9yc190cmFjZShtYXhfZ2xv
+YmFsX2Vycm9ycygpKSk7CgkJcmV0dXJuOwoJfQoJaWYoIW1heF9jb25maWdfZ2V0X2Jvb2woTUFY
+X0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FCT1JUX09OX0VSUk9SKSkKCQltYXhfZXJyb3JzX21v
+ZGUoc3RvcmVkX21heGZpbGUtPmVycm9ycywgMCk7Cgl0aW1lX3QgdGltZW91dF9wcmV2aW91cyA9
+IG1heF9sb2FkX3RpbWVvdXQoc3RvcmVkX21heGZpbGUsIDMwKTsKCXN0b3JlZF9lbmdpbmUgPSBt
+YXhfbG9hZChzdG9yZWRfbWF4ZmlsZSwgIioiKTsKCWlmICghbWF4X29rKHN0b3JlZF9tYXhmaWxl
+LT5lcnJvcnMpKSB7CgkJaWYobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NUQVRJQ19J
+TlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSB7CgkJCWZwcmludGYoc3RkZXJyLCAiXG5VbmFibGUg
+dG8gbG9hZCBlbmdpbmU6IGFib3J0aW5nIG5vdy5cblxuIik7CgkJCWZmbHVzaChzdGRlcnIpOwoJ
+CQlhYm9ydCgpOwoJCX0gZWxzZSB7CgkJCXNldF9lcnJvcl9hbmRfZnJlZShtYXhfZXJyb3JzX3Ry
+YWNlKHN0b3JlZF9tYXhmaWxlLT5lcnJvcnMpKTsKCQkJbWF4X2ZpbGVfZnJlZShzdG9yZWRfbWF4
+ZmlsZSk7CgkJCXN0b3JlZF9tYXhmaWxlID0gTlVMTDsKCQkJcmV0dXJuOwoJCX0gCgl9IAoJbWF4
+X2xvYWRfdGltZW91dChzdG9yZWRfbWF4ZmlsZSwgdGltZW91dF9wcmV2aW91cyk7Cn0Kdm9pZCBU
+d29EQXZlcmFnZUR5bmFtaWNfZnJlZSh2b2lkKQp7CglpZihzdG9yZWRfZW5naW5lICE9IE5VTEwp
+CgkJbWF4X3VubG9hZChzdG9yZWRfZW5naW5lKTsKCWlmKHN0b3JlZF9tYXhmaWxlICE9IE5VTEwp
+CgkJbWF4X2ZpbGVfZnJlZShzdG9yZWRfbWF4ZmlsZSk7CglpZihzdG9yZWRfZXJyb3IgIT0gTlVM
+TCkKCQlmcmVlKHN0b3JlZF9lcnJvcik7Cn0KCgoKLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi8KLyot
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIEludGVyZmFjZSBkZWZhdWx0IC0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tKi8KLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi8KCgp2b2lkIFR3b0RB
+dmVyYWdlRHluYW1pYygKCWludDMyX3QgcGFyYW1fTiwKCXVpbnQ2NF90IGluc2NhbGFyX1R3b0RB
+dmVyYWdlRHluYW1pY0tlcm5lbF9ueCwKCWNvbnN0IGZsb2F0ICppbnN0cmVhbV9pblN0cmVhbSwK
+CXVpbnQzMl90ICpvdXRzdHJlYW1fY291bnRlciwKCWZsb2F0ICpvdXRzdHJlYW1fb3V0U3RyZWFt
+KQp7Cgkodm9pZCkgcHRocmVhZF9vbmNlKCZzbGljX2JzX2lzX2luaXRpYWxpc2VkLCBUd29EQXZl
+cmFnZUR5bmFtaWNfc3RhdGljX2luaXQpOwoJaWYoc3RvcmVkX21heGZpbGUgPT0gTlVMTCkgewoJ
+CWlmKG1heF9jb25maWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FCT1JU
+X09OX0VSUk9SKSkgYWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9yKCJNYXhmaWxlIHdhcyBub3Qg
+bG9hZGVkLiIpOyByZXR1cm47IH0KCX0KCW1heF9ydW5fdCAqcnVuID0gVHdvREF2ZXJhZ2VEeW5h
+bWljX25vbmJsb2NrKHBhcmFtX04sIGluc2NhbGFyX1R3b0RBdmVyYWdlRHluYW1pY0tlcm5lbF9u
+eCwgaW5zdHJlYW1faW5TdHJlYW0sIG91dHN0cmVhbV9jb3VudGVyLCBvdXRzdHJlYW1fb3V0U3Ry
+ZWFtKTsKCWlmKHJ1biA9PSBOVUxMKSB7IAoJCWlmIChtYXhfY29uZmlnX2dldF9ib29sKE1BWF9D
+T05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7
+IHNldF9lcnJvcigiVW5hYmxlIHRvIHJ1biBhY3Rpb25zLiIpO3JldHVybjsgfQoJfQoJbWF4X3dh
+aXQocnVuKTsKfQoKbWF4X3J1bl90ICpUd29EQXZlcmFnZUR5bmFtaWNfbm9uYmxvY2soCglpbnQz
+Ml90IHBhcmFtX04sCgl1aW50NjRfdCBpbnNjYWxhcl9Ud29EQXZlcmFnZUR5bmFtaWNLZXJuZWxf
+bngsCgljb25zdCBmbG9hdCAqaW5zdHJlYW1faW5TdHJlYW0sCgl1aW50MzJfdCAqb3V0c3RyZWFt
+X2NvdW50ZXIsCglmbG9hdCAqb3V0c3RyZWFtX291dFN0cmVhbSkKewoJVHdvREF2ZXJhZ2VEeW5h
+bWljX2FjdGlvbnNfdCBpbnRlcmZhY2VfYWN0aW9uczsKCWludGVyZmFjZV9hY3Rpb25zLnBhcmFt
+X04gPSBwYXJhbV9OOwoJaW50ZXJmYWNlX2FjdGlvbnMuaW5zY2FsYXJfVHdvREF2ZXJhZ2VEeW5h
+bWljS2VybmVsX254ID0gaW5zY2FsYXJfVHdvREF2ZXJhZ2VEeW5hbWljS2VybmVsX254OwoJaW50
+ZXJmYWNlX2FjdGlvbnMuaW5zdHJlYW1faW5TdHJlYW0gPSBpbnN0cmVhbV9pblN0cmVhbTsKCWlu
+dGVyZmFjZV9hY3Rpb25zLm91dHN0cmVhbV9jb3VudGVyID0gb3V0c3RyZWFtX2NvdW50ZXI7Cglp
+bnRlcmZhY2VfYWN0aW9ucy5vdXRzdHJlYW1fb3V0U3RyZWFtID0gb3V0c3RyZWFtX291dFN0cmVh
+bTsKCSh2b2lkKSBwdGhyZWFkX29uY2UoJnNsaWNfYnNfaXNfaW5pdGlhbGlzZWQsIFR3b0RBdmVy
+YWdlRHluYW1pY19zdGF0aWNfaW5pdCk7CglpZihzdG9yZWRfbWF4ZmlsZSA9PSBOVUxMKSB7CgkJ
+aWYobWF4X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRf
+T05fRVJST1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJyb3IoIk1heGZpbGUgd2FzIG5vdCBs
+b2FkZWQuIik7IHJldHVybiBOVUxMOyB9Cgl9CgltYXhfYWN0aW9uc190ICphY3Rpb25zWzFdOwoJ
+YWN0aW9uc1swXSA9IFR3b0RBdmVyYWdlRHluYW1pY19jb252ZXJ0KHN0b3JlZF9tYXhmaWxlLCAm
+aW50ZXJmYWNlX2FjdGlvbnMpOwoJaWYoYWN0aW9uc1swXSA9PSBOVUxMKSB7IAoJCWlmKG1heF9j
+b25maWdfZ2V0X2Jvb2woTUFYX0NPTkZJR19TVEFUSUNfSU5URVJGQUNFX0FCT1JUX09OX0VSUk9S
+KSkgYWJvcnQoKTsKCQllbHNlIHsgc2V0X2Vycm9yKCJVbmFibGUgdG8gYnVpbGQgYWN0aW9ucyIp
+O3JldHVybiBOVUxMOyB9Cgl9CgltYXhfdmFsaWRhdGUoYWN0aW9uc1swXSk7CglpZighbWF4X29r
+KGFjdGlvbnNbMF0tPmVycm9ycykpIHsKCQlpZihtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05G
+SUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNl
+dF9lcnJvcl9hbmRfZnJlZShtYXhfZXJyb3JzX3RyYWNlKGFjdGlvbnNbMF0tPmVycm9ycykpOyBy
+ZXR1cm4gTlVMTDt9Cgl9CgltYXhfcnVuX3QgKnJ1biA9IG1heF9ydW5fbXVsdGlfbm9uYmxvY2so
+c3RvcmVkX2VuZ2luZSwgYWN0aW9ucywgMSk7CglpZihydW4gPT0gTlVMTCkgeyAKCQlpZiAobWF4
+X2NvbmZpZ19nZXRfYm9vbChNQVhfQ09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJS
+T1IpKSBhYm9ydCgpOwoJCWVsc2UgeyBzZXRfZXJyb3IoIlVuYWJsZSB0byBydW4gYWN0aW9ucy4i
+KTtyZXR1cm4gTlVMTDsgfQoJfQoJaWYoIW1heF9vayhzdG9yZWRfZW5naW5lLT5lcnJvcnMpICB8
+fCAhbWF4X29rKGFjdGlvbnNbMF0tPmVycm9ycykpIHsKCQlpZihtYXhfY29uZmlnX2dldF9ib29s
+KE1BWF9DT05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJ
+ZWxzZSB7IHNldF9lcnJvcl9hbmRfZnJlZShtYXhfZXJyb3JzX3RyYWNlKGFjdGlvbnNbMF0tPmVy
+cm9ycykpOyBzZXRfZXJyb3JfYW5kX2ZyZWUobWF4X2Vycm9yc190cmFjZShzdG9yZWRfZW5naW5l
+LT5lcnJvcnMpKTsgcmV0dXJuIE5VTEw7fQoJfQoJbWF4X2FjdGlvbnNfZnJlZShhY3Rpb25zWzBd
+KTsKCXJldHVybiBydW47Cn0KCnZvaWQgVHdvREF2ZXJhZ2VEeW5hbWljX3J1bigKCW1heF9lbmdp
+bmVfdCAqZW5naW5lLAoJVHdvREF2ZXJhZ2VEeW5hbWljX2FjdGlvbnNfdCAqaW50ZXJmYWNlX2Fj
+dGlvbnMpCnsKCW1heF9ydW5fdCAqcnVuID0gVHdvREF2ZXJhZ2VEeW5hbWljX3J1bl9ub25ibG9j
+ayhlbmdpbmUsIGludGVyZmFjZV9hY3Rpb25zKTsKCWlmKHJ1biA9PSBOVUxMKSB7IAoJCWlmICht
+YXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9F
+UlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNldF9lcnJvcigiVW5hYmxlIHRvIHJ1biBhY3Rpb25z
+LiIpO3JldHVybjsgfQoJfQoJbWF4X3dhaXQocnVuKTsKfQoKbWF4X3J1bl90ICpUd29EQXZlcmFn
+ZUR5bmFtaWNfcnVuX25vbmJsb2NrKAoJbWF4X2VuZ2luZV90ICplbmdpbmUsCglUd29EQXZlcmFn
+ZUR5bmFtaWNfYWN0aW9uc190ICppbnRlcmZhY2VfYWN0aW9ucykKewoJbWF4X2ZpbGVfdCAqbWF4
+ZmlsZSA9IG1heF9lbmdpbmVfZ2V0X21heF9maWxlKGVuZ2luZSk7IAoJbWF4X2FjdGlvbnNfdCAq
+YWN0aW9uc1sxXTsKCWFjdGlvbnNbMF0gPSBUd29EQXZlcmFnZUR5bmFtaWNfY29udmVydChtYXhm
+aWxlLCBpbnRlcmZhY2VfYWN0aW9ucyk7CglpZighbWF4X29rKGFjdGlvbnNbMF0tPmVycm9ycykp
+IHsKCQlpZihtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05GSUdfU1RBVElDX0lOVEVSRkFDRV9B
+Qk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNldF9lcnJvcl9hbmRfZnJlZShtYXhf
+ZXJyb3JzX3RyYWNlKGFjdGlvbnNbMF0tPmVycm9ycykpOyByZXR1cm4gTlVMTDt9Cgl9CgltYXhf
+cnVuX3QgKnJ1biA9IG1heF9ydW5fbXVsdGlfbm9uYmxvY2soZW5naW5lLCBhY3Rpb25zLCAxKTsK
+CWlmKHJ1biA9PSBOVUxMKSB7IAoJCWlmIChtYXhfY29uZmlnX2dldF9ib29sKE1BWF9DT05GSUdf
+U1RBVElDX0lOVEVSRkFDRV9BQk9SVF9PTl9FUlJPUikpIGFib3J0KCk7CgkJZWxzZSB7IHNldF9l
+cnJvcigiVW5hYmxlIHRvIHJ1biBhY3Rpb25zLiIpOyByZXR1cm4gTlVMTDsgfQoJfQoJbWF4X2Fj
+dGlvbnNfZnJlZShhY3Rpb25zWzBdKTsKCXJldHVybiBydW47Cn0KCgovKioKICogXGJyaWVmIEdy
+b3VwIHJ1biBhZHZhbmNlZCBzdGF0aWMgZnVuY3Rpb24gZm9yIHRoZSBpbnRlcmZhY2UgJ2RlZmF1
+bHQnLgogKiAKICogXHBhcmFtIFtpbl0gZ3JvdXAgR3JvdXAgdG8gdXNlLgogKiBccGFyYW0gW2lu
+LG91dF0gaW50ZXJmYWNlX2FjdGlvbnMgQWN0aW9ucyB0byBydW4uCiAqCiAqIFJ1biB0aGUgYWN0
+aW9ucyBvbiB0aGUgZmlyc3QgZGV2aWNlIGF2YWlsYWJsZSBpbiB0aGUgZ3JvdXAuCiAqLwp2b2lk
+IFR3b0RBdmVyYWdlRHluYW1pY19ydW5fZ3JvdXAobWF4X2dyb3VwX3QgKmdyb3VwLCBUd29EQXZl
+cmFnZUR5bmFtaWNfYWN0aW9uc190ICppbnRlcmZhY2VfYWN0aW9ucykKewoJLyogTm90IHN0cmlj
+dGx5IGNvcnJlY3QsIGJlY2F1c2UgZXhwbGljaXRseSBsb2NraW5nIGFuIGVuZ2luZSBoZXJlLiAq
+LwoJbWF4X2VuZ2luZV90ICplbmdpbmUgPSBtYXhfbG9ja19hbnkoZ3JvdXApOwoJaWYoZW5naW5l
+ID09IE5VTEwpIHJldHVybjsKCVR3b0RBdmVyYWdlRHluYW1pY19ydW4oZW5naW5lLCBpbnRlcmZh
+Y2VfYWN0aW9ucyk7CgltYXhfdW5sb2NrKGVuZ2luZSk7Cn0KCgovKioKICogXGJyaWVmIEdyb3Vw
+IHJ1biBhZHZhbmNlZCBzdGF0aWMgbm9uLWJsb2NraW5nIGZ1bmN0aW9uIGZvciB0aGUgaW50ZXJm
+YWNlICdkZWZhdWx0Jy4KICogCiAqCiAqIFNjaGVkdWxlIHRoZSBhY3Rpb25zIHRvIHJ1biBvbiB0
+aGUgZmlyc3QgZGV2aWNlIGF2YWlsYWJsZSBpbiB0aGUgZ3JvdXAgYW5kIHJldHVybiBpbW1lZGlh
+dGVseS4KICogVGhlIHN0YXR1cyBvZiB0aGUgcnVuIG11c3QgYmUgY2hlY2tlZCB3aXRoIDo6bWF4
+X3dhaXQuIAogKiBOb3RlIHRoYXQgdXNlIG9mIDo6bWF4X25vd2FpdCBpcyBwcm9oaWJpdGVkIHdp
+dGggbm9uLWJsb2NraW5nIHJ1bm5pbmcgb24gZ3JvdXBzOgogKiBzZWUgdGhlIDo6bWF4X3J1bl9n
+cm91cF9ub25ibG9jayBkb2N1bWVudGF0aW9uIGZvciBtb3JlIGV4cGxhbmF0aW9uLgogKgogKiBc
+cGFyYW0gW2luXSBncm91cCBHcm91cCB0byB1c2UuCiAqIFxwYXJhbSBbaW5dIGludGVyZmFjZV9h
+Y3Rpb25zIEFjdGlvbnMgdG8gcnVuLgogKiBccmV0dXJuIEEgaGFuZGxlIG9uIHRoZSBleGVjdXRp
+b24gc3RhdHVzIG9mIHRoZSBhY3Rpb25zLCBvciBOVUxMIGluIGNhc2Ugb2YgZXJyb3IuCiAqLwpt
+YXhfcnVuX3QgKlR3b0RBdmVyYWdlRHluYW1pY19ydW5fZ3JvdXBfbm9uYmxvY2sobWF4X2dyb3Vw
+X3QgKmdyb3VwLCBUd29EQXZlcmFnZUR5bmFtaWNfYWN0aW9uc190ICppbnRlcmZhY2VfYWN0aW9u
+cykKewoJbWF4X2ZpbGVfdCAqbWF4ZmlsZSA9IG1heF9ncm91cF9nZXRfbWF4X2ZpbGUoZ3JvdXAp
+OwoJbWF4X2FjdGlvbnNfdCAqYWN0aW9ucyA9IFR3b0RBdmVyYWdlRHluYW1pY19jb252ZXJ0KG1h
+eGZpbGUsIGludGVyZmFjZV9hY3Rpb25zKTsKCWlmKGFjdGlvbnMgPT0gTlVMTCkgcmV0dXJuIE5V
+TEw7CglpZighbWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBOVUxMOwoJbWF4X3ZhbGlk
+YXRlKGFjdGlvbnMpOwoJbWF4X3J1bl90ICpydW4gPSBtYXhfcnVuX2dyb3VwX25vbmJsb2NrKGdy
+b3VwLCBhY3Rpb25zKTsKCW1heF9hY3Rpb25zX2ZyZWUoYWN0aW9ucyk7CglyZXR1cm4gcnVuOwp9
+CgoKLyoqCiAqIFxicmllZiBBcnJheSBydW4gYWR2YW5jZWQgc3RhdGljIGZ1bmN0aW9uIGZvciB0
+aGUgaW50ZXJmYWNlICdkZWZhdWx0Jy4KICogCiAqIFxwYXJhbSBbaW5dIGVuZ2FycmF5IFRoZSBh
+cnJheSBvZiBkZXZpY2VzIHRvIHVzZS4KICogXHBhcmFtIFtpbixvdXRdIGludGVyZmFjZV9hY3Rp
+b25zIFRoZSBhcnJheSBvZiBhY3Rpb25zIHRvIHJ1bi4KICoKICogUnVuIHRoZSBhcnJheSBvZiBh
+Y3Rpb25zIG9uIHRoZSBhcnJheSBvZiBlbmdpbmVzLiAgVGhlIGxlbmd0aCBvZiBpbnRlcmZhY2Vf
+YWN0aW9ucwogKiBtdXN0IG1hdGNoIHRoZSBzaXplIG9mIGVuZ2FycmF5LgogKi8Kdm9pZCBUd29E
+QXZlcmFnZUR5bmFtaWNfcnVuX2FycmF5KG1heF9lbmdhcnJheV90ICplbmdhcnJheSwgVHdvREF2
+ZXJhZ2VEeW5hbWljX2FjdGlvbnNfdCAqaW50ZXJmYWNlX2FjdGlvbnNbXSkKewoJbWF4X3J1bl90
+ICpydW4gPSBUd29EQXZlcmFnZUR5bmFtaWNfcnVuX2FycmF5X25vbmJsb2NrKGVuZ2FycmF5LCBp
+bnRlcmZhY2VfYWN0aW9ucyk7CglpZihydW4gPT0gTlVMTCkgeyAKCQlpZiAobWF4X2NvbmZpZ19n
+ZXRfYm9vbChNQVhfQ09ORklHX1NUQVRJQ19JTlRFUkZBQ0VfQUJPUlRfT05fRVJST1IpKSBhYm9y
+dCgpOwoJCWVsc2UgeyBzZXRfZXJyb3IoIlVuYWJsZSB0byBydW4gYWN0aW9ucy4iKTtyZXR1cm47
+IH0KCX0KCW1heF93YWl0KHJ1bik7Cn0KCgovKioKICogXGJyaWVmIEFycmF5IHJ1biBhZHZhbmNl
+ZCBzdGF0aWMgbm9uLWJsb2NraW5nIGZ1bmN0aW9uIGZvciB0aGUgaW50ZXJmYWNlICdkZWZhdWx0
+Jy4KICogCiAqCiAqIFNjaGVkdWxlIHRvIHJ1biB0aGUgYXJyYXkgb2YgYWN0aW9ucyBvbiB0aGUg
+YXJyYXkgb2YgZW5naW5lcywgYW5kIHJldHVybiBpbW1lZGlhdGVseS4KICogVGhlIGxlbmd0aCBv
+ZiBpbnRlcmZhY2VfYWN0aW9ucyBtdXN0IG1hdGNoIHRoZSBzaXplIG9mIGVuZ2FycmF5LgogKiBU
+aGUgc3RhdHVzIG9mIHRoZSBydW4gY2FuIGJlIGNoZWNrZWQgZWl0aGVyIGJ5IDo6bWF4X3dhaXQg
+b3IgOjptYXhfbm93YWl0OwogKiBub3RlIHRoYXQgb25lIG9mIHRoZXNlICptdXN0KiBiZSBjYWxs
+ZWQsIHNvIHRoYXQgYXNzb2NpYXRlZCBtZW1vcnkgY2FuIGJlIHJlbGVhc2VkLgogKgogKiBccGFy
+YW0gW2luXSBlbmdhcnJheSBUaGUgYXJyYXkgb2YgZGV2aWNlcyB0byB1c2UuCiAqIFxwYXJhbSBb
+aW5dIGludGVyZmFjZV9hY3Rpb25zIFRoZSBhcnJheSBvZiBhY3Rpb25zIHRvIHJ1bi4KICogXHJl
+dHVybiBBIGhhbmRsZSBvbiB0aGUgZXhlY3V0aW9uIHN0YXR1cyBvZiB0aGUgYWN0aW9ucywgb3Ig
+TlVMTCBpbiBjYXNlIG9mIGVycm9yLgogKi8KbWF4X3J1bl90ICpUd29EQXZlcmFnZUR5bmFtaWNf
+cnVuX2FycmF5X25vbmJsb2NrKG1heF9lbmdhcnJheV90ICplbmdhcnJheSwgVHdvREF2ZXJhZ2VE
+eW5hbWljX2FjdGlvbnNfdCAqaW50ZXJmYWNlX2FjdGlvbnNbXSkKewoJbWF4X2ZpbGVfdCAqbWF4
+ZmlsZSA9IG1heF9lbmdhcnJheV9nZXRfbWF4X2ZpbGUoZW5nYXJyYXkpOwoJaW50IGk7CgltYXhf
+YWN0YXJyYXlfdCAqYXJyX2FjdGFycmF5WzFdOwoJbWF4X2FjdGlvbnNfdCAqKmFycl9hY3Rpb25z
+WzFdOwoJYXJyX2FjdGFycmF5WzBdID0gbWF4X2FjdGFycmF5X2luaXQobWF4ZmlsZSwgZW5nYXJy
+YXktPnNpemUpOwoJaWYoYXJyX2FjdGFycmF5WzBdID09IE5VTEwpIHJldHVybiBOVUxMOwoJYXJy
+X2FjdGlvbnNbMF0gPSBtYWxsb2MoZW5nYXJyYXktPnNpemUgKiBzaXplb2YobWF4X2FjdGlvbnNf
+dCopKTsKCWZvcihpPTA7IGkgPCBhcnJfYWN0YXJyYXlbMF0tPnNpemU7IGkrKykgewoJCW1heF9h
+Y3Rpb25zX3QgKmFjdGlvbnMgPSBUd29EQXZlcmFnZUR5bmFtaWNfY29udmVydChtYXhmaWxlLCBp
+bnRlcmZhY2VfYWN0aW9uc1tpXSk7CgkJaWYoYWN0aW9ucyA9PSBOVUxMKSByZXR1cm4gTlVMTDsK
+CQlhcnJfYWN0aW9uc1swXVtpXSA9IGFjdGlvbnM7CgkJbWF4X3NldF9hY3Rpb24oYXJyX2FjdGFy
+cmF5WzBdLCBpLCBhY3Rpb25zKTsKCX0KCW1heF9ydW5fdCAqcnVuID0gbWF4X3J1bl9hcnJheV9t
+dWx0aV9ub25ibG9jayhlbmdhcnJheSwgYXJyX2FjdGFycmF5LCAxICk7Cglmb3IgKGk9MDsgaSA8
+IGFycl9hY3RhcnJheVswXS0+c2l6ZTsgaSsrKSB7IG1heF9hY3Rpb25zX2ZyZWUoYXJyX2FjdGlv
+bnNbMF1baV0pOyB9CgltYXhfYWN0YXJyYXlfZnJlZShhcnJfYWN0YXJyYXlbMF0pOwoJZnJlZShh
+cnJfYWN0aW9uc1swXSk7CglyZXR1cm4gcnVuOwp9CgoKLyoqCiAqIFxicmllZiBDb252ZXJ0cyBh
+IHN0YXRpYy1pbnRlcmZhY2UgYWN0aW9uIHN0cnVjdCBpbnRvIGEgZHluYW1pYy1pbnRlcmZhY2Ug
+bWF4X2FjdGlvbnNfdCBzdHJ1Y3QuCiAqCiAqIE5vdGUgdGhhdCB0aGlzIGlzIGFuIGludGVybmFs
+IHV0aWxpdHkgZnVuY3Rpb24gdXNlZCBieSBvdGhlciBmdW5jdGlvbnMgaW4gdGhlIHN0YXRpYyBp
+bnRlcmZhY2UuCiAqCiAqIFxwYXJhbSBbaW5dIG1heGZpbGUgVGhlIG1heGZpbGUgdG8gdXNlLgog
+KiBccGFyYW0gW2luXSBpbnRlcmZhY2VfYWN0aW9ucyBUaGUgaW50ZXJmYWNlLXNwZWNpZmljIGFj
+dGlvbnMgdG8gcnVuLgogKiBccmV0dXJuIFRoZSBkeW5hbWljLWludGVyZmFjZSBhY3Rpb25zIHRv
+IHJ1biwgb3IgTlVMTCBpbiBjYXNlIG9mIGVycm9yLgogKi8KbWF4X2FjdGlvbnNfdCogVHdvREF2
+ZXJhZ2VEeW5hbWljX2NvbnZlcnQobWF4X2ZpbGVfdCAqbWF4ZmlsZSwgVHdvREF2ZXJhZ2VEeW5h
+bWljX2FjdGlvbnNfdCAqaW50ZXJmYWNlX2FjdGlvbnMpCnsKCW1heF9hY3Rpb25zX3QgKmFjdGlv
+bnMgPSBtYXhfYWN0aW9uc19pbml0KG1heGZpbGUsIE5VTEwpOwoJaWYoYWN0aW9ucyA9PSBOVUxM
+IHx8ICFtYXhfb2sobWF4ZmlsZS0+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7CgoJaW50MzJfdCBwYXJh
+bV9OID0gaW50ZXJmYWNlX2FjdGlvbnMtPnBhcmFtX047CgkKCgkvKiB0ZW1wb3JhcnkgdmFyaWFi
+bGVzICovCglpbnQ2NF90IHRtcF8wID0gKHBhcmFtX04gKiA0KTsKCWludDY0X3QgdG1wXzEgPSAo
+cGFyYW1fTiAqIDQpOwoJaW50NjRfdCB0bXBfMiA9IChwYXJhbV9OICogNCk7CgoJLyogY29kZSBm
+b3Igc2NhbGFyIFR3b0RBdmVyYWdlRHluYW1pY0tlcm5lbC5ydW5fY3ljbGVfY291bnQgKi8KCXVp
+bnQ2NF90IHRpY2tzX1R3b0RBdmVyYWdlRHluYW1pY0tlcm5lbCA9IHBhcmFtX047CgltYXhfc2V0
+X3RpY2tzKGFjdGlvbnMsICJUd29EQXZlcmFnZUR5bmFtaWNLZXJuZWwiLCBwYXJhbV9OKTsKCWlm
+KCFtYXhfb2soYWN0aW9ucy0+ZXJyb3JzKSkgcmV0dXJuIE5VTEw7CgkvKiBlbmQgb2YgY29kZSBm
+b3Igc2NhbGFyIFR3b0RBdmVyYWdlRHluYW1pY0tlcm5lbC5ydW5fY3ljbGVfY291bnQqLwoJCgkv
+KiBjb2RlIGZvciBzY2FsYXIgVHdvREF2ZXJhZ2VEeW5hbWljS2VybmVsLm54ICovCgl1aW50NjRf
+dCBpbnNjYWxhcl9Ud29EQXZlcmFnZUR5bmFtaWNLZXJuZWxfbnggPSBpbnRlcmZhY2VfYWN0aW9u
+cy0+aW5zY2FsYXJfVHdvREF2ZXJhZ2VEeW5hbWljS2VybmVsX254OwoJbWF4X3NldF91aW50NjR0
+KGFjdGlvbnMsICJUd29EQXZlcmFnZUR5bmFtaWNLZXJuZWwiLCAibngiLCBpbnNjYWxhcl9Ud29E
+QXZlcmFnZUR5bmFtaWNLZXJuZWxfbngpOwoJaWYoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSBy
+ZXR1cm4gTlVMTDsKCS8qIGVuZCBvZiBjb2RlIGZvciBzY2FsYXIgVHdvREF2ZXJhZ2VEeW5hbWlj
+S2VybmVsLm54Ki8KCQoJLyogY29kZSBmb3Igc3RyZWFtIGluU3RyZWFtICovCglzaXplX3QgaW5z
+dHJlYW1fc2l6ZV9pblN0cmVhbSA9IHRtcF8wOwoJaWYgKGluc3RyZWFtX3NpemVfaW5TdHJlYW0g
+PiAwKSB7CgkJbWF4X3F1ZXVlX2lucHV0KGFjdGlvbnMsICJpblN0cmVhbSIsIGludGVyZmFjZV9h
+Y3Rpb25zLT5pbnN0cmVhbV9pblN0cmVhbSxpbnN0cmVhbV9zaXplX2luU3RyZWFtKTsKCQlpZiAo
+IW1heF9vayhhY3Rpb25zLT5lcnJvcnMpKSByZXR1cm4gTlVMTDsKCX0KCS8qIGVuZCBvZiBjb2Rl
+IGZvciBzdHJlYW0gaW5TdHJlYW0gKi8KCQoJLyogY29kZSBmb3Igc3RyZWFtIGNvdW50ZXIgKi8K
+CXNpemVfdCBvdXRzdHJlYW1fc2l6ZV9jb3VudGVyID0gdG1wXzI7CglpZiAob3V0c3RyZWFtX3Np
+emVfY291bnRlciA+IDApIHsKCQltYXhfcXVldWVfb3V0cHV0KGFjdGlvbnMsICJjb3VudGVyIiwg
+aW50ZXJmYWNlX2FjdGlvbnMtPm91dHN0cmVhbV9jb3VudGVyLG91dHN0cmVhbV9zaXplX2NvdW50
+ZXIpOwoJCWlmICghbWF4X29rKGFjdGlvbnMtPmVycm9ycykpIHJldHVybiBOVUxMOwoJfQoJLyog
+ZW5kIG9mIGNvZGUgZm9yIHN0cmVhbSBjb3VudGVyICovCgkKCS8qIGNvZGUgZm9yIHN0cmVhbSBv
+dXRTdHJlYW0gKi8KCXNpemVfdCBvdXRzdHJlYW1fc2l6ZV9vdXRTdHJlYW0gPSB0bXBfMTsKCWlm
+IChvdXRzdHJlYW1fc2l6ZV9vdXRTdHJlYW0gPiAwKSB7CgkJbWF4X3F1ZXVlX291dHB1dChhY3Rp
+b25zLCAib3V0U3RyZWFtIiwgaW50ZXJmYWNlX2FjdGlvbnMtPm91dHN0cmVhbV9vdXRTdHJlYW0s
+b3V0c3RyZWFtX3NpemVfb3V0U3RyZWFtKTsKCQlpZiAoIW1heF9vayhhY3Rpb25zLT5lcnJvcnMp
+KSByZXR1cm4gTlVMTDsKCX0KCS8qIGVuZCBvZiBjb2RlIGZvciBzdHJlYW0gb3V0U3RyZWFtICov
+CgkKCXJldHVybiBhY3Rpb25zOwp9CgoK
+#endif /* SLIC_B64_DEFINITIONS */
+
+#ifdef SLIC_DYNAMIC_CODE
+SLIC_MODE_START(default)	
+SLIC_PARAMETER_UINT64(int32_t, N, param_N)	
+SLIC_TEMP_VAR(int64_t tmp_0 = (param_N * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_1 = (param_N * 4);)	
+SLIC_TEMP_VAR(int64_t tmp_2 = (param_N * 4);)	
+SLIC_SET_TICKS(TwoDAverageDynamicKernel, param_N)	
+SLIC_STREAM(inStream, tmp_0)	
+SLIC_STREAM(counter, tmp_2)	
+SLIC_STREAM(outStream, tmp_1)	
+SLIC_MODE_END(default)
+
+#endif /* SLIC_DYNAMIC_CODE */
+
+#ifdef SKIN_META_DATA
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PG1h
+eGZpbGUgZm9ybWF0LXZlcnNpb249IjIwMTIwMjAwIiBoZWFkZXI9IlR3b0RBdmVyYWdlRHluYW1p
+Yy5oIiBuYW1lPSJUd29EQXZlcmFnZUR5bmFtaWMiPjxjb25zdGFudCBuYW1lPSJueE1heCIgdHlw
+ZT0ibG9uZyIgdmFsdWU9IjQwOTYiLz48ZW5naW5lbW9kZSBuYW1lPSJkZWZhdWx0Ij48ZnVuY3Rp
+b24gbmFtZT0iVHdvREF2ZXJhZ2VEeW5hbWljIiByZXR1cm4tdmFsdWU9InZvaWQiPjxzY2FsYXIg
+ZGVzYz0iSW50ZXJmYWNlIFBhcmFtZXRlciAmcXVvdDtOJnF1b3Q7LjogTnVtYmVyIG9mIGRhdGEg
+aXRlbXMgdG8gcHJvY2VzcyIgZGlyZWN0aW9uPSJJbnB1dCIgbmFtZT0icGFyYW1fTiIgdHlwZT0i
+aW50MzJfdCIvPjxzY2FsYXIgZGVzYz0iSW5wdXQgc2NhbGFyIHBhcmFtZXRlciAmcXVvdDtUd29E
+QXZlcmFnZUR5bmFtaWNLZXJuZWwubngmcXVvdDsuIiBkaXJlY3Rpb249IklucHV0IiBuYW1lPSJp
+bnNjYWxhcl9Ud29EQXZlcmFnZUR5bmFtaWNLZXJuZWxfbngiIHR5cGU9InVpbnQ2NF90Ii8+PGFy
+cmF5IGRlc2M9IlRoZSBzdHJlYW0gc2hvdWxkIGJlIG9mIHNpemUgKHBhcmFtX04gKiA0KSBieXRl
+cy4iIGRpcmVjdGlvbj0iSW5wdXQiIG5hbWU9Imluc3RyZWFtX2luU3RyZWFtIiBzaXplPSIocGFy
+YW1fTiAqIDQpIiB0cmFuc3Bvc2U9InRydWUiIHR5cGU9ImZsb2F0Ij48ZGltZW5zaW9uIGluZGV4
+PSIwIj48bGVuZ3RoPjxmdW5jdGlvbkNhbGw+PG51bUJpbmFyeU9wZXJhdG9yIG9wZXJhdG9yPSIv
+IiB2YWx1ZT0iKChwYXJhbV9OICogNCkgLyA0KSI+PGZ1bmN0aW9uQ2FsbD48bnVtQmluYXJ5T3Bl
+cmF0b3Igb3BlcmF0b3I9IioiIHZhbHVlPSIocGFyYW1fTiAqIDQpIj48dXNlclBhcmFtIHZhbHVl
+PSJwYXJhbV9OIi8+PGNvbnN0YW50VmFsdWUgdmFsdWU9IjQiLz48L251bUJpbmFyeU9wZXJhdG9y
+PjwvZnVuY3Rpb25DYWxsPjxjb25zdGFudFZhbHVlIHZhbHVlPSI0Ii8+PC9udW1CaW5hcnlPcGVy
+YXRvcj48L2Z1bmN0aW9uQ2FsbD48L2xlbmd0aD48L2RpbWVuc2lvbj48L2FycmF5PjxhcnJheSBk
+ZXNjPSJUaGUgc3RyZWFtIHNob3VsZCBiZSBvZiBzaXplIChwYXJhbV9OICogNCkgYnl0ZXMuIiBk
+aXJlY3Rpb249Ik91dHB1dCIgbmFtZT0ib3V0c3RyZWFtX2NvdW50ZXIiIHNpemU9IihwYXJhbV9O
+ICogNCkiIHRyYW5zcG9zZT0idHJ1ZSIgdHlwZT0idWludDMyX3QiPjxkaW1lbnNpb24gaW5kZXg9
+IjAiPjxsZW5ndGg+PGZ1bmN0aW9uQ2FsbD48bnVtQmluYXJ5T3BlcmF0b3Igb3BlcmF0b3I9Ii8i
+IHZhbHVlPSIoKHBhcmFtX04gKiA0KSAvIDQpIj48ZnVuY3Rpb25DYWxsPjxudW1CaW5hcnlPcGVy
+YXRvciBvcGVyYXRvcj0iKiIgdmFsdWU9IihwYXJhbV9OICogNCkiPjx1c2VyUGFyYW0gdmFsdWU9
+InBhcmFtX04iLz48Y29uc3RhbnRWYWx1ZSB2YWx1ZT0iNCIvPjwvbnVtQmluYXJ5T3BlcmF0b3I+
+PC9mdW5jdGlvbkNhbGw+PGNvbnN0YW50VmFsdWUgdmFsdWU9IjQiLz48L251bUJpbmFyeU9wZXJh
+dG9yPjwvZnVuY3Rpb25DYWxsPjwvbGVuZ3RoPjwvZGltZW5zaW9uPjwvYXJyYXk+PGFycmF5IGRl
+c2M9IlRoZSBzdHJlYW0gc2hvdWxkIGJlIG9mIHNpemUgKHBhcmFtX04gKiA0KSBieXRlcy4iIGRp
+cmVjdGlvbj0iT3V0cHV0IiBuYW1lPSJvdXRzdHJlYW1fb3V0U3RyZWFtIiBzaXplPSIocGFyYW1f
+TiAqIDQpIiB0cmFuc3Bvc2U9InRydWUiIHR5cGU9ImZsb2F0Ij48ZGltZW5zaW9uIGluZGV4PSIw
+Ij48bGVuZ3RoPjxmdW5jdGlvbkNhbGw+PG51bUJpbmFyeU9wZXJhdG9yIG9wZXJhdG9yPSIvIiB2
+YWx1ZT0iKChwYXJhbV9OICogNCkgLyA0KSI+PGZ1bmN0aW9uQ2FsbD48bnVtQmluYXJ5T3BlcmF0
+b3Igb3BlcmF0b3I9IioiIHZhbHVlPSIocGFyYW1fTiAqIDQpIj48dXNlclBhcmFtIHZhbHVlPSJw
+YXJhbV9OIi8+PGNvbnN0YW50VmFsdWUgdmFsdWU9IjQiLz48L251bUJpbmFyeU9wZXJhdG9yPjwv
+ZnVuY3Rpb25DYWxsPjxjb25zdGFudFZhbHVlIHZhbHVlPSI0Ii8+PC9udW1CaW5hcnlPcGVyYXRv
+cj48L2Z1bmN0aW9uQ2FsbD48L2xlbmd0aD48L2RpbWVuc2lvbj48L2FycmF5PjwvZnVuY3Rpb24+
+PC9lbmdpbmVtb2RlPjwvbWF4ZmlsZT4=
+#endif /* SKIN_META_DATA */
+
+#ifdef PHOTON_NODE_ADD_DATA
+#define PHOTON_NODE_ADD_DATA_PRESENT 1
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 74, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 75, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 78, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 79, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 0, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 1, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 2, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 129, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 130, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 127, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 128, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 131, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 132, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 123, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 8, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 3, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 106, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 107, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 140, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 7, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 9, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 10, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 15, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 102, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 17, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 63, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 139, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 21, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 22, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 23, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 64, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 124, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 28, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 108, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 109, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 29, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 30, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 65, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 125, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 66, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 40, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 41, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 67, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 126, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 46, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 110, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 111, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 138, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 45, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 47, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 48, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 68, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 104, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 54, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 119, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 69, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 137, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 58, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 59, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 60, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 70, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 136, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 72, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 80, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 85, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 86, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 89, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 90, "SquashFactor", 1.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 135, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 134, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 83, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 91, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 95, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 133, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 93, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 94, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 121, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 96, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 98, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 99, "SquashFactor", 0.0)
+PHOTON_NODE_ADD_DATA(TwoDAverageDynamicKernel, 97, "SquashFactor", 0.0)
+#endif
+

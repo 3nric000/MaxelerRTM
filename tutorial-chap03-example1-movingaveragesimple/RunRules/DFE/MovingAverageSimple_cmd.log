@@ -1,0 +1,92 @@
+Apache Ant version 1.6.5 compiled on January 6 2007
+Buildfile: MovingAverageSimple.xml
+Detected Java version: 1.5 in: /usr/java/jdk1.6.0_21/jre
+Detected OS: Linux
+parsing buildfile /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/MovingAverageSimple.xml with URI = file:///home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/MovingAverageSimple.xml
+Project base dir set to: /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/EngineCode
+ [property] Loading Environment env.
+Property ${-*-command-variables-*-} has not been set
+Property ${env.MAXCOMPILERJCP} has not been set
+Build sequence for target(s) `run' is [build, run]
+Complete build sequence is [build, run, help, clean, all, jar, ]
+
+build:
+      [ant] calling target(s) [default] in build file /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/MovingAverageSimple_Build.xml
+parsing buildfile /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/MovingAverageSimple_Build.xml with URI = file:///home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/MovingAverageSimple_Build.xml
+Project base dir set to: /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/EngineCode
+ [property] Loading Environment env.
+Property ${-*-command-variables-*-} has not been set
+Property ${env.MAXCOMPILERJCP} has not been set
+      [ant] Entering /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/MovingAverageSimple_Build.xml...
+Build sequence for target(s) `all' is [clean, build, all]
+Complete build sequence is [clean, build, all, ]
+
+clean:
+
+build:
+    [mkdir] Created dir: /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/dist
+    [mkdir] Created dir: /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/dist/bin
+
+
+[maxjcompiler] Compiling to folder /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/dist/bin
+
+[maxjcompiler] Comiling files and folders:
+[maxjcompiler] /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/EngineCode/src
+
+[maxjcompiler] Compiler options:
+[maxjcompiler] -noExit
+[maxjcompiler] -classpath
+[maxjcompiler] /opt/maxeler/maxcompiler/lib/MaxCompiler.jar
+[maxjcompiler] -d
+[maxjcompiler] /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/dist/bin
+
+all:
+      [ant] Exiting /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/MovingAverageSimple_Build.xml.
+
+run:
+     [java] Executing '/usr/java/jdk1.6.0_21/jre/bin/java' with arguments:
+     [java] '-Xmx2048m'
+     [java] '-classpath'
+     [java] '/home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/dist/bin:/opt/maxeler/maxcompiler/lib/MaxCompiler.jar'
+     [java] 'movingaveragesimple.MovingAverageSimpleManager'
+     [java] 
+     [java] The ' characters around the executable and arguments are
+     [java] not part of the command.
+     [java] Setting environment variable: MAXSOURCEDIRS=src
+     [java] ven 02:12: MaxCompiler version: 2013.1
+     [java] ven 02:12: Build "MovingAverageSimple" start time: Fri Jun 14 02:12:48 CEST 2013
+     [java] ven 02:12: Main build process running as user emanuele.delsozzo on host maxeler
+     [java] ven 02:12: Build location: /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/maxfiles/MovingAverageSimple_MAX3424A_DFE
+     [java] ven 02:12: Detailed build log available in "_build.log"
+     [java] ven 02:12: Instantiating manager
+     [java] ven 02:12: Instantiating kernel "MovingAverageSimpleKernel"
+     [java] ven 02:12: Compiling manager (CPU I/O Only)
+     [java] ven 02:12: 
+     [java] ven 02:12: Compiling kernel "MovingAverageSimpleKernel"
+     [java] ven 02:14: Generating input files (VHDL, netlists, MegaWizard/CoreGen)
+     [java] ven 02:14: ERROR: Error running external tool :-
+     [java] ven 02:14: ERROR: Problem            : Error running Xilinx Core Generator: Errors reported in coregen.log. The first error is: 
+     [java] ven 02:14: ERROR: sim - C_REFCLK_FREQUENCY: Invalid value '250,000'.
+     [java] ven 02:14: ERROR: Program log        : /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/maxfiles/MovingAverageSimple_MAX3424A_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/coregen.log
+     [java] ven 02:14: ERROR: Command run        :  coregen -b CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr.xco -p CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr.cgp
+     [java] ven 02:14: ERROR: Directory run in   : /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/maxfiles/MovingAverageSimple_MAX3424A_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr
+     [java] ven 02:14: ERROR: Exit code          : 1
+     [java] ven 02:14: ERROR: Detailed build log : /home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/maxfiles/MovingAverageSimple_MAX3424A_DFE/_build.log
+
+BUILD FAILED
+/home/emanuele.delsozzo/repo/MaxelerRTM/tutorial-chap03-example1-movingaveragesimple/RunRules/DFE/MovingAverageSimple.xml:22: Java returned: 1
+	at org.apache.tools.ant.taskdefs.Java.execute(Java.java:87)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:275)
+	at org.apache.tools.ant.Task.perform(Task.java:364)
+	at org.apache.tools.ant.Target.execute(Target.java:341)
+	at org.apache.tools.ant.Target.performTasks(Target.java:369)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1216)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1185)
+	at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:40)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1068)
+	at org.apache.tools.ant.Main.runBuild(Main.java:668)
+	at org.apache.tools.ant.Main.startAnt(Main.java:187)
+	at org.apache.tools.ant.launch.Launcher.run(Launcher.java:246)
+	at org.apache.tools.ant.launch.Launcher.main(Launcher.java:67)
+
+Total time: 1 minute 40 seconds

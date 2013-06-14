@@ -18,16 +18,16 @@ lpx_intopt: presolved MIP has 293 rows, 219 columns, 728 non-zeros
 lpx_intopt: 219 integer columns, none of which are binary
 lpx_adv_basis: size of triangular part = 293
 Solving LP relaxation...
-      0:   objval =  -1.465700000e+04   infeas =   1.000000000e+00 (0)
-    200:   objval =   5.595600000e+04   infeas =   5.223880597e-03 (0)
-    202:   objval =   5.986700000e+04   infeas =   0.000000000e+00 (0)
-*   202:   objval =   5.986700000e+04   infeas =   0.000000000e+00 (0)
-*   254:   objval =   1.057100000e+04   infeas =   0.000000000e+00 (0)
+      0:   objval =  -1.433700000e+04   infeas =   1.000000000e+00 (0)
+    200:   objval =   5.621200000e+04   infeas =   5.223880597e-03 (0)
+    202:   objval =   6.012300000e+04   infeas =   0.000000000e+00 (0)
+*   202:   objval =   6.012300000e+04   infeas =   0.000000000e+00 (0)
+*   254:   objval =   1.063500000e+04   infeas =   0.000000000e+00 (0)
 OPTIMAL SOLUTION FOUND
 Integer optimization begins...
 +   254: mip =     not found yet >=              -inf        (1; 0)
-+   254: >>>>>   1.057100000e+04 >=   1.057100000e+04   0.0% (1; 0)
-+   254: mip =   1.057100000e+04 >=     tree is empty   0.0% (0; 1)
++   254: >>>>>   1.063500000e+04 >=   1.063500000e+04   0.0% (1; 0)
++   254: mip =   1.063500000e+04 >=     tree is empty   0.0% (0; 1)
 INTEGER OPTIMAL SOLUTION FOUND
 Time used:   0.0 secs
 Memory used: 0.9 Mb (952039 bytes)

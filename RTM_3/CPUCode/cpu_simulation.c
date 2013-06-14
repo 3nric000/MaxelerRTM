@@ -167,8 +167,8 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	float *py;
 	float *pcopy;
 	float *tmp;
-	float *ppresult, *ppresult1;
-	int const stencilSize = 10;
+	float *ppresult;
+	int const stencilSize = 11;
 	int sizeBytes = size * sizeof(float);
 	int sizepxy = size * stencilSize * sizeof(float);
 
@@ -176,11 +176,11 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	ppresult = malloc(sizeBytes);
 	px = malloc(sizepxy);
 	py = malloc(sizepxy);
-	ppresult1 = malloc(sizeBytes);
+	//ppresult1 = malloc(sizeBytes);
 	//pcopy = malloc(sizeBytes);
 	//memcpy(pcopy, p, size);
 
-
+/*
 	for (i3 = ORDER; i3 < n3 - ORDER; i3++) { //Loop over slowest axis
 		int i1;
 		int i2;
@@ -223,7 +223,7 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 						+ source_container[i1 + i2 * n1 + i3 * n12];
 			}
 		}
-	}
+	}*/
 
 	int index = 0;
 
@@ -232,10 +232,17 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 		py[index] = 0;
 		controller[index] = 0;
 	}
-
-	for (index = 9; index < size * stencilSize; index += 10) {
+/* VECCHIO CONTROLLER
+	for (index = 10; index < size * stencilSize; index += 11) {
 		controller[index] = 1;
 	}
+*/
+
+	for (index = 0; index < size * stencilSize; index += 11) {
+                controller[index] = 1;
+        }
+
+
 	index = 0;
 
 	for (i3 = ORDER; i3 < n3 - ORDER; i3++) { //Loop over slowest axis
@@ -244,30 +251,35 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 		for (i2 = ORDER; i2 < n2 - ORDER; i2++) { //Loop over middle axis
 			for (i1 = ORDER; i1 < n1 - ORDER; i1++, index++) {
 
-				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 9] = p[(i1)
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 10] = p[(i1)
 						+ (i2) * n1 + (i3 - 5) * n12];
-				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 9] = p[(i1)
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 10] = p[(i1)
 						+ (i2 - 5) * n1 + (i3) * n12];
 
-				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 8] = p[(i1)
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 9] = p[(i1)
 						+ (i2) * n1 + (i3 - 4) * n12];
-				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 8] = p[(i1)
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 9] = p[(i1)
 						+ (i2 - 4) * n1 + (i3) * n12];
 
-				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 7] = p[(i1)
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 8] = p[(i1)
 						+ (i2) * n1 + (i3 - 3) * n12];
-				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 7] = p[(i1)
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 8] = p[(i1)
 						+ (i2 - 3) * n1 + (i3) * n12];
 
-				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 6] = p[(i1)
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 7] = p[(i1)
 						+ (i2) * n1 + (i3 - 2) * n12];
-				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 6] = p[(i1)
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 7] = p[(i1)
 						+ (i2 - 2) * n1 + (i3) * n12];
 
-				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 5] = p[(i1)
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 6] = p[(i1)
 						+ (i2) * n1 + (i3 - 1) * n12];
-				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 5] = p[(i1)
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 6] = p[(i1)
 						+ (i2 - 1) * n1 + (i3) * n12];
+			
+				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 5] = p[(i1)
+                                                + (i2) * n1 + (i3) * n12];
+                                py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 5] = p[(i1)
+                                                + (i2) * n1 + (i3) * n12];
 
 				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 4] = p[(i1)
 						+ (i2) * n1 + (i3 + 1) * n12];
@@ -349,8 +361,7 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 
 	 free(tmp);*/
 
-	int check = 1;
-
+	/*int check = 1;
 	for (i3 = ORDER; i3 < n3 - ORDER && check; i3++) { //Loop over slowest axis
 		/*int i1;
 		 int i2;*/
@@ -358,15 +369,15 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 			for (i1 = ORDER; i1 < n1 - ORDER && check; i1++) {
 				if(ppresult1[i1 + i2 * n1 + i3 * n12]!=ppresult[i1 + i2 * n1 + i3 * n12]){
 					check=0;
-					printf("ppresult1=%f, ppresult=%f\n", ppresult1[i1 + i2 * n1 + i3 * n12],  ppresult[i1 + i2 * n1 + i3 * n12]);
+					printf("ppresult1=%.20f, ppresult=%.20f, i3=%d, i2=%d, i1=%d\n", ppresult1[i1 + i2 * n1 + i3 * n12],  ppresult[i1 + i2 * n1 + i3 * n12], i3, i2, i1);
 				}
 			}
 		}
 	}
 
 	printf("check=%d\n", check);
-
-	memcpy(pp, ppresult1, size);
+*/
+	memcpy(pp, ppresult, sizeBytes);
 	free(ppresult);
 }
 /*

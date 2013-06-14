@@ -1,0 +1,22 @@
+Fri Jun 14 02:12:49 CEST 2013
+MovingAverageSimpleKernel
+original
+MovingAverageSimpleKernel_original.dot
+pre_dsp_extraction
+MovingAverageSimpleKernel_pre_dsp_extraction.dot
+optimised
+MovingAverageSimpleKernel_optimised.dot
+scheduled_1
+MovingAverageSimpleKernel_scheduled_1.dot
+tapnfold_1
+MovingAverageSimpleKernel_tapnfold_1.dot
+validated_fifos
+MovingAverageSimpleKernel_validated_fifos.dot
+scheduled_2
+MovingAverageSimpleKernel_scheduled_2.dot
+tapnfold_2
+MovingAverageSimpleKernel_tapnfold_2.dot
+coalesced
+MovingAverageSimpleKernel_coalesced.dot
+final
+MovingAverageSimpleKernel_final.dot

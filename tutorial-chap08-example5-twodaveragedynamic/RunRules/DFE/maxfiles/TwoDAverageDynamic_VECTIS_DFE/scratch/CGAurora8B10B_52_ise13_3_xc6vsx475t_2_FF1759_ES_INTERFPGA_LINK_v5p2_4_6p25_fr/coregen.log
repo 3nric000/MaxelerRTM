@@ -1,0 +1,17 @@
+CoreGen has not been configured with any user repositories.
+CoreGen has been configured with the following Xilinx repositories:
+ - '/opt/Xilinx/13.3/ISE_DS/ISE/coregen/' [using existing xil_index.xml]
+INFO:encore:314 - Created non-GUI application for batch mode execution.
+INFO:sim - Generating component instance
+   'CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_f
+   r' of 'xilinx.com:ip:aurora_8b10b:5.2' from
+   '/opt/Xilinx/13.3/ISE_DS/ISE/coregen/ip/xilinx/network/com/xilinx/ip/aurora_8
+   b10b_v5_2/aurora_8b10b_v5_2.xcd'.
+Resolving generic values...
+ERROR:sim - C_REFCLK_FREQUENCY: Invalid value '250,000'.
+ERROR:sim - Failed to resolve generic values.
+ERROR:sim - Failed to generate
+   'CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_f
+   r'.  Failed to resolve generic values.
+
+ERROR:sim:877 - Error found during execution of IP 'Aurora 8B10B v5.2'

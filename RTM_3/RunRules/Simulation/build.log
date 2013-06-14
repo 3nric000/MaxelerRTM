@@ -1,109 +1,137 @@
-gio 19:30: ########################################## 
-gio 19:30: Compiling.
-gio 19:30: ########################################## 
+ven 01:41: ########################################## 
+ven 01:41: Compiling.
+ven 01:41: ########################################## 
 
-gio 19:30: MaxCompiler version: 2013.1.
-gio 19:30: Build Simulation run rule for RTM_3 start time: gio giu 13 19:30:46 CEST 2013.
-gio 19:30: Project location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3.
-gio 19:30: Detailed build log: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/build.log.
+ven 01:41: MaxCompiler version: 2013.1.
+ven 01:41: Build Simulation run rule for RTM_3 start time: ven giu 14 01:41:14 CEST 2013.
+ven 01:41: Project location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3.
+ven 01:41: Detailed build log: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/build.log.
 
-gio 19:30: Compiling Engine Code.
-gio 19:30: Engine building skipped (no changes on .max files).
-gio 19:30: Compiling CPU Code.
-gio 19:30: Run CPU project make files updating
-gio 19:30: Executing command:
-gio 19:30: java -jar /opt/maxeler/maxcompiler/lib/MaxIDE/projectAdmin.jar -u /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3 Simulation 
-gio 19:30: Command output:
+ven 01:41: Compiling Engine Code.
+ven 01:41: Building CpuMain.max file. 
+ven 01:41: Setting environment variable:
+ven 01:41: MAXCOMPILER_BUILD_DIR : /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles
+ven 01:41: MAX_BUILDPARAMS : DFEModel='VECTIS' target='DFE_SIM' maxFileName='CpuMain'  
+ven 01:41: Building output:
+ven 01:42: MaxCompiler version: 2013.1
+ven 01:42: Build "CpuMain" start time: Fri Jun 14 01:42:43 CEST 2013
+ven 01:42: Main build process running as user emanuele.delsozzo on host maxeler
+ven 01:42: Build location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles/CpuMain_VECTIS_DFE_SIM
+ven 01:42: Detailed build log available in "_build.log"
+ven 01:42: Instantiating manager
+ven 01:42: Instantiating kernel "linearKernel"
+ven 01:42: Compiling manager (Configurable)
+ven 01:42: 
+ven 01:42: Compiling kernel "linearKernel"
+ven 01:42: Running back-end simulation build (3 phases)
+ven 01:42: (1/3) - Prepare MaxFile Data (GenerateMaxFileDataFile)
+ven 01:42: (2/3) - Compile Simulation Modules (SimCompilePass)
+ven 01:42: (3/3) - Generate MaxFile (AddSimObjectToMaxFilePass)
+ven 01:42: MaxFile: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles/CpuMain_VECTIS_DFE_SIM/results/CpuMain.max (MD5Sum: fc3d0f23c03f575d80a0853bc81a663a)
+ven 01:42: Build completed: Fri Jun 14 01:42:53 CEST 2013 (took 10 secs)
+ven 01:42: Copying .max file. 
+ven 01:42: Executing command:
+ven 01:42: cp /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles/CpuMain_VECTIS_DFE_SIM/results/CpuMain.max /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles/CpuMain.max 
+ven 01:42: Command output:
+ven 01:42: Executing command:
+ven 01:42: cp /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles/CpuMain_VECTIS_DFE_SIM/results/CpuMain.h /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles/CpuMain.h 
+ven 01:42: Command output:
+ven 01:42: Executing command:
+ven 01:42: cp /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles/CpuMain_VECTIS_DFE_SIM/results/CpuMain.h /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/include/CpuMain.h 
+ven 01:42: Command output:
+ven 01:42: Building: CpuMain.max file finished.
+ven 01:42: Engine build finished.
+ven 01:45: Compiling CPU Code.
+ven 01:45: Run CPU project make files updating
+ven 01:45: Executing command:
+ven 01:45: java -jar /opt/maxeler/maxcompiler/lib/MaxIDE/projectAdmin.jar -u /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3 Simulation 
+ven 01:45: Command output:
 
-gio 19:30: MaxCompiler Project Admin Tool Version 2013.1.0
-gio 19:30:  Copyright Maxeler Technologies 2010 - 2013. All rights reserved.
-gio 19:30: Updating RunRule dependant Makefiles for RunRule 'Simulation'
-gio 19:30: Found makefiles: 1
-gio 19:30: 	Updated: Simulation
-gio 19:30: Run CPU make.
-gio 19:30: make RUNRULE=Simulation 
-gio 19:30: Command output:
-gio 19:30: make -f Makefile ../RunRules/Simulation/binaries/CpuMain
-gio 19:30: make[1]: Entering directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/CPUCode'
-gio 19:30: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -o "../RunRules/Simulation/objects/cpu_simulation.o" -c "cpu_simulation.c"
-gio 19:30: cpu_simulation.c: In function ‘do_step’:
-gio 19:30: cpu_simulation.c:169: warning: unused variable ‘tmp’
-gio 19:30: cpu_simulation.c:168: warning: unused variable ‘pcopy’
-gio 19:30: cpu_simulation.c: In function ‘prop_source’:
-gio 19:30: cpu_simulation.c:430: warning: unused variable ‘i’
-gio 19:30: cpu_simulation.c: In function ‘add_data’:
-gio 19:30: cpu_simulation.c:610: warning: unused variable ‘i2’
-gio 19:30: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -MM -MP -MT "../RunRules/Simulation/objects/cpu_simulation.o" "cpu_simulation.c" > "../RunRules/Simulation/objects/cpu_simulation.d"
-gio 19:30: cc ../RunRules/Simulation/objects/cpu_constructors.o ../RunRules/Simulation/objects/cpu_main.o ../RunRules/Simulation/objects/cpu_simulation.o ../RunRules/Simulation/objects/slic_CpuMain.o  -L/opt/maxeler/maxcompiler/lib -L/opt/maxeler/maxcompiler/lib/maxeleros-sim/lib -lslic -lmaxeleros -lm -lpthread  -o "../RunRules/Simulation/binaries/CpuMain"
-gio 19:30: make[1]: Leaving directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/CPUCode'
-gio 19:30: Build completed: gio giu 13 19:30:47 CEST 2013
+ven 01:45: MaxCompiler Project Admin Tool Version 2013.1.0
+ven 01:45:  Copyright Maxeler Technologies 2010 - 2013. All rights reserved.
+ven 01:45: Updating RunRule dependant Makefiles for RunRule 'Simulation'
+ven 01:45: Found makefiles: 1
+ven 01:45: 	Updated: Simulation
+ven 01:45: Run CPU make.
+ven 01:45: make RUNRULE=Simulation 
+ven 01:45: Command output:
+ven 01:45: make -f Makefile ../RunRules/Simulation/binaries/CpuMain
+ven 01:45: make[1]: Entering directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/CPUCode'
+ven 01:45: /opt/maxeler/maxcompiler/bin/sliccompile "../RunRules/Simulation/maxfiles/CpuMain.max" "../RunRules/Simulation/objects/slic_CpuMain.o"
+ven 01:45: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -o "../RunRules/Simulation/objects/cpu_constructors.o" -c "cpu_constructors.c"
+ven 01:45: cpu_constructors.c: In function ‘get_receiver_from_file’:
+ven 01:45: cpu_constructors.c:417: warning: comparison between signed and unsigned
+ven 01:45: cpu_constructors.c: In function ‘create_earth_model_from_file’:
+ven 01:45: cpu_constructors.c:482: warning: comparison between signed and unsigned
+ven 01:45: cpu_constructors.c: In function ‘random_bound_dvv’:
+ven 01:45: cpu_constructors.c:694: warning: unused variable ‘i’
+ven 01:45: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -MM -MP -MT "../RunRules/Simulation/objects/cpu_constructors.o" "cpu_constructors.c" > "../RunRules/Simulation/objects/cpu_constructors.d"
+ven 01:45: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -o "../RunRules/Simulation/objects/cpu_main.o" -c "cpu_main.c"
+ven 01:45: cpu_main.c: In function ‘main’:
+ven 01:45: cpu_main.c:29: warning: unused parameter ‘argc’
+ven 01:45: cpu_main.c:29: warning: unused parameter ‘argv’
+ven 01:45: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -MM -MP -MT "../RunRules/Simulation/objects/cpu_main.o" "cpu_main.c" > "../RunRules/Simulation/objects/cpu_main.d"
+ven 01:45: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -o "../RunRules/Simulation/objects/cpu_simulation.o" -c "cpu_simulation.c"
+ven 01:45: cpu_simulation.c: In function ‘do_step’:
+ven 01:45: cpu_simulation.c:169: warning: unused variable ‘tmp’
+ven 01:45: cpu_simulation.c:168: warning: unused variable ‘pcopy’
+ven 01:45: cpu_simulation.c: In function ‘prop_source’:
+ven 01:45: cpu_simulation.c:434: warning: unused variable ‘i’
+ven 01:45: cpu_simulation.c: In function ‘add_data’:
+ven 01:45: cpu_simulation.c:614: warning: unused variable ‘i2’
+ven 01:45: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -MM -MP -MT "../RunRules/Simulation/objects/cpu_simulation.o" "cpu_simulation.c" > "../RunRules/Simulation/objects/cpu_simulation.d"
+ven 01:45: cc ../RunRules/Simulation/objects/cpu_constructors.o ../RunRules/Simulation/objects/cpu_main.o ../RunRules/Simulation/objects/cpu_simulation.o ../RunRules/Simulation/objects/slic_CpuMain.o  -L/opt/maxeler/maxcompiler/lib -L/opt/maxeler/maxcompiler/lib/maxeleros-sim/lib -lslic -lmaxeleros -lm -lpthread  -o "../RunRules/Simulation/binaries/CpuMain"
+ven 01:45: make[1]: Leaving directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/CPUCode'
+ven 01:45: Build completed: ven giu 14 01:45:33 CEST 2013
 
 
-gio 19:30: ########################################## 
-gio 19:30: Running
-gio 19:30: ########################################## 
-gio 19:30: Executing command:
-gio 19:30: '/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/binaries/CpuMain' 
-gio 19:30: Command output:
-gio 19:30: [34m Parameters
-gio 19:30: [34m Input earth model: (none), using water+salt simple model
-gio 19:30: [34m Output folder: ./tmp
-gio 19:30: [34m Boundary: T=20, E=20 (points)
-gio 19:30: [34m Dimensions: n1=100, n2=100, n3=100 (points)
-gio 19:30: [34m Number of frames nf=1000
-gio 19:30: [34m Damping: bc=0.000500
-gio 19:30: [34m Sampling: dx=5.000000 (m)
-gio 19:30: [34m Time scale dt=0.000400 (s)
-gio 19:30: [34m Time steps per frame: jt=1
-gio 19:30: [34m Number of time steps: nt=1000
-gio 19:30: [34m Frequency: fpeak=25.000000 (Hz)
-gio 19:30: [34m Source: (x,y,z) = (50,50,21)
-gio 19:30: [30m[34m Rerun receiver: False
-gio 19:30: [30m[34m Subsurface offsets: 32
-gio 19:30: [30mCPU version with random boundaries
-gio 19:30: Found receiver file: skipping receiver propagation!
-gio 19:30: loading values
-gio 19:30: running DFE
-gio 19:31: unload DFE
-gio 19:31: check=1
-gio 19:31: loading values
-gio 19:31: running DFE
-gio 19:33: unload DFE
-gio 19:33: check=1
-gio 19:33: loading values
-gio 19:33: running DFE
-gio 19:34: unload DFE
-gio 19:34: check=1
-gio 19:34: loading values
-gio 19:34: running DFE
-gio 19:35: unload DFE
-gio 19:35: ppresult1=44565898082671484332111036416.000000, ppresult=339931360915002683666989056.000000
-gio 19:35: check=0
-gio 19:35: loading values
-gio 19:35: running DFE
-gio 19:36: unload DFE
-gio 19:36: ppresult1=4815020673305094719246537064448.000000, ppresult=69467847963574317385456287744.000000
-gio 19:36: check=0
-gio 19:36: loading values
-gio 19:36: running DFE
-gio 19:37: unload DFE
-gio 19:37: ppresult1=19981555115256554192900697620480.000000, ppresult=7461854649796105076982692184064.000000
-gio 19:37: check=0
-gio 19:37: loading values
-gio 19:37: running DFE
-gio 19:39: unload DFE
-gio 19:39: ppresult1=nan, ppresult=nan
-gio 19:39: check=0
-gio 19:39: loading values
-gio 19:39: running DFE
-gio 19:40: unload DFE
-gio 19:40: ppresult1=nan, ppresult=nan
-gio 19:40: check=0
-gio 19:40: loading values
-gio 19:40: running DFE
-gio 19:41: unload DFE
-gio 19:41: ppresult1=nan, ppresult=nan
-gio 19:41: check=0
-gio 19:41: loading values
-gio 19:41: running DFE
-gio 19:42: Terminated
+ven 01:45: ########################################## 
+ven 01:45: Running
+ven 01:45: ########################################## 
+ven 01:45: Executing command:
+ven 01:45: '/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/binaries/CpuMain' 
+ven 01:45: Command output:
+ven 01:45: [34m Parameters
+ven 01:45: [34m Input earth model: (none), using water+salt simple model
+ven 01:45: [34m Output folder: ./tmp
+ven 01:45: [34m Boundary: T=20, E=20 (points)
+ven 01:45: [34m Dimensions: n1=100, n2=100, n3=100 (points)
+ven 01:45: [34m Number of frames nf=1000
+ven 01:45: [34m Damping: bc=0.000500
+ven 01:45: [34m Sampling: dx=5.000000 (m)
+ven 01:45: [34m Time scale dt=0.000400 (s)
+ven 01:45: [34m Time steps per frame: jt=1
+ven 01:45: [34m Number of time steps: nt=1000
+ven 01:45: [34m Frequency: fpeak=25.000000 (Hz)
+ven 01:45: [34m Source: (x,y,z) = (50,50,21)
+ven 01:45: [30m[34m Rerun receiver: False
+ven 01:45: [30m[34m Subsurface offsets: 32
+ven 01:45: [30mCPU version with random boundaries
+ven 01:45: Found receiver file: skipping receiver propagation!
+ven 01:45: loading values
+ven 01:45: running DFE
+ven 01:46: unload DFE
+ven 01:46: check=1
+ven 01:46: loading values
+ven 01:46: running DFE
+ven 01:48: unload DFE
+ven 01:48: ppresult1=0.00000000000000000000, ppresult=0.00000000024034702006, i3=45, i2=49, i1=19
+ven 01:48: check=0
+ven 01:48: loading values
+ven 01:48: running DFE
+ven 01:49: unload DFE
+ven 01:49: ppresult1=0.00000000000000000000, ppresult=0.00000000000000102344, i3=40, i2=49, i1=19
+ven 01:49: check=0
+ven 01:49: loading values
+ven 01:49: running DFE
+ven 01:50: unload DFE
+ven 01:50: ppresult1=187898848729454745822953472.00000000000000000000, ppresult=1433219492576487461093376.00000000000000000000, i3=5, i2=5, i1=5
+ven 01:50: check=0
+ven 01:50: loading values
+ven 01:50: running DFE
+ven 01:52: unload DFE
+ven 01:52: ppresult1=2257898002904739161556647936.00000000000000000000, ppresult=372077395007611896695095296.00000000000000000000, i3=5, i2=5, i1=5
+ven 01:52: check=0
+ven 01:52: loading values
+ven 01:52: running DFE
+ven 01:52: Terminated

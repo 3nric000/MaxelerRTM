@@ -67,28 +67,24 @@ NodeConstantRawBits;{HWOffsetFix:1, 0, UNSIGNED};0;1
 NodeConstantRawBits;{HWOffsetFix:49, 0, UNSIGNED};0;1
 NodeCounterV1;{HWOffsetFix:48, 0, UNSIGNED};0;1
 NodeEq;{HWOffsetFix:1, 0, UNSIGNED};0;1
-NodeFIFO;{HWFloat:8, 24};1;2
 NodeFIFO;{HWFloat:8, 24};11;3
 NodeFIFO;{HWFloat:8, 24};13;3
-NodeFIFO;{HWFloat:8, 24};14;2
 NodeFIFO;{HWFloat:8, 24};142;1
-NodeFIFO;{HWFloat:8, 24};15;1
-NodeFIFO;{HWFloat:8, 24};2;1
+NodeFIFO;{HWFloat:8, 24};15;3
+NodeFIFO;{HWFloat:8, 24};2;3
 NodeFIFO;{HWFloat:8, 24};22;3
-NodeFIFO;{HWFloat:8, 24};27;2
-NodeFIFO;{HWFloat:8, 24};28;1
+NodeFIFO;{HWFloat:8, 24};28;3
 NodeFIFO;{HWFloat:8, 24};31;2
 NodeFIFO;{HWFloat:8, 24};33;3
-NodeFIFO;{HWFloat:8, 24};40;4
-NodeFIFO;{HWFloat:8, 24};41;1
+NodeFIFO;{HWFloat:8, 24};41;5
 NodeFIFO;{HWFloat:8, 24};44;1
 NodeFIFO;{HWFloat:8, 24};54;2
-NodeFIFO;{HWOffsetFix:1, 0, UNSIGNED};110;3
-NodeFIFO;{HWOffsetFix:1, 0, UNSIGNED};128;1
+NodeFIFO;{HWOffsetFix:1, 0, UNSIGNED};111;3
+NodeFIFO;{HWOffsetFix:1, 0, UNSIGNED};127;1
 NodeFIFO;{HWOffsetFix:1, 0, UNSIGNED};55;1
-NodeFIFO;{HWOffsetFix:1, 0, UNSIGNED};91;1
+NodeFIFO;{HWOffsetFix:1, 0, UNSIGNED};90;1
 NodeFIFO;{HWOffsetFix:48, 0, UNSIGNED};4;1
-NodeFIFO;{HWRawBits:1};111;1
+NodeFIFO;{HWRawBits:1};110;1
 NodeInput;{HWFloat:8, 24};0;6
 NodeInput;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};0;1
 NodeInputMappedReg;{HWFloat:8, 24};0;16
@@ -117,24 +113,23 @@ NodeConstantRawBits;{HWOffsetFix:1, 0, UNSIGNED};0;1
 NodeConstantRawBits;{HWOffsetFix:49, 0, UNSIGNED};0;1
 NodeCounterV1;{HWOffsetFix:48, 0, UNSIGNED};0;1
 NodeEq;{HWOffsetFix:1, 0, UNSIGNED};0;1
-NodeFIFO;{HWFloat:8, 24};1;2
-NodeFIFO;{HWFloat:8, 24};10;3
+NodeFIFO;{HWFloat:8, 24};10;1
 NodeFIFO;{HWFloat:8, 24};13;2
 NodeFIFO;{HWFloat:8, 24};142;1
-NodeFIFO;{HWFloat:8, 24};2;5
+NodeFIFO;{HWFloat:8, 24};2;7
 NodeFIFO;{HWFloat:8, 24};3;3
 NodeFIFO;{HWFloat:8, 24};4;2
-NodeFIFO;{HWFloat:8, 24};5;3
-NodeFIFO;{HWFloat:8, 24};6;1
+NodeFIFO;{HWFloat:8, 24};5;1
+NodeFIFO;{HWFloat:8, 24};6;3
 NodeFIFO;{HWFloat:8, 24};7;3
 NodeFIFO;{HWFloat:8, 24};8;3
-NodeFIFO;{HWFloat:8, 24};9;1
-NodeFIFO;{HWOffsetFix:1, 0, UNSIGNED};128;1
+NodeFIFO;{HWFloat:8, 24};9;3
+NodeFIFO;{HWOffsetFix:1, 0, UNSIGNED};127;1
 NodeFIFO;{HWOffsetFix:1, 0, UNSIGNED};55;1
-NodeFIFO;{HWOffsetFix:1, 0, UNSIGNED};91;1
+NodeFIFO;{HWOffsetFix:1, 0, UNSIGNED};90;1
 NodeFIFO;{HWOffsetFix:48, 0, UNSIGNED};4;1
-NodeFIFO;{HWRawBits:1};111;1
-NodeFIFO;{HWRawBits:3};110;1
+NodeFIFO;{HWRawBits:1};110;1
+NodeFIFO;{HWRawBits:3};111;1
 NodeInput;{HWFloat:8, 24};0;6
 NodeInput;{HWOffsetFix:32, 0, TWOSCOMPLEMENT};0;1
 NodeInputMappedReg;{HWFloat:8, 24};0;16

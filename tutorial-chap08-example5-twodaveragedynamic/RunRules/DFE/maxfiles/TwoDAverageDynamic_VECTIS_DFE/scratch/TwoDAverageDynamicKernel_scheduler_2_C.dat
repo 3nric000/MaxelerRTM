@@ -1,0 +1,214 @@
+data;
+set nodes
+NodeInput_ID2_0
+NodeStreamOffset_ID8_1
+NodeDynamicStreamOffset_ID10_2
+NodeStreamOffset_ID15_3
+NodeDynamicStreamOffset_ID17_4
+NodeAdd_ID63_5
+NodeDynamicStreamOffset_ID23_6
+NodeAdd_ID64_7
+NodeStreamOffset_ID28_8
+NodeDynamicStreamOffset_ID30_9
+NodeAdd_ID65_10
+NodeAdd_ID66_11
+NodeDynamicStreamOffset_ID41_12
+NodeAdd_ID67_13
+NodeStreamOffset_ID46_14
+NodeDynamicStreamOffset_ID48_15
+NodeAdd_ID68_16
+NodeDynamicStreamOffset_ID54_17
+NodeAdd_ID69_18
+NodeDynamicStreamOffset_ID60_19
+NodeAdd_ID70_20
+NodeDiv_ID72_21
+NodeOutput_ID80_22
+NodeCounterV1_ID83_23
+NodeOutput_ID91_24
+NodeCounterV1_ID94_25
+NodeOutputMappedReg_ID96_26
+NodeEq_ID99_27
+NodeFlush_ID97_28
+;
+set inputsLeadingToFlush
+;
+set nodesAfterFlush
+NodeInput_ID2_0
+NodeOutput_ID80_22
+NodeOutput_ID91_24
+NodeOutputMappedReg_ID96_26
+;
+set iDescs
+InputDesc_29
+InputDesc_30
+InputDesc_31
+InputDesc_32
+InputDesc_33
+InputDesc_34
+InputDesc_35
+InputDesc_36
+InputDesc_37
+InputDesc_38
+InputDesc_39
+InputDesc_40
+InputDesc_41
+InputDesc_42
+InputDesc_43
+InputDesc_44
+InputDesc_45
+InputDesc_46
+InputDesc_47
+InputDesc_48
+InputDesc_49
+InputDesc_50
+InputDesc_51
+InputDesc_52
+InputDesc_53
+InputDesc_54
+InputDesc_55
+InputDesc_56
+InputDesc_57
+InputDesc_58
+InputDesc_59
+InputDesc_60
+InputDesc_61
+InputDesc_62
+;
+set oDescs
+OutputDesc_63
+OutputDesc_64
+OutputDesc_65
+OutputDesc_66
+OutputDesc_67
+OutputDesc_68
+OutputDesc_69
+OutputDesc_70
+OutputDesc_71
+OutputDesc_72
+OutputDesc_73
+OutputDesc_74
+OutputDesc_75
+OutputDesc_76
+OutputDesc_77
+OutputDesc_78
+OutputDesc_79
+OutputDesc_80
+OutputDesc_81
+OutputDesc_82
+OutputDesc_83
+OutputDesc_84
+OutputDesc_85
+OutputDesc_86
+OutputDesc_87
+OutputDesc_88
+OutputDesc_89
+;
+set constrainedPairs
+;
+param flushNode := NodeFlush_ID97_28;
+param flushNodeStartLatency := 3;
+param inputFlushDistanceFactor := 0;
+param : getChild getParent getODesc getLatency :=
+InputDesc_29 NodeStreamOffset_ID8_1 NodeInput_ID2_0 OutputDesc_63 5
+InputDesc_30 NodeDynamicStreamOffset_ID10_2 NodeStreamOffset_ID8_1 OutputDesc_64 -4097
+InputDesc_31 NodeStreamOffset_ID15_3 NodeInput_ID2_0 OutputDesc_63 5
+InputDesc_32 NodeDynamicStreamOffset_ID17_4 NodeStreamOffset_ID15_3 OutputDesc_66 -1
+InputDesc_33 NodeAdd_ID63_5 NodeDynamicStreamOffset_ID10_2 OutputDesc_65 4100
+InputDesc_34 NodeAdd_ID63_5 NodeDynamicStreamOffset_ID17_4 OutputDesc_67 4
+InputDesc_35 NodeDynamicStreamOffset_ID23_6 NodeInput_ID2_0 OutputDesc_63 5
+InputDesc_36 NodeAdd_ID64_7 NodeAdd_ID63_5 OutputDesc_68 12
+InputDesc_37 NodeAdd_ID64_7 NodeDynamicStreamOffset_ID23_6 OutputDesc_69 4098
+InputDesc_38 NodeStreamOffset_ID28_8 NodeInput_ID2_0 OutputDesc_63 5
+InputDesc_39 NodeDynamicStreamOffset_ID30_9 NodeStreamOffset_ID28_8 OutputDesc_71 -4096
+InputDesc_40 NodeAdd_ID65_10 NodeAdd_ID64_7 OutputDesc_70 12
+InputDesc_41 NodeAdd_ID65_10 NodeDynamicStreamOffset_ID30_9 OutputDesc_72 4099
+InputDesc_42 NodeAdd_ID66_11 NodeAdd_ID65_10 OutputDesc_73 12
+InputDesc_43 NodeAdd_ID66_11 NodeInput_ID2_0 OutputDesc_63 5
+InputDesc_44 NodeDynamicStreamOffset_ID41_12 NodeInput_ID2_0 OutputDesc_63 5
+InputDesc_45 NodeAdd_ID67_13 NodeAdd_ID66_11 OutputDesc_74 12
+InputDesc_46 NodeAdd_ID67_13 NodeDynamicStreamOffset_ID41_12 OutputDesc_75 4099
+InputDesc_47 NodeStreamOffset_ID46_14 NodeInput_ID2_0 OutputDesc_63 5
+InputDesc_48 NodeDynamicStreamOffset_ID48_15 NodeStreamOffset_ID46_14 OutputDesc_77 -4095
+InputDesc_49 NodeAdd_ID68_16 NodeAdd_ID67_13 OutputDesc_76 12
+InputDesc_50 NodeAdd_ID68_16 NodeDynamicStreamOffset_ID48_15 OutputDesc_78 4098
+InputDesc_51 NodeDynamicStreamOffset_ID54_17 NodeInput_ID2_0 OutputDesc_63 5
+InputDesc_52 NodeAdd_ID69_18 NodeAdd_ID68_16 OutputDesc_79 12
+InputDesc_53 NodeAdd_ID69_18 NodeDynamicStreamOffset_ID54_17 OutputDesc_80 4
+InputDesc_54 NodeDynamicStreamOffset_ID60_19 NodeInput_ID2_0 OutputDesc_63 5
+InputDesc_55 NodeAdd_ID70_20 NodeAdd_ID69_18 OutputDesc_81 12
+InputDesc_56 NodeAdd_ID70_20 NodeDynamicStreamOffset_ID60_19 OutputDesc_82 4100
+InputDesc_57 NodeDiv_ID72_21 NodeAdd_ID70_20 OutputDesc_83 12
+InputDesc_58 NodeOutput_ID80_22 NodeDiv_ID72_21 OutputDesc_84 28
+InputDesc_59 NodeOutput_ID91_24 NodeCounterV1_ID83_23 OutputDesc_85 0
+InputDesc_60 NodeOutputMappedReg_ID96_26 NodeCounterV1_ID94_25 OutputDesc_87 0
+InputDesc_61 NodeEq_ID99_27 NodeCounterV1_ID94_25 OutputDesc_87 0
+InputDesc_62 NodeFlush_ID97_28 NodeEq_ID99_27 OutputDesc_89 1
+;
+param : getWidth :=
+OutputDesc_63 32
+OutputDesc_64 32
+OutputDesc_65 32
+OutputDesc_66 32
+OutputDesc_67 32
+OutputDesc_68 32
+OutputDesc_69 32
+OutputDesc_70 32
+OutputDesc_71 32
+OutputDesc_72 32
+OutputDesc_73 32
+OutputDesc_74 32
+OutputDesc_75 32
+OutputDesc_76 32
+OutputDesc_77 32
+OutputDesc_78 32
+OutputDesc_79 32
+OutputDesc_80 32
+OutputDesc_81 32
+OutputDesc_82 32
+OutputDesc_83 32
+OutputDesc_84 32
+OutputDesc_85 32
+OutputDesc_86 1
+OutputDesc_87 48
+OutputDesc_88 1
+OutputDesc_89 1
+;
+param : getPairConstraint :=
+;
+set autoVars :=
+;
+param getAutoVarCoeff :
+
+:=
+;
+param getAutoVarUserMinCoeffAutoVar :
+
+:=
+;
+param getAutoVarUserMaxCoeffAutoVar :
+
+:=
+;
+param getAutoVarUserMinCoeffMeasurement :
+
+:=
+;
+param getAutoVarUserMaxCoeffMeasurement :
+
+:=
+;
+param getAutoVarUserMin :=
+;
+param getAutoVarUserMax :=
+;
+set measurements := 
+;
+param getMeasurementStart := 
+;
+param getMeasurementEnd := 
+;
+param getMeasurementCoeff :
+
+:=
+;
+end;

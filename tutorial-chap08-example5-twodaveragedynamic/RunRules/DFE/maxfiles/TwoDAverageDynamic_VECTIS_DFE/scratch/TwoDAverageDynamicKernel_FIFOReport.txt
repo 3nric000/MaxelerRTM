@@ -1,0 +1,24 @@
+NodeReinterpret <{HWFloat:8, 24}> {HWFloat:8, 24} ID: 132
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)
+	FIFO(4013) {HWFloat:8, 24} 4013 ID: 123
+	FIFO(24) {HWFloat:8, 24} 24 ID: 124
+	FIFO(21) {HWFloat:8, 24} 21 ID: 126
+	FIFO(15) {HWFloat:8, 24} 15 ID: 125
+
+NodeCat @ {HWRawBits:64} ID: 127
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)
+	FIFO(35) {HWRawBits:64} 35 ID: 128
+
+NodeDynamicStreamOffset dynamic offset: [0, 1] {HWFloat:8, 24} ID: 54
+com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:304)
+twodaveragedynamic.TwoDAverageDynamicKernel.<init>(TwoDAverageDynamicKernel.maxj:32)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:21)
+	FIFO(11) {HWFloat:8, 24} 11 ID: 119
+
+NodeCounterV1 Counter(NUMERIC_INCREMENTING)\nInc: 1\nReset: 0\nInit: 0 {HWOffsetFix:48, 0, UNSIGNED} ID: 94
+com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+twodaveragedynamic.TwoDAverageDynamicManager.main(TwoDAverageDynamicManager.maxj:26)
+	FIFO(4) {HWOffsetFix:48, 0, UNSIGNED} 4 ID: 121
+

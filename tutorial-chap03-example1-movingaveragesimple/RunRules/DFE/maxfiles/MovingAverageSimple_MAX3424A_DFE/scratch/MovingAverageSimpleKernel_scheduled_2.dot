@@ -1,0 +1,25 @@
+digraph MovingAverageSimpleKernel_scheduled_2{
+	NodeInput2 [shape=invhouse, label="x\nID: 2"];
+	NodeFIFO26 [shape=plaintext, label=<<TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1"> <TR><TD></TD></TR><TR><TD>1</TD></TR><TR><TD>ID: 26</TD></TR> <TR><TD></TD></TR> </TABLE>>];
+	NodeStreamOffset3 [shape=diamond, label="-1\nID: 3"];
+	NodeAdd5 [label="+\nID: 5"];
+	NodeFIFO27 [shape=plaintext, label=<<TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1"> <TR><TD></TD></TR><TR><TD>1</TD></TR><TR><TD>ID: 27</TD></TR> <TR><TD></TD></TR> </TABLE>>];
+	NodeStreamOffset4 [shape=diamond, label="1\nID: 4"];
+	NodeFIFO28 [shape=plaintext, label=<<TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1"> <TR><TD></TD></TR><TR><TD>10</TD></TR><TR><TD>ID: 28</TD></TR> <TR><TD></TD></TR> </TABLE>>];
+	NodeAdd6 [label="+\nID: 6"];
+	NodeConstantDouble7 [shape=box, label="3.0\nID: 7"];
+	NodeDiv8 [label="/\nID: 8"];
+	NodeOutput16 [shape=house, label="y\nID: 16"];
+	NodeInput2 -> NodeFIFO26[headport="n" color="/dark28/1" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeFIFO26 -> NodeStreamOffset3[tailport="s" color="/dark28/2" photon_data="EDGE,SrcNode:26,SrcNodePort:output"];
+	NodeStreamOffset3 -> NodeAdd5[color="/dark28/3" photon_data="EDGE,SrcNode:3,SrcNodePort:output"];
+	NodeInput2 -> NodeAdd5[color="/dark28/4" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeInput2 -> NodeFIFO27[headport="n" color="/dark28/5" photon_data="EDGE,SrcNode:2,SrcNodePort:data"];
+	NodeFIFO27 -> NodeStreamOffset4[tailport="s" color="/dark28/6" photon_data="EDGE,SrcNode:27,SrcNodePort:output"];
+	NodeStreamOffset4 -> NodeFIFO28[headport="n" color="/dark28/7" photon_data="EDGE,SrcNode:4,SrcNodePort:output"];
+	NodeAdd5 -> NodeAdd6[color="/dark28/8" photon_data="EDGE,SrcNode:5,SrcNodePort:result"];
+	NodeFIFO28 -> NodeAdd6[tailport="s" color="/dark28/1" photon_data="EDGE,SrcNode:28,SrcNodePort:output"];
+	NodeAdd6 -> NodeDiv8[color="/dark28/2" photon_data="EDGE,SrcNode:6,SrcNodePort:result"];
+	NodeConstantDouble7 -> NodeDiv8[color="/dark28/3" photon_data="EDGE,SrcNode:7,SrcNodePort:value"];
+	NodeDiv8 -> NodeOutput16[color="/dark28/4" photon_data="EDGE,SrcNode:8,SrcNodePort:result"];
+}
