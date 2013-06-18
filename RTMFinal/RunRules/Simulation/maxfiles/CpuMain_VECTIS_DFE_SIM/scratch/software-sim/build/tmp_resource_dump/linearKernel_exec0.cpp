@@ -33,12 +33,12 @@ void linearKernel::execute0() {
   { // Node ID: 154 (NodeFIFO)
     const HWOffsetFix<1,0,UNSIGNED> &id154in_input = id137out_o;
 
-    id154out_output[(getCycle()+110)%111] = id154in_input;
+    id154out_output[(getCycle()+111)%112] = id154in_input;
   }
   HWRawBits<1> id141out_output;
 
   { // Node ID: 141 (NodeReinterpret)
-    const HWOffsetFix<1,0,UNSIGNED> &id141in_input = id154out_output[getCycle()%111];
+    const HWOffsetFix<1,0,UNSIGNED> &id141in_input = id154out_output[getCycle()%112];
 
     id141out_output = (cast_fixed2bits(id141in_input));
   }
@@ -79,7 +79,7 @@ void linearKernel::execute0() {
   { // Node ID: 192 (NodeFIFO)
     const HWOffsetFix<1,0,UNSIGNED> &id192in_input = id143out_output;
 
-    id192out_output[(getCycle()+128)%129] = id192in_input;
+    id192out_output[(getCycle()+127)%128] = id192in_input;
   }
   HWOffsetFix<1,0,UNSIGNED> id3out_o;
 
@@ -272,12 +272,12 @@ void linearKernel::execute0() {
   { // Node ID: 157 (NodeFIFO)
     const HWOffsetFix<1,0,UNSIGNED> &id157in_input = id19out_o;
 
-    id157out_output[(getCycle()+110)%111] = id157in_input;
+    id157out_output[(getCycle()+111)%112] = id157in_input;
   }
   HWRawBits<1> id23out_output;
 
   { // Node ID: 23 (NodeReinterpret)
-    const HWOffsetFix<1,0,UNSIGNED> &id23in_input = id157out_output[getCycle()%111];
+    const HWOffsetFix<1,0,UNSIGNED> &id23in_input = id157out_output[getCycle()%112];
 
     id23out_output = (cast_fixed2bits(id23in_input));
   }
@@ -318,11 +318,11 @@ void linearKernel::execute0() {
   { // Node ID: 158 (NodeFIFO)
     const HWOffsetFix<1,0,UNSIGNED> &id158in_input = id25out_output;
 
-    id158out_output[(getCycle()+91)%92] = id158in_input;
+    id158out_output[(getCycle()+90)%91] = id158in_input;
   }
   if ( (getFillLevel() >= (210l)))
   { // Node ID: 26 (NodeInput)
-    const HWOffsetFix<1,0,UNSIGNED> &id26in_enable = id158out_output[getCycle()%92];
+    const HWOffsetFix<1,0,UNSIGNED> &id26in_enable = id158out_output[getCycle()%91];
 
     (id26st_read_next_cycle) = ((id26in_enable.getValueAsBool())&(!(((getFlushLevel())>=(210l))&(isFlushingActive()))));
     queueReadRequest(m_dvv, id26st_read_next_cycle.getValueAsBool());
@@ -533,12 +533,12 @@ void linearKernel::execute0() {
   { // Node ID: 169 (NodeFIFO)
     const HWFloat<8,24> &id169in_input = id40out_data;
 
-    id169out_output[(getCycle()+1)%2] = id169in_input;
+    id169out_output[(getCycle()+2)%3] = id169in_input;
   }
   HWFloat<8,24> id87out_output;
 
   { // Node ID: 87 (NodeStreamOffset)
-    const HWFloat<8,24> &id87in_input = id169out_output[getCycle()%2];
+    const HWFloat<8,24> &id87in_input = id169out_output[getCycle()%3];
 
     id87out_output = id87in_input;
   }
@@ -563,26 +563,26 @@ void linearKernel::execute0() {
   { // Node ID: 48 (NodeInputMappedReg)
   }
   { // Node ID: 203 (NodeFIFO)
-    const HWFloat<8,24> &id203in_input = id169out_output[getCycle()%2];
+    const HWFloat<8,24> &id203in_input = id169out_output[getCycle()%3];
 
-    id203out_output[(getCycle()+10)%11] = id203in_input;
+    id203out_output[(getCycle()+9)%10] = id203in_input;
   }
   HWFloat<8,24> id91out_output;
 
   { // Node ID: 91 (NodeStreamOffset)
-    const HWFloat<8,24> &id91in_input = id203out_output[getCycle()%11];
+    const HWFloat<8,24> &id91in_input = id203out_output[getCycle()%10];
 
     id91out_output = id91in_input;
   }
   { // Node ID: 204 (NodeFIFO)
-    const HWFloat<8,24> &id204in_input = id203out_output[getCycle()%11];
+    const HWFloat<8,24> &id204in_input = id203out_output[getCycle()%10];
 
-    id204out_output[(getCycle()+3)%4] = id204in_input;
+    id204out_output[(getCycle()+4)%5] = id204in_input;
   }
   HWFloat<8,24> id92out_output;
 
   { // Node ID: 92 (NodeStreamOffset)
-    const HWFloat<8,24> &id92in_input = id204out_output[getCycle()%4];
+    const HWFloat<8,24> &id92in_input = id204out_output[getCycle()%5];
 
     id92out_output = id92in_input;
   }
@@ -607,26 +607,26 @@ void linearKernel::execute0() {
   { // Node ID: 49 (NodeInputMappedReg)
   }
   { // Node ID: 205 (NodeFIFO)
-    const HWFloat<8,24> &id205in_input = id204out_output[getCycle()%4];
+    const HWFloat<8,24> &id205in_input = id204out_output[getCycle()%5];
 
-    id205out_output[(getCycle()+8)%9] = id205in_input;
+    id205out_output[(getCycle()+7)%8] = id205in_input;
   }
   HWFloat<8,24> id96out_output;
 
   { // Node ID: 96 (NodeStreamOffset)
-    const HWFloat<8,24> &id96in_input = id205out_output[getCycle()%9];
+    const HWFloat<8,24> &id96in_input = id205out_output[getCycle()%8];
 
     id96out_output = id96in_input;
   }
   { // Node ID: 206 (NodeFIFO)
-    const HWFloat<8,24> &id206in_input = id205out_output[getCycle()%9];
+    const HWFloat<8,24> &id206in_input = id205out_output[getCycle()%8];
 
-    id206out_output[(getCycle()+5)%6] = id206in_input;
+    id206out_output[(getCycle()+6)%7] = id206in_input;
   }
   HWFloat<8,24> id97out_output;
 
   { // Node ID: 97 (NodeStreamOffset)
-    const HWFloat<8,24> &id97in_input = id206out_output[getCycle()%6];
+    const HWFloat<8,24> &id97in_input = id206out_output[getCycle()%7];
 
     id97out_output = id97in_input;
   }
@@ -651,12 +651,12 @@ void linearKernel::execute0() {
   { // Node ID: 50 (NodeInputMappedReg)
   }
   { // Node ID: 207 (NodeFIFO)
-    const HWFloat<8,24> &id207in_input = id206out_output[getCycle()%6];
+    const HWFloat<8,24> &id207in_input = id206out_output[getCycle()%7];
 
-    id207out_output[(getCycle()+4)%5] = id207in_input;
+    id207out_output[(getCycle()+3)%4] = id207in_input;
   }
   { // Node ID: 208 (NodeFIFO)
-    const HWFloat<8,24> &id208in_input = id207out_output[getCycle()%5];
+    const HWFloat<8,24> &id208in_input = id207out_output[getCycle()%4];
 
     id208out_output[(getCycle()+2)%3] = id208in_input;
   }
@@ -670,12 +670,12 @@ void linearKernel::execute0() {
   { // Node ID: 209 (NodeFIFO)
     const HWFloat<8,24> &id209in_input = id208out_output[getCycle()%3];
 
-    id209out_output[(getCycle()+7)%8] = id209in_input;
+    id209out_output[(getCycle()+8)%9] = id209in_input;
   }
   HWFloat<8,24> id102out_output;
 
   { // Node ID: 102 (NodeStreamOffset)
-    const HWFloat<8,24> &id102in_input = id209out_output[getCycle()%8];
+    const HWFloat<8,24> &id102in_input = id209out_output[getCycle()%9];
 
     id102out_output = id102in_input;
   }
@@ -702,12 +702,12 @@ void linearKernel::execute0() {
   HWFloat<8,24> id106out_output;
 
   { // Node ID: 106 (NodeStreamOffset)
-    const HWFloat<8,24> &id106in_input = id209out_output[getCycle()%8];
+    const HWFloat<8,24> &id106in_input = id209out_output[getCycle()%9];
 
     id106out_output = id106in_input;
   }
   { // Node ID: 107 (NodeAdd)
-    const HWFloat<8,24> &id107in_a = id207out_output[getCycle()%5];
+    const HWFloat<8,24> &id107in_a = id207out_output[getCycle()%4];
     const HWFloat<8,24> &id107in_b = id106out_output;
 
     id107out_result[(getCycle()+12)%13] = (add_float(id107in_a,id107in_b));
@@ -757,12 +757,12 @@ void linearKernel::execute0() {
   { // Node ID: 179 (NodeFIFO)
     const HWFloat<8,24> &id179in_input = id37out_data;
 
-    id179out_output[(getCycle()+1)%2] = id179in_input;
+    id179out_output[(getCycle()+2)%3] = id179in_input;
   }
   HWFloat<8,24> id111out_output;
 
   { // Node ID: 111 (NodeStreamOffset)
-    const HWFloat<8,24> &id111in_input = id179out_output[getCycle()%2];
+    const HWFloat<8,24> &id111in_input = id179out_output[getCycle()%3];
 
     id111out_output = id111in_input;
   }
@@ -787,26 +787,26 @@ void linearKernel::execute0() {
   { // Node ID: 53 (NodeInputMappedReg)
   }
   { // Node ID: 210 (NodeFIFO)
-    const HWFloat<8,24> &id210in_input = id179out_output[getCycle()%2];
+    const HWFloat<8,24> &id210in_input = id179out_output[getCycle()%3];
 
-    id210out_output[(getCycle()+10)%11] = id210in_input;
+    id210out_output[(getCycle()+9)%10] = id210in_input;
   }
   HWFloat<8,24> id115out_output;
 
   { // Node ID: 115 (NodeStreamOffset)
-    const HWFloat<8,24> &id115in_input = id210out_output[getCycle()%11];
+    const HWFloat<8,24> &id115in_input = id210out_output[getCycle()%10];
 
     id115out_output = id115in_input;
   }
   { // Node ID: 211 (NodeFIFO)
-    const HWFloat<8,24> &id211in_input = id210out_output[getCycle()%11];
+    const HWFloat<8,24> &id211in_input = id210out_output[getCycle()%10];
 
-    id211out_output[(getCycle()+3)%4] = id211in_input;
+    id211out_output[(getCycle()+4)%5] = id211in_input;
   }
   HWFloat<8,24> id116out_output;
 
   { // Node ID: 116 (NodeStreamOffset)
-    const HWFloat<8,24> &id116in_input = id211out_output[getCycle()%4];
+    const HWFloat<8,24> &id116in_input = id211out_output[getCycle()%5];
 
     id116out_output = id116in_input;
   }
@@ -831,26 +831,26 @@ void linearKernel::execute0() {
   { // Node ID: 54 (NodeInputMappedReg)
   }
   { // Node ID: 212 (NodeFIFO)
-    const HWFloat<8,24> &id212in_input = id211out_output[getCycle()%4];
+    const HWFloat<8,24> &id212in_input = id211out_output[getCycle()%5];
 
-    id212out_output[(getCycle()+8)%9] = id212in_input;
+    id212out_output[(getCycle()+7)%8] = id212in_input;
   }
   HWFloat<8,24> id120out_output;
 
   { // Node ID: 120 (NodeStreamOffset)
-    const HWFloat<8,24> &id120in_input = id212out_output[getCycle()%9];
+    const HWFloat<8,24> &id120in_input = id212out_output[getCycle()%8];
 
     id120out_output = id120in_input;
   }
   { // Node ID: 213 (NodeFIFO)
-    const HWFloat<8,24> &id213in_input = id212out_output[getCycle()%9];
+    const HWFloat<8,24> &id213in_input = id212out_output[getCycle()%8];
 
-    id213out_output[(getCycle()+5)%6] = id213in_input;
+    id213out_output[(getCycle()+6)%7] = id213in_input;
   }
   HWFloat<8,24> id121out_output;
 
   { // Node ID: 121 (NodeStreamOffset)
-    const HWFloat<8,24> &id121in_input = id213out_output[getCycle()%6];
+    const HWFloat<8,24> &id121in_input = id213out_output[getCycle()%7];
 
     id121out_output = id121in_input;
   }
@@ -875,12 +875,12 @@ void linearKernel::execute0() {
   { // Node ID: 55 (NodeInputMappedReg)
   }
   { // Node ID: 214 (NodeFIFO)
-    const HWFloat<8,24> &id214in_input = id213out_output[getCycle()%6];
+    const HWFloat<8,24> &id214in_input = id213out_output[getCycle()%7];
 
-    id214out_output[(getCycle()+4)%5] = id214in_input;
+    id214out_output[(getCycle()+3)%4] = id214in_input;
   }
   { // Node ID: 215 (NodeFIFO)
-    const HWFloat<8,24> &id215in_input = id214out_output[getCycle()%5];
+    const HWFloat<8,24> &id215in_input = id214out_output[getCycle()%4];
 
     id215out_output[(getCycle()+2)%3] = id215in_input;
   }
@@ -894,12 +894,12 @@ void linearKernel::execute0() {
   { // Node ID: 216 (NodeFIFO)
     const HWFloat<8,24> &id216in_input = id215out_output[getCycle()%3];
 
-    id216out_output[(getCycle()+7)%8] = id216in_input;
+    id216out_output[(getCycle()+8)%9] = id216in_input;
   }
   HWFloat<8,24> id126out_output;
 
   { // Node ID: 126 (NodeStreamOffset)
-    const HWFloat<8,24> &id126in_input = id216out_output[getCycle()%8];
+    const HWFloat<8,24> &id126in_input = id216out_output[getCycle()%9];
 
     id126out_output = id126in_input;
   }
@@ -926,12 +926,12 @@ void linearKernel::execute0() {
   HWFloat<8,24> id130out_output;
 
   { // Node ID: 130 (NodeStreamOffset)
-    const HWFloat<8,24> &id130in_input = id216out_output[getCycle()%8];
+    const HWFloat<8,24> &id130in_input = id216out_output[getCycle()%9];
 
     id130out_output = id130in_input;
   }
   { // Node ID: 131 (NodeAdd)
-    const HWFloat<8,24> &id131in_a = id214out_output[getCycle()%5];
+    const HWFloat<8,24> &id131in_a = id214out_output[getCycle()%4];
     const HWFloat<8,24> &id131in_b = id130out_output;
 
     id131out_result[(getCycle()+12)%13] = (add_float(id131in_a,id131in_b));
@@ -975,12 +975,12 @@ void linearKernel::execute0() {
   { // Node ID: 190 (NodeFIFO)
     const HWOffsetFix<1,0,UNSIGNED> &id190in_input = id27out_o;
 
-    id190out_output[(getCycle()+110)%111] = id190in_input;
+    id190out_output[(getCycle()+111)%112] = id190in_input;
   }
   HWRawBits<1> id31out_output;
 
   { // Node ID: 31 (NodeReinterpret)
-    const HWOffsetFix<1,0,UNSIGNED> &id31in_input = id190out_output[getCycle()%111];
+    const HWOffsetFix<1,0,UNSIGNED> &id31in_input = id190out_output[getCycle()%112];
 
     id31out_output = (cast_fixed2bits(id31in_input));
   }
@@ -1014,12 +1014,12 @@ void linearKernel::execute0() {
   { // Node ID: 191 (NodeFIFO)
     const HWRawBits<1> &id191in_input = id30out_result;
 
-    id191out_output[(getCycle()+111)%112] = id191in_input;
+    id191out_output[(getCycle()+110)%111] = id191in_input;
   }
   HWOffsetFix<1,0,UNSIGNED> id33out_output;
 
   { // Node ID: 33 (NodeReinterpret)
-    const HWRawBits<1> &id33in_input = id191out_output[getCycle()%112];
+    const HWRawBits<1> &id33in_input = id191out_output[getCycle()%111];
 
     id33out_output = (cast_bits2fixed<1,0,UNSIGNED>(id33in_input));
   }
@@ -1038,7 +1038,7 @@ void linearKernel::execute0() {
   }
   if ( (getFillLevel() >= (247l)) && (getFlushLevel() < (247l)|| !isFlushingActive() ))
   { // Node ID: 144 (NodeOutput)
-    const HWOffsetFix<1,0,UNSIGNED> &id144in_output_control = id192out_output[getCycle()%129];
+    const HWOffsetFix<1,0,UNSIGNED> &id144in_output_control = id192out_output[getCycle()%128];
     const HWFloat<8,24> &id144in_data = id136out_result[getCycle()%13];
 
     bool id144x_1;

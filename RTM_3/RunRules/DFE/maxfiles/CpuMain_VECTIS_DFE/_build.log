@@ -1,528 +1,401 @@
-ven 02:31: PROGRESS: MaxCompiler version: 2013.1
-ven 02:31: PROGRESS: Build "CpuMain" start time: Fri Jun 14 02:31:46 CEST 2013
-ven 02:31: PROGRESS: Main build process running as user emanuele.delsozzo on host maxeler
-ven 02:31: INFO    : Loading build properties from bundled MaxCompiler_build.conf...
-ven 02:31: INFO    : Loading default build properties from /opt/maxeler/MaxCompiler_build.conf
-ven 02:31: INFO    : User build properties not found in file: /home/emanuele.delsozzo/.MaxCompiler_build_user.conf
-ven 02:31: INFO    : No user-specified external build property file has been specified.
-ven 02:31: INFO    : (Set environment variable MAXCOMPILER_BUILD_CONF_FILE to assign one)
-ven 02:31: PROGRESS: Build location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE
-ven 02:31: PROGRESS: Detailed build log available in "_build.log"
-ven 02:31: INFO    : Created build manager CpuMain (CpuMain_VECTIS_DFE Fri Jun 14 02:31:46 CEST 2013). (02:31:47 14/06/13)
-ven 02:31: INFO    : Working in dir: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE
-ven 02:31: INFO    : Java class path (2 paths):
-ven 02:31: INFO    : 	/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/EngineCode/bin
-ven 02:31: INFO    : 	/opt/maxeler/maxcompiler/lib/MaxCompiler.jar
-ven 02:31: INFO    : Java process started by 'main' method in class 'cpuMain.CpuMainManager'.
-ven 02:31: INFO    : build.arbitrated_core_cache parameter is blank, not using core-cache
-ven 02:31: INFO    : Checking license files in directory: /opt/maxeler/maxcompiler/licenses
-ven 02:31: INFO    : All license signatures valid.
-ven 02:31: INFO    : Backing-up source-files (old source files in build directory will be removed first)...
-ven 02:31: INFO    : Source directories: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/EngineCode/src:
-ven 02:31: INFO    : Deleting directory: src
-ven 02:31: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/ise_version_test
-ven 02:31: INFO    : Running command:  par | head -n 5 > ise_version_test
-ven 02:31: INFO    : Installed ISE version: 13.3
-ven 02:31: INFO    : No hash stored for ISE version 13.3
-ven 02:31: PROGRESS: Instantiating manager
-ven 02:31: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/linearKernel.graphs
-ven 02:31: PROGRESS: Instantiating kernel "linearKernel"
-ven 02:31: PROGRESS: Compiling manager (Configurable)
-ven 02:31: INFO    : Manager Configuration:
-ven 02:31: INFO    : 	ManagerConfiguration.allowNonMultipleTransitions = false                                                         [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.board = MAX3424A                                                                            [Init: null, init: MAX3424A]
-ven 02:31: INFO    : 	ManagerConfiguration.build.buildEffort = MEDIUM                                                                  [Init: MEDIUM]
-ven 02:31: INFO    : 	ManagerConfiguration.build.enableChipScopeInserter = false                                                       [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.build.enableTimingAnalysis = true                                                           [Init: true]
-ven 02:31: INFO    : 	ManagerConfiguration.build.level = FULL_BUILD                                                                    [Init: FULL_BUILD]
-ven 02:31: INFO    : 	ManagerConfiguration.build.mpprContinueAfterMeetingTiming = false                                                [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.build.mpprCtMax = 1                                                                         [Init: 1]
-ven 02:31: INFO    : 	ManagerConfiguration.build.mpprCtMin = 1                                                                         [Init: 1]
-ven 02:31: INFO    : 	ManagerConfiguration.build.mpprParallelism = 1                                                                   [Init: 1]
-ven 02:31: INFO    : 	ManagerConfiguration.build.mpprRetryMissesThrshld = 0                                                            [Init: 0]
-ven 02:31: INFO    : 	ManagerConfiguration.build.optGoal = AREA                                                                        [Init: AREA]
-ven 02:31: INFO    : 	ManagerConfiguration.build.physSynthAsyncPipelining = AUTO                                                       [Init: AUTO]
-ven 02:31: INFO    : 	ManagerConfiguration.build.physSynthCombLogic = AUTO                                                             [Init: AUTO]
-ven 02:31: INFO    : 	ManagerConfiguration.build.physSynthCombLogicForArea = AUTO                                                      [Init: AUTO]
-ven 02:31: INFO    : 	ManagerConfiguration.build.physSynthEffort = AUTO                                                                [Init: AUTO]
-ven 02:31: INFO    : 	ManagerConfiguration.build.physSynthRegDuplication = AUTO                                                        [Init: AUTO]
-ven 02:31: INFO    : 	ManagerConfiguration.build.physSynthRetiming = AUTO                                                              [Init: AUTO]
-ven 02:31: INFO    : 	ManagerConfiguration.build.physicalSynthesis = false                                                             [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.buildTarget = DFE                                                                           [Init: null, init: DFE]
-ven 02:31: INFO    : 	ManagerConfiguration.debug.chipscopeCaptureDepth = 4096                                                          [Init: 4096]
-ven 02:31: INFO    : 	ManagerConfiguration.debug.fifoUnderOverFlowRegs = false                                                         [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.debug.memCtlDebugRegs = true                                                                [Init: true]
-ven 02:31: INFO    : 	ManagerConfiguration.debug.memCtlExtraDebugRegs = false                                                          [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.debug.memMarginingSupport = false                                                           [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.debug.memPhyDebugRegister = NONE                                                            [Init: NONE]
-ven 02:31: INFO    : 	ManagerConfiguration.debug.memPllLockDebugRegs = true                                                            [Init: true]
-ven 02:31: INFO    : 	ManagerConfiguration.debug.streamStatus = false                                                                  [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.debug.streamStatusChecksums = false                                                         [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.addressGeneratorsInSlowClock = false                                                   [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.arbitrationMode = ROUND_ROBIN                                                          [Init: ROUND_ROBIN]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.burstSize = 8                                                                          [Init: 8]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.cmdFifoInReg = false                                                                   [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.cmdFifoLutRam = false                                                                  [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.cmdFifoRegInRam = true                                                                 [Init: true]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.cmdFifoSize = 31                                                                       [Init: 31]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.dataFifoDepth = 512                                                                    [Init: 512]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.dataFifoLutRam = false                                                                 [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.dataFifoWidth = 792                                                                    [Init: 792]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.eccMode = false                                                                        [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.fabricDataFifoReg = true                                                               [Init: true]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.fabricRdDataFifoReg = false                                                            [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.flagSupport = false                                                                    [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.highPrioStream = false                                                                 [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.max2CompatMode = false                                                                 [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.max4m_MAIA_MCP_UseRefClk = false                                                       [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.max4qrateMode = false                                                                  [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.memCmdIncSize = 8                                                                      [Init: 8]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.memCmdStartAddrSize = 32                                                               [Init: 32]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.onCardMemFreq = 303.0                                                                  [Init: 0.0, change: 303.0]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.parEccDebugStream = false                                                              [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.parityEccWidth = 0                                                                     [Init: 0]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.parityMode = false                                                                     [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.perdqsPhaseDetect = false                                                              [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.dram.performanceMode = true                                                                 [Init: true]
-ven 02:31: INFO    : 	ManagerConfiguration.enableMPCX = false                                                                          [Init: false, init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.maxring.maxringConnections = []                                                             [Init: []]
-ven 02:31: INFO    : 	ManagerConfiguration.maxring.maxringNumLanes = {MAXRING_LITE_A=1, MAXRING_B=2, MAXRING_A=2, MAXRING_LITE_B=1}    [Init: {}]
-ven 02:31: INFO    : 	ManagerConfiguration.multiCycleMappedMemoryBus = false                                                           [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.pcie.numPCIeLanes = 0                                                                       [Init: 0]
-ven 02:31: INFO    : 	ManagerConfiguration.pcie.pcieFastClock = false                                                                  [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.pcie.streamFromHostMaxNum = 8                                                               [Init: 0, change: 8]
-ven 02:31: INFO    : 	ManagerConfiguration.pcie.streamToHostMaxNum = 8                                                                 [Init: 0, change: 8]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.boardModel = MAX3424A                                                               [Init: null, change: MAX3424A]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.ddr3Frq = 303.0                                                                     [Init: 400.0, change: 303.0]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.ddr3Qmode = false                                                                   [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.disableMultiplePersona = false                                                      [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.dynamic_scaling = false                                                             [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.fastBuild = true                                                                    [Init: false, change: true]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.maxRingLocal = false                                                                [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.maxRingOptical = false                                                              [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.mode = Off                                                                          [Init: Off]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.panMaxRingA = false                                                                 [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.panMaxRingB = false                                                                 [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.personaInterfaceVersion = 1                                                         [Init: 1]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.streamClks = 1                                                                      [Init: 1]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.streamFrq = [100.0]                                                                 [Init: [150.0], change: [100.0]]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.streamPs = [0]                                                                      [Init: [0]]
-ven 02:31: INFO    : 	ManagerConfiguration.persona.usePCIeGen1 = true                                                                  [Init: true]
-ven 02:31: INFO    : 	ManagerConfiguration.simulation.nativeFloatingPoint = false                                                      [Init: false]
-ven 02:31: INFO    : 	ManagerConfiguration.streamClockFrq = 100                                                                        [Init: 100]
-ven 02:31: INFO    : 
-ven 02:31: INFO    :  -- 
-ven 02:31: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/Manager_CpuMain.graphs
-ven 02:31: INFO    : Running manager compiler graph-pass: GenerateMXGInfo
-ven 02:31: INFO    : Running manager compiler graph-pass: CalculateBandwidthForward
-ven 02:31: INFO    : Running manager compiler graph-pass: CalculateBandwidthBackward
-ven 02:31: INFO    : Running manager compiler graph-pass: ScheduleStallLatency
-ven 02:31: INFO    : Running manager compiler graph-pass: ClockWidthAssignment
-ven 02:31: INFO    : Running manager compiler graph-pass: InsertDualAspectLogic
-ven 02:31: INFO    : Running manager compiler graph-pass: ClockWidthAssignment
-ven 02:31: INFO    : Running manager compiler graph-pass: InsertPullPushAdapter
-ven 02:31: INFO    : Running manager compiler graph-pass: ClockWidthAssignment
-ven 02:31: INFO    : Running manager compiler graph-pass: InsertStreamFifos
-ven 02:31: INFO    : Running manager compiler graph-pass: ClockWidthAssignment
-ven 02:31: INFO    : Running manager compiler graph-pass: InsertStreamStatus
-ven 02:31: INFO    : Running manager compiler graph-pass: InsertChipscope
-ven 02:31: INFO    : Inserted 0 chipscope manager nodes.
-ven 02:31: INFO    : Running manager compiler graph-pass: ClockWidthAssignment
-ven 02:31: PROGRESS: 
-ven 02:31: PROGRESS: Compiling kernel "linearKernel"
-ven 02:31: INFO    : Configuration:
-ven 02:31: INFO    : 	KernelConfiguration.allowDSPCascading = true                                                [Init: true]
-ven 02:31: INFO    : 	KernelConfiguration.allowInputsOutputsBeforeFlushNode = false                               [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.allowZeroLatencyNodeHold = false                                        [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.board = MAX3424A                                                        [Init: MAX2116B, change: MAX3424A]
-ven 02:31: INFO    : 	KernelConfiguration.bramBitsThreshold = 2080                                                [Init: 2080]
-ven 02:31: INFO    : 	KernelConfiguration.buildTarget = HARDWARE                                                  [Init: NONE, change: HARDWARE]
-ven 02:31: INFO    : 	KernelConfiguration.cePipelining = 2                                                        [Init: 2]
-ven 02:31: INFO    : 	KernelConfiguration.clockPhaseBalanceThreshold = 0.1                                        [Init: 0.1]
-ven 02:31: INFO    : 	KernelConfiguration.clockPhasingRetries = 50                                                [Init: 50]
-ven 02:31: INFO    : 	KernelConfiguration.dumpNeighboursString =                                                  [Init: ]
-ven 02:31: INFO    : 	KernelConfiguration.enableCeReplication = true                                              [Init: true]
-ven 02:31: INFO    : 	KernelConfiguration.enableClockPhasePartitioning = false                                    [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.enableDebugIOControlRegs = true                                         [Init: true]
-ven 02:31: INFO    : 	KernelConfiguration.enableDummyBuild = false                                                [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.enableKernelProfiler = false                                            [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.enablePipelinedComputeController = false                                [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.enableShadowRegister = false                                            [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.fifoSrlRegisterStages = 1                                               [Init: 1]
-ven 02:31: INFO    : 	KernelConfiguration.flushOnInputDataCongtiguous = false                                     [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.hardwareDebugDepth = 512                                                [Init: 512]
-ven 02:31: INFO    : 	KernelConfiguration.hwHierarchyMode = UNSET                                                 [Init: UNSET]
-ven 02:31: INFO    : 	KernelConfiguration.latencyAnnotation = false                                               [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.latencyAnnotationIOs =                                                  [Init: null]
-ven 02:31: INFO    : 	KernelConfiguration.maxCoalescedFifoWidth = 2147483647                                      [Init: 2147483647]
-ven 02:31: INFO    : 	KernelConfiguration.maxPreAdderFanOut = 1                                                   [Init: 1]
-ven 02:31: INFO    : 	KernelConfiguration.netlistMode = false                                                     [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.numPhotonStateMachines = 1                                              [Init: 1]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.ceCounterRegisterDuplication = 1                          [Init: 1]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.conditionalArithmetic = false                             [Init: true, Init after BuildTarget change: false]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.counterChainWrapPipelining = 0                            [Init: 0]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.dspAddChain = OPTIMISE_IGNORE_PREADDER                    [Init: null, Init after BuildTarget change: OPTIMISE_IGNORE_PREADDER]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.enableActiveFanoutReduction = false                       [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.enableBUFGCE = false                                      [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.enableBetterInputRegistering = false                      [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.enableBetterRegistering = false                           [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.enableFIFOCoalescingAcrossPlacementConstraints = false    [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.enableFifoCoalescing = true                               [Init: true]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.enableFullPrecisionBinaryOpConstants = false              [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.enableIntegratedRounding = false                          [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.enableMappedMemoryHostReadBack = true                     [Init: true]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.enableMultiCycleReset = false                             [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.enablePowerTwoFloatMult = true                            [Init: true]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.enableStateMachineRegisterMerging = true                  [Init: true]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.inputFlushDistanceFactor = 0                              [Init: 0]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.minimumStaticFIFOSplitDepth = 1                           [Init: 1]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.optimizationTechnique = DEFAULT                           [Init: DEFAULT]
-ven 02:31: INFO    : 	KernelConfiguration.optimizations.triAdd = false                                            [Init: true, Init after BuildTarget change: false]
-ven 02:31: INFO    : 	KernelConfiguration.partialReconfBlockName =                                                [Init: ]
-ven 02:31: INFO    : 	KernelConfiguration.partialReconfMode = false                                               [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.partialReconfTemplate = false                                           [Init: false]
-ven 02:31: INFO    : 	KernelConfiguration.replicateNodeCeLog2NumPartitions = 0                                    [Init: 0]
-ven 02:31: INFO    : 	KernelConfiguration.romBRAMBitsThreshold = 2080                                             [Init: 2080]
-ven 02:31: INFO    : 	KernelConfiguration.simulation.ramAddressCollisionBehaviour = EXCEPTION                     [Init: EXCEPTION]
-ven 02:31: INFO    : 	KernelConfiguration.simulation.ramOutOfBoundsAccessBehaviour = EXCEPTION                    [Init: EXCEPTION]
-ven 02:31: INFO    : 	KernelConfiguration.simulation.simProgressMessageFrequency = 0                              [Init: 0]
-ven 02:31: INFO    : 
-ven 02:31: INFO    :  -- 
-ven 02:31: INFO    : Writing current graph to: linearKernel_original.pxg
-ven 02:31: INFO    : Running kernel graph-pass 'GeneratePXG'.
-ven 02:31: INFO    : Graph-pass 'GeneratePXG' took 183.496 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'MarkConstantPass'.
-ven 02:31: INFO    : Graph-pass 'MarkConstantPass' took 1.52500 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'ReachabilityPass'.
-ven 02:31: INFO    : Graph-pass 'ReachabilityPass' took 5.19900 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'FindInputsLeadingToFlush'.
-ven 02:31: INFO    : Graph-pass 'FindInputsLeadingToFlush' took 112.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'CheckForStatefulToFlushViolations'.
-ven 02:31: INFO    : Graph-pass 'CheckForStatefulToFlushViolations' took 314.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'CheckForInputToFlushViolations'.
-ven 02:31: INFO    : Graph-pass 'CheckForInputToFlushViolations' took 688.000 µs (1 iterations)
-ven 02:31: INFO    : Deleting directory: neighbours
-ven 02:31: INFO    : Running Photon pre-schedule graph optimisations
-ven 02:31: INFO    : Running kernel graph-pass 'AlignOrEradicatePrintfs'.
-ven 02:31: INFO    : Graph-pass 'AlignOrEradicatePrintfs' took 218.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'FoldConstantsPass'.
-ven 02:31: INFO    : Graph-pass 'FoldConstantsPass' took 1.01400 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'OptimiseNodesPass'.
-ven 02:31: INFO    : Graph-pass 'OptimiseNodesPass' took 625.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'DSPMultiplyAddExtractionPass'.
-ven 02:31: INFO    : Optimized 0 sub-graphs into DSP multiply/add chains (Virtex5 mode).
-ven 02:31: INFO    : Graph-pass 'DSPMultiplyAddExtractionPass' took 22.9430 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'PO2FPMultOptimiser'.
-ven 02:31: INFO    : Graph-pass 'PO2FPMultOptimiser' took 8.66900 ms (2 iterations)
-ven 02:31: INFO    : Logging Photon stats to: linearKernel_photon_stats.csv
-ven 02:31: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/linearKernel_photon_stats.csv
-ven 02:31: INFO    : Running kernel graph-pass 'StatsPass'.
-ven 02:31: INFO    : Graph-pass 'StatsPass' took 1.84600 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'CollectNumericExceptions'.
-ven 02:31: INFO    : Graph-pass 'CollectNumericExceptions' took 200.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'StreamOffsetDivExpand'.
-ven 02:31: INFO    : Graph-pass 'StreamOffsetDivExpand' took 163.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'FindIllegalLoops'.
-ven 02:31: INFO    : Graph-pass 'FindIllegalLoops' took 959.000 µs (1 iterations)
-ven 02:31: INFO    : Scheduling Photon graph (pass 1)
-ven 02:31: INFO    : Running kernel graph-pass 'MarkConstantPass'.
-ven 02:31: INFO    : Graph-pass 'MarkConstantPass' took 458.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'MIPScheduler'.
-ven 02:31: INFO    : Running command: "/opt/maxeler/maxcompiler/bin/glpsol" --intopt  --model "scheduler.mod" --data "linearKernel_scheduler_1_C.dat" --display "linearKernel_scheduler_1_C.out" --log "linearKernel_scheduler_1_C.log"
-ven 02:31: INFO    : Checking for file hash changes...
-ven 02:31: INFO    : No changes.
-ven 02:31: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/linearKernel_schedule_report.csv
-ven 02:31: INFO    : Graph-pass 'MIPScheduler' took 21.8730 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'SubstituteEqPlaceholders'.
-ven 02:31: INFO    : Graph-pass 'SubstituteEqPlaceholders' took 124.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'ScheduleApplier'.
-ven 02:31: INFO    : Graph-pass 'ScheduleApplier' took 5.10500 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'StatsPass'.
-ven 02:31: INFO    : Graph-pass 'StatsPass' took 1.08300 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'ReachabilityPass'.
-ven 02:31: INFO    : Graph-pass 'ReachabilityPass' took 4.07400 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'CheckForInputToFlushViolations'.
-ven 02:31: INFO    : Graph-pass 'CheckForInputToFlushViolations' took 144.000 µs (1 iterations)
-ven 02:31: INFO    : Running Photon post-schedule graph optimisations (pass 1)
-ven 02:31: INFO    : Running kernel graph-pass 'TapFIFOsPass'.
-ven 02:31: INFO    : Graph-pass 'TapFIFOsPass' took 1.07800 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'FoldFIFOsPass'.
-ven 02:31: INFO    : Graph-pass 'FoldFIFOsPass' took 524.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'ValidateFIFOs'.
-ven 02:31: INFO    : Graph-pass 'ValidateFIFOs' took 174.000 µs (1 iterations)
-ven 02:31: INFO    : Scheduling Photon graph (pass 2)
-ven 02:31: INFO    : Running kernel graph-pass 'MarkConstantPass'.
-ven 02:31: INFO    : Graph-pass 'MarkConstantPass' took 280.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'MIPScheduler'.
-ven 02:31: INFO    : Running command: "/opt/maxeler/maxcompiler/bin/glpsol" --intopt  --model "scheduler.mod" --data "linearKernel_scheduler_2_C.dat" --display "linearKernel_scheduler_2_C.out" --log "linearKernel_scheduler_2_C.log"
-ven 02:31: INFO    : Checking for file hash changes...
-ven 02:31: INFO    : No changes.
-ven 02:31: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/linearKernel_schedule_report.csv
-ven 02:31: INFO    : Graph-pass 'MIPScheduler' took 19.6980 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'RemoveDistMeasurementNodes'.
-ven 02:31: INFO    : Graph-pass 'RemoveDistMeasurementNodes' took 15.0000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'SubstituteEqPlaceholders'.
-ven 02:31: INFO    : Graph-pass 'SubstituteEqPlaceholders' took 71.0000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'ScheduleApplier'.
-ven 02:31: INFO    : Graph-pass 'ScheduleApplier' took 23.0520 ms (1 iterations)
-ven 02:31: INFO    : Maximum stream latency for kernel 'linearKernel': 247
-ven 02:31: INFO    : Using user logic for flush.
-ven 02:31: INFO    : Running kernel graph-pass 'StatsPass'.
-ven 02:31: INFO    : Graph-pass 'StatsPass' took 1.77100 ms (1 iterations)
-ven 02:31: INFO    : Running Photon post-schedule graph optimisations (pass 2)
-ven 02:31: INFO    : Running kernel graph-pass 'TapFIFOsPass'.
-ven 02:31: INFO    : Graph-pass 'TapFIFOsPass' took 15.8760 ms (2 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'FoldFIFOsPass'.
-ven 02:31: INFO    : Graph-pass 'FoldFIFOsPass' took 938.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'MarkConstantPass'.
-ven 02:31: INFO    : Graph-pass 'MarkConstantPass' took 413.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'ScheduleAsserter'.
-ven 02:31: INFO    : Graph-pass 'ScheduleAsserter' took 1.44900 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'ReplaceEvalStreamOffsetNodes'.
-ven 02:31: INFO    : Graph-pass 'ReplaceEvalStreamOffsetNodes' took 202.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'FIFOCoalesceRespectingPlacementPass'.
-ven 02:31: INFO    : Found 3 FIFOs (with 1 set(s) of constraint) with depth '111'.
-ven 02:31: INFO    : Made coalesced FIFO (id=218) of width 3 and depth '111' from the following FIFOs:
-ven 02:31: INFO    :     id=154 width=1
-ven 02:31: INFO    :     id=157 width=1
-ven 02:31: INFO    :     id=190 width=1
-ven 02:31: INFO    : Graph-pass 'FIFOCoalesceRespectingPlacementPass' took 16.5220 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'FIFOReport'.
-ven 02:31: INFO    : Graph-pass 'FIFOReport' took 2.84400 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'StatsPass'.
-ven 02:31: INFO    : Graph-pass 'StatsPass' took 1.63500 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'RemoveUntypedConstants'.
-ven 02:31: INFO    : Graph-pass 'RemoveUntypedConstants' took 5.89700 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'VariableSizeMappedRegInserter'.
-ven 02:31: INFO    : Graph-pass 'VariableSizeMappedRegInserter' took 250.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'MarkConstantPass'.
-ven 02:31: INFO    : Graph-pass 'MarkConstantPass' took 384.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'MakeMaxFileNodeData'.
-ven 02:31: INFO    : Graph-pass 'MakeMaxFileNodeData' took 5.34400 ms (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'MoveFanoutRegsForwards'.
-ven 02:31: INFO    : Graph-pass 'MoveFanoutRegsForwards' took 210.000 µs (1 iterations)
-ven 02:31: INFO    : Optimization report for Kernel 'linearKernel'.
-ven 02:31: INFO    : Enabled optimizations:
-ven 02:31: INFO    : 	DSP-Multiplication
-ven 02:31: INFO    : 	Power-of-2 Floating Point
-ven 02:31: INFO    : 	Fifo Coalescing
-ven 02:31: INFO    : Creating a preliminary MaxCompilerDesignData.dat. (@ CoreCompile linearKernel)
-ven 02:31: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/MaxCompilerDesignData.dat
-ven 02:31: INFO    : Running kernel graph-pass 'WeightBasedCEPartitioner'.
-ven 02:31: INFO    : Partitioning design into 1 CE domain(s) to minimize global signal fanout.
-ven 02:31: INFO    : Graph-pass 'WeightBasedCEPartitioner' took 81.0000 µs (1 iterations)
-ven 02:31: INFO    : Using maximum counter CE delay chain length 8
-ven 02:31: INFO    : CE Partition 0 Clock Phase 0 : Nodes=194 (use fill=11, use flush=9) Fill counters=7 (+9 delay regs) Flush counters=7 (+0 delay regs)
-ven 02:31: INFO    : Running kernel graph-pass 'FindWriteableMappedMemories'.
-ven 02:31: INFO    : Graph-pass 'FindWriteableMappedMemories' took 38.0000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'MarkConstantPass'.
-ven 02:31: INFO    : Graph-pass 'MarkConstantPass' took 421.000 µs (1 iterations)
-ven 02:31: INFO    : Running kernel graph-pass 'MaxConstantLatency'.
-ven 02:31: INFO    : Graph-pass 'MaxConstantLatency' took 654.000 µs (1 iterations)
-ven 02:31: INFO    : Maximum constant latency: 0
-ven 02:31: INFO    : Running kernel graph-pass 'PhotonMaxDCTopEntity'.
-ven 02:31: INFO    : Implementing static multi-stage delay of 111 (3 bits wide), cost 1 RAMB18-equivalents, and 0 SRL32s. Made from: 0 x 512 BRAMs, Straggler BRAM 109, SRL of length 0
-ven 02:31: INFO    : Running ' lmutil lmdiag -n ISE'
-ven 02:31: INFO    : Successfully checked out license for ISE
-ven 02:31: INFO    : Implementing static multi-stage delay of 127 (1 bits wide), cost 1 RAMB18-equivalents, and 0 SRL32s. Made from: 0 x 512 BRAMs, Straggler BRAM 125, SRL of length 0
-ven 02:31: INFO    : Implementing static multi-stage delay of 2 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 2
-ven 02:31: INFO    : Implementing static multi-stage delay of 9 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 9
-ven 02:31: INFO    : Implementing static multi-stage delay of 2 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 2
-ven 02:31: INFO    : Implementing static multi-stage delay of 2 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 2
-ven 02:31: INFO    : Implementing static multi-stage delay of 7 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 7
-ven 02:31: INFO    : Implementing static multi-stage delay of 6 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 6
-ven 02:31: INFO    : Implementing static multi-stage delay of 5 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 5
-ven 02:31: INFO    : Implementing static multi-stage delay of 8 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 8
-ven 02:31: INFO    : Implementing static multi-stage delay of 3 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 3
-ven 02:31: INFO    : Implementing static multi-stage delay of 10 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 10
-ven 02:31: INFO    : Implementing static multi-stage delay of 55 (1 bits wide), cost 1 RAMB18-equivalents, and 0 SRL32s. Made from: 0 x 512 BRAMs, Straggler BRAM 53, SRL of length 0
-ven 02:31: INFO    : Implementing static multi-stage delay of 142 (32 bits wide), cost 1 RAMB18-equivalents, and 0 SRL32s. Made from: 0 x 512 BRAMs, Straggler BRAM 140, SRL of length 0
-ven 02:31: INFO    : Implementing static multi-stage delay of 90 (1 bits wide), cost 1 RAMB18-equivalents, and 0 SRL32s. Made from: 0 x 512 BRAMs, Straggler BRAM 88, SRL of length 0
-ven 02:31: INFO    : Implementing static multi-stage delay of 2 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 2
-ven 02:31: INFO    : Implementing static multi-stage delay of 9 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 9
-ven 02:31: INFO    : Implementing static multi-stage delay of 4 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 4
-ven 02:31: INFO    : Implementing static multi-stage delay of 7 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 7
-ven 02:31: INFO    : Implementing static multi-stage delay of 6 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 6
-ven 02:31: INFO    : Implementing static multi-stage delay of 3 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 3
-ven 02:31: INFO    : Implementing static multi-stage delay of 2 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 2
-ven 02:31: INFO    : Implementing static multi-stage delay of 8 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 8
-ven 02:31: INFO    : Implementing static multi-stage delay of 13 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 13
-ven 02:31: INFO    : Implementing static multi-stage delay of 2 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 2
-ven 02:31: INFO    : Implementing static multi-stage delay of 9 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 9
-ven 02:31: INFO    : Implementing static multi-stage delay of 4 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 4
-ven 02:31: INFO    : Implementing static multi-stage delay of 7 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 7
-ven 02:31: INFO    : Implementing static multi-stage delay of 6 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 6
-ven 02:31: INFO    : Implementing static multi-stage delay of 3 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 3
-ven 02:31: INFO    : Implementing static multi-stage delay of 2 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 2
-ven 02:31: INFO    : Implementing static multi-stage delay of 8 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 8
-ven 02:31: INFO    : Implementing static multi-stage delay of 13 (32 bits wide), cost 0 RAMB18-equivalents, and 32 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 13
-ven 02:31: INFO    : Implementing static multi-stage delay of 110 (1 bits wide), cost 1 RAMB18-equivalents, and 0 SRL32s. Made from: 0 x 512 BRAMs, Straggler BRAM 108, SRL of length 0
-ven 02:31: INFO    : Implementing static multi-stage delay of 4 (48 bits wide), cost 0 RAMB18-equivalents, and 48 SRL32s. Made from: 0 x 0 BRAMs, Straggler BRAM 0, SRL of length 4
-ven 02:31: INFO    : Graph-pass 'PhotonMaxDCTopEntity' took 3.13239 s (1 iterations)
-ven 02:31: INFO    : Writing current graph to: linearKernel_final-hardware.pxg
-ven 02:31: INFO    : Running kernel graph-pass 'GeneratePXG'.
-ven 02:31: INFO    : Graph-pass 'GeneratePXG' took 84.6490 ms (1 iterations)
-ven 02:31: INFO    : Running manager compiler graph-pass: GenerateMXGInfo
-ven 02:31: INFO    : Running manager compiler graph-pass: GenerateSlicHostCode
-ven 02:31: INFO    : Generating SLIC interface information
-ven 02:31: INFO    : Generating SLIC code for interface 'default'
-ven 02:31: INFO    : Skipping blacklisted scalar parameter 'linearKernel.current_run_cycle_count'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_0'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_1_0'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_1_1'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_1_2'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_1_3'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_1_4'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_2_0'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_2_1'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_2_2'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_2_3'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_2_4'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_3_0'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_3_1'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_3_2'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_3_3'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_3_4'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'size'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'sizeController'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'stencilSize'
-ven 02:31: INFO    : Generating XML description for Maxfile
-ven 02:31: INFO    : Generating XML description for mode 'default'
-ven 02:31: INFO    : Skipping blacklisted scalar parameter 'linearKernel.current_run_cycle_count'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_0'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_1_0'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_1_1'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_1_2'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_1_3'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_1_4'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_2_0'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_2_1'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_2_2'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_2_3'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_2_4'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_3_0'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_3_1'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_3_2'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_3_3'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'c_3_4'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'size'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'sizeController'
-ven 02:31: INFO    : Interface 'default' depends on parameter 'stencilSize'
-ven 02:31: INFO    : Adding SLIC sections to the maxfile
-ven 02:31: INFO    : Generating SLIC include file
-ven 02:31: INFO    : Done generating SLIC interface information
-ven 02:31: INFO    : Adding frequency: 100,00, phase: 0,00, dc: 0,50
-ven 02:31: INFO    : Reporting Actual PLL Output Frequencies for Input Clock STREAM:
-ven 02:31: INFO    : 	PLL Output Clock 0: Actual frequency is: 100,000000, Requested frequency was: 100,000000
-ven 02:31: INFO    : Waiting for any external asynchronous jobs to complete (e.g. MegaWizard/CoreGen)...
-ven 02:31: INFO    : All asynchronous jobs are now completed.
-ven 02:31: INFO    : Deleting directory: tmp
-ven 02:31: INFO    : Running command:  coregen -b CGFifo_81_ise13_3_xc6vsx475t_2_FF1759_ES_34_512_rst_fwft.xco -p CGFifo_81_ise13_3_xc6vsx475t_2_FF1759_ES_34_512_rst_fwft.cgp
-ven 02:31: INFO    : Checking for file hash changes...
-ven 02:31: INFO    : No changes.
-ven 02:31: INFO    : Waiting for any external asynchronous jobs to complete (e.g. MegaWizard/CoreGen)...
-ven 02:31: INFO    : All asynchronous jobs are now completed.
-ven 02:31: INFO    : SystemMonitor: Calculated clock divider as 13 --> 0x0d00
-ven 02:31: INFO    : Reporting Actual PLL Output Frequencies for Input Clock clk_ref:
-ven 02:31: INFO    : 	PLL Output Clock cclk: Actual frequency is: 50,000000, Requested frequency was: 50,000000
-ven 02:31: INFO    : Running ' lmutil lmdiag -n aurora_8b10b'
-ven 02:31: INFO    : Successfully checked out license for aurora_8b10b
-ven 02:31: INFO    : Reporting Actual PLL Output Frequencies for Input Clock GT CLK:
-ven 02:31: INFO    : 	PLL Output Clock SYNC CLK: Actual frequency is: 312,500000, Requested frequency was: 312,500000
-ven 02:31: INFO    : Updating the preliminary MaxCompilerDesignData.dat. (@ Main build)
-ven 02:31: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/MaxCompilerDesignData.dat
-ven 02:31: PROGRESS: Generating input files (VHDL, netlists, MegaWizard/CoreGen)
-ven 02:31: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/aurora_transceiver_tile_i.vhdl
-ven 02:31: INFO    : Deleting directory: tmp
-ven 02:31: INFO    : Running command:  coregen -b CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr.xco -p CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr.cgp
-ven 02:31: INFO    : Release 13.3 - Xilinx CORE Generator O.76xd (lin64)
-ven 02:31: INFO    : Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
-ven 02:31: INFO    : All runtime messages will be recorded in
-ven 02:31: INFO    : /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECT
-ven 02:31: INFO    : IS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5
-ven 02:31: INFO    : p2_4_6p25_fr/coregen.log
-ven 02:31: INFO    : CoreGen has not been configured with any user repositories.
-ven 02:31: INFO    : CoreGen has been configured with the following Xilinx repositories:
-ven 02:31: INFO    :  - '/opt/Xilinx/13.3/ISE_DS/ISE/coregen/' [using existing xil_index.xml]
-ven 02:32: INFO    : INFO:encore:314 - Created non-GUI application for batch mode execution.
-ven 02:32: INFO    : INFO:sim - Generating component instance
-ven 02:32: INFO    :    'CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_f
-ven 02:32: INFO    :    r' of 'xilinx.com:ip:aurora_8b10b:5.2' from
-ven 02:32: INFO    :    '/opt/Xilinx/13.3/ISE_DS/ISE/coregen/ip/xilinx/network/com/xilinx/ip/aurora_8
-ven 02:32: INFO    :    b10b_v5_2/aurora_8b10b_v5_2.xcd'.
-ven 02:32: INFO    : Resolving generic values...
-ven 02:32: INFO    : ERROR:sim - C_REFCLK_FREQUENCY: Invalid value '250,000'.
-ven 02:32: INFO    : ERROR:sim - Failed to resolve generic values.
-ven 02:32: INFO    : ERROR:sim - Failed to generate
-ven 02:32: INFO    :    'CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_f
-ven 02:32: INFO    :    r'.  Failed to resolve generic values.
-ven 02:32: INFO    : 
-ven 02:32: INFO    : ERROR:sim:877 - Error found during execution of IP 'Aurora 8B10B v5.2'
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/example_design/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/example_design/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_aurora_pkg.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_aurora_pkg.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_channel_init_sm.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_channel_init_sm.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_global_logic.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_global_logic.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/example_design/gt/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_transceiver_wrapper.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/example_design/gt/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_transceiver_wrapper.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_idle_and_ver_gen.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_idle_and_ver_gen.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_left_align_control.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_left_align_control.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_left_align_mux.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_left_align_mux.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_output_mux.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_output_mux.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_output_switch_control.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_output_switch_control.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_rx_ll.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_rx_ll.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_rx_ll_deframer.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_rx_ll_deframer.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_rx_ll_pdu_datapath.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_rx_ll_pdu_datapath.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_sideband_output.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_sideband_output.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_storage_ce_control.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_storage_ce_control.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_storage_count_control.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_storage_count_control.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_storage_mux.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_storage_mux.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_storage_switch_control.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_storage_switch_control.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_tx_ll.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_tx_ll.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_tx_ll_control.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_tx_ll_control.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_tx_ll_datapath.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_tx_ll_datapath.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_valid_data_counter.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_valid_data_counter.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_aurora_lane_4byte.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_aurora_lane_4byte.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_chbond_count_dec_4byte.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_chbond_count_dec_4byte.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_lane_init_sm_4byte.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_lane_init_sm_4byte.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_sym_dec_4byte.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_sym_dec_4byte.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_sym_gen_4byte.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_sym_gen_4byte.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_channel_err_detect.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_channel_err_detect.vhd
-ven 02:32: INFO    : Couldn't find file /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_err_detect_4byte.vhd, giving it a second chance.
-ven 02:32: INFO    : Output file does not exist: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/src/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr_err_detect_4byte.vhd
-ven 02:32: INFO    : Error building core-gen core created at:com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
-ven 02:32: INFO    : cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)
-ven 02:32: ERROR   : Error running external tool :-
-ven 02:32: ERROR   : Problem            : Error running Xilinx Core Generator: Errors reported in coregen.log. The first error is: 
-ven 02:32: ERROR   : sim - C_REFCLK_FREQUENCY: Invalid value '250,000'.
-ven 02:32: ERROR   : Program log        : /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr/coregen.log
-ven 02:32: ERROR   : Command run        :  coregen -b CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr.xco -p CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr.cgp
-ven 02:32: ERROR   : Directory run in   : /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/CGAurora8B10B_52_ise13_3_xc6vsx475t_2_FF1759_ES_INTERFPGA_LINK_v5p2_4_6p25_fr
-ven 02:32: ERROR   : Exit code          : 1
-ven 02:32: ERROR   : Detailed build log : /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/_build.log
+lun 19:38: PROGRESS: MaxCompiler version: 2013.1
+lun 19:38: PROGRESS: Build "CpuMain" start time: Mon Jun 17 19:38:12 CEST 2013
+lun 19:38: PROGRESS: Main build process running as user emanuele.delsozzo on host maxeler
+lun 19:38: INFO    : Loading build properties from bundled MaxCompiler_build.conf...
+lun 19:38: INFO    : Loading default build properties from /opt/maxeler/MaxCompiler_build.conf
+lun 19:38: INFO    : User build properties not found in file: /home/emanuele.delsozzo/.MaxCompiler_build_user.conf
+lun 19:38: INFO    : No user-specified external build property file has been specified.
+lun 19:38: INFO    : (Set environment variable MAXCOMPILER_BUILD_CONF_FILE to assign one)
+lun 19:38: PROGRESS: Build location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE
+lun 19:38: PROGRESS: Detailed build log available in "_build.log"
+lun 19:38: INFO    : Created build manager CpuMain (CpuMain_VECTIS_DFE Mon Jun 17 19:38:12 CEST 2013). (19:38:12 17/06/13)
+lun 19:38: INFO    : Working in dir: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE
+lun 19:38: INFO    : Java class path (2 paths):
+lun 19:38: INFO    : 	/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/EngineCode/bin
+lun 19:38: INFO    : 	/opt/maxeler/maxcompiler/lib/MaxCompiler.jar
+lun 19:38: INFO    : Java process started by 'main' method in class 'cpuMain.CpuMainManager'.
+lun 19:38: INFO    : build.arbitrated_core_cache parameter is blank, not using core-cache
+lun 19:38: INFO    : Checking license files in directory: /opt/maxeler/maxcompiler/licenses
+lun 19:38: INFO    : All license signatures valid.
+lun 19:38: INFO    : Backing-up source-files (old source files in build directory will be removed first)...
+lun 19:38: INFO    : Source directories: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/EngineCode/src:
+lun 19:38: INFO    : Deleting directory: src
+lun 19:38: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/ise_version_test
+lun 19:38: INFO    : Running command:  par | head -n 5 > ise_version_test
+lun 19:38: INFO    : Installed ISE version: 13.3
+lun 19:38: INFO    : No hash stored for ISE version 13.3
+lun 19:38: PROGRESS: Instantiating manager
+lun 19:38: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/linearKernel.graphs
+lun 19:38: PROGRESS: Instantiating kernel "linearKernel"
+lun 19:38: PROGRESS: Compiling manager (Configurable)
+lun 19:38: INFO    : Manager Configuration:
+lun 19:38: INFO    : 	ManagerConfiguration.allowNonMultipleTransitions = false                                                         [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.board = MAX3424A                                                                            [Init: null, init: MAX3424A]
+lun 19:38: INFO    : 	ManagerConfiguration.build.buildEffort = MEDIUM                                                                  [Init: MEDIUM]
+lun 19:38: INFO    : 	ManagerConfiguration.build.enableChipScopeInserter = false                                                       [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.build.enableTimingAnalysis = true                                                           [Init: true]
+lun 19:38: INFO    : 	ManagerConfiguration.build.level = FULL_BUILD                                                                    [Init: FULL_BUILD]
+lun 19:38: INFO    : 	ManagerConfiguration.build.mpprContinueAfterMeetingTiming = false                                                [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.build.mpprCtMax = 1                                                                         [Init: 1]
+lun 19:38: INFO    : 	ManagerConfiguration.build.mpprCtMin = 1                                                                         [Init: 1]
+lun 19:38: INFO    : 	ManagerConfiguration.build.mpprParallelism = 1                                                                   [Init: 1]
+lun 19:38: INFO    : 	ManagerConfiguration.build.mpprRetryMissesThrshld = 0                                                            [Init: 0]
+lun 19:38: INFO    : 	ManagerConfiguration.build.optGoal = AREA                                                                        [Init: AREA]
+lun 19:38: INFO    : 	ManagerConfiguration.build.physSynthAsyncPipelining = AUTO                                                       [Init: AUTO]
+lun 19:38: INFO    : 	ManagerConfiguration.build.physSynthCombLogic = AUTO                                                             [Init: AUTO]
+lun 19:38: INFO    : 	ManagerConfiguration.build.physSynthCombLogicForArea = AUTO                                                      [Init: AUTO]
+lun 19:38: INFO    : 	ManagerConfiguration.build.physSynthEffort = AUTO                                                                [Init: AUTO]
+lun 19:38: INFO    : 	ManagerConfiguration.build.physSynthRegDuplication = AUTO                                                        [Init: AUTO]
+lun 19:38: INFO    : 	ManagerConfiguration.build.physSynthRetiming = AUTO                                                              [Init: AUTO]
+lun 19:38: INFO    : 	ManagerConfiguration.build.physicalSynthesis = false                                                             [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.buildTarget = DFE                                                                           [Init: null, init: DFE]
+lun 19:38: INFO    : 	ManagerConfiguration.debug.chipscopeCaptureDepth = 4096                                                          [Init: 4096]
+lun 19:38: INFO    : 	ManagerConfiguration.debug.fifoUnderOverFlowRegs = false                                                         [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.debug.memCtlDebugRegs = true                                                                [Init: true]
+lun 19:38: INFO    : 	ManagerConfiguration.debug.memCtlExtraDebugRegs = false                                                          [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.debug.memMarginingSupport = false                                                           [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.debug.memPhyDebugRegister = NONE                                                            [Init: NONE]
+lun 19:38: INFO    : 	ManagerConfiguration.debug.memPllLockDebugRegs = true                                                            [Init: true]
+lun 19:38: INFO    : 	ManagerConfiguration.debug.streamStatus = false                                                                  [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.debug.streamStatusChecksums = false                                                         [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.addressGeneratorsInSlowClock = false                                                   [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.arbitrationMode = ROUND_ROBIN                                                          [Init: ROUND_ROBIN]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.burstSize = 8                                                                          [Init: 8]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.cmdFifoInReg = false                                                                   [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.cmdFifoLutRam = false                                                                  [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.cmdFifoRegInRam = true                                                                 [Init: true]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.cmdFifoSize = 31                                                                       [Init: 31]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.dataFifoDepth = 512                                                                    [Init: 512]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.dataFifoLutRam = false                                                                 [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.dataFifoWidth = 792                                                                    [Init: 792]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.eccMode = false                                                                        [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.fabricDataFifoReg = true                                                               [Init: true]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.fabricRdDataFifoReg = false                                                            [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.flagSupport = false                                                                    [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.highPrioStream = false                                                                 [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.max2CompatMode = false                                                                 [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.max4m_MAIA_MCP_UseRefClk = false                                                       [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.max4qrateMode = false                                                                  [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.memCmdIncSize = 8                                                                      [Init: 8]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.memCmdStartAddrSize = 32                                                               [Init: 32]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.onCardMemFreq = 303.0                                                                  [Init: 0.0, change: 303.0]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.parEccDebugStream = false                                                              [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.parityEccWidth = 0                                                                     [Init: 0]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.parityMode = false                                                                     [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.perdqsPhaseDetect = false                                                              [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.dram.performanceMode = true                                                                 [Init: true]
+lun 19:38: INFO    : 	ManagerConfiguration.enableMPCX = false                                                                          [Init: false, init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.maxring.maxringConnections = []                                                             [Init: []]
+lun 19:38: INFO    : 	ManagerConfiguration.maxring.maxringNumLanes = {MAXRING_B=2, MAXRING_A=2, MAXRING_LITE_B=1, MAXRING_LITE_A=1}    [Init: {}]
+lun 19:38: INFO    : 	ManagerConfiguration.multiCycleMappedMemoryBus = false                                                           [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.pcie.numPCIeLanes = 0                                                                       [Init: 0]
+lun 19:38: INFO    : 	ManagerConfiguration.pcie.pcieFastClock = false                                                                  [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.pcie.streamFromHostMaxNum = 8                                                               [Init: 0, change: 8]
+lun 19:38: INFO    : 	ManagerConfiguration.pcie.streamToHostMaxNum = 8                                                                 [Init: 0, change: 8]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.boardModel = MAX3424A                                                               [Init: null, change: MAX3424A]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.ddr3Frq = 303.0                                                                     [Init: 400.0, change: 303.0]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.ddr3Qmode = false                                                                   [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.disableMultiplePersona = false                                                      [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.dynamic_scaling = false                                                             [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.fastBuild = true                                                                    [Init: false, change: true]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.maxRingLocal = false                                                                [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.maxRingOptical = false                                                              [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.mode = Off                                                                          [Init: Off]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.panMaxRingA = false                                                                 [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.panMaxRingB = false                                                                 [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.personaInterfaceVersion = 1                                                         [Init: 1]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.streamClks = 1                                                                      [Init: 1]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.streamFrq = [100.0]                                                                 [Init: [150.0], change: [100.0]]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.streamPs = [0]                                                                      [Init: [0]]
+lun 19:38: INFO    : 	ManagerConfiguration.persona.usePCIeGen1 = true                                                                  [Init: true]
+lun 19:38: INFO    : 	ManagerConfiguration.simulation.nativeFloatingPoint = false                                                      [Init: false]
+lun 19:38: INFO    : 	ManagerConfiguration.streamClockFrq = 100                                                                        [Init: 100]
+lun 19:38: INFO    : 
+lun 19:38: INFO    :  -- 
+lun 19:38: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/Manager_CpuMain.graphs
+lun 19:38: INFO    : Running manager compiler graph-pass: GenerateMXGInfo
+lun 19:38: INFO    : Running manager compiler graph-pass: CalculateBandwidthForward
+lun 19:38: INFO    : Running manager compiler graph-pass: CalculateBandwidthBackward
+lun 19:38: INFO    : Running manager compiler graph-pass: ScheduleStallLatency
+lun 19:38: INFO    : Running manager compiler graph-pass: ClockWidthAssignment
+lun 19:38: INFO    : Running manager compiler graph-pass: InsertDualAspectLogic
+lun 19:38: INFO    : Running manager compiler graph-pass: ClockWidthAssignment
+lun 19:38: INFO    : Running manager compiler graph-pass: InsertPullPushAdapter
+lun 19:38: INFO    : Running manager compiler graph-pass: ClockWidthAssignment
+lun 19:38: INFO    : Running manager compiler graph-pass: InsertStreamFifos
+lun 19:38: INFO    : Running manager compiler graph-pass: ClockWidthAssignment
+lun 19:38: INFO    : Running manager compiler graph-pass: InsertStreamStatus
+lun 19:38: INFO    : Running manager compiler graph-pass: InsertChipscope
+lun 19:38: INFO    : Inserted 0 chipscope manager nodes.
+lun 19:38: INFO    : Running manager compiler graph-pass: ClockWidthAssignment
+lun 19:38: PROGRESS: 
+lun 19:38: PROGRESS: Compiling kernel "linearKernel"
+lun 19:38: INFO    : Configuration:
+lun 19:38: INFO    : 	KernelConfiguration.allowDSPCascading = true                                                [Init: true]
+lun 19:38: INFO    : 	KernelConfiguration.allowInputsOutputsBeforeFlushNode = false                               [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.allowZeroLatencyNodeHold = false                                        [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.board = MAX3424A                                                        [Init: MAX2116B, change: MAX3424A]
+lun 19:38: INFO    : 	KernelConfiguration.bramBitsThreshold = 2080                                                [Init: 2080]
+lun 19:38: INFO    : 	KernelConfiguration.buildTarget = HARDWARE                                                  [Init: NONE, change: HARDWARE]
+lun 19:38: INFO    : 	KernelConfiguration.cePipelining = 2                                                        [Init: 2]
+lun 19:38: INFO    : 	KernelConfiguration.clockPhaseBalanceThreshold = 0.1                                        [Init: 0.1]
+lun 19:38: INFO    : 	KernelConfiguration.clockPhasingRetries = 50                                                [Init: 50]
+lun 19:38: INFO    : 	KernelConfiguration.dumpNeighboursString =                                                  [Init: ]
+lun 19:38: INFO    : 	KernelConfiguration.enableCeReplication = true                                              [Init: true]
+lun 19:38: INFO    : 	KernelConfiguration.enableClockPhasePartitioning = false                                    [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.enableDebugIOControlRegs = true                                         [Init: true]
+lun 19:38: INFO    : 	KernelConfiguration.enableDummyBuild = false                                                [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.enableKernelProfiler = false                                            [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.enablePipelinedComputeController = false                                [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.enableShadowRegister = false                                            [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.fifoSrlRegisterStages = 1                                               [Init: 1]
+lun 19:38: INFO    : 	KernelConfiguration.flushOnInputDataCongtiguous = false                                     [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.hardwareDebugDepth = 512                                                [Init: 512]
+lun 19:38: INFO    : 	KernelConfiguration.hwHierarchyMode = UNSET                                                 [Init: UNSET]
+lun 19:38: INFO    : 	KernelConfiguration.latencyAnnotation = false                                               [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.latencyAnnotationIOs =                                                  [Init: null]
+lun 19:38: INFO    : 	KernelConfiguration.maxCoalescedFifoWidth = 2147483647                                      [Init: 2147483647]
+lun 19:38: INFO    : 	KernelConfiguration.maxPreAdderFanOut = 1                                                   [Init: 1]
+lun 19:38: INFO    : 	KernelConfiguration.netlistMode = false                                                     [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.numPhotonStateMachines = 1                                              [Init: 1]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.ceCounterRegisterDuplication = 1                          [Init: 1]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.conditionalArithmetic = false                             [Init: true, Init after BuildTarget change: false]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.counterChainWrapPipelining = 0                            [Init: 0]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.dspAddChain = OPTIMISE_IGNORE_PREADDER                    [Init: null, Init after BuildTarget change: OPTIMISE_IGNORE_PREADDER]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.enableActiveFanoutReduction = false                       [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.enableBUFGCE = false                                      [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.enableBetterInputRegistering = false                      [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.enableBetterRegistering = false                           [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.enableFIFOCoalescingAcrossPlacementConstraints = false    [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.enableFifoCoalescing = true                               [Init: true]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.enableFullPrecisionBinaryOpConstants = false              [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.enableIntegratedRounding = false                          [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.enableMappedMemoryHostReadBack = true                     [Init: true]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.enableMultiCycleReset = false                             [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.enablePowerTwoFloatMult = true                            [Init: true]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.enableStateMachineRegisterMerging = true                  [Init: true]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.inputFlushDistanceFactor = 0                              [Init: 0]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.minimumStaticFIFOSplitDepth = 1                           [Init: 1]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.optimizationTechnique = DEFAULT                           [Init: DEFAULT]
+lun 19:38: INFO    : 	KernelConfiguration.optimizations.triAdd = false                                            [Init: true, Init after BuildTarget change: false]
+lun 19:38: INFO    : 	KernelConfiguration.partialReconfBlockName =                                                [Init: ]
+lun 19:38: INFO    : 	KernelConfiguration.partialReconfMode = false                                               [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.partialReconfTemplate = false                                           [Init: false]
+lun 19:38: INFO    : 	KernelConfiguration.replicateNodeCeLog2NumPartitions = 0                                    [Init: 0]
+lun 19:38: INFO    : 	KernelConfiguration.romBRAMBitsThreshold = 2080                                             [Init: 2080]
+lun 19:38: INFO    : 	KernelConfiguration.simulation.ramAddressCollisionBehaviour = EXCEPTION                     [Init: EXCEPTION]
+lun 19:38: INFO    : 	KernelConfiguration.simulation.ramOutOfBoundsAccessBehaviour = EXCEPTION                    [Init: EXCEPTION]
+lun 19:38: INFO    : 	KernelConfiguration.simulation.simProgressMessageFrequency = 0                              [Init: 0]
+lun 19:38: INFO    : 
+lun 19:38: INFO    :  -- 
+lun 19:38: INFO    : Writing current graph to: linearKernel_original.pxg
+lun 19:38: INFO    : Running kernel graph-pass 'GeneratePXG'.
+lun 19:38: INFO    : Graph-pass 'GeneratePXG' took 193.359 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'MarkConstantPass'.
+lun 19:38: INFO    : Graph-pass 'MarkConstantPass' took 1.68100 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'ReachabilityPass'.
+lun 19:38: INFO    : Graph-pass 'ReachabilityPass' took 5.58200 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'FindInputsLeadingToFlush'.
+lun 19:38: INFO    : Graph-pass 'FindInputsLeadingToFlush' took 115.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'CheckForStatefulToFlushViolations'.
+lun 19:38: INFO    : Graph-pass 'CheckForStatefulToFlushViolations' took 243.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'CheckForInputToFlushViolations'.
+lun 19:38: INFO    : Graph-pass 'CheckForInputToFlushViolations' took 715.000 µs (1 iterations)
+lun 19:38: INFO    : Deleting directory: neighbours
+lun 19:38: INFO    : Running Photon pre-schedule graph optimisations
+lun 19:38: INFO    : Running kernel graph-pass 'AlignOrEradicatePrintfs'.
+lun 19:38: INFO    : Graph-pass 'AlignOrEradicatePrintfs' took 197.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'FoldConstantsPass'.
+lun 19:38: INFO    : Graph-pass 'FoldConstantsPass' took 1.02400 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'OptimiseNodesPass'.
+lun 19:38: INFO    : Graph-pass 'OptimiseNodesPass' took 637.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'DSPMultiplyAddExtractionPass'.
+lun 19:38: INFO    : Optimized 0 sub-graphs into DSP multiply/add chains (Virtex5 mode).
+lun 19:38: INFO    : Graph-pass 'DSPMultiplyAddExtractionPass' took 22.4860 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'PO2FPMultOptimiser'.
+lun 19:38: INFO    : Graph-pass 'PO2FPMultOptimiser' took 9.15800 ms (2 iterations)
+lun 19:38: INFO    : Logging Photon stats to: linearKernel_photon_stats.csv
+lun 19:38: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/linearKernel_photon_stats.csv
+lun 19:38: INFO    : Running kernel graph-pass 'StatsPass'.
+lun 19:38: INFO    : Graph-pass 'StatsPass' took 1.79300 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'CollectNumericExceptions'.
+lun 19:38: INFO    : Graph-pass 'CollectNumericExceptions' took 290.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'StreamOffsetDivExpand'.
+lun 19:38: INFO    : Graph-pass 'StreamOffsetDivExpand' took 249.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'FindIllegalLoops'.
+lun 19:38: INFO    : Graph-pass 'FindIllegalLoops' took 1.02400 ms (1 iterations)
+lun 19:38: INFO    : Scheduling Photon graph (pass 1)
+lun 19:38: INFO    : Running kernel graph-pass 'MarkConstantPass'.
+lun 19:38: INFO    : Graph-pass 'MarkConstantPass' took 460.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'MIPScheduler'.
+lun 19:38: INFO    : Running command: "/opt/maxeler/maxcompiler/bin/glpsol" --intopt  --model "scheduler.mod" --data "linearKernel_scheduler_1_C.dat" --display "linearKernel_scheduler_1_C.out" --log "linearKernel_scheduler_1_C.log"
+lun 19:38: INFO    : Checking for file hash changes...
+lun 19:38: INFO    : No changes.
+lun 19:38: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/linearKernel_schedule_report.csv
+lun 19:38: INFO    : Graph-pass 'MIPScheduler' took 22.6100 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'SubstituteEqPlaceholders'.
+lun 19:38: INFO    : Graph-pass 'SubstituteEqPlaceholders' took 120.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'ScheduleApplier'.
+lun 19:38: INFO    : Graph-pass 'ScheduleApplier' took 5.28600 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'StatsPass'.
+lun 19:38: INFO    : Graph-pass 'StatsPass' took 1.10200 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'ReachabilityPass'.
+lun 19:38: INFO    : Graph-pass 'ReachabilityPass' took 4.08600 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'CheckForInputToFlushViolations'.
+lun 19:38: INFO    : Graph-pass 'CheckForInputToFlushViolations' took 144.000 µs (1 iterations)
+lun 19:38: INFO    : Running Photon post-schedule graph optimisations (pass 1)
+lun 19:38: INFO    : Running kernel graph-pass 'TapFIFOsPass'.
+lun 19:38: INFO    : Graph-pass 'TapFIFOsPass' took 1.18600 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'FoldFIFOsPass'.
+lun 19:38: INFO    : Graph-pass 'FoldFIFOsPass' took 501.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'ValidateFIFOs'.
+lun 19:38: INFO    : Graph-pass 'ValidateFIFOs' took 162.000 µs (1 iterations)
+lun 19:38: INFO    : Scheduling Photon graph (pass 2)
+lun 19:38: INFO    : Running kernel graph-pass 'MarkConstantPass'.
+lun 19:38: INFO    : Graph-pass 'MarkConstantPass' took 293.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'MIPScheduler'.
+lun 19:38: INFO    : Running command: "/opt/maxeler/maxcompiler/bin/glpsol" --intopt  --model "scheduler.mod" --data "linearKernel_scheduler_2_C.dat" --display "linearKernel_scheduler_2_C.out" --log "linearKernel_scheduler_2_C.log"
+lun 19:38: INFO    : Checking for file hash changes...
+lun 19:38: INFO    : No changes.
+lun 19:38: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/linearKernel_schedule_report.csv
+lun 19:38: INFO    : Graph-pass 'MIPScheduler' took 20.6360 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'RemoveDistMeasurementNodes'.
+lun 19:38: INFO    : Graph-pass 'RemoveDistMeasurementNodes' took 16.0000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'SubstituteEqPlaceholders'.
+lun 19:38: INFO    : Graph-pass 'SubstituteEqPlaceholders' took 129.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'ScheduleApplier'.
+lun 19:38: INFO    : Graph-pass 'ScheduleApplier' took 23.9830 ms (1 iterations)
+lun 19:38: INFO    : Maximum stream latency for kernel 'linearKernel': 247
+lun 19:38: INFO    : Using user logic for flush.
+lun 19:38: INFO    : Running kernel graph-pass 'StatsPass'.
+lun 19:38: INFO    : Graph-pass 'StatsPass' took 1.86400 ms (1 iterations)
+lun 19:38: INFO    : Running Photon post-schedule graph optimisations (pass 2)
+lun 19:38: INFO    : Running kernel graph-pass 'TapFIFOsPass'.
+lun 19:38: INFO    : Graph-pass 'TapFIFOsPass' took 17.1520 ms (2 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'FoldFIFOsPass'.
+lun 19:38: INFO    : Graph-pass 'FoldFIFOsPass' took 1.03400 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'MarkConstantPass'.
+lun 19:38: INFO    : Graph-pass 'MarkConstantPass' took 357.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'ScheduleAsserter'.
+lun 19:38: INFO    : Graph-pass 'ScheduleAsserter' took 1.44000 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'ReplaceEvalStreamOffsetNodes'.
+lun 19:38: INFO    : Graph-pass 'ReplaceEvalStreamOffsetNodes' took 198.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'FIFOCoalesceRespectingPlacementPass'.
+lun 19:38: INFO    : Found 3 FIFOs (with 1 set(s) of constraint) with depth '111'.
+lun 19:38: INFO    : Made coalesced FIFO (id=218) of width 3 and depth '111' from the following FIFOs:
+lun 19:38: INFO    :     id=154 width=1
+lun 19:38: INFO    :     id=157 width=1
+lun 19:38: INFO    :     id=190 width=1
+lun 19:38: INFO    : Graph-pass 'FIFOCoalesceRespectingPlacementPass' took 17.2800 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'FIFOReport'.
+lun 19:38: INFO    : Graph-pass 'FIFOReport' took 2.93200 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'StatsPass'.
+lun 19:38: INFO    : Graph-pass 'StatsPass' took 1.72100 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'RemoveUntypedConstants'.
+lun 19:38: INFO    : Graph-pass 'RemoveUntypedConstants' took 6.36100 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'VariableSizeMappedRegInserter'.
+lun 19:38: INFO    : Graph-pass 'VariableSizeMappedRegInserter' took 241.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'MarkConstantPass'.
+lun 19:38: INFO    : Graph-pass 'MarkConstantPass' took 385.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'MakeMaxFileNodeData'.
+lun 19:38: INFO    : Graph-pass 'MakeMaxFileNodeData' took 5.77000 ms (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'MoveFanoutRegsForwards'.
+lun 19:38: INFO    : Graph-pass 'MoveFanoutRegsForwards' took 205.000 µs (1 iterations)
+lun 19:38: INFO    : Optimization report for Kernel 'linearKernel'.
+lun 19:38: INFO    : Enabled optimizations:
+lun 19:38: INFO    : 	DSP-Multiplication
+lun 19:38: INFO    : 	Power-of-2 Floating Point
+lun 19:38: INFO    : 	Fifo Coalescing
+lun 19:38: INFO    : Creating a preliminary MaxCompilerDesignData.dat. (@ CoreCompile linearKernel)
+lun 19:38: INFO    : Deleting /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE/scratch/MaxCompilerDesignData.dat
+lun 19:38: INFO    : Running kernel graph-pass 'WeightBasedCEPartitioner'.
+lun 19:38: INFO    : Partitioning design into 1 CE domain(s) to minimize global signal fanout.
+lun 19:38: INFO    : Graph-pass 'WeightBasedCEPartitioner' took 89.0000 µs (1 iterations)
+lun 19:38: INFO    : Using maximum counter CE delay chain length 8
+lun 19:38: INFO    : CE Partition 0 Clock Phase 0 : Nodes=194 (use fill=11, use flush=9) Fill counters=7 (+9 delay regs) Flush counters=7 (+0 delay regs)
+lun 19:38: INFO    : Running kernel graph-pass 'FindWriteableMappedMemories'.
+lun 19:38: INFO    : Graph-pass 'FindWriteableMappedMemories' took 38.0000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'MarkConstantPass'.
+lun 19:38: INFO    : Graph-pass 'MarkConstantPass' took 497.000 µs (1 iterations)
+lun 19:38: INFO    : Running kernel graph-pass 'MaxConstantLatency'.
+lun 19:38: INFO    : Graph-pass 'MaxConstantLatency' took 731.000 µs (1 iterations)
+lun 19:38: INFO    : Maximum constant latency: 0
+lun 19:38: INFO    : Running kernel graph-pass 'PhotonMaxDCTopEntity'.
+lun 19:38: INFO    : Implementing static multi-stage delay of 111 (3 bits wide), cost 1 RAMB18-equivalents, and 0 SRL32s. Made from: 0 x 512 BRAMs, Straggler BRAM 109, SRL of length 0
+lun 19:38: INFO    : Running ' lmutil lmdiag -n ISE'
+lun 19:38: WARNING : The license for ISE CANNOT be checked out
+lun 19:38: WARNING : Unable to check out license for 'ISE' in attempt 1/10
+lun 19:38: INFO    : Running ' lmutil lmdiag -n ISE'
+lun 19:38: WARNING : The license for ISE CANNOT be checked out
+lun 19:38: WARNING : Unable to check out license for 'ISE' in attempt 2/10
+lun 19:38: INFO    : Running ' lmutil lmdiag -n ISE'
+lun 19:38: WARNING : The license for ISE CANNOT be checked out
+lun 19:38: WARNING : Unable to check out license for 'ISE' in attempt 3/10
+lun 19:38: INFO    : Running ' lmutil lmdiag -n ISE'
+lun 19:38: WARNING : The license for ISE CANNOT be checked out
+lun 19:38: WARNING : Unable to check out license for 'ISE' in attempt 4/10
+lun 19:38: INFO    : Running ' lmutil lmdiag -n ISE'
+lun 19:38: WARNING : The license for ISE CANNOT be checked out
+lun 19:38: WARNING : Unable to check out license for 'ISE' in attempt 5/10
+lun 19:38: INFO    : Running ' lmutil lmdiag -n ISE'
+lun 19:38: WARNING : The license for ISE CANNOT be checked out
+lun 19:38: WARNING : Unable to check out license for 'ISE' in attempt 6/10
+lun 19:38: INFO    : Running ' lmutil lmdiag -n ISE'
+lun 19:38: WARNING : The license for ISE CANNOT be checked out
+lun 19:38: WARNING : Unable to check out license for 'ISE' in attempt 7/10
+lun 19:38: INFO    : Running ' lmutil lmdiag -n ISE'
+lun 19:38: WARNING : The license for ISE CANNOT be checked out
+lun 19:38: WARNING : Unable to check out license for 'ISE' in attempt 8/10
+lun 19:38: INFO    : Running ' lmutil lmdiag -n ISE'
+lun 19:38: WARNING : The license for ISE CANNOT be checked out
+lun 19:38: WARNING : Unable to check out license for 'ISE' in attempt 9/10
+lun 19:38: INFO    : Running ' lmutil lmdiag -n ISE'
+lun 19:38: WARNING : The license for ISE CANNOT be checked out
+lun 19:38: WARNING : Unable to check out license for 'ISE' in attempt 10/10
+lun 19:38: WARNING : Please check the output of  lmutil lmdiag -n ISE
+lun 19:38: WARNING : The following environment variables may be involved in this issue:
+lun 19:38: WARNING :  - XILINXD_LICENSE_FILE is not set
+lun 19:38: WARNING :  - LM_LICENSE_FILE=2100@ipeca-home
+lun 19:38: ERROR   : ----------------------------
+lun 19:38: ERROR   : Exception in thread "main":
+lun 19:38: ERROR   :  
+lun 19:38: ERROR   :   Error in MaxDC pass processing node created via:
+lun 19:38: ERROR   :   com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+lun 19:38: ERROR   :   cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)
+lun 19:38: ERROR   :   
+lun 19:38: ERROR   :   -> (WARNING: unlogged MaxelerException) 
+lun 19:38: ERROR   :   com.maxeler.licensing.external_tools.LicenseError: Licenses cannot be checked 
+lun 19:38: ERROR   :   out for ISE
+lun 19:38: ERROR   : 
+lun 19:38: ERROR   : Exception Stack Trace com.maxeler.photon.core.PhotonException: 
+lun 19:38: ERROR   :    at com.maxeler.licensing.external_tools.CheckXilinxLicenses.check(CheckXilinxLicenses.java:115)
+lun 19:38: ERROR   :    at com.maxeler.licensing.external_tools.CheckXilinxLicenses.check(CheckXilinxLicenses.java:59)
+lun 19:38: ERROR   :    at com.maxeler.maxdc.xilinx.coregen.CoregenComponent.<init>(CoregenComponent.java:43)
+lun 19:38: ERROR   :    at com.maxeler.maxdc.xilinx.coregen.CGBlockMem.<init>(CGBlockMem.java:158)
+lun 19:38: ERROR   :    at com.maxeler.maxdc.xilinx.coregen.CGBlockMem_42.<init>(CGBlockMem_42.java:30)
+lun 19:38: ERROR   :    at com.maxeler.maxdc.xilinx.coregen.CGBlockMem.make(CGBlockMem.java:65)
+lun 19:38: ERROR   :    at com.maxeler.photon.hw.xilinx.CGBlockRAMDelay.<init>(CGBlockRAMDelay.java:111)
+lun 19:38: ERROR   :    at com.maxeler.photon.hw.xilinx.CGBlockRAMDelayFactory.makeBlockRAMDelay(CGBlockRAMDelayFactory.java:33)
+lun 19:38: ERROR   :    at com.maxeler.photon.hw.MultiStageDelay.makeBRAMDelay(MultiStageDelay.java:621)
+lun 19:38: ERROR   :    at com.maxeler.photon.hw.MultiStageDelay.makeAllDelays(MultiStageDelay.java:548)
+lun 19:38: ERROR   :    at com.maxeler.photon.hw.MultiStageDelay.<init>(MultiStageDelay.java:668)
+lun 19:38: ERROR   :    at com.maxeler.photon.nodes.NodeFIFO.makeStatic(NodeFIFO.java:277)
+lun 19:38: ERROR   :    at com.maxeler.photon.nodes.NodeFIFO.make(NodeFIFO.java:194)
+lun 19:38: ERROR   :    at com.maxeler.photon.graph_passes.maxdc_gen.PhotonMaxDCEntity.instantiateNode(PhotonMaxDCEntity.java:1208)
+lun 19:38: ERROR   :    at com.maxeler.photon.graph_passes.maxdc_gen.PhotonMaxDCEntity.makeNode(PhotonMaxDCEntity.java:1519)
+lun 19:38: ERROR   :    at com.maxeler.photon.graph_passes.maxdc_gen.PhotonMaxDCTopEntity.processNode(PhotonMaxDCTopEntity.java:253)
+lun 19:38: ERROR   :    at com.maxeler.photon.core.GraphPassRunner.run(GraphPassRunner.java:431)
+lun 19:38: ERROR   :    at com.maxeler.photon.core.GraphPassRunner.run(GraphPassRunner.java:488)
+lun 19:38: ERROR   :    at com.maxeler.photon.core.PhotonCompileManager.runGraphPass(PhotonCompileManager.java:165)
+lun 19:38: ERROR   :    at com.maxeler.photon.compile_managers.MaxDCCompileManager.buildPhotonSBA(MaxDCCompileManager.java:114)
+lun 19:38: ERROR   :    at com.maxeler.maxeleros.managercompiler.nodes.WrapperNodePhoton.build(WrapperNodePhoton.java:439)
+lun 19:38: ERROR   :    at com.maxeler.maxeleros.managercompiler.core.WrapperDesignEntity.<init>(WrapperDesignEntity.java:81)
+lun 19:38: ERROR   :    at com.maxeler.maxeleros.managercompiler.core.WrapperCompileManager.build(WrapperCompileManager.java:280)
+lun 19:38: ERROR   :    at com.maxeler.maxcompiler.v2.managers.custom.CustomManager.buildInternal(CustomManager.java:871)
+lun 19:38: ERROR   :    at com.maxeler.maxcompiler.v2.managers.custom.CustomManager.realBuild(CustomManager.java:1333)
+lun 19:38: ERROR   :    at com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+lun 19:38: ERROR   :    at com.maxeler.maxcompiler.v2.managers.standard.Manager.makeFullManager(Manager.java:1063)
+lun 19:38: ERROR   :    at com.maxeler.maxcompiler.v2.managers.standard.Manager.realBuild(Manager.java:432)
+lun 19:38: ERROR   :    at com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+lun 19:38: ERROR   :    at cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)
+lun 19:38: ERROR   : ----------------------------

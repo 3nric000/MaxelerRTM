@@ -167,7 +167,7 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	float *py;
 	float *pcopy;
 	float *tmp;
-	float *ppresult;
+	float *ppresult, *ppresult1;
 	int const stencilSize = 11;
 	int sizeBytes = size * sizeof(float);
 	int sizepxy = size * stencilSize * sizeof(float);
@@ -176,14 +176,12 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	ppresult = malloc(sizeBytes);
 	px = malloc(sizepxy);
 	py = malloc(sizepxy);
-	//ppresult1 = malloc(sizeBytes);
+	ppresult1 = malloc(sizeBytes);
 	//pcopy = malloc(sizeBytes);
 	//memcpy(pcopy, p, size);
 
-/*
+
 	for (i3 = ORDER; i3 < n3 - ORDER; i3++) { //Loop over slowest axis
-		int i1;
-		int i2;
 		for (i2 = ORDER; i2 < n2 - ORDER; i2++) { //Loop over middle axis
 			for (i1 = ORDER; i1 < n1 - ORDER; i1++) { //Loop over fast axis
 				//Wavefield update
@@ -223,7 +221,7 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 						+ source_container[i1 + i2 * n1 + i3 * n12];
 			}
 		}
-	}*/
+	}
 
 	int index = 0;
 
@@ -275,7 +273,7 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 						+ (i2) * n1 + (i3 - 1) * n12];
 				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 6] = p[(i1)
 						+ (i2 - 1) * n1 + (i3) * n12];
-			
+
 				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 5] = p[(i1)
                                                 + (i2) * n1 + (i3) * n12];
                                 py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 5] = p[(i1)
@@ -361,24 +359,23 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 
 	 free(tmp);*/
 
-	/*int check = 1;
-	for (i3 = ORDER; i3 < n3 - ORDER && check; i3++) { //Loop over slowest axis
-		/*int i1;
-		 int i2;*//*
-		for (i2 = ORDER; i2 < n2 - ORDER && check; i2++) { //Loop over middle axis
-			for (i1 = ORDER; i1 < n1 - ORDER && check; i1++) {
+	int check = 1;
+	for (i3 = ORDER; i3 < n3 - ORDER; i3++) { //Loop over slowest axis
+		for (i2 = ORDER; i2 < n2 - ORDER; i2++) { //Loop over middle axis
+			for (i1 = ORDER; i1 < n1 - ORDER; i1++) {
 				if(ppresult1[i1 + i2 * n1 + i3 * n12]!=ppresult[i1 + i2 * n1 + i3 * n12]){
 					check=0;
-					printf("ppresult1=%.20f, ppresult=%.20f, i3=%d, i2=%d, i1=%d\n", ppresult1[i1 + i2 * n1 + i3 * n12],  ppresult[i1 + i2 * n1 + i3 * n12], i3, i2, i1);
+					printf("ppresult1=%.100f, ppresult=%.100f, i3=%d, i2=%d, i1=%d\n", ppresult1[i1 + i2 * n1 + i3 * n12],  ppresult[i1 + i2 * n1 + i3 * n12], i3, i2, i1);
 				}
 			}
 		}
 	}
 
 	printf("check=%d\n", check);
-*/
-	memcpy(pp, ppresult, sizeBytes);
+
+	memcpy(pp, ppresult1, sizeBytes);
 	free(ppresult);
+	//free(ppresult1);
 }
 /*
  * add_source - add source to wavefield

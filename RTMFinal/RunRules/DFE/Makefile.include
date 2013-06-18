@@ -73,41 +73,41 @@ $(THIS_FILE): $(THIS_PATH)RunRules.settings
 	java -jar $(MAXIDEDIR)/projectAdmin.jar -u $(THIS_PATH)../../ DFE
 	
 #
-# MaxFile: cpu_main
+# MaxFile: CpuMain
 #
 
 
-BUILDNAME_MAXFILE_1:=cpu_main
-MAXFILE_1:=cpu_main.max
+BUILDNAME_MAXFILE_1:=CpuMain
+MAXFILE_1:=CpuMain.max
 
-$(OBJDIR)/cpu_main.o: $(MAXDIR)/cpu_main.max
-	$(MAXFILECOMPILE) "$<" "$@" "cpu_main"
+$(OBJDIR)/CpuMain.o: $(MAXDIR)/CpuMain.max
+	$(MAXFILECOMPILE) "$<" "$@" "CpuMain"
 
-$(OBJDIR)/slic_cpu_main.o: $(MAXDIR)/cpu_main.max
+$(OBJDIR)/slic_CpuMain.o: $(MAXDIR)/CpuMain.max
 	$(SLICCOMPILE) "$<" "$@"
 
-$(MAXDIR)/cpu_main.max: 
-	cd "$(THIS_PATH)/" && if [ -z "$${MAXCOMPILER_BUILD_DIR+xxx}" ]; then export MAXCOMPILER_BUILD_DIR="$(realpath $(MAXDIR))"; fi ;  export MAX_BUILDPARAMS="DFEModel='VECTIS' target='DFE' maxFileName='cpu_main' " ; ant -v -f "cpu_main.xml" run 2>&1 | tee cpu_main_cmd.log
-	cp "`grep -o -e "^.*MaxFile: .*\.max" $(THIS_PATH)/cpu_main_cmd.log | cut -d ':'  -f 4 | sed 's/^ //g'`" "$(MAXDIR)/cpu_main.max"
-	cp "`grep -o -e "^.*MaxFile: .*\.max" $(THIS_PATH)/cpu_main_cmd.log | cut -d ':'  -f 4 | sed 's/^ //g' | sed 's/\.max/.h/g'`" "$(MAXDIR)/cpu_main.h"
+$(MAXDIR)/CpuMain.max: 
+	cd "$(THIS_PATH)/" && if [ -z "$${MAXCOMPILER_BUILD_DIR+xxx}" ]; then export MAXCOMPILER_BUILD_DIR="$(realpath $(MAXDIR))"; fi ;  export MAX_BUILDPARAMS="DFEModel='VECTIS' target='DFE' maxFileName='CpuMain' " ; ant -v -f "CpuMain.xml" run 2>&1 | tee CpuMain_cmd.log
+	cp "`grep -o -e "^.*MaxFile: .*\.max" $(THIS_PATH)/CpuMain_cmd.log | cut -d ':'  -f 4 | sed 's/^ //g'`" "$(MAXDIR)/CpuMain.max"
+	cp "`grep -o -e "^.*MaxFile: .*\.max" $(THIS_PATH)/CpuMain_cmd.log | cut -d ':'  -f 4 | sed 's/^ //g' | sed 's/\.max/.h/g'`" "$(MAXDIR)/CpuMain.h"
 	cp -f "$(MAXDIR)/"*.h "$(INCDIR)/"
 
 
-MAXFILEBUILDNAMEDEFS=-DBUILDNAME_MAXFILE_1=cpu_main -DMAXFILE_1="cpu_main.max" 
+MAXFILEBUILDNAMEDEFS=-DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max" 
 
 
 #
 # List of all MAX files
 #
-MAXFILEOBJECTS := $(OBJDIR)/cpu_main.o 
+MAXFILEOBJECTS := $(OBJDIR)/CpuMain.o 
 
-SLICFILEOBJECTS := $(OBJDIR)/slic_cpu_main.o 
+SLICFILEOBJECTS := $(OBJDIR)/slic_CpuMain.o 
 
 
 #
 # Targets/Variables managing running of the app
 #
-EXE_SO_NAME=cpu_main
+EXE_SO_NAME=CpuMain
 LIBLDFLAGS=
 LIBGCCFLAGS=
 
