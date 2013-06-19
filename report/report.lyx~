@@ -76,7 +76,7 @@ Approaches
 \end_layout
 
 \begin_layout Subsection*
-Trivial
+Quite Trivial
 \end_layout
 
 \begin_layout Standard
@@ -93,6 +93,14 @@ LMEM Blocked 3D
 
 \begin_layout Subsection*
 Stalling Streams
+\end_layout
+
+\begin_layout Standard
+circular queue
+\end_layout
+
+\begin_layout Standard
+our approach
 \end_layout
 
 \begin_layout Section

@@ -63,6 +63,23 @@
 Abstract
 \end_layout
 
+\begin_layout Standard
+The objective of this project is to accelerate in hardware the RTM application
+ using the Maxeler platform.
+ First of all, it was necessary to analyze the C code to find out the critical
+ parts.
+ This analysis was done both by looking at the C code and by using profiling
+ tools (part 3).
+ Meanwhile, we started to study how the Maxeler platform works by reading
+ the manuals and looking at the examples inside Maxide.
+ Then, we decided which function was the best candidate to be implement
+ in hardware.
+ During the implementation, we followed several approaches (part 4), from
+ trivial to more complex ones.
+ In the end, only with the last approach we were able to sythentize the
+ kernel on the FPGA board and examine the result of hardware acceleration.
+\end_layout
+
 \begin_layout Section
 RTM
 \end_layout
@@ -76,7 +93,7 @@ Approaches
 \end_layout
 
 \begin_layout Subsection*
-Trivial
+Quite Trivial
 \end_layout
 
 \begin_layout Standard
