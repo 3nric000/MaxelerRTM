@@ -1,97 +1,97 @@
-mar 13:48: ########################################## 
-mar 13:48: Compiling.
-mar 13:48: ########################################## 
+mar 18:21: ########################################## 
+mar 18:21: Compiling.
+mar 18:21: ########################################## 
 
-mar 13:48: MaxCompiler version: 2013.1.
-mar 13:48: Build DFE run rule for RTMFinal start time: mar giu 18 13:48:51 CEST 2013.
-mar 13:48: Project location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinal.
-mar 13:48: Detailed build log: /home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinal/RunRules/DFE/build.log.
+mar 18:21: MaxCompiler version: 2013.1.
+mar 18:21: Build DFE run rule for RTMFinal start time: mar giu 18 18:21:51 CEST 2013.
+mar 18:21: Project location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinal.
+mar 18:21: Detailed build log: /home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinal/RunRules/DFE/build.log.
 
-mar 13:48: Compiling Engine Code.
-mar 13:48: Building CpuMain.max file. 
-mar 13:48: Setting environment variable:
-mar 13:48: MAXCOMPILER_BUILD_DIR : /home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinal/RunRules/DFE/maxfiles
-mar 13:48: MAX_BUILDPARAMS : DFEModel='VECTIS' target='DFE' maxFileName='CpuMain'  
-mar 13:48: Building output:
-mar 13:48: MaxCompiler version: 2013.1
-mar 13:48: Build "CpuMain" start time: Tue Jun 18 13:48:54 CEST 2013
-mar 13:48: Main build process running as user emanuele.delsozzo on host maxeler
-mar 13:48: Build location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinal/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE
-mar 13:48: Detailed build log available in "_build.log"
-mar 13:48: Instantiating manager
-mar 13:49: Instantiating kernel "linearKernel"
-mar 13:49: Compiling manager (Configurable)
-mar 13:49: 
-mar 13:49: Compiling kernel "linearKernel"
-mar 13:49: WARNING: The license for ISE CANNOT be checked out
-mar 13:49: WARNING: Unable to check out license for 'ISE' in attempt 1/10
-mar 13:49: WARNING: The license for ISE CANNOT be checked out
-mar 13:49: WARNING: Unable to check out license for 'ISE' in attempt 2/10
-mar 13:49: WARNING: The license for ISE CANNOT be checked out
-mar 13:49: WARNING: Unable to check out license for 'ISE' in attempt 3/10
-mar 13:49: WARNING: The license for ISE CANNOT be checked out
-mar 13:49: WARNING: Unable to check out license for 'ISE' in attempt 4/10
-mar 13:49: WARNING: The license for ISE CANNOT be checked out
-mar 13:49: WARNING: Unable to check out license for 'ISE' in attempt 5/10
-mar 13:49: WARNING: The license for ISE CANNOT be checked out
-mar 13:49: WARNING: Unable to check out license for 'ISE' in attempt 6/10
-mar 13:49: WARNING: The license for ISE CANNOT be checked out
-mar 13:49: WARNING: Unable to check out license for 'ISE' in attempt 7/10
-mar 13:49: WARNING: The license for ISE CANNOT be checked out
-mar 13:49: WARNING: Unable to check out license for 'ISE' in attempt 8/10
-mar 13:49: WARNING: The license for ISE CANNOT be checked out
-mar 13:49: WARNING: Unable to check out license for 'ISE' in attempt 9/10
-mar 13:49: WARNING: The license for ISE CANNOT be checked out
-mar 13:49: WARNING: Unable to check out license for 'ISE' in attempt 10/10
-mar 13:49: WARNING: Please check the output of  lmutil lmdiag -n ISE
-mar 13:49: WARNING: The following environment variables may be involved in this issue:
-mar 13:49: WARNING:  - XILINXD_LICENSE_FILE is not set
-mar 13:49: WARNING:  - LM_LICENSE_FILE=2100@ipeca-home
-mar 13:49: ERROR: ----------------------------
-mar 13:49: ERROR: Exception in thread "main":
-mar 13:49: ERROR:  
-mar 13:49: ERROR:   Error in MaxDC pass processing node created via:
-mar 13:49: ERROR:   com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
-mar 13:49: ERROR:   cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)
-mar 13:49: ERROR:   
-mar 13:49: ERROR:   -> (WARNING: unlogged MaxelerException) 
-mar 13:49: ERROR:   com.maxeler.licensing.external_tools.LicenseError: Licenses cannot be checked 
-mar 13:49: ERROR:   out for ISE
-mar 13:49: ERROR: 
-mar 13:49: ERROR: Exception Stack Trace com.maxeler.photon.core.PhotonException: 
-mar 13:49: ERROR:    at com.maxeler.licensing.external_tools.CheckXilinxLicenses.check(CheckXilinxLicenses.java:115)
-mar 13:49: ERROR:    at com.maxeler.licensing.external_tools.CheckXilinxLicenses.check(CheckXilinxLicenses.java:59)
-mar 13:49: ERROR:    at com.maxeler.maxdc.xilinx.coregen.CoregenComponent.<init>(CoregenComponent.java:43)
-mar 13:49: ERROR:    at com.maxeler.maxdc.xilinx.coregen.CGBlockMem.<init>(CGBlockMem.java:158)
-mar 13:49: ERROR:    at com.maxeler.maxdc.xilinx.coregen.CGBlockMem_42.<init>(CGBlockMem_42.java:30)
-mar 13:49: ERROR:    at com.maxeler.maxdc.xilinx.coregen.CGBlockMem.make(CGBlockMem.java:65)
-mar 13:49: ERROR:    at com.maxeler.photon.hw.xilinx.CGBlockRAMDelay.<init>(CGBlockRAMDelay.java:111)
-mar 13:49: ERROR:    at com.maxeler.photon.hw.xilinx.CGBlockRAMDelayFactory.makeBlockRAMDelay(CGBlockRAMDelayFactory.java:33)
-mar 13:49: ERROR:    at com.maxeler.photon.hw.MultiStageDelay.makeBRAMDelay(MultiStageDelay.java:621)
-mar 13:49: ERROR:    at com.maxeler.photon.hw.MultiStageDelay.makeAllDelays(MultiStageDelay.java:548)
-mar 13:49: ERROR:    at com.maxeler.photon.hw.MultiStageDelay.<init>(MultiStageDelay.java:668)
-mar 13:49: ERROR:    at com.maxeler.photon.nodes.NodeFIFO.makeStatic(NodeFIFO.java:277)
-mar 13:49: ERROR:    at com.maxeler.photon.nodes.NodeFIFO.make(NodeFIFO.java:194)
-mar 13:49: ERROR:    at com.maxeler.photon.graph_passes.maxdc_gen.PhotonMaxDCEntity.instantiateNode(PhotonMaxDCEntity.java:1208)
-mar 13:49: ERROR:    at com.maxeler.photon.graph_passes.maxdc_gen.PhotonMaxDCEntity.makeNode(PhotonMaxDCEntity.java:1519)
-mar 13:49: ERROR:    at com.maxeler.photon.graph_passes.maxdc_gen.PhotonMaxDCTopEntity.processNode(PhotonMaxDCTopEntity.java:253)
-mar 13:49: ERROR:    at com.maxeler.photon.core.GraphPassRunner.run(GraphPassRunner.java:431)
-mar 13:49: ERROR:    at com.maxeler.photon.core.GraphPassRunner.run(GraphPassRunner.java:488)
-mar 13:49: ERROR:    at com.maxeler.photon.core.PhotonCompileManager.runGraphPass(PhotonCompileManager.java:165)
-mar 13:49: ERROR:    at com.maxeler.photon.compile_managers.MaxDCCompileManager.buildPhotonSBA(MaxDCCompileManager.java:114)
-mar 13:49: ERROR:    at com.maxeler.maxeleros.managercompiler.nodes.WrapperNodePhoton.build(WrapperNodePhoton.java:439)
-mar 13:49: ERROR:    at com.maxeler.maxeleros.managercompiler.core.WrapperDesignEntity.<init>(WrapperDesignEntity.java:81)
-mar 13:49: ERROR:    at com.maxeler.maxeleros.managercompiler.core.WrapperCompileManager.build(WrapperCompileManager.java:280)
-mar 13:49: ERROR:    at com.maxeler.maxcompiler.v2.managers.custom.CustomManager.buildInternal(CustomManager.java:871)
-mar 13:49: ERROR:    at com.maxeler.maxcompiler.v2.managers.custom.CustomManager.realBuild(CustomManager.java:1333)
-mar 13:49: ERROR:    at com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
-mar 13:49: ERROR:    at com.maxeler.maxcompiler.v2.managers.standard.Manager.makeFullManager(Manager.java:1063)
-mar 13:49: ERROR:    at com.maxeler.maxcompiler.v2.managers.standard.Manager.realBuild(Manager.java:432)
-mar 13:49: ERROR:    at com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
-mar 13:49: ERROR:    at cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)
-mar 13:49: ERROR: ----------------------------
-mar 13:49: Building: CpuMain.max file finished.
-mar 13:49: Build process failed while trying to create CpuMain.max file
-mar 13:49: Engine build finished.Build failed: mar giu 18 13:49:11 CEST 2013
+mar 18:21: Compiling Engine Code.
+mar 18:21: Building CpuMain.max file. 
+mar 18:21: Setting environment variable:
+mar 18:21: MAXCOMPILER_BUILD_DIR : /home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinal/RunRules/DFE/maxfiles
+mar 18:21: MAX_BUILDPARAMS : DFEModel='VECTIS' target='DFE' maxFileName='CpuMain'  
+mar 18:21: Building output:
+mar 18:21: MaxCompiler version: 2013.1
+mar 18:21: Build "CpuMain" start time: Tue Jun 18 18:21:56 CEST 2013
+mar 18:21: Main build process running as user emanuele.delsozzo on host maxeler
+mar 18:21: Build location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinal/RunRules/DFE/maxfiles/CpuMain_VECTIS_DFE
+mar 18:21: Detailed build log available in "_build.log"
+mar 18:21: Instantiating manager
+mar 18:21: Instantiating kernel "linearKernel"
+mar 18:21: Compiling manager (Configurable)
+mar 18:21: 
+mar 18:21: Compiling kernel "linearKernel"
+mar 18:21: WARNING: The license for ISE CANNOT be checked out
+mar 18:21: WARNING: Unable to check out license for 'ISE' in attempt 1/10
+mar 18:21: WARNING: The license for ISE CANNOT be checked out
+mar 18:21: WARNING: Unable to check out license for 'ISE' in attempt 2/10
+mar 18:22: WARNING: The license for ISE CANNOT be checked out
+mar 18:22: WARNING: Unable to check out license for 'ISE' in attempt 3/10
+mar 18:22: WARNING: The license for ISE CANNOT be checked out
+mar 18:22: WARNING: Unable to check out license for 'ISE' in attempt 4/10
+mar 18:22: WARNING: The license for ISE CANNOT be checked out
+mar 18:22: WARNING: Unable to check out license for 'ISE' in attempt 5/10
+mar 18:22: WARNING: The license for ISE CANNOT be checked out
+mar 18:22: WARNING: Unable to check out license for 'ISE' in attempt 6/10
+mar 18:22: WARNING: The license for ISE CANNOT be checked out
+mar 18:22: WARNING: Unable to check out license for 'ISE' in attempt 7/10
+mar 18:22: WARNING: The license for ISE CANNOT be checked out
+mar 18:22: WARNING: Unable to check out license for 'ISE' in attempt 8/10
+mar 18:22: WARNING: The license for ISE CANNOT be checked out
+mar 18:22: WARNING: Unable to check out license for 'ISE' in attempt 9/10
+mar 18:22: WARNING: The license for ISE CANNOT be checked out
+mar 18:22: WARNING: Unable to check out license for 'ISE' in attempt 10/10
+mar 18:22: WARNING: Please check the output of  lmutil lmdiag -n ISE
+mar 18:22: WARNING: The following environment variables may be involved in this issue:
+mar 18:22: WARNING:  - XILINXD_LICENSE_FILE is not set
+mar 18:22: WARNING:  - LM_LICENSE_FILE=2100@ipeca-home
+mar 18:22: ERROR: ----------------------------
+mar 18:22: ERROR: Exception in thread "main":
+mar 18:22: ERROR:  
+mar 18:22: ERROR:   Error in MaxDC pass processing node created via:
+mar 18:22: ERROR:   com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+mar 18:22: ERROR:   cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)
+mar 18:22: ERROR:   
+mar 18:22: ERROR:   -> (WARNING: unlogged MaxelerException) 
+mar 18:22: ERROR:   com.maxeler.licensing.external_tools.LicenseError: Licenses cannot be checked 
+mar 18:22: ERROR:   out for ISE
+mar 18:22: ERROR: 
+mar 18:22: ERROR: Exception Stack Trace com.maxeler.photon.core.PhotonException: 
+mar 18:22: ERROR:    at com.maxeler.licensing.external_tools.CheckXilinxLicenses.check(CheckXilinxLicenses.java:115)
+mar 18:22: ERROR:    at com.maxeler.licensing.external_tools.CheckXilinxLicenses.check(CheckXilinxLicenses.java:59)
+mar 18:22: ERROR:    at com.maxeler.maxdc.xilinx.coregen.CoregenComponent.<init>(CoregenComponent.java:43)
+mar 18:22: ERROR:    at com.maxeler.maxdc.xilinx.coregen.CGBlockMem.<init>(CGBlockMem.java:158)
+mar 18:22: ERROR:    at com.maxeler.maxdc.xilinx.coregen.CGBlockMem_42.<init>(CGBlockMem_42.java:30)
+mar 18:22: ERROR:    at com.maxeler.maxdc.xilinx.coregen.CGBlockMem.make(CGBlockMem.java:65)
+mar 18:22: ERROR:    at com.maxeler.photon.hw.xilinx.CGBlockRAMDelay.<init>(CGBlockRAMDelay.java:111)
+mar 18:22: ERROR:    at com.maxeler.photon.hw.xilinx.CGBlockRAMDelayFactory.makeBlockRAMDelay(CGBlockRAMDelayFactory.java:33)
+mar 18:22: ERROR:    at com.maxeler.photon.hw.MultiStageDelay.makeBRAMDelay(MultiStageDelay.java:621)
+mar 18:22: ERROR:    at com.maxeler.photon.hw.MultiStageDelay.makeAllDelays(MultiStageDelay.java:548)
+mar 18:22: ERROR:    at com.maxeler.photon.hw.MultiStageDelay.<init>(MultiStageDelay.java:668)
+mar 18:22: ERROR:    at com.maxeler.photon.nodes.NodeFIFO.makeStatic(NodeFIFO.java:277)
+mar 18:22: ERROR:    at com.maxeler.photon.nodes.NodeFIFO.make(NodeFIFO.java:194)
+mar 18:22: ERROR:    at com.maxeler.photon.graph_passes.maxdc_gen.PhotonMaxDCEntity.instantiateNode(PhotonMaxDCEntity.java:1208)
+mar 18:22: ERROR:    at com.maxeler.photon.graph_passes.maxdc_gen.PhotonMaxDCEntity.makeNode(PhotonMaxDCEntity.java:1519)
+mar 18:22: ERROR:    at com.maxeler.photon.graph_passes.maxdc_gen.PhotonMaxDCTopEntity.processNode(PhotonMaxDCTopEntity.java:253)
+mar 18:22: ERROR:    at com.maxeler.photon.core.GraphPassRunner.run(GraphPassRunner.java:431)
+mar 18:22: ERROR:    at com.maxeler.photon.core.GraphPassRunner.run(GraphPassRunner.java:488)
+mar 18:22: ERROR:    at com.maxeler.photon.core.PhotonCompileManager.runGraphPass(PhotonCompileManager.java:165)
+mar 18:22: ERROR:    at com.maxeler.photon.compile_managers.MaxDCCompileManager.buildPhotonSBA(MaxDCCompileManager.java:114)
+mar 18:22: ERROR:    at com.maxeler.maxeleros.managercompiler.nodes.WrapperNodePhoton.build(WrapperNodePhoton.java:439)
+mar 18:22: ERROR:    at com.maxeler.maxeleros.managercompiler.core.WrapperDesignEntity.<init>(WrapperDesignEntity.java:81)
+mar 18:22: ERROR:    at com.maxeler.maxeleros.managercompiler.core.WrapperCompileManager.build(WrapperCompileManager.java:280)
+mar 18:22: ERROR:    at com.maxeler.maxcompiler.v2.managers.custom.CustomManager.buildInternal(CustomManager.java:871)
+mar 18:22: ERROR:    at com.maxeler.maxcompiler.v2.managers.custom.CustomManager.realBuild(CustomManager.java:1333)
+mar 18:22: ERROR:    at com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+mar 18:22: ERROR:    at com.maxeler.maxcompiler.v2.managers.standard.Manager.makeFullManager(Manager.java:1063)
+mar 18:22: ERROR:    at com.maxeler.maxcompiler.v2.managers.standard.Manager.realBuild(Manager.java:432)
+mar 18:22: ERROR:    at com.maxeler.maxcompiler.v2.managers.DFEManager.build(DFEManager.java:314)
+mar 18:22: ERROR:    at cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)
+mar 18:22: ERROR: ----------------------------
+mar 18:22: Building: CpuMain.max file finished.
+mar 18:22: Build process failed while trying to create CpuMain.max file
+mar 18:22: Engine build finished.Build failed: mar giu 18 18:22:09 CEST 2013
 
 

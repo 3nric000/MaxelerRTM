@@ -230,16 +230,15 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 		py[index] = 0;
 		controller[index] = 0;
 	}
-/* VECCHIO CONTROLLER
-	for (index = 10; index < size * stencilSize; index += 11) {
-		controller[index] = 1;
-	}
-*/
+	/* VECCHIO CONTROLLER
+	 for (index = 10; index < size * stencilSize; index += 11) {
+	 controller[index] = 1;
+	 }
+	 */
 
 	for (index = 0; index < size * stencilSize; index += 11) {
-                controller[index] = 1;
-        }
-
+		controller[index] = 1;
+	}
 
 	index = 0;
 
@@ -275,9 +274,9 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 						+ (i2 - 1) * n1 + (i3) * n12];
 
 				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 5] = p[(i1)
-                                                + (i2) * n1 + (i3) * n12];
-                                py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 5] = p[(i1)
-                                                + (i2) * n1 + (i3) * n12];
+						+ (i2) * n1 + (i3) * n12];
+				py[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 5] = p[(i1)
+						+ (i2) * n1 + (i3) * n12];
 
 				px[((i1) + (i2) * n1 + (i3) * n12) * stencilSize - 4] = p[(i1)
 						+ (i2) * n1 + (i3 + 1) * n12];
@@ -357,21 +356,30 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	//free(pcopy);
 	/*tmp = pp;
 
-	 free(tmp);*/
+	free(tmp);*/
 
+	FILE *f;
+	f=fopen("data.txt", "a");
 	int check = 1;
 	for (i3 = ORDER; i3 < n3 - ORDER; i3++) { //Loop over slowest axis
 		for (i2 = ORDER; i2 < n2 - ORDER; i2++) { //Loop over middle axis
 			for (i1 = ORDER; i1 < n1 - ORDER; i1++) {
-				if(ppresult1[i1 + i2 * n1 + i3 * n12]!=ppresult[i1 + i2 * n1 + i3 * n12]){
-					check=0;
-					printf("ppresult1=%.100f, ppresult=%.100f, i3=%d, i2=%d, i1=%d\n", ppresult1[i1 + i2 * n1 + i3 * n12],  ppresult[i1 + i2 * n1 + i3 * n12], i3, i2, i1);
-				}
+				/*if (ppresult1[i1 + i2 * n1 + i3 * n12] != ppresult[i1 + i2 * n1
+				 + i3 * n12]) {
+				 check = 0;*/
+				fprintf(f,
+						"%.50f,%.50f,%d,%d,%d\n",
+						ppresult1[i1 + i2 * n1 + i3 * n12], ppresult[i1 + i2
+								* n1 + i3 * n12], i3, i2, i1);
+				//}
 			}
 		}
 	}
 
-	printf("check=%d\n", check);
+	fprintf(f, "\n\n\n\n\n\n");
+
+	fclose(f);
+
 
 	memcpy(pp, ppresult1, sizeBytes);
 	free(ppresult);
