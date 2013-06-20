@@ -391,17 +391,17 @@ LMEM Blocked 3D
 \end_layout
 
 \begin_layout Standard
-In this approach, we used the dynamic SLiC interface to a complete management
+In this approach, we used the dynamic SLiC interface to have complete management
  of the communication between C code and Manager.
  Our purpose was to use several functions supplied by the Maxeler to load
  in LMEM the stream p as a 3D block.
  In this way, we thought we could access to the subcube of p of dimension
- 11*11*11 and use it to compute the value of pp[i1+i2*n1*i3*n12].
- So, we can see that this approach as a combination of the previous approaches.
- At the beginning, we thought we could move the subcube inside the Kernel
- of the Manager, but this was not possible.
- The only chance was to pass through SLiC interface the offset of the starting
- point of the 3D subcube from the C code.
+ 11*11*11 (stencil size) and use it to compute the value of pp[i1+i2*n1*i3*n12].
+ So, we can see this approach as a combination of the previous approaches.
+ At the beginning, we thought we could move the subcube from the Kernel
+ itself, but this was not possible.
+ The only chance to do this was to pass through SLiC interface the offsets
+ of the starting points of the 3D subcube from the C code.
  However, here we started to have several problems due to Maxeler machine
  architecture.
  In the manual, we found the function that the Manager had to use to pass
@@ -442,13 +442,14 @@ where the first three parameters are refered to the size 3D block in LMEM,
 This function was neither completely explained in the manual nor used in
  examples, so, before applying it to the RTM application, we modified an
  example in Maxide and made some tests about it.
- It turned out that this function wants at least one of the three size of
- the 3D block in LMEM burst-aligned.
+ It turned out that this function wanted at least one of the three size
+ of the 3D block in LMEM multiple of the Maxeler burst, in order to have
+ it burst-aligned.
  The burst of Maxeler machine is 384 byte, hence we had to load a block
  of size x*y*z, where at least one of these three parameter had to be multiple
  of 96 (indeed, we used arrays of 32-bit float, so 4 byte per float).
- The size of stream p, like streams pp, dvv, source_container, is given
- by the test files of the RTM application
+ The size of stream p, likethe size of streams pp, dvv, source_container,
+ is given by the test files of the RTM application...
 \end_layout
 
 \begin_layout Subsection*

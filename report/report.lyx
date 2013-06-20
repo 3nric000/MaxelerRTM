@@ -84,6 +84,128 @@ The objective of this project is to accelerate in hardware the RTM application
 RTM
 \end_layout
 
+\begin_layout Standard
+Reverse Time Migration (RTM) is the current state-of-the-art in seismic
+ imaging.
+ It aims to construct an image of the subsurface from reflection seismics
+ recordings.
+\end_layout
+
+\begin_layout Standard
+It is mainly made up of two processes: 1) seismic forward modelling of a
+ wave field originating from the source position, 2) reverse-time modelling
+ of the shot-record, where the time samples are put into the modelling scheme.
+\end_layout
+
+\begin_layout Standard
+The idea behind this procedure is that sufficiently strong correlation amplitude
+s can only be expected at subsurface locations where a reflection occurs.
+ Occurrence of a reflection at a certain location means that there is a
+ down-going wave field from the source side and an up-going wave field towards
+ the receivers at the same time.
+\end_layout
+
+\begin_layout Standard
+The implementation of the RTM that has been provided to us is composed by
+ three C source files 
+\emph on
+cpu_main.c
+\emph default
+, 
+\emph on
+cpu_constructors.c
+\emph default
+, 
+\emph on
+cpu_simulation.c
+\emph default
+ and two header files 
+\emph on
+cpu_constructors.h
+\emph default
+ and 
+\emph on
+cpu_simulation.h
+\emph default
+ which declare the functions present in their respective source file.
+\end_layout
+
+\begin_layout Description
+cpu_main.c contains just the main function which is in charge to call all
+ the subroutines that: initializes the random seed for the random field
+ creation and all the needed parameters, constructs the model and all the
+ necessary structures for the computation, simulates the model and store
+ the results.
+\end_layout
+
+\begin_layout Description
+cpu_constructors.c implements all the functions responsible for allocation
+ and initialization of all global variables and required data structures.
+ Parsing of the parameter file, earth model file when required, and receiver
+ input data file when available.
+ Construction of structures required during simulation.
+\end_layout
+
+\begin_layout Description
+cpu_simulation.c includes all the functions responsible for wave equation,
+ injection of the source signal, saving the acquired receiver signal, propagatin
+g the source/receiver, removing the source signal from the receiver acquisition
+ data, correlating the wavefields to create the several subsurface images,
+ reinjecting the receiver data during back propagation, backpropagating
+ both the receiver and the source and correlating the wavefields.
+\end_layout
+
+\begin_layout Standard
+Several files containing the parameters needed for the creation of the model
+ and for the simulation are provided in the 
+\emph on
+tests
+\emph default
+ directory.
+ These are: 
+\emph on
+rtm_parameters_small.txt
+\emph default
+, 
+\emph on
+rtm_parameters_medium.txt
+\emph default
+, 
+\emph on
+rtm_parameters_large.txt
+\emph default
+, 
+\emph on
+marmousi_0.txt
+\emph default
+, 
+\emph on
+marmousi_32.txt 
+\emph default
+.
+ For our tests we have mainly used the small one.
+ More informations on the structure of the program are provided into the
+ README.txt file.
+ 
+\end_layout
+
+\begin_layout Standard
+As we will see in the profiling section, what we are particulary intrested
+ in are two functions in whom the program spends most of its time: the 
+\emph on
+do_step 
+\emph default
+and 
+\emph on
+do_step_damping 
+\emph default
+which are in the 
+\emph on
+cpu_simulation.c 
+\emph default
+file and are in charge of propagating the wavefield.
+\end_layout
+
 \begin_layout Section
 Profiling
 \end_layout
@@ -102,7 +224,6 @@ Here the code of the do_step function:
 \end_layout
 
 \begin_layout Standard
-
 \begin_inset listings
 lstparams "breaklines=true,language=C,numbers=left,tabsize=3"
 inline false
