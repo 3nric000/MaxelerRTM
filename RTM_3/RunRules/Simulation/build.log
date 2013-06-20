@@ -1,76 +1,110 @@
-gio 14:54: ########################################## 
-gio 14:54: Compiling.
-gio 14:54: ########################################## 
+gio 15:38: ########################################## 
+gio 15:38: Compiling.
+gio 15:38: ########################################## 
 
-gio 14:54: MaxCompiler version: 2013.1.
-gio 14:54: Build Simulation run rule for RTM_3 start time: gio giu 20 14:54:50 CEST 2013.
-gio 14:54: Project location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3.
-gio 14:54: Detailed build log: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/build.log.
+gio 15:38: MaxCompiler version: 2013.1.
+gio 15:38: Build Simulation run rule for RTM_3 start time: gio giu 20 15:38:42 CEST 2013.
+gio 15:38: Project location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3.
+gio 15:38: Detailed build log: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/build.log.
 
-gio 14:54: Compiling Engine Code.
-gio 14:54: Engine building skipped (no changes on .max files).
-gio 14:54: Compiling CPU Code.
-gio 14:54: Run CPU project make files updating
-gio 14:54: Executing command:
-gio 14:54: java -jar /opt/maxeler/maxcompiler/lib/MaxIDE/projectAdmin.jar -u /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3 Simulation 
-gio 14:54: Command output:
+gio 15:38: Compiling Engine Code.
+gio 15:38: Building CpuMain.max file. 
+gio 15:38: Setting environment variable:
+gio 15:38: MAXCOMPILER_BUILD_DIR : /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles
+gio 15:38: MAX_BUILDPARAMS : DFEModel='VECTIS' target='DFE_SIM' maxFileName='CpuMain'  
+gio 15:38: Building output:
+gio 15:38: MaxCompiler version: 2013.1
+gio 15:38: Build "CpuMain" start time: Thu Jun 20 15:38:44 CEST 2013
+gio 15:38: Main build process running as user emanuele.delsozzo on host maxeler
+gio 15:38: Build location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles/CpuMain_VECTIS_DFE_SIM
+gio 15:38: Detailed build log available in "_build.log"
+gio 15:38: Instantiating manager
+gio 15:38: Instantiating kernel "linearKernel"
+gio 15:38: Compiling manager (Configurable)
+gio 15:38: 
+gio 15:38: Compiling kernel "linearKernel"
+gio 15:38: Running back-end simulation build (3 phases)
+gio 15:38: (1/3) - Prepare MaxFile Data (GenerateMaxFileDataFile)
+gio 15:38: (2/3) - Compile Simulation Modules (SimCompilePass)
+gio 15:39: (3/3) - Generate MaxFile (AddSimObjectToMaxFilePass)
+gio 15:39: MaxFile: /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles/CpuMain_VECTIS_DFE_SIM/results/CpuMain.max (MD5Sum: 5fca96dede53b9d5ebb14d110d4aabd8)
+gio 15:39: Build completed: Thu Jun 20 15:39:05 CEST 2013 (took 20 secs)
+gio 15:39: Copying .max file. 
+gio 15:39: Executing command:
+gio 15:39: cp /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles/CpuMain_VECTIS_DFE_SIM/results/CpuMain.max /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles/CpuMain.max 
+gio 15:39: Command output:
+gio 15:39: Executing command:
+gio 15:39: cp /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles/CpuMain_VECTIS_DFE_SIM/results/CpuMain.h /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles/CpuMain.h 
+gio 15:39: Command output:
+gio 15:39: Executing command:
+gio 15:39: cp /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/maxfiles/CpuMain_VECTIS_DFE_SIM/results/CpuMain.h /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/include/CpuMain.h 
+gio 15:39: Command output:
+gio 15:39: Building: CpuMain.max file finished.
+gio 15:39: Engine build finished.
+gio 15:39: Compiling CPU Code.
+gio 15:39: Run CPU project make files updating
+gio 15:39: Executing command:
+gio 15:39: java -jar /opt/maxeler/maxcompiler/lib/MaxIDE/projectAdmin.jar -u /home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3 Simulation 
+gio 15:39: Command output:
 
-gio 14:54: MaxCompiler Project Admin Tool Version 2013.1.0
-gio 14:54:  Copyright Maxeler Technologies 2010 - 2013. All rights reserved.
-gio 14:54: Updating RunRule dependant Makefiles for RunRule 'Simulation'
-gio 14:54: Found makefiles: 1
-gio 14:54: 	Updated: Simulation
-gio 14:54: Run CPU make.
-gio 14:54: make RUNRULE=Simulation 
-gio 14:54: Command output:
-gio 14:54: make -f Makefile ../RunRules/Simulation/binaries/CpuMain
-gio 14:54: make[1]: Entering directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/CPUCode'
-gio 14:54: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -o "../RunRules/Simulation/objects/cpu_simulation.o" -c "cpu_simulation.c"
-gio 14:54: cpu_simulation.c: In function ‘prop_source’:
-gio 14:54: cpu_simulation.c:428: warning: unused variable ‘i’
-gio 14:54: cpu_simulation.c: In function ‘add_data’:
-gio 14:54: cpu_simulation.c:608: warning: unused variable ‘i2’
-gio 14:54: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -MM -MP -MT "../RunRules/Simulation/objects/cpu_simulation.o" "cpu_simulation.c" > "../RunRules/Simulation/objects/cpu_simulation.d"
-gio 14:54: cc ../RunRules/Simulation/objects/cpu_constructors.o ../RunRules/Simulation/objects/cpu_main.o ../RunRules/Simulation/objects/cpu_simulation.o ../RunRules/Simulation/objects/slic_CpuMain.o  -L/opt/maxeler/maxcompiler/lib -L/opt/maxeler/maxcompiler/lib/maxeleros-sim/lib -lslic -lmaxeleros -lm -lpthread  -o "../RunRules/Simulation/binaries/CpuMain"
-gio 14:54: make[1]: Leaving directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/CPUCode'
-gio 14:54: Build completed: gio giu 20 14:54:53 CEST 2013
+gio 15:39: MaxCompiler Project Admin Tool Version 2013.1.0
+gio 15:39:  Copyright Maxeler Technologies 2010 - 2013. All rights reserved.
+gio 15:39: Updating RunRule dependant Makefiles for RunRule 'Simulation'
+gio 15:39: Found makefiles: 1
+gio 15:39: 	Updated: Simulation
+gio 15:39: Run CPU make.
+gio 15:39: make RUNRULE=Simulation 
+gio 15:39: Command output:
+gio 15:39: make -f Makefile ../RunRules/Simulation/binaries/CpuMain
+gio 15:39: make[1]: Entering directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/CPUCode'
+gio 15:39: /opt/maxeler/maxcompiler/bin/sliccompile "../RunRules/Simulation/maxfiles/CpuMain.max" "../RunRules/Simulation/objects/slic_CpuMain.o"
+gio 15:39: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -o "../RunRules/Simulation/objects/cpu_constructors.o" -c "cpu_constructors.c"
+gio 15:39: cpu_constructors.c: In function ‘get_receiver_from_file’:
+gio 15:39: cpu_constructors.c:414: warning: comparison between signed and unsigned
+gio 15:39: cpu_constructors.c: In function ‘create_earth_model_from_file’:
+gio 15:39: cpu_constructors.c:479: warning: comparison between signed and unsigned
+gio 15:39: cpu_constructors.c: In function ‘random_bound_dvv’:
+gio 15:39: cpu_constructors.c:691: warning: unused variable ‘i’
+gio 15:39: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -MM -MP -MT "../RunRules/Simulation/objects/cpu_constructors.o" "cpu_constructors.c" > "../RunRules/Simulation/objects/cpu_constructors.d"
+gio 15:39: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -o "../RunRules/Simulation/objects/cpu_main.o" -c "cpu_main.c"
+gio 15:39: cpu_main.c: In function ‘main’:
+gio 15:39: cpu_main.c:29: warning: unused parameter ‘argc’
+gio 15:39: cpu_main.c:29: warning: unused parameter ‘argv’
+gio 15:39: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -MM -MP -MT "../RunRules/Simulation/objects/cpu_main.o" "cpu_main.c" > "../RunRules/Simulation/objects/cpu_main.d"
+gio 15:39: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -o "../RunRules/Simulation/objects/cpu_simulation.o" -c "cpu_simulation.c"
+gio 15:39: cpu_simulation.c: In function ‘prop_source’:
+gio 15:39: cpu_simulation.c:428: warning: unused variable ‘i’
+gio 15:39: cpu_simulation.c: In function ‘add_data’:
+gio 15:39: cpu_simulation.c:608: warning: unused variable ‘i2’
+gio 15:39: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -MM -MP -MT "../RunRules/Simulation/objects/cpu_simulation.o" "cpu_simulation.c" > "../RunRules/Simulation/objects/cpu_simulation.d"
+gio 15:39: cc ../RunRules/Simulation/objects/cpu_constructors.o ../RunRules/Simulation/objects/cpu_main.o ../RunRules/Simulation/objects/cpu_simulation.o ../RunRules/Simulation/objects/slic_CpuMain.o  -L/opt/maxeler/maxcompiler/lib -L/opt/maxeler/maxcompiler/lib/maxeleros-sim/lib -lslic -lmaxeleros -lm -lpthread  -o "../RunRules/Simulation/binaries/CpuMain"
+gio 15:39: make[1]: Leaving directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/CPUCode'
+gio 15:39: Build completed: gio giu 20 15:39:10 CEST 2013
 
 
-gio 14:54: ########################################## 
-gio 14:54: Running
-gio 14:54: ########################################## 
-gio 14:54: Executing command:
-gio 14:54: '/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/binaries/CpuMain' 
-gio 14:54: Command output:
-gio 14:54: [34m Parameters
-gio 14:54: [34m Input earth model: (none), using water+salt simple model
-gio 14:54: [34m Output folder: ./tmp
-gio 14:54: [34m Boundary: T=20, E=20 (points)
-gio 14:54: [34m Dimensions: n1=100, n2=100, n3=100 (points)
-gio 14:54: [34m Number of frames nf=1000
-gio 14:54: [34m Damping: bc=0.000500
-gio 14:54: [34m Sampling: dx=5.000000 (m)
-gio 14:54: [34m Time scale dt=0.000400 (s)
-gio 14:54: [34m Time steps per frame: jt=1
-gio 14:54: [34m Number of time steps: nt=1000
-gio 14:54: [34m Frequency: fpeak=25.000000 (Hz)
-gio 14:54: [34m Source: (x,y,z) = (50,50,21)
-gio 14:54: [30m[34m Rerun receiver: False
-gio 14:54: [30m[34m Subsurface offsets: 32
-gio 14:54: [30mCPU version with random boundaries
-gio 14:54: Found receiver file: skipping receiver propagation!
-gio 14:54: loading values
-gio 14:54: running DFE
-gio 14:56: unload DFE
-gio 14:56: loading values
-gio 14:56: running DFE
-gio 14:57: unload DFE
-gio 14:57: loading values
-gio 14:57: running DFE
-gio 14:59: unload DFE
-gio 14:59: loading values
-gio 14:59: running DFE
-gio 15:00: unload DFE
-gio 15:00: loading values
-gio 15:00: running DFE
-gio 15:01: Terminated
+gio 15:39: ########################################## 
+gio 15:39: Running
+gio 15:39: ########################################## 
+gio 15:39: Executing command:
+gio 15:39: '/home/emanuele.delsozzo/repo/MaxelerRTM/RTM_3/RunRules/Simulation/binaries/CpuMain' 
+gio 15:39: Command output:
+gio 15:39: [34m Parameters
+gio 15:39: [34m Input earth model: (none), using water+salt simple model
+gio 15:39: [34m Output folder: ./tmp
+gio 15:39: [34m Boundary: T=20, E=20 (points)
+gio 15:39: [34m Dimensions: n1=100, n2=100, n3=100 (points)
+gio 15:39: [34m Number of frames nf=1000
+gio 15:39: [34m Damping: bc=0.000500
+gio 15:39: [34m Sampling: dx=5.000000 (m)
+gio 15:39: [34m Time scale dt=0.000400 (s)
+gio 15:39: [34m Time steps per frame: jt=1
+gio 15:39: [34m Number of time steps: nt=1000
+gio 15:39: [34m Frequency: fpeak=25.000000 (Hz)
+gio 15:39: [34m Source: (x,y,z) = (50,50,21)
+gio 15:39: [30m[34m Rerun receiver: False
+gio 15:39: [30m[34m Subsurface offsets: 32
+gio 15:39: [30mCPU version with random boundaries
+gio 15:39: Found receiver file: skipping receiver propagation!
+gio 15:39: loading values
+gio 15:39: running DFE
+gio 15:39: Terminated

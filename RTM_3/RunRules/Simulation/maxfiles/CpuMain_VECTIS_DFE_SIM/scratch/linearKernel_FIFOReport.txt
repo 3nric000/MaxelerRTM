@@ -1,12 +1,12 @@
 NodeSub - {HWFloat:8, 24} ID: 59
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.sub(DFEVar.java:812)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:80)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 	FIFO(142) {HWFloat:8, 24} 142 ID: 189
 
 NodeInput Input(p) {HWFloat:8, 24} ID: 10
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 	FIFO(10) {HWFloat:8, 24} 10 ID: 202
 	FIFO(9) {HWFloat:8, 24} 9 ID: 194
@@ -21,7 +21,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 NodeInput Input(py) {HWFloat:8, 24} ID: 40
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:24)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:23)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 	FIFO(9) {HWFloat:8, 24} 9 ID: 203
 	FIFO(8) {HWFloat:8, 24} 8 ID: 209
@@ -34,7 +34,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 NodeInput Input(px) {HWFloat:8, 24} ID: 37
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:23)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 	FIFO(9) {HWFloat:8, 24} 9 ID: 210
 	FIFO(8) {HWFloat:8, 24} 8 ID: 216
@@ -47,13 +47,13 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 NodeMul * {HWFloat:8, 24} ID: 108
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:92)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:91)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 	FIFO(13) {HWFloat:8, 24} 13 ID: 178
 
 NodeMul * {HWFloat:8, 24} ID: 132
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:97)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:96)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 	FIFO(13) {HWFloat:8, 24} 13 ID: 188
 
@@ -64,43 +64,43 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:70)
 
 NodeReinterpret <{HWOffsetFix:1, 0, UNSIGNED}> {HWOffsetFix:1, 0, UNSIGNED} ID: 143
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 	FIFO(127) {HWOffsetFix:1, 0, UNSIGNED} 127 ID: 192
 
 NodeCast {HWOffsetFix:1, 0, UNSIGNED} {HWOffsetFix:1, 0, UNSIGNED} ID: 137
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 	FIFO(111) {HWOffsetFix:1, 0, UNSIGNED} 111 ID: 154
 
 NodeCast {HWOffsetFix:1, 0, UNSIGNED} {HWOffsetFix:1, 0, UNSIGNED} ID: 19
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 	FIFO(111) {HWOffsetFix:1, 0, UNSIGNED} 111 ID: 157
 
 NodeCast {HWOffsetFix:1, 0, UNSIGNED} {HWOffsetFix:1, 0, UNSIGNED} ID: 27
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 	FIFO(111) {HWOffsetFix:1, 0, UNSIGNED} 111 ID: 190
 
 NodeAnd & {HWRawBits:1} ID: 30
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 	FIFO(110) {HWRawBits:1} 110 ID: 191
 
 NodeReinterpret <{HWOffsetFix:1, 0, UNSIGNED}> {HWOffsetFix:1, 0, UNSIGNED} ID: 25
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 	FIFO(90) {HWOffsetFix:1, 0, UNSIGNED} 90 ID: 158
 
 NodeCast {HWOffsetFix:1, 0, UNSIGNED} {HWOffsetFix:1, 0, UNSIGNED} ID: 11
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 	FIFO(55) {HWOffsetFix:1, 0, UNSIGNED} 55 ID: 156
 

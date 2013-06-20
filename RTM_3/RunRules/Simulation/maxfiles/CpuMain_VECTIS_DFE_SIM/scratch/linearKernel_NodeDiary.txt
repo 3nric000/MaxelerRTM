@@ -4,7 +4,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:18)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:17)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -14,7 +14,7 @@ Node type  : NodeNot
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:18)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:17)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -24,7 +24,7 @@ Node type  : NodeInput
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:18)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:17)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -34,7 +34,7 @@ Node type  : NodeCast
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -44,7 +44,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -54,7 +54,7 @@ Node type  : NodeNot
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -64,7 +64,7 @@ Node type  : NodeAnd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -74,7 +74,7 @@ Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -84,7 +84,7 @@ Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -94,7 +94,7 @@ Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -104,7 +104,7 @@ Node type  : NodeInput
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -114,7 +114,7 @@ Node type  : NodeCast
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -124,7 +124,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -134,7 +134,7 @@ Node type  : NodeNot
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -144,7 +144,7 @@ Node type  : NodeAnd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -154,7 +154,7 @@ Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -164,7 +164,7 @@ Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -174,7 +174,7 @@ Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -184,7 +184,7 @@ Node type  : NodeInput
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -194,7 +194,7 @@ Node type  : NodeCast
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -204,7 +204,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -214,7 +214,7 @@ Node type  : NodeNot
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -224,7 +224,7 @@ Node type  : NodeAnd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -234,7 +234,7 @@ Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -244,7 +244,7 @@ Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -254,7 +254,7 @@ Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -264,7 +264,7 @@ Node type  : NodeInput
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -274,7 +274,7 @@ Node type  : NodeCast
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -284,7 +284,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -294,7 +294,7 @@ Node type  : NodeNot
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -304,7 +304,7 @@ Node type  : NodeAnd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -314,7 +314,7 @@ Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -324,7 +324,7 @@ Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -334,7 +334,7 @@ Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -344,7 +344,7 @@ Node type  : NodeInput
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -354,7 +354,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:23)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -364,7 +364,7 @@ Node type  : NodeNot
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:23)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -374,7 +374,7 @@ Node type  : NodeInput
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:23)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:22)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -384,7 +384,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:24)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:23)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -394,7 +394,7 @@ Node type  : NodeNot
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:24)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:23)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -404,7 +404,7 @@ Node type  : NodeInput
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:24)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:23)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -414,7 +414,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:32)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:31)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -424,7 +424,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:37)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:36)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -434,7 +434,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:38)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:37)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -444,7 +444,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:39)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:38)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -454,7 +454,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:40)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:39)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -464,7 +464,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:41)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:40)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -474,7 +474,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:43)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:42)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -484,7 +484,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:44)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:43)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -494,7 +494,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:45)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:44)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -504,7 +504,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:46)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:45)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -514,7 +514,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:47)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:46)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -524,7 +524,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:49)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:48)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -534,7 +534,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:50)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:49)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -544,7 +544,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:51)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:50)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -554,7 +554,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:52)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:51)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -564,7 +564,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:53)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:52)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -576,7 +576,7 @@ Removed by : [PO2FPMultOptimiser]
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:869)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:80)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -588,7 +588,7 @@ Removed by : [PO2FPMultOptimiser]
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:869)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:80)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 Led to:
@@ -604,7 +604,7 @@ Node type  : NodeSub
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.sub(DFEVar.java:812)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:80)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -614,7 +614,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -624,7 +624,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:83)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -634,7 +634,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:83)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -644,7 +644,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:83)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -654,7 +654,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:83)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -664,7 +664,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -674,7 +674,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:84)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:83)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -684,7 +684,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:84)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:83)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -694,7 +694,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:84)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:83)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -704,7 +704,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:84)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:83)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -714,7 +714,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -724,7 +724,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:85)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:84)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -734,7 +734,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:85)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:84)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -744,7 +744,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:85)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:84)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -754,7 +754,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:85)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:84)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -764,7 +764,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -774,7 +774,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:86)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:85)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -784,7 +784,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:86)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:85)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -794,7 +794,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:86)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:85)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -804,7 +804,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:86)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:85)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -814,7 +814,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -824,7 +824,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:87)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:86)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -834,7 +834,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:87)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:86)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -844,7 +844,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:87)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:86)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -854,7 +854,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:87)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:86)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -864,7 +864,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -874,7 +874,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:88)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:87)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -884,7 +884,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:88)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:87)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -894,7 +894,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:88)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:87)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -904,7 +904,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:88)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:87)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -914,7 +914,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -924,7 +924,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:89)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:88)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -934,7 +934,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:89)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:88)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -944,7 +944,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:89)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:88)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -954,7 +954,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:89)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:88)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -964,7 +964,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -974,7 +974,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:90)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:89)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -984,7 +984,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:90)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:89)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -994,7 +994,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:90)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:89)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1004,7 +1004,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:90)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:89)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1014,7 +1014,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1024,7 +1024,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:91)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:90)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1034,7 +1034,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:91)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:90)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1044,7 +1044,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:91)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:90)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1054,7 +1054,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:91)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:90)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1064,7 +1064,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1074,7 +1074,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:92)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:91)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1084,7 +1084,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:92)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:91)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1094,7 +1094,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:92)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:91)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1104,7 +1104,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1114,7 +1114,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:93)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:92)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1124,7 +1124,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:93)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:92)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1134,7 +1134,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:93)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:92)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1144,7 +1144,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:93)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:92)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1154,7 +1154,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1164,7 +1164,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:94)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:93)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1174,7 +1174,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:94)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:93)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1184,7 +1184,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:94)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:93)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1194,7 +1194,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:94)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:93)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1204,7 +1204,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1214,7 +1214,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:95)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:94)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1224,7 +1224,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:95)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:94)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1234,7 +1234,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:95)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:94)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1244,7 +1244,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:95)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:94)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1254,7 +1254,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1264,7 +1264,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:96)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:95)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1274,7 +1274,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:96)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:95)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1284,7 +1284,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:96)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:95)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1294,7 +1294,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:96)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:95)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1304,7 +1304,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1314,7 +1314,7 @@ Node type  : NodeStreamOffset
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:97)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:96)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1324,7 +1324,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:97)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:96)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1334,7 +1334,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:97)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:96)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1344,7 +1344,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:80)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1354,7 +1354,7 @@ Node type  : NodeMul
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:80)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1364,7 +1364,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:80)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1374,7 +1374,7 @@ Node type  : NodeAdd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:81)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:80)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1384,7 +1384,7 @@ Node type  : NodeCast
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1394,7 +1394,7 @@ Node type  : NodeInputMappedReg
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1404,7 +1404,7 @@ Node type  : NodeNot
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1414,7 +1414,7 @@ Node type  : NodeAnd
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1424,7 +1424,7 @@ Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1434,7 +1434,7 @@ Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1444,7 +1444,7 @@ Node type  : NodeReinterpret
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------
@@ -1454,7 +1454,7 @@ Node type  : NodeOutput
 Creator    : User
 Stack Trace:
 com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
-cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.<init>(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)
 
 ------------

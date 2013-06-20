@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagerGraph version="2013.1" design_name="Manager_CpuMain" compilation_phase="Original" hardwareBuild="false">
+	<Node id="1" instanceName="cpu_to_lmem" type="InputFlexibleClock">
+		<Output clock="STREAM" name="cpu_to_lmem" type="PULL el=1 ael=8" width="128">
+			<Stream name="Stream_2" sink="9" />
+		</Output>
+	</Node>
+	<Node id="5" instanceName="addrgen_cmd_write_lmem" type="AddrGen1DLinear">
+		<Output clock="clock" name="addrgen_cmd_write_lmem_0" type="PUSH 1" width="64">
+			<Stream name="Stream_8" sink="6" />
+		</Output>
+	</Node>
+	<Node id="11" instanceName="addrgen_cmd_read_lmem" type="AddrGen1DLinear">
+		<Output clock="clock" name="addrgen_cmd_read_lmem_0" type="PUSH 1" width="64">
+			<Stream name="Stream_14" sink="12" />
+		</Output>
+	</Node>
+	<Node id="15" instanceName="read_lmem" type="InputFlexibleClock">
+		<Output clock="STREAM" name="read_lmem" type="PULL el=1 ael=16" width="1536">
+			<Stream name="Stream_16" sink="3" />
+		</Output>
+	</Node>
+	<Node id="18" instanceName="addrgen_cmd_controller" type="AddrGen1DLinear">
+		<Output clock="clock" name="addrgen_cmd_controller_0" type="PUSH 1" width="64">
+			<Stream name="Stream_21" sink="19" />
+		</Output>
+	</Node>
+	<Node id="22" instanceName="controller" type="InputFlexibleClock">
+		<Output clock="STREAM" name="controller" type="PULL el=1 ael=16" width="1536">
+			<Stream name="Stream_23" sink="0" />
+		</Output>
+	</Node>
+	<Node id="25" instanceName="dvv" type="InputFlexibleClock">
+		<Output clock="STREAM" name="dvv" type="PULL el=1 ael=8" width="128">
+			<Stream name="Stream_26" sink="0" />
+		</Output>
+	</Node>
+	<Node id="28" instanceName="p" type="InputFlexibleClock">
+		<Output clock="STREAM" name="p" type="PULL el=1 ael=8" width="128">
+			<Stream name="Stream_29" sink="0" />
+		</Output>
+	</Node>
+	<Node id="31" instanceName="pp" type="InputFlexibleClock">
+		<Output clock="STREAM" name="pp" type="PULL el=1 ael=8" width="128">
+			<Stream name="Stream_32" sink="0" />
+		</Output>
+	</Node>
+	<Node id="34" instanceName="px" type="InputFlexibleClock">
+		<Output clock="STREAM" name="px" type="PULL el=1 ael=8" width="128">
+			<Stream name="Stream_35" sink="0" />
+		</Output>
+	</Node>
+	<Node id="37" instanceName="py" type="InputFlexibleClock">
+		<Output clock="STREAM" name="py" type="PULL el=1 ael=8" width="128">
+			<Stream name="Stream_38" sink="0" />
+		</Output>
+	</Node>
+	<Node id="40" instanceName="scale" type="InputFlexibleClock">
+		<Output clock="STREAM" name="scale" type="PULL el=1 ael=8" width="128">
+			<Stream name="Stream_41" sink="0" />
+		</Output>
+	</Node>
+	<Node id="43" instanceName="source_container" type="InputFlexibleClock">
+		<Output clock="STREAM" name="source_container" type="PULL el=1 ael=8" width="128">
+			<Stream name="Stream_44" sink="0" />
+		</Output>
+	</Node>
+	<Node id="9" instanceName="write_lmem" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="write_lmem" type="PUSH 16" width="1536">
+			<Stream name="Stream_10" source="1" />
+		</Input>
+	</Node>
+	<Node id="6" instanceName="cmd_write_lmem_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_write_lmem_0" type="PUSH 8" width="64">
+			<Stream name="Stream_7" source="5" />
+		</Input>
+	</Node>
+	<Node id="12" instanceName="cmd_read_lmem_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_read_lmem_0" type="PUSH 8" width="64">
+			<Stream name="Stream_13" source="11" />
+		</Input>
+	</Node>
+	<Node id="3" instanceName="lmem_to_cpu" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="lmem_to_cpu" type="PUSH 64" width="128">
+			<Stream name="Stream_4" source="15" />
+		</Input>
+	</Node>
+	<Node id="19" instanceName="cmd_controller_0" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="cmd_controller_0" type="PUSH 8" width="64">
+			<Stream name="Stream_20" source="18" />
+		</Input>
+	</Node>
+	<Node id="0" instanceName="RTMKernel" type="Kernel">
+		<PxgFile phase="original">RTMKernel_original.pxg</PxgFile>
+		<PxgFile phase="final-simulation">RTMKernel_final-simulation.pxg</PxgFile>
+		<Input clock="STREAM" name="controller" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_17" source="22" />
+		</Input>
+		<Input clock="STREAM" name="p" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_27" source="28" />
+		</Input>
+		<Input clock="STREAM" name="pp" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_30" source="31" />
+		</Input>
+		<Input clock="STREAM" name="dvv" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_24" source="25" />
+		</Input>
+		<Input clock="STREAM" name="source_container" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_42" source="43" />
+		</Input>
+		<Input clock="STREAM" name="px" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_33" source="34" />
+		</Input>
+		<Input clock="STREAM" name="py" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_36" source="37" />
+		</Input>
+		<Input clock="STREAM" name="scale" type="PULL el=1 ael=2" width="32">
+			<Stream name="Stream_39" source="40" />
+		</Input>
+		<Output clock="STREAM" name="ppresult" type="PUSH 5" width="32">
+			<Stream name="Stream_45" sink="46" />
+		</Output>
+	</Node>
+	<Node id="46" instanceName="ppresult" type="OutputFlexibleClock">
+		<Input clock="STREAM" name="ppresult" type="PUSH 64" width="128">
+			<Stream name="Stream_47" source="0" />
+		</Input>
+	</Node>
+</ManagerGraph>

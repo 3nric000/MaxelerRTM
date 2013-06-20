@@ -1,0 +1,1 @@
+../scratch/RTMKernel_NodeDiary.txt

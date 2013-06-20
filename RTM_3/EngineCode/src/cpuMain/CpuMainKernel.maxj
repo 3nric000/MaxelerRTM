@@ -9,12 +9,10 @@ class CpuMainKernel extends Kernel {
 
 	private static final DFEType typeFloat = dfeFloat(8,24);
 	private static final DFEType typeInt = dfeInt(32);
-	//DFEVar result;
 
 	protected CpuMainKernel(KernelParameters parameters) {
 		super(parameters);
-		//DFEVar hund = constant.var(100);
-		//DFEVar count = control.count.simpleCounter(32);
+
 		DFEVar controller = io.input("controller", typeInt);
 		DFEVar p = io.input("p", typeFloat, controller.cast(dfeBool()));
 		DFEVar pp = io.input("pp", typeFloat, controller.cast(dfeBool()));
@@ -24,15 +22,8 @@ class CpuMainKernel extends Kernel {
 		DFEVar py = io.input("py", typeFloat);
 
 
-
-
-
-		/*DFEVar n1 = io.scalarInput("n1", typeInt);
-		DFEVar n2 = io.scalarInput("n2", typeInt);*/
 		DFEVar c_0 = io.scalarInput("c_0", typeFloat);
-		/*DFEVar pp_value = io.input("pp_value", typeFloat);
-		DFEVar dvv_value = io.input("dvv_value", typeFloat);
-		DFEVar source_container_value = io.input("source_container_value", typeFloat);*/
+
 
 		DFEVar c_1_0 = io.scalarInput("c_1_0", typeFloat);
 		DFEVar c_1_1 = io.scalarInput("c_1_1", typeFloat);
@@ -52,32 +43,6 @@ class CpuMainKernel extends Kernel {
 		DFEVar c_3_3 = io.scalarInput("c_3_3", typeFloat);
 		DFEVar c_3_4 = io.scalarInput("c_3_4", typeFloat);
 
-
-
-
-
-		/*DFEVar window[]=new DFEVar[30];
-		int i=0;
-		for(int j=-5; j<=5; j++){
-			if(j!=0){
-			window[i]=stream.offset(p,j);
-			i++;
-			}
-		}
-		for(int j=-5; j<=5; j++){
-			if(j!=0){
-			window[i]=stream.offset(p,j*96);
-			i++;
-			}
-		}
-		for(int j=-5; j<=5; j++){
-			if(j!=0){
-			window[i]=stream.offset(p,j*96*11);
-			i++;
-			}
-		}*/
-
-
 		DFEVar result= 2.0*p-pp+dvv*(
 				p*c_0
 				+c_1_0*(stream.offset(p, 1)+stream.offset(p,-1))
@@ -96,8 +61,6 @@ class CpuMainKernel extends Kernel {
 				+c_3_3*(stream.offset(px, -1) + stream.offset(px, -9))
 				+c_3_4*(px + stream.offset(px, -10))
 				)+source_container;
-
-		//debug.printf(count%hund,"%d\n", count);
 
 		io.output("ppresult", result, typeFloat, controller.cast(dfeBool()));
 	}

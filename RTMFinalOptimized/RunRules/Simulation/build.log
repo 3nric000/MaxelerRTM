@@ -1,0 +1,69 @@
+gio 18:45: ########################################## 
+gio 18:45: Compiling.
+gio 18:45: ########################################## 
+
+gio 18:45: MaxCompiler version: 2013.1.
+gio 18:45: Build Simulation run rule for RTMFinalOptimized start time: gio giu 20 18:45:27 CEST 2013.
+gio 18:45: Project location: /home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinalOptimized.
+gio 18:45: Detailed build log: /home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinalOptimized/RunRules/Simulation/build.log.
+
+gio 18:45: Compiling Engine Code.
+gio 18:45: Engine building skipped (no changes on .max files).
+gio 18:45: Compiling CPU Code.
+gio 18:45: Run CPU project make files updating
+gio 18:45: Executing command:
+gio 18:45: java -jar /opt/maxeler/maxcompiler/lib/MaxIDE/projectAdmin.jar -u /home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinalOptimized Simulation 
+gio 18:45: Command output:
+
+gio 18:45: MaxCompiler Project Admin Tool Version 2013.1.0
+gio 18:45:  Copyright Maxeler Technologies 2010 - 2013. All rights reserved.
+gio 18:45: Updating RunRule dependant Makefiles for RunRule 'Simulation'
+gio 18:45: Found makefiles: 1
+gio 18:45: 	Updated: Simulation
+gio 18:45: Run CPU make.
+gio 18:45: make RUNRULE=Simulation 
+gio 18:45: Command output:
+gio 18:45: make -f Makefile ../RunRules/Simulation/binaries/CpuMain
+gio 18:45: make[1]: Entering directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinalOptimized/CPUCode'
+gio 18:45: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -o "../RunRules/Simulation/objects/cpu_main.o" -c "cpu_main.c"
+gio 18:45: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -MM -MP -MT "../RunRules/Simulation/objects/cpu_main.o" "cpu_main.c" > "../RunRules/Simulation/objects/cpu_main.d"
+gio 18:45: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -o "../RunRules/Simulation/objects/cpu_simulation.o" -c "cpu_simulation.c"
+gio 18:45: cpu_simulation.c: In function ‘prop_source’:
+gio 18:45: cpu_simulation.c:479: warning: unused variable ‘i’
+gio 18:45: cpu_simulation.c: In function ‘add_data’:
+gio 18:45: cpu_simulation.c:659: warning: unused variable ‘i2’
+gio 18:45: cc -g -O3 -Wall -Wextra -fmessage-length=0 -I ../RunRules/Simulation/include -I. -I/opt/maxeler/maxcompiler/lib/maxeleros-sim/include -I/opt/maxeler/maxcompiler/include/slic -D_XOPEN_SOURCE=600  -std=c99 -DBUILDNAME_MAXFILE_1=CpuMain -DMAXFILE_1="CpuMain.max"  -MM -MP -MT "../RunRules/Simulation/objects/cpu_simulation.o" "cpu_simulation.c" > "../RunRules/Simulation/objects/cpu_simulation.d"
+gio 18:45: cc ../RunRules/Simulation/objects/cpu_constructors.o ../RunRules/Simulation/objects/cpu_main.o ../RunRules/Simulation/objects/cpu_simulation.o ../RunRules/Simulation/objects/slic_CpuMain.o  -L/opt/maxeler/maxcompiler/lib -L/opt/maxeler/maxcompiler/lib/maxeleros-sim/lib -lslic -lmaxeleros -lm -lpthread  -o "../RunRules/Simulation/binaries/CpuMain"
+gio 18:45: make[1]: Leaving directory `/home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinalOptimized/CPUCode'
+gio 18:45: Build completed: gio giu 20 18:45:30 CEST 2013
+
+
+gio 18:45: ########################################## 
+gio 18:45: Running
+gio 18:45: ########################################## 
+gio 18:45: Executing command:
+gio 18:45: '/home/emanuele.delsozzo/repo/MaxelerRTM/RTMFinalOptimized/RunRules/Simulation/binaries/CpuMain' './rtm_parameters_small.txt' 
+gio 18:45: Command output:
+gio 18:45: [34m Parameters
+gio 18:45: [34m Input earth model: (none), using water+salt simple model
+gio 18:45: [34m Output folder: ./tmp
+gio 18:45: [34m Boundary: T=20, E=20 (points)
+gio 18:45: [34m Dimensions: n1=100, n2=100, n3=100 (points)
+gio 18:45: [34m Number of frames nf=1000
+gio 18:45: [34m Damping: bc=0.000500
+gio 18:45: [34m Sampling: dx=5.000000 (m)
+gio 18:45: [34m Time scale dt=0.000400 (s)
+gio 18:45: [34m Time steps per frame: jt=1
+gio 18:45: [34m Number of time steps: nt=1000
+gio 18:45: [34m Frequency: fpeak=25.000000 (Hz)
+gio 18:45: [34m Source: (x,y,z) = (50,50,21)
+gio 18:45: [30m[34m Rerun receiver: False
+gio 18:45: [30m[34m Subsurface offsets: 32
+gio 18:45: [30mCPU version with random boundaries
+gio 18:45: Found receiver file: skipping receiver propagation!
+gio 18:45: loading toLMem
+gio 18:45: do_step
+gio 18:47: do_step
+gio 18:49: do_step
+gio 18:50: do_step
+gio 18:51: Terminated

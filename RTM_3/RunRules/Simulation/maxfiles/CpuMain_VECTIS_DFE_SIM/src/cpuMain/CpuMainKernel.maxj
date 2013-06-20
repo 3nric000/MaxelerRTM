@@ -9,7 +9,6 @@ class CpuMainKernel extends Kernel {
 
 	private static final DFEType typeFloat = dfeFloat(8,24);
 	private static final DFEType typeInt = dfeInt(32);
-	//DFEVar result;
 
 	protected CpuMainKernel(KernelParameters parameters) {
 		super(parameters);

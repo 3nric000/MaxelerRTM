@@ -4,7 +4,7 @@
 		<Output latency="0" name="io_controller_force_disabled" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>Scalar input (io_controller_force_disabled)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:18)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:17)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>io_controller_force_disabled</Name>
 	</Node>
@@ -14,7 +14,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="result" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>~</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:18)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:17)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="2" dst_node_input="enable" src_node_id="1" src_node_output="result" />
@@ -23,7 +23,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="5" name="data" type="hwOffsetFix(32, 0, TWOSCOMPLEMENT)" />
 		<Text>Input(controller)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:18)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:17)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>controller</Name>
 	</Node>
@@ -37,7 +37,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="o" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>{HWOffsetFix:1, 0, UNSIGNED}</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="141" dst_node_input="input" src_node_id="137" src_node_output="o" />
@@ -46,7 +46,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="output" type="hwBits(1)" />
 		<Text>&lt;{HWRawBits:1}&gt;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="140" dst_node_input="a" src_node_id="141" src_node_output="output" />
@@ -54,7 +54,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="io_ppresult_force_disabled" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>Scalar input (io_ppresult_force_disabled)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>io_ppresult_force_disabled</Name>
 	</Node>
@@ -64,7 +64,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="result" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>~</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="142" dst_node_input="input" src_node_id="139" src_node_output="result" />
@@ -73,7 +73,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="output" type="hwBits(1)" />
 		<Text>&lt;{HWRawBits:1}&gt;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="140" dst_node_input="b" src_node_id="142" src_node_output="output" />
@@ -83,7 +83,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="result" type="hwBits(1)" />
 		<Text>&amp;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="143" dst_node_input="input" src_node_id="140" src_node_output="result" />
@@ -92,7 +92,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>&lt;{HWOffsetFix:1, 0, UNSIGNED}&gt;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="144" dst_node_input="output_control" src_node_id="143" src_node_output="output" />
@@ -100,7 +100,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="value" type="hwUntypedConst()" />
 		<Text>2.0</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:869)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:80)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Value>2.0</Value>
 	</Node>
@@ -110,7 +110,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="o" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>{HWOffsetFix:1, 0, UNSIGNED}</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="7" dst_node_input="input" src_node_id="3" src_node_output="o" />
@@ -119,7 +119,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="output" type="hwBits(1)" />
 		<Text>&lt;{HWRawBits:1}&gt;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="6" dst_node_input="a" src_node_id="7" src_node_output="output" />
@@ -127,7 +127,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="io_p_force_disabled" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>Scalar input (io_p_force_disabled)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>io_p_force_disabled</Name>
 	</Node>
@@ -137,7 +137,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="result" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>~</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="8" dst_node_input="input" src_node_id="5" src_node_output="result" />
@@ -146,7 +146,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="output" type="hwBits(1)" />
 		<Text>&lt;{HWRawBits:1}&gt;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="6" dst_node_input="b" src_node_id="8" src_node_output="output" />
@@ -156,7 +156,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="result" type="hwBits(1)" />
 		<Text>&amp;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="9" dst_node_input="input" src_node_id="6" src_node_output="result" />
@@ -165,7 +165,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>&lt;{HWOffsetFix:1, 0, UNSIGNED}&gt;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="10" dst_node_input="enable" src_node_id="9" src_node_output="output" />
@@ -174,7 +174,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="5" name="data" type="hwFloat(8, 24)" />
 		<Text>Input(p)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:18)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>p</Name>
 	</Node>
@@ -196,7 +196,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mulAsRHS(DFEVar.java:869)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:80)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="59" dst_node_input="a" src_node_id="58" src_node_output="result" />
@@ -205,7 +205,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="o" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>{HWOffsetFix:1, 0, UNSIGNED}</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="15" dst_node_input="input" src_node_id="11" src_node_output="o" />
@@ -214,7 +214,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="output" type="hwBits(1)" />
 		<Text>&lt;{HWRawBits:1}&gt;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="14" dst_node_input="a" src_node_id="15" src_node_output="output" />
@@ -222,7 +222,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="io_pp_force_disabled" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>Scalar input (io_pp_force_disabled)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>io_pp_force_disabled</Name>
 	</Node>
@@ -232,7 +232,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="result" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>~</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="16" dst_node_input="input" src_node_id="13" src_node_output="result" />
@@ -241,7 +241,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="output" type="hwBits(1)" />
 		<Text>&lt;{HWRawBits:1}&gt;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="14" dst_node_input="b" src_node_id="16" src_node_output="output" />
@@ -251,7 +251,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="result" type="hwBits(1)" />
 		<Text>&amp;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="17" dst_node_input="input" src_node_id="14" src_node_output="result" />
@@ -260,7 +260,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>&lt;{HWOffsetFix:1, 0, UNSIGNED}&gt;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="18" dst_node_input="enable" src_node_id="17" src_node_output="output" />
@@ -269,7 +269,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="5" name="data" type="hwFloat(8, 24)" />
 		<Text>Input(pp)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:19)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>pp</Name>
 	</Node>
@@ -280,7 +280,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>-</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.sub(DFEVar.java:812)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:80)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="135" dst_node_input="a" src_node_id="59" src_node_output="result" />
@@ -289,7 +289,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="o" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>{HWOffsetFix:1, 0, UNSIGNED}</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="23" dst_node_input="input" src_node_id="19" src_node_output="o" />
@@ -298,7 +298,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="output" type="hwBits(1)" />
 		<Text>&lt;{HWRawBits:1}&gt;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="22" dst_node_input="a" src_node_id="23" src_node_output="output" />
@@ -306,7 +306,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="io_dvv_force_disabled" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>Scalar input (io_dvv_force_disabled)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>io_dvv_force_disabled</Name>
 	</Node>
@@ -316,7 +316,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="result" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>~</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="24" dst_node_input="input" src_node_id="21" src_node_output="result" />
@@ -325,7 +325,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="output" type="hwBits(1)" />
 		<Text>&lt;{HWRawBits:1}&gt;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="22" dst_node_input="b" src_node_id="24" src_node_output="output" />
@@ -335,7 +335,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="result" type="hwBits(1)" />
 		<Text>&amp;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="25" dst_node_input="input" src_node_id="22" src_node_output="result" />
@@ -344,7 +344,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>&lt;{HWOffsetFix:1, 0, UNSIGNED}&gt;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="26" dst_node_input="enable" src_node_id="25" src_node_output="output" />
@@ -353,7 +353,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="5" name="data" type="hwFloat(8, 24)" />
 		<Text>Input(dvv)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:20)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>dvv</Name>
 	</Node>
@@ -362,7 +362,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_0" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_0)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:32)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:31)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_0</Name>
 	</Node>
@@ -373,7 +373,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="65" dst_node_input="a" src_node_id="60" src_node_output="result" />
@@ -381,7 +381,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_1_0" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_1_0)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:37)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:36)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_1_0</Name>
 	</Node>
@@ -391,7 +391,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="1" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: 1</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:83)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="63" dst_node_input="a" src_node_id="61" src_node_output="output" />
@@ -400,7 +400,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-1" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -1</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:83)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="63" dst_node_input="b" src_node_id="62" src_node_output="output" />
@@ -410,7 +410,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:83)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="64" dst_node_input="b" src_node_id="63" src_node_output="result" />
@@ -420,7 +420,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:83)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="65" dst_node_input="b" src_node_id="64" src_node_output="result" />
@@ -430,7 +430,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="70" dst_node_input="a" src_node_id="65" src_node_output="result" />
@@ -438,7 +438,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_1_1" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_1_1)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:38)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:37)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_1_1</Name>
 	</Node>
@@ -448,7 +448,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="2" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: 2</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:84)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:83)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="68" dst_node_input="a" src_node_id="66" src_node_output="output" />
@@ -457,7 +457,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-2" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -2</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:84)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:83)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="68" dst_node_input="b" src_node_id="67" src_node_output="output" />
@@ -467,7 +467,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:84)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:83)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="69" dst_node_input="b" src_node_id="68" src_node_output="result" />
@@ -477,7 +477,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:84)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:83)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="70" dst_node_input="b" src_node_id="69" src_node_output="result" />
@@ -487,7 +487,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="75" dst_node_input="a" src_node_id="70" src_node_output="result" />
@@ -495,7 +495,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_1_2" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_1_2)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:39)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:38)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_1_2</Name>
 	</Node>
@@ -505,7 +505,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="3" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: 3</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:85)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:84)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="73" dst_node_input="a" src_node_id="71" src_node_output="output" />
@@ -514,7 +514,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-3" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -3</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:85)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:84)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="73" dst_node_input="b" src_node_id="72" src_node_output="output" />
@@ -524,7 +524,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:85)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:84)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="74" dst_node_input="b" src_node_id="73" src_node_output="result" />
@@ -534,7 +534,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:85)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:84)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="75" dst_node_input="b" src_node_id="74" src_node_output="result" />
@@ -544,7 +544,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="80" dst_node_input="a" src_node_id="75" src_node_output="result" />
@@ -552,7 +552,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_1_3" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_1_3)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:40)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:39)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_1_3</Name>
 	</Node>
@@ -562,7 +562,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="4" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: 4</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:86)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:85)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="78" dst_node_input="a" src_node_id="76" src_node_output="output" />
@@ -571,7 +571,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-4" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -4</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:86)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:85)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="78" dst_node_input="b" src_node_id="77" src_node_output="output" />
@@ -581,7 +581,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:86)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:85)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="79" dst_node_input="b" src_node_id="78" src_node_output="result" />
@@ -591,7 +591,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:86)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:85)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="80" dst_node_input="b" src_node_id="79" src_node_output="result" />
@@ -601,7 +601,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="85" dst_node_input="a" src_node_id="80" src_node_output="result" />
@@ -609,7 +609,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_1_4" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_1_4)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:41)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:40)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_1_4</Name>
 	</Node>
@@ -619,7 +619,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="5" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: 5</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:87)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:86)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="83" dst_node_input="a" src_node_id="81" src_node_output="output" />
@@ -628,7 +628,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-5" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -5</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:87)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:86)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="83" dst_node_input="b" src_node_id="82" src_node_output="output" />
@@ -638,7 +638,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:87)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:86)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="84" dst_node_input="b" src_node_id="83" src_node_output="result" />
@@ -648,7 +648,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:87)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:86)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="85" dst_node_input="b" src_node_id="84" src_node_output="result" />
@@ -658,7 +658,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="90" dst_node_input="a" src_node_id="85" src_node_output="result" />
@@ -666,7 +666,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_2_0" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_2_0)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:43)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:42)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_2_0</Name>
 	</Node>
@@ -675,7 +675,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="io_py_force_disabled" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>Scalar input (io_py_force_disabled)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:24)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:23)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>io_py_force_disabled</Name>
 	</Node>
@@ -685,7 +685,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="result" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>~</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:24)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:23)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="40" dst_node_input="enable" src_node_id="39" src_node_output="result" />
@@ -694,7 +694,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="5" name="data" type="hwFloat(8, 24)" />
 		<Text>Input(py)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:24)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:23)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>py</Name>
 	</Node>
@@ -713,7 +713,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-4" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -4</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:88)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:87)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="88" dst_node_input="a" src_node_id="86" src_node_output="output" />
@@ -722,7 +722,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-6" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -6</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:88)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:87)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="88" dst_node_input="b" src_node_id="87" src_node_output="output" />
@@ -732,7 +732,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:88)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:87)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="89" dst_node_input="b" src_node_id="88" src_node_output="result" />
@@ -742,7 +742,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:88)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:87)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="90" dst_node_input="b" src_node_id="89" src_node_output="result" />
@@ -752,7 +752,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="95" dst_node_input="a" src_node_id="90" src_node_output="result" />
@@ -760,7 +760,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_2_1" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_2_1)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:44)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:43)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_2_1</Name>
 	</Node>
@@ -770,7 +770,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-3" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -3</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:89)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:88)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="93" dst_node_input="a" src_node_id="91" src_node_output="output" />
@@ -779,7 +779,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-7" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -7</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:89)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:88)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="93" dst_node_input="b" src_node_id="92" src_node_output="output" />
@@ -789,7 +789,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:89)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:88)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="94" dst_node_input="b" src_node_id="93" src_node_output="result" />
@@ -799,7 +799,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:89)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:88)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="95" dst_node_input="b" src_node_id="94" src_node_output="result" />
@@ -809,7 +809,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="100" dst_node_input="a" src_node_id="95" src_node_output="result" />
@@ -817,7 +817,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_2_2" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_2_2)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:45)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:44)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_2_2</Name>
 	</Node>
@@ -827,7 +827,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-2" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -2</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:90)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:89)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="98" dst_node_input="a" src_node_id="96" src_node_output="output" />
@@ -836,7 +836,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-8" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -8</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:90)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:89)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="98" dst_node_input="b" src_node_id="97" src_node_output="output" />
@@ -846,7 +846,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:90)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:89)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="99" dst_node_input="b" src_node_id="98" src_node_output="result" />
@@ -856,7 +856,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:90)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:89)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="100" dst_node_input="b" src_node_id="99" src_node_output="result" />
@@ -866,7 +866,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="105" dst_node_input="a" src_node_id="100" src_node_output="result" />
@@ -874,7 +874,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_2_3" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_2_3)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:46)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:45)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_2_3</Name>
 	</Node>
@@ -884,7 +884,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-1" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -1</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:91)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:90)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="103" dst_node_input="a" src_node_id="101" src_node_output="output" />
@@ -893,7 +893,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-9" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -9</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:91)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:90)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="103" dst_node_input="b" src_node_id="102" src_node_output="output" />
@@ -903,7 +903,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:91)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:90)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="104" dst_node_input="b" src_node_id="103" src_node_output="result" />
@@ -913,7 +913,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:91)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:90)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="105" dst_node_input="b" src_node_id="104" src_node_output="result" />
@@ -923,7 +923,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="109" dst_node_input="a" src_node_id="105" src_node_output="result" />
@@ -931,7 +931,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_2_4" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_2_4)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:47)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:46)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_2_4</Name>
 	</Node>
@@ -941,7 +941,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-10" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -10</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:92)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:91)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="107" dst_node_input="b" src_node_id="106" src_node_output="output" />
@@ -951,7 +951,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:92)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:91)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="108" dst_node_input="b" src_node_id="107" src_node_output="result" />
@@ -961,7 +961,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:92)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:91)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="109" dst_node_input="b" src_node_id="108" src_node_output="result" />
@@ -971,7 +971,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="114" dst_node_input="a" src_node_id="109" src_node_output="result" />
@@ -979,7 +979,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_3_0" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_3_0)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:49)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:48)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_3_0</Name>
 	</Node>
@@ -988,7 +988,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="io_px_force_disabled" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>Scalar input (io_px_force_disabled)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:23)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:22)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>io_px_force_disabled</Name>
 	</Node>
@@ -998,7 +998,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="result" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>~</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:23)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:22)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="37" dst_node_input="enable" src_node_id="36" src_node_output="result" />
@@ -1007,7 +1007,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="5" name="data" type="hwFloat(8, 24)" />
 		<Text>Input(px)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:569)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:23)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:22)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>px</Name>
 	</Node>
@@ -1026,7 +1026,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-4" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -4</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:93)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:92)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="112" dst_node_input="a" src_node_id="110" src_node_output="output" />
@@ -1035,7 +1035,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-6" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -6</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:93)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:92)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="112" dst_node_input="b" src_node_id="111" src_node_output="output" />
@@ -1045,7 +1045,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:93)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:92)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="113" dst_node_input="b" src_node_id="112" src_node_output="result" />
@@ -1055,7 +1055,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:93)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:92)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="114" dst_node_input="b" src_node_id="113" src_node_output="result" />
@@ -1065,7 +1065,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="119" dst_node_input="a" src_node_id="114" src_node_output="result" />
@@ -1073,7 +1073,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_3_1" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_3_1)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:50)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:49)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_3_1</Name>
 	</Node>
@@ -1083,7 +1083,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-3" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -3</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:94)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:93)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="117" dst_node_input="a" src_node_id="115" src_node_output="output" />
@@ -1092,7 +1092,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-7" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -7</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:94)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:93)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="117" dst_node_input="b" src_node_id="116" src_node_output="output" />
@@ -1102,7 +1102,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:94)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:93)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="118" dst_node_input="b" src_node_id="117" src_node_output="result" />
@@ -1112,7 +1112,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:94)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:93)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="119" dst_node_input="b" src_node_id="118" src_node_output="result" />
@@ -1122,7 +1122,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="124" dst_node_input="a" src_node_id="119" src_node_output="result" />
@@ -1130,7 +1130,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_3_2" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_3_2)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:51)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:50)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_3_2</Name>
 	</Node>
@@ -1140,7 +1140,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-2" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -2</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:95)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:94)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="122" dst_node_input="a" src_node_id="120" src_node_output="output" />
@@ -1149,7 +1149,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-8" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -8</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:95)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:94)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="122" dst_node_input="b" src_node_id="121" src_node_output="output" />
@@ -1159,7 +1159,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:95)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:94)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="123" dst_node_input="b" src_node_id="122" src_node_output="result" />
@@ -1169,7 +1169,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:95)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:94)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="124" dst_node_input="b" src_node_id="123" src_node_output="result" />
@@ -1179,7 +1179,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="129" dst_node_input="a" src_node_id="124" src_node_output="result" />
@@ -1187,7 +1187,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_3_3" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_3_3)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:52)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:51)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_3_3</Name>
 	</Node>
@@ -1197,7 +1197,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-1" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -1</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:96)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:95)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="127" dst_node_input="a" src_node_id="125" src_node_output="output" />
@@ -1206,7 +1206,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-9" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -9</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:96)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:95)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="127" dst_node_input="b" src_node_id="126" src_node_output="output" />
@@ -1216,7 +1216,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:96)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:95)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="128" dst_node_input="b" src_node_id="127" src_node_output="result" />
@@ -1226,7 +1226,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:96)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:95)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="129" dst_node_input="b" src_node_id="128" src_node_output="result" />
@@ -1236,7 +1236,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:82)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="133" dst_node_input="a" src_node_id="129" src_node_output="result" />
@@ -1244,7 +1244,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="c_3_4" type="hwFloat(8, 24)" />
 		<Text>Scalar input (c_3_4)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.scalarInput(IO.java:980)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:53)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:52)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>c_3_4</Name>
 	</Node>
@@ -1254,7 +1254,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="-10" name="output" type="hwFloat(8, 24)" />
 		<Text>stream offset: -10</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.Stream.offset(Stream.java:235)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:97)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:96)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="131" dst_node_input="b" src_node_id="130" src_node_output="output" />
@@ -1264,7 +1264,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:97)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:96)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="132" dst_node_input="b" src_node_id="131" src_node_output="result" />
@@ -1274,7 +1274,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:97)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:96)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="133" dst_node_input="b" src_node_id="132" src_node_output="result" />
@@ -1284,7 +1284,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:80)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="134" dst_node_input="b" src_node_id="133" src_node_output="result" />
@@ -1294,7 +1294,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="8" name="result" type="hwFloat(8, 24)" />
 		<Text>*</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.mul(DFEVar.java:849)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:80)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="135" dst_node_input="b" src_node_id="134" src_node_output="result" />
@@ -1304,7 +1304,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:80)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="136" dst_node_input="a" src_node_id="135" src_node_output="result" />
@@ -1313,7 +1313,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="o" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>{HWOffsetFix:1, 0, UNSIGNED}</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.cast(DFEVar.java:160)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="31" dst_node_input="input" src_node_id="27" src_node_output="o" />
@@ -1322,7 +1322,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="output" type="hwBits(1)" />
 		<Text>&lt;{HWRawBits:1}&gt;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="30" dst_node_input="a" src_node_id="31" src_node_output="output" />
@@ -1330,7 +1330,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="io_source_container_force_disabled" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>Scalar input (io_source_container_force_disabled)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>io_source_container_force_disabled</Name>
 	</Node>
@@ -1340,7 +1340,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="result" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>~</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="32" dst_node_input="input" src_node_id="29" src_node_output="result" />
@@ -1349,7 +1349,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="output" type="hwBits(1)" />
 		<Text>&lt;{HWRawBits:1}&gt;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="30" dst_node_input="b" src_node_id="32" src_node_output="output" />
@@ -1359,7 +1359,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="result" type="hwBits(1)" />
 		<Text>&amp;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="33" dst_node_input="input" src_node_id="30" src_node_output="result" />
@@ -1368,7 +1368,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="0" name="output" type="hwOffsetFix(1, 0, UNSIGNED)" />
 		<Text>&lt;{HWOffsetFix:1, 0, UNSIGNED}&gt;</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="34" dst_node_input="enable" src_node_id="33" src_node_output="output" />
@@ -1377,7 +1377,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="5" name="data" type="hwFloat(8, 24)" />
 		<Text>Input(source_container)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.input(IO.java:502)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:22)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:21)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>source_container</Name>
 	</Node>
@@ -1388,7 +1388,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Output latency="12" name="result" type="hwFloat(8, 24)" />
 		<Text>+</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.add(DFEVar.java:775)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:81)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:80)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 	</Node>
 	<Edge dst_node_id="144" dst_node_input="data" src_node_id="136" src_node_output="result" />
@@ -1397,7 +1397,7 @@ cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Input name="data" type="hwFloat(8, 24)" />
 		<Text>Output(ppresult)</Text>
 		<OriginStackTrace>com.maxeler.maxcompiler.v2.kernelcompiler.stdlib.core.IO.output(IO.java:633)
-cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:102)
+cpuMain.CpuMainKernel.&lt;init&gt;(CpuMainKernel.maxj:101)
 cpuMain.CpuMainManager.main(CpuMainManager.maxj:43)</OriginStackTrace>
 		<Name>ppresult</Name>
 	</Node>

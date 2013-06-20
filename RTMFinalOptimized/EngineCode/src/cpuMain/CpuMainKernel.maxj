@@ -1,0 +1,76 @@
+package cpuMain;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEType;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+
+class CpuMainKernel extends Kernel {
+
+	private static final DFEType typeFloat = dfeFloat(8,24);
+	private static final DFEType typeInt = dfeInt(32);
+
+	protected CpuMainKernel(KernelParameters parameters) {
+		super(parameters);
+		//DFEVar hund = constant.var(100);
+		//DFEVar count = control.count.simpleCounter(32);
+		DFEVar controller = io.input("controller", typeInt);
+		DFEVar p = io.input("p", typeFloat, controller.cast(dfeBool()));
+		DFEVar pp = io.input("pp", typeFloat, controller.cast(dfeBool()));
+		DFEVar dvv = io.input("dvv", typeFloat, controller.cast(dfeBool()));
+		DFEVar source_container = io.input("source_container", typeFloat, controller.cast(dfeBool()));
+		DFEVar px = io.input("px", typeFloat);
+		DFEVar py = io.input("py", typeFloat);
+		DFEVar scale = io.input("scale", typeFloat, controller.cast(dfeBool()));
+
+		DFEVar result1;
+		DFEVar result2;
+		DFEVar result3;
+
+		DFEVar c_0 = io.scalarInput("c_0", typeFloat);
+
+		DFEVar c_1_0 = io.scalarInput("c_1_0", typeFloat);
+		DFEVar c_1_1 = io.scalarInput("c_1_1", typeFloat);
+		DFEVar c_1_2 = io.scalarInput("c_1_2", typeFloat);
+		DFEVar c_1_3 = io.scalarInput("c_1_3", typeFloat);
+		DFEVar c_1_4 = io.scalarInput("c_1_4", typeFloat);
+
+		DFEVar c_2_0 = io.scalarInput("c_2_0", typeFloat);
+		DFEVar c_2_1 = io.scalarInput("c_2_1", typeFloat);
+		DFEVar c_2_2 = io.scalarInput("c_2_2", typeFloat);
+		DFEVar c_2_3 = io.scalarInput("c_2_3", typeFloat);
+		DFEVar c_2_4 = io.scalarInput("c_2_4", typeFloat);
+
+		DFEVar c_3_0 = io.scalarInput("c_3_0", typeFloat);
+		DFEVar c_3_1 = io.scalarInput("c_3_1", typeFloat);
+		DFEVar c_3_2 = io.scalarInput("c_3_2", typeFloat);
+		DFEVar c_3_3 = io.scalarInput("c_3_3", typeFloat);
+		DFEVar c_3_4 = io.scalarInput("c_3_4", typeFloat);
+
+		result1=pp*scale;
+
+		result2= 2.0*p-result1+dvv*(
+				p*c_0
+				+c_1_0*(stream.offset(p, 1)+stream.offset(p,-1))
+				+c_1_1*(stream.offset(p, 2)+stream.offset(p,-2))
+				+c_1_2*(stream.offset(p, 3)+stream.offset(p,-3))
+				+c_1_3*(stream.offset(p, 4)+stream.offset(p,-4))
+				+c_1_4*(stream.offset(p, 5)+stream.offset(p,-5))
+				+c_2_0*(stream.offset(py, -4) + stream.offset(py, -6))
+				+c_2_1*(stream.offset(py, -3) + stream.offset(py, -7))
+				+c_2_2*(stream.offset(py, -2) + stream.offset(py, -8))
+				+c_2_3*(stream.offset(py, -1) + stream.offset(py, -9))
+				+c_2_4*(py + stream.offset(py, -10))
+				+c_3_0*(stream.offset(px, -4) + stream.offset(px, -6))
+				+c_3_1*(stream.offset(px, -3) + stream.offset(px, -7))
+				+c_3_2*(stream.offset(px, -2) + stream.offset(px, -8))
+				+c_3_3*(stream.offset(px, -1) + stream.offset(px, -9))
+				+c_3_4*(px + stream.offset(px, -10))
+				)+source_container;
+
+		result3=result2*scale;
+
+		io.output("ppresult", result3, typeFloat, controller.cast(dfeBool()));
+	}
+
+}
