@@ -1,0 +1,472 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Abstract
+\end_layout
+
+\begin_layout Standard
+The objective of this project is to accelerate in hardware the RTM application
+ using the Maxeler platform.
+ First of all, it was necessary to analyze the C code to find out the critical
+ parts.
+ This analysis was done both by looking at the C code and by using profiling
+ tools (part 3).
+ Meanwhile, we started to study how the Maxeler platform works by reading
+ the manuals and looking at the examples inside Maxide.
+ Then, we decided which function was the best candidate to be implement
+ in hardware.
+ During the implementation, we followed several approaches (part 4), from
+ trivial to more complex ones.
+ In the end, only with the last approach we were able to sythentize the
+ kernel on the FPGA board and examine the result of hardware acceleration.
+\end_layout
+
+\begin_layout Section
+RTM
+\end_layout
+
+\begin_layout Section
+Profiling
+\end_layout
+
+\begin_layout Section
+Approaches
+\end_layout
+
+\begin_layout Standard
+According to the profiling, we decided to work on the do_step and do_step_dampin
+g functions and to accelerate them in hardware.
+\end_layout
+
+\begin_layout Standard
+Here the code of the do_step function:
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset listings
+lstparams "breaklines=true,language=C,numbers=left,tabsize=3"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/*
+\end_layout
+
+\begin_layout Plain Layout
+
+ * do_step - propagate wavefield one step in time
+\end_layout
+
+\begin_layout Plain Layout
+
+ * p  - current wavefield
+\end_layout
+
+\begin_layout Plain Layout
+
+ * pp - previous and next wavefield
+\end_layout
+
+\begin_layout Plain Layout
+
+ * dvv - density (1) * velocity *velocity
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+void do_step(float *__restrict p, float *__restrict pp, float *__restrict
+ dvv, float *__restrict source_container){
+\end_layout
+
+\begin_layout Plain Layout
+
+	int i3;  //Indexes
+\end_layout
+
+\begin_layout Plain Layout
+
+	int n12=n1*n2;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// #pragma omp parallel for
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(i3=ORDER; i3 < n3-ORDER; i3++){   //Loop over slowest axis
+\end_layout
+
+\begin_layout Plain Layout
+
+		int i1;
+\end_layout
+
+\begin_layout Plain Layout
+
+		int i2;
+\end_layout
+
+\begin_layout Plain Layout
+
+		for(i2=ORDER; i2 < n2-ORDER; i2++){ //Loop over middle axis
+\end_layout
+
+\begin_layout Plain Layout
+
+			for(i1=ORDER; i1< n1-ORDER; i1++){  //Loop over fast axis
+\end_layout
+
+\begin_layout Plain Layout
+
+				//Wavefield update
+\end_layout
+
+\begin_layout Plain Layout
+
+				pp[i1+i2*n1+i3*n12]=(2.0*p[i1+i2*n1+i3*n12]-pp[i1+i2*n1+i3*n12]+dvv[i1+i2*n1+
+i3*n12]*(
+\end_layout
+
+\begin_layout Plain Layout
+
+						p[i1+i2*n1+i3*n12]*c_0
+\end_layout
+
+\begin_layout Plain Layout
+
+						+c_1[0]*(p[(i1+1)+(i2  )*n1+(i3  )*n12]+p[(i1-1)+(i2  )*n1+(i3  )*n12])
+\end_layout
+
+\begin_layout Plain Layout
+
+						+c_1[1]*(p[(i1+2)+(i2  )*n1+(i3  )*n12]+p[(i1-2)+(i2  )*n1+(i3  )*n12])
+\end_layout
+
+\begin_layout Plain Layout
+
+						+c_1[2]*(p[(i1+3)+(i2  )*n1+(i3  )*n12]+p[(i1-3)+(i2  )*n1+(i3  )*n12])
+\end_layout
+
+\begin_layout Plain Layout
+
+						+c_1[3]*(p[(i1+4)+(i2  )*n1+(i3  )*n12]+p[(i1-4)+(i2  )*n1+(i3  )*n12])
+\end_layout
+
+\begin_layout Plain Layout
+
+						+c_1[4]*(p[(i1+5)+(i2  )*n1+(i3  )*n12]+p[(i1-5)+(i2  )*n1+(i3  )*n12])
+\end_layout
+
+\begin_layout Plain Layout
+
+						+c_2[0]*(p[(i1  )+(i2+1)*n1+(i3  )*n12]+p[(i1  )+(i2-1)*n1+(i3  )*n12])
+\end_layout
+
+\begin_layout Plain Layout
+
+						+c_2[1]*(p[(i1  )+(i2+2)*n1+(i3  )*n12]+p[(i1  )+(i2-2)*n1+(i3  )*n12])
+\end_layout
+
+\begin_layout Plain Layout
+
+						+c_2[2]*(p[(i1  )+(i2+3)*n1+(i3  )*n12]+p[(i1  )+(i2-3)*n1+(i3  )*n12])
+\end_layout
+
+\begin_layout Plain Layout
+
+						+c_2[3]*(p[(i1  )+(i2+4)*n1+(i3  )*n12]+p[(i1  )+(i2-4)*n1+(i3  )*n12])
+\end_layout
+
+\begin_layout Plain Layout
+
+						+c_2[4]*(p[(i1  )+(i2+5)*n1+(i3  )*n12]+p[(i1  )+(i2-5)*n1+(i3  )*n12])
+\end_layout
+
+\begin_layout Plain Layout
+
+						+c_3[0]*(p[(i1  )+(i2  )*n1+(i3+1)*n12]+p[(i1  )+(i2  )*n1+(i3-1)*n12])
+\end_layout
+
+\begin_layout Plain Layout
+
+						+c_3[1]*(p[(i1  )+(i2  )*n1+(i3+2)*n12]+p[(i1  )+(i2  )*n1+(i3-2)*n12])
+\end_layout
+
+\begin_layout Plain Layout
+
+						+c_3[2]*(p[(i1  )+(i2  )*n1+(i3+3)*n12]+p[(i1  )+(i2  )*n1+(i3-3)*n12])
+\end_layout
+
+\begin_layout Plain Layout
+
+						+c_3[3]*(p[(i1  )+(i2  )*n1+(i3+4)*n12]+p[(i1  )+(i2  )*n1+(i3-4)*n12])
+\end_layout
+
+\begin_layout Plain Layout
+
+						+c_3[4]*(p[(i1  )+(i2  )*n1+(i3+5)*n12]+p[(i1  )+(i2  )*n1+(i3-5)*n12])
+\end_layout
+
+\begin_layout Plain Layout
+
+						))+source_container[i1+i2*n1+i3*n12];
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+	return;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The code of the do_step_damping function is fairly similar, the only difference
+ is that before and after the assignment of a value to the array pp, we
+ have this assignment:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true,language=C,tabsize=3"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+pp[i1+i2*n1+i3*n12]*=scale;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where the variable scale is computed at each interation of the most internal
+ for.
+\end_layout
+
+\begin_layout Standard
+So, we started to translate this function into maxeler java code.
+\end_layout
+
+\begin_layout Subsection*
+First simple approaches
+\end_layout
+
+\begin_layout Standard
+The first approaches were quite trivial and were aimed to get more confident
+ with the Maxeler SLiC interface, Manager and Kernel.
+ At the beginning, we used the Basic SLiC interface and our first approach
+ consisted in passing, at each internal for iteration, the only values needed
+ to compute the actual pp value at that point of iteration.
+ So, we created a stream containing the cross of elements, i.e., considering
+ p[i1+i2*n1+i3*n12], the five previous and next elements of each dimension,
+ and the values of arrays pp, dvv, source_container, c_1, c_2, c_3, c_4
+ and c_0.
+ This approach, of course, was very trivial since we were using the Maxeler
+ platform only for computing a value at each for iteration, just like a
+ C sub-routine, instead of exploiting the potentiality and the nature of
+ the machine, hence we decided to drop it without sythentize it.
+ Indeed, we would have spent more time in creating the stream and getting
+ the output, through PCI Express, than computing the value.
+\end_layout
+
+\begin_layout Standard
+Another possible approach was passing the arrays p, pp, dvv, source_container
+ as streams to the DFE and using the same offsets that we would use in the
+ C code to compute the output stream (an approach very similar to the C
+ code).
+ However, this was not feasible since the space needed to keep in BRAM all
+ the values useful to compute a single output value was to much.
+\end_layout
+
+\begin_layout Standard
+So, we moved to two new different approaches: one with LMEM Blocked 3D,
+ the other with Stalling Streams.
+\end_layout
+
+\begin_layout Subsection*
+LMEM Blocked 3D
+\end_layout
+
+\begin_layout Standard
+In this approach, we used the dynamic SLiC interface to have complete management
+ of the communication between C code and Manager.
+ Our purpose was to use several functions supplied by the Maxeler to load
+ in LMEM the stream p as a 3D block.
+ In this way, we thought we could access to the subcube of p of dimension
+ 11*11*11 (stencil size) and use it to compute the value of pp[i1+i2*n1*i3*n12].
+ So, we can see this approach as a combination of the previous approaches.
+ At the beginning, we thought we could move the subcube from the Kernel
+ itself, but this was not possible.
+ The only chance to do this was to pass through SLiC interface the offsets
+ of the starting points of the 3D subcube from the C code.
+ However, here we started to have several problems due to Maxeler machine
+ architecture.
+ In the manual, we found the function that the Manager had to use to pass
+ a subcube to the Kernel.
+ This is the function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true,language=Java,tabsize=3"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+public void setLMemBlocked(String streamName, long address,
+\end_layout
+
+\begin_layout Plain Layout
+
+long arraySizeFast, long arraySizeMed, long arraySizeSlow, long rwSizeFast,
+ long rwSizeMed, long rwSizeSlow, long offsetFast, long offsetMed, long
+ offsetSlow)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where the first three parameters are refered to the size 3D block in LMEM,
+ the next three to the size of the subcube we want to consider, the last
+ three are the offsets the subcube starts from.
+\end_layout
+
+\begin_layout Standard
+This function was neither completely explained in the manual nor used in
+ examples, so, before applying it to the RTM application, we modified an
+ example in Maxide and made some tests about it.
+ It turned out that this function wanted at least one of the three size
+ of the 3D block in LMEM multiple of the Maxeler burst, in order to have
+ it burst-aligned.
+ The burst of Maxeler machine is 384 byte, hence we had to load a block
+ of size x*y*z, where at least one of these three parameter had to be multiple
+ of 96 (indeed, we used arrays of 32-bit float, so 4 byte per float).
+ The size of stream p, likethe size of streams pp, dvv, source_container,
+ is given by the test files of the RTM application...
+\end_layout
+
+\begin_layout Subsection*
+Stalling Streams
+\end_layout
+
+\begin_layout Standard
+circular queue
+\end_layout
+
+\begin_layout Standard
+our approach
+\end_layout
+
+\begin_layout Section
+Final Notes
+\end_layout
+
+\end_body
+\end_document
