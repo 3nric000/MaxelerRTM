@@ -4,7 +4,7 @@ extern char *folder_path;
 extern int BOUND_T;      //Boundary on top - 60 is probably a good number for random
 extern int SPONGE_WIDTH; //Boundary on all other edges - 50 probably should be dropped to 40
 extern int TOTAL_SPONGE_WIDTH;
-extern int n1,n2,n3,n1m;    //Size of wavefield and data
+extern int n1,n2,n3;    //Size of wavefield and data
 extern int nf;          //Number of frames
 extern int nt;          //Number of time steps
 extern long long n123;   //Number of elements
