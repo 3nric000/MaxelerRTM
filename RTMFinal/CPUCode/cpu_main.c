@@ -42,13 +42,19 @@ int main(int argc, char **argv){
 	irand=t.tv_sec;
 #endif
 
-	/*if(argc!=2){
+	if(argc!=2){
 		fprintf(stderr,"Error: invalid arguments in command line: please provide the parameter file path!\n");
 		exit(-1);
 	}
-	*/
-	//earth_model_file=create_params(argv[1]);
-	earth_model_file=create_params("rtm_parameters_small.txt");
+
+	earth_model_file=create_params(argv[1]);
+
+
+
+    printf("\nd1=%f, d2=%f, d3=%f, dt=%f\n", d1, d2, d3, dt);
+
+
+
 
 	//folder_path is initialized in create_params()
 	strcpy(out_file,folder_path);
@@ -150,5 +156,12 @@ int main(int argc, char **argv){
 	clean_data();
 	clean_vel();
 	clean_bound();
+
+
+    printf("\nd1=%f, d2=%f, d3=%f, dt=%f\n", d1, d2, d3, dt);
+
+
+
+
 	exit(0);
 }

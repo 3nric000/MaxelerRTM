@@ -15,7 +15,6 @@
 #include "cpu_constructors.h"
 #include "Maxfiles.h"
 #include "MaxSLiCInterface.h"
-int counter = 0;
 
 //--------------------------------------------------------------
 // Construct 10th order space stencil
@@ -169,7 +168,6 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	int const size = n1 * n2 * n3;
 	float *px;
 	float *py;
-	float *ppcopy;
 	float *ppresult;
 	int const stencilSize = 11;
 	int sizeBytes = size * sizeof(float);
@@ -180,50 +178,6 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	ppresult = malloc(sizeBytes);
 	px = malloc(sizepxy);
 	py = malloc(sizepxy);
-	ppcopy = malloc(sizeBytes);
-	memcpy(ppcopy, pp, size);
-
-	// #pragma omp parallel for
-	for (i3 = ORDER; i3 < n3 - ORDER; i3++) { //Loop over slowest axis
-		for (i2 = ORDER; i2 < n2 - ORDER; i2++) { //Loop over middle axis
-			for (i1 = ORDER; i1 < n1 - ORDER; i1++) { //Loop over fast axis
-				//Wavefield update
-				pp[i1 + i2 * n1 + i3 * n12] = (2.0 * p[i1 + i2 * n1 + i3 * n12]
-						- pp[i1 + i2 * n1 + i3 * n12] + dvv[i1 + i2 * n1 + i3
-						* n12] * (p[i1 + i2 * n1 + i3 * n12] * c_0 + c_1[0]
-						* (p[(i1 + 1) + (i2) * n1 + (i3) * n12] + p[(i1 - 1)
-								+ (i2) * n1 + (i3) * n12]) + c_1[1] * (p[(i1
-						+ 2) + (i2) * n1 + (i3) * n12] + p[(i1 - 2) + (i2) * n1
-						+ (i3) * n12]) + c_1[2] * (p[(i1 + 3) + (i2) * n1
-						+ (i3) * n12] + p[(i1 - 3) + (i2) * n1 + (i3) * n12])
-						+ c_1[3] * (p[(i1 + 4) + (i2) * n1 + (i3) * n12]
-								+ p[(i1 - 4) + (i2) * n1 + (i3) * n12])
-						+ c_1[4] * (p[(i1 + 5) + (i2) * n1 + (i3) * n12]
-								+ p[(i1 - 5) + (i2) * n1 + (i3) * n12])
-						+ c_2[0] * (p[(i1) + (i2 + 1) * n1 + (i3) * n12]
-								+ p[(i1) + (i2 - 1) * n1 + (i3) * n12])
-						+ c_2[1] * (p[(i1) + (i2 + 2) * n1 + (i3) * n12]
-								+ p[(i1) + (i2 - 2) * n1 + (i3) * n12])
-						+ c_2[2] * (p[(i1) + (i2 + 3) * n1 + (i3) * n12]
-								+ p[(i1) + (i2 - 3) * n1 + (i3) * n12])
-						+ c_2[3] * (p[(i1) + (i2 + 4) * n1 + (i3) * n12]
-								+ p[(i1) + (i2 - 4) * n1 + (i3) * n12])
-						+ c_2[4] * (p[(i1) + (i2 + 5) * n1 + (i3) * n12]
-								+ p[(i1) + (i2 - 5) * n1 + (i3) * n12])
-						+ c_3[0] * (p[(i1) + (i2) * n1 + (i3 + 1) * n12]
-								+ p[(i1) + (i2) * n1 + (i3 - 1) * n12])
-						+ c_3[1] * (p[(i1) + (i2) * n1 + (i3 + 2) * n12]
-								+ p[(i1) + (i2) * n1 + (i3 - 2) * n12])
-						+ c_3[2] * (p[(i1) + (i2) * n1 + (i3 + 3) * n12]
-								+ p[(i1) + (i2) * n1 + (i3 - 3) * n12])
-						+ c_3[3] * (p[(i1) + (i2) * n1 + (i3 + 4) * n12]
-								+ p[(i1) + (i2) * n1 + (i3 - 4) * n12])
-						+ c_3[4] * (p[(i1) + (i2) * n1 + (i3 + 5) * n12]
-								+ p[(i1) + (i2) * n1 + (i3 - 5) * n12])))
-						+ source_container[i1 + i2 * n1 + i3 * n12];
-			}
-		}
-	}
 
 	for (index = 0; index < size * stencilSize; index++) {
 		px[index] = 0;
@@ -303,7 +257,7 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	max_actions_t* act = max_actions_init(maxfile, "default");
 
 	max_queue_input(act, "p", p, size * sizeof(float));
-	max_queue_input(act, "pp", ppcopy, size * sizeof(float));
+	max_queue_input(act, "pp", pp, size * sizeof(float));
 	max_queue_input(act, "dvv", dvv, size * sizeof(float));
 	max_queue_input(act, "source_container", source_container, size
 			* sizeof(float));
@@ -344,23 +298,14 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict dvv,
 	free(px);
 	free(py);
 	free(controller);
-	free(ppcopy);
 
-	if (counter < 4) {
-		f = fopen("data.txt", "a");
-		for (i3 = ORDER; i3 < n3 - ORDER; i3++) { //Loop over slowest axis
-			for (i2 = ORDER; i2 < n2 - ORDER; i2++) { //Loop over middle axis
-				for (i1 = ORDER; i1 < n1 - ORDER; i1++) {
-					fprintf(f, "%.50f,%.50f,%d,%d,%d\n", pp[i1 + i2 * n1 + i3
-							* n12], ppresult[i1 + i2 * n1 + i3 * n12], i3, i2,
-							i1);
-				}
+	for (i3 = ORDER; i3 < n3 - ORDER; i3++) { //Loop over slowest axis
+		for (i2 = ORDER; i2 < n2 - ORDER; i2++) { //Loop over middle axis
+			for (i1 = ORDER; i1 < n1 - ORDER; i1++) {
+				pp[(i1) + (i2) * n1 + (i3) * n12] = ppresult[(i1) + (i2) * n1
+						+ (i3) * n12];
 			}
 		}
-
-		fprintf(f, "\n\n\n\n\n\n");
-		fclose(f);
-		counter++;
 	}
 
 	free(ppresult);
