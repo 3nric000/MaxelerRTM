@@ -225,7 +225,7 @@ Here the code of the do_step function:
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language=C,numbers=left,tabsize=3"
+lstparams "breaklines=true,language=C,numbers=left,tabsize=2"
 inline false
 status open
 
@@ -610,11 +610,45 @@ Stalling Streams
 \end_layout
 
 \begin_layout Standard
-circular queue
+Our last approach was about stalling streams.
+ We designed an algorithm based on three streams: the first one was an array
+ linearized by z dimension (p itself), the other two were arrays filled,
+ respectively, with the 10 elements in x and y dimensions necessary to compute
+ each value of pp.
+ To do so, we created at each execution of do_step and do_step_damping two
+ new arrays: px and py.
+ Each one of these contained n1*n2*n3*11 elements (to avoid mistakes by
+ skipping the central value already in p).
+ Because of the different size, we needed to find a method to synchronize
+ these two arrays with the array p.
+ Fortunately, Maxeler gives the opportunity to stall not only input streams
+ but also output streams.
+ Therefore, we created a controller of size n1*n2*n3*11 and filled it with
+ blocks of one 1 and ten 0.
+ The idea was: when the input/ouput stream on the Kernel has the 1, it can
+ use/save the actual value and then procede to the next one, when it has
+ 0, it can't go further.
+ So, the streams p, pp, dvv, source_container would be driven by the controller,
+ instead streams px and py would be free to move on at each tick.
+ Moreover, there was no need to load streams in LMEM since the number of
+ elements required to compute each output value was limited.
+ Indeed, only when we have 1 on the controller we write the value on the
+ output by using the 10 elements of px and py, the 11 elements of p and
+ elements from the other streams, not so much space was required in BRAM.
+ Of course, one of the drawbacks was the fact that both px and py contained
+ duplicated data but it was the simpliest way to create the two streams.
+ Another problem came from Maxeler because it didn't accept that a stream
+ (pp) was both an input and output stream, hence we created a new output
+ stream, ppresult, and then, at the end of the do_step/do_step_damping,
+ we shifted the pointers of ppresult and pp.
+ Moreover, we had to deal with the time of creation of px and py: both were
+ created in three nested for, in total (n1-10)*(n2-10)*(n3-10) iterations
+ (the same number of iterations of the original C code).
+ 
 \end_layout
 
 \begin_layout Standard
-our approach
+tempo trasferimento, ottimizzazioni
 \end_layout
 
 \begin_layout Section

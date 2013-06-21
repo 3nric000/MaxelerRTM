@@ -519,8 +519,12 @@ In this approach, we used the dynamic SLiC interface to have complete management
  In this way, we thought we could access to the subcube of p of dimension
  11*11*11 (stencil size) and use it to compute the value of pp[i1+i2*n1*i3*n12].
  In addiction, we wanted to create several streams containing only the values
- of pp, dvv, source_container So, we can see this approach as a combination
- of the previous approaches.
+ of pp, dvv, source_container necessary to compute the output stream, that
+ would be stored in LMEM.
+ After the computation, we would read the output from LMEM and stored in
+ the pp array.
+ So, we can see this approach as a combination of the previous approaches
+ in a way.
  At the beginning, we thought we could move the subcube from the Kernel
  itself, but this was not possible.
  The only chance to do this was to pass through SLiC interface the offsets
@@ -571,19 +575,34 @@ This function was neither completely explained in the manual nor used in
  The burst of Maxeler machine is 384 byte, hence we had to load a block
  of size x*y*z, where at least one of these three parameter had to be multiple
  of 96 (indeed, we used arrays of 32-bit float, so 4 byte per float).
- The size of stream p, likethe size of streams pp, dvv, source_container,
+ The size of stream p, like the size of streams pp, dvv, source_container,
  is given by the test files of the RTM application and none of its three
  dimensions are multiple of 96, thus we had to modify one of these dimensions
- (usually the fast one) and made it multiple of 96.
+ (the fast one) and made it multiple of 96.
  However, in this way we added useless data to the streams but it was still
  possible to extract only the data we needed at the end of the computation.
  Another problem occured when we found out that not only one of the 3D block
- dimensions had to be multiple of 96, but only one of the dimensions of
+ dimensions had to be multiple of 96, but also one of the dimensions of
  the subcube.
- This fact made the our solution more complicated since we could take subcube
+ This fact made our solution more complicated since we couldn't take subcubse
  of size 11*11*11 anymore, but we had to manage bigger subcubes.
  A possible solution was to compute from this new subcube as many useful
- values as we could 
+ values as we could and then move the offsets from the C code to compute
+ the following values.
+ For instance, if we were using the rtm_parameters_small.txt, the size of
+ the arrays would be 100*100*100, then it would be modified to 192*100*100.
+ The first subcube would start from offsets [0, 0, 0] and would be of size
+ 96*11*11.
+ The first execution of Kernel would produce 86 useful values (from [5,5,5]
+ to [91,5,5]).
+ Then, we would move the offsets to [92,0,0].
+ In fact, the only useful values we would need were the values at offsets
+ [93,5,5], [94,5,5], [95,5,5], the others were useless.
+ However, at this point the last and most critical problem rose: even at
+ least one of the offsets had to be multiple of 96.
+ As consequence, we were unable to exploit this approach since it was impossible
+ to access to subcubes starting from offsets x,y,z were none of the was
+ multiple of 96.
 \end_layout
 
 \begin_layout Subsection*
@@ -591,11 +610,44 @@ Stalling Streams
 \end_layout
 
 \begin_layout Standard
-circular queue
+Our last approach was about stalling streams.
+ We designed an algorithm based on three streams: the first one was an array
+ linearized by z dimension (p itself), the other two were arrays filled,
+ respectively, with the 10 elements in x and y dimensions necessary to compute
+ each value of pp.
+ To do so, we created at each execution of do_step and do_step_damping two
+ new arrays: px and py.
+ Each one of these contained n1*n2*n3*11 elements (to avoid mistakes by
+ skipping the central value already in p), so we need to find a method to
+ synchronize these two arrays with the array p.
+ Fortunately, Maxeler gives the opportunity to stall not only input streams
+ but also output streams.
+ Therefore, we created a controller of size n1*n2*n3*11 and filled it with
+ blocks of one 1 and ten 0.
+ The idea was: when the input/ouput stream on the Kernel has the 1, it can
+ use/save the actual value and then procede to the next one, when it has
+ 0, it can't go further.
+ So, the streams p, pp, dvv, source_container would be driven by the controller,
+ instead streams px and py were free to move on at each tick.
+ Moreover, there was no need to load streams in LMEM since the number of
+ elements required to compute each output value was limited.
+ Indeed, only when we have 1 on the controller we write the value on the
+ output by using the 10 elements of px and py, the 11 elements of p and
+ elements from the other streams, not so much space was required.
+ Of course, one of the drawbacks was the fact that both px and py contained
+ duplicated data but it was the simpliest way to create the two streams.
+ Another problem came from Maxeler because it didn't accepted that a stream
+ (pp) was both an input and output stream, hence we created a new output
+ stream, ppresult, and then, at the end of the do_step/do_step_damping,
+ we shifted the pointers of ppresult and pp.
+ Then, we had to deal with the time of creation of px and py: both were
+ created in three nested for, in total (n1-10)*(n2-10)*(n3-10) iterations
+ (the same number of the original C code).
+ 
 \end_layout
 
 \begin_layout Standard
-our approach
+tempo trasferimento, ottimizzazioni
 \end_layout
 
 \begin_layout Section
