@@ -68,27 +68,15 @@
 \begin_body
 
 \begin_layout Title
-HPPS Project: RTM - Maxeler
+HPPS Project
+\end_layout
+
+\begin_layout Title
+RTM - Maxeler
 \end_layout
 
 \begin_layout Author
-Enrico Deiana & Emanuele Del Sozzo
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
-
-\end_inset
-
-
+Enrico Deiana & Emanue
 \end_layout
 
 \begin_layout Section

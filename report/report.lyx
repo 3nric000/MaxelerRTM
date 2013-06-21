@@ -25,9 +25,10 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_amsmath 1
 \use_esint 1
 \use_mhchem 1
@@ -42,6 +43,13 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\headheight 2.5cm
+\headsep 2.5cm
+\footskip 2.5cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -58,6 +66,37 @@
 \end_header
 
 \begin_body
+
+\begin_layout Title
+HPPS Project: RTM - Maxeler
+\end_layout
+
+\begin_layout Author
+Enrico Deiana & Emanuele Del Sozzo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
 
 \begin_layout Section
 Abstract
@@ -210,6 +249,361 @@ file and are in charge of propagating the wavefield.
 Profiling
 \end_layout
 
+\begin_layout Standard
+First of all we looked at the code to identify the most critical parts of
+ the program.
+ We immediately detected two functions, 
+\emph on
+do_step 
+\emph default
+and
+\emph on
+ do_step_damping
+\emph default
+, with a very heavy computation consisting in three nested loops.
+ But for a better application analysis, in order to know how much time the
+ program spends inside its differents subroutines, we profiled the RTM applicati
+on (with the
+\emph on
+ rtm_parameters_small.txt
+\emph default
+ input file) with three well known profiling tools: 
+\emph on
+callgrind
+\emph default
+, 
+\emph on
+gprof
+\emph default
+, 
+\emph on
+oprofile
+\emph default
+.
+ However the most interesting results are returned by 
+\emph on
+callgrind
+\emph default
+ and 
+\emph on
+gprof
+\emph default
+, while 
+\emph on
+oprofile
+\emph default
+ results are rather similar to the 
+\emph on
+callgrind
+\emph default
+ ones (moreover with some lack of informations).
+\end_layout
+
+\begin_layout Subsection*
+Callgrind
+\end_layout
+
+\begin_layout Standard
+Callgrind is part of valgrind's tool suite, it records the call history
+ among functions in a program's run as a call-graph.
+ The main advantage of callgrind is that we don't need to recompile the
+ application, but this tool adds a huge amount of overhead during the program
+ execution (that took approximately 15 times more than the normal execution).
+\end_layout
+
+\begin_layout Standard
+We have profiled the RTM application using the small data:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+$ valgrind --tool=callgrind rtm-cpu ../../tests/rtm_parameters_small.txt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What we found out is that RTM spends most of the time (63.89%) inside 
+\emph on
+do_step_damping
+\emph default
+ propagating the wavefield of one step in time each time it is called.
+ The callers are 
+\emph on
+prop_source 
+\emph default
+and 
+\emph on
+migrate_shot
+\emph default
+, the first one propagates the source forwards, the second one back propagates
+ the source and the receiver and correlates the wavefields, both call 
+\emph on
+do_step_damping 
+\emph default
+1000 times, so it is called 2000 times overall.
+ Below is shown the callee graph for this function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/enrico/Other/repos/MaxelerRTM/report/dostepdampingmin.png
+	scale 60
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+do_step_damping
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Another function, moreover very similar to the 
+\emph on
+do_step_damping
+\emph default
+, is 
+\emph on
+do_step,
+\emph default
+ where the program spends 15.17% of its time.
+ Even this time the callers are 
+\emph on
+prop_source 
+\emph default
+and 
+\emph on
+migrate_shot
+\emph default
+ that calls it again 1000 times each.
+ The callee graph is this one:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/enrico/Other/repos/MaxelerRTM/report/dostepmin.png
+	scale 60
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+do_step
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally 
+\emph on
+image_it
+\emph default
+ is the last more onerous function, it applies the imaging condition after
+ the backpropagation of the source and the receiver.
+ RTM spends here, according to callgrind, the 20.22% of its time.
+ The caller is 
+\emph on
+migrate_shot
+\emph default
+ that calls 
+\emph on
+image_it
+\emph default
+ 1000 times.
+ The callee graph is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/enrico/Other/repos/MaxelerRTM/report/imageitmin.png
+	scale 60
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+image_it
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The overall meaningful calls done by 
+\emph on
+main
+\emph default
+ are shown here:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/enrico/Other/repos/MaxelerRTM/report/mainmin.png
+	scale 60
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+main
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Gprof
+\end_layout
+
+\begin_layout Standard
+Gprof is the GNU profiling tools.
+ It needs to recompile the application for doing the profiling with the
+ 
+\emph on
+-pg
+\emph default
+ option, so we have modified the 
+\emph on
+MakeFile 
+\emph default
+and built again the program, but the needed overhead for the profiling part
+ is quite small so that it almost doesn't affect the program execution.
+\end_layout
+
+\begin_layout Standard
+Respect to callgrind there are some mismatches, especially for 
+\emph on
+do_step
+\emph default
+ and 
+\emph on
+image_it
+\emph default
+, where gprof states that the program spends 17.7% and 16.9% respectively
+ (instead of 15.17% and 20.22% stated by callgrind).
+ While for the 
+\emph on
+do_step_damping
+\emph default
+ function the amount of time spent is quite similar (64.3% wrt 63.89%).
+ The number of calls and the caller is, obviously, the same stated before
+ in the callgrind part (2000
+\begin_inset Formula $\times$
+\end_inset
+
+
+\emph on
+ do_step_damping 
+\emph default
+and 
+\emph on
+do_step
+\emph default
+, 1000
+\begin_inset Formula $\times$
+\end_inset
+
+ 
+\emph on
+image_it
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+More informations about this profiling done with gprof can be found in the
+ 
+\begin_inset Quotes eld
+\end_inset
+
+analysis.txt
+\begin_inset Quotes erd
+\end_inset
+
+ file that reports all the profiling informations (the caller and callee
+ graph, the number of calls of each functions, the spent time etc.).
+\end_layout
+
 \begin_layout Section
 Approaches
 \end_layout
@@ -225,7 +619,7 @@ Here the code of the do_step function:
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language=C,numbers=left,tabsize=2"
+lstparams "basicstyle={\scriptsize},breaklines=true,language=C,numbers=left,tabsize=2"
 inline false
 status open
 
