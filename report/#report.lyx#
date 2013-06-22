@@ -105,8 +105,8 @@ Abstract
 \begin_layout Standard
 The objective of this project is to accelerate in hardware the RTM application
  using the Maxeler platform.
- First of all, it was necessary to analyze the C code (part 2) to find out
- the critical parts.
+ First of all, it was necessary to analyze the C code to find out the critical
+ parts.
  This analysis was done both by looking at the C code and by using profiling
  tools (part 3).
  Meanwhile, we started to study how the Maxeler platform works by reading
@@ -117,9 +117,7 @@ The objective of this project is to accelerate in hardware the RTM application
  trivial to more complex ones.
  In the end, only with the last approach we were able to synthetize the
  kernel on the FPGA board and examine the result of hardware acceleration.
- In part 5 we explain which are the possible enhancements and the comparison
- between the various implementations of RTM (with pragma omp library, without
- it, and our final approach).
+ In part 5
 \end_layout
 
 \begin_layout Section
@@ -2893,11 +2891,6 @@ ion to prepare the arrays px/py, so even though we had solved the problem
 
 \begin_layout Section
 Final Notes
-\end_layout
-
-\begin_layout Standard
-CONFRONTO TEMPI NO-PRAGMA, PRAGMA, DFE CON TUTTI I DATI (SMALL, MEDIUM,
- LARGE)
 \end_layout
 
 \end_body
