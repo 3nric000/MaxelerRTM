@@ -925,10 +925,15 @@ The DFE has two types of memory: FMem (Fast Memory) which can store several
  LMem (Large Memory) which can store many gigabytes of data off-chip.
  In this approach, we used the dynamic SLiC interface to have complete managemen
 t of the communication between C code and Manager.
- Our purpose was to use several functions supplied by Maxeler to load in
- LMEM the stream p as a 3D block.
- In this way, we thought we could access to the subcube of p of dimension
- 11*11*11 (stencil size) and use it to compute the value of pp[i1+i2*n1*i3*n12].
+ Our idea was to load in LMEM the array p as a 3D block.
+ In this way, it would be possible to access to all its subcube.
+ As it can be seen by looking at the code of the do_step, at each iteration,
+ the computation of a value of pp required a 3D cross of dimension 11*11*11
+ (stencil size).
+ In this way, we thought we could access every subcube of p of dimension
+ 11*11*11 and compute the value of pp[i1+i2*n1*i3*n12].
+ This approach would avoid to fill the BRAM since we would load only the
+ values required by that computation without using big offsets.
  In addiction, we wanted to create several streams containing only the values
  of pp, dvv, source_container required to compute the output stream, that
  would be stored in LMEM.
@@ -1021,7 +1026,20 @@ Stalling Streams
 
 \begin_layout Standard
 Our last approach was about stalling streams.
- We designed an algorithm based on three streams: the first one was an array
+ The general idea behind this approach is: we have an array (p) and we access
+ it as it was a 3D array, using three different offsets, so we can be linearized
+ in three other arrays by following the dimensions x, y, z and then use
+ them to compute the values of the output.
+ Of course, the main issue of this approach is to synchronize the three
+ arrays and make them flow asynchronously.
+ In fact, we decided to have only of array linearized in one dimension (z),
+ then move the 3D cross in that direction and collect the elements on it
+ along the other two dimensions in the remaining arrays.
+ 
+\end_layout
+
+\begin_layout Standard
+We designed an algorithm based on three streams: the first one was an array
  linearized by z dimension (p itself), the other two were arrays filled,
  respectively, with 10 elements in x and y dimensions necessary to compute
  each value of pp.
@@ -1075,7 +1093,6 @@ Manager:
 \end_layout
 
 \begin_layout Standard
-
 \begin_inset listings
 lstparams "breaklines=true,language=Java,numbers=left,tabsize=3"
 inline false
@@ -1698,11 +1715,6 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict
 
 \begin_layout Plain Layout
 
-	max_set_param_double(act, "c_1_0", (double) c_1[0]);
-\end_layout
-
-\begin_layout Plain Layout
-
 	max_set_param_double(act, "c_0", (double) c_0);
 \end_layout
 
@@ -1766,18 +1778,544 @@ void do_step(float *__restrict p, float *__restrict pp, float *__restrict
 \begin_layout Standard
 After several tests in simulation, we decided to synthetize the Kernel on
  the FPGA.
- Once the process was completed, we had these results:
+ Once the process was completed, we had these results regarding the resource
+ usage:
 \end_layout
 
 \begin_layout Standard
-SPAZIO OCCUPATO ETC:
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Logic utilization:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ / 297600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LUTs:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ / 297600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Primary FFs:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ / 297600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Secondary FFs:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ / 297600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Multipliers (25x18):
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ / 2016
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DSP blocks:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ / 2016
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Block memory (BRAM18):
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ / 2128
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Then, we run it to see its performance.
- It turned out that the original RTM application run on Intel i7 processor
- of Maxeler, without pragma, took nearly 2 minutes, while the RTM application
- accelerated in hardware took 26 minutes.
+ It turned out that, using the file rtm_parameters_small.txt, the original
+ RTM application run on Intel i7 processor of Maxeler, without pragma, took
+ nearly 2 minutes, while the RTM application accelerated in hardware took
+ 26 minutes.
+ We expected this result since our implementation was not optimized, this
+ run was only useful as proof of the termination of our application.
+ So, we begun to optimized the code by adding/editing several parts of it.
+ Here the list of optimizations we implemented:
+\end_layout
+
+\begin_layout Itemize
+the DFE is allocated only one time, then it's deallocated before the end
+ of the main;
+\end_layout
+
+\begin_layout Itemize
+the do_step_damping sub-routine is accelerated in hardware too.
+ To do so, we created a new array containing the values of variable scale
+ generated during the execution of do_step_damping;
+\end_layout
+
+\begin_layout Itemize
+editing of the kernel to make it common for both do_step and do_step_damping
+ (added the stream scale);
+\end_layout
+
+\begin_layout Itemize
+the arrays px, py, scale, controller are allocated once with the DFE;
+\end_layout
+
+\begin_layout Itemize
+since it never changes, the controller is loaded in the LMEM of the FPGA
+ one time only.
+\end_layout
+
+\begin_layout Standard
+After these changes, we were ready to synthetize this new Kernel, here the
+ results of the resource usage:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Logic utilization:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+73339 / 297600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(24.64%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LUTs:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+50815 / 297600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(17.07%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Primary FFs:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+61121 / 297600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(20.54%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Secondary FFs:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11365 / 297600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(3.82%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Multipliers (25x18):
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28 / 2016
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(1.88%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DSP blocks:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+38 / 2016
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(1.88%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Block memory (BRAM18):
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+252 / 2128
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(11.84%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The performance of our application improved but it was still slower than
+ the original RTM application.
+ Indeed, now it took nearly 10 minutes to complete.
+ So, for sure, there were some bottlenecks inside our code.
+ The most probable bottlenecks where two: the creation of arrays px and
+ py and the stream of data from the RAM of i7 to the FPGA via PCI Express.
+ To find out the problem, we made several tests to analyze the time of creation
+ the array px/py and the time of streaming data/computing the data on DFE.
+ It turned out that the creation of the arrays took, on average, nearly
+ 0.014s, while the streaming/computation nearly 0.20s.
+ As we thought, the streaming of data was the real bottleneck.
  
 \end_layout
 
