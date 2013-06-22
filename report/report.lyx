@@ -885,7 +885,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/enrico/Other/repos/MaxelerRTM/report/dostepdampingmin.png
+	filename dostepdampingmin.png
 	scale 60
 
 \end_inset
@@ -939,7 +939,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/enrico/Other/repos/MaxelerRTM/report/dostepmin.png
+	filename dostepmin.png
 	scale 60
 
 \end_inset
@@ -991,7 +991,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/enrico/Other/repos/MaxelerRTM/report/imageitmin.png
+	filename imageitmin.png
 	scale 60
 
 \end_inset
@@ -1031,7 +1031,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/enrico/Other/repos/MaxelerRTM/report/mainmin.png
+	filename mainmin.png
 	scale 60
 
 \end_inset
