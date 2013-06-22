@@ -2309,18 +2309,29 @@ The performance of our application improved but it was still slower than
  the original RTM application.
  Indeed, now it took nearly 10 minutes to complete.
  So, for sure, there were some bottlenecks inside our code.
- The most probable bottlenecks where two: the creation of arrays px and
+ The most probable bottlenecks where two: the preparation of arrays px and
  py and the stream of data from the RAM of i7 to the FPGA via PCI Express.
- To find out the problem, we made several tests to analyze the time of creation
- the array px/py and the time of streaming data/computing the data on DFE.
+ To find out the problem, we made several tests to analyze the time of preparati
+on the array px/py and the time of streaming data/computing the data on
+ DFE.
  It turned out that the creation of the arrays took, on average, nearly
  0.014s, while the streaming/computation nearly 0.20s.
  As we thought, the streaming of data was the real bottleneck.
- 
-\end_layout
-
-\begin_layout Standard
-tempo trasferimento, ottimizzazioni
+ A possible solution was to move more arrays in LMEM but was not so easy
+ since some of them were edited at each iteration of the cycles in prop_source
+ and in migrate_shot, as stated in part 2.
+ However, another important fact rose during this analysis: we comparated
+ the execution times of the sub-routine do_step in both original RTM application
+ (without pragma) and in our implementation.
+ The result was that the time required by the original RTM application for
+ each do_step execution is almost equals to the time required by our implementat
+ion to prepare the arrays px/py, so even though we had solved the problem
+ of the data streaming, our application would still have been slower that
+ the original one.
+ Hence, as result, the approach of translating in hardware only few sub-routines
+ of RTM application is feasible but unsatisfying; indeed, to improve the
+ performance, it would be necessary to change almost all the RTM code to
+ make it more suitable for an hardware implementation.
 \end_layout
 
 \begin_layout Section

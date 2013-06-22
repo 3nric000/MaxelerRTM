@@ -126,8 +126,8 @@ RTM
 \begin_layout Standard
 Reverse Time Migration (RTM) is the current state-of-the-art in seismic
  imaging.
- It aims to construct an image of the subsurface from reflection seismics
- recordings.
+ It aims at constructing an image of the subsurface from recordings of seismic
+ reflections.
 \end_layout
 
 \begin_layout Standard
@@ -145,8 +145,8 @@ s can only be expected at subsurface locations where a reflection occurs.
 \end_layout
 
 \begin_layout Standard
-The implementation of the RTM that has been provided to us is composed by
- three C source files 
+The implementation of RTM that has been provided to us is composed by three
+ C source files 
 \emph on
 cpu_main.c
 \emph default
@@ -170,10 +170,10 @@ cpu_simulation.h
 \end_layout
 
 \begin_layout Description
-cpu_main.c contains just the main function which is in charge to call all
- the subroutines that: initializes the random seed for the random field
- creation and all the needed parameters, constructs the model and all the
- necessary structures for the computation, simulates the model and store
+cpu_main.c contains just the main function which is in charge of calling
+ all the subroutines that: initialize the random seed for the random field
+ creation and all the needed parameter, construct the model and all the
+ necessary structures for the computation, simulate the model and store
  the results.
 \end_layout
 
@@ -189,9 +189,9 @@ cpu_constructors.c implements all the functions responsible for allocation
 cpu_simulation.c includes all the functions responsible for wave equation,
  injection of the source signal, saving the acquired receiver signal, propagatin
 g the source/receiver, removing the source signal from the receiver acquisition
- data, correlating the wavefields to create the several subsurface images,
- reinjecting the receiver data during back propagation, backpropagating
- both the receiver and the source and correlating the wavefields.
+ data, correlating the wavefields to create subsurface images, reinjecting
+ the receiver data during back propagation, backpropagating both the receiver
+ and the source and correlating the wavefields.
 \end_layout
 
 \begin_layout Standard
@@ -222,7 +222,7 @@ marmousi_0.txt
 marmousi_32.txt 
 \emph default
 .
- For our tests we have mainly used the small one.
+ For our tests we have used the small one.
  More informations on the structure of the program are provided into the
  README.txt file.
  
@@ -230,7 +230,8 @@ marmousi_32.txt
 
 \begin_layout Standard
 As we will see in the profiling section, what we are particulary intrested
- in are two functions in whom the program spends most of its time: the 
+ in are two functions in which the program spends most of its time: the
+ 
 \emph on
 do_step 
 \emph default
@@ -243,6 +244,523 @@ which are in the
 cpu_simulation.c 
 \emph default
 file and are in charge of propagating the wavefield.
+\end_layout
+
+\begin_layout Standard
+For a better comprehension of the program execution flow we state here a
+ very simple version of RTM in pseudo C code, containing just the interesting
+ functions that we found out looking at the code and during the profiling.
+\end_layout
+
+\begin_layout Standard
+Here is the 
+\emph on
+main
+\emph default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize},breaklines=true,language=C,numbers=left,tabsize=2"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+main(){
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	create_params_fields_data();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(!RECEIVER_FILE){
+\end_layout
+
+\begin_layout Plain Layout
+
+		prop_source();
+\end_layout
+
+\begin_layout Plain Layout
+
+		CREATION_RECEIVER_FILE();
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	prop_source();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	migrate_shot();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	dump_image_to_file();
+\end_layout
+
+\begin_layout Plain Layout
+
+	clean();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It takes as single argument the 
+\emph on
+rtm_parameters_[small|medium|large].txt 
+\emph default
+file containing all the needed parameters and data for the model creation.
+ The function 
+\emph on
+create_params_fields_data() 
+\emph default
+creates the needed structures for the following computational steps (in
+ the real RTM code there are different functions that do it, but they are
+ done sequentially and are computationally meaningless).
+ In case there is not the 
+\emph on
+RECEIVER_FILE
+\emph default
+ (that is a file created during the very first execution of the application,
+ containing some values and parameters) is called 
+\emph on
+prop_source()
+\emph default
+ that do some computation and then the 
+\emph on
+RECEIVER_FILE 
+\emph default
+is created.
+ The remaining part of the code is executed always in the same way.
+ The functions 
+\emph on
+prop_source() 
+\emph default
+and 
+\emph on
+migrate_shot()
+\emph default
+ are called and do the most of the computational part of the program, then
+ 
+\emph on
+dump_image_to_file() 
+\emph default
+saves the results and 
+\emph on
+clean()
+\emph default
+ clears the program state.
+\end_layout
+
+\begin_layout Standard
+As you will see in the profiling section (the next one) 
+\emph on
+prop_source() 
+\emph default
+and 
+\emph on
+migrate_shot()
+\emph default
+ are in charge of calling 
+\emph on
+do_step_damping() 
+\emph default
+and 
+\emph on
+do_step()
+\emph default
+ which do most of the computational effort.
+\end_layout
+
+\begin_layout Standard
+Here is the 
+\emph on
+prop_source()
+\emph default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize},breaklines=true,language=C,numbers=left,tabsize=2"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+prop_source(){
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(i=0; i<NT; i++){
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		add_source(SOURCE_CONTAINER);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(!RECEIVER_FILE){
+\end_layout
+
+\begin_layout Plain Layout
+
+			do_step_damping(P, PP, SOURCE_CONTAINER);
+\end_layout
+
+\begin_layout Plain Layout
+
+			extract_data();
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		else{
+\end_layout
+
+\begin_layout Plain Layout
+
+			do_step(P, PP, SOURCE_CONTAINER);
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		FLIP_P_PP();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The function 
+\emph on
+add_source() 
+\emph default
+is not computational interesting, but it modifies 
+\emph on
+SOURCE_CONTAINER 
+\emph default
+that is passed to 
+\emph on
+do_step() 
+\emph default
+and 
+\emph on
+do_step_damping()
+\emph default
+.
+ In case it is the first program execution (!RECEIVER_FILE is true) 
+\emph on
+prop_source() 
+\emph default
+will be executed the first time calling 
+\emph on
+NT
+\emph default
+ times 
+\emph on
+do_step_damping() 
+\emph default
+and 
+\emph on
+extract_data() 
+\emph default
+(that is not very interesting from a computational point of view), and the
+ second time calling 
+\emph on
+do_step() 
+\emph default
+for 
+\emph on
+NT
+\emph default
+ times again.
+ At the end 
+\emph on
+P 
+\emph default
+and 
+\emph on
+PP
+\emph default
+,
+\emph on
+ 
+\emph default
+that are arguments of 
+\emph on
+do_step() 
+\emph default
+and 
+\emph on
+do_step_damping()
+\emph default
+, are exchanged (
+\emph on
+FLIP_P_PP() 
+\emph default
+is not a function present in the real RTM code which just flips the pointers).
+ If it is a subsequent program execution, just the second part is done.
+\end_layout
+
+\begin_layout Standard
+Here is the 
+\emph on
+migrate_shot()
+\emph default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize},breaklines=true,language=C,numbers=left,tabsize=2"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+migrate_shot(){
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(i=0; i<NT; i++){
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		clean_source();
+\end_layout
+
+\begin_layout Plain Layout
+
+		do_step(P, PP, SOURCE_CONTAINER);
+\end_layout
+
+\begin_layout Plain Layout
+
+		add_data();
+\end_layout
+
+\begin_layout Plain Layout
+
+		do_step_damping(P, PP, SOURCE_CONTAINER);
+\end_layout
+
+\begin_layout Plain Layout
+
+		image_it();
+\end_layout
+
+\begin_layout Plain Layout
+
+		FLIP_P_PP();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This function is executed anyway whether 
+\emph on
+RECEIVER_FILE
+\emph default
+ is present or not.
+ It executes alternatively 
+\emph on
+NT 
+\emph default
+times 
+\emph on
+do_step() 
+\emph default
+and 
+\emph on
+do_step_damping()
+\emph default
+, our most interesting functions since the program spends a lot of time
+ into them (especially inside 
+\emph on
+do_step_damping()
+\emph default
+) and into 
+\emph on
+image_it()
+\emph default
+ that applies the imaging condition.
+\end_layout
+
+\begin_layout Standard
+The result of 
+\emph on
+do_step() 
+\emph default
+and 
+\emph on
+do_step_damping()
+\emph default
+ is stored in their argument PP.
+ The behavior of these functions is better explained in part 4.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+NT 
+\emph default
+is the number of time steps and is defined as 
+\emph on
+JT
+\emph default
+
+\begin_inset Formula $\cdot$
+\end_inset
+
+
+\emph on
+RF 
+\emph default
+which are defined into the 
+\emph on
+rtm_parameters_[small|medium|large].txt 
+\emph default
+file passed as single argument to RTM.
+ In the 
+\emph on
+small 
+\emph default
+case NT=1000, in the 
+\emph on
+medium 
+\emph default
+one NT=2500 and in the 
+\emph on
+large
+\emph default
+ one NT=3000.
 \end_layout
 
 \begin_layout Section
@@ -280,7 +798,7 @@ gprof
 oprofile
 \emph default
 .
- However the most interesting results are returned by 
+ However, the most interesting results are returned by 
 \emph on
 callgrind
 \emph default
@@ -304,8 +822,8 @@ Callgrind
 \end_layout
 
 \begin_layout Standard
-Callgrind is part of valgrind's tool suite, it records the call history
- among functions in a program's run as a call-graph.
+Callgrind is part of valgrind's tool suite.
+ It records the call history among functions in a program's run as a call-graph.
  The main advantage of callgrind is that we don't need to recompile the
  application, but this tool adds a huge amount of overhead during the program
  execution (that took approximately 15 times more than the normal execution).
@@ -344,7 +862,8 @@ and
 \emph on
 migrate_shot
 \emph default
-, the first one propagates the source forwards, the second one back propagates
+.
+ The first one propagates the source forwards, the second one back propagates
  the source and the receiver and correlates the wavefields, both call 
 \emph on
 do_step_damping 
@@ -386,7 +905,7 @@ do_step_damping
 \end_layout
 
 \begin_layout Standard
-Another function, moreover very similar to the 
+Another function, very similar to the 
 \emph on
 do_step_damping
 \emph default
@@ -529,6 +1048,37 @@ main
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Here is the explanation of graphs:
+\end_layout
+
+\begin_layout Itemize
+Boxes: represent functions.
+ Each one is labeled by the function name and contains a bar representing
+ the time (in percentage wrt the execution time) spent there by the application.
+ Note that the shown cost is only the cost which is spent while the active
+ function was actually running; i.e.
+ the cost shown for 
+\emph on
+main
+\emph default
+ should be the same as the cost of the active function, as that is the part
+ of inclusive cost of 
+\emph on
+main
+\emph default
+ spent while the active function was running.
+ 
+\end_layout
+
+\begin_layout Itemize
+Arrows: represent calls.
+ An arrow starts from the caller and ends into the callee.
+ The bar on its right side indicates the number of times that the child
+ node is invoked by the parent node, and the more is thick the more computationa
+l expensive the calls are.
 \end_layout
 
 \begin_layout Subsection*
