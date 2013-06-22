@@ -1644,7 +1644,7 @@ Manager:
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language=Java,numbers=left,tabsize=3"
+lstparams "basicstyle={\scriptsize},breaklines=true,language=Java,numbers=left,tabsize=3"
 inline false
 status open
 
@@ -1867,7 +1867,7 @@ Kernel:
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language=Java,numbers=left,tabsize=3"
+lstparams "basicstyle={\scriptsize},breaklines=true,language=Java,numbers=left,tabsize=3"
 inline false
 status open
 
@@ -2054,7 +2054,7 @@ do_step:
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language=C,numbers=left,tabsize=3"
+lstparams "basicstyle={\scriptsize},breaklines=true,language=C,numbers=left,tabsize=3"
 inline false
 status open
 
@@ -2334,11 +2334,13 @@ After several tests in simulation, we decided to synthetize the Kernel on
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="3">
 <features tabularvalignment="middle">
@@ -2616,11 +2618,13 @@ After these changes, we were ready to synthetize this new Kernel, here the
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="3">
 <features tabularvalignment="middle">
