@@ -748,9 +748,13 @@ RF
 \emph default
 which are defined into the 
 \emph on
-rtm_parameters_[small|medium|large].txt 
+rtm_parameters_small.txt, rtm_parameters_medium.txt
 \emph default
-file passed as single argument to RTM.
+, 
+\emph on
+rtm_parameters_large.txt
+\emph default
+ files passed as single argument to RTM.
  In the 
 \emph on
 small 
@@ -788,7 +792,8 @@ on (with the
 \emph on
  rtm_parameters_small.txt
 \emph default
- input file) with three well known profiling tools: 
+ input file and no RECEIVER_FILE) with three well known profiling tools:
+ 
 \emph on
 callgrind
 \emph default
@@ -872,7 +877,42 @@ migrate_shot
 do_step_damping 
 \emph default
 1000 times, so it is called 2000 times overall.
- Below is shown the callee graph for this function:
+ 
+\end_layout
+
+\begin_layout Standard
+Here is the explanation of graphs:
+\end_layout
+
+\begin_layout Itemize
+Boxes: represent functions.
+ Each one is labeled by the function name and contains a bar representing
+ the time (in percentage wrt the execution time) spent there by the application.
+ Note that the shown cost is only the cost which is spent while the active
+ function was actually running; i.e.
+ the cost shown for 
+\emph on
+main
+\emph default
+ should be the same as the cost of the active function, as that is the part
+ of inclusive cost of 
+\emph on
+main
+\emph default
+ spent while the active function was running.
+ 
+\end_layout
+
+\begin_layout Itemize
+Arrows: represent calls.
+ An arrow starts from the caller and ends into the callee.
+ The bar on its right side indicates the number of times that the child
+ node is invoked by the parent node, and the more is thick the more computationa
+l expensive the calls are.
+\end_layout
+
+\begin_layout Standard
+Below is shown the callee graph for this function:
 \end_layout
 
 \begin_layout Standard
@@ -886,7 +926,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename dostepdampingmin.png
-	scale 60
+	scale 55
 
 \end_inset
 
@@ -940,7 +980,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename dostepmin.png
-	scale 60
+	scale 55
 
 \end_inset
 
@@ -992,7 +1032,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imageitmin.png
-	scale 60
+	scale 55
 
 \end_inset
 
@@ -1032,7 +1072,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename mainmin.png
-	scale 60
+	scale 55
 
 \end_inset
 
@@ -1051,37 +1091,6 @@ main
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Here is the explanation of graphs:
-\end_layout
-
-\begin_layout Itemize
-Boxes: represent functions.
- Each one is labeled by the function name and contains a bar representing
- the time (in percentage wrt the execution time) spent there by the application.
- Note that the shown cost is only the cost which is spent while the active
- function was actually running; i.e.
- the cost shown for 
-\emph on
-main
-\emph default
- should be the same as the cost of the active function, as that is the part
- of inclusive cost of 
-\emph on
-main
-\emph default
- spent while the active function was running.
- 
-\end_layout
-
-\begin_layout Itemize
-Arrows: represent calls.
- An arrow starts from the caller and ends into the callee.
- The bar on its right side indicates the number of times that the child
- node is invoked by the parent node, and the more is thick the more computationa
-l expensive the calls are.
 \end_layout
 
 \begin_layout Subsection
@@ -2364,7 +2373,7 @@ Logic utilization:
 \begin_inset Text
 
 \begin_layout Plain Layout
- / 297600
+ 30518 / 297600
 \end_layout
 
 \end_inset
@@ -2373,7 +2382,7 @@ Logic utilization:
 \begin_inset Text
 
 \begin_layout Plain Layout
-(%)
+(10,25%)
 \end_layout
 
 \end_inset
@@ -2393,7 +2402,7 @@ LUTs:
 \begin_inset Text
 
 \begin_layout Plain Layout
- / 297600
+22879 / 297600
 \end_layout
 
 \end_inset
@@ -2402,7 +2411,7 @@ LUTs:
 \begin_inset Text
 
 \begin_layout Plain Layout
-(%)
+(8,02%)
 \end_layout
 
 \end_inset
@@ -2422,7 +2431,7 @@ Primary FFs:
 \begin_inset Text
 
 \begin_layout Plain Layout
- / 297600
+26354 / 297600
 \end_layout
 
 \end_inset
@@ -2431,7 +2440,7 @@ Primary FFs:
 \begin_inset Text
 
 \begin_layout Plain Layout
-(%)
+(8,86%)
 \end_layout
 
 \end_inset
@@ -2451,7 +2460,7 @@ Secondary FFs:
 \begin_inset Text
 
 \begin_layout Plain Layout
- / 297600
+4085 / 297600
 \end_layout
 
 \end_inset
@@ -2460,7 +2469,7 @@ Secondary FFs:
 \begin_inset Text
 
 \begin_layout Plain Layout
-(%)
+(1,37%)
 \end_layout
 
 \end_inset
@@ -2480,7 +2489,7 @@ Multipliers (25x18):
 \begin_inset Text
 
 \begin_layout Plain Layout
- / 2016
+34 / 2016
 \end_layout
 
 \end_inset
@@ -2489,7 +2498,7 @@ Multipliers (25x18):
 \begin_inset Text
 
 \begin_layout Plain Layout
-(%)
+(1,69%)
 \end_layout
 
 \end_inset
@@ -2509,7 +2518,7 @@ DSP blocks:
 \begin_inset Text
 
 \begin_layout Plain Layout
- / 2016
+34 / 2016
 \end_layout
 
 \end_inset
@@ -2518,7 +2527,7 @@ DSP blocks:
 \begin_inset Text
 
 \begin_layout Plain Layout
-(%)
+(1,69%)
 \end_layout
 
 \end_inset
@@ -2538,7 +2547,7 @@ Block memory (BRAM18):
 \begin_inset Text
 
 \begin_layout Plain Layout
- / 2128
+59 / 2128
 \end_layout
 
 \end_inset
@@ -2547,7 +2556,7 @@ Block memory (BRAM18):
 \begin_inset Text
 
 \begin_layout Plain Layout
-(%)
+(2,77%)
 \end_layout
 
 \end_inset
@@ -2928,7 +2937,7 @@ tion of the effective streaming data time.
  By comparing these times with the previous ones, it turned out that, as
  we thought, the streaming of data was the real bottleneck.
  A possible solution was to move more arrays in LMEM but was not so easy
- since some of them were edited at each iteration of the cycles in prop_source
+ since some of them were edited at each iteration of the loops in prop_source
  and in migrate_shot, as stated in part 2.
  However, another important fact rose during this analysis: we comparated
  the execution times of the sub-routine do_step in both original RTM application
@@ -2938,10 +2947,13 @@ tion of the effective streaming data time.
 ion to prepare the arrays px/py, so even though we had solved the problem
  of the data streaming, our application would still have been slower that
  the original one.
- Hence, as result, the approach of translating in hardware only few sub-routines
- of RTM application is feasible but unsatisfying; indeed, to improve the
- performance, it would be necessary to change almost all the RTM code to
- make it more suitable for an hardware implementation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2979,16 +2991,14 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align left
+\align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="7">
+<lyxtabular version="3" rows="4" columns="5">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0">
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
@@ -3000,7 +3010,7 @@ status open
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3027,29 +3037,11 @@ RTM on DFE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-#calls do_step
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-#calls do_step_damping
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-#calls
+#calls (do_step/do_step_damping)
 \end_layout
 
 \end_inset
@@ -3065,7 +3057,7 @@ small data
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3088,24 +3080,6 @@ small data
 
 \begin_layout Plain Layout
 620,25s
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2000
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2000
 \end_layout
 
 \end_inset
@@ -3157,24 +3131,6 @@ medium data
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5000
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5000
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -3218,24 +3174,6 @@ large data
 
 \begin_layout Plain Layout
 93102,75s
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-6000
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-6000
 \end_layout
 
 \end_inset
@@ -3296,10 +3234,14 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Caption
 
 \begin_layout Plain Layout
-qqqq
+2D graphic (x: data size, y: time in seconds)
 \end_layout
 
 \end_inset
@@ -3313,8 +3255,63 @@ qqqq
 \end_layout
 
 \begin_layout Standard
-CONFRONTO TEMPI NO-PRAGMA, PRAGMA, DFE CON TUTTI I DATI (SMALL, MEDIUM,
- LARGE)
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 3drtm.tiff
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+3D graphic (x: data size, y: #calls, z: time in seconds)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As we can see, our approach is the slowest of the three variants.
+ Hence, the idea of this project of translating in hardware just few sub-routine
+s of RTM application is feasible but unsatisfying; indeed, to improve the
+ performance, it would be better to change almost all the RTM code to make
+ it more suitable for an hardware implementation.
+ More in details, it would be necessary to move in hardware not only do_step
+ and do_step_damping sub-routines, but also their callers (prop_source and
+ migrate_shot), at least the loop inside them (the heaviest computational
+ part) and, of course their control constructs (if/else, switch, loop conditions
+).
+ In this way, it would be possible to keep the data 
+\begin_inset Quotes eld
+\end_inset
+
+near to
+\begin_inset Quotes erd
+\end_inset
+
+ the FPGA (inside the LMEM) to avoid a continouos streaming a data from
+ CPU to FPGA via PCI Express.
 \end_layout
 
 \end_body
