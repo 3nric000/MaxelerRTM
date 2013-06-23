@@ -2,7 +2,7 @@
 \lyxformat 413
 \begin_document
 \begin_header
-\textclass article
+\textclass beamer
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -43,13 +43,6 @@
 \shortcut idx
 \color #008000
 \end_index
-\leftmargin 2cm
-\topmargin 3cm
-\rightmargin 2cm
-\bottommargin 3cm
-\headheight 2.5cm
-\headsep 2.5cm
-\footskip 2.5cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -67,7 +60,7 @@
 
 \begin_body
 
-\begin_layout Title
+\begin_layout BeginFrame
 HPPS Project: RTM - Maxeler
 \end_layout
 
@@ -76,54 +69,31 @@ Enrico Deiana & Emanuele Del Sozzo
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
+}
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
-
-\end_inset
-
-
+\begin_layout BeginFrame
+Sections
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Abstract
-\end_layout
-
-\begin_layout Standard
-The objective of this project is to accelerate in hardware the RTM application
- using the Maxeler platform.
- First of all, it was necessary to analyze the C code (part 2) to find out
- the critical parts.
- This analysis was done both by looking at the C code and by using profiling
- tools (part 3).
- Meanwhile, we started to study how the Maxeler platform works by reading
- the manuals and looking at the examples inside Maxide.
- Then, we decided which function was the most candidate to be implemented
- in hardware.
- During the implementation, we followed several approaches (part 4), from
- trivial to more complex ones.
- In the end, only with the last approach we were able to synthetize the
- kernel on the FPGA board and examine the result of hardware acceleration.
- In part 5 we explain which are the possible enhancements and the comparison
- between the various implementations of RTM (with pragma omp library, without
- it, and our final approach).
-\end_layout
-
-\begin_layout Section
+\begin_layout Enumerate
 RTM
+\end_layout
+
+\begin_layout Enumerate
+Profiling
+\end_layout
+
+\begin_layout Enumerate
+Approaches
+\end_layout
+
+\begin_layout Enumerate
+Final Notes & Conclusions
+\end_layout
+
+\begin_layout BeginFrame
+RTM - What it is
 \end_layout
 
 \begin_layout Standard
@@ -133,134 +103,12 @@ Reverse Time Migration (RTM) is the current state-of-the-art in seismic
  reflections.
 \end_layout
 
-\begin_layout Standard
-It is mainly made up of two processes: 1) seismic forward modelling of a
- wave field originating from the source position, 2) reverse-time modelling
- of the shot-record, where the time samples are put into the modelling scheme.
+\begin_layout BeginFrame
+RTM - How it works
 \end_layout
 
-\begin_layout Standard
-The idea behind this procedure is that sufficiently strong correlation amplitude
-s can only be expected at subsurface locations where a reflection occurs.
- Occurrence of a reflection at a certain location means that there is a
- down-going wave field from the source side and an up-going wave field towards
- the receivers at the same time.
-\end_layout
-
-\begin_layout Standard
-The implementation of RTM that has been provided to us is composed by three
- C source files 
-\emph on
-cpu_main.c
-\emph default
-, 
-\emph on
-cpu_constructors.c
-\emph default
-, 
-\emph on
-cpu_simulation.c
-\emph default
- and two header files 
-\emph on
-cpu_constructors.h
-\emph default
- and 
-\emph on
-cpu_simulation.h
-\emph default
- which declare the functions present in their respective source file.
-\end_layout
-
-\begin_layout Description
-cpu_main.c contains just the main function which is in charge of calling
- all the subroutines that: initialize the random seed for the random field
- creation and all the needed parameter, construct the model and all the
- necessary structures for the computation, simulate the model and store
- the results.
-\end_layout
-
-\begin_layout Description
-cpu_constructors.c implements all the functions responsible for allocation
- and initialization of all global variables and required data structures.
- Parsing of the parameter file, earth model file when required, and receiver
- input data file when available.
- Construction of structures required during simulation.
-\end_layout
-
-\begin_layout Description
-cpu_simulation.c includes all the functions responsible for wave equation,
- injection of the source signal, saving the acquired receiver signal, propagatin
-g the source/receiver, removing the source signal from the receiver acquisition
- data, correlating the wavefields to create subsurface images, reinjecting
- the receiver data during back propagation, backpropagating both the receiver
- and the source and correlating the wavefields.
-\end_layout
-
-\begin_layout Standard
-Several files containing the parameters needed for the creation of the model
- and for the simulation are provided in the 
-\emph on
-tests
-\emph default
- directory.
- These are: 
-\emph on
-rtm_parameters_small.txt
-\emph default
-, 
-\emph on
-rtm_parameters_medium.txt
-\emph default
-, 
-\emph on
-rtm_parameters_large.txt
-\emph default
-, 
-\emph on
-marmousi_0.txt
-\emph default
-, 
-\emph on
-marmousi_32.txt 
-\emph default
-.
- For our tests we have used the small one.
- More informations on the structure of the program are provided into the
- README.txt file.
- 
-\end_layout
-
-\begin_layout Standard
-As we will see in the profiling section, what we are particulary intrested
- in are two functions in which the program spends most of its time: the
- 
-\emph on
-do_step 
-\emph default
-and 
-\emph on
-do_step_damping 
-\emph default
-which are in the 
-\emph on
-cpu_simulation.c 
-\emph default
-file and are in charge of propagating the wavefield.
-\end_layout
-
-\begin_layout Standard
-For a better comprehension of the program execution flow we state here a
- very simple version of RTM in pseudo C code, containing just the interesting
- functions that we found out looking at the code and during the profiling.
-\end_layout
-
-\begin_layout Standard
-Here is the 
-\emph on
-main
-\emph default
-:
+\begin_layout Title
+Main
 \end_layout
 
 \begin_layout Standard
@@ -353,80 +201,12 @@ main(){
 
 \end_layout
 
-\begin_layout Standard
-It takes as single argument the 
-\emph on
-rtm_parameters_[small|medium|large].txt 
-\emph default
-file containing all the needed parameters and data for the model creation.
- The function 
-\emph on
-create_params_fields_data() 
-\emph default
-creates the needed structures for the following computational steps (in
- the real RTM code there are different functions that do it, but they are
- done sequentially and are computationally meaningless).
- In case there is not the 
-\emph on
-RECEIVER_FILE
-\emph default
- (that is a file created during the very first execution of the application,
- containing some values and parameters) is called 
-\emph on
-prop_source()
-\emph default
- that do some computation and then the 
-\emph on
-RECEIVER_FILE 
-\emph default
-is created.
- The remaining part of the code is executed always in the same way.
- The functions 
-\emph on
-prop_source() 
-\emph default
-and 
-\emph on
-migrate_shot()
-\emph default
- are called and do the most of the computational part of the program, then
- 
-\emph on
-dump_image_to_file() 
-\emph default
-saves the results and 
-\emph on
-clean()
-\emph default
- clears the program state.
+\begin_layout BeginFrame
+RTM - How it works
 \end_layout
 
-\begin_layout Standard
-As you will see in the profiling section (the next one) 
-\emph on
-prop_source() 
-\emph default
-and 
-\emph on
-migrate_shot()
-\emph default
- are in charge of calling 
-\emph on
-do_step_damping() 
-\emph default
-and 
-\emph on
-do_step()
-\emph default
- which do most of the computational effort.
-\end_layout
-
-\begin_layout Standard
-Here is the 
-\emph on
-prop_source()
-\emph default
-:
+\begin_layout Title
+prop_source
 \end_layout
 
 \begin_layout Standard
@@ -529,84 +309,12 @@ prop_source(){
 
 \end_layout
 
-\begin_layout Standard
-The function 
-\emph on
-add_source() 
-\emph default
-is not computational interesting, but it modifies 
-\emph on
-SOURCE_CONTAINER 
-\emph default
-that is passed to 
-\emph on
-do_step() 
-\emph default
-and 
-\emph on
-do_step_damping()
-\emph default
-.
- In case it is the first program execution (!RECEIVER_FILE is true) 
-\emph on
-prop_source() 
-\emph default
-will be executed the first time calling 
-\emph on
-NT
-\emph default
- times 
-\emph on
-do_step_damping() 
-\emph default
-and 
-\emph on
-extract_data() 
-\emph default
-(that is not very interesting from a computational point of view), and the
- second time calling 
-\emph on
-do_step() 
-\emph default
-for 
-\emph on
-NT
-\emph default
- times again.
- At the end 
-\emph on
-P 
-\emph default
-and 
-\emph on
-PP
-\emph default
-,
-\emph on
- 
-\emph default
-that are arguments of 
-\emph on
-do_step() 
-\emph default
-and 
-\emph on
-do_step_damping()
-\emph default
-, are exchanged (
-\emph on
-FLIP_P_PP() 
-\emph default
-is not a function present in the real RTM code which just flips the pointers).
- If it is a subsequent program execution, just the second part is done.
+\begin_layout BeginFrame
+RTM - How it works
 \end_layout
 
-\begin_layout Standard
-Here is the 
-\emph on
-migrate_shot()
-\emph default
-:
+\begin_layout Title
+migrate_shot
 \end_layout
 
 \begin_layout Standard
@@ -686,92 +394,34 @@ migrate_shot(){
 
 \end_layout
 
-\begin_layout Standard
-This function is executed anyway whether 
-\emph on
-RECEIVER_FILE
-\emph default
- is present or not.
- It executes alternatively 
-\emph on
-NT 
-\emph default
-times 
-\emph on
-do_step() 
-\emph default
-and 
-\emph on
-do_step_damping()
-\emph default
-, our most interesting functions since the program spends a lot of time
- into them (especially inside 
-\emph on
-do_step_damping()
-\emph default
-) and into 
-\emph on
-image_it()
-\emph default
- that applies the imaging condition.
-\end_layout
+\begin_layout Itemize
 
-\begin_layout Standard
-The result of 
-\emph on
-do_step() 
-\emph default
-and 
-\emph on
-do_step_damping()
-\emph default
- is stored in their argument PP.
- The behavior of these functions is better explained in part 4.
-\end_layout
-
-\begin_layout Standard
-
-\emph on
-NT 
-\emph default
-is the number of time steps and is defined as 
-\emph on
-JT
-\emph default
-
-\begin_inset Formula $\cdot$
-\end_inset
-
-
-\emph on
-RF 
-\emph default
-which are defined into the 
-\emph on
-rtm_parameters_small.txt, rtm_parameters_medium.txt
-\emph default
-, 
-\emph on
-rtm_parameters_large.txt
-\emph default
- files passed as single argument to RTM.
- In the 
 \emph on
 small 
 \emph default
-case NT=1000, in the 
+case: NT=1000
+\end_layout
+
+\begin_layout Itemize
+
 \emph on
 medium 
 \emph default
-one NT=2500 and in the 
+one NT=2500
+\emph on
+ 
+\end_layout
+
+\begin_layout Itemize
+
 \emph on
 large
 \emph default
- one NT=3000.
+ case NT=3000
 \end_layout
 
-\begin_layout Section
-Profiling
+\begin_layout EndFrame
+
 \end_layout
 
 \begin_layout Standard
@@ -823,10 +473,6 @@ oprofile
 callgrind
 \emph default
  ones (moreover with some lack of informations).
-\end_layout
-
-\begin_layout Subsection
-Callgrind
 \end_layout
 
 \begin_layout Standard
@@ -1093,10 +739,6 @@ main
 
 \end_layout
 
-\begin_layout Subsection
-Gprof
-\end_layout
-
 \begin_layout Standard
 Gprof is the GNU profiling tools.
  It needs to recompile the application for doing the profiling with the
@@ -1164,10 +806,6 @@ analysis.txt
 
  file that reports all the profiling informations (the caller and callee
  graph, the number of calls of each functions, the spent time etc.).
-\end_layout
-
-\begin_layout Section
-Approaches
 \end_layout
 
 \begin_layout Standard
@@ -1430,10 +1068,6 @@ So, these two sub-routine seemed the most suitable to be translated into
  hence they could be easily pipelined by the machine.
 \end_layout
 
-\begin_layout Subsection
-First simple approaches
-\end_layout
-
 \begin_layout Standard
 The first approaches were aimed at getting more confident with the Maxeler
  SLiC interface, Manager and Kernel.
@@ -1475,10 +1109,6 @@ Another possible approach, developed by other group working on Maxeler RTM,
 \begin_layout Standard
 So, we moved to two new different approaches: one with LMEM Blocked 3D,
  the other with Stalling Streams.
-\end_layout
-
-\begin_layout Subsection
-LMEM Blocked 3D
 \end_layout
 
 \begin_layout Standard
@@ -1582,10 +1212,6 @@ This function was neither completely explained in the manual nor used in
  multiple of 96.
 \end_layout
 
-\begin_layout Subsection
-Stalling Streams
-\end_layout
-
 \begin_layout Standard
 Our last approach was about stalling streams.
  The general idea behind this approach is: we have an array (p) and we access
@@ -1624,12 +1250,11 @@ We designed an algorithm based on three streams: the first one was an array
  elements required to compute each output value was limited.
  Indeed, only when we have 1 on the controller we write the value on the
  output by using the 10 elements of px and py, the 11 elements of p and
- elements from the other streams.
- Hence, not so much space was required in BRAM.
+ elements from the other streams, not so much space was required in BRAM.
  Of course, one of the drawbacks was the fact that both px and py contained
  duplicated data but it was the simpliest way to create the two streams.
  Another problem came from Maxeler because it didn't accept that a stream
- (pp) was both an input and output stream, thus we created a new output
+ (pp) was both an input and output stream, hence we created a new output
  stream, ppresult, and then, at the end of the do_step/do_step_damping,
  we shifted the pointers of ppresult and pp.
  Moreover, we had to deal with the time of creation of px and py: both were
@@ -1637,8 +1262,8 @@ We designed an algorithm based on three streams: the first one was an array
  (the same number of iterations of the original C code).
  Our first implementation of this algorithm was quite trivial, since we
  used the DFE only in the do_step sub-routine.
- At each call of the do_step we loaded the DFE (100msec to 1sec) and passed
- the 7 input streams (p, pp, dvv, source_container, px, py, controller),
+ At each call of the do_step we allocated the DFE (100msec to 1sec) and
+ passed the 7 input streams (p, pp, dvv, source_container, px, py, controller),
  one output stream (ppresult) and several scalar values (c_0, c_1[], c_2[],
  c_3[], c_4[]).
  The Kernel received these streams and, when controller was 1, it computed
@@ -2588,23 +2213,23 @@ resource usage not-optimized Kernel
 \end_layout
 
 \begin_layout Standard
-Then, we ran it to see its performance.
+Then, we run it to see its performance.
  It turned out that, using the file 
 \emph on
 rtm_parameters_small.txt
 \emph default
 , the original RTM application run on Intel i7 processor of Maxeler, without
- pragma, took nearly 3 minutes, while the RTM application accelerated in
- hardware took 27 minutes.
+ pragma, took nearly 2 minutes, while the RTM application accelerated in
+ hardware took 26 minutes.
  We expected this result since our implementation was not optimized, this
  run was only useful as proof of the termination of our application.
- So, we began to optimized the code by adding/editing several parts of it.
+ So, we begun to optimized the code by adding/editing several parts of it.
  Here the list of optimizations we implemented:
 \end_layout
 
 \begin_layout Itemize
-the DFE is loaded only one time, then it's unloaded before the end of the
- main;
+the DFE is allocated only one time, then it's deallocated before the end
+ of the main;
 \end_layout
 
 \begin_layout Itemize
@@ -2912,23 +2537,23 @@ Optimized Kernel original structure
 \end_layout
 
 \begin_layout Standard
-The performance of our application was improved but it was still slower
- than the original RTM application.
+The performance of our application improved but it was still slower than
+ the original RTM application.
  Indeed, now it took nearly 10 minutes to complete.
  So, for sure, there were some bottlenecks inside our code.
- The most probable bottlenecks were two: the preparation of arrays px and
+ The most probable bottlenecks where two: the preparation of arrays px and
  py and the stream of data from the RAM of i7 to the FPGA via PCI Express.
- To discover the problem, we made several tests to analyze the time of preparati
-on the array px/py and the time of streaming data/computing the output on
+ To find out the problem, we made several tests to analyze the time of preparati
+on the array px/py and the time of streaming data/computing the data on
  DFE.
  It turned out that the creation of the arrays took, on average, nearly
  0.014s, while the streaming/computation nearly 0.20s.
  So, the bottleneck came from either the data streaming or the data computation.
- We were pretty sure the problem was in data streaming, thus we made some
- other tests creating a very simple Kernel, in another project, that received
- the same number of input streams of our RTM Kernel, same size and we put
- in the output stream the values of one of the input streams, in order to
- minimize the computational time.
+ We very pretty sure the problem was in data streaming, thus we made some
+ tests by creating a very simple Kernel, in another project, that received
+ the same number of input streams, as our RTM Kernel, same size and we put
+ in the output stream the values of one of the input streams, to minimize
+ the computation time.
  Of course, also these streams were controlled by a controller loaded in
  LMEM, just like in our application.
  After synthetizing it, we measured the times of streaming data/computing
@@ -2939,13 +2564,13 @@ tion of the effective streaming data time.
  we thought, the streaming of data was the real bottleneck.
  A possible solution was to move more arrays in LMEM but was not so easy
  since some of them were edited at each iteration of the loops in prop_source
- and in migrate_shot, as stated in section 2.
+ and in migrate_shot, as stated in part 2.
  However, another important fact rose during this analysis: we comparated
- the execution times of the do_step sub-routine in both original RTM application
+ the execution times of the sub-routine do_step in both original RTM application
  (without pragma) and in our implementation.
  The result was that the time required by the original RTM application for
- each do_step execution was almost equals to the time required by our implementa
-tion to prepare the arrays px/py, so even though we had solved the problem
+ each do_step execution is almost equals to the time required by our implementat
+ion to prepare the arrays px/py, so even though we had solved the problem
  of the data streaming, our application would still have been slower that
  the original one.
 \end_layout
@@ -2957,12 +2582,9 @@ tion to prepare the arrays px/py, so even though we had solved the problem
 
 \end_layout
 
-\begin_layout Section
-Final Notes & Conclusions
-\end_layout
-
 \begin_layout Standard
-In all the approaches and tests we have done, we always used the 
+In all the the approaches and tests we have done, we have always used the
+ 
 \emph on
 rtm_parameters_small.txt 
 \emph default
@@ -2976,9 +2598,9 @@ clean
 
  situation (no RECEIVER_FILE).
  Once the last approach was completed, we made several tests on the original
- RTM application without pragma, with pragma and our implementation in order
- to see how the execution times scaled according to the data dimensions.
- Hence, we ran all these three different versions of the RTM application
+ RTM application without pragma, with pragma and our implementation to see
+ how the execution times scaled according to the data dimensions.
+ Hence, we run all these three different versions of the RTM application
  with the three provided datasets.
  Here the results:
 \end_layout
@@ -3204,10 +2826,6 @@ Times table (no RECEIVER_FILE)
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -3262,10 +2880,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename 3drtm.tiff
@@ -3292,16 +2906,16 @@ status open
 \end_layout
 
 \begin_layout Standard
-As we can see, our approach is the slowest one of the three variants.
+As we can see, our approach is the slowest of the three variants.
  Hence, the idea of this project of translating in hardware just few sub-routine
 s of RTM application is feasible but unsatisfying; indeed, to improve the
  performance, it would be better to change almost all the RTM code to make
  it more suitable for an hardware implementation.
  More in details, it would be necessary to move in hardware not only do_step
  and do_step_damping sub-routines, but also their callers (prop_source and
- migrate_shot), at least the loops inside them (the heaviest computational
- part) and, of course, their contents (if/else, switch, loop conditions,
- other called sub-routines).
+ migrate_shot), at least the loop inside them (the heaviest computational
+ part) and, of course their control constructs (if/else, switch, loop conditions
+).
  In this way, it would be possible to keep the data 
 \begin_inset Quotes eld
 \end_inset
@@ -3310,8 +2924,8 @@ near to
 \begin_inset Quotes erd
 \end_inset
 
- the FPGA (inside the LMEM) to avoid a frequent streaming of data from CPU
- to FPGA via PCI Express.
+ the FPGA (inside the LMEM) to avoid a continouos streaming a data from
+ CPU to FPGA via PCI Express.
 \end_layout
 
 \end_body
