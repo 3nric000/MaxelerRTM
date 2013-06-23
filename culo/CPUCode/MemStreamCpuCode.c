@@ -14,6 +14,7 @@ int main(void)
 	uint32_t *s = malloc(sizeBytes);
 	int scalar = 3;
 
+    
 	// TODO Generate input data
 	for(int i=0; i<size; ++i) {
 		x[i] = random() % 100;
